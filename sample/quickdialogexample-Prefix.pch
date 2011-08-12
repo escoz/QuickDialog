@@ -1,0 +1,28 @@
+//
+// Prefix header for all source files of the 'sample' target in the 'sample' project
+//
+
+#ifdef __OBJC__
+
+#import "Element.h"
+#import "RootElement.h"
+#import "RadioElement.h"
+#import "DummyDataBuilder.h"
+#import "Section.h"
+#import "LabelElement.h"
+#import "EntryElement.h"
+#import "BooleanElement.h"
+#import "ButtonElement.h"
+#import "FloatElement.h"
+#import "RadioItemElement.h"
+#import "RadioSection.h"
+#import "WebElement.h"
+#import "MapElement.h"
+#import "TextElement.h"
+#import "BadgeElement.h"
+#import "SortingSection.h"
+#import "DateTimeElement.h"
+#import "DateTimeInlineElement.h"
+#import "../quickdialog/QuickDialogController.h"
+
+#endif

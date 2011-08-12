@@ -1,0 +1,10 @@
+QuickDialog
+============
+
+Quick and simple dialog creation for iOS users.
+
+ATTENTION: this is definitely not ready to be used yet. Several bugs and interface changes will be done over the next days/weeks. 
+
+If you're interested in helping with development, please contact me! I would appreciate any help!
+
+You'll need to use the XCode 4.2 beta to run this code. It depends on ARC for memory management.
