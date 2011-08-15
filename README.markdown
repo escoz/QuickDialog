@@ -30,12 +30,13 @@ There's three different class types you need to know in order to use QuickDialog
 - **RootElement** - think of a root element as a dialog: a collection of sections and cells that can be used to display some useful data to the user. Every QuickDialogController can only display one RootElement at a time, although that RootElement can contain other root elements inside, which causes a new controller to automatically be displayed. Elements are always grouped in sections in the root element, as you can see below.
 - **Element** - an element object maps one-to-one map to a UITableViewCell, although it includes more functionality, like being able to read values from the cells and having multiple types. QuickDialog provides many different built-in element types, like the ButtonElement and the EntryElement, but you can also create your custom one.  
 
-####Simple example:
+####Hello World:
 
 Here's how you can create and display your first dialog from inside another UIViewController:
 	
     RootElement *root = [[RootElement alloc] init];
     root.title = @"Hello World";
+	root.grouped = YES;
     Section *section = [[Section alloc] init];
     LabelElement *label = [[LabelElement alloc] initWithTitle:@"Hello" Value:@"world!"];
     
@@ -45,7 +46,11 @@ Here's how you can create and display your first dialog from inside another UIVi
     UINavigationController *navigation = [QuickDialogController controllerWithNavigationForRoot:root];
     [self presentModalViewController:navigation animated:YES];
 
-The code above will create the form you can see on the right. Pretty simple, right?!
+The code above will create the form below:
+
+![Hello World](other/quickdialog1.png "Hello World by QuickForm")
+
+Pretty simple, right?!
 
 ## Elements
 
