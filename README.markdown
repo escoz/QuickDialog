@@ -2,11 +2,13 @@
 
 **Quick and simple dialogs for iOS developers.**
 
+
+<img src="https://github.com/escoz/QuickDialog/raw/master/other/quickdialog2.png" style="float: right;">
+
 QuickDialog allows you to create HIG-compliant iOS forms for your apps  without having to directly deal with UITableViews, delegates and data sources. Fast and efficient, you can create forms with multiple text fields, or with thousands of items with no sweat!
 
 ![Sample](https://github.com/escoz/QuickDialog/raw/master/other/quickdialog2.png "Sample")
 
-<div style="float: right"><img src="https://github.com/escoz/QuickDialog/raw/master/other/quickdialog2.png"></div>
 
 Download the project and run the demo app, I'm sure you'll like how simple it is to create powerful dialogs!
 
