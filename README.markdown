@@ -1,5 +1,5 @@
-# QuickDialog
-
+QuickDialog
+#############
 
 **Quick and simple dialogs for iOS developers.**
 
@@ -20,4 +20,5 @@ Download the project and run the demo app, I'm sure you'll like how simple it is
 
 
 OBS: You'll need to use the XCode 4.2 beta to run this code, as the library depends on ARC for memory management. If you're interested in helping with development, please contact me! I would appreciate any help!
-*-
+
+
