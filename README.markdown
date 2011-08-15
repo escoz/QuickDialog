@@ -48,7 +48,7 @@ Here's how you can create and display your first dialog from inside another UIVi
 
 The code above will create the form below:
 
-![Hello World](other/quickdialog1.png "Hello World by QuickForm")
+![Hello World](blob/master/other/quickdialog1small.png "Hello World by QuickForm")
 
 Pretty simple, right?!
 
