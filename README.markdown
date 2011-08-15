@@ -4,6 +4,10 @@
 
 QuickDialog allows you to create HIG-compliant iOS forms for your apps  without having to directly deal with UITableViews, delegates and data sources. Fast and efficient, you can create forms with multiple text fields, or with thousands of items with no sweat!
 
+![Sample](https://github.com/escoz/QuickDialog/raw/master/other/quickdialog2.png "Sample")
+
+<div style="float: right"><img src="https://github.com/escoz/QuickDialog/raw/master/other/quickdialog2.png"></div>
+
 Download the project and run the demo app, I'm sure you'll like how simple it is to create powerful dialogs!
 
 ----------
@@ -92,6 +96,8 @@ Besides those properties, a few custom section types can be used:
 Styling the cells in your dialogs is easy with QuickDialog. To be able to change the background, fonts and colors of your cells, simply implement the QuickDialogStyleProvider protocol, and set the proper delegate class you your table view. You can see an example of that on the LoginController of the demo app: https://github.com/escoz/QuickDialog/blob/master/sample/LoginController.m.
 
 There's only one method you need to implement for that protocol: ```-cell:willAppearForElement:element atIndexPath:```, which will be called for every cell displayed, and allows you to change the cells as much as you would like.
+
+![Styling QuickDialog](https://github.com/escoz/QuickDialog/raw/master/other/quickdialog3.png "Styling cells with QuickDialog")
 
 ## Custom Dialog Controllers
 
