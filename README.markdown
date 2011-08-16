@@ -59,36 +59,36 @@ Pretty simple, right?!
 
 Out of the box, QuickDialog provides you many different elements you can use on your app:
 
-* LabelElement: simple inline label + value cell
-* BadgeElement: like the label cell, but the value is displayed with a badge, like the Mail app.
-* BooleanElement: shows a on/off switch
-* ButtonElement: centered title that looks like a button. 
-* DateTimeElement: allows you to edit dates, time, or date+time values. Editing occurs in a new controller that is pushed automatically.
-* EntryElement: input field to allow you to collect values from the user. Automatically resizes so that all entries in the same sections look alike.
-* DecimalElement: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.
-* FloatElement: shows an slider control.
-* MapElement: when selected, shows a fullscreen map with the location selected. Requires a lat/long value.
-* RadioElement: allows user to select one of multiple options available. Automatically pushes a new table with the item to be selected.
-* TextElement: freeform text, which is rendered with the font provided.
-* WebElement: pushes a simple browser that opens the URL defined in the element.
+* **LabelElement**: simple inline label + value cell
+* **BadgeElement**: like the label cell, but the value is displayed with a badge, like the Mail app.
+* **BooleanElement**: shows a on/off switch
+* **ButtonElement**: centered title that looks like a button. 
+* **DateTimeElement**: allows you to edit dates, time, or date+time values. Editing occurs in a new controller that is pushed automatically.
+* **EntryElement**: input field to allow you to collect values from the user. Automatically resizes so that all entries in the same sections look alike.
+* **DecimalElement**: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.
+* **FloatElement**: shows an slider control.
+* **MapElement**: when selected, shows a fullscreen map with the location selected. Requires a lat/long value.
+* **RadioElement**: allows user to select one of multiple options available. Automatically pushes a new table with the item to be selected.
+* **TextElement**: freeform text, which is rendered with the font provided.
+* **WebElement**: pushes a simple browser that opens the URL defined in the element.
 
 All those elements contain a few parameters that can be used:
 
-* key: used to set the name of every cell, so that you can find them automatically. This field is also used to read values back from each cell.
-* controllerAction: string that represents the controller method that will be called when the cell is selected. Many elements automatically display a disclosure indicator if this property is set.
-* onSelected: block that is executed the moment the cell is selected. Many elements automatically display a disclosure indicator if this property is set.
+* **key**: used to set the name of every cell, so that you can find them automatically. This field is also used to read values back from each cell.
+* **controllerAction**: string that represents the controller method that will be called when the cell is selected. Many elements automatically display a disclosure indicator if this property is set.
+* **onSelected**: block that is executed the moment the cell is selected. Many elements automatically display a disclosure indicator if this property is set.
 
 ## Sections
 
 Sections are simple groupings of elements. Sections by default have a few properties:
 
-* title/footer: simple strings displayed as header and footer of the section
-* headerView/footerView: in case these are set, the views passed are displayed instead of the titles. Very useful to display images or custom views in tables.
+* **title/footer**: simple strings displayed as header and footer of the section
+* **headerView/footerView**: in case these are set, the views passed are displayed instead of the titles. Very useful to display images or custom views in tables.
 
 Besides those properties, a few custom section types can be used:
 
-* RadioSection: display multiple choice elements inline, instead of pushing another view controller with the options.
-* SortingSection: automatically enables sorting of the cells inside the section. 
+* **RadioSection**: display multiple choice elements inline, instead of pushing another view controller with the options.
+* **SortingSection**: automatically enables sorting of the cells inside the section. 
 
 ## Styling
 
