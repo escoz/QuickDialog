@@ -4,25 +4,34 @@
 
 #ifdef __OBJC__
 
-#import "../quickdialog/QElement.h"
-#import "../quickdialog/QRootElement.h"
-#import "../quickdialog/QRadioElement.h"
-#import "DummyDataBuilder.h"
-#import "../quickdialog/QSection.h"
-#import "../quickdialog/QLabelElement.h"
-#import "../quickdialog/QEntryElement.h"
-#import "../quickdialog/QBooleanElement.h"
-#import "../quickdialog/QButtonElement.h"
-#import "../quickdialog/QFloatElement.h"
-#import "../quickdialog/QRadioItemElement.h"
-#import "../quickdialog/QRadioSection.h"
-#import "../quickdialog/QWebElement.h"
-#import "../quickdialog/QMapElement.h"
-#import "../quickdialog/QTextElement.h"
-#import "../quickdialog/QBadgeElement.h"
-#import "../quickdialog/QSortingSection.h"
-#import "../quickdialog/QDateTimeElement.h"
-#import "../quickdialog/QDateTimeInlineElement.h"
-#import "../quickdialog/QuickDialogController.h"
+
+#import "QElement.h"
+#import "QRootElement.h"
+#import "QLabelElement.h"
+#import "QButtonElement.h"  
+#import "QBooleanElement.h"
+#import "QMapElement.h"
+#import "QButtonElement.h"
+#import "QFloatElement.h"
+#import "QRadioElement.h"
+#import "QLabelElement.h"  
+#import "QRadioItemElement.h" 
+#import "QEntryElement.h"
+#import "QDateTimeElement.h"
+#import "QDateTimeInlineElement.h"
+#import "QTextElement.h"
+#import "QWebElement.h"
+#import "QBadgeElement.h"
+#import "QDecimalElement.h"
+
+#import "QSection.h"
+#import "QRadioSection.h"
+#import "QSortingSection.h"
+
+#import "QuickDialogController.h"
+
+#import "QuickDialogController+Loading.h"
+#import "QuickDialogExampleAppDelegate.h"
+
 
 #endif
