@@ -30,7 +30,7 @@
 }
 
 @property(nonatomic, retain) QRootElement * root;
-@property(nonatomic, retain) void (^willDisappearCallback)();
+@property(nonatomic, copy) void (^willDisappearCallback)();
 
 - (void)loadView;
 

@@ -31,6 +31,16 @@
 @synthesize centerLabel = _centerLabel;
 
 
+- (QDateTimeInlineElement *)init {
+    self = [super init];
+    return self;
+}
+
+- (QDateTimeInlineElement *)initWithKey:(NSString *)key {
+    self = [super initWithKey:key];
+    return self;
+}
+
 - (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date {
     self = [super initWithTitle:string Value:[date description]];
     if (self!=nil){
