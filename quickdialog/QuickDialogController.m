@@ -3,7 +3,7 @@
 //
 
 #import "QuickDialogController.h"
-#import "RootElement.h"
+#import "QRootElement.h"
 #import "QuickDialogTableView.h"
 
 @implementation QuickDialogController
@@ -17,7 +17,7 @@
     self.tableView = quickformTableView;
 }
 
-- (QuickDialogController *)initWithRoot:(RootElement *)rootElement {
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement {
     self = [super init];
     if (self) {
          _root = rootElement;
@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void)setRoot:(RootElement *)root {
+- (void)setRoot:(QRootElement *)root {
     _root = root;
     ((QuickDialogTableView *)self.tableView).root = root;   
     self.title = _root.title;
@@ -61,13 +61,13 @@
     }
 }
 
-- (void)displayViewControllerForRoot:(RootElement *)root {
+- (void)displayViewControllerForRoot:(QRootElement *)root {
 
     QuickDialogController * newController = [QuickDialogController controllerForRoot:root];
     [self displayViewController:newController];
 }
 
-+ (QuickDialogController *)controllerForRoot:(RootElement *)root {
++ (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = nil;
     if (root.controllerName!=NULL){
         controllerClass = NSClassFromString(root.controllerName);
@@ -77,7 +77,7 @@
     return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
 }
 
-+ (UINavigationController*)controllerWithNavigationForRoot:(RootElement *)root {
++ (UINavigationController*)controllerWithNavigationForRoot:(QRootElement *)root {
     return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController controllerForRoot:root]];
 }
 

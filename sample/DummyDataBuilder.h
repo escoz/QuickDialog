@@ -4,12 +4,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class RootElement;
+@class QRootElement;
 
 
 @interface DummyDataBuilder : NSObject {
 
 }
 
-+ (RootElement *)create;
++ (QRootElement *)create;
 @end

@@ -5,13 +5,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class RootElement;
+@class QRootElement;
 
 
 @interface QuickDialogController : UITableViewController {
 
 @private
-    RootElement *_root;
+    QRootElement *_root;
     id <UITableViewDataSource> _dataSource;
     id <UITableViewDelegate> _delegate;
 
@@ -19,19 +19,19 @@
 
 }
 
-@property(nonatomic, retain) RootElement * root;
+@property(nonatomic, retain) QRootElement * root;
 @property(nonatomic, retain) void (^willDisappearCallback)();
 
 - (void)loadView;
 
-- (QuickDialogController *)initWithRoot:(RootElement *)rootElement;
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
 
 - (void)displayViewController:(UIViewController *)newController;
 
-- (void)displayViewControllerForRoot:(RootElement *)element;
+- (void)displayViewControllerForRoot:(QRootElement *)element;
 
-+ (QuickDialogController *)controllerForRoot:(RootElement *)element;
++ (QuickDialogController *)controllerForRoot:(QRootElement *)element;
 
-+ (UINavigationController *)controllerWithNavigationForRoot:(RootElement *)root;
++ (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
 
 @end

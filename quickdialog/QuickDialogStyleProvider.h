@@ -6,6 +6,6 @@
 
 @optional
 
--(void) cell:(UITableViewCell *)cell willAppearForElement:(Element *)element atIndexPath:(NSIndexPath *)indexPath; 
+-(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath; 
 
 @end

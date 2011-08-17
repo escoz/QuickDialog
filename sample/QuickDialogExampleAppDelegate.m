@@ -14,7 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    RootElement *root = [DummyDataBuilder create];
+    QRootElement *root = [DummyDataBuilder create];
     QuickDialogController *quickformController = [[QuickDialogController alloc] initWithRoot:root];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
     self.window.rootViewController = nav;

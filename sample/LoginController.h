@@ -16,6 +16,6 @@
 
 }
 
-+ (RootElement *)createDetailsForm;
-+ (RootElement *)createLoginForm;
++ (QRootElement *)createDetailsForm;
++ (QRootElement *)createLoginForm;
 @end

@@ -37,9 +37,9 @@
     return self;
 }
 
--(void)setRoot:(RootElement *)root{
+-(void)setRoot:(QRootElement *)root{
     _root = root;
-    for (Section *section in _root.sections) {
+    for (QSection *section in _root.sections) {
         if (section.needsEditing == YES){
             [self setEditing:YES animated:YES];
             self.allowsSelectionDuringEditing = YES;
@@ -49,12 +49,12 @@
 }
 
 
-- (UITableViewCell *)cellForElement:(Element *)element {
+- (UITableViewCell *)cellForElement:(QElement *)element {
     for (int i=0; i< [_root.sections count]; i++){
-        Section * currSection = [_root.sections objectAtIndex:(NSUInteger) i];
+        QSection * currSection = [_root.sections objectAtIndex:(NSUInteger) i];
 
         for (int j=0; j< [currSection.elements count]; j++){
-            Element *currElement = [currSection.elements objectAtIndex:(NSUInteger) j];
+            QElement *currElement = [currSection.elements objectAtIndex:(NSUInteger) j];
             if (currElement == element){
                 NSIndexPath *path = [NSIndexPath indexPathForRow:j inSection:i];
                 return [self cellForRowAtIndexPath:path];

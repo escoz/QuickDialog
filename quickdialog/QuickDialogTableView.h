@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class QuickDialogController;
-@class RootElement;
-@class Element;
+@class QRootElement;
+@class QElement;
 @protocol QuickDialogStyleProvider;
 
 
@@ -19,14 +19,14 @@
 
 @private
     QuickDialogController *_controller;
-    RootElement *_root;
+    QRootElement *_root;
     id <UITableViewDataSource> quickformDataSource;
     id <UITableViewDelegate> quickformDelegate;
-    Element *_selectedElement;
+    QElement *_selectedElement;
     UITableViewCell *_selectedCell;
 }
 
-@property(nonatomic, retain) RootElement *root;
+@property(nonatomic, retain) QRootElement *root;
 
 @property(nonatomic, readonly) QuickDialogController *controller;
 
@@ -36,7 +36,7 @@
 
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
 
-- (UITableViewCell *)cellForElement:(Element *)element;
+- (UITableViewCell *)cellForElement:(QElement *)element;
 
 - (void)viewWillAppear;
 @end

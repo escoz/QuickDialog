@@ -3,10 +3,10 @@
 //
 #import "QuickDialogTableDelegate.h"
 #import "QuickDialogController.h"
-#import "Element.h"
-#import "Section.h"
-#import "SortingSection.h"
-#import "RootElement.h"
+#import "QElement.h"
+#import "QSection.h"
+#import "QSortingSection.h"
+#import "QRootElement.h"
 #import "QuickDialogTableView.h"
 
 
@@ -18,8 +18,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Section *section = [_tableView.root getSectionForIndex:indexPath.section];
-    Element * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
 
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     if (_tableView.selectedCell != selectedCell) {
@@ -47,19 +47,19 @@
 }
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    BOOL isDestinationOK = [[_tableView.root getSectionForIndex:proposedDestinationIndexPath.section] isKindOfClass:[SortingSection class]];
+    BOOL isDestinationOK = [[_tableView.root getSectionForIndex:proposedDestinationIndexPath.section] isKindOfClass:[QSortingSection class]];
     return isDestinationOK ? proposedDestinationIndexPath : sourceIndexPath;
 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Section *section = [_tableView.root getSectionForIndex:indexPath.section];
-Element * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
     return [element getRowHeightForTableView:(QuickDialogTableView *) tableView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)index {
-    Section *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getSectionForIndex:index];
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
 
@@ -67,7 +67,7 @@ Element * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)index {
-    Section *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getSectionForIndex:index];
     if (section.footerView!=nil)
             return section.footerView.frame.size.height;
 
@@ -75,12 +75,12 @@ Element * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
-    Section *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getSectionForIndex:index];
     return section.headerView;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
-    Section *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getSectionForIndex:index];
     return section.footerView;
 }
 

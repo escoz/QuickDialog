@@ -7,11 +7,11 @@
 
 #import "QuickDialogDataSource.h"
 #import "QuickDialogController.h"
-#import "Section.h"
-#import "Element.h"
-#import "RootElement.h"
+#import "QSection.h"
+#import "QElement.h"
+#import "QRootElement.h"
 #import "QuickDialogTableView.h"
-#import "SortingSection.h"
+#import "QSortingSection.h"
 #import "QuickDialogStyleProvider.h"
 
 
@@ -31,8 +31,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Section *section = [_tableView.root getSectionForIndex:indexPath.section];
-    Element * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
     UITableViewCell *cell = [element getCellForTableView:(QuickDialogTableView *) tableView controller:_tableView.controller];
     if (_tableView.styleProvider!=nil){
         [_tableView.styleProvider cell:cell willAppearForElement:element atIndexPath:indexPath];
@@ -53,16 +53,16 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[_tableView.root getSectionForIndex:indexPath.section] isKindOfClass:[SortingSection class]];
+    return [[_tableView.root getSectionForIndex:indexPath.section] isKindOfClass:[QSortingSection class]];
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    SortingSection *section = ((SortingSection *) [_tableView.root.sections objectAtIndex:(NSUInteger) sourceIndexPath.section]);
+    QSortingSection *section = ((QSortingSection *) [_tableView.root.sections objectAtIndex:(NSUInteger) sourceIndexPath.section]);
     [section moveElementFromRow:(NSUInteger) sourceIndexPath.row toRow:(NSUInteger) destinationIndexPath.row];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[_tableView.root getSectionForIndex:indexPath.section] isKindOfClass:[SortingSection class]];
+    return [[_tableView.root getSectionForIndex:indexPath.section] isKindOfClass:[QSortingSection class]];
 }
 
 @end
