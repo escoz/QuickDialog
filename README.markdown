@@ -30,18 +30,18 @@ In order to use the QuickDialog library on your project, you'll have to first im
 There's three different class types you need to know in order to use QuickDialog:
 
 - **QuickDialogController** - subclass of a UITableViewController that is responsible for actually displaying the dialog. For your application, you'll very likely be creating subclasses of this class, one for each dialog you own. You'll never really have to create objects of this type directly with alloc/init. The framework takes care of this for you.
-- **RootElement** - think of a root element as a dialog: a collection of sections and cells that can be used to display some useful data to the user. Every QuickDialogController can only display one RootElement at a time, although that RootElement can contain other root elements inside, which causes a new controller to automatically be displayed. Elements are always grouped in sections in the root element, as you can see below.
-- **Element** - an element object maps one-to-one map to a UITableViewCell, although it includes more functionality, like being able to read values from the cells and having multiple types. QuickDialog provides many different built-in element types, like the ButtonElement and the EntryElement, but you can also create your custom one.  
+- **QRootElement** - think of a root element as a dialog: a collection of sections and cells that can be used to display some useful data to the user. Every QuickDialogController can only display one RootElement at a time, although that RootElement can contain other root elements inside, which causes a new controller to automatically be displayed. Elements are always grouped in sections in the root element, as you can see below.
+- **QElement** - an element object maps one-to-one map to a UITableViewCell, although it includes more functionality, like being able to read values from the cells and having multiple types. QuickDialog provides many different built-in element types, like the ButtonElement and the EntryElement, but you can also create your custom one.  
 
 ####Hello World:
 
 Here's how you can create and display your first dialog from inside another UIViewController:
 	
-    RootElement *root = [[RootElement alloc] init];
+    QRootElement *root = [[QRootElement alloc] init];
     root.title = @"Hello World";
 	root.grouped = YES;
-    Section *section = [[Section alloc] init];
-    LabelElement *label = [[LabelElement alloc] initWithTitle:@"Hello" Value:@"world!"];
+    QSection *section = [[QSection alloc] init];
+    QLabelElement *label = [[QLabelElement alloc] initWithTitle:@"Hello" Value:@"world!"];
     
     [root addSection:section];
     [section addElement:label];
@@ -59,18 +59,18 @@ Pretty simple, right?!
 
 Out of the box, QuickDialog provides you many different elements you can use on your app:
 
-* **LabelElement**: simple inline label + value cell
-* **BadgeElement**: like the label cell, but the value is displayed with a badge, like the Mail app.
-* **BooleanElement**: shows a on/off switch
-* **ButtonElement**: centered title that looks like a button. 
-* **DateTimeElement**: allows you to edit dates, time, or date+time values. Editing occurs in a new controller that is pushed automatically.
-* **EntryElement**: input field to allow you to collect values from the user. Automatically resizes so that all entries in the same sections look alike.
-* **DecimalElement**: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.
-* **FloatElement**: shows an slider control.
-* **MapElement**: when selected, shows a fullscreen map with the location selected. Requires a lat/long value.
-* **RadioElement**: allows user to select one of multiple options available. Automatically pushes a new table with the item to be selected.
-* **TextElement**: freeform text, which is rendered with the font provided.
-* **WebElement**: pushes a simple browser that opens the URL defined in the element.
+* **QLabelElement**: simple inline label + value cell
+* **QBadgeElement**: like the label cell, but the value is displayed with a badge, like the Mail app.
+* **QBooleanElement**: shows a on/off switch
+* **QButtonElement**: centered title that looks like a button. 
+* **QDateTimeElement**: allows you to edit dates, time, or date+time values. Editing occurs in a new controller that is pushed automatically.
+* **QEntryElement**: input field to allow you to collect values from the user. Automatically resizes so that all entries in the same sections look alike.
+* **QDecimalElement**: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.
+* **QFloatElement**: shows an slider control.
+* **QMapElement**: when selected, shows a fullscreen map with the location selected. Requires a lat/long value.
+* **QRadioElement**: allows user to select one of multiple options available. Automatically pushes a new table with the item to be selected.
+* **QTextElement**: freeform text, which is rendered with the font provided.
+* **QWebElement**: pushes a simple browser that opens the URL defined in the element.
 
 All those elements contain a few parameters that can be used:
 
@@ -87,8 +87,8 @@ Sections are simple groupings of elements. Sections by default have a few proper
 
 Besides those properties, a few custom section types can be used:
 
-* **RadioSection**: display multiple choice elements inline, instead of pushing another view controller with the options.
-* **SortingSection**: automatically enables sorting of the cells inside the section. 
+* **QRadioSection**: display multiple choice elements inline, instead of pushing another view controller with the options.
+* **QSortingSection**: automatically enables sorting of the cells inside the section. 
 
 ## Styling
 
@@ -104,7 +104,7 @@ Using custom dialog controllers are a very simple and effective way of having fu
 
 Instead of directly creating your custom controller objects, though, RootElement objects can be told which controller they use, and they'll automatically create controllers of that type as needed. So, for example, if you have a new class of type ```MyDialogController``` that is a subclass of the ```QuickDialogController```, you can define the root as follow:
 
-	RootElement *root = [[RootElement alloc] init];
+	QRootElement *root = [[QRootElement alloc] init];
     root.title = @"Hello World";
 	root.controllerName = @"MyDialogController";
 	
