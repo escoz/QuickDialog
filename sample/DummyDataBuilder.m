@@ -65,7 +65,7 @@
 }
 
 
-+ (QRootElement *)createSubForm1Root {
++ (QRootElement *)createSampleFormRoot {
     QRootElement *subForm = [[QRootElement alloc] init];
     QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     subForm.grouped = YES;
@@ -105,8 +105,8 @@
 + (QRootElement *)createSlidersRoot {
     QRootElement *sliders = [[QRootElement alloc] init];
     sliders.grouped = YES;
-    sliders.title = @"sliders";
-    QSection *detailsSection = [[QSection alloc] initWithTitle:@"Change some things"];
+    sliders.title = @"Sliders";
+    QSection *detailsSection = [[QSection alloc] initWithTitle:@"Slide left and right"];
 
     [sliders addSection:detailsSection];
 
@@ -117,7 +117,7 @@
     return sliders;
 }
 
-+ (QElement *)createGeneralControlsRoot {
++ (QElement *)createSampleControls {
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"Sample Controls";
@@ -197,9 +197,9 @@
     return root;
 }
 
-+ (QElement *)createRadioSectionsRoot {
++ (QElement *)createRadioRoot {
     QRootElement *root = [[QRootElement alloc] init];
-    root.title = @"Radio elements";
+    root.title = @"Radio";
     root.grouped = YES;
 
     QSection *section1 = [[QSection alloc] initWithTitle:@"Radio element with push"];
@@ -215,9 +215,9 @@
     return root;
 }
 
-+ (QRootElement *)createHtmlRoot {
++ (QRootElement *)createWebAndMapRoot {
     QRootElement *root = [[QRootElement alloc] init];
-    root.title = @"Web and map elements";
+    root.title = @"Web and map";
 
     QWebElement *element1 = [[QWebElement alloc] initWithTitle:@"ESCOZ Inc" url:@"http://escoz.com"];
     QWebElement *element2 = [[QWebElement alloc] initWithTitle:@"Quicklytics" url:@"http://escoz.com/quicklytics"];
@@ -232,9 +232,9 @@
     return root;
 }
 
-+ (QRootElement *)createTextElementsRoot {
++ (QRootElement *)createTextRoot {
     QRootElement *root = [[QRootElement alloc] init];
-    root.title = @"Text elements";
+    root.title = @"Text";
 
     QTextElement *element1 = [[QTextElement alloc] initWithText:
             @"Preparing for her flight\n"
@@ -354,6 +354,7 @@
     root.grouped = YES;
 
     QSection *section = [[QSection alloc] init];
+    section.title = @"Inline editing";
 
     QDateTimeInlineElement *el2 = [[QDateTimeInlineElement alloc] initWithTitle:@"Today" date:[NSDate date]];
     [section addElement:el2];
@@ -367,7 +368,7 @@
     [section addElement:el4];
 
     QSection *section2 = [[QSection alloc] init];
-
+    section2.title = @"Push editing";
 
     QDateTimeElement *el5 = [[QDateTimeElement alloc] initWithTitle:@"Time only" date:[NSDate date]];
     el5.mode = UIDatePickerModeTime;
@@ -390,28 +391,27 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"QuickForms!";
-	QSection *section0 = [[QSection alloc] init];
-    section0.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
-    [section0 addElement:[LoginController createLoginForm]];
-    [section0 addElement:[self createGeneralControlsRoot]];
+	QSection *sectionSamples = [[QSection alloc] init];
+    sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
+    [sectionSamples addElement:[LoginController createLoginForm]];
+    [sectionSamples addElement:[self createSampleControls]];
+    [sectionSamples addElement:[self createSampleFormRoot]];
 
-    QSection *section1 = [[QSection alloc] initWithTitle:@"Usage examples"];
+    QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
 
-    [section1 addElement:[self createLabelsRoot]];
-    [section1 addElement:[self createSlidersRoot]];
-    [section1 addElement:[self createRadioSectionsRoot]];
-    [section1 addElement:[self createHtmlRoot]];
-    [section1 addElement:[self createTextElementsRoot]];
-    [section1 addElement:[self createDateTimeRoot]];
-    [section1 addElement:[self createSortingRoot]];
-
-    [section1 addElement:[self createSubForm1Root]];
+    [sectionElements addElement:[self createLabelsRoot]];
+    [sectionElements addElement:[self createSlidersRoot]];
+    [sectionElements addElement:[self createRadioRoot]];
+    [sectionElements addElement:[self createWebAndMapRoot]];
+    [sectionElements addElement:[self createTextRoot]];
+    [sectionElements addElement:[self createDateTimeRoot]];
+    [sectionElements addElement:[self createSortingRoot]];
 	
-	[section1 addElement:[self createWithInitDefault]];
-	[section1 addElement:[self createWithInitAndKey]];
+	[sectionElements addElement:[self createWithInitDefault]];
+	[sectionElements addElement:[self createWithInitAndKey]];
 
-	[root addSection:section0];
-    [root addSection:section1];
+	[root addSection:sectionSamples];
+    [root addSection:sectionElements];
 
 
     return root;
