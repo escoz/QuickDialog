@@ -37,6 +37,7 @@
 - (void)addSection:(QSection *)section;
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
-
-
+- (QElement*)initWithContentsOfFile:(NSString*)inFile;
+- (QElement*)initWithPlist:(NSString*)inPlist;
+- (void)parseData:(id)inData forElement:(id)inElement;
 @end

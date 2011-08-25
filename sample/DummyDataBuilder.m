@@ -117,6 +117,13 @@
     return sliders;
 }
 
++ (QElement *)createPlistTest {
+    QRootElement *root = [[QRootElement alloc] initWithPlist:@"plistTest.plist"];
+    
+    return root;
+}
+
+
 + (QElement *)createSampleControls {
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
@@ -394,6 +401,7 @@
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
     [sectionSamples addElement:[LoginController createLoginForm]];
+    [sectionSamples addElement:[self createPlistTest]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
 

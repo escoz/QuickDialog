@@ -25,6 +25,40 @@
 @synthesize controllerName = _controllerName;
 
 
+- (void)parseData:(id)inData forElement:(id)inElement {
+    if ([inData isKindOfClass:[NSDictionary class]]) {
+        [inData enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+            if ([obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSNumber class]]) {
+                [inElement setValue:obj forKey:key];
+            }
+            else if ([obj isKindOfClass:[NSArray class]]) {
+                QSection* newSection = [[QSection alloc] initWithTitle:key];
+                
+                [self parseData:obj forElement:newSection];
+                
+                [inElement addSection:newSection];
+            }
+        }];
+    }
+}
+
+- (QElement*)initWithContentsOfFile:(NSString*)inFile {
+    NSDictionary* initData = [NSDictionary dictionaryWithContentsOfFile:inFile];
+    QRootElement* retElement = [[QRootElement alloc] init];
+    
+    [self parseData:initData forElement:retElement];
+    
+    return retElement;
+}
+- (QElement*)initWithPlist:(NSString*)inPlist {
+    NSArray* fileComponents = [inPlist componentsSeparatedByString:@"."];
+    
+    if ([fileComponents count] == 2) {
+        return [self initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:[fileComponents objectAtIndex:0] ofType:[fileComponents objectAtIndex:1]]];
+    }
+    
+    return nil;
+}
 - (void)addSection:(QSection *)section {
     if (_sections==nil)
         _sections = [[NSMutableArray alloc] init];
