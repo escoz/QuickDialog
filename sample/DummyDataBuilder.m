@@ -120,6 +120,25 @@
 + (QElement *)createPlistTest {
     QRootElement *root = [[QRootElement alloc] initWithPlist:@"plistTest.plist"];
     
+    QSection *btnSection2 = [[QSection alloc] init];
+	QButtonElement *button2 = [[QButtonElement alloc] initWithTitle:@"Fetch into dictionary"];
+	button2.onSelected = ^{
+		
+		NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [root fetchValueIntoObject:dict];
+		
+        NSString *msg = @"Values:";
+		for (NSString *aKey in dict){
+            msg = [msg stringByAppendingFormat:@"\n- %@: %@", aKey, [dict valueForKey:aKey]];
+        }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
+                                                        message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alert show];
+        
+	};
+    [btnSection2 addElement:button2];
+    [root addSection:btnSection2];
+    
     return root;
 }
 
