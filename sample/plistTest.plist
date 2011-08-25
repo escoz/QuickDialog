@@ -8,8 +8,36 @@
 	<string>QRootElement</string>
 	<key>grouped</key>
 	<true/>
-	<key>Change Something</key>
+	<key>Items</key>
 	<array>
+		<dict>
+			<key>key</key>
+			<string>date1</string>
+			<key>dateValue</key>
+			<date>2011-08-25T18:58:11Z</date>
+			<key>title</key>
+			<string>DateTime</string>
+			<key>qType</key>
+			<string>QDateTimeInlineElement</string>
+		</dict>
+		<dict>
+			<key>header</key>
+			<string>Here be some controls</string>
+			<key>footer</key>
+			<string>More controls will be added.</string>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>entry1</string>
+			<key>placeholder</key>
+			<string>type here</string>
+			<key>value</key>
+			<string></string>
+			<key>title</key>
+			<string>Entry Element</string>
+			<key>qType</key>
+			<string>QEntryElement</string>
+		</dict>
 		<dict>
 			<key>key</key>
 			<string>bool1</string>

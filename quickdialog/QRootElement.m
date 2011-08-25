@@ -29,15 +29,12 @@
 - (void)parseData:(id)inData forElement:(id)inElement {
     if ([inData isKindOfClass:[NSDictionary class]]) {
         [inData enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            if (([obj isKindOfClass:[NSString class]] && ![key isEqualToString:@"qType"]) || [obj isKindOfClass:[NSNumber class]]) {
-                [inElement setValue:obj forKey:key];
-            }
-            else if ([obj isKindOfClass:[NSArray class]]) {
+            if ([obj isKindOfClass:[NSArray class]]) {
                 if ([inData objectForKey:@"qType"]) {
                     NSString* type = [inData objectForKey:@"qType"];
                     
                     if ([type isEqualToString:@"QRootElement"]) {
-                        QSection* newSection = [[QSection alloc] initWithTitle:key];
+                        QSection* newSection = [[QSection alloc] init];
                         
                         [self parseData:obj forElement:newSection];
                         
@@ -54,16 +51,30 @@
                     }
                 }
             }
+            else if (!([obj isKindOfClass:[NSString class]] && [key isEqualToString:@"qType"])) {
+                [inElement setValue:obj forKey:key];
+            }
         }];
     }
     else if ([inData isKindOfClass:[NSArray class]]) {
         [inData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            if ([obj isKindOfClass:[NSDictionary class]] && [obj objectForKey:@"qType"]) {
-                id newElement = [[NSClassFromString([obj objectForKey:@"qType"]) alloc] init];
-                
-                [self parseData:obj forElement:newElement];
-                
-                [inElement addElement:newElement];
+            if ([obj isKindOfClass:[NSDictionary class]]) {
+                if ([obj objectForKey:@"qType"]) {
+                    id newElement = [[NSClassFromString([obj objectForKey:@"qType"]) alloc] init];
+                    [self parseData:obj forElement:newElement];
+                    
+                    if ([[obj objectForKey:@"qType"] isEqualToString:@"QDateTimeInlineElement"]) {
+                        [newElement setMode:UIDatePickerModeDateAndTime];
+                    }
+                    
+                    [inElement addElement:newElement];
+                }
+                if ([obj objectForKey:@"header"]) {
+                    [inElement setTitle:[obj objectForKey:@"header"]];
+                }
+                if ([obj objectForKey:@"footer"]) {
+                    [inElement setFooter:[obj objectForKey:@"footer"]];
+                }
             }
         }];
     }
