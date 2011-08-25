@@ -4,11 +4,36 @@
 <dict>
 	<key>title</key>
 	<string>Sample Controls</string>
+	<key>qType</key>
+	<string>QRootElement</string>
 	<key>grouped</key>
 	<true/>
 	<key>Change Something</key>
 	<array>
-		<dict/>
+		<dict>
+			<key>title</key>
+			<string>Hello</string>
+			<key>value</key>
+			<string>World</string>
+			<key>qType</key>
+			<string>QLabelElement</string>
+		</dict>
+		<dict>
+			<key>selected</key>
+			<integer>1</integer>
+			<key>key</key>
+			<string>radio1</string>
+			<key>title</key>
+			<string>Radio</string>
+			<key>qType</key>
+			<string>QRadioElement</string>
+			<key>Items</key>
+			<array>
+				<string>item1</string>
+				<string>item2</string>
+				<string>item3</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

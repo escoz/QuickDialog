@@ -16,6 +16,7 @@
 #import "QRootElement.h"
 #import "QSection.h"
 #import "QuickDialogController.h"
+#import "QRadioElement.h"
 
 @implementation QRootElement
 
@@ -28,17 +29,46 @@
 - (void)parseData:(id)inData forElement:(id)inElement {
     if ([inData isKindOfClass:[NSDictionary class]]) {
         [inData enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            if ([obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSNumber class]]) {
+            if (([obj isKindOfClass:[NSString class]] && ![key isEqualToString:@"qType"]) || [obj isKindOfClass:[NSNumber class]]) {
                 [inElement setValue:obj forKey:key];
             }
             else if ([obj isKindOfClass:[NSArray class]]) {
-                QSection* newSection = [[QSection alloc] initWithTitle:key];
-                
-                [self parseData:obj forElement:newSection];
-                
-                [inElement addSection:newSection];
+                if ([inData objectForKey:@"qType"]) {
+                    NSString* type = [inData objectForKey:@"qType"];
+                    
+                    if ([type isEqualToString:@"QRootElement"]) {
+                        QSection* newSection = [[QSection alloc] initWithTitle:key];
+                        
+                        [self parseData:obj forElement:newSection];
+                        
+                        [inElement addSection:newSection];
+                    }
+                    else if ([type isEqualToString:@"QRadioElement"]) {
+                        NSMutableArray* newArray = [NSMutableArray new];
+                        
+                        [obj enumerateObjectsUsingBlock:^(id obj2, NSUInteger idx, BOOL *stop) {
+                            [self parseData:obj2 forElement:newArray];
+                        }];
+                        
+                        [inElement setItems:newArray];
+                    }
+                }
             }
         }];
+    }
+    else if ([inData isKindOfClass:[NSArray class]]) {
+        [inData enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            if ([obj isKindOfClass:[NSDictionary class]] && [obj objectForKey:@"qType"]) {
+                id newElement = [[NSClassFromString([obj objectForKey:@"qType"]) alloc] init];
+                
+                [self parseData:obj forElement:newElement];
+                
+                [inElement addElement:newElement];
+            }
+        }];
+    }
+    else if ([inData isKindOfClass:[NSString class]]) {
+        [inElement addObject:inData];
     }
 }
 

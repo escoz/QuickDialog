@@ -38,6 +38,10 @@
     }
 }
 
+- (void)setItems:(NSArray *)items {
+    _items = items;
+    [self createElements];
+}
 - (NSArray *)items {
     return _items;
 }
