@@ -3,13 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>title</key>
-	<string>Sample Controls</string>
+	<string>pList Test</string>
 	<key>qType</key>
 	<string>QRootElement</string>
 	<key>grouped</key>
 	<true/>
 	<key>Change Something</key>
 	<array>
+		<dict>
+			<key>key</key>
+			<string>bool1</string>
+			<key>boolValue</key>
+			<false/>
+			<key>title</key>
+			<string>YesNo</string>
+			<key>qType</key>
+			<string>QBooleanElement</string>
+		</dict>
 		<dict>
 			<key>title</key>
 			<string>Hello</string>
