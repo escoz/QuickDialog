@@ -12,6 +12,28 @@
 	<array>
 		<dict>
 			<key>key</key>
+			<string>decimal1</string>
+			<key>fractionDigits</key>
+			<integer>3</integer>
+			<key>floatValue</key>
+			<real>0.5</real>
+			<key>title</key>
+			<string>Decimal Element</string>
+			<key>qType</key>
+			<string>QDecimalElement</string>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>slider1</string>
+			<key>floatValue</key>
+			<real>0.5</real>
+			<key>title</key>
+			<string>Float Element</string>
+			<key>qType</key>
+			<string>QFloatElement</string>
+		</dict>
+		<dict>
+			<key>key</key>
 			<string>date1</string>
 			<key>dateValue</key>
 			<date>2011-08-25T18:58:11Z</date>
