@@ -64,6 +64,19 @@
 	return subForm;
 }
 
++ (QElement *)reallyLongList {
+    QRootElement *subForm = [[QRootElement alloc] init];
+    subForm.title = @"Really long list";
+    QSection *subsection = [[QSection alloc] initWithTitle:@"Long List"];
+    for (int i = 0; i<1000; i++){
+        QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
+        bool1.onImage = [UIImage imageNamed:@"imgOn"];
+        bool1.offImage = [UIImage imageNamed:@"imgOff"];
+        [subsection addElement:bool1];
+    }
+    [subForm addSection:subsection];
+    return subForm;
+}
 
 + (QRootElement *)createSampleFormRoot {
     QRootElement *subForm = [[QRootElement alloc] init];
@@ -396,6 +409,7 @@
     [sectionSamples addElement:[LoginController createLoginForm]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
+    [sectionSamples addElement:[self reallyLongList]];
 
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
 
