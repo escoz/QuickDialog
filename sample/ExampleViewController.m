@@ -12,15 +12,24 @@
 // permissions and limitations under the License.
 //
 
+#import "ExampleViewController.h"
 
-#import <UIKit/UIKit.h>
+@implementation ExampleViewController
 
-@class QuickDialogExampleViewController;
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
+}
 
-@interface QuickDialogExampleAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
-@property (strong, nonatomic) QuickDialogExampleViewController *viewController;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+	    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+	} else {
+	    return YES;
+	}
+}
 
 @end

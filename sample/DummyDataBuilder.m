@@ -14,20 +14,6 @@
 
 #import "LoginController.h"
 #import "DummyDataBuilder.h"
-#import "QLabelElement.h"
-#import "QBadgeElement.h"
-#import "QBooleanElement.h"
-#import "QButtonElement.h"
-#import "QDateTimeInlineElement.h"
-#import "QFloatElement.h"
-#import "QMapElement.h"
-#import "QRadioElement.h"
-#import "QRadioItemElement.h"
-#import "QTextElement.h"
-#import "QWebElement.h"
-#import "QDecimalElement.h"
-#import "QSortingSection.h"
-#import "QDateTimeElement.h"
 
 @implementation DummyDataBuilder
 

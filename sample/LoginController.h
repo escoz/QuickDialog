@@ -12,14 +12,6 @@
 // permissions and limitations under the License.
 //
 
-
-#import <UIKit/UIKit.h>
-#import "../quickdialog/QuickDialogController+Loading.h"
-#import "../quickdialog/QuickDialogStyleProvider.h"
-
-@class QuickDialogController;
-@protocol QuickDialogStyleProvider;
-
 @interface LoginController : QuickDialogController <QuickDialogStyleProvider> {
 
 }

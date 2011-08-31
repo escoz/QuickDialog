@@ -12,16 +12,10 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-
-@class LoginController;
-
+#import "LoginController.h"
 
 @interface AboutController : LoginController {
-
   
-
-    
 }
 
 @end

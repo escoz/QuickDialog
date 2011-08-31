@@ -44,8 +44,8 @@
 		D811F8FE13EC907200E3922B /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E513EC907200E3922B /* LoginController.m */; };
 		D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E713EC907200E3922B /* LoginInfo.m */; };
 		D811F90013EC907200E3922B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E813EC907200E3922B /* main.m */; };
-		D811F90213EC907200E3922B /* QuickDialogExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8EC13EC907200E3922B /* QuickDialogExampleAppDelegate.m */; };
-		D811F90313EC907200E3922B /* quickdialogexampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8EE13EC907200E3922B /* quickdialogexampleViewController.m */; };
+		D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8EC13EC907200E3922B /* ExampleAppDelegate.m */; };
+		D811F90313EC907200E3922B /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8EE13EC907200E3922B /* ExampleViewController.m */; };
 		D811F90413EC907200E3922B /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F013EC907200E3922B /* footer.png */; };
 		D811F90513EC907200E3922B /* footer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F113EC907200E3922B /* footer@2x.png */; };
 		D811F90613EC907200E3922B /* imgOff.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F213EC907200E3922B /* imgOff.png */; };
@@ -140,10 +140,10 @@
 		D811F8E813EC907200E3922B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sample/main.m; sourceTree = SOURCE_ROOT; };
 		D811F8E913EC907200E3922B /* quickdialogexample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "quickdialogexample-Info.plist"; path = "sample/quickdialogexample-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D811F8EA13EC907200E3922B /* quickdialogexample-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "quickdialogexample-Prefix.pch"; path = "sample/quickdialogexample-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		D811F8EB13EC907200E3922B /* QuickDialogExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogExampleAppDelegate.h; path = sample/QuickDialogExampleAppDelegate.h; sourceTree = SOURCE_ROOT; };
-		D811F8EC13EC907200E3922B /* QuickDialogExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuickDialogExampleAppDelegate.m; path = sample/QuickDialogExampleAppDelegate.m; sourceTree = SOURCE_ROOT; };
-		D811F8ED13EC907200E3922B /* QuickDialogExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogExampleViewController.h; path = sample/QuickDialogExampleViewController.h; sourceTree = SOURCE_ROOT; };
-		D811F8EE13EC907200E3922B /* quickdialogexampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = quickdialogexampleViewController.m; path = sample/quickdialogexampleViewController.m; sourceTree = SOURCE_ROOT; };
+		D811F8EB13EC907200E3922B /* ExampleAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleAppDelegate.h; path = sample/ExampleAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		D811F8EC13EC907200E3922B /* ExampleAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleAppDelegate.m; path = sample/ExampleAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		D811F8ED13EC907200E3922B /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleViewController.h; path = sample/ExampleViewController.h; sourceTree = SOURCE_ROOT; };
+		D811F8EE13EC907200E3922B /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleViewController.m; path = sample/ExampleViewController.m; sourceTree = SOURCE_ROOT; };
 		D811F8F013EC907200E3922B /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer.png; sourceTree = "<group>"; };
 		D811F8F113EC907200E3922B /* footer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "footer@2x.png"; sourceTree = "<group>"; };
 		D811F8F213EC907200E3922B /* imgOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgOff.png; sourceTree = "<group>"; };
@@ -221,10 +221,10 @@
 				D811F8E513EC907200E3922B /* LoginController.m */,
 				D811F8E613EC907200E3922B /* LoginInfo.h */,
 				D811F8E713EC907200E3922B /* LoginInfo.m */,
-				D811F8EB13EC907200E3922B /* QuickDialogExampleAppDelegate.h */,
-				D811F8EC13EC907200E3922B /* QuickDialogExampleAppDelegate.m */,
-				D811F8ED13EC907200E3922B /* QuickDialogExampleViewController.h */,
-				D811F8EE13EC907200E3922B /* quickdialogexampleViewController.m */,
+				D811F8EB13EC907200E3922B /* ExampleAppDelegate.h */,
+				D811F8EC13EC907200E3922B /* ExampleAppDelegate.m */,
+				D811F8ED13EC907200E3922B /* ExampleViewController.h */,
+				D811F8EE13EC907200E3922B /* ExampleViewController.m */,
 				D811F8EF13EC907200E3922B /* Resources */,
 				D80B0E3E13E052DF00FA85CA /* Supporting Files */,
 				D8F180E813F0599A009B0C9D /* sample */,
@@ -456,8 +456,8 @@
 				D811F8FE13EC907200E3922B /* LoginController.m in Sources */,
 				D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */,
 				D811F90013EC907200E3922B /* main.m in Sources */,
-				D811F90213EC907200E3922B /* QuickDialogExampleAppDelegate.m in Sources */,
-				D811F90313EC907200E3922B /* quickdialogexampleViewController.m in Sources */,
+				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
+				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
 				D8F180E813F0599A009B0C98 /* QDecimalElement.m in Sources */,
 				D8F180E813F0599A009B0C9B /* QDecimalTableViewCell.m in Sources */,
 			);

@@ -12,9 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
 #import <Foundation/Foundation.h>
-
 
 @interface LoginInfo : NSObject {
 

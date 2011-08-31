@@ -12,21 +12,14 @@
 // permissions and limitations under the License.
 //
 
+#import <UIKit/UIKit.h>
 
-#import "LoginController.h"
-#import "AboutController.h"
+@class ExampleViewController;
 
+@interface ExampleAppDelegate : UIResponder <UIApplicationDelegate>
 
-@implementation AboutController
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated]; 
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
-}
+@property (strong, nonatomic) UIWindow *window;
 
-- (void)close {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
+@property (strong, nonatomic) ExampleViewController *viewController;
 
 @end
