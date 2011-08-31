@@ -12,11 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-
-@class QElement;
-@class QLabelElement;
-
+#import "QLabelElement.h"
 
 @interface QButtonElement : QLabelElement {
 

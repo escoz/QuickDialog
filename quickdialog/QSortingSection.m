@@ -14,7 +14,7 @@
 
 #import "QSection.h"
 #import "QSortingSection.h"
-
+#import "QElement.h"
 
 @implementation QSortingSection
 
@@ -40,12 +40,12 @@
     for (QElement *el in self.elements){
         [result addObject:el.key];
     }
-
     [obj setValue:result forKey:_key];
-
 }
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to {
     [self.elements exchangeObjectAtIndex:from withObjectAtIndex:to];
 }
+
+
 @end

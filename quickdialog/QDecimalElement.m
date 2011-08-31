@@ -12,17 +12,16 @@
 // permissions and limitations under the License.
 //
 
-#import "QDecimalElement.h"
 #import "QEntryTableViewCell.h"
 #import "QDecimalTableViewCell.h"
-#import "QuickDialogTableView.h"
-
+#import "QDecimalElement.h"
 
 @implementation QDecimalElement {
     
 @protected
     NSUInteger _fractionDigits;
 }
+
 @synthesize floatValue = _floatValue;
 @synthesize fractionDigits = _fractionDigits;
 

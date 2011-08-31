@@ -12,11 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-
-@class QElement;
-@class QLabelElement;
-
+#import "QuickDialogTableView.h"
+#import "QLabelElement.h"
 
 @interface QFloatElement : QLabelElement {
 

@@ -12,24 +12,16 @@
 // permissions and limitations under the License.
 //
 
-
-#import "QElement.h"
-#import "QLabelElement.h"
 #import "QButtonElement.h"
-#import "QuickDialogTableView.h"
-#import "QuickDialogController.h"
-
 
 @implementation QButtonElement
-
-
 
 - (QButtonElement *)initWithTitle:(NSString *)title {
     self = [super initWithTitle:title Value:nil];
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(UITableView *)tableView controller:(QuickDialogController *)controller {
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformButtonElement"];
     if (cell == nil){
         cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TODO"];

@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-
-@class QRootElement;
-@class QSection;
+#import "QuickDialogTableView.h"
 
 @interface QRadioElement : QRootElement {
 

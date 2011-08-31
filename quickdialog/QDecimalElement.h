@@ -13,12 +13,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "QEntryElement.h"
 
 @interface QDecimalElement : QEntryElement {
 
 }
-
 
 @property(nonatomic, assign) float floatValue;
 @property(nonatomic, assign) NSUInteger fractionDigits;

@@ -14,9 +14,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@class QEntryTableViewCell;
-
+#import "QEntryTableViewCell.h"
 
 @interface QDateEntryTableViewCell : QEntryTableViewCell {
 

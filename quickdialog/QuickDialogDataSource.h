@@ -12,13 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-@class QuickDialogController;
-@class QuickDialogTableView;
-
+#import "QuickDialogTableView.h"
 
 @interface QuickDialogDataSource : NSObject<UITableViewDataSource> {
 

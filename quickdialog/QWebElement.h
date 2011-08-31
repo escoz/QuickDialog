@@ -13,9 +13,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class QRootElement;
-@class QuickDialogTableView;
+#import "QRootElement.h"
 
 @interface QWebElement : QRootElement {
 

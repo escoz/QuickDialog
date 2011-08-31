@@ -13,17 +13,11 @@
 //
 
 #import "QEntryTableViewCell.h"
-#import "QElement.h"
-#import "QLabelElement.h"
 #import "QEntryElement.h"
-#import "QSection.h"
-#import "QuickDialogTableView.h"
-
 
 @interface QEntryTableViewCell ()
 - (void)previousNextDelegate:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;
-
 @end
 
 @implementation QEntryTableViewCell

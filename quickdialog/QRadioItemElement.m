@@ -12,16 +12,10 @@
 // permissions and limitations under the License.
 //
 
-#import "QElement.h"
-#import "QLabelElement.h"
-#import "QRadioItemElement.h"
-#import "QRootElement.h"
-#import "QRadioElement.h"
-#import "QuickDialogController.h"
 #import "QuickDialogTableView.h"
 #import "QSection.h"
-#import "QRadioSection.h"
-
+#import "QRootElement.h"
+#import "QRadioItemElement.h"
 
 @implementation QRadioItemElement
 
@@ -51,7 +45,7 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     [super selected:tableView controller:controller indexPath:indexPath];
 
-    NSUInteger selectedIndex = _radioElement==nil? _radioSection.selected : _radioElement.selected;
+    NSInteger selectedIndex = _radioElement==nil? _radioSection.selected : _radioElement.selected;
 
     if (_index != selectedIndex) {
         UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:indexPath.section]];

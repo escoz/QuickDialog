@@ -12,19 +12,10 @@
 // permissions and limitations under the License.
 //
 
-
 #import "QuickDialogDataSource.h"
-#import "QuickDialogController.h"
-#import "QSection.h"
-#import "QElement.h"
-#import "QRootElement.h"
-#import "QuickDialogTableView.h"
 #import "QSortingSection.h"
-#import "QuickDialogStyleProvider.h"
-
 
 @implementation QuickDialogDataSource
-
 
 - (id <UITableViewDataSource>)initForTableView:(QuickDialogTableView *)tableView {
     self = [super init];

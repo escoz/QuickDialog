@@ -12,11 +12,8 @@
 // permissions and limitations under the License.
 //
 
-
-#import <Foundation/Foundation.h>
-
 #import "QElement.h"
-@class QSection;
+#import "QSection.h"
 
 @interface QRootElement : QElement {
 

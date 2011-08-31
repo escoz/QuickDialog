@@ -13,6 +13,8 @@
 //
 
 
+#import "QLabelElement.h"
+
 @implementation QLabelElement
 
 @synthesize image = _image;

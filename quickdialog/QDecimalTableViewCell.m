@@ -12,8 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import "QEntryTableViewCell.h"
 #import "QDecimalTableViewCell.h"
+#import "QEntryElement.h"
 #import "QDecimalElement.h"
 
 @implementation QDecimalTableViewCell {
@@ -30,7 +30,6 @@
     };
     return self;
 }
-
 
 - (void)createSubviews {
     _textField = [[UITextField alloc] init];

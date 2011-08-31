@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-
-@class QEntryTableViewCell;
-
+#import "QEntryTableViewCell.h"
 
 @interface QDecimalTableViewCell : QEntryTableViewCell <UITextFieldDelegate>  {
 

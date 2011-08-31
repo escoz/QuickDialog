@@ -12,12 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-@class QLabelElement;
-@class QRootElement;
-
+#import "QuickDialogTableView.h"
+#import "QLabelElement.h"
 
 @interface QBadgeElement : QLabelElement {
 

@@ -12,16 +12,11 @@
 // permissions and limitations under the License.
 //
 
-
-#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MKAnnotation.h>
 #import "QMapViewController.h"
 #import "QMapAnnotation.h"
 
-
 @implementation QMapViewController
-
-
 
 - (QMapViewController *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [self initWithCoordinate:coordinate];

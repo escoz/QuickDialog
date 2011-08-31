@@ -12,12 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import <CoreLocation/CoreLocation.h>
-#import "QRootElement.h"
-#import "QMapElement.h"
 #import "QMapViewController.h"
-#import "QuickDialogController.h"
-
+#import "QMapElement.h"
 
 @implementation QMapElement
 

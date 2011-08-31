@@ -12,14 +12,10 @@
 // permissions and limitations under the License.
 //
 
-#import "QElement.h"
-#import "QLabelElement.h"
 #import "QBooleanElement.h"
 #import "QuickDialogTableView.h"
 
-
 @implementation QBooleanElement
-
 
 @synthesize onImage = _onImage;
 @synthesize offImage = _offImage;

@@ -12,14 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
 #import "QEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
-#import "QElement.h"
-#import "QLabelElement.h"
-#import "QEntryElement.h"
 #import "QDateTimeInlineElement.h"
-
 
 @implementation QDateEntryTableViewCell
 

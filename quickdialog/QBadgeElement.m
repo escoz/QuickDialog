@@ -14,6 +14,7 @@
 
 #import "QBadgeTableCell.h"
 #import "QuickDialogTableView.h"
+#import "QBadgeElement.h"
 
 @implementation QBadgeElement
 @synthesize badgeColor = _badgeColor;

@@ -12,16 +12,12 @@
 // permissions and limitations under the License.
 //
 
-
-#import <Foundation/Foundation.h>
-
-@class QLabelElement;
-@class QRadioElement;
-@class QRadioSection;
-
+#import "QuickDialogTableView.h"
+#import "QLabelElement.h"
+#import "QRadioElement.h"
+#import "QRadioSection.h"
 
 @interface QRadioItemElement : QLabelElement {
-
     NSUInteger _index;
     QRadioElement *_radioElement;
     QRadioSection *_radioSection;

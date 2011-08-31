@@ -13,11 +13,7 @@
 //
 
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-@class QElement;
-
+#import "QElement.h"
 
 @interface QTextElement : QElement {
 

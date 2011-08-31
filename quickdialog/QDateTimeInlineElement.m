@@ -12,24 +12,14 @@
 // permissions and limitations under the License.
 //
 
-
-#import "QRootElement.h"
-#import "QElement.h"
-#import "QLabelElement.h"
-#import "QEntryElement.h"
 #import "QDateTimeInlineElement.h"
-#import "QEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
-#import "QuickDialogTableView.h"
-
 
 @implementation QDateTimeInlineElement
-
 
 @synthesize dateValue = _dateValue;
 @synthesize mode = _mode;
 @synthesize centerLabel = _centerLabel;
-
 
 - (QDateTimeInlineElement *)init {
     self = [super init];

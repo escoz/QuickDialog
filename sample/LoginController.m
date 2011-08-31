@@ -14,7 +14,9 @@
 
 #import "LoginController.h"
 #import "LoginInfo.h"
-#import "../quickdialog/QuickDialogTableView.h"
+#import "QButtonElement.h"
+#import "QEntryElement.h"
+#import "QTextElement.h"
 
 
 @interface LoginController ()
@@ -48,7 +50,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Hi %@, you're loving QuickForms!", info.login] delegate:self cancelButtonTitle:@"YES!" otherButtonTitles:nil];
     [alert show];
 }
-
 
 - (void)onLogin:(QButtonElement *)buttonElement {
     [self loading:YES];

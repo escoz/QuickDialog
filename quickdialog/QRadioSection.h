@@ -12,11 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
-#import <Foundation/Foundation.h>
-
-@class QSection;
-
+#import "QSection.h"
 
 @interface QRadioSection : QSection {
 

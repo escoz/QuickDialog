@@ -13,7 +13,6 @@
 //
 
 #import "QBadgeTableCell.h"
-#import <QuartzCore/QuartzCore.h>
 
 @interface QBadgeTableCell ()
 @end
@@ -37,7 +36,6 @@
         _badgeLabel.backgroundColor = [UIColor clearColor];
         _badgeLabel.textAlignment = UITextAlignmentCenter;
         _badgeLabel.font = [UIFont boldSystemFontOfSize:14];
-    
     }
     return self;
 }
@@ -59,7 +57,5 @@
 	CGContextFillPath(context);
 	CGContextRestoreGState(context);
 }
-
-
 
 @end

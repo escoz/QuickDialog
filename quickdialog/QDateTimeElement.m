@@ -16,9 +16,8 @@
 // the animation is not smooth when using the dateselector as a keyboard
 
 
-
+#import "QDateTimeElement.h"
 #import "QDateTimeInlineElement.h"
-#import "QSection.h"
 
 @interface QDateTimeElement ()
 - (void)initializeRoot;
@@ -130,7 +129,6 @@
 	__block QuickDialogController *controllerForBlock = newController;
 	
     newController.willDisappearCallback = ^{
-		NSLog(@"here");
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 
         [((QSection *)[controllerForBlock.root.sections objectAtIndex:0]) fetchValueIntoObject:dict];

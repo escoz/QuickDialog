@@ -14,8 +14,6 @@
 
 #import "QElement.h"
 #import "QRootElement.h"
-#import "QSection.h"
-#import "QuickDialogController.h"
 
 @implementation QRootElement
 
@@ -23,7 +21,6 @@
 @synthesize sections = _sections;
 @synthesize grouped = _grouped;
 @synthesize controllerName = _controllerName;
-
 
 - (void)addSection:(QSection *)section {
     if (_sections==nil)

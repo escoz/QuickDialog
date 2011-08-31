@@ -14,7 +14,6 @@
 
 #import "QWebViewController.h"
 
-
 @implementation QWebViewController
 
 - (QWebViewController *)initWithUrl:(NSString *)url {

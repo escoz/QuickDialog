@@ -4,33 +4,10 @@
 
 #ifdef __OBJC__
 
-#import "QElement.h"
-#import "QRootElement.h"
-#import "QLabelElement.h"
-#import "QButtonElement.h"  
-#import "QBooleanElement.h"
-#import "QMapElement.h"
-#import "QButtonElement.h"
-#import "QFloatElement.h"
-#import "QRadioElement.h"
-#import "QLabelElement.h"  
-#import "QRadioItemElement.h" 
-#import "QEntryElement.h"
-#import "QDateTimeElement.h"
-#import "QDateTimeInlineElement.h"
-#import "QTextElement.h"
-#import "QWebElement.h"
-#import "QBadgeElement.h"
-#import "QDecimalElement.h"
 
-#import "QSection.h"
-#import "QRadioSection.h"
-#import "QSortingSection.h"
 
-#import "QuickDialogController.h"
-
-#import "QuickDialogController+Loading.h"
+#import "../quickdialog/QuickDialogController.h"
+#import "../quickdialog/QuickDialogController+Loading.h"
 #import "QuickDialogExampleAppDelegate.h"
-
 
 #endif

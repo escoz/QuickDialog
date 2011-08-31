@@ -12,8 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogController+Loading.h"
-
 @implementation QuickDialogController (Loading)
 
 - (UIView *)createLoadingView {

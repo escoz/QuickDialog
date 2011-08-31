@@ -12,10 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogController.h"
-#import "QRootElement.h"
-#import "QuickDialogTableView.h"
-
 @implementation QuickDialogController
 
 @synthesize root = _root;

@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QElement.h"
-#import "QLabelElement.h"
 #import "QFloatElement.h"
-#import "QuickDialogTableView.h"
 
 @implementation QFloatElement
 

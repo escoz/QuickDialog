@@ -12,12 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-
-@class QTextElement;
-@class QEntryElement;
-
+#import "QuickDialogTableView.h"
+#import "QEntryElement.h"
 
 @interface QDateTimeInlineElement : QEntryElement {
     NSDate * _dateValue;

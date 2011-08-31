@@ -12,12 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QElement.h"
-#import "QuickDialogController.h"
-#import "QuickDialogTableView.h"
-#import "QSection.h"
-#import "QSortingSection.h"
-#import "QuickDialogStyleProvider.h"
 #import <objc/message.h>
 
 @implementation QElement
@@ -55,7 +49,7 @@
     if (self.controllerAction!=NULL){
         SEL selector = NSSelectorFromString(self.controllerAction);
         if ([tableView.controller respondsToSelector:selector]) {
-            objc_msgSend(tableView.controller ,selector);
+            objc_msgSend(tableView.controller ,selector, self);
         }
     }
 }
