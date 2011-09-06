@@ -11,64 +11,10 @@
 	<key>Items</key>
 	<array>
 		<dict>
-			<key>key</key>
-			<string>decimal1</string>
-			<key>fractionDigits</key>
-			<integer>3</integer>
-			<key>floatValue</key>
-			<real>0.5</real>
-			<key>title</key>
-			<string>Decimal Element</string>
-			<key>qType</key>
-			<string>QDecimalElement</string>
-		</dict>
-		<dict>
-			<key>key</key>
-			<string>slider1</string>
-			<key>floatValue</key>
-			<real>0.5</real>
-			<key>title</key>
-			<string>Float Element</string>
-			<key>qType</key>
-			<string>QFloatElement</string>
-		</dict>
-		<dict>
-			<key>key</key>
-			<string>date1</string>
-			<key>dateValue</key>
-			<date>2011-08-25T18:58:11Z</date>
-			<key>title</key>
-			<string>DateTime</string>
-			<key>qType</key>
-			<string>QDateTimeInlineElement</string>
-		</dict>
-		<dict>
 			<key>header</key>
-			<string>Here be some controls</string>
+			<string>Proof of Concept</string>
 			<key>footer</key>
-			<string>More controls will be added.</string>
-		</dict>
-		<dict>
-			<key>key</key>
-			<string>entry1</string>
-			<key>placeholder</key>
-			<string>type here</string>
-			<key>value</key>
-			<string></string>
-			<key>title</key>
-			<string>Entry Element</string>
-			<key>qType</key>
-			<string>QEntryElement</string>
-		</dict>
-		<dict>
-			<key>key</key>
-			<string>bool1</string>
-			<key>boolValue</key>
-			<false/>
-			<key>title</key>
-			<string>YesNo</string>
-			<key>qType</key>
-			<string>QBooleanElement</string>
+			<string>Controls added from pList</string>
 		</dict>
 		<dict>
 			<key>title</key>
@@ -93,6 +39,60 @@
 				<string>item2</string>
 				<string>item3</string>
 			</array>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>entry1</string>
+			<key>placeholder</key>
+			<string>type here</string>
+			<key>value</key>
+			<string></string>
+			<key>title</key>
+			<string>Entry Element</string>
+			<key>qType</key>
+			<string>QEntryElement</string>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>bool1</string>
+			<key>boolValue</key>
+			<false/>
+			<key>title</key>
+			<string>YesNo</string>
+			<key>qType</key>
+			<string>QBooleanElement</string>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>date1</string>
+			<key>dateValue</key>
+			<date>2011-08-25T18:58:11Z</date>
+			<key>title</key>
+			<string>DateTime</string>
+			<key>qType</key>
+			<string>QDateTimeInlineElement</string>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>slider1</string>
+			<key>floatValue</key>
+			<real>0.5</real>
+			<key>title</key>
+			<string>Float Element</string>
+			<key>qType</key>
+			<string>QFloatElement</string>
+		</dict>
+		<dict>
+			<key>key</key>
+			<string>decimal1</string>
+			<key>fractionDigits</key>
+			<integer>3</integer>
+			<key>floatValue</key>
+			<real>0.5</real>
+			<key>title</key>
+			<string>Decimal Element</string>
+			<key>qType</key>
+			<string>QDecimalElement</string>
 		</dict>
 	</array>
 </dict>
