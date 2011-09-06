@@ -27,12 +27,9 @@
 }
 
 @property(nonatomic, copy) void (^onSelected)(void);
-@property(nonatomic, retain) NSString *controllerAction;
-
-
-@property(nonatomic, retain) QSection *parentSection;
-
-@property(nonatomic, retain) NSString *key;
+@property(nonatomic, strong) NSString *controllerAction;
+@property(nonatomic, strong) QSection *parentSection;
+@property(nonatomic, strong) NSString *key;
 
 - (QElement *)initWithKey:(NSString *)key;
 

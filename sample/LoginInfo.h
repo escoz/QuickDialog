@@ -21,7 +21,7 @@
     NSString *_login;
 }
 
-@property(retain) NSString *login;
-@property(retain) NSString *password;
+@property(strong) NSString *login;
+@property(strong) NSString *password;
 
 @end

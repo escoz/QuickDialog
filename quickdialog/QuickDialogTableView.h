@@ -33,13 +33,13 @@
     UITableViewCell *_selectedCell;
 }
 
-@property(nonatomic, retain) QRootElement *root;
+@property(nonatomic, strong) QRootElement *root;
 
 @property(nonatomic, readonly) QuickDialogController *controller;
 
-@property(nonatomic, retain) UITableViewCell *selectedCell;
+@property(nonatomic, strong) UITableViewCell *selectedCell;
 
-@property(nonatomic, retain) id<QuickDialogStyleProvider> styleProvider;
+@property(nonatomic, strong) id<QuickDialogStyleProvider> styleProvider;
 
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
 

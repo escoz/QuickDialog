@@ -24,7 +24,7 @@
     UIDatePickerMode _mode;
 }
 
-@property(nonatomic, retain) NSDate *dateValue;
+@property(nonatomic, strong) NSDate *dateValue;
 
 @property (assign) UIDatePickerMode mode;
 
