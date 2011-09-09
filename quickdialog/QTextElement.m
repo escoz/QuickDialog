@@ -24,19 +24,20 @@
 - (QTextElement *)initWithText:(NSString *)text {
     self = [super init];
     _text = text;
-    _font = [UIFont systemFontOfSize:14];
-
+    _font = [UIFont boldSystemFontOfSize:14];
     return self;
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
+    // KF changed //
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickfromTextElement"];
-    if (cell==nil){
+    if (cell==nil)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickfromTextElement"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-
+    
     cell.textLabel.font = _font;
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
@@ -49,13 +50,19 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
 }
 
-- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView tableWidth:(float)tableWidth marginWidth:(float)marginWidth
+{
 
     if (_text==nil || _text == @""){
         return [super getRowHeightForTableView:tableView];
     }
-    CGSize constraint = CGSizeMake(300, 20000);
+    
+    tableWidth -= marginWidth ;      // left side, for grouped table view //
+    tableWidth -= marginWidth ;      // right side, for grouped table view //
+    
+    CGSize constraint = CGSizeMake(tableWidth, 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        
     return size.height+20;
 }
 

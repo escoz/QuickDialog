@@ -30,4 +30,6 @@
 @property(nonatomic, strong) UIColor *color;
 
 - (QTextElement *)initWithText:(NSString *)string;
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView tableWidth:(float)tableWidth marginWidth:(float)marginWidth ;
+
 @end
