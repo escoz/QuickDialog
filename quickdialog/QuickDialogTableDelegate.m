@@ -64,10 +64,44 @@
 
 }
 
+// see: http://stackoverflow.com/questions/4708085/how-to-determine-margin-of-a-grouped-uitableview-or-better-how-to-set-it
+- (float) groupedCellMarginWithTableWidth:(float)tableViewWidth
+{
+    float marginWidth;
+    if(tableViewWidth > 20)
+    {
+        if(tableViewWidth < 400)
+        {
+            marginWidth = 10;
+        }
+        else
+        {
+            marginWidth = MAX(31, MIN(45, tableViewWidth*0.06));
+        }
+    }
+    else
+    {
+        marginWidth = tableViewWidth - 10;
+    }
+    return marginWidth;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
-    return [element getRowHeightForTableView:(QuickDialogTableView *) tableView];
+    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    
+    if ([element isKindOfClass:[QTextElement class]])
+    {
+        float tableMargin = 0 ;
+        if (_tableView.style == UITableViewStyleGrouped)
+            tableMargin = [self groupedCellMarginWithTableWidth:_tableView.bounds.size.width] ;
+
+        return [(QTextElement*) element getRowHeightForTableView:(QuickDialogTableView *) tableView tableWidth:_tableView.bounds.size.width marginWidth:tableMargin];
+    }
+    else
+    {
+        return [element getRowHeightForTableView:(QuickDialogTableView *) tableView];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)index {
