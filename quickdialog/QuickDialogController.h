@@ -36,6 +36,9 @@
 
 - (void)displayViewControllerForRoot:(QRootElement *)element;
 
+- (void)popToPreviousRootElement;
+
+
 + (QuickDialogController *)controllerForRoot:(QRootElement *)element;
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
