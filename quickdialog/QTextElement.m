@@ -35,13 +35,14 @@
     if (cell==nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickfromTextElement"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-        cell.textLabel.font = _font;
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.textColor = _color;
-        cell.textLabel.text = _text;
     }
+
+    cell.textLabel.font = _font;
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.textColor = _color;
+    cell.textLabel.text = _text;
+
     return cell;
 }
 
