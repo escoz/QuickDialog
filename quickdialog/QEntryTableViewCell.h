@@ -36,7 +36,7 @@
 - (QEntryElement *)findNextElementToFocusOn;
 - (QEntryElement *)findPreviousElementToFocusOn;
 
-- (void)recalculatePositioning;
+- (void)recalculateEntryFieldPosition;
 
 
 @end

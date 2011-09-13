@@ -17,11 +17,13 @@
 @interface QRadioElement : QRootElement {
 
     NSArray *_items;
-    NSUInteger _selected;
+    NSArray *_values;
+    NSInteger _selected;
 }
 
 @property(nonatomic, readonly) NSArray *items;
-@property(nonatomic, assign, readwrite) NSUInteger selected;
+@property(nonatomic, assign, readwrite) NSInteger selected;
+@property(nonatomic, retain) NSArray *values;
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected;
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title;

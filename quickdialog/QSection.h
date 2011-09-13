@@ -32,16 +32,16 @@
 
 @property(nonatomic, strong) NSString *key;
 
-@property(nonatomic, strong) NSString *title;
-@property(nonatomic, strong) NSString *footer;
+@property(nonatomic, retain) NSString *title;
+@property(nonatomic, retain) NSString *footer;
 
-@property(nonatomic, strong) NSMutableArray * elements;
-@property(nonatomic, strong) QRootElement *rootElement;
+@property(nonatomic, retain) NSMutableArray * elements;
+@property(nonatomic, retain) QRootElement *rootElement;
 
 @property(nonatomic, readonly) BOOL needsEditing;
 
-@property(nonatomic, strong) UIView *headerView;
-@property(nonatomic, strong) UIView *footerView;
+@property(nonatomic, retain) UIView *headerView;
+@property(nonatomic, retain) UIView *footerView;
 @property(nonatomic) CGRect entryPosition;
 
 - (QSection *)initWithTitle:(NSString *)string;

@@ -16,9 +16,12 @@
 #import "QRadioElement.h"
 #import "QRadioItemElement.h"
 
-@implementation QRadioElement
+@implementation QRadioElement {
 
+}
 @synthesize selected = _selected;
+@synthesize values = _values;
+
 
 - (void)createElements {
     _sections = nil;
@@ -55,13 +58,17 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
 
+    NSString *selectedValue = nil;
+    if (_selected >= 0 && _selected <_items.count)
+        selectedValue = [[_items objectAtIndex:_selected] description];
+
     if (self.title == NULL){
-        cell.textLabel.text = [[_items objectAtIndex:_selected] description];
+        cell.textLabel.text = selectedValue;
         cell.detailTextLabel.text = nil;
         cell.imageView.image = nil;
     } else {
         cell.textLabel.text = _title;
-        cell.detailTextLabel.text = [[_items objectAtIndex:_selected] description];
+        cell.detailTextLabel.text = selectedValue;
         cell.imageView.image = nil;
     }
     return cell;
@@ -70,7 +77,15 @@
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)	
 		return;
-    [obj setObject:[NSNumber numberWithInt:_selected] forKey:_key];
+
+    if (_selected < 0 || _selected >= (_values == nil ? _values : _items).count)
+        return;
+
+    if (_values==nil){
+        [obj setObject:[NSNumber numberWithInt:_selected] forKey:_key];
+    } else {
+        [obj setObject:[_values objectAtIndex:_selected] forKey:_key];
+    }
 }
 
 

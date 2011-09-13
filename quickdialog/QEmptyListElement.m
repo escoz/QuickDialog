@@ -12,30 +12,29 @@
 // permissions and limitations under the License.
 //
 
-#import "QButtonElement.h"
+#import "QEmptyListElement.h"
 
-@implementation QButtonElement
+@implementation QEmptyListElement
 
-- (QButtonElement *)initWithTitle:(NSString *)title {
-    self = [super initWithTitle:title Value:nil];
+- (QEmptyListElement *)init {
+    self = [super initWithTitle:@"Empty" Value:nil];
     return self;
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformButtonElement"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QEmptyListElement"];
     if (cell == nil){
-        cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickformButtonElement"];
+        cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QEmptyListElement"];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = UITextAlignmentCenter;
-    cell.textLabel.textColor = [UIColor colorWithRed:50.0f/255.0f green:79.0f/255.0f blue:133.0f/255.0f alpha:1];
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    [super selected:tableView controller:controller indexPath:indexPath];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

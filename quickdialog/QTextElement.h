@@ -27,7 +27,7 @@
 @property(nonatomic, strong) UIFont *font;
 
 
-@property(nonatomic, strong) UIColor *color;
+@property(nonatomic, retain) UIColor *color;
 
 - (QTextElement *)initWithText:(NSString *)string;
 @end

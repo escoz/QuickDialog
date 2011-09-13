@@ -22,7 +22,7 @@
     BOOL _centerLabel;
 }
 
-@property(nonatomic, strong) NSDate *dateValue;
+@property(nonatomic, retain) NSDate *dateValue;
 
 @property (assign) UIDatePickerMode mode;
 

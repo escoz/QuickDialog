@@ -25,11 +25,11 @@
     NSString *_controllerName;
 }
 
-@property(nonatomic, strong) NSString *title;
+@property(nonatomic, retain) NSString *title;
 @property(nonatomic, strong) NSMutableArray *sections;
 @property(assign) BOOL grouped;
 
-@property(nonatomic, strong) NSString *controllerName;
+@property(nonatomic, retain) NSString *controllerName;
 
 - (void)addSection:(QSection *)section;
 - (QSection *)getSectionForIndex:(NSInteger)index;

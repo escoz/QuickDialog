@@ -45,15 +45,20 @@
     return _mode;
 }
 
-- (QDateTimeElement *)initWithTitle:(NSString *)title date:(NSDate *)date {
+- (QDateTimeElement *)init {
     self = [super init];
+    _grouped = YES;
+    _mode = UIDatePickerModeDateAndTime;
+    [self initializeRoot];
+    return self;
+}
+
+- (QDateTimeElement *)initWithTitle:(NSString *)title date:(NSDate *)date {
+    self = [self init];
     if (self!=nil){
 		_title = title;
         _dateValue = date;
-        _grouped = YES;
-        _mode = UIDatePickerModeDateAndTime;
-		
-		[self initializeRoot];
+        [self initializeRoot];
     }
     return self;
 }
@@ -83,17 +88,20 @@
 
     cell.detailTextLabel.text = [dateFormatter stringFromDate:_dateValue];
 
-
     return cell;
 }
 
 
 - (void)initializeRoot {
+    NSDate *dateForSection = _dateValue;
+    if (dateForSection==nil){
+        dateForSection = NSDate.date;
+    }
 	QSection *section = [[QSection alloc] initWithTitle:(_mode == UIDatePickerModeDateAndTime ? @"\n" : @"\n\n")];
 
     if (_mode == UIDatePickerModeDate || _mode == UIDatePickerModeDateAndTime){
         QDateTimeInlineElement *dateElement = (QDateTimeInlineElement *) [[QDateTimeInlineElement alloc] initWithKey:@"date"];
-        dateElement.dateValue = _dateValue;
+        dateElement.dateValue = dateForSection;
         dateElement.centerLabel = YES;
         dateElement.mode =  UIDatePickerModeDate;
         dateElement.hiddenToolbar = YES;
@@ -102,7 +110,7 @@
     }
     if (_mode == UIDatePickerModeTime || _mode == UIDatePickerModeDateAndTime){
         QDateTimeInlineElement *timeElement = (QDateTimeInlineElement *) [[QDateTimeInlineElement alloc] initWithKey:@"time"];
-        timeElement.dateValue = _dateValue;
+        timeElement.dateValue = dateForSection;
         timeElement.centerLabel = YES;
         timeElement.mode = UIDatePickerModeTime;
         timeElement.hiddenToolbar = YES;
@@ -154,7 +162,6 @@
         [components setHour:[timeComponents hour]];
         [components setMinute:[timeComponents minute]];
         [components setSecond:[timeComponents second]];
-
         self.dateValue = [[NSCalendar currentCalendar] dateFromComponents:components];
     };
 

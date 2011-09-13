@@ -73,18 +73,17 @@
     CGFloat titleWidth = 0;
 
     if (CGRectEqualToRect(CGRectZero, _entryElement.parentSection.entryPosition)) {
-
         for (QElement *el in _entryElement.parentSection.elements){
             if ([el isKindOfClass:[QEntryElement class]]){
-                CGFloat fontSize = self.textLabel.font.lineHeight == 0? 18 : self.textLabel.font.lineHeight;
-                CGSize size = [((QEntryElement *)el).title sizeWithFont:[UIFont systemFontOfSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:UILineBreakModeWordWrap] ;
+                CGFloat fontSize = self.textLabel.font.pointSize == 0? 18 : self.textLabel.font.pointSize;
+                CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:UILineBreakModeWordWrap] ;
                 if (size.width>titleWidth)
                     titleWidth = size.width;
             }
         }
 
         CGFloat separator = titleWidth > 0 ? 20 : 0;
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+separator,11,totalWidth-titleWidth-22-separator,24);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+separator,11,totalWidth-titleWidth-(separator*2),24);
     }
 
     return _entryElement.parentSection.entryPosition;
@@ -95,7 +94,7 @@
     
     _quickformTableView = tableView;
     _entryElement = element;
-    [self recalculatePositioning];
+    [self recalculateEntryFieldPosition];
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
     _textField.secureTextEntry = _entryElement.isPassword;
@@ -106,7 +105,7 @@
     }
 }
 
--(void)recalculatePositioning {
+-(void)recalculateEntryFieldPosition {
     _entryElement.parentSection.entryPosition = CGRectZero;
    _textField.frame = [self calculateFrameForEntryElement];
 }

@@ -66,7 +66,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
     return [element getRowHeightForTableView:(QuickDialogTableView *) tableView];
 }
 

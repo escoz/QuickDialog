@@ -33,7 +33,7 @@
 
 - (void)setRoot:(QRootElement *)root {
     _root = root;
-    ((QuickDialogTableView *)self.tableView).root = root;   
+    ((QuickDialogTableView *)self.tableView).root = root;
     self.title = _root.title;
 }
 
@@ -41,7 +41,8 @@
 
     [((QuickDialogTableView *)self.tableView) viewWillAppear];
     [super viewWillAppear:animated];
-    self.title = _root.title;
+    if (_root!=nil)
+        self.title = _root.title;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -69,7 +70,13 @@
 
 - (void)displayViewControllerForRoot:(QRootElement *)root {
 
-    QuickDialogController * newController = [QuickDialogController controllerForRoot:root];
+    Class controllerClass = nil;
+    if (root.controllerName!=NULL){
+        controllerClass = NSClassFromString(root.controllerName);
+    } else {
+        controllerClass = [self class];
+    }
+    QuickDialogController * newController =  [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
     [self displayViewController:newController];
 }
 

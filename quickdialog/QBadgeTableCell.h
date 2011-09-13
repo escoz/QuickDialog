@@ -24,7 +24,7 @@
 - (QBadgeTableCell *)init;
 
 
-@property(nonatomic, strong) UIColor *badgeColor;
+@property(nonatomic, retain) UIColor *badgeColor;
 @property(nonatomic, readonly, strong) UILabel *badgeLabel;
 
 @end

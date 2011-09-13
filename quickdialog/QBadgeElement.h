@@ -22,7 +22,7 @@
     NSString *_badge;
 }
 
-@property(nonatomic, strong) UIColor *badgeColor;
+@property(nonatomic, retain) UIColor *badgeColor;
 @property(nonatomic, strong) NSString *badge;
 
 
