@@ -98,6 +98,9 @@
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
     _textField.secureTextEntry = _entryElement.isPassword;
+    if (_entryElement.isNumeric) {
+        _textField.keyboardType = UIKeyboardTypeNumberPad;
+    }
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
     } else {
