@@ -78,7 +78,7 @@
 	if (_key==nil)	
 		return;
 
-    if (_selected < 0 || _selected >= (_values == nil ? _values : _items).count)
+    if (_selected < 0 || _selected >= (_values != nil ? _values : _items).count)
         return;
 
     if (_values==nil){
