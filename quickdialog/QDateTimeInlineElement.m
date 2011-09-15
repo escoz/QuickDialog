@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QDateEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
+    QDateEntryTableViewCell *cell = (QDateEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
     if (cell==nil){
         cell = [[QDateEntryTableViewCell alloc] init];
     }

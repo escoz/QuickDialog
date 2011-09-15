@@ -41,7 +41,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QDecimalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformDecimalElement"];
+    QDecimalTableViewCell *cell = (QDecimalTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuickformDecimalElement"];
     if (cell==nil){
         cell = [[QDecimalTableViewCell alloc] init];
     }
