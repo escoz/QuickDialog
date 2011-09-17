@@ -38,12 +38,12 @@
     return _items;
 }
 
-- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected {
+- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
     return self;
 }
 
-- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title {
+- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
     self = [super init];
     if (self!=nil){
         _items = stringArray;
@@ -60,7 +60,7 @@
 
     NSString *selectedValue = nil;
     if (_selected >= 0 && _selected <_items.count)
-        selectedValue = [[_items objectAtIndex:_selected] description];
+        selectedValue = [[_items objectAtIndex:(NSUInteger) _selected] description];
 
     if (self.title == NULL){
         cell.textLabel.text = selectedValue;
@@ -78,13 +78,13 @@
 	if (_key==nil)	
 		return;
 
-    if (_selected < 0 || _selected >= (_values == nil ? _values : _items).count)
+    if (_selected < 0 || _selected >= (_values != nil ? _values : _items).count)
         return;
 
     if (_values==nil){
         [obj setObject:[NSNumber numberWithInt:_selected] forKey:_key];
     } else {
-        [obj setObject:[_values objectAtIndex:_selected] forKey:_key];
+        [obj setObject:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
     }
 }
 

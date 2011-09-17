@@ -69,16 +69,25 @@
 }
 
 - (void)displayViewControllerForRoot:(QRootElement *)root {
+    QuickDialogController *newController = [self controllerForRoot: root];
+    [self displayViewController:newController];
+}
 
++ (QuickDialogController *)buildControllerWithClass:(Class)controllerClass buildControllerWithClass:(QRootElement *)root {
+    controllerClass = controllerClass==nil? [QuickDialogController class] : controllerClass;
+    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+}
+
+- (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = nil;
     if (root.controllerName!=NULL){
         controllerClass = NSClassFromString(root.controllerName);
     } else {
         controllerClass = [self class];
     }
-    QuickDialogController * newController =  [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
-    [self displayViewController:newController];
+    return [QuickDialogController buildControllerWithClass:controllerClass buildControllerWithClass:root];
 }
+
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = nil;
@@ -91,7 +100,7 @@
 }
 
 + (UINavigationController*)controllerWithNavigationForRoot:(QRootElement *)root {
-    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController controllerForRoot:root]];
+    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController buildControllerWithClass:nil buildControllerWithClass:root]] ;
 }
 
 @end

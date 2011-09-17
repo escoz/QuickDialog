@@ -29,6 +29,8 @@
     UIToolbar *_actionBar;
 }
 
+@property(nonatomic, strong) UITextField *textField;
+
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
 
 - (void)createSubviews;

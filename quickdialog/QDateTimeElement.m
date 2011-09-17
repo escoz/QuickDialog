@@ -130,7 +130,7 @@
     if (self.sections==nil)
             return;
 
-    QuickDialogController * newController = [[QuickDialogController alloc] initWithRoot:self];
+    QuickDialogController * newController = [controller controllerForRoot:self];
     newController.tableView.scrollEnabled = NO;
     [controller displayViewController:newController];
 

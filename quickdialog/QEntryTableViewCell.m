@@ -22,6 +22,8 @@
 
 @implementation QEntryTableViewCell
 
+@synthesize textField = _textField;
+
 -(void)createActionBar {
     if (_actionBar == nil) {
         _actionBar = [[UIToolbar alloc] init];
@@ -47,6 +49,7 @@
 
 - (void)createSubviews {
     _textField = [[UITextField alloc] init];
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
@@ -67,7 +70,7 @@
 
 - (CGRect)calculateFrameForEntryElement {
     if (_entryElement.title == NULL) {
-        return CGRectMake(10,11,self.contentView.frame.size.width-30, 24);
+        return CGRectMake(10,10,self.contentView.frame.size.width-30, 24);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -83,7 +86,7 @@
         }
 
         CGFloat separator = titleWidth > 0 ? 20 : 0;
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+separator,11,totalWidth-titleWidth-(separator*2),24);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+separator,10,totalWidth-titleWidth-(separator*2),24);
     }
 
     return _entryElement.parentSection.entryPosition;

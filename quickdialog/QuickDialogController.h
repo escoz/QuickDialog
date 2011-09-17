@@ -36,7 +36,7 @@
 
 - (void)displayViewControllerForRoot:(QRootElement *)element;
 
-+ (QuickDialogController *)controllerForRoot:(QRootElement *)element;
+- (QuickDialogController *)controllerForRoot:(QRootElement *)element;
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
 
