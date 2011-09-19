@@ -20,7 +20,7 @@
     NSUInteger _selected;
 }
 
-@property(nonatomic, readonly) NSArray *items;
+@property(nonatomic, strong) NSArray *items;
 @property(nonatomic, assign, readwrite) NSUInteger selected;
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected;

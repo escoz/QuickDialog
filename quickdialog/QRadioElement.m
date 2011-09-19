@@ -19,6 +19,7 @@
 @implementation QRadioElement
 
 @synthesize selected = _selected;
+@synthesize items ;
 
 - (void)createElements {
     _sections = nil;
@@ -43,7 +44,7 @@
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title {
     self = [super init];
     if (self!=nil){
-        _items = stringArray;
+        self.items = stringArray;
         _selected = selected;
         [self createElements];
         self.title = title;
