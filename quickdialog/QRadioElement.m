@@ -19,7 +19,7 @@
 @implementation QRadioElement
 
 @synthesize selected = _selected;
-@synthesize items ;
+@synthesize items = _items ;
 
 - (void)createElements {
     _sections = nil;
@@ -27,7 +27,7 @@
     
     [self addSection:_parentSection];
 
-    for (NSUInteger i=0; i< [_items count]; i++){
+    for (NSUInteger i=0; i< [self.items count]; i++){
         [_parentSection addElement:[[QRadioItemElement alloc] initWithIndex:i RadioElement:self]];
     }
 }
@@ -56,6 +56,8 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
 
+    NSLog(@"Count: %d", [self.items count] ) ;
+    
     if (self.title == NULL){
         cell.textLabel.text = [[_items objectAtIndex:_selected] description];
         cell.detailTextLabel.text = nil;
