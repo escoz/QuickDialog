@@ -20,8 +20,9 @@
 - (QEntryElement *)findNextElementToFocusOn;
 @end
 
-@implementation QEntryTableViewCell
-
+@implementation QEntryTableViewCell {
+    UISegmentedControl *_prevNext;
+}
 @synthesize textField = _textField;
 
 -(void)createActionBar {
@@ -35,12 +36,12 @@
                                                                        style:UIBarButtonItemStyleDone target:self
                                                                       action:@selector(textFieldMustReturn:)];
 
-        UISegmentedControl *prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Previous", @"Next", nil]];
-        prevNext.momentary = YES;
-        prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
-        prevNext.tintColor = [UIColor darkGrayColor];
-        [prevNext addTarget:self action:@selector(previousNextDelegate:) forControlEvents:UIControlEventValueChanged];
-        UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:prevNext];
+        _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Previous", @"Next", nil]];
+        _prevNext.momentary = YES;
+        _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
+        _prevNext.tintColor = [UIColor darkGrayColor];
+        [_prevNext addTarget:self action:@selector(previousNextDelegate:) forControlEvents:UIControlEventValueChanged];
+        UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_prevNext];
         UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         [_actionBar setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
 	}
@@ -94,7 +95,7 @@
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
     self.textLabel.text = element.title;
-    
+
     _quickformTableView = tableView;
     _entryElement = element;
     [self recalculateEntryFieldPosition];
@@ -106,6 +107,9 @@
     } else {
         [self createActionBar];
     }
+
+    [_prevNext setEnabled:[self findPreviousElementToFocusOn]!=nil forSegmentAtIndex:0];
+    [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
 }
 
 -(void)recalculateEntryFieldPosition {
@@ -127,7 +131,6 @@
     _textField.returnKeyType = returnType;
     _quickformTableView.selectedCell = self;
 }
-
 
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
