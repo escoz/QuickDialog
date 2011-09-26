@@ -34,7 +34,8 @@
 - (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date {
     self = [super initWithTitle:string Value:[date description]];
     if (self!=nil){
-        _dateValue = date;
+        // Use setter to avoid error
+        [self setDateValue:date];
         _mode = UIDatePickerModeDateAndTime;
     }
     return self;

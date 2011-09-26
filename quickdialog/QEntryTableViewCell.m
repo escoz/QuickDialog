@@ -95,7 +95,8 @@
     _quickformTableView = tableView;
     _entryElement = element;
     [self recalculateEntryFieldPosition];
-    _textField.text = _entryElement.textValue;
+    // NOTE: next line throws error when using QDateTimeInlineElement
+    //_textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
     _textField.secureTextEntry = _entryElement.isPassword;
     _textField.keyboardType = _entryElement.isNumeric ? UIKeyboardTypeNumberPad : UIKeyboardTypeDefault; 
