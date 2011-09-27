@@ -16,6 +16,7 @@
 #import "QBooleanElement.h"
 #import "QButtonElement.h"
 #import "QDateTimeInlineElement.h"
+#import "QListPickerInlineElement.h"
 #import "QFloatElement.h"
 #import "QMapElement.h"
 #import "QRadioElement.h"

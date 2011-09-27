@@ -152,11 +152,15 @@
 
     [controls addElement:radioElement];
     [controls addElement:entryElement];
-	
     [controls addElement:boolElement];
+    
 	QDateTimeInlineElement *dateElement = [[QDateTimeInlineElement alloc] initWithTitle:@"DateTime" date:[NSDate date]];
 	dateElement.key = @"date1";
     [controls addElement:dateElement];
+    
+    NSArray *items = [[NSArray alloc] initWithObjects:@"Red", @"Orange", @"Yellow", @"Green", @"Blue", @"Indigo", @"Violet", nil];
+    QListPickerInlineElement *listElement = [[QListPickerInlineElement alloc] initWithTitle:@"List" list:items];
+    [controls addElement:listElement];
 
     QFloatElement *slider = [[QFloatElement alloc] initWithTitle:@"Float Element" value:0.5];
 	slider.key = @"slider1";
@@ -171,11 +175,12 @@
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
 	button.onSelected = ^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
-            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%f\n6:%f",
-                radioElement.selected ,
+            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%@\n6:%f\n7:%f",
+                radioElement.selected,
                 entryElement.textValue,
                 boolElement.boolValue,
-                dateElement.dateValue ,
+                dateElement.dateValue,
+                listElement.selectedItem,
                 slider.floatValue,
                 decimal.floatValue]
            delegate:self 
