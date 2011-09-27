@@ -14,6 +14,7 @@
 
 #import "QEntryTableViewCell.h"
 #import "QEntryElement.h"
+#import "NSString+PhoneNumberFormatting.h"
 
 @interface QEntryTableViewCell ()
 - (void)previousNextDelegate:(UISegmentedControl *)control;
@@ -59,6 +60,7 @@
 - (QEntryTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
     if (self!=nil){
+        myTextFieldSemaphore = 0;
         [self createSubviews];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -118,7 +120,19 @@
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
-   _entryElement.textValue = _textField.text;
+    
+    if (_entryElement.isPhoneNumber) {
+        
+        if(myTextFieldSemaphore) return;
+        
+        myTextFieldSemaphore = 1;
+        
+        _textField.text = [[_textField text] formattedPhoneNumberForLocale:xPhoneNumberLocale_US];
+        
+        myTextFieldSemaphore = 0;
+    }
+    
+    _entryElement.textValue = _textField.text;    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

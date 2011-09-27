@@ -23,6 +23,7 @@
 
     QEntryElement *_entryElement;
     UITextField *_textField;
+    int myTextFieldSemaphore;
 
 @protected
     QuickDialogTableView *_quickformTableView;

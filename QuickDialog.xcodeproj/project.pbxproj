@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A2C8FEF14320C3700892E87 /* QListPickerInlineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C8FEC14320C3700892E87 /* QListPickerInlineElement.m */; };
 		0A2C8FF014320C3700892E87 /* QListPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A2C8FEE14320C3700892E87 /* QListPickerTableViewCell.m */; };
+		0A6E169414326CE300324822 /* NSString+PhoneNumberFormatting.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6E169314326CE300324822 /* NSString+PhoneNumberFormatting.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -70,6 +71,8 @@
 		0A2C8FEC14320C3700892E87 /* QListPickerInlineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QListPickerInlineElement.m; path = quickdialog/QListPickerInlineElement.m; sourceTree = SOURCE_ROOT; };
 		0A2C8FED14320C3700892E87 /* QListPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QListPickerTableViewCell.h; path = quickdialog/QListPickerTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		0A2C8FEE14320C3700892E87 /* QListPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QListPickerTableViewCell.m; path = quickdialog/QListPickerTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		0A6E169214326CE300324822 /* NSString+PhoneNumberFormatting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PhoneNumberFormatting.h"; path = "quickdialog/NSString+PhoneNumberFormatting.h"; sourceTree = SOURCE_ROOT; };
+		0A6E169314326CE300324822 /* NSString+PhoneNumberFormatting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PhoneNumberFormatting.m"; path = "quickdialog/NSString+PhoneNumberFormatting.m"; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -280,6 +283,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				0A6E169214326CE300324822 /* NSString+PhoneNumberFormatting.h */,
+				0A6E169314326CE300324822 /* NSString+PhoneNumberFormatting.m */,
 				0A2C8FEB14320C3700892E87 /* QListPickerInlineElement.h */,
 				0A2C8FEC14320C3700892E87 /* QListPickerInlineElement.m */,
 				0A2C8FED14320C3700892E87 /* QListPickerTableViewCell.h */,
@@ -472,6 +477,7 @@
 				D8F180E813F0599A009B0C9B /* QDecimalTableViewCell.m in Sources */,
 				0A2C8FEF14320C3700892E87 /* QListPickerInlineElement.m in Sources */,
 				0A2C8FF014320C3700892E87 /* QListPickerTableViewCell.m in Sources */,
+				0A6E169414326CE300324822 /* NSString+PhoneNumberFormatting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

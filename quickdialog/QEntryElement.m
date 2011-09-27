@@ -22,6 +22,7 @@
 @synthesize hiddenToolbar = _hiddenToolbar;
 @synthesize isPassword = _isPassword;
 @synthesize isNumeric = _isNumeric;
+@synthesize isPhoneNumber = _isPhoneNumber;
 
 - (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
     self = [self initWithTitle:title Value:nil];

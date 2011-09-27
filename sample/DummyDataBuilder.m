@@ -146,12 +146,18 @@
 	
     QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" Value:nil Placeholder:@"type here"];
 	entryElement.key = @"entry1";
-	
-    controls.footer = @"More controls will be added.";
-    [controls addElement:element1];
 
+    QEntryElement *phoneElement = [[QEntryElement alloc] initWithTitle:@"Phone Number" Value:nil Placeholder:@"type here"];
+	phoneElement.key = @"phone";
+    phoneElement.isNumeric = YES;
+    phoneElement.isPhoneNumber = YES;
+
+    controls.footer = @"More controls will be added.";
+    
+    [controls addElement:element1];
     [controls addElement:radioElement];
     [controls addElement:entryElement];
+    [controls addElement:phoneElement];
     [controls addElement:boolElement];
     
 	QDateTimeInlineElement *dateElement = [[QDateTimeInlineElement alloc] initWithTitle:@"DateTime" date:[NSDate date]];
@@ -175,9 +181,10 @@
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
 	button.onSelected = ^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
-            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%@\n6:%f\n7:%f",
+            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %@\n4: %d\n5: %@\n6: %@\n7: %f\n8: %f",
                 radioElement.selected,
                 entryElement.textValue,
+                phoneElement.textValue,
                 boolElement.boolValue,
                 dateElement.dateValue,
                 listElement.selectedItem,
