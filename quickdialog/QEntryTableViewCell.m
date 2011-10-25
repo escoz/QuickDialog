@@ -100,8 +100,17 @@
     _entryElement = element;
     [self recalculateEntryFieldPosition];
     _textField.text = _entryElement.textValue;
-    _textField.placeholder = _entryElement.placeholder;
-    _textField.secureTextEntry = _entryElement.isPassword;
+    _textField.placeholder = _entryElement.placeholder;    
+    
+    _textField.autocapitalizationType = _entryElement.autocapitalizationType;
+    _textField.autocorrectionType = _entryElement.autocorrectionType;
+    _textField.keyboardType = _entryElement.keyboardType;
+    _textField.keyboardAppearance = _entryElement.keyboardAppearance;
+    _textField.secureTextEntry = _entryElement.secureTextEntry;
+    
+    _textField.returnKeyType = _entryElement.returnKeyType;
+    _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;
+    
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
     } else {
@@ -111,6 +120,7 @@
     [_prevNext setEnabled:[self findPreviousElementToFocusOn]!=nil forSegmentAtIndex:0];
     [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
 }
+
 
 -(void)recalculateEntryFieldPosition {
     _entryElement.parentSection.entryPosition = CGRectZero;
@@ -127,8 +137,10 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
-    _textField.returnKeyType = returnType;
+    if (_textField.returnKeyType == UIReturnKeyDefault) {
+        UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
+        _textField.returnKeyType = returnType;
+    }
     _quickformTableView.selectedCell = self;
 }
 
