@@ -26,6 +26,7 @@
     NSString * _controllerAction;
 }
 
+
 @property(nonatomic, copy) void (^onSelected)(void);
 @property(nonatomic, retain) NSString *controllerAction;
 
@@ -33,6 +34,7 @@
 @property(nonatomic, retain) QSection *parentSection;
 
 @property(nonatomic, retain) NSString *key;
+@property(nonatomic, retain) NSObject *object;
 
 - (QElement *)initWithKey:(NSString *)key;
 

@@ -14,14 +14,16 @@
 
 #import <objc/message.h>
 
-@implementation QElement
-
-
+@implementation QElement {
+@private
+    NSObject *_object;
+}
 @synthesize parentSection = _parentSection;
 @synthesize key = _key;
 
 @synthesize onSelected = _onSelected;
 @synthesize controllerAction = _controllerAction;
+@synthesize object = _object;
 
 
 - (QElement *)initWithKey:(NSString *)key {
@@ -50,6 +52,8 @@
         SEL selector = NSSelectorFromString(self.controllerAction);
         if ([tableView.controller respondsToSelector:selector]) {
             objc_msgSend(tableView.controller ,selector, self);
+        }  else {
+            NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [tableView.controller class]);
         }
     }
 }

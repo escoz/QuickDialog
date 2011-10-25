@@ -35,6 +35,7 @@
     _root = root;
     ((QuickDialogTableView *)self.tableView).root = root;
     self.title = _root.title;
+    self.navigationItem.title = _root.title;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
