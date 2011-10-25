@@ -14,7 +14,6 @@
 
 #import "LoginController.h"
 #import "LoginInfo.h"
-#import "QEntryElement.h"
 
 @interface LoginController ()
 - (void)onLogin:(QButtonElement *)buttonElement;
