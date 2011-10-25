@@ -137,7 +137,7 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if (_textField.returnKeyType != UIReturnKeyDefault) {
+    if (_textField.returnKeyType == UIReturnKeyDefault) {
         UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
         _textField.returnKeyType = returnType;
     }
