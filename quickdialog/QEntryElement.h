@@ -20,7 +20,6 @@
     NSString *_textValue;
 
     BOOL _hiddenToolbar;
-    BOOL _isPassword;
 }
 
 @property(nonatomic, strong) NSString *textValue;
