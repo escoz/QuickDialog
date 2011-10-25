@@ -14,6 +14,7 @@
 
 #import "LoginController.h"
 #import "LoginInfo.h"
+#import "QEntryElement.h"
 
 @interface LoginController ()
 - (void)onLogin:(QButtonElement *)buttonElement;
@@ -101,7 +102,7 @@
     QEntryElement *password = [[QEntryElement alloc] init];
     password.title = @"Password";
     password.key = @"password";
-    password.isPassword = YES;
+    password.secureTextEntry = YES;
     password.hiddenToolbar = YES;
     password.placeholder = @"your password";
     [main addElement:password];

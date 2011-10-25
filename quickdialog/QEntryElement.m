@@ -21,15 +21,6 @@
 @synthesize placeholder = _placeholder;
 @synthesize hiddenToolbar = _hiddenToolbar;
 
-
-- (void)setIsPassword:(BOOL)isPassword {
-    self.secureTextEntry = isPassword;
-}
-- (BOOL)isPassword {
-    return self.secureTextEntry;
-}
-
-
 - (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
     self = [self initWithTitle:title Value:nil];
     

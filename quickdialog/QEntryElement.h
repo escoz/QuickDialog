@@ -25,7 +25,6 @@
 @property(nonatomic, strong) NSString *textValue;
 @property(nonatomic, strong) NSString *placeholder;
 @property(assign) BOOL hiddenToolbar;
-@property(assign) BOOL isPassword;
 
 @property(nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;         // default is UITextAutocorrectionTypeDefault
