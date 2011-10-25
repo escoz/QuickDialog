@@ -20,13 +20,32 @@
 @synthesize textValue = _textValue;
 @synthesize placeholder = _placeholder;
 @synthesize hiddenToolbar = _hiddenToolbar;
-@synthesize isPassword = _isPassword;
+
+
+- (void)setIsPassword:(BOOL)isPassword {
+    self.secureTextEntry = isPassword;
+}
+- (BOOL)isPassword {
+    return self.secureTextEntry;
+}
 
 
 - (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
     self = [self initWithTitle:title Value:nil];
-    _textValue = value;
-    _placeholder = placeholder;
+    
+    if (self) {
+        _textValue = value;
+        _placeholder = placeholder;
+        
+        self.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+        self.autocorrectionType = UITextAutocorrectionTypeDefault;
+        self.keyboardType = UIKeyboardTypeDefault;
+        self.keyboardAppearance = UIKeyboardAppearanceDefault;
+        self.returnKeyType = UIReturnKeyDefault;
+        self.enablesReturnKeyAutomatically = NO;
+        self.secureTextEntry = NO;
+    }
+    
     return self;
 }
 
@@ -53,5 +72,15 @@
 	[obj setValue:_textValue forKey:_key];
 }
 
+
+#pragma mark - UITextInputTraits
+
+@synthesize autocorrectionType = _autocorrectionType;
+@synthesize autocapitalizationType = _autocapitalizationType;
+@synthesize keyboardType = _keyboardType;
+@synthesize keyboardAppearance = _keyboardAppearance;
+@synthesize returnKeyType = _returnKeyType;
+@synthesize enablesReturnKeyAutomatically = _enablesReturnKeyAutomatically;
+@synthesize secureTextEntry = _secureTextEntry;
 
 @end

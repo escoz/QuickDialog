@@ -321,6 +321,56 @@
     return root;
 }
 
+
++ (QRootElement *)createEntryRoot {
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Entry";
+    root.grouped = YES;
+    
+    QSection *firstSection = [[QSection alloc] initWithTitle:@"Entry Elements"];
+    
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"placeholder"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Title" Value:nil Placeholder:@"text here"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" Value:@"" Placeholder:@"text"]];
+    
+    [root addSection:firstSection];
+    
+    QSection *traitsSection = [[QSection alloc] initWithTitle:@"UITextInputTraits"];
+    
+    QEntryElement *secureElement = [[QEntryElement alloc] initWithTitle:@"Secure" Value:@"" Placeholder:@"YES"];
+    secureElement.secureTextEntry = YES;
+    [traitsSection addElement:secureElement];
+    
+    QEntryElement *keyboardTypeElement = [[QEntryElement alloc] initWithTitle:@"KB Type" Value:@"" Placeholder:@"NumberPad"];
+    keyboardTypeElement.keyboardType = UIKeyboardTypeNumberPad;
+    [traitsSection addElement:keyboardTypeElement];
+    
+    QEntryElement *keyboardAppearanceElement = [[QEntryElement alloc] initWithTitle:@"KB Appearance" Value:@"" Placeholder:@"Alert"];
+    keyboardAppearanceElement.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [traitsSection addElement:keyboardAppearanceElement];
+    
+    QEntryElement *correctionElement = [[QEntryElement alloc] initWithTitle:@"Correction" Value:@"" Placeholder:@"No"];
+    correctionElement.autocorrectionType = UITextAutocorrectionTypeNo;
+    [traitsSection addElement:correctionElement];
+    
+    QEntryElement *capitalizationElement = [[QEntryElement alloc] initWithTitle:@"Capitalization" Value:@"" Placeholder:@"AllCharacters"];
+    capitalizationElement.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
+    [traitsSection addElement:capitalizationElement];
+    
+    QEntryElement *googleElement = [[QEntryElement alloc] initWithTitle:@"Return Key" Value:@"" Placeholder:@"Google"];
+    googleElement.returnKeyType = UIReturnKeyGoogle;
+    [traitsSection addElement:googleElement];
+    
+    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto-Enable Return" Value:@"" Placeholder:@"YES"];
+    enableReturnElement.enablesReturnKeyAutomatically = YES;
+    [traitsSection addElement:enableReturnElement];
+    
+    [root addSection:traitsSection];
+    
+    return root;
+}
+
+
 + (QRootElement *)createSortingRoot {
 
     QRootElement *root = [[QRootElement alloc] init];
@@ -414,6 +464,7 @@
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
 
     [sectionElements addElement:[self createLabelsRoot]];
+    [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];

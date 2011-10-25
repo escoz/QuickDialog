@@ -13,7 +13,7 @@
 //
 #import "QLabelElement.h"
 
-@interface QEntryElement : QLabelElement {
+@interface QEntryElement : QLabelElement <UITextInputTraits> {
 
 @private
     NSString *_placeholder;
@@ -23,11 +23,18 @@
     BOOL _isPassword;
 }
 
-
 @property(nonatomic, strong) NSString *textValue;
 @property(nonatomic, strong) NSString *placeholder;
 @property(assign) BOOL hiddenToolbar;
 @property(assign) BOOL isPassword;
+
+@property(nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
+@property(nonatomic) UITextAutocorrectionType autocorrectionType;         // default is UITextAutocorrectionTypeDefault
+@property(nonatomic) UIKeyboardType keyboardType;                         // default is UIKeyboardTypeDefault
+@property(nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
+@property(nonatomic) UIReturnKeyType returnKeyType;                       // default is UIReturnKeyDefault (See note under UIReturnKeyType enum)
+@property(nonatomic) BOOL enablesReturnKeyAutomatically;                  // default is NO (when YES, will automatically disable return key when text widget has zero-length contents, and will automatically enable when text widget has non-zero-length contents)
+@property(nonatomic,getter=isSecureTextEntry) BOOL secureTextEntry;       // default is NO
 
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
 @end
