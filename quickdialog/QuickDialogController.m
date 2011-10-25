@@ -12,6 +12,14 @@
 // permissions and limitations under the License.
 //
 
+
+@interface QuickDialogController ()
+
++ (Class)controllerClassForRoot:(QRootElement *)root;
+
+@end
+
+
 @implementation QuickDialogController
 
 @synthesize root = _root;
@@ -74,34 +82,37 @@
     [self displayViewController:newController];
 }
 
-+ (QuickDialogController *)buildControllerWithClass:(Class)controllerClass buildControllerWithClass:(QRootElement *)root {
++ (QuickDialogController *)buildControllerWithClass:(Class)controllerClass root:(QRootElement *)root {
     controllerClass = controllerClass==nil? [QuickDialogController class] : controllerClass;
     return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
 }
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root {
-    Class controllerClass = nil;
-    if (root.controllerName!=NULL){
-        controllerClass = NSClassFromString(root.controllerName);
-    } else {
-        controllerClass = [self class];
-    }
-    return [QuickDialogController buildControllerWithClass:controllerClass buildControllerWithClass:root];
+    Class controllerClass = [[self class] controllerClassForRoot:root];
+    return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root {
+    Class controllerClass = [self controllerClassForRoot:root];
+    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+}
+
+
++ (Class)controllerClassForRoot:(QRootElement *)root {
     Class controllerClass = nil;
     if (root.controllerName!=NULL){
         controllerClass = NSClassFromString(root.controllerName);
     } else {
         controllerClass = [self class];
     }
-    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+    return controllerClass;
 }
 
 + (UINavigationController*)controllerWithNavigationForRoot:(QRootElement *)root {
-    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController buildControllerWithClass:nil buildControllerWithClass:root]] ;
+    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController
+                                                                       buildControllerWithClass:[self controllerClassForRoot:root]
+                                                                       root:root]];
 }
 
 @end
