@@ -14,6 +14,7 @@
 
 #import "QEntryTableViewCell.h"
 #import "QEntryElement.h"
+#import "NSString+PhoneNumberFormatting.h"
 
 @interface QEntryTableViewCell ()
 - (void)previousNextDelegate:(UISegmentedControl *)control;
@@ -63,6 +64,7 @@
 - (QEntryTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
     if (self!=nil){
+        myTextFieldSemaphore = 0;
         [self createSubviews];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
@@ -99,9 +101,11 @@
     _quickformTableView = tableView;
     _entryElement = element;
     [self recalculateEntryFieldPosition];
-    _textField.text = _entryElement.textValue;
+    // NOTE: next line throws error when using QDateTimeInlineElement
+    //_textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
     _textField.secureTextEntry = _entryElement.isPassword;
+    _textField.keyboardType = _entryElement.isNumeric ? UIKeyboardTypeNumberPad : UIKeyboardTypeDefault; 
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
     } else {
@@ -123,7 +127,19 @@
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
-   _entryElement.textValue = _textField.text;
+    
+    if (_entryElement.isPhoneNumber) {
+        
+        if(myTextFieldSemaphore) return;
+        
+        myTextFieldSemaphore = 1;
+        
+        _textField.text = [[_textField text] formattedPhoneNumberForLocale:xPhoneNumberLocale_US];
+        
+        myTextFieldSemaphore = 0;
+    }
+    
+    _entryElement.textValue = _textField.text;    
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

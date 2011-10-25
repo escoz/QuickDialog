@@ -21,7 +21,8 @@
 @synthesize placeholder = _placeholder;
 @synthesize hiddenToolbar = _hiddenToolbar;
 @synthesize isPassword = _isPassword;
-
+@synthesize isNumeric = _isNumeric;
+@synthesize isPhoneNumber = _isPhoneNumber;
 
 - (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
     self = [self initWithTitle:title Value:nil];
@@ -32,7 +33,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
+    QEntryTableViewCell *cell = (QEntryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }

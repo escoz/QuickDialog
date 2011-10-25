@@ -21,6 +21,8 @@
 
     BOOL _hiddenToolbar;
     BOOL _isPassword;
+    BOOL _isNumeric;
+    BOOL _isPhoneNumber;
 }
 
 
@@ -28,6 +30,8 @@
 @property(nonatomic, strong) NSString *placeholder;
 @property(assign) BOOL hiddenToolbar;
 @property(assign) BOOL isPassword;
+@property(assign) BOOL isNumeric;
+@property(assign) BOOL isPhoneNumber;
 
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
 @end
