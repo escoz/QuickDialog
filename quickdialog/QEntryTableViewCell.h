@@ -25,7 +25,7 @@
     UITextField *_textField;
 
 @protected
-    QuickDialogTableView *_quickformTableView;
+    __unsafe_unretained QuickDialogTableView *_quickformTableView;
     UIToolbar *_actionBar;
 }
 

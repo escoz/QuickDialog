@@ -17,7 +17,7 @@
 @interface QuickDialogDataSource : NSObject<UITableViewDataSource> {
 
 @private
-    QuickDialogTableView *_tableView;
+    __unsafe_unretained QuickDialogTableView *_tableView;
 }
 - (id <UITableViewDataSource, NSObject>)initForTableView:(QuickDialogTableView *)view;
 
