@@ -112,7 +112,6 @@
 /* Begin PBXFileReference section */
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
-		2CE450AA145AE11600B77D0E /* CopyHeadersToLegacyBuildDir.command */ = {isa = PBXFileReference; lastKnownFileType = file; name = CopyHeadersToLegacyBuildDir.command; path = libQuickDialog/CopyHeadersToLegacyBuildDir.command; sourceTree = "<group>"; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -241,7 +240,6 @@
 		2CE450A8145ADF8000B77D0E /* libQuickDialog */ = {
 			isa = PBXGroup;
 			children = (
-				2CE450AA145AE11600B77D0E /* CopyHeadersToLegacyBuildDir.command */,
 				2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */,
 			);
 			name = libQuickDialog;
@@ -477,7 +475,6 @@
 				2C54238F145ADEBD0026A152 /* Sources */,
 				2C542390145ADEBD0026A152 /* Frameworks */,
 				2C542391145ADEBD0026A152 /* Headers */,
-				2CE450AB145AE22C00B77D0E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -552,22 +549,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2CE450AB145AE22C00B77D0E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/bin/sh libQuickDialog/CopyHeadersToLegacyBuildDir.command";
-			shellScript = "";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C54238F145ADEBD0026A152 /* Sources */ = {
