@@ -23,7 +23,7 @@
 @interface QuickDialogTableDelegate : NSObject<UITableViewDelegate> {
 
 @private
-    QuickDialogTableView *_tableView;
+    __unsafe_unretained QuickDialogTableView *_tableView;
 }
 
 - (id<UITableViewDelegate, UIScrollViewDelegate>)initForTableView:(QuickDialogTableView *)tableView;
