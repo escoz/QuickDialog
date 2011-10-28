@@ -5,8 +5,9 @@
 #ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
+#import <QuickDialog/QuickDialog.h>
 #import "ExampleAppDelegate.h"
 
-#import "QuickDialog.h"
+
 
 #endif
