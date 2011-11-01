@@ -55,6 +55,7 @@
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.contentView addSubview:_textField];
 
     [self setNeedsLayout];
@@ -71,7 +72,7 @@
 
 - (CGRect)calculateFrameForEntryElement {
     if (_entryElement.title == NULL) {
-        return CGRectMake(10,10,self.contentView.frame.size.width-30, 24);
+        return CGRectMake(10,10,self.contentView.frame.size.width-10, 24);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -86,8 +87,7 @@
             }
         }
 
-        CGFloat separator = titleWidth > 0 ? 20 : 0;
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+separator,10,totalWidth-titleWidth-(separator*2),24);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+10,10,totalWidth-titleWidth-10,24);
     }
 
     return _entryElement.parentSection.entryPosition;
