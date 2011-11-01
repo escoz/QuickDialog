@@ -15,6 +15,8 @@
 
 #import "QuickDialogController.h"
 #import "QuickDialogController+Loading.h"
+#import "QuickDialogTableView.h"
+#import "QuickDialogTableDelegate.h"
 #import "QuickDialogStyleProvider.h"
 #import "QLabelElement.h"
 #import "QBadgeElement.h"
