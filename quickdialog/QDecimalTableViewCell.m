@@ -38,6 +38,7 @@
     _textField.keyboardType = UIKeyboardTypeDecimalPad;
     _textField.delegate = self;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.contentView addSubview:_textField];
 
     [self setNeedsLayout];
