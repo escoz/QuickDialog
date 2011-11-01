@@ -39,13 +39,16 @@
         cell.textLabel.font = _font;
         cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
         cell.textLabel.numberOfLines = 0;
-        cell.textLabel.textColor = _color;
+        if([cell.textLabel respondsToSelector:@selector(textLabel:)]) {
+            cell.textLabel.textColor = _color;
+        }
         cell.textLabel.text = _text;
     }
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
+    self.onSelected();
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
@@ -56,6 +59,13 @@
     CGSize constraint = CGSizeMake(300, 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
     return size.height+20;
+}
+
+- (void)fetchValueIntoObject:(id)obj {
+	if (_key==nil)
+		return;
+	
+	[obj setValue:_text forKey:_key];
 }
 
 @end
