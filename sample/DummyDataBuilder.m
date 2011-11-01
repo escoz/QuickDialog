@@ -12,8 +12,12 @@
 // permissions and limitations under the License.
 //
 
+#import <Foundation/Foundation.h>
 #import "LoginController.h"
 #import "DummyDataBuilder.h"
+#import "QRootElement.h"
+#import "QSection.h"
+#import "QRootElement+JSONBuilder.h"
 
 @implementation DummyDataBuilder
 
@@ -461,6 +465,7 @@
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];
 
+
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
 
     [sectionElements addElement:[self createLabelsRoot]];
@@ -471,12 +476,16 @@
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
     [sectionElements addElement:[self createSortingRoot]];
-	
 	[sectionElements addElement:[self createWithInitDefault]];
 	[sectionElements addElement:[self createWithInitAndKey]];
 
+
+    QSection *sectionJson = [[QSection alloc] initWithTitle:@"JSON Samples"];
+    [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"form"]];
+
 	[root addSection:sectionSamples];
     [root addSection:sectionElements];
+    [root addSection:sectionJson];
 
 
     return root;

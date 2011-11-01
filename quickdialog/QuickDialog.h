@@ -18,6 +18,8 @@
 #import "QuickDialogTableView.h"
 #import "QuickDialogTableDelegate.h"
 #import "QuickDialogStyleProvider.h"
+#import "QRootElement+JSONBuilder.h"
+#import "QRootElement.h"
 #import "QLabelElement.h"
 #import "QBadgeElement.h"
 #import "QBooleanElement.h"
