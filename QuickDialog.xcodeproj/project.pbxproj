@@ -95,6 +95,7 @@
 		D811F90C13EC907200E3922B /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F813EC907200E3922B /* logo@2x.png */; };
 		D86035C413E0538600CB1785 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; };
 		D86035C613E0539A00CB1785 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; };
+		D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A3DD86146045F000DE3528 /* Localizable.strings */; };
 		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
 		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
 /* End PBXBuildFile section */
@@ -203,6 +204,7 @@
 		D811F8F813EC907200E3922B /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		D86035C313E0538600CB1785 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D86035C513E0539A00CB1785 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D8A3DD86146045F000DE3528 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = sample/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		D8F180E513F0599A009B0C96 /* quickdialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quickdialog.png; sourceTree = "<group>"; };
 		D8F180E613F0599A009B0C96 /* quickdialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quickdialog@2x.png"; sourceTree = "<group>"; };
 		D8F180E813F0599A009B0C97 /* QDecimalElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QDecimalElement.m; path = quickdialog/QDecimalElement.m; sourceTree = SOURCE_ROOT; };
@@ -296,7 +298,6 @@
 				D811F8EE13EC907200E3922B /* ExampleViewController.m */,
 				D811F8EF13EC907200E3922B /* Resources */,
 				D80B0E3E13E052DF00FA85CA /* Supporting Files */,
-				D8F180E813F0599A009B0C9D /* sample */,
 			);
 			name = sample;
 			path = quickformexample;
@@ -305,6 +306,7 @@
 		D80B0E3E13E052DF00FA85CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D8A3DD86146045F000DE3528 /* Localizable.strings */,
 				D811F8E813EC907200E3922B /* main.m */,
 				D811F8E913EC907200E3922B /* quickdialogexample-Info.plist */,
 				D811F8EA13EC907200E3922B /* quickdialogexample-Prefix.pch */,
@@ -411,14 +413,6 @@
 			);
 			name = quickdialog;
 			path = quickform;
-			sourceTree = "<group>";
-		};
-		D8F180E813F0599A009B0C9D /* sample */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = sample;
-			path = quickformexample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,6 +539,7 @@
 				D811F90C13EC907200E3922B /* logo@2x.png in Resources */,
 				D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */,
 				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
+				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
