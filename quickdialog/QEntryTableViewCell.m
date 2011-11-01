@@ -32,11 +32,11 @@
         [_actionBar sizeToFit];
         _actionBar.barStyle = UIBarStyleBlackTranslucent;
 
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
                                                                        style:UIBarButtonItemStyleDone target:self
                                                                       action:@selector(textFieldMustReturn:)];
 
-        _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Previous", @"Next", nil]];
+        _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
         _prevNext.momentary = YES;
         _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
         _prevNext.tintColor = [UIColor darkGrayColor];
@@ -172,6 +172,7 @@
 	QEntryElement *element; 
 	if (control.selectedSegmentIndex == 1){
 		element = [self findNextElementToFocusOn];
+      
 		
 	} else {
 		element = [self findPreviousElementToFocusOn];
@@ -180,9 +181,10 @@
 		UITableViewCell *cell = [_quickformTableView cellForElement:element];
 		if (cell!=nil){
 			[cell becomeFirstResponder];
+            NSIndexPath *indexPath = [_quickformTableView indexPathForCell: cell];
+            [_quickformTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 		}
 	}
-	
 }
 
 
