@@ -34,3 +34,4 @@
 #import "QDecimalElement.h"
 #import "QSortingSection.h"
 #import "QDateTimeElement.h"
+#import "QWebViewController.h"
