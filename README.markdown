@@ -29,8 +29,8 @@ The easiest way to do add QuickDialog to your existing project is to add it as a
 
 Terminal:
 
-- cd __project-ocation__
-- git submodule add git@github.com:escoz/QuickDialog.git
+- ```cd *your-project-location*```
+- ```git submodule add git@github.com:escoz/QuickDialog.git```
 	
 this will copy the code from github automatically for you, so you can update it in the future easily.
 
