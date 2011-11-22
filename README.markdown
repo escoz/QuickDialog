@@ -28,12 +28,14 @@ And if you don't like the basic look of controls, simply override one method and
 The easiest way to do add QuickDialog to your existing project is to add it as a git SubModule, and then import the project as part of yours:
 
 Terminal:
+
 - cd __project-ocation__
 - git submodule add git@github.com:escoz/QuickDialog.git
 	
 this will copy the code from github automatically for you, so you can update it in the future easily.
 
 In Xcode:
+
 - open YOUR existing project (or create a new one)
 - drag and drop the QuickDialog.xcodeproj file downloaded from github previously from Finder to your project (either root or under Frameworks)
 	
@@ -43,7 +45,7 @@ In Xcode:
 
 - In YOUR Prefix.pch file, add:
 
-    #import <QuickDialog/QuickDialog.h>
+    ```#import <QuickDialog/QuickDialog.h>```
 
 Now build and run your project.
 
