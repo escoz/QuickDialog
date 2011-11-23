@@ -1,18 +1,8 @@
 {
 	"grouped": true,
-	"title": "Welcome to JSON",
-    "controllerName": "LoginController",
+	"title": "Sample Controls",
 	"root": [
-		{ "title":"Sample Login", "footer":"Please type your credentials.", "elements": [
-				{ "type":"QEntryElement", "key":"login",  "title":"Login","placeholder":"Login or email"},
-				{  "type":"QEntryElement","key":"password", "title":"Password", "placeholder":"Password",  "secureTextEntry":true }
-			]
-		},
-		{ "elements":[
-                { "type":"QButtonElement", "id":"button", "title":"Login", "controllerAction":"onLogin:"}
-			]
-		},
-        { "title":"Testing Entry elements", "elements":[
+        { "title":"Entry Elements", "elements":[
 
             {  "type":"QEntryElement", "title":"secureTextEntry", "placeholder":"Text", "secureTextEntry":true },
             {  "type":"QEntryElement", "title":"enablesReturnKey", "placeholder":"Text", "enablesReturnKeyAutomatically":true },

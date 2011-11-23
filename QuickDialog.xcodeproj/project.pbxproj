@@ -96,11 +96,12 @@
 		D86035C413E0538600CB1785 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; };
 		D86035C613E0539A00CB1785 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; };
 		D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A3DD86146045F000DE3528 /* Localizable.strings */; };
-		D8A3DD9814604C9F00DE3528 /* form.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9F /* form.json */; };
+		D8A3DD9814604C9F00DE3528 /* loginform.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9F /* loginform.json */; };
 		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
 		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
 		D8F180E813F0599A009B0CA2 /* QRootElement+JSONBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA1 /* QRootElement+JSONBuilder.m */; };
 		D8F180E813F0599A009B0CA4 /* QRootElement+JSONBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA3 /* QRootElement+JSONBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D8F180E813F0599A009B0CA6 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA5 /* sample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,9 +216,10 @@
 		D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QDecimalTableViewCell.m; path = quickdialog/QDecimalTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0C9C /* QDecimalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QDecimalTableViewCell.h; path = quickdialog/QDecimalTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0C9E /* QuickDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialog.h; path = quickdialog/QuickDialog.h; sourceTree = SOURCE_ROOT; };
-		D8F180E813F0599A009B0C9F /* form.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = form.json; sourceTree = "<group>"; };
+		D8F180E813F0599A009B0C9F /* loginform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginform.json; sourceTree = "<group>"; };
 		D8F180E813F0599A009B0CA1 /* QRootElement+JSONBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QRootElement+JSONBuilder.m"; path = "quickdialog/QRootElement+JSONBuilder.m"; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CA3 /* QRootElement+JSONBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QRootElement+JSONBuilder.h"; path = "quickdialog/QRootElement+JSONBuilder.h"; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CA5 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = sample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,7 +334,8 @@
 		D811F8EF13EC907200E3922B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D8F180E813F0599A009B0C9F /* form.json */,
+				D8F180E813F0599A009B0CA5 /* sample.json */,
+				D8F180E813F0599A009B0C9F /* loginform.json */,
 				D8F180E513F0599A009B0C96 /* quickdialog.png */,
 				D8F180E613F0599A009B0C96 /* quickdialog@2x.png */,
 				D811F8F013EC907200E3922B /* footer.png */,
@@ -538,7 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8A3DD9814604C9F00DE3528 /* form.json in Resources */,
+				D8A3DD9814604C9F00DE3528 /* loginform.json in Resources */,
 				D811F90413EC907200E3922B /* footer.png in Resources */,
 				D811F90513EC907200E3922B /* footer@2x.png in Resources */,
 				D811F90613EC907200E3922B /* imgOff.png in Resources */,
@@ -551,6 +554,7 @@
 				D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */,
 				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
 				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
+				D8F180E813F0599A009B0CA6 /* sample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

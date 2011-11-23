@@ -481,7 +481,8 @@
 
 
     QSection *sectionJson = [[QSection alloc] initWithTitle:@"JSON Samples"];
-    [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"form"]];
+    [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
+    [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];
 
 	[root addSection:sectionSamples];
     [root addSection:sectionElements];
