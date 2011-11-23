@@ -15,6 +15,7 @@
 @implementation QSection {
 @private
     NSString *_headerImage;
+    NSString *_footerImage;
 }
 @synthesize title;
 @synthesize footer;
@@ -25,10 +26,16 @@
 @synthesize footerView = _footerView;
 @synthesize entryPosition = _entryPosition;
 @synthesize headerImage = _headerImage;
+@synthesize footerImage = _footerImage;
 
 
 - (BOOL)needsEditing {
     return NO;
+}
+
+- (void)setFooterImage:(NSString *)imageName {
+    _footerImage = imageName;
+    self.footerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_footerImage]];
 }
 
 - (void)setHeaderImage:(NSString *)imageName {
