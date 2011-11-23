@@ -12,15 +12,12 @@
 // permissions and limitations under the License.
 //
 
-#import "QRootElement.h"
-#import "QRadioElement.h"
-#import "QRadioItemElement.h"
-
 @implementation QRadioElement {
 
 }
 @synthesize selected = _selected;
 @synthesize values = _values;
+@synthesize items = _items;
 
 
 - (void)createElements {
@@ -34,10 +31,6 @@
     }
 }
 
-- (NSArray *)items {
-    return _items;
-}
-
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
     return self;
@@ -46,8 +39,8 @@
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
     self = [super init];
     if (self!=nil){
-        _items = stringArray;
-        _selected = selected;
+        self.items = stringArray;
+        self.selected = selected;
         [self createElements];
         self.title = title;
     }
