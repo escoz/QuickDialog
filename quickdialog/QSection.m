@@ -12,8 +12,10 @@
 // permissions and limitations under the License.
 //
 
-@implementation QSection
-
+@implementation QSection {
+@private
+    NSString *_headerImage;
+}
 @synthesize title;
 @synthesize footer;
 @synthesize elements;
@@ -22,10 +24,16 @@
 @synthesize headerView = _headerView;
 @synthesize footerView = _footerView;
 @synthesize entryPosition = _entryPosition;
+@synthesize headerImage = _headerImage;
 
 
 - (BOOL)needsEditing {
     return NO;
+}
+
+- (void)setHeaderImage:(NSString *)imageName {
+    _headerImage = imageName;
+    self.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_headerImage]];
 }
 
 - (QSection *)initWithTitle:(NSString *)sectionTitle {

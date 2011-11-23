@@ -41,8 +41,11 @@
 @property(nonatomic, readonly) BOOL needsEditing;
 
 @property(nonatomic, retain) UIView *headerView;
+@property(nonatomic, retain) NSString *headerImage;
+
 @property(nonatomic, retain) UIView *footerView;
 @property(nonatomic) CGRect entryPosition;
+
 
 - (QSection *)initWithTitle:(NSString *)string;
 

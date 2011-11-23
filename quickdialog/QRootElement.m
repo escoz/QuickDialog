@@ -12,9 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QElement.h"
-#import "QRootElement.h"
-
 @implementation QRootElement
 
 @synthesize title = _title;

@@ -89,7 +89,7 @@
     root.title = @"Login";
 
     QSection *main = [[QSection alloc] init];
-    main.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    main.headerImage = @"logo";
 
     QEntryElement *login = [[QEntryElement alloc] init];
     login.title = @"Username";

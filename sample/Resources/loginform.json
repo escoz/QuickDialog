@@ -1,9 +1,9 @@
 {
 	"grouped": true,
-	"title": "Welcome to JSON",
+	"title": "Login Form",
     "controllerName": "LoginController",
 	"root": [
-		{ "title":"Sample Login", "footer":"Please type your credentials.", "elements": [
+		{ "title":"Awesome Login Form", "headerImage":"logo", "footer":"Please type your credentials.", "elements": [
 				{ "type":"QEntryElement", "key":"login",  "title":"Login","placeholder":"Login or email"},
 				{  "type":"QEntryElement","key":"password", "title":"Password", "placeholder":"Password",  "secureTextEntry":true }
 			]
