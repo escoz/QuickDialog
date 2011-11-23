@@ -23,6 +23,32 @@ QuickDialog support many different built-in types of elements for your forms, li
 
 And if you don't like the basic look of controls, simply override one method and you'll have full control of the cells being displayed. Can't get much simpler than that!
 
+## How to add QuickDialog to your project
+
+The easiest way to do add QuickDialog to your existing project is to add it as a git SubModule, and then import the project as part of yours:
+
+Terminal:
+
+- ```cd *your-project-location*```
+- ```git submodule add git@github.com:escoz/QuickDialog.git```
+	
+this will copy the code from github automatically for you, so you can update it in the future easily.
+
+In Xcode:
+
+- open YOUR existing project (or create a new one)
+- drag and drop the QuickDialog.xcodeproj file downloaded from github previously from Finder to your project (either root or under Frameworks)
+	
+- In YOUR project configuration:
+	- in the Build Phases, Add QuickDialog (the lib, not the example app) as a Target Dependency
+	- in the Link Binary With Libraries section, add the libQuickDialog.a library
+
+- In YOUR Prefix.pch file, add:
+
+    ```#import <QuickDialog/QuickDialog.h>```
+
+Now build and run your project.
+
 ## How to use it
 
 In order to use the QuickDialog library on your project, you'll have to first import the code or link the project to your own. 
