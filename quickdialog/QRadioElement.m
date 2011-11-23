@@ -82,9 +82,9 @@
         return;
 
     if (_values==nil){
-        [obj setObject:[NSNumber numberWithInt:_selected] forKey:_key];
+        [obj setValue:[NSNumber numberWithInt:_selected] forKey:_key];
     } else {
-        [obj setObject:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
+        [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
     }
 }
 
