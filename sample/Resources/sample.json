@@ -12,6 +12,19 @@
             {  "type":"QEntryElement", "title":"keyboardAppearance", "placeholder":"Alert",  "keyboardAppearance":"Alert" },
             {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
             ]
+        } ,
+        { "title":"Controls", "elements":[
+            {"type":"QLabelElement", "title":"Label"},
+            {"type":"QBadgeElement",  "title":"Badge"},
+            {"type":"QBooleanElement", "title":"Boolean"},
+            {"type":"QButtonElement", "title":"Button"},
+            {"type":"QDateTimeInlineElement", "title":"DateTime Inline"},
+            {"type":"QFloatElement", "title":"Float"},
+            {"type":"QMapElement", "title":"Map"},
+            {"type":"QRadioElement", "title":"Radio"},
+            {"type":"QTextElement",  "text":"Text Element"},
+            {"type":"QWebElement",  "title":"Web", "url":"http://escoz.com"}
+        ]
         }
 	]
 

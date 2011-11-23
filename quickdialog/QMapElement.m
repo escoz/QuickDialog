@@ -17,6 +17,8 @@
 
 @implementation QMapElement
 
+@synthesize coordinate = _coordinate;
+
 - (QMapElement *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [super init];
     _title = title;

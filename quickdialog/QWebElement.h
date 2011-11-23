@@ -21,6 +21,8 @@
     NSString *_url;
 }
 
+@property(nonatomic, strong) NSString *url;
+
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url;
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path;

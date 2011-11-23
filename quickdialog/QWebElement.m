@@ -12,10 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import "QWebElement.h"
-#import "QWebViewController.h"
-
 @implementation QWebElement
+
+@synthesize url = _url;
 
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url {
 
