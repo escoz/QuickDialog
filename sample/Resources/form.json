@@ -18,9 +18,9 @@
             {  "type":"QEntryElement", "title":"enablesReturnKey", "placeholder":"Text", "enablesReturnKeyAutomatically":true },
             {  "type":"QEntryElement", "title":"autocapitalizationType", "placeholder":"Words",  "autocapitalizationType":"Words" },
             {  "type":"QEntryElement", "title":"autocorrectionType", "placeholder":"No",  "autocorrectionType":"No" },
-            {  "type":"QEntryElement", "title":"Password", "placeholder":"Text",  "keyboardType":true },
-            {  "type":"QEntryElement", "title":"Password", "placeholder":"Text",  "keyboardAppearance":true },
-            {  "type":"QEntryElement", "title":"Password", "placeholder":"Text",  "returnKeyType":true }
+            {  "type":"QEntryElement", "title":"keyboardType", "placeholder":"PhonePad",  "keyboardType":"PhonePad" },
+            {  "type":"QEntryElement", "title":"keyboardAppearance", "placeholder":"Alert",  "keyboardAppearance":"Alert" },
+            {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
             ]
         }
 	]

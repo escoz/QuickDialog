@@ -68,6 +68,42 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
                                     [NSNumber numberWithInt:UITextAutocorrectionTypeYes], @"Yes",
                                     nil], @"autocorrectionType",
 
+
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:UIKeyboardTypeDefault], @"Default",
+                                    [NSNumber numberWithInt:UIKeyboardTypeASCIICapable], @"ASCIICapable",
+                                    [NSNumber numberWithInt:UIKeyboardTypeNumbersAndPunctuation], @"NumbersAndPunctuation",
+                                    [NSNumber numberWithInt:UIKeyboardTypeURL], @"URL",
+                                    [NSNumber numberWithInt:UIKeyboardTypeNumberPad], @"NumberPad",
+                                    [NSNumber numberWithInt:UIKeyboardTypePhonePad], @"PhonePad",
+                                    [NSNumber numberWithInt:UIKeyboardTypeNamePhonePad], @"NamePhonePad",
+                                    [NSNumber numberWithInt:UIKeyboardTypeEmailAddress], @"EmailAddress",
+                                    [NSNumber numberWithInt:UIKeyboardTypeDecimalPad], @"DecimalPad",
+                                    [NSNumber numberWithInt:UIKeyboardTypeTwitter], @"Twitter",
+                                    [NSNumber numberWithInt:UIKeyboardTypeAlphabet], @"Alphabet",
+                                    nil], @"keyboardType",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                            [NSNumber numberWithInt:UIKeyboardAppearanceDefault], @"Default",
+                                    [NSNumber numberWithInt:UIKeyboardAppearanceAlert], @"Alert",
+                                    nil], @"keyboardAppearance",
+
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:UIReturnKeyDefault], @"Default",
+                                    [NSNumber numberWithInt:UIReturnKeyGo], @"Go",
+                                    [NSNumber numberWithInt:UIReturnKeyGoogle], @"Google",
+                                    [NSNumber numberWithInt:UIReturnKeyJoin], @"Join",
+                                    [NSNumber numberWithInt:UIReturnKeyNext], @"Next",
+                                    [NSNumber numberWithInt:UIReturnKeyRoute], @"Route",
+                                    [NSNumber numberWithInt:UIReturnKeySearch], @"Search",
+                                    [NSNumber numberWithInt:UIReturnKeySend], @"Send",
+                                    [NSNumber numberWithInt:UIReturnKeyYahoo], @"Yahoo",
+                                    [NSNumber numberWithInt:UIReturnKeyDone], @"Done",
+                                    [NSNumber numberWithInt:UIReturnKeyEmergencyCall], @"EmergencyCall",
+                                    nil], @"returnKeyType",
+
                     nil];
 
         NSError *jsonParsingError = nil;
