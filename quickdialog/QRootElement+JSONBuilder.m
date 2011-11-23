@@ -8,17 +8,18 @@
 
 @implementation QRootElement (JSONBuilder)
 
-- (void)updateObject:(id)section withPropertiesFrom:(NSDictionary *)dict {
+- (void)updateObject:(id)obj withPropertiesFrom:(NSDictionary *)dict {
     for (NSString *key in dict.allKeys){
         id value = [dict valueForKey:key];
-        if ([value isKindOfClass:[NSString class]] && [section respondsToSelector:NSSelectorFromString(key)]) {
-            [section setValue:value forKey:key];
+        if ([value isKindOfClass:[NSString class]] && [obj respondsToSelector:NSSelectorFromString(key)]) {
+            [obj setValue:value forKey:key];
+        } else if ([value isKindOfClass:[NSNumber class]]){
+            [obj setValue:value forKey:key];
         }
     }
 }
 
 - (QElement *)buildElementWithJson:(NSDictionary *)dict {
-    NSLog(@"element %@", dict);
     QElement *element = [[NSClassFromString([dict valueForKey:@"type"]) alloc] init];
     if (element==nil)
             return nil;
@@ -26,7 +27,7 @@
     return element;
 }
 
-- (void)buildSectionWithJson:(NSDictionary *)dict {
+- (void)buildSectionWithJSON:(NSDictionary *)dict {
     QSection *sect = [[QSection alloc] init];
     [self updateObject:sect withPropertiesFrom:dict];
     [self addSection:sect];
@@ -37,9 +38,8 @@
 
 - (void)buildRootWithJSON:(NSDictionary *)dict {
     [self updateObject:self withPropertiesFrom:dict];
-    self.grouped = [[dict valueForKey:@"grouped"] boolValue];
     for (id section in (NSArray *)[dict valueForKey:@"root"]){
-        [self buildSectionWithJson:section];
+        [self buildSectionWithJSON:section];
     }
 }
 

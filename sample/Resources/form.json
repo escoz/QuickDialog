@@ -5,11 +5,11 @@
 	"root": [
 		{ "title":"Sample Login", "footer":"Please type your credentials.", "elements": [
 				{ "type":"QEntryElement", "key":"login",  "caption":"Login","placeholder":"Login or email"},
-				{  "type":"QEntryElement","key":"password", "caption":"Password", "placeholder":"Password"}
+				{  "type":"QEntryElement","key":"password", "caption":"Password", "placeholder":"Password",  "secureTextEntry":true }
 			]
 		},
 		{ "elements":[
-                { "type":"QButtonElement", "id":"button", "title":"Login", "controllerAction":"onLogin:" }
+                { "type":"QButtonElement", "id":"button", "title":"Login", "controllerAction":"onLogin:"}
 			]
 		}
 	]
