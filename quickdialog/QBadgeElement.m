@@ -17,6 +17,7 @@
 #import "QBadgeElement.h"
 
 @implementation QBadgeElement
+
 @synthesize badgeColor = _badgeColor;
 @synthesize badge = _badge;
 

@@ -19,12 +19,24 @@
 
 @synthesize coordinate = _coordinate;
 
+- (QMapElement *)init {
+    self = [self initWithTitle:@"" coordinate:CLLocationCoordinate2DMake(0, 0)];
+    return self;
+}
+
 - (QMapElement *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [super init];
     _title = title;
     _coordinate = coordinate;
-
     return self;
+}
+
+- (void)setLat:(double) lat {
+    _coordinate.latitude = lat;
+}
+
+- (void)setLng:(double) lng {
+    _coordinate.longitude = lng;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {

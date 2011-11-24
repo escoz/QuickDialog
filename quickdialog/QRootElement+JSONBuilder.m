@@ -14,7 +14,15 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
             continue;
 
         id value = [dict valueForKey:key];
+        
+        
         if ([value isKindOfClass:[NSString class]] && [obj respondsToSelector:NSSelectorFromString(key)]) {
+            //objc_property_t theProperty = class_getProperty([obj class], [key UTF8String]);
+            //const char * propertyAttrs = property_getAttributes(theProperty);
+            //NSLog(@"Prop type %@", propertyAttrs);
+            // at this point, propertyAttrs is equal to: T@"NSArray",&,Vstuff
+
+
             [obj setValue:value forKey:key];
             if ([QRootElementJSONBuilderConversionDict objectForKey:key]!=nil) {
                 [obj setValue:[[QRootElementJSONBuilderConversionDict objectForKey:key] objectForKey:value] forKey:key];

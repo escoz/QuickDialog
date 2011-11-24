@@ -27,4 +27,10 @@
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 
 - (QMapElement *)initWithTitle:(NSString *)string coordinate:(CLLocationCoordinate2D)param;
+
+- (void)setLat:(double)lat;
+
+- (void)setLng:(double)lng;
+
+
 @end

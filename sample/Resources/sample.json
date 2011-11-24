@@ -15,12 +15,13 @@
         } ,
         { "title":"Controls", "elements":[
             {"type":"QLabelElement", "title":"Label"},
-            {"type":"QBadgeElement",  "title":"Badge"},
-            {"type":"QBooleanElement", "title":"Boolean"},
+            {"type":"QBadgeElement",  "title":"Badge", "badge":"123"},
+            {"type":"QBooleanElement", "title":"Boolean", "boolValue":0},
+            {"type":"QBooleanElement", "title":"Boolean", "boolValue":1},
             {"type":"QButtonElement", "title":"Button"},
             {"type":"QDateTimeInlineElement", "title":"DateTime Inline"},
-            {"type":"QFloatElement", "title":"Float"},
-            {"type":"QMapElement", "title":"Map"},
+            {"type":"QFloatElement", "title":"Float", "floatValue":0.54},
+            {"type":"QMapElement", "title":"Map", "lat":-27.59, "lng":-48.55},
             {"type":"QRadioElement", "title":"Radio"},
             {"type":"QTextElement",  "text":"Text Element"},
             {"type":"QWebElement",  "title":"Web", "url":"http://escoz.com"}
