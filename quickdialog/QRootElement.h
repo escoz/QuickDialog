@@ -31,6 +31,9 @@
 
 @property(nonatomic, retain) NSString *controllerName;
 
+
+- (QRootElement *)init;
+
 - (void)addSection:(QSection *)section;
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;

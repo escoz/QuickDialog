@@ -19,6 +19,10 @@
 @synthesize grouped = _grouped;
 @synthesize controllerName = _controllerName;
 
+- (QRootElement *)init {
+    self = [super init];
+    return self;
+}
 - (void)addSection:(QSection *)section {
     if (_sections==nil)
         _sections = [[NSMutableArray alloc] init];
