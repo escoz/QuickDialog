@@ -25,6 +25,10 @@
     self = [super init];
     _text = text;
     _font = [UIFont boldSystemFontOfSize:14];
+	
+	// kf added //
+    _color = [UIColor blackColor] ;
+    
     return self;
 }
 
