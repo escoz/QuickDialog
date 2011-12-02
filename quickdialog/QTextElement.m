@@ -48,7 +48,10 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    self.onSelected();
+    if (self.onSelected) {
+        self.onSelected();
+    }
+    
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
