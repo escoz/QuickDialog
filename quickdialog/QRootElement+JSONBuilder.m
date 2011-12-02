@@ -56,13 +56,18 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 
 - (id)initWithJSONFile:(NSString *)jsonPath {
     self = [super init];
+    
+    Class JSONSerialization = objc_getClass("NSJSONSerialization");
+    
+    NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
+    
     if (self!=nil){
         if (QRootElementJSONBuilderConversionDict==nil)
             [self initializeMappings];
 
         NSError *jsonParsingError = nil;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:jsonPath ofType:@"json"];
-        NSDictionary *jsonRoot = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:&jsonParsingError];
+        NSDictionary *jsonRoot = [JSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:&jsonParsingError];
         [self buildRootWithJSON:jsonRoot];
     }
     return self;
