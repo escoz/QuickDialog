@@ -25,7 +25,7 @@
     CGRect _entryPosition;
 
 @private
-    QRootElement *_rootElement;
+    __weak QRootElement *_rootElement;
     UIView *_headerView;
     UIView *_footerView;
 }
@@ -36,7 +36,7 @@
 @property(nonatomic, retain) NSString *footer;
 
 @property(nonatomic, retain) NSMutableArray * elements;
-@property(nonatomic, retain) QRootElement *rootElement;
+@property(nonatomic, weak) QRootElement *rootElement;
 
 @property(nonatomic, readonly) BOOL needsEditing;
 

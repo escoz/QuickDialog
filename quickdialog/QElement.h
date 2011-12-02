@@ -19,7 +19,7 @@
 @interface QElement : NSObject {
 
 @protected
-    QSection __weak *_parentSection;
+    __weak QSection *_parentSection;
     NSString *_key;
 
     void (^_onSelected)(void);
