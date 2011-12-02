@@ -25,7 +25,7 @@
     self = [super init];
     _text = text;
     _font = [UIFont systemFontOfSize:14];
-
+    _color = [UIColor blackColor];
     return self;
 }
 

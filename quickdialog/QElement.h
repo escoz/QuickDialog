@@ -19,7 +19,7 @@
 @interface QElement : NSObject {
 
 @protected
-    QSection *_parentSection;
+    QSection __weak *_parentSection;
     NSString *_key;
 
     void (^_onSelected)(void);
@@ -31,7 +31,7 @@
 @property(nonatomic, retain) NSString *controllerAction;
 
 
-@property(nonatomic, retain) QSection *parentSection;
+@property(nonatomic, weak) QSection *parentSection;
 
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) NSObject *object;

@@ -15,7 +15,7 @@
 @implementation QuickDialogController (Loading)
 
 - (UIView *)createLoadingView {
-    
+
     UIView *loading = [[UIView alloc] init];
     loading.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
     loading.frame = CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height);

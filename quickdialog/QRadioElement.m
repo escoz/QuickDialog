@@ -13,8 +13,9 @@
 //
 
 @implementation QRadioElement {
-
+    QSection *_internalRadioItemsSection;
 }
+
 @synthesize selected = _selected;
 @synthesize values = _values;
 @synthesize items = _items;
@@ -22,8 +23,9 @@
 
 - (void)createElements {
     _sections = nil;
-    _parentSection = [[QSection alloc] init];
-    
+    _internalRadioItemsSection = [[QSection alloc] init];
+    _parentSection = _internalRadioItemsSection;
+
     [self addSection:_parentSection];
 
     for (NSUInteger i=0; i< [_items count]; i++){
