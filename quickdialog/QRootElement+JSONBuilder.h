@@ -8,6 +8,6 @@
 @interface QRootElement (JSONBuilder)
 
 - (id)initWithJSONFile:(NSString *)jsonPath;
-
++ (BOOL)jsonAvailable;
 
 @end
