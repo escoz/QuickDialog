@@ -24,7 +24,7 @@
 @synthesize onSelected = _onSelected;
 @synthesize controllerAction = _controllerAction;
 @synthesize object = _object;
-
+@synthesize height = _height;
 
 - (QElement *)initWithKey:(NSString *)key {
     self = [super init];
@@ -59,7 +59,7 @@
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
-    return 44;
+    return _height > 44 ? _height : 44;
 }
 
 - (void)fetchValueIntoObject:(id)obj {
