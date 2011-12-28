@@ -15,6 +15,18 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol ForwardedUITextFieldDelegate <NSObject>
+
+@optional
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+- (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged;
+- (void)textFieldDidBeginEditing:(UITextField *)textField;
+- (void)textFieldDidEndEditing:(UITextField *)textField;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+- (BOOL)textFieldMustReturn:(UITextField *)textField;
+
+@end
+
 @class QEntryElement;
 @class QuickDialogTableView;
 
@@ -30,6 +42,7 @@
 }
 
 @property(nonatomic, strong) UITextField *textField;
+@property(nonatomic, weak) id<ForwardedUITextFieldDelegate> delegate;
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
 

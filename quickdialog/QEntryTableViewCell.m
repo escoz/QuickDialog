@@ -24,6 +24,7 @@
     UISegmentedControl *_prevNext;
 }
 @synthesize textField = _textField;
+@synthesize delegate = _delegate;
 
 -(void)createActionBar {
     if (_actionBar == nil) {
@@ -134,6 +135,10 @@
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(textFieldEditingChanged:)]){
+        [_delegate textFieldEditingChanged:textFieldEditingChanged];
+    }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -142,6 +147,10 @@
         _textField.returnKeyType = returnType;
     }
     _quickformTableView.selectedCell = self;
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(textFieldDidBeginEditing:)]){
+        [_delegate textFieldDidBeginEditing:textField];
+    }
 }
 
 - (void)setSelected:(BOOL)selected {
@@ -153,6 +162,10 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(textFieldDidEndEditing:)]){
+        [_delegate textFieldDidEndEditing:textField];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -165,6 +178,11 @@
             [cell becomeFirstResponder];
         }
     }
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(textFieldShouldReturn:)]){
+        [_delegate textFieldShouldReturn:textField];
+    }
+    
     return YES;
 }
 
@@ -190,6 +208,11 @@
 
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
+    
+    if(_delegate && [_delegate respondsToSelector:@selector(textFieldMustReturn:)]){
+        [_delegate textFieldMustReturn:textField];
+    }
+    
     return NO;
 }
 
