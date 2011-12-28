@@ -18,12 +18,12 @@
 @protocol ForwardedUITextFieldDelegate <NSObject>
 
 @optional
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
-- (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged;
-- (void)textFieldDidBeginEditing:(UITextField *)textField;
-- (void)textFieldDidEndEditing:(UITextField *)textField;
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;
-- (BOOL)textFieldMustReturn:(UITextField *)textField;
+- (void)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+- (void)textField:(UITextField *)textField editingChanged:(QEntryElement *)element;
+- (void)textField:(UITextField *)textField didBeginEditing:(QEntryElement *)element;
+- (void)textField:(UITextField *)textField didEndEditing:(QEntryElement *)element;
+- (void)textField:(UITextField *)textField shouldReturn:(QEntryElement *)element;
+- (void)textField:(UITextField *)textField mustReturn:(QEntryElement *)element;
 
 @end
 

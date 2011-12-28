@@ -136,8 +136,8 @@
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
     
-    if(_delegate && [_delegate respondsToSelector:@selector(textFieldEditingChanged:)]){
-        [_delegate textFieldEditingChanged:textFieldEditingChanged];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:editingChanged:)]){
+        [_delegate textField:textFieldEditingChanged editingChanged:_entryElement];
     }
 }
 
@@ -148,8 +148,8 @@
     }
     _quickformTableView.selectedCell = self;
     
-    if(_delegate && [_delegate respondsToSelector:@selector(textFieldDidBeginEditing:)]){
-        [_delegate textFieldDidBeginEditing:textField];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:didBeginEditing:)]){
+        [_delegate textField:textField didBeginEditing:_entryElement];
     }
 }
 
@@ -163,8 +163,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
     
-    if(_delegate && [_delegate respondsToSelector:@selector(textFieldDidEndEditing:)]){
-        [_delegate textFieldDidEndEditing:textField];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:didEndEditing:)]){
+        [_delegate textField:textField didEndEditing:_entryElement];
     }
 }
 
@@ -179,8 +179,8 @@
         }
     }
     
-    if(_delegate && [_delegate respondsToSelector:@selector(textFieldShouldReturn:)]){
-        [_delegate textFieldShouldReturn:textField];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:shouldReturn:)]){
+        [_delegate textField:textField shouldReturn:_entryElement];
     }
     
     return YES;
@@ -209,8 +209,8 @@
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
     
-    if(_delegate && [_delegate respondsToSelector:@selector(textFieldMustReturn:)]){
-        [_delegate textFieldMustReturn:textField];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:mustReturn:)]){
+        [_delegate textField:textField mustReturn:_entryElement];
     }
     
     return NO;
