@@ -43,19 +43,25 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    [[tableView cellForRowAtIndexPath:indexPath] becomeFirstResponder];
+- (void)handleElementSelected:(QuickDialogController *)controller {
     if (_onSelected!= nil)
           _onSelected();
 
     if (self.controllerAction!=NULL){
         SEL selector = NSSelectorFromString(self.controllerAction);
-        if ([tableView.controller respondsToSelector:selector]) {
-            objc_msgSend(tableView.controller ,selector, self);
+        if ([controller respondsToSelector:selector]) {
+            objc_msgSend(controller,selector, self);
         }  else {
-            NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [tableView.controller class]);
+            NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [controller class]);
         }
     }
+}
+
+- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
+    [[tableView cellForRowAtIndexPath:indexPath] becomeFirstResponder];
+
+    [self handleElementSelected:controller];
+
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {

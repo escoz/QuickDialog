@@ -32,4 +32,10 @@
 	}
 }
 
+-(void)exampleAction:(QElement *)element{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey!" message:@"This is the exampleAction method in the ExampleViewController" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+
+
 @end

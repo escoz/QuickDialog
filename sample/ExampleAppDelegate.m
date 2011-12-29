@@ -13,6 +13,7 @@
 //
 
 #import "DummyDataBuilder.h"
+#import "ExampleViewController.h"
 
 @implementation ExampleAppDelegate
 
@@ -23,7 +24,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     QRootElement *root = [DummyDataBuilder create];
-    QuickDialogController *quickformController = [[QuickDialogController alloc] initWithRoot:root];
+    ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];

@@ -49,6 +49,13 @@
     return self;
 }
 
+- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    if (self.sections==nil)
+            return;
+
+    [controller displayViewControllerForRoot:self];
+}
+
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
