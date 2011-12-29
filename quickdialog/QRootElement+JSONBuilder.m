@@ -73,6 +73,9 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
     return self;
 }
 
++ (BOOL)jsonAvailable {
+    return objc_getClass("NSJSONSerialization") != NULL;
+}
 
 - (void)initializeMappings {
     QRootElementJSONBuilderConversionDict = [[NSDictionary alloc] initWithObjectsAndKeys:

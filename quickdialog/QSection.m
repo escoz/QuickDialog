@@ -65,5 +65,11 @@
     }
 }
 
+- (void)dealloc {
+    for (QElement * element in self.elements) {
+        element.parentSection = nil;
+    }
+}
+
 
 @end

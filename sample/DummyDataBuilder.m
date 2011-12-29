@@ -479,14 +479,17 @@
 	[sectionElements addElement:[self createWithInitDefault]];
 	[sectionElements addElement:[self createWithInitAndKey]];
 
-
-    QSection *sectionJson = [[QSection alloc] initWithTitle:@"JSON Samples"];
-    [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
-    [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];
-
-	[root addSection:sectionSamples];
+    [root addSection:sectionSamples];
     [root addSection:sectionElements];
-    [root addSection:sectionJson];
+
+    if ([QRootElement jsonAvailable]) {
+        QSection *sectionJson = [[QSection alloc] initWithTitle:@"JSON Samples"];
+        [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
+        [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];
+        [root addSection:sectionJson];
+    }
+
+	
 
 
     return root;
