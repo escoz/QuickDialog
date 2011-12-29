@@ -136,8 +136,8 @@
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:editingChanged:)]){
-        [_delegate textField:textFieldEditingChanged editingChanged:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellEditingChanged:)]){
+        [_delegate QEntryTableViewCellEditingChanged:_entryElement];
     }
 }
 
@@ -148,8 +148,8 @@
     }
     _quickformTableView.selectedCell = self;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:didBeginEditing:)]){
-        [_delegate textField:textField didBeginEditing:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellDidBeginEditing:)]){
+        [_delegate QEntryTableViewCellDidBeginEditing:_entryElement];
     }
 }
 
@@ -163,8 +163,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:didEndEditing:)]){
-        [_delegate textField:textField didEndEditing:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellDidEndEditing:)]){
+        [_delegate QEntryTableViewCellDidEndEditing:_entryElement];
     }
 }
 
@@ -179,8 +179,8 @@
         }
     }
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:shouldReturn:)]){
-        [_delegate textField:textField shouldReturn:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellShouldReturn:)]){
+        [_delegate QEntryTableViewCellShouldReturn:_entryElement];
     }
     
     return YES;
@@ -209,8 +209,8 @@
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(textField:mustReturn:)]){
-        [_delegate textField:textField mustReturn:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellMustReturn:)]){
+        [_delegate QEntryTableViewCellMustReturn:_entryElement];
     }
     
     return NO;

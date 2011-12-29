@@ -81,8 +81,8 @@
     [self updateElementFromTextField:newValue];
     [self updateTextFieldFromElement];
     
-    if(self.delegate && [self.delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString::)]){
-        [self.delegate textField:textField shouldChangeCharactersInRange:range replacementString:replacement];
+    if(_entryElement && self.delegate && [self.delegate respondsToSelector:@selector(QEntryTableViewCellShouldChangeCharactersInRange:)]){
+        [self.delegate QEntryTableViewCellShouldChangeCharactersInRange:_entryElement];
     }
     
     return NO;

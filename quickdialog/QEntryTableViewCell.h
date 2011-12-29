@@ -15,15 +15,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class QEntryTableViewCell;
+
 @protocol ForwardedUITextFieldDelegate <NSObject>
 
 @optional
-- (void)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
-- (void)textField:(UITextField *)textField editingChanged:(QEntryElement *)element;
-- (void)textField:(UITextField *)textField didBeginEditing:(QEntryElement *)element;
-- (void)textField:(UITextField *)textField didEndEditing:(QEntryElement *)element;
-- (void)textField:(UITextField *)textField shouldReturn:(QEntryElement *)element;
-- (void)textField:(UITextField *)textField mustReturn:(QEntryElement *)element;
+- (void)QEntryTableViewCellShouldChangeCharactersInRange:(QEntryElement *)element;
+- (void)QEntryTableViewCellEditingChanged:(QEntryElement *)element;
+- (void)QEntryTableViewCellDidBeginEditing:(QEntryElement *)element;
+- (void)QEntryTableViewCellDidEndEditing:(QEntryElement *)element;
+- (void)QEntryTableViewCellShouldReturn:(QEntryElement *)element;
+- (void)QEntryTableViewCellMustReturn:(QEntryElement *)element;
 
 @end
 
