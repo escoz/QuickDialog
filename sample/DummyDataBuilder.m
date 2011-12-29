@@ -216,6 +216,7 @@
 
 	};
     [btnSection2 addElement:button2];
+    btnSection2.footer = @"Here's a really long footer text that could be used to make your users happy!";
 
     [root addSection:controls];
     [root addSection:btnSection];

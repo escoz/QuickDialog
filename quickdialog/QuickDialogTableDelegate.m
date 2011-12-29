@@ -80,10 +80,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getSectionForIndex:index];
+    CGFloat stringFooterHeight = 28.0;
+
     if (section.footerView!=nil)
             return section.footerView.frame.size.height;
 
-    return section.footer != NULL? 28 : 0;
+    if (section.footer != nil) {
+        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 50;
+        CGFloat maxHeight = 9999;
+        CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
+        CGSize expectedLabelSize = [section.footer sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
+                                              constrainedToSize:maximumLabelSize
+                                                  lineBreakMode:UILineBreakModeWordWrap];
+
+        stringFooterHeight = expectedLabelSize.height;
+    }
+
+    return section.footer != NULL? stringFooterHeight : 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
