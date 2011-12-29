@@ -32,6 +32,13 @@
 	}
 }
 
+-(void)handleChangeEntryExample:(QButtonElement *) button {
+    QEntryElement *entry  = (QEntryElement *) [self.root elementWithKey:@"entryElement"];
+    entry.textValue = @"Hello";
+    [self.tableView reloadData];
+
+}
+
 -(void)exampleAction:(QElement *)element{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hey!" message:@"This is the exampleAction method in the ExampleViewController" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];

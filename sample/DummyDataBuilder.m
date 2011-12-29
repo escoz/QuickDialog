@@ -89,13 +89,17 @@
     subForm.title = @"Subform";
 
     [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" Value:@"Some value"]];
-    [subsection addElement:[[QEntryElement alloc] initWithTitle:@"Entry" Value:nil Placeholder:@"type here"]];
+    QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" Value:nil Placeholder:@"type here"];
+    elementEntry.key = @"entryElement";
+    [subsection addElement:elementEntry];
     [subsection addElement:[[QBooleanElement alloc] initWithTitle:@"boolean" BoolValue:YES]];
     [subsection addElement:[[QEntryElement alloc] initWithTitle:@"Entry 2" Value:@"Some value" Placeholder:@"type here two"]];
     [subForm addSection:subsection];
 
     QSection *subsection2 = [[QSection alloc] init];
-    [subsection2 addElement:[[QButtonElement alloc] initWithTitle:@"My Button"]];
+    QButtonElement *myButton = [[QButtonElement alloc] initWithTitle:@"Change Entry"];
+    myButton.controllerAction = @"handleChangeEntryExample:";
+    [subsection2 addElement:myButton];
     [subForm addSection:subsection2];
 
     QSection *subsection3 = [[QSection alloc] init];

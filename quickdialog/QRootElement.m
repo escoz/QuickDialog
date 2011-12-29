@@ -71,4 +71,18 @@
 }
 
 
+- (QElement *)elementWithKey:(NSString *)elementKey {
+    for (QSection *s in _sections){
+        for (QElement *el in s.elements) {
+            if ([elementKey isEqualToString:el.key])
+                return el;
+            if ([el isKindOfClass:[QRootElement class]]){
+                QElement *subElement = [((QRootElement *)el) elementWithKey:elementKey];
+                if (subElement!=nil)
+                    return subElement;
+            }
+        }
+    }
+    return nil;
+}
 @end

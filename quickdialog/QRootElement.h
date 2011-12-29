@@ -39,4 +39,5 @@
 - (NSInteger)numberOfSections;
 
 
+- (QElement *)elementWithKey:(NSString *)string;
 @end
