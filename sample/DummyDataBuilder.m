@@ -141,7 +141,8 @@
     QSection *controls = [[QSection alloc] initWithTitle:@"Change something"];
 
     QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" Value:@"element"];
-    
+
+
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
 	radioElement.key = @"radio1";
 
@@ -170,6 +171,10 @@
     decimal.key = @"decimal1";
     decimal.fractionDigits = 3;
     [controls addElement:decimal];
+
+    QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" Value:@"70"];
+    element2.height = 70;
+    [controls addElement:element2];
 
     QSection *btnSection = [[QSection alloc] init];
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
