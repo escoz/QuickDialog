@@ -63,6 +63,7 @@
         ((UIImageView *)cell.accessoryView).image =  _boolValue ? _onImage : _offImage;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self handleElementSelected:controller];
 }
 
 

@@ -110,6 +110,7 @@
     QBooleanElement *bool2 = [[QBooleanElement alloc] initWithTitle:@"Second option" BoolValue:NO];
     bool2.onImage = [UIImage imageNamed:@"imgOn"];
     bool2.offImage = [UIImage imageNamed:@"imgOff"];
+    bool2.controllerAction = @"exampleAction:";
     [subsection3 addElement:bool2];
 
     QTextElement *element2 = [[QTextElement alloc] initWithText:@"You get all kinds of notifications on your iOS device: new email, texts, friend requests, and more. With Notification Center, you can keep track of them all in one convenient location. Just swipe down from the top of any screen to enter Notification Center. Choose which notifications you want to see. Even see a stock ticker and the current weather. New notifications appear briefly at the top of your screen, without interrupting what you’re doing. And the Lock screen displays notifications so you can act on them with just a swipe. Notification Center is the best way to stay on top of your life’s breaking news."];

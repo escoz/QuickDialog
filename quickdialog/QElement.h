@@ -43,7 +43,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
 
-- (void)handleElementSelected:(QuickDialogController *)tableView;
+- (void)handleElementSelected:(QuickDialogController *)controller;
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
