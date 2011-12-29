@@ -61,7 +61,8 @@
     }
     CGSize constraint = CGSizeMake(300, 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
-    return size.height+20;
+	CGFloat predictedHeight = size.height + 20.0f;
+	return (_height >= predictedHeight) ? _height : predictedHeight;
 }
 
 - (void)fetchValueIntoObject:(id)obj {

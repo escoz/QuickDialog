@@ -21,6 +21,8 @@
 @protected
     __weak QSection *_parentSection;
     NSString *_key;
+	
+	CGFloat _height;
 
     void (^_onSelected)(void);
     NSString * _controllerAction;
@@ -30,6 +32,7 @@
 @property(nonatomic, copy) void (^onSelected)(void);
 @property(nonatomic, retain) NSString *controllerAction;
 
+@property(nonatomic) CGFloat height;
 
 @property(nonatomic, weak) QSection *parentSection;
 
