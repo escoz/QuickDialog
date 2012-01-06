@@ -18,7 +18,7 @@
 @class QRootElement;
 
 
-@interface DummyDataBuilder : NSObject {
+@interface SampleDataBuilder : NSObject {
 
 }
 

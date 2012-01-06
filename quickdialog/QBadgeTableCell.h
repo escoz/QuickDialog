@@ -18,13 +18,9 @@
 @interface QBadgeTableCell : UITableViewCell {
 
 @private
-    UIColor *_badgeColor;
-    UILabel *_badgeLabel;
+    QBadgeLabel *_badgeLabel;
 }
 - (QBadgeTableCell *)init;
-
-
-@property(nonatomic, retain) UIColor *badgeColor;
-@property(nonatomic, readonly, strong) UILabel *badgeLabel;
+@property(nonatomic, readonly, strong) QBadgeLabel *badgeLabel;
 
 @end

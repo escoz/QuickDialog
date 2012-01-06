@@ -13,35 +13,38 @@
 //
 
 #import "QBadgeTableCell.h"
-#import "QuickDialogTableView.h"
-#import "QBadgeElement.h"
 
-@implementation QBadgeElement
+@implementation QBadgeElement {
 
+}
+@synthesize badgeTextColor = _badgeTextColor;
 @synthesize badgeColor = _badgeColor;
 @synthesize badge = _badge;
 
+- (QBadgeElement *)init {
+    self = [super init];
+    _badgeColor = [UIColor colorWithRed:0.530f green:0.600f blue:0.738f alpha:1.000f];
+    _badgeTextColor = [UIColor whiteColor];
+    return self;
+}
 
 - (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value {
-    self = [super init];
+    self = [self init];
     _title = title;
     _badge = value;
-    _badgeColor = [UIColor colorWithRed:0.530f green:0.600f blue:0.738f alpha:1.000f];
     return self;
-
 }
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QBadgeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformBadgeElement"];
-    if (cell==nil){
-        cell = [[QBadgeTableCell alloc] init];
-    }
+    QBadgeTableCell *cell = [[QBadgeTableCell alloc] init];
     cell.textLabel.text = _title;
+    cell.badgeLabel.badgeColor = _badgeColor;
+    cell.badgeLabel.textColor = _badgeTextColor;
     cell.badgeLabel.text = _badge;
-    cell.badgeColor = _badgeColor;
-    cell.imageView.image = _image;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
-    [cell setNeedsDisplay];
     return cell;
 }
 

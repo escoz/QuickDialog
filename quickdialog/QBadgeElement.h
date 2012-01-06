@@ -19,9 +19,11 @@
 
 @private
     UIColor *_badgeColor;
+    UIColor *_badgeTextColor;
     NSString *_badge;
 }
 
+@property(nonatomic, retain) UIColor *badgeTextColor;
 @property(nonatomic, retain) UIColor *badgeColor;
 @property(nonatomic, strong) NSString *badge;
 

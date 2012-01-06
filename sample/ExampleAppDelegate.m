@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "DummyDataBuilder.h"
+#import "SampleDataBuilder.h"
 #import "ExampleViewController.h"
 
 @implementation ExampleAppDelegate
@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    QRootElement *root = [DummyDataBuilder create];
+    QRootElement *root = [SampleDataBuilder create];
     ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
     self.window.rootViewController = nav;

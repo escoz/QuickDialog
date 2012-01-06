@@ -14,12 +14,12 @@
 
 #import <Foundation/Foundation.h>
 #import "LoginController.h"
-#import "DummyDataBuilder.h"
+#import "SampleDataBuilder.h"
 #import "QRootElement.h"
 #import "QSection.h"
 #import "QRootElement+JSONBuilder.h"
 
-@implementation DummyDataBuilder
+@implementation SampleDataBuilder
 
 + (QRootElement *)createWithInitDefault {
 	
@@ -325,6 +325,10 @@
     badge3.badgeColor = [UIColor purpleColor];
     QSection *sec = [[QSection alloc] initWithTitle:@"Jazzin.."];
     [badge3 addSection:sec];
+
+    QBadgeElement *b4 = [[QBadgeElement alloc] initWithTitle:@"With a really really really long title" Value:@"YEAH"];
+    [s2 addElement:b4];
+
     [s2 addElement:badge3];
     [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test" Value:@"0"]];
     [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 2" Value:@"10"]];
@@ -335,6 +339,9 @@
     [root addSection:s1];
     [root addSection:s2];
     [root addSection:secImg];
+
+
+
     return root;
 }
 
