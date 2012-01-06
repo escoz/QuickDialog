@@ -21,11 +21,16 @@
 @synthesize color = _color;
 
 
-- (QTextElement *)initWithText:(NSString *)text {
-    self = [super init];
-    _text = text;
+- (QTextElement *)init {
+   self = [super init];
     _font = [UIFont systemFontOfSize:14];
     _color = [UIColor blackColor];
+    return self;
+}
+
+- (QTextElement *)initWithText:(NSString *)text {
+    self = [self init];
+    _text = text;
     return self;
 }
 
@@ -59,7 +64,7 @@
     if (_text==nil || _text == @""){
         return [super getRowHeightForTableView:tableView];
     }
-    CGSize constraint = CGSizeMake(300, 20000);
+    CGSize constraint = CGSizeMake(280, 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 	CGFloat predictedHeight = size.height + 20.0f;
 	return (_height >= predictedHeight) ? _height : predictedHeight;
