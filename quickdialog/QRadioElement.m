@@ -33,6 +33,12 @@
     }
 }
 
+-(void)setItems:(NSArray *)items {
+    _items = items;
+    [self createElements];
+}
+
+
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
     return self;
@@ -43,7 +49,6 @@
     if (self!=nil){
         self.items = stringArray;
         self.selected = selected;
-        [self createElements];
         self.title = title;
     }
     return self;

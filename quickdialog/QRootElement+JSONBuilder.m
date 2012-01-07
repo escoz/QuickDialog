@@ -13,19 +13,21 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 
 @implementation QRootElement (JSONBuilder)
 
-- (void)updateObject:(id)obj withPropertiesFrom:(NSDictionary *)dict {
+- (void)updateObject:(id)element withPropertiesFrom:(NSDictionary *)dict {
     for (NSString *key in dict.allKeys){
-        if ([key isEqualToString:@"type"])
+        if ([key isEqualToString:@"type"] || [key isEqualToString:@"root"]|| [key isEqualToString:@"elements"])
             continue;
 
         id value = [dict valueForKey:key];
-        if ([value isKindOfClass:[NSString class]] && [obj respondsToSelector:NSSelectorFromString(key)]) {
-            [obj setValue:value forKey:key];
+        if ([value isKindOfClass:[NSString class]] && [element respondsToSelector:NSSelectorFromString(key)]) {
+            [element setValue:value forKey:key];
             if ([QRootElementJSONBuilderConversionDict objectForKey:key]!=nil) {
-                [obj setValue:[[QRootElementJSONBuilderConversionDict objectForKey:key] objectForKey:value] forKey:key];
+                [element setValue:[[QRootElementJSONBuilderConversionDict objectForKey:key] objectForKey:value] forKey:key];
             }
         } else if ([value isKindOfClass:[NSNumber class]]){
-            [obj setValue:value forKey:key];
+            [element setValue:value forKey:key];
+        } else if ([value isKindOfClass:[NSArray class]]) {
+            [element setValue:value forKey:key];
         }
     }
 }
