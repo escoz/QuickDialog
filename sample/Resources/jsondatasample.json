@@ -1,8 +1,8 @@
 {
 	"grouped": true,
-	"title": "My Form",
+	"title": "Json Data",
     "controllerName": "JsonDataSampleController",
-	"root": [
+	"sections": [
 		{ "title":"Event data", "elements": [
 				{ "type":"QLabelElement", "key":"date", "title":"Date", "bind":"value:myDate, title:dateTitle", "value":"---"},
 				{ "type":"QLabelElement", "key":"time", "title":"Time", "bind":"value:myTime, title:timeTitle", "value":"---"},
@@ -13,8 +13,8 @@
 		},
 		{ "elements":[
                 { "type":"QButtonElement", "id":"bt1", "title":"Set values directly", "controllerAction":"handleSetValuesDirectly:"} ,
-                { "type":"QButtonElement", "id":"bt2", "title":"Load JSON With Dict", "controllerAction":"handleLoadJsonWithDict:"} ,
-                { "type":"QButtonElement", "id":"bt3", "title":"Reload JSON", "controllerAction":"handleReloadJson:"}
+                { "type":"QButtonElement", "id":"bt2", "title":"Load JSON with Object", "controllerAction":"handleLoadJsonWithDict:"} ,
+                { "type":"QButtonElement", "id":"bt3", "title":"Load JSON", "controllerAction":"handleReloadJson:"}
 			]
 		}
 	]

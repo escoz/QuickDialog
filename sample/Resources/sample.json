@@ -1,7 +1,7 @@
 {
 	"grouped": true,
 	"title": "Sample Controls",
-	"root": [
+	"sections": [
         { "title":"Entry Elements", "elements":[
 
             {  "type":"QEntryElement", "title":"secureTextEntry", "placeholder":"Text", "secureTextEntry":true },

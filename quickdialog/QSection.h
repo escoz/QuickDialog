@@ -12,7 +12,6 @@
 // permissions and limitations under the License.
 //
 #import "QuickDialogTableView.h"
-#import "QElement.h"
 #import <Foundation/Foundation.h>
 #import "UIKit/UIKit.h"
 
@@ -48,13 +47,8 @@
 
 @property(nonatomic) CGRect entryPosition;
 
-
-
-
 - (QSection *)initWithTitle:(NSString *)string;
-
 - (void)addElement:(QElement *)element;
-
 - (void)fetchValueIntoObject:(id)obj;
 
 @end

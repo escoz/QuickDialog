@@ -15,7 +15,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 
 - (void)updateObject:(id)element withPropertiesFrom:(NSDictionary *)dict {
     for (NSString *key in dict.allKeys){
-        if ([key isEqualToString:@"type"] || [key isEqualToString:@"root"]|| [key isEqualToString:@"elements"] || [key isEqualToString:@"bind"])
+        if ([key isEqualToString:@"type"] || [key isEqualToString:@"sections"]|| [key isEqualToString:@"elements"] || [key isEqualToString:@"bind"])
             continue;
 
         id value = [dict valueForKey:key];
@@ -65,7 +65,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 
 - (void)buildRootWithJSON:(NSDictionary *)dict  andData:(id)data {
     [self updateObject:self withPropertiesFrom:dict];
-    for (id section in (NSArray *)[dict valueForKey:@"root"]){
+    for (id section in (NSArray *)[dict valueForKey:@"sections"]){
         [self buildSectionWithJSON:section andData:data];
     }
 }
@@ -114,8 +114,6 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
                                     [NSNumber numberWithInt:UITextAutocorrectionTypeYes], @"Yes",
                                     nil], @"autocorrectionType",
 
-
-
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIKeyboardTypeDefault], @"Default",
                                     [NSNumber numberWithInt:UIKeyboardTypeASCIICapable], @"ASCIICapable",
@@ -134,7 +132,6 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
                             [NSNumber numberWithInt:UIKeyboardAppearanceDefault], @"Default",
                                     [NSNumber numberWithInt:UIKeyboardAppearanceAlert], @"Alert",
                                     nil], @"keyboardAppearance",
-
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIReturnKeyDefault], @"Default",

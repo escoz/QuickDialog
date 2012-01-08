@@ -30,8 +30,8 @@
     self = [super init];
     self.key = key;
     return self;
-
 }
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformElementCell"];
     if (cell == nil){
@@ -61,7 +61,6 @@
     [[tableView cellForRowAtIndexPath:indexPath] becomeFirstResponder];
 
     [self handleElementSelected:controller];
-
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
