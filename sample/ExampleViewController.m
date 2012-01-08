@@ -35,7 +35,7 @@
 -(void)handleChangeEntryExample:(QButtonElement *) button {
     QEntryElement *entry  = (QEntryElement *) [self.root elementWithKey:@"entryElement"];
     entry.textValue = @"Hello";
-    [self.tableView reloadData];
+    [self.quickDialogTableView reloadCellForElements:entry, nil];
 
 }
 
