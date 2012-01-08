@@ -1,18 +1,11 @@
 {
-	"grouped": true,
-	"title": "Json Data",
+	"grouped": false,
+	"title": "Advanced",
     "controllerName": "JsonDataSampleController",
 	"sections": [
-		{ "title":"Event data", "bind":"title:sectionTitle", "elements": [
-				{ "type":"QLabelElement", "key":"date", "title":"Date", "bind":"value:myDate, title:dateTitle", "value":"---"},
-				{ "type":"QLabelElement", "key":"time", "title":"Time", "bind":"value:myTime, title:timeTitle", "value":"---"}
-            ]
+		{ "title":"Bind collection", "bind":"test:test", "template":
+				{ "type":"QLabelElement", "key":"date", "title":"Row Number"}
         },
-        { "elements":[
-                { "type":"QBooleanElement", "title":"Boolean", "boolValue":0, "bind":"boolValue:bool"},
-                { "type":"QFloatElement", "title":"Progress", "floatValue":0, "bind":"floatValue:float"}
-			]
-		},
 		{ "elements":[
                 { "type":"QButtonElement", "id":"bt1", "title":"Set values directly", "controllerAction":"handleSetValuesDirectly:"},
                 { "type":"QButtonElement", "id":"bt2", "title":"Bind to Object", "controllerAction":"handleBindToObject:"} ,

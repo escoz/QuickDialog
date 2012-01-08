@@ -13,6 +13,7 @@
 //
 
 #import <objc/message.h>
+#import "BindingEvaluator.h"
 
 @implementation QElement {
 @private
@@ -73,14 +74,7 @@
 }
 
 -(void)bindToObject:(id)data {
-    for (NSString *each in [self.bind componentsSeparatedByString:@","]) {
-        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
-        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-        if ([data objectForKey:valueName]!=nil)
-            [self setValue:[data objectForKey:valueName] forKey:propName];
-    }
+    [BindingEvaluator bindObject:self toData:data];
 }
 
 @end

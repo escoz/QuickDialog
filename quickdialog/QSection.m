@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "BindingEvaluator.h"
+
 @implementation QSection {
 @private
     NSString *_headerImage;
@@ -22,6 +24,7 @@
 @synthesize elements;
 @synthesize rootElement = _rootElement;
 @synthesize key = _key;
+@synthesize bind = _bind;
 @synthesize headerView = _headerView;
 @synthesize footerView = _footerView;
 @synthesize entryPosition = _entryPosition;
@@ -71,5 +74,12 @@
     }
 }
 
+- (void)bindToObject:(id)data {
+    [BindingEvaluator bindObject:self toData:data];
+
+    for (QElement *el in self.elements) {
+        [el bindToObject:data];
+    }
+}
 
 @end

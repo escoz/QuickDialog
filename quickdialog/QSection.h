@@ -21,6 +21,8 @@
 @interface QSection : NSObject {
 
     NSString *_key;
+    NSString *_bind;
+
     CGRect _entryPosition;
 
 @private
@@ -30,10 +32,10 @@
 }
 
 @property(nonatomic, strong) NSString *key;
+@property(nonatomic, retain) NSString *bind;
 
 @property(nonatomic, retain) NSString *title;
 @property(nonatomic, retain) NSString *footer;
-
 @property(nonatomic, retain) NSMutableArray * elements;
 @property(nonatomic, assign) QRootElement *rootElement;
 
@@ -47,8 +49,10 @@
 
 @property(nonatomic) CGRect entryPosition;
 
+
 - (QSection *)initWithTitle:(NSString *)string;
 - (void)addElement:(QElement *)element;
 - (void)fetchValueIntoObject:(id)obj;
 
+- (void)bindToObject:(id)data;
 @end

@@ -507,6 +507,7 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsondatasample"]];
+        [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
         [root addSection:sectionJson];
     }
 

@@ -27,6 +27,7 @@
     [dataDict setValue:@"Obj Time" forKey:@"myTime"];
     [dataDict setValue:@"Hello" forKey:@"dateTitle"];
     [dataDict setValue:@"Goodbye" forKey:@"timeTitle"];
+    [dataDict setValue:@"Bound from object" forKey:@"sectionTitle"];
     [dataDict setValue:[NSNumber numberWithBool:NO] forKey:@"bool"];
     [dataDict setValue:[NSNumber numberWithFloat:0.9] forKey:@"float"];
     [self.root bindToObject:dataDict];
@@ -46,7 +47,5 @@
     [self.quickDialogTableView reloadCellForElements:elDate, elTime, nil];
     // if table is fairly small (10-100 items), you can just call [self.tableView reloadData]
 }
-
-
 
 @end

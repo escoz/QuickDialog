@@ -67,9 +67,7 @@
 - (void)bindToObject:(id)obj {
     [super bindToObject:obj];
     for (QSection *s in _sections){
-        for (QElement *el in s.elements) {
-            [el bindToObject:obj];
-        }
+        [s bindToObject:obj];
     }
 }
 
