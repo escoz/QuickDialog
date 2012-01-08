@@ -53,21 +53,22 @@
     [self reloadData];
 }
 
-
-- (UITableViewCell *)cellForElement:(QElement *)element {
+- (NSIndexPath *)indexForElement:(QElement *)element {
     for (int i=0; i< [_root.sections count]; i++){
         QSection * currSection = [_root.sections objectAtIndex:(NSUInteger) i];
 
         for (int j=0; j< [currSection.elements count]; j++){
             QElement *currElement = [currSection.elements objectAtIndex:(NSUInteger) j];
             if (currElement == element){
-                NSIndexPath *path = [NSIndexPath indexPathForRow:j inSection:i];
-                return [self cellForRowAtIndexPath:path];
+                return [NSIndexPath indexPathForRow:j inSection:i];
             }
         }
     }
-
     return NULL;
+}
+
+- (UITableViewCell *)cellForElement:(QElement *)element {
+    return [self cellForRowAtIndexPath:[self indexForElement:element]];
 }
 
 - (void)viewWillAppear {
@@ -76,9 +77,24 @@
     if ([self indexPathForSelectedRow]!=nil){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];
         selected = [NSArray arrayWithObject:selectedRowIndex];
-        [self reloadRowsAtIndexPaths:selected withRowAnimation:NO];
+        [self reloadRowsAtIndexPaths:selected withRowAnimation:UITableViewRowAnimationNone];
         [self selectRowAtIndexPath:selectedRowIndex animated:NO scrollPosition:UITableViewScrollPositionNone];
         [self deselectRowAtIndexPath:selectedRowIndex animated:YES];
     };
+}
+
+- (void)reloadCellForElements:(QElement *)firstElement, ... {
+    va_list args;
+    va_start(args, firstElement);
+    NSMutableArray *indexes = [[NSMutableArray alloc] init];
+    QElement * element = firstElement;
+    while (element != nil)
+    {
+        [indexes addObject:[self indexForElement:element]];
+        element = va_arg(args, QElement *);
+    }
+    [self reloadRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationNone];
+
+    va_end(args);
 }
 @end

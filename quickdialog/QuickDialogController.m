@@ -27,8 +27,12 @@
 
 - (void)loadView {
     [super loadView];
-    QuickDialogTableView *quickformTableView = [[QuickDialogTableView alloc] initWithController:self];
-    self.tableView = quickformTableView;
+    QuickDialogTableView *quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
+    self.tableView = quickDialogTableView;
+}
+
+-(QuickDialogTableView *)quickDialogTableView {
+    return (QuickDialogTableView *)self.tableView;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

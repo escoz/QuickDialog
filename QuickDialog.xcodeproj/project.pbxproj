@@ -104,6 +104,8 @@
 		D8F180E813F0599A009B0CA6 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA5 /* sample.json */; };
 		D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
 		D8F180E813F0599A009B0CAA /* QBadgeLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */; };
+		D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */; };
+		D8F180E813F0599A009B0CAF /* jsondatasample.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CAE /* jsondatasample.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +226,9 @@
 		D8F180E813F0599A009B0CA5 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = sample.json; sourceTree = "<group>"; };
 		D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBadgeLabel.m; path = quickdialog/QBadgeLabel.m; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBadgeLabel.h; path = quickdialog/QBadgeLabel.h; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonDataSampleController.m; path = sample/JsonDataSampleController.m; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CAD /* JsonDataSampleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonDataSampleController.h; path = sample/JsonDataSampleController.h; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CAE /* jsondatasample.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = jsondatasample.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +300,8 @@
 		D80B0E3D13E052DF00FA85CA /* sample */ = {
 			isa = PBXGroup;
 			children = (
+				D8F180E813F0599A009B0CAD /* JsonDataSampleController.h */,
+				D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */,
 				D811F8DD13EC907200E3922B /* AboutController.h */,
 				D811F8DE13EC907200E3922B /* AboutController.m */,
 				D811F8DF13EC907200E3922B /* SampleDataBuilder.h */,
@@ -338,6 +345,7 @@
 		D811F8EF13EC907200E3922B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D8F180E813F0599A009B0CAE /* jsondatasample.json */,
 				D8F180E813F0599A009B0CA5 /* sample.json */,
 				D8F180E813F0599A009B0C9F /* loginform.json */,
 				D8F180E513F0599A009B0C96 /* quickdialog.png */,
@@ -562,6 +570,7 @@
 				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
 				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
 				D8F180E813F0599A009B0CA6 /* sample.json in Resources */,
+				D8F180E813F0599A009B0CAF /* jsondatasample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +628,7 @@
 				D811F90013EC907200E3922B /* main.m in Sources */,
 				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
 				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
+				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

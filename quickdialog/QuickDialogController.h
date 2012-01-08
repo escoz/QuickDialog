@@ -30,6 +30,8 @@
 
 - (void)loadView;
 
+- (QuickDialogTableView *)quickDialogTableView;
+
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
 
 - (void)displayViewController:(UIViewController *)newController;

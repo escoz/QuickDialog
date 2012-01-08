@@ -43,7 +43,11 @@
 
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
 
+- (NSIndexPath *)indexForElement:(QElement *)element;
+
 - (UITableViewCell *)cellForElement:(QElement *)element;
 
 - (void)viewWillAppear;
+
+- (void)reloadCellForElements:(QElement *)element, ...;
 @end
