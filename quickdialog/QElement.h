@@ -21,6 +21,7 @@
 @protected
     __unsafe_unretained QSection *_parentSection;
     NSString *_key;
+    NSString *_bind;
 	
 	CGFloat _height;
 
@@ -38,6 +39,8 @@
 
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) NSObject *object;
+@property(nonatomic, retain) NSString *bind;
+
 
 - (QElement *)initWithKey:(NSString *)key;
 
@@ -51,5 +54,8 @@
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView;
 
 - (void)fetchValueIntoObject:(id)obj;
+
+- (void)bindToObject:(id)obj;
+
 
 @end

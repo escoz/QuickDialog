@@ -21,12 +21,24 @@
     self.root = [[QRootElement alloc] initWithJSONFile:@"jsondatasample" andData:dataDict];
 }
 
+- (void)handleBindToObject:(QElement *)button {
+    NSMutableDictionary *dataDict = [NSMutableDictionary new];
+    [dataDict setValue:@"Obj Date" forKey:@"myDate"];
+    [dataDict setValue:@"Obj Time" forKey:@"myTime"];
+    [dataDict setValue:@"Hello" forKey:@"dateTitle"];
+    [dataDict setValue:@"Goodbye" forKey:@"timeTitle"];
+    [dataDict setValue:[NSNumber numberWithBool:NO] forKey:@"bool"];
+    [dataDict setValue:[NSNumber numberWithFloat:0.9] forKey:@"float"];
+    [self.root bindToObject:dataDict];
+    [self.quickDialogTableView reloadData];
+}
+
 -(void)handleSetValuesDirectly:(QElement *)button {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     QLabelElement *elDate = (QLabelElement *) [[self root] elementWithKey:@"date"];
     elDate.value = [dateFormatter stringFromDate:[NSDate date]];
-    
+
     [dateFormatter setDateFormat:@"HH-mm-ss"];
     QLabelElement *elTime = (QLabelElement *) [[self root] elementWithKey:@"time"];
     elTime.value = [dateFormatter stringFromDate:[NSDate date]];

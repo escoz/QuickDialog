@@ -18,8 +18,10 @@
 @private
     NSObject *_object;
 }
+
 @synthesize parentSection = _parentSection;
 @synthesize key = _key;
+@synthesize bind = _bind;
 
 @synthesize onSelected = _onSelected;
 @synthesize controllerAction = _controllerAction;
@@ -68,6 +70,17 @@
 }
 
 - (void)fetchValueIntoObject:(id)obj {
+}
+
+-(void)bindToObject:(id)data {
+    for (NSString *each in [self.bind componentsSeparatedByString:@","]) {
+        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
+        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+        if ([data objectForKey:valueName]!=nil)
+            [self setValue:[data objectForKey:valueName] forKey:propName];
+    }
 }
 
 @end

@@ -15,7 +15,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 
 - (void)updateObject:(id)element withPropertiesFrom:(NSDictionary *)dict {
     for (NSString *key in dict.allKeys){
-        if ([key isEqualToString:@"type"] || [key isEqualToString:@"sections"]|| [key isEqualToString:@"elements"] || [key isEqualToString:@"bind"])
+        if ([key isEqualToString:@"type"] || [key isEqualToString:@"sections"]|| [key isEqualToString:@"elements"])
             continue;
 
         id value = [dict valueForKey:key];
@@ -32,41 +32,27 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
     }
 }
 
-- (void)bindObject:(QElement *)element withBindingExpression:(NSString *)bindingExpr andData:(id)data {
-    for (NSString *each in [bindingExpr componentsSeparatedByString:@","]) {
-        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
-        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-        if ([data objectForKey:valueName]!=nil)
-            [element setValue:[data objectForKey:valueName] forKey:propName];
-    }
-
-}
-
-- (QElement *)buildElementWithJson:(NSDictionary *)dict andData:(id)data  {
+- (QElement *)buildElementWithJson:(NSDictionary *)dict  {
     QElement *element = [[NSClassFromString([dict valueForKey:@"type"]) alloc] init];
     if (element==nil)
             return nil;
     [self updateObject:element withPropertiesFrom:dict];
-    if ([dict objectForKey:@"bind"]!=nil)
-        [self bindObject:element withBindingExpression:[dict objectForKey:@"bind"] andData:data];
     return element;
 }
 
-- (void)buildSectionWithJSON:(NSDictionary *)dict andData:(id)data  {
+- (void)buildSectionWithJSON:(NSDictionary *)dict {
     QSection *sect = [[QSection alloc] init];
     [self updateObject:sect withPropertiesFrom:dict];
     [self addSection:sect];
     for (id element in (NSArray *)[dict valueForKey:@"elements"]){
-       [sect addElement:[self buildElementWithJson:element andData:data] ];
+       [sect addElement:[self buildElementWithJson:element] ];
     }
 }
 
-- (void)buildRootWithJSON:(NSDictionary *)dict  andData:(id)data {
+- (void)buildSectionsWithJSON:(NSDictionary *)dict {
     [self updateObject:self withPropertiesFrom:dict];
     for (id section in (NSArray *)[dict valueForKey:@"sections"]){
-        [self buildSectionWithJSON:section andData:data];
+        [self buildSectionWithJSON:section];
     }
 }
 
@@ -89,7 +75,9 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
         NSError *jsonParsingError = nil;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:jsonPath ofType:@"json"];
         NSDictionary *jsonRoot = [JSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:&jsonParsingError];
-        [self buildRootWithJSON:jsonRoot andData:data];
+        [self buildSectionsWithJSON:jsonRoot];
+        if (data!=nil)
+            [self bindToObject:data];
     }
     return self;
 }
