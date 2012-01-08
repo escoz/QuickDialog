@@ -4,14 +4,17 @@
     "controllerName": "JsonDataSampleController",
 	"root": [
 		{ "title":"Event data", "elements": [
-				{ "type":"QLabelElement", "key":"date", "title":"Date", "value":"---"},
-				{ "type":"QLabelElement", "key":"time", "title":"Time", "value":"---"}
+				{ "type":"QLabelElement", "key":"date", "title":"Date", "bind":"value:myDate, title:dateTitle", "value":"---"},
+				{ "type":"QLabelElement", "key":"time", "title":"Time", "bind":"value:myTime, title:timeTitle", "value":"---"},
+                { "type":"QBooleanElement", "title":"Boolean", "boolValue":0, "bind":"boolValue:bool"},
+                { "type":"QFloatElement", "title":"Progress", "floatValue":0, "bind":"floatValue:float"}
+
 			]
 		},
 		{ "elements":[
                 { "type":"QButtonElement", "id":"bt1", "title":"Set values directly", "controllerAction":"handleSetValuesDirectly:"} ,
-                { "type":"QButtonElement", "id":"bt2", "title":"Load From Dict", "controllerAction":"handleLoadFromDict:"} ,
-                { "type":"QButtonElement", "id":"bt3", "title":"Load From Dict", "controllerAction":"handleLoadFromDict:"}
+                { "type":"QButtonElement", "id":"bt2", "title":"Load JSON With Dict", "controllerAction":"handleLoadJsonWithDict:"} ,
+                { "type":"QButtonElement", "id":"bt3", "title":"Reload JSON", "controllerAction":"handleReloadJson:"}
 			]
 		}
 	]
