@@ -34,5 +34,7 @@
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;                  // default is NO (when YES, will automatically disable return key when text widget has zero-length contents, and will automatically enable when text widget has non-zero-length contents)
 @property(nonatomic,getter=isSecureTextEntry) BOOL secureTextEntry;       // default is NO
 
+- (QEntryElement *)init;
+
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
 @end

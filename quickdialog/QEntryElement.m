@@ -21,13 +21,9 @@
 @synthesize placeholder = _placeholder;
 @synthesize hiddenToolbar = _hiddenToolbar;
 
-- (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
-    self = [self initWithTitle:title Value:nil];
-    
-    if (self) {
-        _textValue = value;
-        _placeholder = placeholder;
-        
+- (QEntryElement *)init {
+    self = [super init];
+    if (self){
         self.autocapitalizationType = UITextAutocapitalizationTypeSentences;
         self.autocorrectionType = UITextAutocorrectionTypeDefault;
         self.keyboardType = UIKeyboardTypeDefault;
@@ -36,7 +32,16 @@
         self.enablesReturnKeyAutomatically = NO;
         self.secureTextEntry = NO;
     }
-    
+    return self;
+}
+
+- (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
+    self = [self init];
+    if (self) {
+        _title = title;
+        _textValue = value;
+        _placeholder = placeholder;
+    }
     return self;
 }
 
