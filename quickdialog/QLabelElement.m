@@ -20,7 +20,7 @@
 @synthesize image = _image;
 @synthesize value = _value;
 
-- (QLabelElement *)initWithTitle:(NSString *)title Value:(NSString *)value {
+- (QLabelElement *)initWithTitle:(NSString *)title Value:(id)value {
    self = [super init];
    _title = title;
    _value = value;
@@ -33,7 +33,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     cell.textLabel.text = _title;
-    cell.detailTextLabel.text = _value;
+    cell.detailTextLabel.text = [_value description];
     cell.imageView.image = _image;
     cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;

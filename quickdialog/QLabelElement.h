@@ -20,13 +20,13 @@
 @interface QLabelElement : QRootElement {
 
 @protected
-    NSString *_value;
+    id _value;
     UIImage *_image;
 }
 
 @property(nonatomic, strong) UIImage *image;
-@property(nonatomic, strong) NSString *value;
+@property(nonatomic, strong) id value;
 
 
-- (QLabelElement *)initWithTitle:(NSString *)string Value:(NSString *)value;
+- (QLabelElement *)initWithTitle:(NSString *)string Value:(id)value;
 @end

@@ -36,3 +36,5 @@
 #import "QDateTimeElement.h"
 #import "QWebViewController.h"
 #import "QBadgeLabel.h"
+
+#import "QRootBuilder.h"

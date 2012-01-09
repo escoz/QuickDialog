@@ -13,6 +13,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 #import "LoginController.h"
 #import "SampleDataBuilder.h"
 #import "QRootElement.h"
@@ -501,7 +502,7 @@
     [root addSection:sectionSamples];
     [root addSection:sectionElements];
 
-    if ([QRootElement jsonAvailable]) {
+    if (objc_getClass("NSJSONSerialization")!=nil) {
         QSection *sectionJson = [[QSection alloc] initWithTitle:@"JSON Samples"];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];

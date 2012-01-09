@@ -12,17 +12,18 @@
 // permissions and limitations under the License.
 //
 
-
 #import <Foundation/Foundation.h>
+#import "quickdialog.h"
 
+@interface QRootBuilder : NSObject {
 
-@interface BindingEvaluator : NSObject {
 }
 
-- (void)bindObject:(id)section toData:(id)data;
+- (QRootElement *)buildSectionsWithObject:(id)obj;
 
-- (void)bindSection:(QSection *)section toCollection:(NSArray *)items;
++ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value;
 
-- (void)bindSection:(QSection *)section toProperties:(id)object;
+- (QElement *)buildElementWithObject:(id)obj;
+
 
 @end
