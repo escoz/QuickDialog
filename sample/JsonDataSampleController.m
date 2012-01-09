@@ -49,7 +49,7 @@
 }
 
 -(void)handleBindWithJsonData:(QElement *)button {
-    NSString *json = @"{ \"items\" : [{\"row\":\"row1\"},{\"row\":\"row2\"},{\"row\":\"row3\"}]}";
+    NSString *json = @"{ \"cities\": [{\"name\":\"Rome\", \"total\":1000},{\"name\":\"Milan\", \"total\":4000},{\"name\":\"Trento\", \"total\":10}]}";
     Class JSONSerialization = objc_getClass("NSJSONSerialization");
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
     NSError *jsonParsingError = nil;
@@ -58,5 +58,6 @@
 
     [self.quickDialogTableView reloadData];
 }
+
 
 @end

@@ -26,8 +26,10 @@
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
             [BindingEvaluator bindSection:(QSection *)object toCollection:[data objectForKey:valueName]];
             
-        } else if ([data objectForKey:valueName]!=nil)
-            [object setValue:[data objectForKey:valueName] forKey:propName];
+        } else if ([data objectForKey:valueName]!=nil) {
+            [object setValue:[[data objectForKey:valueName] description] forKey:propName];
+
+        }
     }
 }
 

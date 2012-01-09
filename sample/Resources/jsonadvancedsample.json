@@ -8,8 +8,8 @@
                         { "type":"QButtonElement", "id":"bt1", "title":"JSON Data", "controllerAction":"handleBindWithJsonData:"}
         			]
         },
-        { "title":"Bind collection", "bind":"iterate:items", "template":
-				{ "type":"QLabelElement", "key":"date", "title":"Row Number", "bind":"value:row"}
+        { "title":"Bind collection", "bind":"iterate:cities", "template":
+				{ "type":"QLabelElement", "bind":"title:name, value:total"}
         }
 	]
 }
