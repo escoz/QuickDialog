@@ -2,6 +2,7 @@
 //  Created by escoz on 1/7/12.
 //
 #import "JsonDataSampleController.h"
+#import <objc/runtime.h>
 
 @implementation JsonDataSampleController
 
@@ -45,7 +46,17 @@
     elTime.value = [dateFormatter stringFromDate:[NSDate date]];
 
     [self.quickDialogTableView reloadCellForElements:elDate, elTime, nil];
-    // if table is fairly small (10-100 items), you can just call [self.tableView reloadData]
+}
+
+-(void)handleBindWithJsonData:(QElement *)button {
+    NSString *json = @"{ \"items\" : [{\"row\":\"row1\"},{\"row\":\"row2\"},{\"row\":\"row3\"}]}";
+    Class JSONSerialization = objc_getClass("NSJSONSerialization");
+    NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
+    NSError *jsonParsingError = nil;
+    NSDictionary *data = [JSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&jsonParsingError ];
+    [self.root bindToObject:data];
+
+    [self.quickDialogTableView reloadData];
 }
 
 @end

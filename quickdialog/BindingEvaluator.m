@@ -23,7 +23,10 @@
         NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-        if ([data objectForKey:valueName]!=nil)
+        if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
+            [BindingEvaluator bindSection:(QSection *)object toCollection:[data objectForKey:valueName]];
+            
+        } else if ([data objectForKey:valueName]!=nil)
             [object setValue:[data objectForKey:valueName] forKey:propName];
     }
 }
@@ -40,4 +43,12 @@
     return NO;
 }
 
++ (void)bindSection:(QSection *)section toCollection:(NSArray *)items {
+    [section.elements removeAllObjects];
+    for (id item in items){
+        QElement *element = [section.rootElement buildElementWithJson:section.template];
+        [section addElement:element];
+        [element bindToObject:item];
+    }
+}
 @end

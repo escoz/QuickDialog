@@ -3,15 +3,13 @@
 	"title": "Advanced",
     "controllerName": "JsonDataSampleController",
 	"sections": [
-		{ "title":"Bind collection", "bind":"test:test", "template":
-				{ "type":"QLabelElement", "key":"date", "title":"Row Number"}
+
+        { "elements":[
+                        { "type":"QButtonElement", "id":"bt1", "title":"JSON Data", "controllerAction":"handleBindWithJsonData:"}
+        			]
         },
-		{ "elements":[
-                { "type":"QButtonElement", "id":"bt1", "title":"Set values directly", "controllerAction":"handleSetValuesDirectly:"},
-                { "type":"QButtonElement", "id":"bt2", "title":"Bind to Object", "controllerAction":"handleBindToObject:"} ,
-                { "type":"QButtonElement", "id":"bt2", "title":"Load JSON with Object", "controllerAction":"handleLoadJsonWithDict:"},
-                { "type":"QButtonElement", "id":"bt3", "title":"Load JSON", "controllerAction":"handleReloadJson:"}
-			]
-		}
+        { "title":"Bind collection", "bind":"iterate:items", "template":
+				{ "type":"QLabelElement", "key":"date", "title":"Row Number", "bind":"value:row"}
+        }
 	]
 }

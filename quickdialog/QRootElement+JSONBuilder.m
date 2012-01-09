@@ -28,6 +28,8 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
             [element setValue:value forKey:key];
         } else if ([value isKindOfClass:[NSArray class]]) {
             [element setValue:value forKey:key];
+        } else if ([value isKindOfClass:[NSDictionary class]]){
+            [element setValue:value forKey:key];
         }
     }
 }
