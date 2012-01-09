@@ -17,7 +17,6 @@
 #import "SampleDataBuilder.h"
 #import "QRootElement.h"
 #import "QSection.h"
-#import "QRootElement+JSONBuilder.h"
 
 @implementation SampleDataBuilder
 

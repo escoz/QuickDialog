@@ -9,9 +9,10 @@
 
 - (id)initWithJSONFile:(NSString *)json andData:(id)data;
 
-- (QElement *)buildElementWithJson:(NSDictionary *)dict;
+- (QElement *)buildElementWithObject:(id)obj;
 
 - (id)initWithJSONFile:(NSString *)jsonPath;
+
 + (BOOL)jsonAvailable;
 
 @end

@@ -34,27 +34,27 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
     }
 }
 
-- (QElement *)buildElementWithJson:(NSDictionary *)dict  {
-    QElement *element = [[NSClassFromString([dict valueForKey:@"type"]) alloc] init];
+- (QElement *)buildElementWithObject:(id)obj {
+    QElement *element = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
     if (element==nil)
             return nil;
-    [self updateObject:element withPropertiesFrom:dict];
+    [self updateObject:element withPropertiesFrom:obj];
     return element;
 }
 
-- (void)buildSectionWithJSON:(NSDictionary *)dict {
+- (void)buildSectionWithObject:(id)obj {
     QSection *sect = [[QSection alloc] init];
-    [self updateObject:sect withPropertiesFrom:dict];
+    [self updateObject:sect withPropertiesFrom:obj];
     [self addSection:sect];
-    for (id element in (NSArray *)[dict valueForKey:@"elements"]){
-       [sect addElement:[self buildElementWithJson:element] ];
+    for (id element in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"elements"]]){
+       [sect addElement:[self buildElementWithObject:element] ];
     }
 }
 
-- (void)buildSectionsWithJSON:(NSDictionary *)dict {
-    [self updateObject:self withPropertiesFrom:dict];
-    for (id section in (NSArray *)[dict valueForKey:@"sections"]){
-        [self buildSectionWithJSON:section];
+- (void)buildSectionsWithObject:(id)obj {
+    [self updateObject:self withPropertiesFrom:obj];
+    for (id section in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"sections"]]){
+        [self buildSectionWithObject:section];
     }
 }
 
@@ -67,7 +67,6 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
     self = [super init];
     
     Class JSONSerialization = objc_getClass("NSJSONSerialization");
-    
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
     
     if (self!=nil){
@@ -77,7 +76,8 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
         NSError *jsonParsingError = nil;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:jsonPath ofType:@"json"];
         NSDictionary *jsonRoot = [JSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:&jsonParsingError];
-        [self buildSectionsWithJSON:jsonRoot];
+
+        [self buildSectionsWithObject:jsonRoot];
         if (data!=nil)
             [self bindToObject:data];
     }
