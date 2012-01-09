@@ -10,12 +10,12 @@
 
 @implementation BindingEvaluator
 
-+ (void)bindObject:(id)object toData:(id)data {
+- (void)bindObject:(id)object toData:(id)data {
     if (![object respondsToSelector:@selector(bind)])
         return;
 
     NSString *string = [object bind];
-    if ([self stringIsEmpty:string])
+    if ([BindingEvaluator stringIsEmpty:string])
         return;
 
     for (NSString *each in [string componentsSeparatedByString:@","]) {
@@ -24,14 +24,13 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
-            [BindingEvaluator bindSection:(QSection *)object toCollection:[data objectForKey:valueName]];
+            [self bindSection:(QSection *)object toCollection:[data objectForKey:valueName]];
             
         } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
-            NSLog(@"iterate prop %@ %@", data, [data objectForKey:valueName]);
-            [BindingEvaluator bindSection:(QSection *)object toProperties:[data objectForKey:valueName]];
+            [self bindSection:(QSection *)object toProperties:[data objectForKey:valueName]];
 
         } else if ([data objectForKey:valueName]!=nil) {
-            [object setValue:[[data objectForKey:valueName] description] forKey:propName];
+            [object setValue:[data objectForKey:valueName] forKey:propName];
 
         }
     }
@@ -49,7 +48,7 @@
     return NO;
 }
 
-+ (void)bindSection:(QSection *)section toCollection:(NSArray *)items {
+- (void)bindSection:(QSection *)section toCollection:(NSArray *)items {
     [section.elements removeAllObjects];
     for (id item in items){
         QElement *element = [section.rootElement buildElementWithJson:section.template];
@@ -58,14 +57,13 @@
     }
 }
 
-+ (void)bindSection:(QSection *)section toProperties:(NSDictionary *)object {
+- (void)bindSection:(QSection *)section toProperties:(NSDictionary *)object {
     [section.elements removeAllObjects];
     for (id item in [object allKeys]){
-        NSLog(@"bindig %@", item);
         QElement *element = [section.rootElement buildElementWithJson:section.template];
         [section addElement:element];
         [element bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:item, @"key", [object valueForKey:item], @"value", nil]];
     }
-  
 }
+
 @end

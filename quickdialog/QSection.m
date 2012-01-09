@@ -77,7 +77,8 @@
 }
 
 - (void)bindToObject:(id)data {
-    [BindingEvaluator bindObject:self toData:data];
+
+    [[BindingEvaluator new] bindObject:self toData:data];
 
     for (QElement *el in self.elements) {
         [el bindToObject:data];

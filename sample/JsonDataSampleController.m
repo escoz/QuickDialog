@@ -32,7 +32,8 @@
     [dataDict setValue:[NSNumber numberWithBool:NO] forKey:@"bool"];
     [dataDict setValue:[NSNumber numberWithFloat:0.9] forKey:@"float"];
     [self.root bindToObject:dataDict];
-    [self.quickDialogTableView reloadData];
+    [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,1)] withRowAnimation:UITableViewRowAnimationFade];
+
 }
 
 -(void)handleSetValuesDirectly:(QElement *)button {
@@ -57,7 +58,6 @@
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
     NSError *jsonParsingError = nil;
     NSDictionary *data = [JSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&jsonParsingError ];
-    NSLog(@"jsonParsingError %@", jsonParsingError);
     [self.root bindToObject:data];
 
     [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationBottom];

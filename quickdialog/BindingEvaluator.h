@@ -8,9 +8,9 @@
 @interface BindingEvaluator : NSObject {
 }
 
-+ (void)bindObject:(id)section toData:(id)data;
+- (void)bindObject:(id)section toData:(id)data;
 
-+ (void)bindSection:(QSection *)section toCollection:(NSArray *)items;
+- (void)bindSection:(QSection *)section toCollection:(NSArray *)items;
 
-+ (void)bindSection:(QSection *)section toProperties:(id)object;
+- (void)bindSection:(QSection *)section toProperties:(id)object;
 @end
