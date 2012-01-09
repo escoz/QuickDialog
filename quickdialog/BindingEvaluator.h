@@ -11,4 +11,6 @@
 + (void)bindObject:(id)section toData:(id)data;
 
 + (void)bindSection:(QSection *)section toCollection:(NSArray *)items;
+
++ (void)bindSection:(QSection *)section toProperties:(id)object;
 @end

@@ -49,14 +49,23 @@
 }
 
 -(void)handleBindWithJsonData:(QElement *)button {
-    NSString *json = @"{ \"cities\": [{\"name\":\"Rome\", \"total\":1000},{\"name\":\"Milan\", \"total\":4000},{\"name\":\"Trento\", \"total\":10}]}";
+    NSString *json = @"{ "
+            "\"cities\": [{\"name\":\"Rome\", \"total\":1000},{\"name\":\"Milan\", \"total\":4000},{\"name\":\"Trento\", \"total\":10}],"
+            "\"teams\":{\"Ferrari\":20, \"Red Bull\":2, \"Mercedes\":0, \"McLaren\":10}"
+            "}";
     Class JSONSerialization = objc_getClass("NSJSONSerialization");
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
     NSError *jsonParsingError = nil;
     NSDictionary *data = [JSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&jsonParsingError ];
+    NSLog(@"jsonParsingError %@", jsonParsingError);
     [self.root bindToObject:data];
 
-    [self.quickDialogTableView reloadData];
+    [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationBottom];
+}
+
+-(void)handleClear:(QElement *)button {
+    [self.root bindToObject:nil];
+    [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 2)] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 
