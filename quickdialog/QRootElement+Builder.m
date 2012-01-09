@@ -16,7 +16,7 @@
 #import <objc/runtime.h>
 #import "QRootBuilder.h"
 
-@implementation QRootElement (JSONBuilder)
+@implementation QRootElement (Builder)
 
 
 - (id)initWithJSONFile:(NSString *)jsonPath {
