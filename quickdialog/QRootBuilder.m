@@ -22,19 +22,19 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 @implementation QRootBuilder
 
 + (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value {
-    if ([value isKindOfClass:[NSString class]] && [target respondsToSelector:NSSelectorFromString(propertyName)]) {
-        [target setValue:value forKey:propertyName];
+    if ([value isKindOfClass:[NSString class]]) {
+        [target setValue:value forKeyPath:propertyName];
         if ([QRootElementJSONBuilderConversionDict objectForKey:propertyName]!=nil) {
-            [target setValue:[[QRootElementJSONBuilderConversionDict objectForKey:propertyName] objectForKey:value] forKey:propertyName];
+            [target setValue:[[QRootElementJSONBuilderConversionDict objectForKey:propertyName] objectForKey:value] forKeyPath:propertyName];
         }
     } else if ([value isKindOfClass:[NSNumber class]]){
-        [target setValue:value forKey:propertyName];
+        [target setValue:value forKeyPath:propertyName];
     } else if ([value isKindOfClass:[NSArray class]]) {
-        [target setValue:value forKey:propertyName];
+        [target setValue:value forKeyPath:propertyName];
     } else if ([value isKindOfClass:[NSDictionary class]]){
-        [target setValue:value forKey:propertyName];
+        [target setValue:value forKeyPath:propertyName];
     } else if (value == nil){
-        [target setValue:nil forKey:propertyName];
+        [target setValue:nil forKeyPath:propertyName];
     }
 }
 
