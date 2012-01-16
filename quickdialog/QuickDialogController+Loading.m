@@ -33,7 +33,8 @@
 
 
 - (void)loading:(BOOL)visible {
-   UIView *loadingView = [self.tableView.superview viewWithTag:1123002];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = visible;
+    UIView *loadingView = [self.tableView.superview viewWithTag:1123002];
     if (loadingView==nil){
         loadingView = [self createLoadingView];
     }
@@ -49,8 +50,10 @@
                           loadingView.alpha = visible ? 1 : 0;
                      }
                      completion: ^(BOOL  finished) {
-                         if (!visible)
+                         if (!visible) {
                               loadingView.hidden = YES;
+                              [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                         }
                      }];
 }
 @end

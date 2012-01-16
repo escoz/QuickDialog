@@ -33,6 +33,8 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
         [target setValue:value forKey:propertyName];
     } else if ([value isKindOfClass:[NSDictionary class]]){
         [target setValue:value forKey:propertyName];
+    } else if (value == nil){
+        [target setValue:nil forKey:propertyName];
     }
 }
 

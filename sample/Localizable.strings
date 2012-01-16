@@ -5,3 +5,9 @@
 "Previous" = "Previous";
 "Next" = "Next";
 "Done" = "Done";
+"Yesterday" = "Yesterday";
+"Tomorrow" = "Tomorrow";
+"1 day ago" = "1 day ago";
+"%d days ago" = "%d days ago";
+"1 week ago" = "1 week ago";
+"%d weeks ago" = "%d weeks ago";
