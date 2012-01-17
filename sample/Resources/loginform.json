@@ -9,7 +9,7 @@
 			]
 		},
 		{ "elements":[
-                { "type":"QButtonElement", "id":"button", "title":"Login", "controllerAction":"onLogin:"}
+                { "type":"QButtonElement", "key":"button", "title":"Login", "controllerAction":"onLogin:"}
 			]
 		}
 	]
