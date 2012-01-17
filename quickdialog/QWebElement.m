@@ -28,8 +28,12 @@
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-    QWebViewController *webController = [[QWebViewController alloc] initWithUrl:_url];
-    [controller displayViewController:webController];
-
+    if ([_url hasPrefix:@"http"]) {
+        QWebViewController *webController = [[QWebViewController alloc] initWithUrl:_url];
+        [controller displayViewController:webController];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_url]];
+        [tableView deselectRowAtIndexPath:path animated:NO];
+    }
 }
 @end
