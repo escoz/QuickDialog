@@ -113,6 +113,8 @@
 		D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */; };
 		D8F180E813F0599A009B0CB3 /* BindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB2 /* BindingEvaluator.m */; };
 		D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB6 /* QRootBuilder.m */; };
+		E5825C2614C8D53D0014BBFB /* QUISwitch.h in Headers */ = {isa = PBXBuildFile; fileRef = E5825C2414C8D53D0014BBFB /* QUISwitch.h */; };
+		E5825C2714C8D53D0014BBFB /* QUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = E5825C2514C8D53D0014BBFB /* QUISwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +246,8 @@
 		D8F180E813F0599A009B0CB4 /* BindingEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BindingEvaluator.h; path = quickdialog/BindingEvaluator.h; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CB6 /* QRootBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRootBuilder.m; path = quickdialog/QRootBuilder.m; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CB8 /* QRootBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRootBuilder.h; path = quickdialog/QRootBuilder.h; sourceTree = SOURCE_ROOT; };
+		E5825C2414C8D53D0014BBFB /* QUISwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QUISwitch.h; path = quickdialog/QUISwitch.h; sourceTree = SOURCE_ROOT; };
+		E5825C2514C8D53D0014BBFB /* QUISwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QUISwitch.m; path = quickdialog/QUISwitch.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +460,8 @@
 				D811F8BD13EC905B00E3922B /* QWebElement.m */,
 				D811F8BE13EC905B00E3922B /* QWebViewController.h */,
 				D811F8BF13EC905B00E3922B /* QWebViewController.m */,
+				E5825C2414C8D53D0014BBFB /* QUISwitch.h */,
+				E5825C2514C8D53D0014BBFB /* QUISwitch.m */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -516,6 +522,7 @@
 				D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */,
 				D81F2EF914BBAFCE0066C372 /* QWebElement.h in Headers */,
 				D81F2EFA14BBAFCE0066C372 /* QWebViewController.h in Headers */,
+				E5825C2614C8D53D0014BBFB /* QUISwitch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +659,7 @@
 				D8F180E813F0599A009B0CB3 /* BindingEvaluator.m in Sources */,
 				D871018714BB3D7A00156D9D /* QRootElement+Builder.m in Sources */,
 				D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */,
+				E5825C2714C8D53D0014BBFB /* QUISwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

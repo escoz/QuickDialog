@@ -1,5 +1,5 @@
 //                                
-// Copyright 2011 ESCOZ Inc  - http://escoz.com
+// Copyright 2012 ESCOZ Inc  - http://escoz.com
 // 
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this 
 // file except in compliance with the License. You may obtain a copy of the License at 
@@ -12,27 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import "QLabelElement.h"
+#import "QUISwitch.h"
 
-@interface QBooleanElement : QLabelElement {
-    BOOL _boolValue;
-    BOOL _enabled;
-@private
-    UIImage *_onImage;
-    UIImage *_offImage;
-}
+@implementation QUISwitch
 
-@property(nonatomic, retain) UIImage *onImage;
-@property(nonatomic, retain) UIImage *offImage;
-@property(nonatomic) BOOL boolValue;
-@property(nonatomic) BOOL enabled;
-
-@property(nonatomic, retain) NSString *switchedAction;
-
-- (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
-
-- (void)switched:(id)switched;
-
-
-
+@synthesize controller = _controller;
 @end
