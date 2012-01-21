@@ -21,4 +21,6 @@
 - (id)initWithJSONFile:(NSString *)json andData:(id)data;
 - (id)initWithJSONFile:(NSString *)jsonPath;
 
++ (Class)JSONParserClass;
+
 @end

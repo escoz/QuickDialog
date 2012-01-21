@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-NSDictionary * QRootElementJSONBuilderConversionDict;
+NSDictionary *QRootBuilderStringToTypeConversionDict;
 
 @interface QRootBuilder ()
 - (void)initializeMappings;
@@ -24,8 +24,8 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 + (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value {
     if ([value isKindOfClass:[NSString class]]) {
         [target setValue:value forKeyPath:propertyName];
-        if ([QRootElementJSONBuilderConversionDict objectForKey:propertyName]!=nil) {
-            [target setValue:[[QRootElementJSONBuilderConversionDict objectForKey:propertyName] objectForKey:value] forKeyPath:propertyName];
+        if ([QRootBuilderStringToTypeConversionDict objectForKey:propertyName]!=nil) {
+            [target setValue:[[QRootBuilderStringToTypeConversionDict objectForKey:propertyName] objectForKey:value] forKeyPath:propertyName];
         }
     } else if ([value isKindOfClass:[NSNumber class]]){
         [target setValue:value forKeyPath:propertyName];
@@ -66,7 +66,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 }
 
 - (QRootElement *)buildSectionsWithObject:(id)obj {
-    if (QRootElementJSONBuilderConversionDict==nil)
+    if (QRootBuilderStringToTypeConversionDict ==nil)
         [self initializeMappings];
     
     QRootElement *root = [QRootElement new];
@@ -79,7 +79,7 @@ NSDictionary * QRootElementJSONBuilderConversionDict;
 }
 
 - (void)initializeMappings {
-    QRootElementJSONBuilderConversionDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+    QRootBuilderStringToTypeConversionDict = [[NSDictionary alloc] initWithObjectsAndKeys:
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                         [NSNumber numberWithInt:UITextAutocapitalizationTypeNone], @"None",

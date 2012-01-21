@@ -24,8 +24,12 @@
     return self;
 }
 
++ (Class)JSONParserClass {
+    return objc_getClass("NSJSONSerialization");
+}
+
 - (id)initWithJSONFile:(NSString *)jsonPath andData:(id)data {
-    Class JSONSerialization = objc_getClass("NSJSONSerialization");
+    Class JSONSerialization = [QRootElement JSONParserClass];
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
 
     NSError *jsonParsingError = nil;
