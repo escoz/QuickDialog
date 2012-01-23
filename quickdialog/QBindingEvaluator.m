@@ -12,14 +12,14 @@
 // permissions and limitations under the License.
 //
 
-#import "BindingEvaluator.h"
+#import "QBindingEvaluator.h"
 
-@interface BindingEvaluator ()
+@interface QBindingEvaluator ()
 + (BOOL)stringIsEmpty:(NSString *)aString;
 
 @end
 
-@implementation BindingEvaluator {
+@implementation QBindingEvaluator {
     QRootBuilder *_builder;
 }
 - (id)init {
@@ -36,7 +36,7 @@
         return;
 
     NSString *string = [object bind];
-    if ([BindingEvaluator stringIsEmpty:string])
+    if ([QBindingEvaluator stringIsEmpty:string])
         return;
 
     for (NSString *each in [string componentsSeparatedByString:@","]) {

@@ -61,7 +61,7 @@
 		D811F90B13EC907200E3922B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F713EC907200E3922B /* logo.png */; };
 		D811F90C13EC907200E3922B /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F813EC907200E3922B /* logo@2x.png */; };
 		D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB8 /* QRootBuilder.h */; settings = {ATTRIBUTES = (); }; };
-		D81F2ED814BBAFCE0066C372 /* BindingEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB4 /* BindingEvaluator.h */; settings = {ATTRIBUTES = (); }; };
+		D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB4 /* QBindingEvaluator.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EDA14BBAFCE0066C372 /* QDecimalTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9C /* QDecimalTableViewCell.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EDB14BBAFCE0066C372 /* QDecimalElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C99 /* QDecimalElement.h */; settings = {ATTRIBUTES = (); }; };
@@ -111,9 +111,9 @@
 		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
 		D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
 		D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */; };
-		D8F180E813F0599A009B0CB3 /* BindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB2 /* BindingEvaluator.m */; };
+		D8F180E813F0599A009B0CB3 /* QBindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB2 /* QBindingEvaluator.m */; };
 		D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB6 /* QRootBuilder.m */; };
-		D8F180E813F0599A009B0CBA /* QEntryElementDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB9 /* QEntryElementDelegate.h */; };
+		D8F180E813F0599A009B0CBA /* QuickDialogEntryElementDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,11 +241,11 @@
 		D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBadgeLabel.h; path = quickdialog/QBadgeLabel.h; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsonDataSampleController.m; path = sample/JsonDataSampleController.m; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CAD /* JsonDataSampleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsonDataSampleController.h; path = sample/JsonDataSampleController.h; sourceTree = SOURCE_ROOT; };
-		D8F180E813F0599A009B0CB2 /* BindingEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BindingEvaluator.m; path = quickdialog/BindingEvaluator.m; sourceTree = SOURCE_ROOT; };
-		D8F180E813F0599A009B0CB4 /* BindingEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BindingEvaluator.h; path = quickdialog/BindingEvaluator.h; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CB2 /* QBindingEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBindingEvaluator.m; path = quickdialog/QBindingEvaluator.m; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CB4 /* QBindingEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBindingEvaluator.h; path = quickdialog/QBindingEvaluator.h; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CB6 /* QRootBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRootBuilder.m; path = quickdialog/QRootBuilder.m; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CB8 /* QRootBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRootBuilder.h; path = quickdialog/QRootBuilder.h; sourceTree = SOURCE_ROOT; };
-		D8F180E813F0599A009B0CB9 /* QEntryElementDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QEntryElementDelegate.h; path = quickdialog/QEntryElementDelegate.h; sourceTree = SOURCE_ROOT; };
+		D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogEntryElementDelegate.h; path = quickdialog/QuickDialogEntryElementDelegate.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,11 +385,11 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
-				D8F180E813F0599A009B0CB9 /* QEntryElementDelegate.h */,
+				D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */,
 				D8F180E813F0599A009B0CB8 /* QRootBuilder.h */,
 				D8F180E813F0599A009B0CB6 /* QRootBuilder.m */,
-				D8F180E813F0599A009B0CB4 /* BindingEvaluator.h */,
-				D8F180E813F0599A009B0CB2 /* BindingEvaluator.m */,
+				D8F180E813F0599A009B0CB4 /* QBindingEvaluator.h */,
+				D8F180E813F0599A009B0CB2 /* QBindingEvaluator.m */,
 				D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */,
 				D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */,
 				D8F180E813F0599A009B0C9E /* QuickDialog.h */,
@@ -484,7 +484,7 @@
 			files = (
 				2C54239F145ADF2B0026A152 /* QuickDialog.h in Headers */,
 				D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */,
-				D81F2ED814BBAFCE0066C372 /* BindingEvaluator.h in Headers */,
+				D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */,
 				D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */,
 				D81F2EDA14BBAFCE0066C372 /* QDecimalTableViewCell.h in Headers */,
 				D81F2EDB14BBAFCE0066C372 /* QDecimalElement.h in Headers */,
@@ -519,7 +519,7 @@
 				D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */,
 				D81F2EF914BBAFCE0066C372 /* QWebElement.h in Headers */,
 				D81F2EFA14BBAFCE0066C372 /* QWebViewController.h in Headers */,
-				D8F180E813F0599A009B0CBA /* QEntryElementDelegate.h in Headers */,
+				D8F180E813F0599A009B0CBA /* QuickDialogEntryElementDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +653,7 @@
 				2C5423DD145ADF2B0026A152 /* QWebElement.m in Sources */,
 				2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */,
 				D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */,
-				D8F180E813F0599A009B0CB3 /* BindingEvaluator.m in Sources */,
+				D8F180E813F0599A009B0CB3 /* QBindingEvaluator.m in Sources */,
 				D871018714BB3D7A00156D9D /* QRootElement+Builder.m in Sources */,
 				D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */,
 			);

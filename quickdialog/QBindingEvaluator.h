@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BindingEvaluator : NSObject {
+@interface QBindingEvaluator : NSObject {
 }
 
 - (void)bindObject:(id)section toData:(id)data;

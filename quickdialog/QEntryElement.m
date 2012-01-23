@@ -13,8 +13,6 @@
 //
 
 #import "QEntryTableViewCell.h"
-#import "QEntryElement.h"
-#import "QEntryElementDelegate.h"
 
 @implementation QEntryElement
 

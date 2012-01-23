@@ -73,6 +73,8 @@
 }
 
 
+
+
 + (QRootElement *)createDetailsForm {
     QRootElement *details = [[QRootElement alloc] init];
     details.title = @"Details";

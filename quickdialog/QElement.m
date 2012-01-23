@@ -13,7 +13,7 @@
 //
 
 #import <objc/message.h>
-#import "BindingEvaluator.h"
+#import "QBindingEvaluator.h"
 
 @implementation QElement {
 @private
@@ -74,7 +74,7 @@
 }
 
 -(void)bindToObject:(id)data {
-    [[BindingEvaluator new] bindObject:self toData:data];
+    [[QBindingEvaluator new] bindObject:self toData:data];
 }
 
 @end

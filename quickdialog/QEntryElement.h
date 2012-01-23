@@ -13,7 +13,7 @@
 //
 #import "QLabelElement.h"
 
-@protocol QEntryElementDelegate;
+@protocol QuickDialogEntryElementDelegate;
 
 @interface QEntryElement : QLabelElement <UITextInputTraits> {
 
@@ -28,7 +28,7 @@
 @property(nonatomic, strong) NSString *placeholder;
 @property(assign) BOOL hiddenToolbar;
 
-@property(nonatomic, unsafe_unretained) id<QEntryElementDelegate> delegate;
+@property(nonatomic, unsafe_unretained) id<QuickDialogEntryElementDelegate> delegate;
 
 @property(nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;         // default is UITextAutocorrectionTypeDefault

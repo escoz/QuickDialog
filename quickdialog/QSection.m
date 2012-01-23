@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "BindingEvaluator.h"
+#import "QBindingEvaluator.h"
 
 @implementation QSection {
 @private
@@ -78,7 +78,7 @@
 
 - (void)bindToObject:(id)data {
 
-    [[BindingEvaluator new] bindObject:self toData:data];
+    [[QBindingEvaluator new] bindObject:self toData:data];
 
     for (QElement *el in self.elements) {
         [el bindToObject:data];

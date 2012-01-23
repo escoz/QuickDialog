@@ -1,5 +1,8 @@
+#import <Foundation/Foundation.h>
 
-@protocol QEntryElementDelegate <NSObject>
+@class QEntryElement;
+
+@protocol QuickDialogEntryElementDelegate <NSObject>
 
 @optional
 - (void)QEntryShouldChangeCharactersInRangeForElement:(QEntryElement *)element;
