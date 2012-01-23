@@ -13,7 +13,6 @@
 //
 
 #import "QEntryTableViewCell.h"
-#import "QEntryElement.h"
 
 @interface QEntryTableViewCell ()
 - (void)previousNextDelegate:(UISegmentedControl *)control;
@@ -136,8 +135,8 @@
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellEditingChanged:)]){
-        [_delegate QEntryTableViewCellEditingChanged:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEditingChangedForElement:)]){
+        [_delegate QEditingChangedForElement:_entryElement];
     }
 }
 
@@ -148,8 +147,8 @@
     }
     _quickformTableView.selectedCell = self;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellDidBeginEditing:)]){
-        [_delegate QEntryTableViewCellDidBeginEditing:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QDidBeginEditingElement:)]){
+        [_delegate QDidBeginEditingElement:_entryElement];
     }
 }
 
@@ -163,8 +162,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellDidEndEditing:)]){
-        [_delegate QEntryTableViewCellDidEndEditing:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QDidEndEditingElement:)]){
+        [_delegate QDidEndEditingElement:_entryElement];
     }
 }
 
@@ -179,8 +178,8 @@
         }
     }
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellShouldReturn:)]){
-        [_delegate QEntryTableViewCellShouldReturn:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QShouldReturnForElement:)]){
+        [_delegate QShouldReturnForElement:_entryElement];
     }
     
     return YES;
@@ -209,8 +208,8 @@
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellMustReturn:)]){
-        [_delegate QEntryTableViewCellMustReturn:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QMustReturnForElement:)]){
+        [_delegate QMustReturnForElement:_entryElement];
     }
     
     return NO;
