@@ -152,6 +152,7 @@
 	radioElement.key = @"radio1";
 
     QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
+    boolElement.controllerAction = @"exampleAction:";
 	boolElement.key = @"bool1";
 	
     QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" Value:nil Placeholder:@"type here"];
