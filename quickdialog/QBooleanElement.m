@@ -14,6 +14,8 @@
 
 #import "QBooleanElement.h"
 #import "QuickDialogTableView.h"
+#import "QUISwitch.h"
+#import <objc/message.h>
 
 @implementation QBooleanElement
 
@@ -21,7 +23,7 @@
 @synthesize offImage = _offImage;
 @synthesize boolValue = _boolValue;
 @synthesize enabled = _enabled;
-
+@synthesize switchedAction = _switchedAction;
 
 - (QBooleanElement *)init {
     self = [self initWithTitle:nil BoolValue:YES];
@@ -41,9 +43,10 @@
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
     
     if ((_onImage==nil) && (_offImage==nil))  {
-        UISwitch *boolSwitch = [[UISwitch alloc] init];
+        QUISwitch *boolSwitch = [[QUISwitch alloc] init];
         boolSwitch.on = _boolValue;
         boolSwitch.enabled = _enabled;
+        boolSwitch.controller = controller;
         [boolSwitch addTarget:self action:@selector(switched:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = boolSwitch;
 
@@ -69,6 +72,18 @@
 
 - (void)switched:(id)boolSwitch {
     _boolValue = ((UISwitch *)boolSwitch).on;
+	QuickDialogController* controller = ((QUISwitch*)boolSwitch).controller;
+	
+	
+	if (self.switchedAction!=NULL){
+        SEL selector = NSSelectorFromString(self.switchedAction);
+        if ([controller respondsToSelector:selector]) {
+            objc_msgSend(controller,selector, self);
+        }  else {
+            NSLog(@"No method '%@' was found on target %@", self.switchedAction, [controller class]);
+        }
+    }
+
 }
 
 - (void)fetchValueIntoObject:(id)obj {
