@@ -12,9 +12,12 @@
 // permissions and limitations under the License.
 //
 
-#import "QButtonElement.h"
-
 @implementation QButtonElement
+
+- (QButtonElement *)init {
+    self = [super init];
+    return self;
+}
 
 - (QButtonElement *)initWithTitle:(NSString *)title {
     self = [super initWithTitle:title Value:nil];

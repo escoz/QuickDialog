@@ -18,6 +18,8 @@
 
 }
 
+- (QButtonElement *)init;
+
 - (QButtonElement *)initWithTitle:(NSString *)title;
 
 @end
