@@ -135,8 +135,8 @@
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEditingChangedForElement:)]){
-        [_delegate QEditingChangedForElement:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryEditingChangedForElement:)]){
+        [_delegate QEntryEditingChangedForElement:_entryElement];
     }
 }
 
@@ -147,8 +147,8 @@
     }
     _quickformTableView.selectedCell = self;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QDidBeginEditingElement:)]){
-        [_delegate QDidBeginEditingElement:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryDidBeginEditingElement:)]){
+        [_delegate QEntryDidBeginEditingElement:_entryElement];
     }
 }
 
@@ -162,8 +162,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QDidEndEditingElement:)]){
-        [_delegate QDidEndEditingElement:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryDidEndEditingElement:)]){
+        [_delegate QEntryDidEndEditingElement:_entryElement];
     }
 }
 
@@ -178,8 +178,8 @@
         }
     }
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QShouldReturnForElement:)]){
-        [_delegate QShouldReturnForElement:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryShouldReturnForElement:)]){
+        [_delegate QEntryShouldReturnForElement:_entryElement];
     }
     
     return YES;
@@ -208,8 +208,8 @@
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
     
-    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QMustReturnForElement:)]){
-        [_delegate QMustReturnForElement:_entryElement];
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryMustReturnForElement:)]){
+        [_delegate QEntryMustReturnForElement:_entryElement];
     }
     
     return NO;

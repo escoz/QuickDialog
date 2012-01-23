@@ -2,11 +2,11 @@
 @protocol QEntryElementDelegate <NSObject>
 
 @optional
-- (void)QShouldChangeCharactersInRangeForElement:(QEntryElement *)element;
-- (void)QEditingChangedForElement:(QEntryElement *)element;
-- (void)QDidBeginEditingElement:(QEntryElement *)element;
-- (void)QDidEndEditingElement:(QEntryElement *)element;
-- (void)QShouldReturnForElement:(QEntryElement *)element;
-- (void)QMustReturnForElement:(QEntryElement *)element;
+- (void)QEntryShouldChangeCharactersInRangeForElement:(QEntryElement *)element;
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element;
+- (void)QEntryDidBeginEditingElement:(QEntryElement *)element;
+- (void)QEntryDidEndEditingElement:(QEntryElement *)element;
+- (void)QEntryShouldReturnForElement:(QEntryElement *)element;
+- (void)QEntryMustReturnForElement:(QEntryElement *)element;
 
 @end
