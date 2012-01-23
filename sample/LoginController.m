@@ -32,6 +32,8 @@
     ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
@@ -125,6 +127,20 @@
     return root;
 }
 
+- (BOOL)QEntryShouldChangeCharactersInRangeForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    NSLog(@"Should change characters");
+    return YES;
+}
+
+- (void)QEntryEditingChangedForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    NSLog(@"Editing changed");
+}
+
+
+- (void)QEntryMustReturnForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    NSLog(@"Must return");
+
+}
 
 
 @end

@@ -12,8 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QEntryTableViewCell.h"
-
 @interface QEntryTableViewCell ()
 - (void)previousNextDelegate:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;
@@ -165,6 +163,14 @@
         [_entryElement.delegate QEntryDidEndEditingElement:_entryElement andCell:self];
     }
 }
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRangeForElement:andCell:)]){
+        return [_entryElement.delegate QEntryShouldChangeCharactersInRangeForElement:_entryElement andCell:self];
+    }
+    return YES;
+}
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
