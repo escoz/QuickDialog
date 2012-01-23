@@ -28,6 +28,8 @@
     self.view.backgroundColor = [UIColor colorWithHue:0.1174 saturation:0.7131 brightness:0.8618 alpha:1.0000];
     self.tableView.bounces = NO;
     ((QuickDialogTableView *)self.tableView).styleProvider = self;
+
+    ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

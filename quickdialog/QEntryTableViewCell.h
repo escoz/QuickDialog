@@ -31,7 +31,6 @@
 }
 
 @property(nonatomic, strong) UITextField *textField;
-@property(nonatomic, unsafe_unretained) id<QEntryElementDelegate> delegate;
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
 

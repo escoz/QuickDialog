@@ -81,8 +81,8 @@
     [self updateElementFromTextField:newValue];
     [self updateTextFieldFromElement];
     
-    if(_entryElement && self.delegate && [self.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRangeForElement:)]){
-        [self.delegate QEntryShouldChangeCharactersInRangeForElement:_entryElement];
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRangeForElement:)]){
+        [_entryElement.delegate QEntryShouldChangeCharactersInRangeForElement:_entryElement];
     }
     
     return NO;

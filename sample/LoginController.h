@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-@interface LoginController : QuickDialogController <QuickDialogStyleProvider> {
+@interface LoginController : QuickDialogController <QuickDialogStyleProvider, QEntryElementDelegate> {
 
 }
 

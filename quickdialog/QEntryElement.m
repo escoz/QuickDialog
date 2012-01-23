@@ -14,12 +14,15 @@
 
 #import "QEntryTableViewCell.h"
 #import "QEntryElement.h"
+#import "QEntryElementDelegate.h"
 
 @implementation QEntryElement
 
 @synthesize textValue = _textValue;
 @synthesize placeholder = _placeholder;
 @synthesize hiddenToolbar = _hiddenToolbar;
+
+@synthesize delegate = _delegate;
 
 - (QEntryElement *)init {
     self = [super init];
