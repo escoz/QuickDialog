@@ -134,8 +134,8 @@
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:)]){
-        [_entryElement.delegate QEntryEditingChangedForElement:_entryElement];
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
+        [_entryElement.delegate QEntryEditingChangedForElement:_entryElement andCell:self];
     }
 }
 
@@ -146,8 +146,8 @@
     }
     _quickformTableView.selectedCell = self;
 
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidBeginEditingElement:)]){
-        [_entryElement.delegate QEntryDidBeginEditingElement:_entryElement];
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidBeginEditingElement:andCell:)]){
+        [_entryElement.delegate QEntryDidBeginEditingElement:_entryElement andCell:self];
     }
 }
 
@@ -161,8 +161,8 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidEndEditingElement:)]){
-        [_entryElement.delegate QEntryDidEndEditingElement:_entryElement];
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidEndEditingElement:andCell:)]){
+        [_entryElement.delegate QEntryDidEndEditingElement:_entryElement andCell:self];
     }
 }
 
@@ -177,8 +177,8 @@
         }
     }
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldReturnForElement:)]){
-        [_entryElement.delegate QEntryShouldReturnForElement:_entryElement];
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldReturnForElement:andCell:)]){
+        [_entryElement.delegate QEntryShouldReturnForElement:_entryElement andCell:self];
     }
     
     return YES;
@@ -207,8 +207,8 @@
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:)]){
-        [_entryElement.delegate QEntryMustReturnForElement:_entryElement];
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
+        [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
     }
     
     return NO;

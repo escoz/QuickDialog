@@ -17,8 +17,6 @@
 #import "QuickDialogController+Loading.h"
 #import "QuickDialogTableView.h"
 #import "QuickDialogTableDelegate.h"
-#import "QuickDialogStyleProvider.h"
-#import "QuickDialogEntryElementDelegate.h"
 
 #import "QRootElement+Builder.h"
 #import "QRootElement.h"
@@ -26,6 +24,8 @@
 #import "QBadgeElement.h"
 #import "QBooleanElement.h"
 #import "QButtonElement.h"
+#import "QEntryElement.h"
+#import "QEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
 #import "QFloatElement.h"
 #import "QMapElement.h"
@@ -39,5 +39,7 @@
 #import "QWebViewController.h"
 #import "QBadgeLabel.h"
 
+#import "QuickDialogStyleProvider.h"
+#import "QuickDialogEntryElementDelegate.h"
 
 #import "QRootBuilder.h"
