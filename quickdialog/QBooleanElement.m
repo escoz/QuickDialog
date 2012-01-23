@@ -12,9 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QBooleanElement.h"
-#import "QuickDialogTableView.h"
-
 @implementation QBooleanElement
 
 @synthesize onImage = _onImage;
