@@ -18,7 +18,7 @@
 @private
     NSString *_headerImage;
     NSString *_footerImage;
-    NSDictionary *_template;
+    NSDictionary *_elementTemplate;
 }
 @synthesize title;
 @synthesize footer;
@@ -31,7 +31,7 @@
 @synthesize entryPosition = _entryPosition;
 @synthesize headerImage = _headerImage;
 @synthesize footerImage = _footerImage;
-@synthesize template = _template;
+@synthesize elementTemplate = _elementTemplate;
 
 
 - (BOOL)needsEditing {

@@ -9,10 +9,10 @@
                 { "type":"QButtonElement", "key":"bt2", "title":"Clear", "controllerAction":"handleClear:"}
             ]
         },
-        { "title":"Bind collection", "bind":"iterate:cities", "template":
+        { "title":"Bind collection", "bind":"iterate:cities", "elementTemplate":
 				{ "type":"QLabelElement", "bind":"title:name, value:total"}
         },
-        { "title":"Bind properties", "bind":"iterateproperties:teams", "template":
+        { "title":"Bind properties", "bind":"iterateproperties:teams", "elementTemplate":
             { "type":"QLabelElement", "bind":"title:key, value:value"}
         }
 	]

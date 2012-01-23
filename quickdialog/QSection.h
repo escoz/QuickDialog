@@ -48,7 +48,7 @@
 @property(nonatomic, retain) NSString *footerImage;
 
 @property(nonatomic) CGRect entryPosition;
-@property(nonatomic, strong) NSDictionary *template;
+@property(nonatomic, strong) NSDictionary *elementTemplate;
 
 
 - (QSection *)initWithTitle:(NSString *)string;

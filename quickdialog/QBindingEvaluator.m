@@ -73,7 +73,7 @@
     [section.elements removeAllObjects];
 
     for (id item in items){
-        QElement *element = [_builder buildElementWithObject:section.template];
+        QElement *element = [_builder buildElementWithObject:section.elementTemplate];
         [section addElement:element];
         [element bindToObject:item];
     }
@@ -82,7 +82,7 @@
 - (void)bindSection:(QSection *)section toProperties:(NSDictionary *)object {
     [section.elements removeAllObjects];
     for (id item in [object allKeys]){
-        QElement *element = [_builder buildElementWithObject:section.template];
+        QElement *element = [_builder buildElementWithObject:section.elementTemplate];
         [section addElement:element];
 
         [element bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:item, @"key", [object valueForKey:item], @"value", nil]];
