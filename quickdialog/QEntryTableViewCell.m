@@ -24,6 +24,7 @@
     UISegmentedControl *_prevNext;
 }
 @synthesize textField = _textField;
+@synthesize delegate = _delegate;
 
 -(void)createActionBar {
     if (_actionBar == nil) {
@@ -134,6 +135,10 @@
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
+    
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellEditingChanged:)]){
+        [_delegate QEntryTableViewCellEditingChanged:_entryElement];
+    }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
@@ -142,6 +147,10 @@
         _textField.returnKeyType = returnType;
     }
     _quickformTableView.selectedCell = self;
+    
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellDidBeginEditing:)]){
+        [_delegate QEntryTableViewCellDidBeginEditing:_entryElement];
+    }
 }
 
 - (void)setSelected:(BOOL)selected {
@@ -153,6 +162,10 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     _entryElement.textValue = _textField.text;
+    
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellDidEndEditing:)]){
+        [_delegate QEntryTableViewCellDidEndEditing:_entryElement];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -165,6 +178,11 @@
             [cell becomeFirstResponder];
         }
     }
+    
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellShouldReturn:)]){
+        [_delegate QEntryTableViewCellShouldReturn:_entryElement];
+    }
+    
     return YES;
 }
 
@@ -190,6 +208,11 @@
 
 - (BOOL)textFieldMustReturn:(UITextField *)textField {
     [_textField resignFirstResponder];
+    
+    if(_entryElement && _delegate && [_delegate respondsToSelector:@selector(QEntryTableViewCellMustReturn:)]){
+        [_delegate QEntryTableViewCellMustReturn:_entryElement];
+    }
+    
     return NO;
 }
 
