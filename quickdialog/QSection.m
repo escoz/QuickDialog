@@ -78,9 +78,15 @@
 
 - (void)bindToObject:(id)data {
 
-    for (QElement *el in self.elements) {
-        [el bindToObject:data];
+    if ([self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
+        
+        for (QElement *el in self.elements) {
+            [el bindToObject:data];
+        }
+    } else {
+        [self.elements removeAllObjects];
     }
+
     [[QBindingEvaluator new] bindObject:self toData:data];
 
 }
