@@ -78,11 +78,11 @@
 
 - (void)bindToObject:(id)data {
 
-    [[QBindingEvaluator new] bindObject:self toData:data];
-
     for (QElement *el in self.elements) {
         [el bindToObject:data];
     }
+    [[QBindingEvaluator new] bindObject:self toData:data];
+
 }
 
 @end

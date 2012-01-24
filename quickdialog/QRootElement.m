@@ -65,10 +65,11 @@
 }
 
 - (void)bindToObject:(id)obj {
-    [super bindToObject:obj];
     for (QSection *s in _sections){
         [s bindToObject:obj];
     }
+    [super bindToObject:obj];
+
 }
 
 -(void)dealloc {
