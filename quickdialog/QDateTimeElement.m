@@ -131,7 +131,7 @@
             return;
 
     QuickDialogController * newController = [controller controllerForRoot:self];
-    newController.tableView.scrollEnabled = NO;
+    newController.quickDialogTableView.scrollEnabled = NO;
     [controller displayViewController:newController];
 
 	__block QuickDialogController *controllerForBlock = newController;
@@ -165,7 +165,7 @@
         self.dateValue = [[NSCalendar currentCalendar] dateFromComponents:components];
     };
 
-    [newController.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [newController.quickDialogTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
 
 }
 

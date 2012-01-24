@@ -18,7 +18,7 @@
 
     UIView *loading = [[UIView alloc] init];
     loading.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
-    loading.frame = CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.height);
+    loading.frame = CGRectMake(0, 0, self.quickDialogTableView.frame.size.width, self.quickDialogTableView.frame.size.height);
     loading.tag = 1123002;
     UIActivityIndicatorView *activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [activity startAnimating];
@@ -26,20 +26,20 @@
     activity.center = CGPointMake(loading.center.x, loading.frame.size.height/3);
     [loading addSubview:activity];
 
-    [self.tableView.superview addSubview:loading];
-    [self.tableView.superview bringSubviewToFront:loading];
+    [self.quickDialogTableView.superview addSubview:loading];
+    [self.quickDialogTableView.superview bringSubviewToFront:loading];
     return loading;
 }
 
 
 - (void)loading:(BOOL)visible {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = visible;
-    UIView *loadingView = [self.tableView.superview viewWithTag:1123002];
+    UIView *loadingView = [self.quickDialogTableView.superview viewWithTag:1123002];
     if (loadingView==nil){
         loadingView = [self createLoadingView];
     }
 
-    self.tableView.userInteractionEnabled = !visible;
+    self.quickDialogTableView.userInteractionEnabled = !visible;
 
     if (visible)
         loadingView.hidden = NO;

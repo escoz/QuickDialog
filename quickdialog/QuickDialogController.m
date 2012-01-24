@@ -28,11 +28,12 @@
 - (void)loadView {
     [super loadView];
     QuickDialogTableView *quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
-    self.tableView = quickDialogTableView;
+    quickDialogTableView.autoresizesSubviews = YES;
+    self.view = quickDialogTableView;
 }
 
 -(QuickDialogTableView *)quickDialogTableView {
-    return (QuickDialogTableView *)self.tableView;
+    return (QuickDialogTableView *)self.view;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -50,14 +51,14 @@
 
 - (void)setRoot:(QRootElement *)root {
     _root = root;
-    ((QuickDialogTableView *)self.tableView).root = root;
+    self.quickDialogTableView.root = root;
     self.title = _root.title;
     self.navigationItem.title = _root.title;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 
-    [((QuickDialogTableView *)self.tableView) viewWillAppear];
+    [self.quickDialogTableView viewWillAppear];
     [super viewWillAppear:animated];
     if (_root!=nil)
         self.title = _root.title;

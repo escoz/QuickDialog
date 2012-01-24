@@ -14,7 +14,7 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QuickDialogController : UITableViewController {
+@interface QuickDialogController : UIViewController {
 
 @private
     QRootElement *_root;
