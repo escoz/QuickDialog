@@ -54,11 +54,15 @@
         cell.accessoryView = boolSwitch;
 
     } else {
-        UIImageView *boolSwitch = [[UIImageView alloc] initWithImage: _boolValue ? _onImage : _offImage];
-        cell.accessoryView = boolSwitch;
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        UIButton *boolButton = [[UIButton alloc] init];
+        [boolButton setImage:self.offImage forState:UIControlStateNormal];
+        [boolButton setImage:self.onImage forState:UIControlStateSelected];
+        cell.accessoryView = boolButton;
+        boolButton.enabled = _enabled;
+        boolButton.selected = _boolValue;
+        [boolButton sizeToFit];
+        [boolButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
-
     return cell;
 }
 
@@ -69,10 +73,16 @@
         ((UIImageView *)cell.accessoryView).image =  _boolValue ? _onImage : _offImage;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (_controller!=nil && self.controllerAction!=nil)
+    if (_sections!=nil)
         [self handleElementSelected:controller];
 }
 
+- (void)buttonPressed:(UIButton *)boolButton {
+    _boolValue = !boolButton.selected;
+    boolButton.selected = _boolValue;
+    if (_controller!=nil && self.controllerAction!=nil)
+        [self handleElementSelected:_controller];
+}
 
 - (void)switched:(id)boolSwitch {
     _boolValue = ((UISwitch *)boolSwitch).on;
