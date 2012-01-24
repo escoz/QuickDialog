@@ -29,5 +29,10 @@
 
 - (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
 
+- (void)setOnImageName:(NSString *)name;
+
+- (void)setOffImageName:(NSString *)name;
+
+
 - (void)switched:(id)switched;
 @end

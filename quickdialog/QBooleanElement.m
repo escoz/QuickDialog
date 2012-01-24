@@ -33,6 +33,14 @@
     return self;
 }
 
+- (void)setOnImageName:(NSString *)name {
+    self.onImage = [UIImage imageNamed:name];
+}
+
+- (void)setOffImageName:(NSString *)name {
+    self.offImage = [UIImage imageNamed:name];
+}
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = self.sections!= nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
@@ -61,7 +69,7 @@
         ((UIImageView *)cell.accessoryView).image =  _boolValue ? _onImage : _offImage;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.sections!=nil)
+    if (_controller!=nil && self.controllerAction!=nil)
         [self handleElementSelected:controller];
 }
 
