@@ -15,6 +15,8 @@
 NSDictionary *QRootBuilderStringToTypeConversionDict;
 
 @interface QRootBuilder ()
+- (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root;
+
 - (void)initializeMappings;
 
 @end
@@ -53,6 +55,12 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     if (element==nil)
             return nil;
     [self updateObject:element withPropertiesFrom:obj];
+    
+    if ([element isKindOfClass:[QRootElement class]] && [obj valueForKey:[NSString stringWithFormat:@"sections"]]!=nil) {
+        for (id section in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"sections"]]){
+            [self buildSectionWithObject:section forRoot:(QRootElement *) element];
+        }
+    }
     return element;
 }
 
