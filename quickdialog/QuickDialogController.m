@@ -24,16 +24,14 @@
 
 @synthesize root = _root;
 @synthesize willDisappearCallback = _willDisappearCallback;
+@synthesize quickDialogTableView = _quickDialogTableView;
+
 
 - (void)loadView {
     [super loadView];
-    QuickDialogTableView *quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
-    quickDialogTableView.autoresizesSubviews = YES;
-    self.view = quickDialogTableView;
-}
-
--(QuickDialogTableView *)quickDialogTableView {
-    return (QuickDialogTableView *)self.view;
+    self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
+    self.quickDialogTableView.autoresizesSubviews = YES;
+    self.view = self.quickDialogTableView;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
