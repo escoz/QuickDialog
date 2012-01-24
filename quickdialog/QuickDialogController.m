@@ -43,7 +43,7 @@
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement {
     self = [super init];
     if (self) {
-         _root = rootElement;
+         self.root = rootElement;
     }
     return self;
 }
