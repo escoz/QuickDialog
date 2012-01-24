@@ -19,6 +19,9 @@
 @interface QRootElement (Builder)
 
 - (id)initWithJSONFile:(NSString *)json andData:(id)data;
+
+- (id)initWithJSONFile:(NSString *)jsonPath andDataJSONFile:(NSString *)dataPath;
+
 - (id)initWithJSONFile:(NSString *)jsonPath;
 
 + (Class)JSONParserClass;
