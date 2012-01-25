@@ -38,7 +38,8 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    cell.accessoryType = _radioElement.selected == _index ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    NSInteger selectedIndex = _radioElement==nil? _radioSection.selected : _radioElement.selected;
+    cell.accessoryType = selectedIndex == _index ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     return cell;
 }
 
