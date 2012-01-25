@@ -98,6 +98,7 @@
 	
 	_textField.text = [dateFormatter stringFromDate:dateElement.dateValue];
     _pickerView.datePickerMode = dateElement.mode;
+    _pickerView.date = dateElement.dateValue;
     _textField.placeholder = dateElement.placeholder;
 
     _textField.inputAccessoryView.hidden = entry.hiddenToolbar;

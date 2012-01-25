@@ -452,8 +452,12 @@
     [section addElement:el3];
 
     QDateTimeInlineElement *el4 = [[QDateTimeInlineElement alloc] initWithTitle:@"Time only" date:[NSDate date]];
-    el3.mode = UIDatePickerModeTime;
+    el4.mode = UIDatePickerModeTime;
     [section addElement:el4];
+
+    QDateTimeInlineElement *elDiffTime = [[QDateTimeInlineElement alloc] initWithTitle:@"Different date" date:
+            [NSDate dateWithTimeIntervalSinceNow:-36000]];
+    [section addElement:elDiffTime];
 
     QSection *section2 = [[QSection alloc] init];
     section2.title = @"Push editing";
