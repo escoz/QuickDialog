@@ -12,8 +12,14 @@
 // permissions and limitations under the License.
 //
 
-@protocol QuickDialogStyleProvider                                 
+#import "QuickDialog.h"
+
+@protocol QuickDialogStyleProvider
 
 -(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath; 
+
+@optional
+
+-(void) sectionHeaderWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
 
 @end

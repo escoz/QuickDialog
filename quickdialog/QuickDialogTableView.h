@@ -39,7 +39,7 @@
 
 @property(nonatomic, retain) UITableViewCell *selectedCell;
 
-@property(nonatomic, retain) id<QuickDialogStyleProvider> styleProvider;
+@property(nonatomic, retain) NSObject<QuickDialogStyleProvider> *styleProvider;
 
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
 

@@ -72,6 +72,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)index {
     QSection *section = [_tableView.root getSectionForIndex:index];
+
+    if (section.headerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionHeaderWillAppearForSection:atIndex:)]){
+            [_tableView.styleProvider sectionHeaderWillAppearForSection:section atIndex:index];
+        }
+
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
 
@@ -101,6 +106,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
     QSection *section = [_tableView.root getSectionForIndex:index];
+
     return section.headerView;
 }
 
