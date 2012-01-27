@@ -51,6 +51,9 @@
         } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
             [self bindSection:(QSection *)object toProperties:[data valueForKey:valueName]];
 
+        } else if ([valueName isEqualToString:@"self"]) {
+            [QRootBuilder trySetProperty:propName onObject:object withValue:data];
+
         } else {
             [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKey:valueName]];
         }
