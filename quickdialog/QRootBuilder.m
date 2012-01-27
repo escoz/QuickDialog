@@ -65,7 +65,12 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
 }
 
 - (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root {
-    QSection *sect = [[QSection alloc] init];
+    QSection *sect = nil;
+    if ([obj valueForKey:[NSString stringWithFormat:@"type"]]!=nil){
+        sect = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
+    } else {
+        sect = [[QSection alloc] init];
+    }
     [self updateObject:sect withPropertiesFrom:obj];
     [root addSection:sect];
     for (id element in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"elements"]]){

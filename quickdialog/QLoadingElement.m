@@ -26,7 +26,7 @@
     UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [spin startAnimating];
     [spin sizeToFit];
-    spin.frame = CGRectMake(150, 10, spin.frame.size.width, spin.frame.size.height);
+    spin.frame = CGRectMake(150, 12, spin.frame.size.width, spin.frame.size.height);
     spin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
             UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [[cell contentView] addSubview:spin];
