@@ -19,6 +19,7 @@
 #import "QuickDialogTableDelegate.h"
 
 #import "QRootElement+Builder.h"
+#import "QLoadingElement.h"
 #import "QRootElement.h"
 #import "QLabelElement.h"
 #import "QBadgeElement.h"

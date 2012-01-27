@@ -29,6 +29,11 @@
 @synthesize object = _object;
 @synthesize height = _height;
 
+- (QElement *)init {
+    self = [super init];
+    return self;
+}
+
 - (QElement *)initWithKey:(NSString *)key {
     self = [super init];
     self.key = key;

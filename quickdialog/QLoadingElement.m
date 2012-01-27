@@ -1,0 +1,42 @@
+//
+// Copyright 2011 ESCOZ Inc  - http://escoz.com
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+// file except in compliance with the License. You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software distributed under
+// the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+// ANY KIND, either express or implied. See the License for the specific language governing
+// permissions and limitations under the License.
+//
+
+
+@implementation QLoadingElement
+
+- (QLoadingElement *)init {
+    self = [super init];
+    return self;
+}
+
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
+    UITableViewCell *const cell = [[UITableViewCell alloc] init];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [spin startAnimating];
+    [spin sizeToFit];
+    spin.frame = CGRectMake(150, 10, spin.frame.size.width, spin.frame.size.height);
+    spin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
+            UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [[cell contentView] addSubview:spin];
+    return cell;
+}
+
+- (void)handleElementSelected:(QuickDialogController *)controller {
+    // do nothing
+
+}
+
+
+@end
