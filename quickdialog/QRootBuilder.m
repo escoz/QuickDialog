@@ -127,6 +127,12 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     nil], @"keyboardAppearance",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:UIActivityIndicatorViewStyleGray], @"Gray",
+                                    [NSNumber numberWithInt:UIActivityIndicatorViewStyleWhite], @"White",
+                                    [NSNumber numberWithInt:UIActivityIndicatorViewStyleWhiteLarge], @"WhiteLarge",
+                                    nil], @"indicatorViewStyle",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIReturnKeyDefault], @"Default",
                                     [NSNumber numberWithInt:UIReturnKeyGo], @"Go",
                                     [NSNumber numberWithInt:UIReturnKeyGoogle], @"Google",

@@ -182,6 +182,8 @@
     element2.height = 70;
     [controls addElement:element2];
 
+    [controls addElement:[QLoadingElement new]];
+
     QSection *btnSection = [[QSection alloc] init];
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
 	button.onSelected = ^{

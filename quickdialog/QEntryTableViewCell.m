@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+
 @interface QEntryTableViewCell ()
 - (void)previousNextDelegate:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;
