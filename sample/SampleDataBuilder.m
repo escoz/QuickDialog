@@ -18,6 +18,7 @@
 #import "SampleDataBuilder.h"
 #import "QRootElement.h"
 #import "QSection.h"
+#import "QDynamicDataSection.h"
 
 @implementation SampleDataBuilder
 
@@ -481,6 +482,34 @@
     return root;
 }
 
++ (QElement *)createDynamicSectionRoot {
+    QRootElement *const root = [[QRootElement alloc] init ];
+    root.title = @"Dynamic Data Sections";
+    root.grouped = YES;
+    
+    QDynamicDataSection *emptySection = [QDynamicDataSection new];
+    emptySection.title = @"Empty: elements = empty list";
+    emptySection.bind = @"iterate:empty";
+    emptySection.emptyMessage = @"This is empty";
+    emptySection.elements = [NSMutableArray array];
+    [root addSection: emptySection];
+
+    QDynamicDataSection *loadingSection = [QDynamicDataSection new];
+    loadingSection.title = @"Loading: elements = nil";
+    loadingSection.bind = @"iterate:nil";
+    loadingSection.elements = nil;
+    [root addSection: loadingSection];
+
+    QDynamicDataSection *section = [QDynamicDataSection new];
+    section.title = @"Normal: with elements";
+    [section addElement:[[QLabelElement alloc] initWithTitle:@"Something" Value:@"ok"]];
+    [root addSection: section];
+
+    [root bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:[NSArray array], @"empty", nil, @"nil", nil]];
+
+    return root; 
+}
+
 + (QRootElement *)create {
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
@@ -503,6 +532,7 @@
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
     [sectionElements addElement:[self createSortingRoot]];
+    [sectionElements addElement:[self createDynamicSectionRoot]];
 	[sectionElements addElement:[self createWithInitDefault]];
 	[sectionElements addElement:[self createWithInitAndKey]];
 
