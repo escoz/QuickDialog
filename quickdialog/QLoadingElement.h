@@ -13,13 +13,14 @@
 //
 
 
+#import "QuickDialog.h"
 #import <Foundation/Foundation.h>
 
 
 @interface QLoadingElement : QElement {
 
 }
-
+@property(nonatomic) UIActivityIndicatorViewStyle indicatorStyle;
 
 
 @end

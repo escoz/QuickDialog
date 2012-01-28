@@ -13,17 +13,23 @@
 //
 
 
-@implementation QLoadingElement
+@implementation QLoadingElement {
+@private
+    UIActivityIndicatorViewStyle _indicatorStyle;
+}
+@synthesize indicatorStyle = _indicatorStyle;
+
 
 - (QLoadingElement *)init {
     self = [super init];
+    self.indicatorStyle = UIActivityIndicatorViewStyleWhite;
     return self;
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *const cell = [[UITableViewCell alloc] init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
     [spin startAnimating];
     [spin sizeToFit];
     spin.frame = CGRectMake(150, 12, spin.frame.size.width, spin.frame.size.height);
