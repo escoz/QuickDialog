@@ -18,6 +18,7 @@
 #import "QuickDialogTableView.h"
 #import "QuickDialogTableDelegate.h"
 
+#import "QTableViewCell.h"
 #import "QRootElement+Builder.h"
 #import "QLoadingElement.h"
 #import "QRootElement.h"
