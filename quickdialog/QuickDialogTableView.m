@@ -13,13 +13,10 @@
 //
 
 @implementation QuickDialogTableView {
-    
 }
 
 @synthesize root = _root;
-@synthesize selectedCell = _selectedCell;
 @synthesize styleProvider = _styleProvider;
-
 
 - (QuickDialogController *)controller {
     return _controller;
@@ -36,6 +33,8 @@
 
         quickformDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
         self.delegate = quickformDelegate;
+
+        self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
     return self;
 }
@@ -70,7 +69,6 @@
 }
 
 - (void)viewWillAppear {
-
     NSArray *selected = nil;
     if ([self indexPathForSelectedRow]!=nil){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];
@@ -86,8 +84,7 @@
     va_start(args, firstElement);
     NSMutableArray *indexes = [[NSMutableArray alloc] init];
     QElement * element = firstElement;
-    while (element != nil)
-    {
+    while (element != nil) {
         [indexes addObject:[self indexForElement:element]];
         element = va_arg(args, QElement *);
     }
@@ -95,4 +92,7 @@
 
     va_end(args);
 }
+
+
+
 @end

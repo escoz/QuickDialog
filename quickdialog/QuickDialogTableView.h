@@ -29,15 +29,11 @@
     QRootElement *_root;
     id <UITableViewDataSource> quickformDataSource;
     id <UITableViewDelegate> quickformDelegate;
-    QElement *_selectedElement;
-    UITableViewCell *_selectedCell;
 }
 
 @property(nonatomic, strong) QRootElement *root;
 
 @property(nonatomic, readonly) QuickDialogController *controller;
-
-@property(nonatomic, retain) UITableViewCell *selectedCell;
 
 @property(nonatomic, retain) NSObject<QuickDialogStyleProvider> *styleProvider;
 
@@ -50,4 +46,5 @@
 - (void)viewWillAppear;
 
 - (void)reloadCellForElements:(QElement *)element, ...;
+
 @end

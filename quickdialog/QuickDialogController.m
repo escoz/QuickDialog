@@ -20,17 +20,48 @@
 @end
 
 
-@implementation QuickDialogController
+@implementation QuickDialogController {
+    BOOL _keyboardVisible;
+    BOOL _viewOnScreen;
+    BOOL _resizeWhenKeyboardPresented;
+}
 
 @synthesize root = _root;
 @synthesize willDisappearCallback = _willDisappearCallback;
 @synthesize quickDialogTableView = _quickDialogTableView;
+@synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
 
+
++ (QuickDialogController *)buildControllerWithClass:(Class)controllerClass root:(QRootElement *)root {
+    controllerClass = controllerClass==nil? [QuickDialogController class] : controllerClass;
+    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+}
+
++ (QuickDialogController *)controllerForRoot:(QRootElement *)root {
+    Class controllerClass = [self controllerClassForRoot:root];
+    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+}
+
+
++ (Class)controllerClassForRoot:(QRootElement *)root {
+    Class controllerClass = nil;
+    if (root.controllerName!=NULL){
+        controllerClass = NSClassFromString(root.controllerName);
+    } else {
+        controllerClass = [self class];
+    }
+    return controllerClass;
+}
+
++ (UINavigationController*)controllerWithNavigationForRoot:(QRootElement *)root {
+    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController
+                                                                       buildControllerWithClass:[self controllerClassForRoot:root]
+                                                                       root:root]];
+}
 
 - (void)loadView {
     [super loadView];
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
-    self.quickDialogTableView.autoresizesSubviews = YES;
     self.view = self.quickDialogTableView;
 }
 
@@ -42,7 +73,8 @@
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement {
     self = [super init];
     if (self) {
-         self.root = rootElement;
+        self.root = rootElement;
+        self.resizeWhenKeyboardPresented =YES;
     }
     return self;
 }
@@ -55,7 +87,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-
+    _viewOnScreen = YES;
     [self.quickDialogTableView viewWillAppear];
     [super viewWillAppear:animated];
     if (_root!=nil)
@@ -63,6 +95,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    _viewOnScreen = NO;
     [super viewWillDisappear:animated];
     if (_willDisappearCallback!=nil){
         _willDisappearCallback();
@@ -90,10 +123,6 @@
     [self displayViewController:newController];
 }
 
-+ (QuickDialogController *)buildControllerWithClass:(Class)controllerClass root:(QRootElement *)root {
-    controllerClass = controllerClass==nil? [QuickDialogController class] : controllerClass;
-    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
-}
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [[self class] controllerClassForRoot:root];
@@ -101,26 +130,46 @@
 }
 
 
-+ (QuickDialogController *)controllerForRoot:(QRootElement *)root {
-    Class controllerClass = [self controllerClassForRoot:root];
-    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+- (void) resizeForKeyboard:(NSNotification*)aNotification {
+    if (!_viewOnScreen)
+        return;
+
+    BOOL up = aNotification.name == UIKeyboardWillShowNotification;
+
+    if (_keyboardVisible == up)
+        return;
+
+    _keyboardVisible = up;
+    NSDictionary* userInfo = [aNotification userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardEndFrame;
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+
+    [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
+        animations:^{
+            CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
+            self.quickDialogTableView.contentInset = UIEdgeInsetsMake(0.0, 0.0,  up ? keyboardFrame.size.height : 0, 0.0);
+        }
+        completion:NULL];
 }
 
+- (void)setResizeWhenKeyboardPresented:(BOOL)observesKeyboard {
+  if (observesKeyboard != _resizeWhenKeyboardPresented) {
+    _resizeWhenKeyboardPresented = observesKeyboard;
 
-+ (Class)controllerClassForRoot:(QRootElement *)root {
-    Class controllerClass = nil;
-    if (root.controllerName!=NULL){
-        controllerClass = NSClassFromString(root.controllerName);
+    if (_resizeWhenKeyboardPresented) {
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     } else {
-        controllerClass = [self class];
+      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     }
-    return controllerClass;
+  }
 }
 
-+ (UINavigationController*)controllerWithNavigationForRoot:(QRootElement *)root {
-    return [[UINavigationController alloc] initWithRootViewController:[QuickDialogController
-                                                                       buildControllerWithClass:[self controllerClassForRoot:root]
-                                                                       root:root]];
-}
+
 
 @end

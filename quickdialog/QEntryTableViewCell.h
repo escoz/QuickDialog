@@ -27,7 +27,6 @@
 
 @protected
     __unsafe_unretained QuickDialogTableView *_quickformTableView;
-    UIToolbar *_actionBar;
 }
 
 @property(nonatomic, strong) UITextField *textField;
