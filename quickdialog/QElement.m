@@ -41,9 +41,9 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformElementCell"];
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformElementCell"]; 
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:@"QuickformElementCell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.showsReorderControl = YES;
