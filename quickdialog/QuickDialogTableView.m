@@ -13,12 +13,13 @@
 //
 
 @implementation QuickDialogTableView {
-    
+    BOOL _deselectRowWhenViewAppears;
 }
 
 @synthesize root = _root;
 @synthesize selectedCell = _selectedCell;
 @synthesize styleProvider = _styleProvider;
+@synthesize deselectRowWhenViewAppears = _deselectRowWhenViewAppears;
 
 
 - (QuickDialogController *)controller {
@@ -30,6 +31,7 @@
     if (self!=nil){
         _controller = controller;
         self.root = _controller.root;
+        self.deselectRowWhenViewAppears = YES;
 
         quickformDataSource = [[QuickDialogDataSource alloc] initForTableView:self];
         self.dataSource = quickformDataSource;
@@ -72,7 +74,7 @@
 - (void)viewWillAppear {
 
     NSArray *selected = nil;
-    if ([self indexPathForSelectedRow]!=nil){
+    if ([self indexPathForSelectedRow]!=nil && _deselectRowWhenViewAppears){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];
         selected = [NSArray arrayWithObject:selectedRowIndex];
         [self reloadRowsAtIndexPaths:selected withRowAnimation:UITableViewRowAnimationNone];
