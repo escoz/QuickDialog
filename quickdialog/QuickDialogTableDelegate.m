@@ -33,12 +33,6 @@
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
     QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
 
-    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    if (_tableView.selectedCell != selectedCell) {
-        [_tableView.selectedCell resignFirstResponder];
-        _tableView.selectedCell = selectedCell;
-    }
-
     [element selected:_tableView controller:_tableView.controller indexPath:indexPath];
 }
 

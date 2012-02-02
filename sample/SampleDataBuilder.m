@@ -23,7 +23,7 @@
 @implementation SampleDataBuilder
 
 + (QRootElement *)createWithInitDefault {
-	
+
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.grouped = YES;
     subForm.title = @"Default Initialization";

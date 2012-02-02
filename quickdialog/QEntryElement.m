@@ -12,8 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QEntryTableViewCell.h"
-
 @implementation QEntryElement
 
 @synthesize textValue = _textValue;
@@ -55,11 +53,11 @@
     
     [cell prepareForElement:self inTableView:tableView];
     return cell;
-
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     [super selected:tableView controller:controller indexPath:indexPath];
+
 }
 
 - (void)fetchValueIntoObject:(id)obj {

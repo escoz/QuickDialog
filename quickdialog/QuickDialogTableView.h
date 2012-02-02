@@ -36,8 +36,6 @@
 
 @property(nonatomic, readonly) QuickDialogController *controller;
 
-@property(nonatomic, retain) UITableViewCell *selectedCell;
-
 @property(nonatomic, retain) NSObject<QuickDialogStyleProvider> *styleProvider;
 @property(nonatomic) BOOL deselectRowWhenViewAppears;
 
@@ -51,4 +49,5 @@
 - (void)viewWillAppear;
 
 - (void)reloadCellForElements:(QElement *)element, ...;
+
 @end

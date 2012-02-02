@@ -14,7 +14,7 @@
 
 
 @interface QEntryTableViewCell ()
-- (void)previousNextDelegate:(UISegmentedControl *)control;
+- (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;
 @end
 
@@ -24,26 +24,25 @@
 @synthesize textField = _textField;
 
 -(void)createActionBar {
-    if (_actionBar == nil) {
-        _actionBar = [[UIToolbar alloc] init];
-        _actionBar.translucent = YES;
-        [_actionBar sizeToFit];
-        _actionBar.barStyle = UIBarStyleBlackTranslucent;
+    UIToolbar *actionBar = [[UIToolbar alloc] init];
+    actionBar.translucent = YES;
+    [actionBar sizeToFit];
+    actionBar.barStyle = UIBarStyleBlackTranslucent;
 
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
-                                                                       style:UIBarButtonItemStyleDone target:self
-                                                                      action:@selector(textFieldMustReturn:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
+                                                                   style:UIBarButtonItemStyleDone target:self
+                                                                  action:@selector(handleActionBarDone:)];
 
-        _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
-        _prevNext.momentary = YES;
-        _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
-        _prevNext.tintColor = [UIColor darkGrayColor];
-        [_prevNext addTarget:self action:@selector(previousNextDelegate:) forControlEvents:UIControlEventValueChanged];
-        UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_prevNext];
-        UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        [_actionBar setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
-	}
-	_textField.inputAccessoryView = _actionBar;
+    _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
+    _prevNext.momentary = YES;
+    _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
+    _prevNext.tintColor = [UIColor darkGrayColor];
+    [_prevNext addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
+    UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_prevNext];
+    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [actionBar setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
+
+	_textField.inputAccessoryView = actionBar;
 }
 
 - (void)createSubviews {
@@ -62,8 +61,9 @@
 - (QEntryTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
     if (self!=nil){
-        [self createSubviews];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+
+        [self createSubviews];
     }
     return self;
 }
@@ -98,8 +98,8 @@
     _entryElement = element;
     [self recalculateEntryFieldPosition];
     _textField.text = _entryElement.textValue;
-    _textField.placeholder = _entryElement.placeholder;    
-    
+    _textField.placeholder = _entryElement.placeholder;
+
     _textField.autocapitalizationType = _entryElement.autocapitalizationType;
     _textField.autocorrectionType = _entryElement.autocorrectionType;
     _textField.keyboardType = _entryElement.keyboardType;
@@ -118,7 +118,6 @@
     [_prevNext setEnabled:[self findPreviousElementToFocusOn]!=nil forSegmentAtIndex:0];
     [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
 }
-
 
 -(void)recalculateEntryFieldPosition {
     _entryElement.parentSection.entryPosition = CGRectZero;
@@ -139,21 +138,19 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [_quickformTableView scrollToRowAtIndexPath:[_quickformTableView indexForElement:_entryElement] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    });
+
+
     if (_textField.returnKeyType == UIReturnKeyDefault) {
         UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
         _textField.returnKeyType = returnType;
     }
-    _quickformTableView.selectedCell = self;
 
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidBeginEditingElement:andCell:)]){
         [_entryElement.delegate QEntryDidBeginEditingElement:_entryElement andCell:self];
-    }
-}
-
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    if (selected==YES){
-        [_textField becomeFirstResponder];
     }
 }
 
@@ -191,29 +188,33 @@
     return YES;
 }
 
-- (void) previousNextDelegate:(UISegmentedControl *)control {
-	QEntryElement *element; 
-	if (control.selectedSegmentIndex == 1){
+- (void) handleActionBarPreviousNext:(UISegmentedControl *)control {
+	QEntryElement *element;
+    const BOOL isNext = control.selectedSegmentIndex == 1;
+    if (isNext){
 		element = [self findNextElementToFocusOn];
-      
-		
 	} else {
 		element = [self findPreviousElementToFocusOn];
 	}
 	if (element!=nil){
-		UITableViewCell *cell = [_quickformTableView cellForElement:element];
+        UITableViewCell *cell = [_quickformTableView cellForElement:element];
 		if (cell!=nil){
 			[cell becomeFirstResponder];
-            NSIndexPath *indexPath = [_quickformTableView indexPathForCell: cell];
-            [_quickformTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-		}
+		} else {
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                UITableViewCell *c = [_quickformTableView cellForElement:element];
+                if (c!=nil){
+                    [c becomeFirstResponder];
+                }
+            });
+        }
 	}
 }
 
-
-- (BOOL)textFieldMustReturn:(UITextField *)textField {
+- (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton {
     [_textField resignFirstResponder];
-    
+
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
         [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
     }
@@ -223,11 +224,10 @@
 
 - (BOOL)becomeFirstResponder {
     [_textField becomeFirstResponder];
-	return YES;
+     return YES;
 }
 
 - (BOOL)resignFirstResponder {
-    [_textField resignFirstResponder];
 	return YES;
 }
 
