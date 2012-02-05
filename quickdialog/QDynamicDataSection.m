@@ -33,7 +33,7 @@
         }
     }
     
-    if (collection==nil) //
+    if (collection==nil)
         [self addElement:[[QLoadingElement alloc] init]];
     
     if (collection!=nil && collection.count==0)
