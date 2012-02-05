@@ -16,13 +16,19 @@
     if (self.detailTextLabel.text!=nil)
         valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
 
-    if (valueSize.width>0){
-        const CGRect labelFrame = self.textLabel.frame;
-        self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y, self.bounds.size.width - valueSize.width - 40, labelFrame.size.height);
+    CGSize imageSize = CGSizeZero;
+    if (self.imageView!=nil)
+        imageSize = self.imageView.frame.size;
+
     
-        const CGRect detailsFrame = self.detailTextLabel.frame;
-        self.detailTextLabel.frame = CGRectMake(self.bounds.size.width-valueSize.width-30, detailsFrame.origin.y, valueSize.width, detailsFrame.size.height);
-    }
+    CGRect labelFrame = self.textLabel.frame;
+    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
+            self.contentView.bounds.size.width - valueSize.width - imageSize.width - 20, labelFrame.size.height);
+
+    CGRect detailsFrame = self.detailTextLabel.frame;
+    self.detailTextLabel.frame = CGRectMake(
+            self.contentView.bounds.size.width - valueSize.width - 10,
+            detailsFrame.origin.y, valueSize.width, detailsFrame.size.height);
 }
 
 @end
