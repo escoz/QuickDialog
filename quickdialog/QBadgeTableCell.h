@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface QBadgeTableCell : UITableViewCell {
+@interface QBadgeTableCell : QTableViewCell {
 
 @private
     QBadgeLabel *_badgeLabel;

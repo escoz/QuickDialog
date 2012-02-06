@@ -14,13 +14,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "QuickDialog.h"
 
 
 @class QEntryElement;
 @class QuickDialogTableView;
 
 
-@interface QEntryTableViewCell : UITableViewCell<UITextFieldDelegate> {
+@interface QEntryTableViewCell : QTableViewCell<UITextFieldDelegate> {
 
     QEntryElement *_entryElement;
     UITextField *_textField;

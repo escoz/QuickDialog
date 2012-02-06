@@ -12,7 +12,6 @@
 // permissions and limitations under the License.
 //
 
-
 #import <CoreGraphics/CoreGraphics.h>
 
 @interface QEntryTableViewCell ()
@@ -96,7 +95,7 @@
 
     _quickformTableView = tableView;
     _entryElement = element;
-    [self recalculateEntryFieldPosition];
+    _textField.backgroundColor = [UIColor blueColor];
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
 
@@ -119,9 +118,19 @@
     [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self recalculateEntryFieldPosition];
+}
+
+
 -(void)recalculateEntryFieldPosition {
     _entryElement.parentSection.entryPosition = CGRectZero;
-   _textField.frame = [self calculateFrameForEntryElement];
+    _textField.frame = [self calculateFrameForEntryElement];
+    CGRect labelFrame = self.textLabel.frame;
+    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
+            _entryElement.parentSection.entryPosition.origin.x-20, labelFrame.size.height);
+    
 }
 
 - (void)prepareForReuse {
