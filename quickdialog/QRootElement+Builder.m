@@ -19,7 +19,7 @@
 @implementation QRootElement (Builder)
 
 
-- (id)initWithJSONFile:(NSString *)jsonPath {
+- (QRootElement *)initWithJSONFile:(NSString *)jsonPath {
     self = [self initWithJSONFile:jsonPath andData:nil];
     return self;
 }
@@ -28,7 +28,7 @@
     return objc_getClass("NSJSONSerialization");
 }
 
-- (id)initWithJSONFile:(NSString *)jsonPath andData:(id)data {
+- (QRootElement *)initWithJSONFile:(NSString *)jsonPath andData:(id)data {
     Class JSONSerialization = [QRootElement JSONParserClass];
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
 
@@ -44,7 +44,7 @@
 }
 
 
-- (id)initWithJSONFile:(NSString *)jsonPath andDataJSONFile:(NSString *)dataPath {
+- (QRootElement *)initWithJSONFile:(NSString *)jsonPath andDataJSONFile:(NSString *)dataPath {
     Class JSONSerialization = [QRootElement JSONParserClass];
     NSAssert(JSONSerialization != NULL, @"No JSON serializer available!");
 
@@ -53,6 +53,11 @@
     NSDictionary *data = [JSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath] options:0 error:&jsonParsingError];
 
     return [self initWithJSONFile:jsonPath andData:data];
+}
+
++ (QRootElement *)rootForJSON:(NSString *)json {
+    QRootElement *root = [[QRootElement alloc] initWithJSONFile:json];
+    return root;
 }
 
 

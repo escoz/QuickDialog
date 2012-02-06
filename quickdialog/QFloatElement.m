@@ -54,7 +54,7 @@
 
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, [self calculateSliderWidth:tableView cell:cell], 20)];
     [slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
-
+    slider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     slider.value = _floatValue;
     cell.accessoryView = slider;
     return cell;

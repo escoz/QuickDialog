@@ -21,5 +21,6 @@
 @optional
 
 -(void) sectionHeaderWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
+-(void) sectionFooterWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
 
 @end

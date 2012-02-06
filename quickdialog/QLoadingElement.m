@@ -27,7 +27,7 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *const cell = [[UITableViewCell alloc] init];
+    UITableViewCell *const cell = [[QTableViewCell alloc] init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
     [spin startAnimating];
