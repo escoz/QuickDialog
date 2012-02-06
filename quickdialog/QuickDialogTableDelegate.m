@@ -68,8 +68,8 @@
     QSection *section = [_tableView.root getSectionForIndex:index];
 
     if (section.headerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionHeaderWillAppearForSection:atIndex:)]){
-            [_tableView.styleProvider sectionHeaderWillAppearForSection:section atIndex:index];
-        }
+        [_tableView.styleProvider sectionHeaderWillAppearForSection:section atIndex:index];
+    }
 
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
@@ -79,10 +79,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getSectionForIndex:index];
-    CGFloat stringFooterHeight = 28.0;
+
+    if (section.footerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionFooterWillAppearForSection:atIndex:)]){
+        [_tableView.styleProvider sectionFooterWillAppearForSection:section atIndex:index];
+    }
 
     if (section.footerView!=nil)
             return section.footerView.frame.size.height;
+
+    CGFloat stringFooterHeight = 28.0;
 
     if (section.footer != nil) {
         CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 50;
