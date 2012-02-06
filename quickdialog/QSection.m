@@ -41,11 +41,13 @@
 - (void)setFooterImage:(NSString *)imageName {
     _footerImage = imageName;
     self.footerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_footerImage]];
+    self.footerView.contentMode = UIViewContentModeCenter;
 }
 
 - (void)setHeaderImage:(NSString *)imageName {
     _headerImage = imageName;
     self.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_headerImage]];
+    self.headerView.contentMode = UIViewContentModeCenter;
 }
 
 - (QSection *)initWithTitle:(NSString *)sectionTitle {

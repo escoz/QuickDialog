@@ -23,15 +23,15 @@
 
 @implementation LoginController
 
-- (void)loadView {
-    [super loadView];
-    self.view.backgroundColor = [UIColor colorWithHue:0.1174 saturation:0.7131 brightness:0.8618 alpha:1.0000];
+- (void)setQuickDialogTableView:(QuickDialogTableView *)aQuickDialogTableView {
+    [super setQuickDialogTableView:aQuickDialogTableView];
+
+    self.quickDialogTableView.backgroundColor = [UIColor colorWithHue:0.1174 saturation:0.7131 brightness:0.8618 alpha:1.0000];
     self.quickDialogTableView.bounces = NO;
     self.quickDialogTableView.styleProvider = self;
 
     ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
 }
-
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -67,14 +67,11 @@
 
 -(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath{
     cell.backgroundColor = [UIColor colorWithRed:0.9582 green:0.9104 blue:0.7991 alpha:1.0000];
-    
+
     if ([element isKindOfClass:[QEntryElement class]] || [element isKindOfClass:[QButtonElement class]]){
         cell.textLabel.textColor = [UIColor colorWithRed:0.6033 green:0.2323 blue:0.0000 alpha:1.0000];
     }   
 }
-
-
-
 
 + (QRootElement *)createDetailsForm {
     QRootElement *details = [[QRootElement alloc] init];
@@ -121,7 +118,7 @@
 
     [root addSection:btSection];
 
-    btSection.footerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"footer"]];
+    btSection.footerImage = @"footer";
 
     return root;
 }
