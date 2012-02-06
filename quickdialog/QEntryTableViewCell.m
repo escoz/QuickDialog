@@ -13,6 +13,8 @@
 //
 
 
+#import <CoreGraphics/CoreGraphics.h>
+
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;
@@ -48,13 +50,12 @@
 - (void)createSubviews {
     _textField = [[UITextField alloc] init];
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:_textField];
-
     [self setNeedsLayout];
 }
 
@@ -78,14 +79,13 @@
     if (CGRectEqualToRect(CGRectZero, _entryElement.parentSection.entryPosition)) {
         for (QElement *el in _entryElement.parentSection.elements){
             if ([el isKindOfClass:[QEntryElement class]]){
-                CGFloat fontSize = self.textLabel.font.pointSize == 0? 18 : self.textLabel.font.pointSize;
+                CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
                 CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:UILineBreakModeWordWrap] ;
                 if (size.width>titleWidth)
                     titleWidth = size.width;
             }
         }
-
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+10,10,totalWidth-titleWidth-10,24);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20,24);
     }
 
     return _entryElement.parentSection.entryPosition;

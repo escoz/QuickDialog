@@ -390,7 +390,7 @@
     googleElement.returnKeyType = UIReturnKeyGoogle;
     [traitsSection addElement:googleElement];
     
-    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto-Enable Return" Value:@"" Placeholder:@"YES"];
+    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto Return" Value:@"" Placeholder:@"YES"];
     enableReturnElement.enablesReturnKeyAutomatically = YES;
     [traitsSection addElement:enableReturnElement];
     
