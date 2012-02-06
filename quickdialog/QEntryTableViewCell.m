@@ -95,7 +95,6 @@
 
     _quickformTableView = tableView;
     _entryElement = element;
-    _textField.backgroundColor = [UIColor blueColor];
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
 
