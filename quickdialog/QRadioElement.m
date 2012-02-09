@@ -38,6 +38,10 @@
     [self createElements];
 }
 
+-(void)setSelectedValue:(NSObject *)aSelected {
+    _selected = [_values indexOfObject:aSelected];
+}
+
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
