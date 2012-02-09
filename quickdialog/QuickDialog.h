@@ -45,3 +45,6 @@
 #import "QuickDialogEntryElementDelegate.h"
 
 #import "QRootBuilder.h"
+
+#import "QValidator.h"
+#import "QEntryValidator.h"

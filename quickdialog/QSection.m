@@ -93,4 +93,11 @@
 
 }
 
+-(void)validate: (NSMutableArray *)errors
+{
+    for (QElement *el in self.elements) {
+        [el validate:errors];
+    }
+}
+
 @end

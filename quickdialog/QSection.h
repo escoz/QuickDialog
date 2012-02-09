@@ -56,4 +56,5 @@
 - (void)fetchValueIntoObject:(id)obj;
 
 - (void)bindToObject:(id)data;
+-(void)validate:(NSMutableArray *)errors;
 @end

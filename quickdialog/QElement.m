@@ -28,6 +28,7 @@
 @synthesize controllerAction = _controllerAction;
 @synthesize object = _object;
 @synthesize height = _height;
+@synthesize validator = _validator;
 
 - (QElement *)init {
     self = [super init];
@@ -80,6 +81,16 @@
 
 -(void)bindToObject:(id)data {
     [[QBindingEvaluator new] bindObject:self toData:data];
+}
+
+-(void)validate: (NSMutableArray *)errors
+{
+    if (_validator) {
+        NSString *error = [_validator validate: self];
+        if (error) {
+            [errors addObject:error];
+        }
+    }
 }
 
 @end
