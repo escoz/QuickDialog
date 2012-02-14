@@ -30,6 +30,7 @@
         cell= [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickformButtonElement"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.imageView.image = _image;
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = UITextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithRed:50.0f/255.0f green:79.0f/255.0f blue:133.0f/255.0f alpha:1];
