@@ -22,32 +22,25 @@
 @class QuickDialogTableView;
 
 
-@interface QAutoEntryTableViewCell : QTableViewCell<UITextFieldDelegate,DOAutocompleteTextFieldDelegate> {
+@interface QAutoEntryTableViewCell : QEntryTableViewCell<UITextFieldDelegate,DOAutocompleteTextFieldDelegate> {
     
     QAutoEntryElement *entryElement;
     DOAutocompleteTextField *txtField;
-    NSArray* autos;
+    NSArray*autoCompleteValues;
     UIColor *autoColor;
     
 @protected
-    __unsafe_unretained QuickDialogTableView *_quickformTableView;
 }
 
-@property(nonatomic, strong) DOAutocompleteTextField *txtField;
-@property(nonatomic, retain) NSArray *autos;
+@property(nonatomic, strong) DOAutocompleteTextField *autoCompleteField;
+@property(nonatomic, retain) NSArray *autoCompleteValues;
+@property(nonatomic, strong) NSString *lastAutoComplete;
 
-- (void)prepareForElement:(QAutoEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
+
+- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
 
 - (void)createSubviews;
 
-- (QAutoEntryElement *)findNextElementToFocusOn;
-- (QAutoEntryElement *)findPreviousElementToFocusOn;
-
-- (void)setAutoCompletes:(NSArray*)autoCompletes;
-- (void)setAutoCompleteColor:(UIColor*)colour;
-
 - (void)recalculateEntryFieldPosition;
-
-- (NSString*)getLastAutoComplete;
 
 @end

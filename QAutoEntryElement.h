@@ -14,11 +14,8 @@
 //
 #import "QLabelElement.h"
 #import "DOAutocompleteTextField.h"
-#import "QuickDialogAutoEntryElementDelegate.h"
 
-@protocol QuickDialogAutoEntryElementDelegate;
-
-@interface QAutoEntryElement : QLabelElement <UITextInputTraits, DOAutocompleteTextFieldDelegate> 
+@interface QAutoEntryElement : QEntryElement <UITextInputTraits, DOAutocompleteTextFieldDelegate>
 
 @property(nonatomic, retain) NSString *textValue;
 @property(nonatomic, retain) NSString *placeholder;
@@ -27,7 +24,7 @@
 @property(assign) BOOL hiddenToolbar;
 @property(nonatomic, retain) NSString *lastAutoComplete;
 
-@property(nonatomic, unsafe_unretained) id<QuickDialogAutoEntryElementDelegate> delegate;
+@property(nonatomic, unsafe_unretained) id<QuickDialogEntryElementDelegate> delegate;
 
 @property(nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;         // default is UITextAutocorrectionTypeDefault

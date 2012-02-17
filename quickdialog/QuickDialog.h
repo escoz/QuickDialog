@@ -46,6 +46,5 @@
 
 #import "QAutoEntryElement.h"
 #import "QAutoEntryTableViewCell.h"
-#import "QuickDialogAutoEntryElementDelegate.h"
 
 #import "QRootBuilder.h"

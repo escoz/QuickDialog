@@ -32,11 +32,21 @@
 
 @property(nonatomic, strong) UITextField *textField;
 
+- (void)updatePrevNextStatus;
+
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
+
+- (UIToolbar *)createActionBar;
 
 - (void)createSubviews;
 
+- (CGRect)calculateFrameForEntryElement;
+
+
 - (QEntryElement *)findNextElementToFocusOn;
+
+- (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton;
+
 - (QEntryElement *)findPreviousElementToFocusOn;
 
 - (void)recalculateEntryFieldPosition;

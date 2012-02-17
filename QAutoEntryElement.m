@@ -58,8 +58,6 @@
     }
     
     [cell prepareForElement:self inTableView:tableView];
-    [cell setAutoCompleteColor:autoCompleteColor];
-    [cell setAutoCompletes:_autoCompleteValues];
     return cell;
 }
 
@@ -75,7 +73,6 @@
 	[obj setValue:textValue forKey:_key];
 }
 
-#pragma mark - DOAutocompleteTextFieldDelegate
 - (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 {
     NSString* lowPrefix = [prefix lowercaseString];

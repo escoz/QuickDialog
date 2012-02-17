@@ -24,7 +24,7 @@
 }
 @synthesize textField = _textField;
 
--(void)createActionBar {
+-(UIToolbar *)createActionBar {
     UIToolbar *actionBar = [[UIToolbar alloc] init];
     actionBar.translucent = YES;
     [actionBar sizeToFit];
@@ -43,7 +43,7 @@
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [actionBar setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
 
-	_textField.inputAccessoryView = actionBar;
+	return actionBar;
 }
 
 - (void)createSubviews {
@@ -90,6 +90,11 @@
     return _entryElement.parentSection.entryPosition;
 }
 
+- (void)updatePrevNextStatus {
+    [_prevNext setEnabled:[self findPreviousElementToFocusOn]!=nil forSegmentAtIndex:0];
+    [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
+}
+
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
     self.textLabel.text = element.title;
 
@@ -110,11 +115,10 @@
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
     } else {
-        [self createActionBar];
+        _textField.inputAccessoryView = [self createActionBar];
     }
 
-    [_prevNext setEnabled:[self findPreviousElementToFocusOn]!=nil forSegmentAtIndex:0];
-    [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
+    [self updatePrevNextStatus];
 }
 
 - (void)layoutSubviews {
