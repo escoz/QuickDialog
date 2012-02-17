@@ -41,14 +41,16 @@
         cell = [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickfromTextElement"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-        cell.textLabel.font = _font;
         cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
         cell.textLabel.numberOfLines = 0;
-        if([cell.textLabel respondsToSelector:@selector(textLabel:)]) {
-            cell.textLabel.textColor = _color;
-        }
-        cell.textLabel.text = _text;
     }
+    
+    cell.textLabel.font = _font;
+    if([cell.textLabel respondsToSelector:@selector(textColor:)]) {
+            cell.textLabel.textColor = _color;
+    }
+    cell.textLabel.text = _text;
+    
     return cell;
 }
 
