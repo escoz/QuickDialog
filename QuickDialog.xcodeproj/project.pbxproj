@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194C3FC214EDF0510036C9E7 /* DOAutocompleteTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */; };
+		194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */; };
+		194C3FC714EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */; };
+		194C3FC814EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC614EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m */; };
+		194C3FCB14EDF17E0036C9E7 /* QAutoEntryElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC914EDF17E0036C9E7 /* QAutoEntryElement.h */; };
+		194C3FCC14EDF17E0036C9E7 /* QAutoEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FCA14EDF17E0036C9E7 /* QAutoEntryElement.m */; };
+		194C3FCF14EDF2340036C9E7 /* QAutoEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FCD14EDF2340036C9E7 /* QAutoEntryTableViewCell.h */; };
+		194C3FD014EDF2340036C9E7 /* QAutoEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FCE14EDF2340036C9E7 /* QAutoEntryTableViewCell.m */; };
+		194C3FD214EDF2A80036C9E7 /* QuickDialogAutoEntryElementDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FD114EDF2A80036C9E7 /* QuickDialogAutoEntryElementDelegate.h */; };
+		194C3FD914EDF7A50036C9E7 /* QValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FD714EDF7A50036C9E7 /* QValidator.h */; };
+		194C3FDA14EDF7A50036C9E7 /* QValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FD814EDF7A50036C9E7 /* QValidator.m */; };
 		2C542394145ADEBD0026A152 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		2C54239F145ADF2B0026A152 /* QuickDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9E /* QuickDialog.h */; settings = {ATTRIBUTES = (); }; };
 		2C5423A1145ADF2B0026A152 /* QDecimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */; };
@@ -133,6 +144,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
+		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
+		194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+IMSExtensions.h"; sourceTree = SOURCE_ROOT; };
+		194C3FC614EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+IMSExtensions.m"; sourceTree = SOURCE_ROOT; };
+		194C3FC914EDF17E0036C9E7 /* QAutoEntryElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAutoEntryElement.h; sourceTree = SOURCE_ROOT; };
+		194C3FCA14EDF17E0036C9E7 /* QAutoEntryElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAutoEntryElement.m; sourceTree = SOURCE_ROOT; };
+		194C3FCD14EDF2340036C9E7 /* QAutoEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAutoEntryTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		194C3FCE14EDF2340036C9E7 /* QAutoEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAutoEntryTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		194C3FD114EDF2A80036C9E7 /* QuickDialogAutoEntryElementDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickDialogAutoEntryElementDelegate.h; sourceTree = SOURCE_ROOT; };
+		194C3FD714EDF7A50036C9E7 /* QValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QValidator.h; path = quickdialog/QValidator.h; sourceTree = SOURCE_ROOT; };
+		194C3FD814EDF7A50036C9E7 /* QValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QValidator.m; path = quickdialog/QValidator.m; sourceTree = SOURCE_ROOT; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -477,6 +499,17 @@
 				D811F8BD13EC905B00E3922B /* QWebElement.m */,
 				D811F8BE13EC905B00E3922B /* QWebViewController.h */,
 				D811F8BF13EC905B00E3922B /* QWebViewController.m */,
+				194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */,
+				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
+				194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */,
+				194C3FC614EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m */,
+				194C3FC914EDF17E0036C9E7 /* QAutoEntryElement.h */,
+				194C3FCA14EDF17E0036C9E7 /* QAutoEntryElement.m */,
+				194C3FCD14EDF2340036C9E7 /* QAutoEntryTableViewCell.h */,
+				194C3FCE14EDF2340036C9E7 /* QAutoEntryTableViewCell.m */,
+				194C3FD114EDF2A80036C9E7 /* QuickDialogAutoEntryElementDelegate.h */,
+				194C3FD714EDF7A50036C9E7 /* QValidator.h */,
+				194C3FD814EDF7A50036C9E7 /* QValidator.m */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -541,6 +574,12 @@
 				D8F180E813F0599A009B0CBE /* QLoadingElement.h in Headers */,
 				D8F180E813F0599A009B0CC2 /* QDynamicDataSection.h in Headers */,
 				D8F180E813F0599A009B0CC6 /* QTableViewCell.h in Headers */,
+				194C3FC214EDF0510036C9E7 /* DOAutocompleteTextField.h in Headers */,
+				194C3FC714EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h in Headers */,
+				194C3FCB14EDF17E0036C9E7 /* QAutoEntryElement.h in Headers */,
+				194C3FCF14EDF2340036C9E7 /* QAutoEntryTableViewCell.h in Headers */,
+				194C3FD214EDF2A80036C9E7 /* QuickDialogAutoEntryElementDelegate.h in Headers */,
+				194C3FD914EDF7A50036C9E7 /* QValidator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +719,11 @@
 				D8F180E813F0599A009B0CBC /* QLoadingElement.m in Sources */,
 				D8F180E813F0599A009B0CC0 /* QDynamicDataSection.m in Sources */,
 				D8F180E813F0599A009B0CC4 /* QTableViewCell.m in Sources */,
+				194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */,
+				194C3FC814EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m in Sources */,
+				194C3FCC14EDF17E0036C9E7 /* QAutoEntryElement.m in Sources */,
+				194C3FD014EDF2340036C9E7 /* QAutoEntryTableViewCell.m in Sources */,
+				194C3FDA14EDF7A50036C9E7 /* QValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
