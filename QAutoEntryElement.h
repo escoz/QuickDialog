@@ -22,8 +22,8 @@
 
 @property(nonatomic, retain) NSString *textValue;
 @property(nonatomic, retain) NSString *placeholder;
-@property(nonatomic, retain) NSArray *autoCompletes;
-@property(nonatomic, retain) UIColor *autoColor;
+@property(nonatomic, retain) NSArray *autoCompleteValues;
+@property(nonatomic, retain) UIColor *autoCompleteColor;
 @property(assign) BOOL hiddenToolbar;
 @property(nonatomic, retain) NSString *lastAutoComplete;
 
@@ -40,7 +40,5 @@
 - (QAutoEntryElement *)init;
 
 - (QAutoEntryElement *)initWithTitle:(NSString *)string value:(NSString *)param placeholder:(NSString *)string1;
-- (void)setAutos:(NSArray*)autos;
-- (void)setAutoCompleteColor:(UIColor*)color;
 
 @end

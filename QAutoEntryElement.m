@@ -12,16 +12,15 @@
 // ANY KIND, either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-#import "QAutoEntryElement.h"
 
 @implementation QAutoEntryElement
 
 @synthesize textValue;
 @synthesize placeholder;
 @synthesize hiddenToolbar;
-@synthesize autoCompletes;
+@synthesize autoCompleteValues = _autoCompleteValues;
 @synthesize lastAutoComplete;
-@synthesize autoColor;
+@synthesize autoCompleteColor;
 
 @synthesize delegate = _delegate;
 
@@ -50,16 +49,6 @@
     return self;
 }
 
-- (void)setAutos:(NSArray*)autos
-{
-    autoCompletes = autos;
-}
-
-- (void)setAutoCompleteColor:(UIColor*)color
-{
-    autoColor = color;
-}
-
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     
@@ -69,8 +58,8 @@
     }
     
     [cell prepareForElement:self inTableView:tableView];
-    [cell setAutoCompleteColor:autoColor];
-    [cell setAutoCompletes:autoCompletes];
+    [cell setAutoCompleteColor:autoCompleteColor];
+    [cell setAutoCompletes:_autoCompleteValues];
     return cell;
 }
 
