@@ -158,12 +158,19 @@
 	
     QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" Value:nil Placeholder:@"type here"];
 	entryElement.key = @"entry1";
-	
+
+    NSArray *arr = [NSArray arrayWithObjects:@"Dr.", @"Ms.",@"Mrs.",@"Miss",@"Mr.",@"Prof.",@"A/Prof.",nil];
+    QAutoEntryElement *autoElement = [[QAutoEntryElement alloc] initWithTitle:@"AutoComplete" value:nil placeholder:@"type here"];
+    [autoElement setAutos:arr];
+    [autoElement setAutoCompleteColor:[UIColor orangeColor]];
+	autoElement.key = @"entry2";
+
     controls.footer = @"More controls will be added.";
     [controls addElement:element1];
 
     [controls addElement:radioElement];
     [controls addElement:entryElement];
+    [controls addElement:autoElement];
 	
     [controls addElement:boolElement];
 	QDateTimeInlineElement *dateElement = [[QDateTimeInlineElement alloc] initWithTitle:@"DateTime" date:[NSDate date]];
