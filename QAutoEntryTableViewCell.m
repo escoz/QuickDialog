@@ -15,6 +15,7 @@
 
 @implementation QAutoEntryTableViewCell {
     NSString *_lastAutoComplete;
+    QAutoEntryElement *_autoEntryElement;
 }
 
 @synthesize autoCompleteField = _autoCompleteField;
@@ -45,26 +46,26 @@
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
-    entryElement = (QAutoEntryElement *)element;
-
-    self.textLabel.text = element.title;
-    self.autoCompleteValues = entryElement.autoCompleteValues;
-
     _quickformTableView = tableView;
     _textField.delegate = self;
 
-    _autoCompleteField.text = entryElement.textValue;
-    _autoCompleteField.placeholder = entryElement.placeholder;
-    _autoCompleteField.autocapitalizationType = entryElement.autocapitalizationType;
-    _autoCompleteField.autocorrectionType = entryElement.autocorrectionType;
-    _autoCompleteField.keyboardType = entryElement.keyboardType;
-    _autoCompleteField.keyboardAppearance = entryElement.keyboardAppearance;
-    _autoCompleteField.secureTextEntry = entryElement.secureTextEntry;
-    _autoCompleteField.autocompleteTextColor = entryElement.autoCompleteColor;
-    _autoCompleteField.returnKeyType = entryElement.returnKeyType;
-    _autoCompleteField.enablesReturnKeyAutomatically = entryElement.enablesReturnKeyAutomatically;
+    _entryElement = element;
+    _autoEntryElement = (QAutoEntryElement *)element;
+
+    self.textLabel.text = _entryElement.title;
+    self.autoCompleteValues = _autoEntryElement.autoCompleteValues;
+    _autoCompleteField.text = _autoEntryElement.textValue;
+    _autoCompleteField.placeholder = _autoEntryElement.placeholder;
+    _autoCompleteField.autocapitalizationType = _autoEntryElement.autocapitalizationType;
+    _autoCompleteField.autocorrectionType = _autoEntryElement.autocorrectionType;
+    _autoCompleteField.keyboardType = _autoEntryElement.keyboardType;
+    _autoCompleteField.keyboardAppearance = _autoEntryElement.keyboardAppearance;
+    _autoCompleteField.secureTextEntry = _autoEntryElement.secureTextEntry;
+    _autoCompleteField.autocompleteTextColor = _autoEntryElement.autoCompleteColor;
+    _autoCompleteField.returnKeyType = _autoEntryElement.returnKeyType;
+    _autoCompleteField.enablesReturnKeyAutomatically = _autoEntryElement.enablesReturnKeyAutomatically;
     
-    if (entryElement.hiddenToolbar){
+    if (_autoEntryElement.hiddenToolbar){
         _autoCompleteField.inputAccessoryView = nil;
     } else {
         _autoCompleteField.inputAccessoryView = [self createActionBar];
@@ -94,7 +95,7 @@
 
 - (void)prepareForReuse {
     _quickformTableView = nil;
-    entryElement = nil;
+    _entryElement = nil;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

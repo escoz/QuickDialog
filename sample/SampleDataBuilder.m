@@ -159,8 +159,8 @@
     QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" Value:nil Placeholder:@"type here"];
 	entryElement.key = @"entry1";
 
-    NSArray *values = [NSArray arrayWithObjects:@"Dr.", @"Ms.",@"Mrs.",@"Miss",@"Mr.",@"Prof.",@"A/Prof.",nil];
-    QAutoEntryElement *autoElement = [[QAutoEntryElement alloc] initWithTitle:@"AutoComplete" value:nil placeholder:@"type here"];
+    NSArray *values = [NSArray arrayWithObjects:@"Ferrari", @"Ms.",@"Mrs.",@"Miss",@"Mr.",@"Prof.",@"A/Prof.",nil];
+    QAutoEntryElement *autoElement = [[QAutoEntryElement alloc] initWithTitle:@"AutoComplete" value:nil placeholder:@"type letter M"];
     autoElement.autoCompleteValues = values;
     autoElement.autoCompleteColor = [UIColor orangeColor];
 	autoElement.key = @"entry2";

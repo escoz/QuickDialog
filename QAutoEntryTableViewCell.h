@@ -24,7 +24,6 @@
 
 @interface QAutoEntryTableViewCell : QEntryTableViewCell<UITextFieldDelegate,DOAutocompleteTextFieldDelegate> {
     
-    QAutoEntryElement *entryElement;
     DOAutocompleteTextField *txtField;
     NSArray*autoCompleteValues;
     UIColor *autoColor;
