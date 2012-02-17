@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 #import "QSection.h"
+#import "QValidator.h"
 
 @class QuickDialogTableView;
 @class QuickDialogController;
@@ -40,6 +41,7 @@
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) NSObject *object;
 @property(nonatomic, retain) NSString *bind;
+@property(nonatomic, retain) QValidator *validator;
 
 
 - (QElement *)initWithKey:(NSString *)key;
@@ -56,6 +58,8 @@
 - (void)fetchValueIntoObject:(id)obj;
 
 - (void)bindToObject:(id)obj;
+
+-(void)validate:(NSMutableArray *)errors;
 
 
 @end

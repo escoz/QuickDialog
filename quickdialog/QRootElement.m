@@ -72,6 +72,16 @@
 
 }
 
+
+-(void)validate: (NSMutableArray *)errors 
+{
+    for (QSection *s in _sections){
+        [s validate:errors];
+    }
+    [super validate:errors];
+}
+
+
 -(void)dealloc {
     for (QSection * section in self.sections) {
         section.rootElement = nil;
