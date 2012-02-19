@@ -110,9 +110,7 @@
 		D86249FB14BB5AB5002F0585 /* loginform.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F714BB5AB5002F0585 /* loginform.json */; };
 		D86249FC14BB5AB5002F0585 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F814BB5AB5002F0585 /* sample.json */; };
 		D871018714BB3D7A00156D9D /* QRootElement+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = D871018514BB3D7A00156D9D /* QRootElement+Builder.m */; };
-		D87B4FC114F160F3006DA833 /* DOAutocompleteTextField.m in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */; };
 		D87B4FC914F16197006DA833 /* DOAutocompleteTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */; };
-		D87B4FCA14F16197006DA833 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */; };
 		D87B4FCB14F16197006DA833 /* QAutoEntryElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D87B4FC514F16197006DA833 /* QAutoEntryElement.h */; };
 		D87B4FCC14F16197006DA833 /* QAutoEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B4FC614F16197006DA833 /* QAutoEntryElement.m */; };
 		D87B4FCD14F16197006DA833 /* QAutoEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D87B4FC714F16197006DA833 /* QAutoEntryTableViewCell.h */; };
@@ -531,7 +529,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D87B4FC114F160F3006DA833 /* DOAutocompleteTextField.m in Headers */,
 				2C54239F145ADF2B0026A152 /* QuickDialog.h in Headers */,
 				D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */,
 				D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */,
@@ -719,7 +716,6 @@
 				D8F180E813F0599A009B0CC4 /* QTableViewCell.m in Sources */,
 				194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */,
 				194C3FC814EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m in Sources */,
-				D87B4FCA14F16197006DA833 /* DOAutocompleteTextField.m in Sources */,
 				D87B4FCC14F16197006DA833 /* QAutoEntryElement.m in Sources */,
 				D87B4FCE14F16197006DA833 /* QAutoEntryTableViewCell.m in Sources */,
 			);
