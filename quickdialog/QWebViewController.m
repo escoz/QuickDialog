@@ -120,9 +120,11 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    if (error.code==-999)
+        return;
     self.navigationItem.rightBarButtonItem = nil;
     self.title = @"Error";
-    [_webView loadHTMLString:[NSString stringWithFormat:@"<html><font size=+5>An error occurred:<br>%@</font></html>", [error localizedDescription]] baseURL:nil];
+    [_webView loadHTMLString:[NSString stringWithFormat:@"<html style='margin:2em'><font size=+5>%@</font></html>", [error localizedDescription]] baseURL:nil];
 }
 
 
