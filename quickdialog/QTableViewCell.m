@@ -24,6 +24,8 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    self.detailTextLabel.backgroundColor = [UIColor clearColor];
     CGSize valueSize = CGSizeZero;
     if (self.detailTextLabel.text!=nil)
         valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
