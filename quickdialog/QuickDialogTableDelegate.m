@@ -90,14 +90,14 @@
     CGFloat stringFooterHeight = 28.0;
 
     if (section.footer != nil) {
-        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 50;
+        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 20;
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
         CGSize expectedLabelSize = [section.footer sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
                                               constrainedToSize:maximumLabelSize
                                                   lineBreakMode:UILineBreakModeWordWrap];
 
-        stringFooterHeight = expectedLabelSize.height;
+        stringFooterHeight = expectedLabelSize.height+5;
     }
 
     return section.footer != NULL? stringFooterHeight : 0;
