@@ -58,9 +58,8 @@
 
 - (void)fetchValueIntoObject:(id)obj {
     for (QSection *s in _sections){
-        for (QElement *el in s.elements) {
-            [el fetchValueIntoObject:obj];
-        }
+        [s fetchValueIntoObject:obj];
+
     }
 }
 
