@@ -15,6 +15,7 @@
 
 #import "QuickDialogController.h"
 #import "QuickDialogController+Loading.h"
+#import "NSMutableArray+MoveObject.h"
 #import "QuickDialogTableView.h"
 #import "QuickDialogTableDelegate.h"
 

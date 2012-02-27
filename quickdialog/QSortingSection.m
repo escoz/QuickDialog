@@ -44,7 +44,7 @@
 }
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to {
-    [self.elements exchangeObjectAtIndex:from withObjectAtIndex:to];
+    [self.elements moveObjectFromIndex:from toIndex:to];
 }
 
 
