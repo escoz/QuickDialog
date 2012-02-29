@@ -55,7 +55,7 @@
         if ([valueName isEqualToString:@"self"]) {
             value = data;
         } else {
-            value = [data valueForKey: valueName];
+            value = [data valueForKeyPath: valueName];
         }
         
         if (converterParams.count > 1) {

@@ -20,6 +20,7 @@
 @synthesize font = _font;
 @synthesize color = _color;
 @synthesize textAlignment = _textAlignment;
+@synthesize backgroundColor = _backgroundColor;
 
 
 - (QTextElement *)init {
@@ -27,6 +28,7 @@
     _font = [UIFont systemFontOfSize:14];
     _color = [UIColor blackColor];
     _textAlignment = UITextAlignmentLeft;
+    _backgroundColor = [UIColor whiteColor];
     return self;
 }
 
@@ -47,6 +49,7 @@
         cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.textAlignment = _textAlignment;
+        cell.textLabel.backgroundColor = _backgroundColor;
         if([cell.textLabel respondsToSelector:@selector(textLabel:)]) {
             cell.textLabel.textColor = _color;
         }
