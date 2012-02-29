@@ -42,6 +42,8 @@
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
 		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
 		B107F6E114FDAD5E00DC5445 /* QConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = B107F6DA14FDA4CD00DC5445 /* QConverter.m */; };
+		B107F6E414FDBDF800DC5445 /* QArrayToImplodedStringConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = B107F6E214FDBDF700DC5445 /* QArrayToImplodedStringConverter.h */; };
+		B107F6E514FDBDF800DC5445 /* QArrayToImplodedStringConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = B107F6E314FDBDF700DC5445 /* QArrayToImplodedStringConverter.m */; };
 		B13B340614E450B9005EFB7F /* QValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = B13B340414E450B8005EFB7F /* QValidator.h */; };
 		B13B340714E450B9005EFB7F /* QValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B13B340514E450B8005EFB7F /* QValidator.m */; };
 		B13B340B14E451EE005EFB7F /* QEntryValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = B13B340914E451ED005EFB7F /* QEntryValidator.h */; };
@@ -144,6 +146,8 @@
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B107F6D914FDA4CC00DC5445 /* QConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QConverter.h; path = quickdialog/QConverter.h; sourceTree = SOURCE_ROOT; };
 		B107F6DA14FDA4CD00DC5445 /* QConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QConverter.m; path = quickdialog/QConverter.m; sourceTree = SOURCE_ROOT; };
+		B107F6E214FDBDF700DC5445 /* QArrayToImplodedStringConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QArrayToImplodedStringConverter.h; path = quickdialog/QArrayToImplodedStringConverter.h; sourceTree = SOURCE_ROOT; };
+		B107F6E314FDBDF700DC5445 /* QArrayToImplodedStringConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QArrayToImplodedStringConverter.m; path = quickdialog/QArrayToImplodedStringConverter.m; sourceTree = SOURCE_ROOT; };
 		B13B340414E450B8005EFB7F /* QValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QValidator.h; path = quickdialog/QValidator.h; sourceTree = SOURCE_ROOT; };
 		B13B340514E450B8005EFB7F /* QValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QValidator.m; path = quickdialog/QValidator.m; sourceTree = SOURCE_ROOT; };
 		B13B340914E451ED005EFB7F /* QEntryValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QEntryValidator.h; path = quickdialog/QEntryValidator.h; sourceTree = SOURCE_ROOT; };
@@ -504,6 +508,8 @@
 				B18C701014FD689200AA9F15 /* QGenericTableViewCell.m */,
 				B107F6D914FDA4CC00DC5445 /* QConverter.h */,
 				B107F6DA14FDA4CD00DC5445 /* QConverter.m */,
+				B107F6E214FDBDF700DC5445 /* QArrayToImplodedStringConverter.h */,
+				B107F6E314FDBDF700DC5445 /* QArrayToImplodedStringConverter.m */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -570,6 +576,7 @@
 				D8F180E813F0599A009B0CC6 /* QTableViewCell.h in Headers */,
 				B13B340614E450B9005EFB7F /* QValidator.h in Headers */,
 				B13B340B14E451EE005EFB7F /* QEntryValidator.h in Headers */,
+				B107F6E414FDBDF800DC5445 /* QArrayToImplodedStringConverter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +721,7 @@
 				B18C701214FD75A300AA9F15 /* QGenericTableViewCell.m in Sources */,
 				B18C701314FD75AF00AA9F15 /* QGenericElement.m in Sources */,
 				B107F6E114FDAD5E00DC5445 /* QConverter.m in Sources */,
+				B107F6E514FDBDF800DC5445 /* QArrayToImplodedStringConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,12 +19,14 @@
 @synthesize text = _text;
 @synthesize font = _font;
 @synthesize color = _color;
+@synthesize textAlignment = _textAlignment;
 
 
 - (QTextElement *)init {
    self = [super init];
     _font = [UIFont systemFontOfSize:14];
     _color = [UIColor blackColor];
+    _textAlignment = UITextAlignmentLeft;
     return self;
 }
 
@@ -44,6 +46,7 @@
         cell.textLabel.font = _font;
         cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
         cell.textLabel.numberOfLines = 0;
+        cell.textLabel.textAlignment = _textAlignment;
         if([cell.textLabel respondsToSelector:@selector(textLabel:)]) {
             cell.textLabel.textColor = _color;
         }
