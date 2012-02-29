@@ -48,3 +48,8 @@
 
 #import "QValidator.h"
 #import "QEntryValidator.h"
+
+#import "QGenericElement.h"
+#import "QGenericTableViewCell.h"
+
+#import "QConverter.h"

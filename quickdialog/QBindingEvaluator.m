@@ -44,18 +44,37 @@
 
         NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        
+        // Format for converters is value/className/argument or value/className
+        // Embedded slashes are not allowed in the argument.
+        NSArray *converterParams = [valueName componentsSeparatedByString:@"/"];
+        valueName = [converterParams objectAtIndex: 0];
+        
+        id value;
+        if ([valueName isEqualToString:@"self"]) {
+            value = data;
+        } else {
+            value = [data valueForKey: valueName];
+        }
+        
+        if (converterParams.count > 1) {
+            QConverter *converter = [[NSClassFromString([converterParams objectAtIndex: 1]) alloc] init];
+            if (converterParams.count > 2) {
+                value = [converter convert: value argument: [converterParams objectAtIndex: 2]];
+            } else {
+                value = [converter convert: value argument: nil];
+            }
+        }                                 
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
-            [self bindSection:(QSection *)object toCollection:[data valueForKey:valueName]];
+            [self bindSection:(QSection *)object toCollection:value];
             
         } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
-            [self bindSection:(QSection *)object toProperties:[data valueForKey:valueName]];
+            [self bindSection:(QSection *)object toProperties:value];
 
-        } else if ([valueName isEqualToString:@"self"]) {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:data];
-
-        } else {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKey:valueName]];
+        }  else {
+            [QRootBuilder trySetProperty:propName onObject:object withValue:value];
         }
     }
 }

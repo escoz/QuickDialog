@@ -41,10 +41,13 @@
 		2C5423DD145ADF2B0026A152 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BD13EC905B00E3922B /* QWebElement.m */; };
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
 		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
+		B107F6E114FDAD5E00DC5445 /* QConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = B107F6DA14FDA4CD00DC5445 /* QConverter.m */; };
 		B13B340614E450B9005EFB7F /* QValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = B13B340414E450B8005EFB7F /* QValidator.h */; };
 		B13B340714E450B9005EFB7F /* QValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B13B340514E450B8005EFB7F /* QValidator.m */; };
 		B13B340B14E451EE005EFB7F /* QEntryValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = B13B340914E451ED005EFB7F /* QEntryValidator.h */; };
 		B13B340C14E451EE005EFB7F /* QEntryValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = B13B340A14E451EE005EFB7F /* QEntryValidator.m */; };
+		B18C701214FD75A300AA9F15 /* QGenericTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B18C701014FD689200AA9F15 /* QGenericTableViewCell.m */; };
+		B18C701314FD75AF00AA9F15 /* QGenericElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B18C700D14FD67F200AA9F15 /* QGenericElement.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -139,10 +142,16 @@
 /* Begin PBXFileReference section */
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		B107F6D914FDA4CC00DC5445 /* QConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QConverter.h; path = quickdialog/QConverter.h; sourceTree = SOURCE_ROOT; };
+		B107F6DA14FDA4CD00DC5445 /* QConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QConverter.m; path = quickdialog/QConverter.m; sourceTree = SOURCE_ROOT; };
 		B13B340414E450B8005EFB7F /* QValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QValidator.h; path = quickdialog/QValidator.h; sourceTree = SOURCE_ROOT; };
 		B13B340514E450B8005EFB7F /* QValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QValidator.m; path = quickdialog/QValidator.m; sourceTree = SOURCE_ROOT; };
 		B13B340914E451ED005EFB7F /* QEntryValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QEntryValidator.h; path = quickdialog/QEntryValidator.h; sourceTree = SOURCE_ROOT; };
 		B13B340A14E451EE005EFB7F /* QEntryValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QEntryValidator.m; path = quickdialog/QEntryValidator.m; sourceTree = SOURCE_ROOT; };
+		B18C700C14FD67F000AA9F15 /* QGenericElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QGenericElement.h; path = quickdialog/QGenericElement.h; sourceTree = SOURCE_ROOT; };
+		B18C700D14FD67F200AA9F15 /* QGenericElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QGenericElement.m; path = quickdialog/QGenericElement.m; sourceTree = SOURCE_ROOT; };
+		B18C700F14FD689100AA9F15 /* QGenericTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QGenericTableViewCell.h; path = quickdialog/QGenericTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		B18C701014FD689200AA9F15 /* QGenericTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QGenericTableViewCell.m; path = quickdialog/QGenericTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -489,6 +498,12 @@
 				B13B340514E450B8005EFB7F /* QValidator.m */,
 				B13B340914E451ED005EFB7F /* QEntryValidator.h */,
 				B13B340A14E451EE005EFB7F /* QEntryValidator.m */,
+				B18C700C14FD67F000AA9F15 /* QGenericElement.h */,
+				B18C700D14FD67F200AA9F15 /* QGenericElement.m */,
+				B18C700F14FD689100AA9F15 /* QGenericTableViewCell.h */,
+				B18C701014FD689200AA9F15 /* QGenericTableViewCell.m */,
+				B107F6D914FDA4CC00DC5445 /* QConverter.h */,
+				B107F6DA14FDA4CD00DC5445 /* QConverter.m */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -696,6 +711,9 @@
 				D8F180E813F0599A009B0CC4 /* QTableViewCell.m in Sources */,
 				B13B340714E450B9005EFB7F /* QValidator.m in Sources */,
 				B13B340C14E451EE005EFB7F /* QEntryValidator.m in Sources */,
+				B18C701214FD75A300AA9F15 /* QGenericTableViewCell.m in Sources */,
+				B18C701314FD75AF00AA9F15 /* QGenericElement.m in Sources */,
+				B107F6E114FDAD5E00DC5445 /* QConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
