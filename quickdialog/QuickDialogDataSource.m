@@ -55,13 +55,22 @@
     return [[_tableView.root getSectionForIndex:indexPath.section] isKindOfClass:[QSortingSection class]];
 }
 
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    QSortingSection *section = ((QSortingSection *) [_tableView.root.sections objectAtIndex:(NSUInteger) indexPath.section]);
+    if ([section removeElementForRow:indexPath.row]){
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     QSortingSection *section = ((QSortingSection *) [_tableView.root.sections objectAtIndex:(NSUInteger) sourceIndexPath.section]);
     [section moveElementFromRow:(NSUInteger) sourceIndexPath.row toRow:(NSUInteger) destinationIndexPath.row];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[_tableView.root getSectionForIndex:indexPath.section] isKindOfClass:[QSortingSection class]];
+    QSection  *section = [_tableView.root.sections objectAtIndex:(NSUInteger) indexPath.section];
+    return ([section isKindOfClass:[QSortingSection class]] && [(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
 }
 
 @end

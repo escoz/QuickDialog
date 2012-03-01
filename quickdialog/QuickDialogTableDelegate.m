@@ -19,6 +19,7 @@
     return indexPath;
 }
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
     QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
