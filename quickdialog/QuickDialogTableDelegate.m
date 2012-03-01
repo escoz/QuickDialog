@@ -12,16 +12,6 @@
 // permissions and limitations under the License.
 //
 
-
-#import "QuickDialogTableDelegate.h"
-#import "QuickDialogController.h"
-#import "QElement.h"
-#import "QSection.h"
-#import "QSortingSection.h"
-#import "QRootElement.h"
-#import "QuickDialogTableView.h"
-
-
 @implementation QuickDialogTableDelegate
 
 
@@ -45,6 +35,10 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+    if ([section isKindOfClass:[QSortingSection class]]){
+        return ((QSortingSection *) section).canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
+    }
     return UITableViewCellEditingStyleNone;
 }
 

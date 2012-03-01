@@ -16,16 +16,21 @@
 #import "QSortingSection.h"
 #import "QElement.h"
 
-@implementation QSortingSection
+@implementation QSortingSection {
+@private
+    BOOL _canDeleteRows;
+}
 
 
 @synthesize sortingEnabled = _sortingEnabled;
+@synthesize canDeleteRows = _canDeleteRows;
+
 
 - (QSortingSection *)init {
     self = [super init];
     self.sortingEnabled = YES;
+    self.canDeleteRows = NO;
     return self;
-
 }
 
 - (BOOL)needsEditing {

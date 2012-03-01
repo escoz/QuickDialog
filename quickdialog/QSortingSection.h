@@ -22,6 +22,8 @@
 @property(nonatomic, assign) BOOL sortingEnabled;
 
 
+@property(nonatomic, assign) BOOL canDeleteRows;
+
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to;
 
 @end
