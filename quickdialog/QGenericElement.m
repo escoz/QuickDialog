@@ -7,13 +7,13 @@
 //
 
 #import "QGenericElement.h"
-#import "QGenericTableViewCell.h"
 
 @implementation QGenericElement {
     Class _tableCellSubclass;
 }
 
 @synthesize model=_model;
+@synthesize eventDelegate=_eventDelegate;
 
 -(id)initWithTableCellSubclass:(Class)tableCellSubclass
 {
@@ -40,6 +40,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+    cell.eventDelegate = self.eventDelegate;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
     

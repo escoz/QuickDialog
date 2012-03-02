@@ -10,6 +10,8 @@
 
 @implementation QGenericTableViewCell
 
+@synthesize eventDelegate=_eventDelegate;
+
 + (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView element: (QGenericElement *)element;
 {
     return 0;

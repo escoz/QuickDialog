@@ -11,6 +11,8 @@
 
 @interface QGenericTableViewCell : UITableViewCell
 
+@property (unsafe_unretained, nonatomic) id<QEventDelegate> eventDelegate;
+
 + (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView element: (QGenericElement *)element;
 
 - (void)prepareForElement:(QGenericElement *)element inTableView:(QuickDialogTableView *)tableView;

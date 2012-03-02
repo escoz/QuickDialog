@@ -8,12 +8,21 @@
 
 #import "QElement.h"
 
+@class QGenericTableViewCell;
+
+@protocol QEventDelegate <NSObject>
+-(void)cellEvent: (NSString *)eventName argument: (id)argument tableCell: (QGenericTableViewCell *)cell;
+@end
+
 @interface QGenericElement : QElement
+
 
 // tableCellSubclass must be a subclass of
 // QGenericTableViewCell.
 -(id)initWithTableCellSubclass: (Class)tableCellSubclass;
 
+
 @property (strong, nonatomic) id model;
+@property (unsafe_unretained, nonatomic) id<QEventDelegate> eventDelegate;
 
 @end
