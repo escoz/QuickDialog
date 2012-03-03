@@ -135,6 +135,13 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     nil], @"indicatorViewStyle",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    [NSNumber numberWithInt:UIDatePickerModeDate], @"Date",
+                                    [NSNumber numberWithInt:UIDatePickerModeTime], @"Time",
+                                    [NSNumber numberWithInt:UIDatePickerModeDateAndTime], @"DateAndTime",
+                                    [NSNumber numberWithInt:UIDatePickerModeCountDownTimer], @"CountDownTimer",
+                                    nil], @"mode",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIReturnKeyDefault], @"Default",
                                     [NSNumber numberWithInt:UIReturnKeyGo], @"Go",
                                     [NSNumber numberWithInt:UIReturnKeyGoogle], @"Google",
