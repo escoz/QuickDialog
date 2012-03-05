@@ -12,22 +12,35 @@
 // permissions and limitations under the License.
 //
 
-#import "QDateTimeInlineElement.h"
 #import "QDateEntryTableViewCell.h"
 
-@implementation QDateTimeInlineElement
+@implementation QDateTimeInlineElement {
+@private
+    NSDate *_maximumDate;
+    NSDate *_minimumDate;
+
+    void (^_onValueChanged)();
+
+}
+
 
 @synthesize dateValue = _dateValue;
 @synthesize mode = _mode;
 @synthesize centerLabel = _centerLabel;
+@synthesize maximumDate = _maximumDate;
+@synthesize minimumDate = _minimumDate;
+@synthesize onValueChanged = _onValueChanged;
+
 
 - (QDateTimeInlineElement *)init {
     self = [super init];
+    _dateValue = [NSDate date];
     return self;
 }
 
 - (QDateTimeInlineElement *)initWithKey:(NSString *)key {
     self = [super initWithKey:key];
+    _dateValue = [NSDate date];
     return self;
 }
 
@@ -42,7 +55,6 @@
 
 - (QDateTimeInlineElement *)initWithDate:(NSDate *)date {
     return [self initWithTitle:nil date:date];
-
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -61,6 +73,5 @@
 		return;
     [obj setValue:_dateValue forKey:_key];
 }
-
 
 @end

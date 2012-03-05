@@ -54,8 +54,11 @@
 }
 
 - (void) dateChanged:(id)sender{
-    ((QDateTimeInlineElement *)  _entryElement).dateValue = _pickerView.date;
+    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
+    element.dateValue = _pickerView.date;
     [self prepareForElement:_entryElement inTableView:_quickformTableView];
+    if (element.onValueChanged!=nil)
+        element.onValueChanged();
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
@@ -98,11 +101,14 @@
 	
 	_textField.text = [dateFormatter stringFromDate:dateElement.dateValue];
     _pickerView.datePickerMode = dateElement.mode;
+    _pickerView.maximumDate = dateElement.maximumDate;
+    _pickerView.minimumDate = dateElement.minimumDate;
     if (dateElement.dateValue!=nil)
         _pickerView.date = dateElement.dateValue;
     _textField.placeholder = dateElement.placeholder;
 
     _textField.inputAccessoryView.hidden = entry.hiddenToolbar;
+
 }
 
 
