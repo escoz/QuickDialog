@@ -47,5 +47,6 @@
 
 #import "QAutoEntryElement.h"
 #import "QAutoEntryTableViewCell.h"
+#import "QDateEntryTableViewCell.h"
 
 #import "QRootBuilder.h"
