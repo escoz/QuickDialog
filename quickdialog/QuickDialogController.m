@@ -62,8 +62,12 @@
 - (void)loadView {
     [super loadView];
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
-    self.view = self.quickDialogTableView;
+    CGSize frameSize = self.view.frame.size;
+    self.quickDialogTableView.frame = CGRectMake(0.0f,0.0f,frameSize.width, frameSize.height);
+    self.quickDialogTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview: self.quickDialogTableView];
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
