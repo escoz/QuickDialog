@@ -11,7 +11,7 @@
 @class QGenericTableViewCell;
 
 @protocol QEventDelegate <NSObject>
--(void)cellEvent: (NSString *)eventName argument: (id)argument tableCell: (QGenericTableViewCell *)cell;
+-(void)cellEvent: (NSString *)eventName argument: (id)argument tableCell: (UITableViewCell *)cell;
 @end
 
 @interface QGenericElement : QElement
