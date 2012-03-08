@@ -42,8 +42,7 @@
     if (loadingView==nil){
         loadingView = [self createLoadingView];
     }
-    loadingView.frame = CGRectMake(0, 0, self.quickDialogTableView.bounds.size.width, self.quickDialogTableView.bounds.size.height);
-
+    loadingView.frame = CGRectMake(self.quickDialogTableView.contentOffset.x, self.quickDialogTableView.contentOffset.y, self.quickDialogTableView.bounds.size.width, self.quickDialogTableView.bounds.size.height);
     self.quickDialogTableView.userInteractionEnabled = !visible;
 
     if (visible)
