@@ -64,6 +64,7 @@
         cell = [[QDateEntryTableViewCell alloc] init];
     }
     [cell prepareForElement:self inTableView:tableView];
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue ;
     return cell;
 
 }

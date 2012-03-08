@@ -45,6 +45,8 @@
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"
 
+#import "QuickDialogController+Loading.h"
+
 #import "QAutoEntryElement.h"
 #import "QAutoEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
