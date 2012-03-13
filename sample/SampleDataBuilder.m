@@ -183,7 +183,7 @@
     
     QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
     decimal.key = @"decimal1";
-    decimal.fractionDigits = 3;
+    decimal.fractionDigits = 2;
     [controls addElement:decimal];
 
     QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" Value:@"70"];
