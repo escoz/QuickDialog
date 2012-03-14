@@ -37,7 +37,7 @@
 
     _pickerView = [[UIDatePicker alloc] init];
     [_pickerView sizeToFit];
-    _pickerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+//    _pickerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [_pickerView addTarget:self action:@selector(dateChanged:)
               forControlEvents:UIControlEventValueChanged];
 
