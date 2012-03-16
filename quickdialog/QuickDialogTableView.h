@@ -29,14 +29,13 @@
     QRootElement *_root;
     id <UITableViewDataSource> quickformDataSource;
     id <UITableViewDelegate> quickformDelegate;
-    UITableViewCell *_selectedCell;
 }
 
 @property(nonatomic, strong) QRootElement *root;
 
 @property(nonatomic, readonly) QuickDialogController *controller;
 
-@property(nonatomic, retain) NSObject<QuickDialogStyleProvider> *styleProvider;
+@property(nonatomic, unsafe_unretained) NSObject<QuickDialogStyleProvider> *styleProvider;
 @property(nonatomic) BOOL deselectRowWhenViewAppears;
 
 
