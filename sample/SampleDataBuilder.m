@@ -55,6 +55,7 @@
     [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] initWithKey:@"Key1"]];
+    [subsection addElement:[[QMultilineElement alloc] initWithKey:@"Key3"]];
 	[subsection	addElement:[[QBadgeElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QBooleanElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QButtonElement alloc] initWithKey:@"Key1"]];
@@ -376,7 +377,7 @@
     QEntryElement *secureElement = [[QEntryElement alloc] initWithTitle:@"Secure" Value:@"" Placeholder:@"YES"];
     secureElement.secureTextEntry = YES;
     [traitsSection addElement:secureElement];
-    
+
     QEntryElement *keyboardTypeElement = [[QEntryElement alloc] initWithTitle:@"KB Type" Value:@"" Placeholder:@"NumberPad"];
     keyboardTypeElement.keyboardType = UIKeyboardTypeNumberPad;
     [traitsSection addElement:keyboardTypeElement];
@@ -400,8 +401,17 @@
     QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto Return" Value:@"" Placeholder:@"YES"];
     enableReturnElement.enablesReturnKeyAutomatically = YES;
     [traitsSection addElement:enableReturnElement];
-    
+
+    QSection *multilineSection = [[QSection alloc] initWithTitle:@"Entry Elements"];
+
+
+    QMultilineElement *multiline = [QMultilineElement new];
+    multiline.title = @"Multiline entry";
+    [multilineSection addElement:multiline];
+
+
     [root addSection:traitsSection];
+    [root addSection:multilineSection];
     
     return root;
 }

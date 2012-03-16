@@ -41,6 +41,8 @@
 #import "QDateTimeElement.h"
 #import "QWebViewController.h"
 #import "QBadgeLabel.h"
+#import "QMultilineTextViewController.h"
+#import "QMultilineElement.h"
 
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"

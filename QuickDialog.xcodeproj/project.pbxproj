@@ -116,6 +116,12 @@
 		D87B4FCD14F16197006DA833 /* QAutoEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D87B4FC714F16197006DA833 /* QAutoEntryTableViewCell.h */; };
 		D87B4FCE14F16197006DA833 /* QAutoEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B4FC814F16197006DA833 /* QAutoEntryTableViewCell.m */; };
 		D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A3DD86146045F000DE3528 /* Localizable.strings */; };
+		D8B39450151394E1008ECB34 /* QEmptyListElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B39449151394E1008ECB34 /* QEmptyListElement.h */; };
+		D8B39451151394E1008ECB34 /* QEmptyListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944A151394E1008ECB34 /* QEmptyListElement.m */; };
+		D8B39452151394E1008ECB34 /* QMultilineElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B3944B151394E1008ECB34 /* QMultilineElement.h */; };
+		D8B39453151394E1008ECB34 /* QMultilineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944C151394E1008ECB34 /* QMultilineElement.m */; };
+		D8B39455151394E1008ECB34 /* QMultilineTextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */; };
+		D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */; };
 		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
 		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
 		D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
@@ -257,6 +263,12 @@
 		D87B4FC714F16197006DA833 /* QAutoEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAutoEntryTableViewCell.h; path = quickdialog/QAutoEntryTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		D87B4FC814F16197006DA833 /* QAutoEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QAutoEntryTableViewCell.m; path = quickdialog/QAutoEntryTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		D8A3DD86146045F000DE3528 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = sample/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		D8B39449151394E1008ECB34 /* QEmptyListElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QEmptyListElement.h; path = quickdialog/QEmptyListElement.h; sourceTree = SOURCE_ROOT; };
+		D8B3944A151394E1008ECB34 /* QEmptyListElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QEmptyListElement.m; path = quickdialog/QEmptyListElement.m; sourceTree = SOURCE_ROOT; };
+		D8B3944B151394E1008ECB34 /* QMultilineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMultilineElement.h; path = quickdialog/QMultilineElement.h; sourceTree = SOURCE_ROOT; };
+		D8B3944C151394E1008ECB34 /* QMultilineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMultilineElement.m; path = quickdialog/QMultilineElement.m; sourceTree = SOURCE_ROOT; };
+		D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMultilineTextViewController.h; path = quickdialog/QMultilineTextViewController.h; sourceTree = SOURCE_ROOT; };
+		D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMultilineTextViewController.m; path = quickdialog/QMultilineTextViewController.m; sourceTree = SOURCE_ROOT; };
 		D8F180E513F0599A009B0C96 /* quickdialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quickdialog.png; sourceTree = "<group>"; };
 		D8F180E613F0599A009B0C96 /* quickdialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quickdialog@2x.png"; sourceTree = "<group>"; };
 		D8F180E813F0599A009B0C97 /* QDecimalElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QDecimalElement.m; path = quickdialog/QDecimalElement.m; sourceTree = SOURCE_ROOT; };
@@ -420,6 +432,12 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
+				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
+				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
+				D8B3944C151394E1008ECB34 /* QMultilineElement.m */,
+				D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */,
+				D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */,
 				D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */,
 				D8F180E813F0599A009B0CC7 /* NSMutableArray+MoveObject.m */,
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
@@ -582,6 +600,9 @@
 				D87B4FC914F16197006DA833 /* DOAutocompleteTextField.h in Headers */,
 				D87B4FCB14F16197006DA833 /* QAutoEntryElement.h in Headers */,
 				D87B4FCD14F16197006DA833 /* QAutoEntryTableViewCell.h in Headers */,
+				D8B39450151394E1008ECB34 /* QEmptyListElement.h in Headers */,
+				D8B39452151394E1008ECB34 /* QMultilineElement.h in Headers */,
+				D8B39455151394E1008ECB34 /* QMultilineTextViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +747,9 @@
 				D87B4FCC14F16197006DA833 /* QAutoEntryElement.m in Sources */,
 				D87B4FCE14F16197006DA833 /* QAutoEntryTableViewCell.m in Sources */,
 				D8F180E813F0599A009B0CC8 /* NSMutableArray+MoveObject.m in Sources */,
+				D8B39451151394E1008ECB34 /* QEmptyListElement.m in Sources */,
+				D8B39453151394E1008ECB34 /* QMultilineElement.m in Sources */,
+				D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
