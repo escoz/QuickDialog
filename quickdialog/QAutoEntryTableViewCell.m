@@ -45,9 +45,10 @@
     return self;
 }
 
+
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
     _quickformTableView = tableView;
-    _textField.delegate = self;
+    _autoCompleteField.delegate = self;
 
     _entryElement = element;
     _autoEntryElement = (QAutoEntryElement *)element;
@@ -98,9 +99,18 @@
     _entryElement = nil;
 }
 
+
+-(void)textFieldDidEndEditing:(UITextField *)textField {
+    _autoCompleteField.text = self.lastAutoComplete;
+    _entryElement.textValue = _autoCompleteField.text;
+}
+
+- (void)textFieldEditingChanged:(UITextField *)textField {
+    _entryElement.textValue = _autoCompleteField.text;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     BOOL result = [super textFieldShouldReturn:textField];
-    textField.text = self.lastAutoComplete;
     [textField resignFirstResponder];
     return result;
 }

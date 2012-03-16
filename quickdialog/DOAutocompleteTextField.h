@@ -29,6 +29,8 @@
  * either expressed or implied, of DoAT.
  */
 
+#import <UIKit/UIKit.h>
+
 @class  DOAutocompleteTextField;
 
 @protocol DOAutocompleteTextFieldDelegate <UITextFieldDelegate>

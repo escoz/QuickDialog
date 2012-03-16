@@ -23,7 +23,7 @@
 
 
 @interface QAutoEntryTableViewCell : QEntryTableViewCell<UITextFieldDelegate,DOAutocompleteTextFieldDelegate> {
-    
+
     DOAutocompleteTextField *txtField;
     NSArray*autoCompleteValues;
     UIColor *autoColor;
