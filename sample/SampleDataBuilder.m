@@ -153,6 +153,8 @@
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
 	radioElement.key = @"radio1";
 
+
+
     QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
     boolElement.controllerAction = @"exampleAction:";
 	boolElement.key = @"bool1";
@@ -232,7 +234,13 @@
     [btnSection2 addElement:button2];
     btnSection2.footer = @"Here's a really long footer text that could be used to make your users happy!";
 
+    QSection *segmented = [[QSection alloc] initWithTitle:@"Change something"];
+        QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+        radioElement.key = @"segmented1";
+        [segmented addElement:segmentedElement];
+
     [root addSection:controls];
+    [root addSection:segmented];
     [root addSection:btnSection];
     [root addSection:btnSection2];
     return root;

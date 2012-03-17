@@ -122,6 +122,8 @@
 		D8B39453151394E1008ECB34 /* QMultilineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944C151394E1008ECB34 /* QMultilineElement.m */; };
 		D8B39455151394E1008ECB34 /* QMultilineTextViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */; };
 		D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */; };
+		D8B394691514E8B3008ECB34 /* QSegmentedElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B394671514E8B3008ECB34 /* QSegmentedElement.h */; };
+		D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B394681514E8B3008ECB34 /* QSegmentedElement.m */; };
 		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
 		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
 		D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
@@ -269,6 +271,8 @@
 		D8B3944C151394E1008ECB34 /* QMultilineElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMultilineElement.m; path = quickdialog/QMultilineElement.m; sourceTree = SOURCE_ROOT; };
 		D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMultilineTextViewController.h; path = quickdialog/QMultilineTextViewController.h; sourceTree = SOURCE_ROOT; };
 		D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMultilineTextViewController.m; path = quickdialog/QMultilineTextViewController.m; sourceTree = SOURCE_ROOT; };
+		D8B394671514E8B3008ECB34 /* QSegmentedElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSegmentedElement.h; path = quickdialog/QSegmentedElement.h; sourceTree = SOURCE_ROOT; };
+		D8B394681514E8B3008ECB34 /* QSegmentedElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSegmentedElement.m; path = quickdialog/QSegmentedElement.m; sourceTree = SOURCE_ROOT; };
 		D8F180E513F0599A009B0C96 /* quickdialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quickdialog.png; sourceTree = "<group>"; };
 		D8F180E613F0599A009B0C96 /* quickdialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quickdialog@2x.png"; sourceTree = "<group>"; };
 		D8F180E813F0599A009B0C97 /* QDecimalElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QDecimalElement.m; path = quickdialog/QDecimalElement.m; sourceTree = SOURCE_ROOT; };
@@ -432,6 +436,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				D8B394681514E8B3008ECB34 /* QSegmentedElement.m */,
+				D8B394671514E8B3008ECB34 /* QSegmentedElement.h */,
 				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
 				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
 				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
@@ -603,6 +609,7 @@
 				D8B39450151394E1008ECB34 /* QEmptyListElement.h in Headers */,
 				D8B39452151394E1008ECB34 /* QMultilineElement.h in Headers */,
 				D8B39455151394E1008ECB34 /* QMultilineTextViewController.h in Headers */,
+				D8B394691514E8B3008ECB34 /* QSegmentedElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,6 +757,7 @@
 				D8B39451151394E1008ECB34 /* QEmptyListElement.m in Sources */,
 				D8B39453151394E1008ECB34 /* QMultilineElement.m in Sources */,
 				D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */,
+				D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
