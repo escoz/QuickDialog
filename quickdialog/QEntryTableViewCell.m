@@ -111,7 +111,9 @@
     
     _textField.returnKeyType = _entryElement.returnKeyType;
     _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;
-    
+
+    self.accessoryType = UITableViewCellAccessoryNone;
+
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
     } else {

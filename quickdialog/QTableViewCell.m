@@ -34,7 +34,7 @@
     if (self.imageView!=nil)
         imageSize = self.imageView.frame.size;
 
-    
+
     CGRect labelFrame = self.textLabel.frame;
     self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
             self.contentView.bounds.size.width - valueSize.width - imageSize.width - 20, labelFrame.size.height);
