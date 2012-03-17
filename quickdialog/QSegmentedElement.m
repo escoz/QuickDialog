@@ -35,7 +35,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     _controller = controller;
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    QTableViewCell *cell = [[QTableViewCell alloc] init];
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     cell.backgroundColor = [UIColor clearColor];
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
