@@ -85,6 +85,11 @@
     return cell;
 }
 
+-(void)setSelected:(NSInteger)aSelected {
+    _selected = aSelected;
+
+}
+
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)	
 		return;
