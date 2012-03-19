@@ -50,7 +50,7 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
-    
+    cell.textField.enabled = YES;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
