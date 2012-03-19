@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import "QTextElement.h"
 
 @implementation QTextElement
@@ -19,6 +20,7 @@
 @synthesize text = _text;
 @synthesize font = _font;
 @synthesize color = _color;
+@synthesize title = _title;
 
 
 - (QTextElement *)init {
@@ -35,21 +37,21 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickfromTextElement"];
-    if (cell==nil){
-        cell = [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickfromTextElement"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformText"]];
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QuickformText"];
+    }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.textLabel.numberOfLines = 0;
+        cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.detailTextLabel.numberOfLines = 0;
+
+    cell.textLabel.text = self.title;
+    cell.detailTextLabel.font = _font;
+    if([cell.detailTextLabel respondsToSelector:@selector(textColor:)]) {
+            cell.detailTextLabel.textColor = _color;
     }
-    
-    cell.textLabel.font = _font;
-    if([cell.textLabel respondsToSelector:@selector(textColor:)]) {
-            cell.textLabel.textColor = _color;
-    }
-    cell.textLabel.text = _text;
+    cell.detailTextLabel.text = _text;
     
     return cell;
 }
@@ -66,9 +68,11 @@
     if (_text==nil || _text == @""){
         return [super getRowHeightForTableView:tableView];
     }
-    CGSize constraint = CGSizeMake(280, 20000);
+    CGSize constraint = CGSizeMake(tableView.frame.size.width, 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 	CGFloat predictedHeight = size.height + 20.0f;
+    if (self.title!=nil)
+        predictedHeight+=30;
 	return (_height >= predictedHeight) ? _height : predictedHeight;
 }
 

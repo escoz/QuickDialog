@@ -41,7 +41,6 @@
 @property(nonatomic, retain) NSObject *object;
 @property(nonatomic, retain) NSString *bind;
 
-
 - (QElement *)initWithKey:(NSString *)key;
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;

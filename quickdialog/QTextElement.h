@@ -29,5 +29,7 @@
 
 @property(nonatomic, retain) UIColor *color;
 
+@property(nonatomic, copy) NSString *title;
+
 - (QTextElement *)initWithText:(NSString *)string;
 @end

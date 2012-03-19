@@ -110,6 +110,13 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     nil], @"autocorrectionType",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                [NSNumber numberWithInt:UITableViewCellStyleDefault], @"Default",
+                                                        [NSNumber numberWithInt:UITableViewCellStyleSubtitle], @"Subtitle",
+                                                        [NSNumber numberWithInt:UITableViewCellStyleValue2], @"Value2",
+                                                        [NSNumber numberWithInt:UITableViewCellStyleValue1], @"Value1",
+                                                        nil], @"cellStyle",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIKeyboardTypeDefault], @"Default",
                                     [NSNumber numberWithInt:UIKeyboardTypeASCIICapable], @"ASCIICapable",
                                     [NSNumber numberWithInt:UIKeyboardTypeNumbersAndPunctuation], @"NumbersAndPunctuation",

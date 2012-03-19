@@ -31,6 +31,7 @@
 
 - (QElement *)init {
     self = [super init];
+
     return self;
 }
 
