@@ -26,10 +26,21 @@
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformDateTimeInlineElement"];
     if (self!=nil){
         [self createSubviews];
-		self.selectionStyle = UITableViewCellSelectionStyleGray;
+		self.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
     return self;
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [super textFieldDidEndEditing:textField];
+    self.selected = NO;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [super textFieldDidBeginEditing:textField];
+    self.selected = YES;
+}
+
 
 - (void)createSubviews {
     [super createSubviews];
