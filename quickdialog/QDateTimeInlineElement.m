@@ -53,6 +53,7 @@
     return self;
 }
 
+
 - (QDateTimeInlineElement *)initWithDate:(NSDate *)date {
     return [self initWithTitle:nil date:date];
 }
