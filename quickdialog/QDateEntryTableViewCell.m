@@ -69,10 +69,10 @@
     [self prepareForElement:_entryElement inTableView:_quickformTableView];
     if (element.onValueChanged!=nil)
         element.onValueChanged();
+
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
-    QDateTimeInlineElement *entry = (QDateTimeInlineElement *)element;
     [super prepareForElement:element inTableView:tableView];
 
     QDateTimeInlineElement *dateElement = ((QDateTimeInlineElement *) element);
@@ -97,14 +97,12 @@
 			break;
     }
 	
-    if (!entry.centerLabel){
+    if (!dateElement.centerLabel){
 		self.textLabel.text = element.title;
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.centeredLabel.text = nil;
 		self.detailTextLabel.text = [dateFormatter stringFromDate:dateElement.dateValue];
 		
     } else {
-        self.selectionStyle = UITableViewCellSelectionStyleBlue;
         self.textLabel.text = nil;
 		self.centeredLabel.text = [dateFormatter stringFromDate:dateElement.dateValue];
     }
@@ -117,7 +115,7 @@
         _pickerView.date = dateElement.dateValue;
     _textField.placeholder = dateElement.placeholder;
 
-    _textField.inputAccessoryView.hidden = entry.hiddenToolbar;
+    _textField.inputAccessoryView.hidden = dateElement.hiddenToolbar;
 
 }
 
