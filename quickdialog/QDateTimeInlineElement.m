@@ -23,7 +23,6 @@
 
 }
 
-
 @synthesize dateValue = _dateValue;
 @synthesize mode = _mode;
 @synthesize centerLabel = _centerLabel;
