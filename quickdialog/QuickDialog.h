@@ -44,6 +44,7 @@
 #import "QSegmentedElement.h"
 #import "QMultilineTextViewController.h"
 #import "QMultilineElement.h"
+#import "QPhotoElement.h"
 
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"
