@@ -16,6 +16,8 @@
 #import "QDateEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
 
+UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
+
 @implementation QDateEntryTableViewCell
 
 @synthesize pickerView = _pickerView;
@@ -31,6 +33,11 @@
     return self;
 }
 
++ (UIDatePicker *)getPickerForDate {
+    QDATEENTRY_GLOBAL_PICKER = [[UIDatePicker alloc] init];
+    return QDATEENTRY_GLOBAL_PICKER;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.selected = NO;
@@ -43,7 +50,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
 
-    _pickerView = [[UIDatePicker alloc] init];
+    _pickerView = [QDateEntryTableViewCell getPickerForDate];
     [_pickerView sizeToFit];
     _textField.inputView = _pickerView;
     [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
