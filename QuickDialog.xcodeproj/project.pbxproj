@@ -138,6 +138,10 @@
 		D8F180E813F0599A009B0CC6 /* QTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CC5 /* QTableViewCell.h */; };
 		D8F180E813F0599A009B0CC8 /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CC7 /* NSMutableArray+MoveObject.m */; };
 		D8F180E813F0599A009B0CCA /* NSMutableArray+MoveObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */; };
+		F2E6149E151C9E4D00F36976 /* QSelectSection.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E6149C151C9E4D00F36976 /* QSelectSection.h */; };
+		F2E6149F151C9E4D00F36976 /* QSelectSection.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E6149D151C9E4D00F36976 /* QSelectSection.m */; };
+		F2E614A2151CA1A100F36976 /* QSelectItemElement.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E614A0151CA1A100F36976 /* QSelectItemElement.h */; };
+		F2E614A3151CA1A100F36976 /* QSelectItemElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E614A1151CA1A100F36976 /* QSelectItemElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +300,10 @@
 		D8F180E813F0599A009B0CC5 /* QTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTableViewCell.h; path = quickdialog/QTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CC7 /* NSMutableArray+MoveObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+MoveObject.m"; path = "quickdialog/NSMutableArray+MoveObject.m"; sourceTree = SOURCE_ROOT; };
 		D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+MoveObject.h"; path = "quickdialog/NSMutableArray+MoveObject.h"; sourceTree = SOURCE_ROOT; };
+		F2E6149C151C9E4D00F36976 /* QSelectSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSelectSection.h; path = quickdialog/QSelectSection.h; sourceTree = SOURCE_ROOT; };
+		F2E6149D151C9E4D00F36976 /* QSelectSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSelectSection.m; path = quickdialog/QSelectSection.m; sourceTree = SOURCE_ROOT; };
+		F2E614A0151CA1A100F36976 /* QSelectItemElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSelectItemElement.h; path = quickdialog/QSelectItemElement.h; sourceTree = SOURCE_ROOT; };
+		F2E614A1151CA1A100F36976 /* QSelectItemElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSelectItemElement.m; path = quickdialog/QSelectItemElement.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -517,6 +525,10 @@
 				D811F8B113EC905B00E3922B /* QRadioItemElement.m */,
 				D811F8B213EC905B00E3922B /* QRadioSection.h */,
 				D811F8B313EC905B00E3922B /* QRadioSection.m */,
+				F2E6149C151C9E4D00F36976 /* QSelectSection.h */,
+				F2E6149D151C9E4D00F36976 /* QSelectSection.m */,
+				F2E614A0151CA1A100F36976 /* QSelectItemElement.h */,
+				F2E614A1151CA1A100F36976 /* QSelectItemElement.m */,
 				D811F8B413EC905B00E3922B /* QRootElement.h */,
 				D811F8B513EC905B00E3922B /* QRootElement.m */,
 				D871018414BB3D7A00156D9D /* QRootElement+Builder.h */,
@@ -608,6 +620,8 @@
 				D8B39452151394E1008ECB34 /* QMultilineElement.h in Headers */,
 				D8B39455151394E1008ECB34 /* QMultilineTextViewController.h in Headers */,
 				D8B394691514E8B3008ECB34 /* QSegmentedElement.h in Headers */,
+				F2E6149E151C9E4D00F36976 /* QSelectSection.h in Headers */,
+				F2E614A2151CA1A100F36976 /* QSelectItemElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +770,8 @@
 				D8B39453151394E1008ECB34 /* QMultilineElement.m in Sources */,
 				D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */,
 				D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */,
+				F2E6149F151C9E4D00F36976 /* QSelectSection.m in Sources */,
+				F2E614A3151CA1A100F36976 /* QSelectItemElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

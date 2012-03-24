@@ -266,6 +266,30 @@
     return root;
 }
 
++ (QElement *)createSelectRoot
+{
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Select";
+    root.grouped = YES;
+    
+    QSelectSection *simpleSelectSection =
+        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+                              selectedIndexes:nil title:@"Simple select"];
+    
+    QSelectSection *multipleSelectSection =
+        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+                              selectedIndexes:[NSArray arrayWithObjects:
+                                               [NSNumber numberWithUnsignedInteger:0],
+                                               [NSNumber numberWithUnsignedInteger:1], nil]
+                                        title:@"Multiple select"];
+    multipleSelectSection.multipleAllowed = YES;
+    
+    [root addSection:simpleSelectSection];
+    [root addSection:multipleSelectSection];
+    
+    return root;
+}
+
 + (QRootElement *)createWebAndMapRoot {
     QRootElement *root = [[QRootElement alloc] init];
     root.title = @"Web and map";
@@ -555,6 +579,7 @@
     [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
+    [sectionElements addElement:[self createSelectRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
