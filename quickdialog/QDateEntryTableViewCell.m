@@ -16,6 +16,8 @@
 #import "QDateEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
 
+UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
+
 @implementation QDateEntryTableViewCell
 
 @synthesize pickerView = _pickerView;
@@ -31,27 +33,40 @@
     return self;
 }
 
++ (UIDatePicker *)getPickerForDate {
+    QDATEENTRY_GLOBAL_PICKER = [[UIDatePicker alloc] init];
+    return QDATEENTRY_GLOBAL_PICKER;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.selected = NO;
+    _pickerView = nil;
+    [_pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    _pickerView = nil;
+
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
+
+    _pickerView = [QDateEntryTableViewCell getPickerForDate];
+    [_pickerView sizeToFit];
+    _textField.inputView = _pickerView;
+    [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    _pickerView.datePickerMode = element.mode;
+    _pickerView.maximumDate = element.maximumDate;
+    _pickerView.minimumDate = element.minimumDate;
+    if (element.dateValue!=nil)
+        _pickerView.date = element.dateValue;
+
     [super textFieldDidBeginEditing:textField];
     self.selected = YES;
 }
 
-
 - (void)createSubviews {
     [super createSubviews];
     _textField.hidden = YES;
-
-    _pickerView = [[UIDatePicker alloc] init];
-    [_pickerView sizeToFit];
-    [_pickerView addTarget:self action:@selector(dateChanged:)
-              forControlEvents:UIControlEventValueChanged];
-
-    _textField.inputView = _pickerView;
 
     self.centeredLabel = [[UILabel alloc] init];
     self.centeredLabel.textColor = [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
@@ -96,7 +111,7 @@
             [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 			break;
     }
-	
+
     if (!dateElement.centerLabel){
 		self.textLabel.text = element.title;
         self.centeredLabel.text = nil;
@@ -106,18 +121,11 @@
         self.textLabel.text = nil;
 		self.centeredLabel.text = [dateFormatter stringFromDate:dateElement.dateValue];
     }
-	
+
 	_textField.text = [dateFormatter stringFromDate:dateElement.dateValue];
-    _pickerView.datePickerMode = dateElement.mode;
-    _pickerView.maximumDate = dateElement.maximumDate;
-    _pickerView.minimumDate = dateElement.minimumDate;
-    if (dateElement.dateValue!=nil)
-        _pickerView.date = dateElement.dateValue;
     _textField.placeholder = dateElement.placeholder;
 
     _textField.inputAccessoryView.hidden = dateElement.hiddenToolbar;
-
 }
-
 
 @end
