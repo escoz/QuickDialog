@@ -92,4 +92,19 @@
     }
 }
 
+- (void)fetchValueFromObject:(QElement *)element toData:(id)data {
+    if (element.bind == nil || ([element.bind length] == 0)) {
+        return;
+    }
+
+    for (NSString *each in [element.bind componentsSeparatedByString:@","])
+    {
+        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
+        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+        [data setValue:[element valueForKey:propName] forKey:valueName];
+    }
+
+}
 @end

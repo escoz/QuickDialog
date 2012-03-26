@@ -56,4 +56,6 @@
 - (void)fetchValueIntoObject:(id)obj;
 
 - (void)bindToObject:(id)data;
+
+- (void)fetchValueUsingBindingsIntoObject:(id)data;
 @end

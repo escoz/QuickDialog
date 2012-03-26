@@ -63,6 +63,15 @@
     }
 }
 
+- (void)fetchValueUsingBindingsIntoObject:(id)obj {
+    for (QSection *s in _sections){
+        [s fetchValueUsingBindingsIntoObject:obj];
+    }
+    [super fetchValueUsingBindingsIntoObject:obj];
+}
+
+
+
 - (void)bindToObject:(id)obj {
     for (QSection *s in _sections){
         [s bindToObject:obj];

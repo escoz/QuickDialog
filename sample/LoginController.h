@@ -17,5 +17,4 @@
 }
 
 + (QRootElement *)createDetailsForm;
-+ (QRootElement *)createLoginForm;
 @end

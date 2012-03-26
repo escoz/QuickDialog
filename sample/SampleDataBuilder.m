@@ -543,7 +543,7 @@
     root.title = @"QuickForms!";
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
-    [sectionSamples addElement:[LoginController createLoginForm]];
+    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];

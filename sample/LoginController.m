@@ -46,15 +46,14 @@
 
 - (void)loginCompleted:(LoginInfo *)info {
     [self loading:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Hi %@, you're loving QuickForms!", info.login] delegate:self cancelButtonTitle:@"YES!" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Hi %@, I hope you're loving QuickDialog! Here's your pass: %@", info.login, info.password] delegate:self cancelButtonTitle:@"YES!" otherButtonTitles:nil];
     [alert show];
 }
 
 - (void)onLogin:(QButtonElement *)buttonElement {
     [self loading:YES];
     LoginInfo *info = [[LoginInfo alloc] init];
-    [self.root fetchValueIntoObject:info];
-
+    [self.root fetchValueUsingBindingsIntoObject:info];
     [self performSelector:@selector(loginCompleted:) withObject:info afterDelay:2];
 }
 
@@ -82,45 +81,6 @@
     [section addElement:[[QTextElement alloc] initWithText:@"Here's some more info about this app."]];
     [details addSection:section];
     return details;
-}
-
-+ (QRootElement *)createLoginForm {
-    QRootElement *root = [[QRootElement alloc] init];
-    root.controllerName = @"LoginController";
-    root.grouped = YES;
-    root.title = @"Login";
-
-    QSection *main = [[QSection alloc] init];
-    main.headerImage = @"logo";
-
-    QEntryElement *login = [[QEntryElement alloc] init];
-    login.title = @"Username";
-    login.key = @"login";
-    login.hiddenToolbar = YES;
-    login.placeholder = @"johndoe@me.com";
-    [main addElement:login];
-
-    QEntryElement *password = [[QEntryElement alloc] init];
-    password.title = @"Password";
-    password.key = @"password";
-    password.secureTextEntry = YES;
-    password.hiddenToolbar = YES;
-    password.placeholder = @"your password";
-    [main addElement:password];
-
-    [root addSection:main];
-
-    QSection *btSection = [[QSection alloc] init];
-    QButtonElement *btLogin = [[QButtonElement alloc] init];
-    btLogin.title = @"Login";
-    btLogin.controllerAction = @"onLogin:";
-    [btSection addElement:btLogin];
-
-    [root addSection:btSection];
-
-    btSection.footerImage = @"footer";
-
-    return root;
 }
 
 - (BOOL)QEntryShouldChangeCharactersInRangeForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
