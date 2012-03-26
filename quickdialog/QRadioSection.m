@@ -21,7 +21,6 @@
 
 @synthesize selected = _selected;
 
-
 - (void)createElements {
 
     for (NSUInteger i=0; i< [_items count]; i++){

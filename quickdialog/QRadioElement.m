@@ -48,6 +48,16 @@
     return self;
 }
 
+
+- (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
+    self = [self initWithItems:valuesDictionary.allKeys selected:(NSUInteger) selected];
+    _values = valuesDictionary.allValues;
+    self.title = title;
+    return self;
+}
+
+
+
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
     self = [super init];
     if (self!=nil){
