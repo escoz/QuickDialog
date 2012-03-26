@@ -35,7 +35,7 @@
 
 @property(nonatomic, readonly) QuickDialogController *controller;
 
-@property(nonatomic, unsafe_unretained) NSObject<QuickDialogStyleProvider> *styleProvider;
+@property(nonatomic, assign) NSObject<QuickDialogStyleProvider> *styleProvider;
 @property(nonatomic) BOOL deselectRowWhenViewAppears;
 
 
