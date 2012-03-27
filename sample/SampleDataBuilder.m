@@ -19,6 +19,7 @@
 #import "QRootElement.h"
 #import "QSection.h"
 #import "QDynamicDataSection.h"
+#import "QPickerElement.h"
 
 @implementation SampleDataBuilder
 
@@ -263,6 +264,11 @@
 
     QSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
     [root addSection:section2];
+
+    QSection *section3 = [[QSection alloc] initWithTitle:@"Picker Element"];
+    [section3 addElement:[[QPickerElement alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Picker"]];
+    [root addSection:section3];
+
 
     return root;
 }
@@ -573,11 +579,9 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsondatasample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
+        [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonremote"]];
         [root addSection:sectionJson];
     }
-
-	
-
 
     return root;
 }

@@ -29,6 +29,4 @@
 
 - (QRadioSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title;
 
-
-- (QSection *)initWithDict:(id)valuesDictionary selected:(int)selected title:(NSString *)title;
 @end

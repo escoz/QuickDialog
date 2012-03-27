@@ -26,6 +26,8 @@
 
 - (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title;
 
+- (void)createElements;
+
 - (void)setSelectedValue:(NSObject *)aSelected;
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
