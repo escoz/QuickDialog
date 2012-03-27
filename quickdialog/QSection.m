@@ -58,12 +58,32 @@
     return self;
 }
 
-- (void)addElement:(QElement *)element {
-    if (self.elements==nil)
-            self.elements = [[NSMutableArray alloc] init];
-
-    [self.elements addObject:element];
+- (void)addElement:(QElement *)element
+{
+    if (self.elements == nil) {
+        self.elements = [NSMutableArray array];
+    }
+    
     element.parentSection = self;
+    [self.elements addObject:element];
+}
+
+- (void)insertElement:(QElement *)element atIndex:(NSUInteger)index
+{
+    if (self.elements == nil) {
+        self.elements = [NSMutableArray array];
+    }
+    
+    element.parentSection = self;
+    [self.elements insertObject:element atIndex:index];
+}
+
+- (NSUInteger)indexOfElement:(QElement *)element
+{
+    if (self.elements) {
+        return [self.elements indexOfObject:element];
+    }
+    return NSNotFound;
 }
 
 - (void)fetchValueIntoObject:(id)obj {

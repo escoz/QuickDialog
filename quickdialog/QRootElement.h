@@ -38,6 +38,6 @@
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
 
-
+- (QSection *)sectionWithKey:(NSString *)key;
 - (QElement *)elementWithKey:(NSString *)string;
 @end

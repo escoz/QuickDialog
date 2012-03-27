@@ -52,8 +52,12 @@
 
 
 - (QSection *)initWithTitle:(NSString *)string;
+
 - (void)addElement:(QElement *)element;
-- (void)fetchValueIntoObject:(id)obj;
+- (void)insertElement:(QElement *)element atIndex:(NSUInteger)index;
+- (NSUInteger)indexOfElement:(QElement *)element;
 
 - (void)bindToObject:(id)data;
+- (void)fetchValueIntoObject:(id)obj;
+
 @end
