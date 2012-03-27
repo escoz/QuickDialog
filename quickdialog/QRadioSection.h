@@ -19,4 +19,5 @@
 
 @property (nonatomic) NSInteger selected;
 
+- (QSection *)initWithDict:(id)valuesDictionary selected:(int)selected title:(NSString *)title;
 @end

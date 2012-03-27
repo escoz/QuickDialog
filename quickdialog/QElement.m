@@ -83,4 +83,11 @@
     [[QBindingEvaluator new] bindObject:self toData:data];
 }
 
+
+- (void)fetchValueUsingBindingsIntoObject:(id)data {
+    [[QBindingEvaluator new] fetchValueFromObject:self toData:data];
+}
+
+
+
 @end

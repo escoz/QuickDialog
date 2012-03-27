@@ -25,4 +25,5 @@
 
 - (void)bindSection:(QSection *)section toProperties:(id)object;
 
+- (void)fetchValueFromObject:(QElement *)element toData:(id)data;
 @end
