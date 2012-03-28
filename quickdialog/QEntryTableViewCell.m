@@ -108,6 +108,7 @@
     _textField.keyboardType = _entryElement.keyboardType;
     _textField.keyboardAppearance = _entryElement.keyboardAppearance;
     _textField.secureTextEntry = _entryElement.secureTextEntry;
+    _textField.clearsOnBeginEditing = _entryElement.clearsOnBeginEditing;
     
     _textField.returnKeyType = _entryElement.returnKeyType;
     _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;

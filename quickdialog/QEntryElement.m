@@ -77,5 +77,7 @@
 @synthesize returnKeyType = _returnKeyType;
 @synthesize enablesReturnKeyAutomatically = _enablesReturnKeyAutomatically;
 @synthesize secureTextEntry = _secureTextEntry;
+@synthesize clearsOnBeginEditing = _clearsOnBeginEditing;
+
 
 @end
