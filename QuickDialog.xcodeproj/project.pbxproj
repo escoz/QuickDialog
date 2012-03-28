@@ -16,13 +16,10 @@
 		19F9FE7D1523BACB00196191 /* bg-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F9FE771523BACB00196191 /* bg-orange.png */; };
 		19F9FE7E1523BACB00196191 /* bg-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F9FE781523BACB00196191 /* bg-red.png */; };
 		19F9FE7F1523BACB00196191 /* YRDropdownViewIMS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FE791523BACB00196191 /* YRDropdownViewIMS.h */; };
-		19F9FE801523BACB00196191 /* YRDropdownViewIMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FE7A1523BACB00196191 /* YRDropdownViewIMS.m */; };
 		19F9FE811523BACB00196191 /* YRDropdownViewIMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FE7A1523BACB00196191 /* YRDropdownViewIMS.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		19F9FEC21523BB8100196191 /* QButtonImageColours.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEC01523BB8100196191 /* QButtonImageColours.h */; };
-		19F9FEC31523BB8100196191 /* QButtonImageColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC11523BB8100196191 /* QButtonImageColours.m */; };
 		19F9FEC41523BB8100196191 /* QButtonImageColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC11523BB8100196191 /* QButtonImageColours.m */; };
 		19F9FEC71523BBE100196191 /* QButtonImageElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEC51523BBE100196191 /* QButtonImageElement.h */; };
-		19F9FEC81523BBE100196191 /* QButtonImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC61523BBE100196191 /* QButtonImageElement.m */; };
 		19F9FEC91523BBE100196191 /* QButtonImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC61523BBE100196191 /* QButtonImageElement.m */; };
 		19F9FED01523C1B200196191 /* UIImage+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FECE1523C1B200196191 /* UIImage+IMSExtensions.h */; };
 		19F9FED11523C1B200196191 /* UIImage+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FECF1523C1B200196191 /* UIImage+IMSExtensions.m */; };
@@ -982,9 +979,6 @@
 				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
 				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
 				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
-				19F9FE801523BACB00196191 /* YRDropdownViewIMS.m in Sources */,
-				19F9FEC31523BB8100196191 /* QButtonImageColours.m in Sources */,
-				19F9FEC81523BBE100196191 /* QButtonImageElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
