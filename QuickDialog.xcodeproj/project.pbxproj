@@ -11,6 +11,51 @@
 		194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */; };
 		194C3FC714EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */; };
 		194C3FC814EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC614EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m */; };
+		19F9FE7B1523BACB00196191 /* Alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F9FE751523BACB00196191 /* Alert.png */; };
+		19F9FE7C1523BACB00196191 /* bg-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F9FE761523BACB00196191 /* bg-blue.png */; };
+		19F9FE7D1523BACB00196191 /* bg-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F9FE771523BACB00196191 /* bg-orange.png */; };
+		19F9FE7E1523BACB00196191 /* bg-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 19F9FE781523BACB00196191 /* bg-red.png */; };
+		19F9FE7F1523BACB00196191 /* YRDropdownViewIMS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FE791523BACB00196191 /* YRDropdownViewIMS.h */; };
+		19F9FE801523BACB00196191 /* YRDropdownViewIMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FE7A1523BACB00196191 /* YRDropdownViewIMS.m */; };
+		19F9FE811523BACB00196191 /* YRDropdownViewIMS.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FE7A1523BACB00196191 /* YRDropdownViewIMS.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		19F9FEC21523BB8100196191 /* QButtonImageColours.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEC01523BB8100196191 /* QButtonImageColours.h */; };
+		19F9FEC31523BB8100196191 /* QButtonImageColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC11523BB8100196191 /* QButtonImageColours.m */; };
+		19F9FEC41523BB8100196191 /* QButtonImageColours.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC11523BB8100196191 /* QButtonImageColours.m */; };
+		19F9FEC71523BBE100196191 /* QButtonImageElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEC51523BBE100196191 /* QButtonImageElement.h */; };
+		19F9FEC81523BBE100196191 /* QButtonImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC61523BBE100196191 /* QButtonImageElement.m */; };
+		19F9FEC91523BBE100196191 /* QButtonImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEC61523BBE100196191 /* QButtonImageElement.m */; };
+		19F9FED01523C1B200196191 /* UIImage+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FECE1523C1B200196191 /* UIImage+IMSExtensions.h */; };
+		19F9FED11523C1B200196191 /* UIImage+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FECF1523C1B200196191 /* UIImage+IMSExtensions.m */; };
+		19F9FEF01523C29500196191 /* IMSAlphabeticValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FED31523C29500196191 /* IMSAlphabeticValidator.h */; };
+		19F9FEF11523C29500196191 /* IMSAlphabeticValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FED41523C29500196191 /* IMSAlphabeticValidator.m */; };
+		19F9FEF21523C29500196191 /* IMSAlphanumericValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FED51523C29500196191 /* IMSAlphanumericValidator.h */; };
+		19F9FEF31523C29500196191 /* IMSAlphanumericValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FED61523C29500196191 /* IMSAlphanumericValidator.m */; };
+		19F9FEF41523C29500196191 /* IMSEmailValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FED71523C29500196191 /* IMSEmailValidator.h */; };
+		19F9FEF51523C29500196191 /* IMSEmailValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FED81523C29500196191 /* IMSEmailValidator.m */; };
+		19F9FEF61523C29500196191 /* IMSEntryValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FED91523C29500196191 /* IMSEntryValidator.h */; };
+		19F9FEF71523C29500196191 /* IMSEntryValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEDA1523C29500196191 /* IMSEntryValidator.m */; };
+		19F9FEF81523C29500196191 /* IMSFieldSizeValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEDB1523C29500196191 /* IMSFieldSizeValidator.h */; };
+		19F9FEF91523C29500196191 /* IMSFieldSizeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEDC1523C29500196191 /* IMSFieldSizeValidator.m */; };
+		19F9FEFA1523C29500196191 /* IMSMultiStringValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEDD1523C29500196191 /* IMSMultiStringValidator.h */; };
+		19F9FEFB1523C29500196191 /* IMSMultiStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEDE1523C29500196191 /* IMSMultiStringValidator.m */; };
+		19F9FEFC1523C29500196191 /* IMSNullStringValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEDF1523C29500196191 /* IMSNullStringValidator.h */; };
+		19F9FEFD1523C29500196191 /* IMSNullStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEE01523C29500196191 /* IMSNullStringValidator.m */; };
+		19F9FEFE1523C29500196191 /* IMSNumberRangeValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEE11523C29500196191 /* IMSNumberRangeValidator.h */; };
+		19F9FEFF1523C29500196191 /* IMSNumberRangeValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEE21523C29500196191 /* IMSNumberRangeValidator.m */; };
+		19F9FF001523C29500196191 /* IMSNumericValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEE31523C29500196191 /* IMSNumericValidator.h */; };
+		19F9FF011523C29500196191 /* IMSNumericValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEE41523C29500196191 /* IMSNumericValidator.m */; };
+		19F9FF021523C29500196191 /* IMSUrlValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEE51523C29500196191 /* IMSUrlValidator.h */; };
+		19F9FF031523C29500196191 /* IMSUrlValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEE61523C29500196191 /* IMSUrlValidator.m */; };
+		19F9FF041523C29500196191 /* IMSValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEE71523C29500196191 /* IMSValidation.h */; };
+		19F9FF051523C29500196191 /* IMSValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEE81523C29500196191 /* IMSValidation.m */; };
+		19F9FF061523C29500196191 /* IMSValidationCheck.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEE91523C29500196191 /* IMSValidationCheck.h */; };
+		19F9FF071523C29500196191 /* IMSValidationCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEEA1523C29500196191 /* IMSValidationCheck.m */; };
+		19F9FF081523C29500196191 /* IMSValidationPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEEC1523C29500196191 /* IMSValidationPlugin.h */; };
+		19F9FF091523C29500196191 /* IMSValidationPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FEED1523C29500196191 /* IMSValidationPlugin.m */; };
+		19F9FF0A1523C29500196191 /* IMSValidatorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEEE1523C29500196191 /* IMSValidatorProtocol.h */; };
+		19F9FF0B1523C29500196191 /* Validation.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FEEF1523C29500196191 /* Validation.h */; };
+		19F9FF0F1523CA7700196191 /* NSString+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F9FF0D1523CA7700196191 /* NSString+IMSExtensions.h */; };
+		19F9FF101523CA7700196191 /* NSString+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19F9FF0E1523CA7700196191 /* NSString+IMSExtensions.m */; };
 		2C542394145ADEBD0026A152 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		2C54239F145ADF2B0026A152 /* QuickDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9E /* QuickDialog.h */; settings = {ATTRIBUTES = (); }; };
 		2C5423A1145ADF2B0026A152 /* QDecimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */; };
@@ -160,6 +205,50 @@
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+IMSExtensions.h"; sourceTree = SOURCE_ROOT; };
 		194C3FC614EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+IMSExtensions.m"; sourceTree = SOURCE_ROOT; };
+		19F9FE751523BACB00196191 /* Alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alert.png; sourceTree = "<group>"; };
+		19F9FE761523BACB00196191 /* bg-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-blue.png"; sourceTree = "<group>"; };
+		19F9FE771523BACB00196191 /* bg-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-orange.png"; sourceTree = "<group>"; };
+		19F9FE781523BACB00196191 /* bg-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-red.png"; sourceTree = "<group>"; };
+		19F9FE791523BACB00196191 /* YRDropdownViewIMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YRDropdownViewIMS.h; sourceTree = "<group>"; };
+		19F9FE7A1523BACB00196191 /* YRDropdownViewIMS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YRDropdownViewIMS.m; sourceTree = "<group>"; };
+		19F9FEC01523BB8100196191 /* QButtonImageColours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QButtonImageColours.h; path = quickdialog/QButtonImageColours.h; sourceTree = SOURCE_ROOT; };
+		19F9FEC11523BB8100196191 /* QButtonImageColours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QButtonImageColours.m; path = quickdialog/QButtonImageColours.m; sourceTree = SOURCE_ROOT; };
+		19F9FEC51523BBE100196191 /* QButtonImageElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QButtonImageElement.h; sourceTree = SOURCE_ROOT; };
+		19F9FEC61523BBE100196191 /* QButtonImageElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QButtonImageElement.m; sourceTree = SOURCE_ROOT; };
+		19F9FECE1523C1B200196191 /* UIImage+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+IMSExtensions.h"; sourceTree = SOURCE_ROOT; };
+		19F9FECF1523C1B200196191 /* UIImage+IMSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+IMSExtensions.m"; sourceTree = SOURCE_ROOT; };
+		19F9FED31523C29500196191 /* IMSAlphabeticValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSAlphabeticValidator.h; sourceTree = "<group>"; };
+		19F9FED41523C29500196191 /* IMSAlphabeticValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSAlphabeticValidator.m; sourceTree = "<group>"; };
+		19F9FED51523C29500196191 /* IMSAlphanumericValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSAlphanumericValidator.h; sourceTree = "<group>"; };
+		19F9FED61523C29500196191 /* IMSAlphanumericValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSAlphanumericValidator.m; sourceTree = "<group>"; };
+		19F9FED71523C29500196191 /* IMSEmailValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSEmailValidator.h; sourceTree = "<group>"; };
+		19F9FED81523C29500196191 /* IMSEmailValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSEmailValidator.m; sourceTree = "<group>"; };
+		19F9FED91523C29500196191 /* IMSEntryValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSEntryValidator.h; sourceTree = "<group>"; };
+		19F9FEDA1523C29500196191 /* IMSEntryValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSEntryValidator.m; sourceTree = "<group>"; };
+		19F9FEDB1523C29500196191 /* IMSFieldSizeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSFieldSizeValidator.h; sourceTree = "<group>"; };
+		19F9FEDC1523C29500196191 /* IMSFieldSizeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSFieldSizeValidator.m; sourceTree = "<group>"; };
+		19F9FEDD1523C29500196191 /* IMSMultiStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSMultiStringValidator.h; sourceTree = "<group>"; };
+		19F9FEDE1523C29500196191 /* IMSMultiStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSMultiStringValidator.m; sourceTree = "<group>"; };
+		19F9FEDF1523C29500196191 /* IMSNullStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSNullStringValidator.h; sourceTree = "<group>"; };
+		19F9FEE01523C29500196191 /* IMSNullStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSNullStringValidator.m; sourceTree = "<group>"; };
+		19F9FEE11523C29500196191 /* IMSNumberRangeValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSNumberRangeValidator.h; sourceTree = "<group>"; };
+		19F9FEE21523C29500196191 /* IMSNumberRangeValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSNumberRangeValidator.m; sourceTree = "<group>"; };
+		19F9FEE31523C29500196191 /* IMSNumericValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSNumericValidator.h; sourceTree = "<group>"; };
+		19F9FEE41523C29500196191 /* IMSNumericValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSNumericValidator.m; sourceTree = "<group>"; };
+		19F9FEE51523C29500196191 /* IMSUrlValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSUrlValidator.h; sourceTree = "<group>"; };
+		19F9FEE61523C29500196191 /* IMSUrlValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSUrlValidator.m; sourceTree = "<group>"; };
+		19F9FEE71523C29500196191 /* IMSValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSValidation.h; sourceTree = "<group>"; };
+		19F9FEE81523C29500196191 /* IMSValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSValidation.m; sourceTree = "<group>"; };
+		19F9FEE91523C29500196191 /* IMSValidationCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSValidationCheck.h; sourceTree = "<group>"; };
+		19F9FEEA1523C29500196191 /* IMSValidationCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSValidationCheck.m; sourceTree = "<group>"; };
+		19F9FEEB1523C29500196191 /* IMSValidationMessages.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IMSValidationMessages.bundle; sourceTree = "<group>"; };
+		19F9FEEC1523C29500196191 /* IMSValidationPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSValidationPlugin.h; sourceTree = "<group>"; };
+		19F9FEED1523C29500196191 /* IMSValidationPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSValidationPlugin.m; sourceTree = "<group>"; };
+		19F9FEEE1523C29500196191 /* IMSValidatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSValidatorProtocol.h; sourceTree = "<group>"; };
+		19F9FEEF1523C29500196191 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
+		19F9FF0C1523C97A00196191 /* Validation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Validation.pdf; sourceTree = "<group>"; };
+		19F9FF0D1523CA7700196191 /* NSString+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+IMSExtensions.h"; sourceTree = "<group>"; };
+		19F9FF0E1523CA7700196191 /* NSString+IMSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+IMSExtensions.m"; sourceTree = "<group>"; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -333,6 +422,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F9FE741523BACB00196191 /* YRDropdownViewIMS */ = {
+			isa = PBXGroup;
+			children = (
+				19F9FE751523BACB00196191 /* Alert.png */,
+				19F9FE761523BACB00196191 /* bg-blue.png */,
+				19F9FE771523BACB00196191 /* bg-orange.png */,
+				19F9FE781523BACB00196191 /* bg-red.png */,
+				19F9FE791523BACB00196191 /* YRDropdownViewIMS.h */,
+				19F9FE7A1523BACB00196191 /* YRDropdownViewIMS.m */,
+			);
+			path = YRDropdownViewIMS;
+			sourceTree = "<group>";
+		};
+		19F9FED21523C29500196191 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				19F9FF0C1523C97A00196191 /* Validation.pdf */,
+				19F9FF0D1523CA7700196191 /* NSString+IMSExtensions.h */,
+				19F9FF0E1523CA7700196191 /* NSString+IMSExtensions.m */,
+				19F9FED31523C29500196191 /* IMSAlphabeticValidator.h */,
+				19F9FED41523C29500196191 /* IMSAlphabeticValidator.m */,
+				19F9FED51523C29500196191 /* IMSAlphanumericValidator.h */,
+				19F9FED61523C29500196191 /* IMSAlphanumericValidator.m */,
+				19F9FED71523C29500196191 /* IMSEmailValidator.h */,
+				19F9FED81523C29500196191 /* IMSEmailValidator.m */,
+				19F9FED91523C29500196191 /* IMSEntryValidator.h */,
+				19F9FEDA1523C29500196191 /* IMSEntryValidator.m */,
+				19F9FEDB1523C29500196191 /* IMSFieldSizeValidator.h */,
+				19F9FEDC1523C29500196191 /* IMSFieldSizeValidator.m */,
+				19F9FEDD1523C29500196191 /* IMSMultiStringValidator.h */,
+				19F9FEDE1523C29500196191 /* IMSMultiStringValidator.m */,
+				19F9FEDF1523C29500196191 /* IMSNullStringValidator.h */,
+				19F9FEE01523C29500196191 /* IMSNullStringValidator.m */,
+				19F9FEE11523C29500196191 /* IMSNumberRangeValidator.h */,
+				19F9FEE21523C29500196191 /* IMSNumberRangeValidator.m */,
+				19F9FEE31523C29500196191 /* IMSNumericValidator.h */,
+				19F9FEE41523C29500196191 /* IMSNumericValidator.m */,
+				19F9FEE51523C29500196191 /* IMSUrlValidator.h */,
+				19F9FEE61523C29500196191 /* IMSUrlValidator.m */,
+				19F9FEE71523C29500196191 /* IMSValidation.h */,
+				19F9FEE81523C29500196191 /* IMSValidation.m */,
+				19F9FEE91523C29500196191 /* IMSValidationCheck.h */,
+				19F9FEEA1523C29500196191 /* IMSValidationCheck.m */,
+				19F9FEEB1523C29500196191 /* IMSValidationMessages.bundle */,
+				19F9FEEC1523C29500196191 /* IMSValidationPlugin.h */,
+				19F9FEED1523C29500196191 /* IMSValidationPlugin.m */,
+				19F9FEEE1523C29500196191 /* IMSValidatorProtocol.h */,
+				19F9FEEF1523C29500196191 /* Validation.h */,
+			);
+			path = Validation;
+			sourceTree = SOURCE_ROOT;
+		};
 		2CE450A8145ADF8000B77D0E /* libQuickDialog */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +493,7 @@
 				D80B0E3D13E052DF00FA85CA /* sample */,
 				D80B0E3613E052DF00FA85CA /* Frameworks */,
 				D80B0E3413E052DF00FA85CA /* Products */,
+				19F9FE741523BACB00196191 /* YRDropdownViewIMS */,
 			);
 			sourceTree = "<group>";
 		};
@@ -447,6 +589,7 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				19F9FED21523C29500196191 /* Validation */,
 				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
 				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
 				D8B394681514E8B3008ECB34 /* QSegmentedElement.m */,
@@ -549,6 +692,12 @@
 				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
 				194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */,
 				194C3FC614EDF1350036C9E7 /* NSMutableArray+IMSExtensions.m */,
+				19F9FEC01523BB8100196191 /* QButtonImageColours.h */,
+				19F9FEC11523BB8100196191 /* QButtonImageColours.m */,
+				19F9FEC51523BBE100196191 /* QButtonImageElement.h */,
+				19F9FEC61523BBE100196191 /* QButtonImageElement.m */,
+				19F9FECE1523C1B200196191 /* UIImage+IMSExtensions.h */,
+				19F9FECF1523C1B200196191 /* UIImage+IMSExtensions.m */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -625,6 +774,26 @@
 				D8B394691514E8B3008ECB34 /* QSegmentedElement.h in Headers */,
 				D8F180E813F0599A009B0CCE /* QPickerElement.h in Headers */,
 				D8F180E813F0599A009B0CD4 /* QuickDialogWebController.h in Headers */,
+				19F9FE7F1523BACB00196191 /* YRDropdownViewIMS.h in Headers */,
+				19F9FEC21523BB8100196191 /* QButtonImageColours.h in Headers */,
+				19F9FEC71523BBE100196191 /* QButtonImageElement.h in Headers */,
+				19F9FED01523C1B200196191 /* UIImage+IMSExtensions.h in Headers */,
+				19F9FEF01523C29500196191 /* IMSAlphabeticValidator.h in Headers */,
+				19F9FEF21523C29500196191 /* IMSAlphanumericValidator.h in Headers */,
+				19F9FEF41523C29500196191 /* IMSEmailValidator.h in Headers */,
+				19F9FEF61523C29500196191 /* IMSEntryValidator.h in Headers */,
+				19F9FEF81523C29500196191 /* IMSFieldSizeValidator.h in Headers */,
+				19F9FEFA1523C29500196191 /* IMSMultiStringValidator.h in Headers */,
+				19F9FEFC1523C29500196191 /* IMSNullStringValidator.h in Headers */,
+				19F9FEFE1523C29500196191 /* IMSNumberRangeValidator.h in Headers */,
+				19F9FF001523C29500196191 /* IMSNumericValidator.h in Headers */,
+				19F9FF021523C29500196191 /* IMSUrlValidator.h in Headers */,
+				19F9FF041523C29500196191 /* IMSValidation.h in Headers */,
+				19F9FF061523C29500196191 /* IMSValidationCheck.h in Headers */,
+				19F9FF081523C29500196191 /* IMSValidationPlugin.h in Headers */,
+				19F9FF0A1523C29500196191 /* IMSValidatorProtocol.h in Headers */,
+				19F9FF0B1523C29500196191 /* Validation.h in Headers */,
+				19F9FF0F1523CA7700196191 /* NSString+IMSExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +886,10 @@
 				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
 				D86249FC14BB5AB5002F0585 /* sample.json in Resources */,
 				D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */,
+				19F9FE7B1523BACB00196191 /* Alert.png in Resources */,
+				19F9FE7C1523BACB00196191 /* bg-blue.png in Resources */,
+				19F9FE7D1523BACB00196191 /* bg-orange.png in Resources */,
+				19F9FE7E1523BACB00196191 /* bg-red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +949,24 @@
 				D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */,
 				D8F180E813F0599A009B0CCC /* QPickerElement.m in Sources */,
 				D8F180E813F0599A009B0CD2 /* QuickDialogWebController.m in Sources */,
+				19F9FE811523BACB00196191 /* YRDropdownViewIMS.m in Sources */,
+				19F9FEC41523BB8100196191 /* QButtonImageColours.m in Sources */,
+				19F9FEC91523BBE100196191 /* QButtonImageElement.m in Sources */,
+				19F9FED11523C1B200196191 /* UIImage+IMSExtensions.m in Sources */,
+				19F9FEF11523C29500196191 /* IMSAlphabeticValidator.m in Sources */,
+				19F9FEF31523C29500196191 /* IMSAlphanumericValidator.m in Sources */,
+				19F9FEF51523C29500196191 /* IMSEmailValidator.m in Sources */,
+				19F9FEF71523C29500196191 /* IMSEntryValidator.m in Sources */,
+				19F9FEF91523C29500196191 /* IMSFieldSizeValidator.m in Sources */,
+				19F9FEFB1523C29500196191 /* IMSMultiStringValidator.m in Sources */,
+				19F9FEFD1523C29500196191 /* IMSNullStringValidator.m in Sources */,
+				19F9FEFF1523C29500196191 /* IMSNumberRangeValidator.m in Sources */,
+				19F9FF011523C29500196191 /* IMSNumericValidator.m in Sources */,
+				19F9FF031523C29500196191 /* IMSUrlValidator.m in Sources */,
+				19F9FF051523C29500196191 /* IMSValidation.m in Sources */,
+				19F9FF071523C29500196191 /* IMSValidationCheck.m in Sources */,
+				19F9FF091523C29500196191 /* IMSValidationPlugin.m in Sources */,
+				19F9FF101523CA7700196191 /* NSString+IMSExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +982,9 @@
 				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
 				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
 				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
+				19F9FE801523BACB00196191 /* YRDropdownViewIMS.m in Sources */,
+				19F9FEC31523BB8100196191 /* QButtonImageColours.m in Sources */,
+				19F9FEC81523BBE100196191 /* QButtonImageElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
