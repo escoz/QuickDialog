@@ -44,14 +44,11 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-    if ([section isKindOfClass:[QSortingSection class]]){
-        return ((QSortingSection *) section).canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
-    }
-    return UITableViewCellEditingStyleNone;
+    return section.canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    return NO;
+    return YES;
 }
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
