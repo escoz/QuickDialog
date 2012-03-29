@@ -19,6 +19,12 @@
     return indexPath;
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+
+    [element selectedAccessory:_tableView controller:_tableView.controller indexPath:indexPath];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
@@ -34,6 +40,7 @@
     }
     return self;
 }
+
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];

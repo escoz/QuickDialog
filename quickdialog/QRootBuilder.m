@@ -142,6 +142,13 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     nil], @"indicatorViewStyle",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryDetailDisclosureButton], @"DetailDisclosureButton",
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryCheckmark], @"Checkmark",
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryDisclosureIndicator], @"DisclosureIndicator",
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryNone], @"None",
+                                                        nil], @"accessoryType",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIDatePickerModeDate], @"Date",
                                     [NSNumber numberWithInt:UIDatePickerModeTime], @"Time",
                                     [NSNumber numberWithInt:UIDatePickerModeDateAndTime], @"DateAndTime",

@@ -79,6 +79,11 @@
     return self;
 }
 
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.quickDialogTableView setEditing:editing animated:animated];
+}
+
 - (void)setRoot:(QRootElement *)root {
     _root = root;
     self.quickDialogTableView.root = root;

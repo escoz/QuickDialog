@@ -29,9 +29,9 @@
     NSString * _controllerAction;
 }
 
-
 @property(nonatomic, copy) void (^onSelected)(void);
 @property(nonatomic, retain) NSString *controllerAction;
+@property(nonatomic, retain) NSString *controllerAccessoryAction;
 
 @property(nonatomic) CGFloat height;
 
@@ -46,6 +46,8 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
 
 - (void)handleElementSelected:(QuickDialogController *)controller;
+
+- (void)selectedAccessory:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;

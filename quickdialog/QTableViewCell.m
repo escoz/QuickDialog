@@ -18,7 +18,6 @@
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
-    
     return self;
 }
 

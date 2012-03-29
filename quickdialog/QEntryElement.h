@@ -39,6 +39,7 @@
 @property(nonatomic,getter=isSecureTextEntry) BOOL secureTextEntry;       // default is NO
 @property(nonatomic, assign) BOOL clearsOnBeginEditing;                   // default is NO
 
+
 - (QEntryElement *)init;
 
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
