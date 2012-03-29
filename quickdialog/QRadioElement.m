@@ -56,6 +56,7 @@
     return self;
 }
 
+
 -(void)setSelectedItem:(id)item {
     if (self.items==nil)
         return;
@@ -63,6 +64,9 @@
 }
 
 -(id)selectedItem {
+    if (self.items == nil || [self.items count]<self.selected)
+        return nil;
+
     return [self.items objectAtIndex:(NSUInteger) self.selected];
 }
 
