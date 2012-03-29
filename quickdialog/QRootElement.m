@@ -43,7 +43,8 @@
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    cell.textLabel.text = _title;
+    if (_title!= [NSNull null])
+        cell.textLabel.text = _title;
     return cell;
 }
 

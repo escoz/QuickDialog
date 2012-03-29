@@ -39,9 +39,10 @@
     __block QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
     textController.resizeWhenKeyboardPresented = YES;
     textController.textView.text = self.textValue;
+    __block QMultilineElement *weakSelf = self;
     textController.willDisappearCallback = ^ {
-        self.textValue = textController.textView.text;
-        [[tableView cellForElement:self] setNeedsDisplay];
+        weakSelf.textValue = textController.textView.text;
+        [[tableView cellForElement:weakSelf] setNeedsDisplay];
     };
     [controller displayViewController:textController];
 }

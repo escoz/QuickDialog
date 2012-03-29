@@ -56,7 +56,15 @@
     return self;
 }
 
+-(void)setSelectedItem:(id)item {
+    if (self.items==nil)
+        return;
+    self.selected = [self.items indexOfObject:item];
+}
 
+-(id)selectedItem {
+    return [self.items objectAtIndex:(NSUInteger) self.selected];
+}
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
     self = [super init];

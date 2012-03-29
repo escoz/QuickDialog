@@ -39,6 +39,8 @@
 - (NSInteger)numberOfSections;
 
 
+- (void)fetchValueIntoObject:(id)obj;
+
 - (void)fetchValueUsingBindingsIntoObject:(id)object;
 
 - (QElement *)elementWithKey:(NSString *)string;

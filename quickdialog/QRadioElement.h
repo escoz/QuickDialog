@@ -21,6 +21,7 @@
 }
 
 @property(nonatomic, retain) NSArray *items;
+@property(nonatomic, assign) id selectedItem;
 @property(nonatomic, assign, readwrite) NSInteger selected;
 @property(nonatomic, retain) NSArray *values;
 
