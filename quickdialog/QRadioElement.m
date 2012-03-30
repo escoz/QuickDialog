@@ -89,21 +89,23 @@
 
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
+    QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
 
     NSString *selectedValue = nil;
     if (_selected >= 0 && _selected <_items.count)
         selectedValue = [[_items objectAtIndex:(NSUInteger) _selected] description];
 
     if (self.title == NULL){
-        cell.textLabel.text = selectedValue;
+        cell.textField.text = selectedValue;
         cell.detailTextLabel.text = nil;
         cell.imageView.image = nil;
     } else {
         cell.textLabel.text = _title;
-        cell.detailTextLabel.text = selectedValue;
+        cell.textField.text = selectedValue;
         cell.imageView.image = nil;
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.textField.userInteractionEnabled = NO;
     return cell;
 }
 

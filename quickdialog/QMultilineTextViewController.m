@@ -31,7 +31,8 @@
 {
     if ((self = [super init]))
     {
-        self.title = title;
+        if (title!=nil)
+            self.title = title;
         _textView = [[UITextView alloc] init];
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _textView.font = [UIFont systemFontOfSize:18.0f];
@@ -42,6 +43,7 @@
 - (void)loadView
 {
     self.view = _textView;
+    self.title = @"Note";
 }
 
 - (void)viewWillAppear:(BOOL)animated

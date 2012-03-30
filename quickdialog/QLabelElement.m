@@ -33,6 +33,15 @@
     return self;
 }
 
+-(void)setImageNamed:(NSString *)name {
+    self.image = [UIImage imageNamed:name];
+}
+
+- (NSString *)imageNamed {
+    return nil;
+}
+
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = _accessoryType== (int) nil ? UITableViewCellAccessoryNone : _accessoryType;

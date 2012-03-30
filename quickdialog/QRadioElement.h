@@ -14,7 +14,7 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QRadioElement : QRootElement {
+@interface QRadioElement : QEntryElement {
     NSArray *_items;
     NSArray *_values;
     NSInteger _selected;

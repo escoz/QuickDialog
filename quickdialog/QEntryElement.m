@@ -51,6 +51,7 @@
         cell = [[QEntryTableViewCell alloc] init];
     }
     cell.textField.enabled = YES;
+    cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
