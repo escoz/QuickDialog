@@ -47,7 +47,7 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     if (cell == nil){
-        cell = [[QTableViewCell alloc] initWithReuseIdentifier:@"QuickformElementCell"];
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.showsReorderControl = YES;
