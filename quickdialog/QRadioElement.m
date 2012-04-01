@@ -39,7 +39,11 @@
 }
 
 -(void)setSelectedValue:(NSObject *)aSelected {
+    if ([aSelected isKindOfClass:[NSNumber class]]) {
+    _selected = [(NSNumber *)aSelected integerValue];
+    } else {
     _selected = [_values indexOfObject:aSelected];
+    }
 }
 
 
@@ -127,7 +131,6 @@
         [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
     }
 }
-
 
 
 @end
