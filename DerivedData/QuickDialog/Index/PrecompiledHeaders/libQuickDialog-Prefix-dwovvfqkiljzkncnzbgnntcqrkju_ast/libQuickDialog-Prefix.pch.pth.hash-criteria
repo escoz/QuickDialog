@@ -1,0 +1,35 @@
+Contents of /Users/iainstubbs1959/Downloads/QuickDialog/libQuickDialog/libQuickDialog-Prefix.pch
+3.1 (tags/Apple/clang-318.0.58) (based on LLVM 3.1svn)
+i386-apple-darwin11.3.0
+-x
+objective-c
+-arch
+i386
+-fmessage-length=0
+-std=gnu99
+-fobjc-arc
+-fpascal-strings
+-O0
+-DDEBUG=1
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
+-fexceptions
+-fasm-blocks
+-mmacosx-version-min=10.6
+-g
+-fobjc-abi-version=2
+-fobjc-legacy-dispatch
+-DIBOutlet=__attribute__((iboutlet))
+-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))
+-DIBAction=void)__attribute__((ibaction)
+-D__IPHONE_OS_VERSION_MIN_REQUIRED=40000
+-iquote
+-iquote
+-I/Users/iainstubbs1959/Downloads/QuickDialog/DerivedData/QuickDialog/Build/Products/Debug-iphonesimulator/include
+-F/Users/iainstubbs1959/Downloads/QuickDialog/DerivedData/QuickDialog/Build/Products/Debug-iphonesimulator
+-ferror-limit=10
+-working-directory=/Users/iainstubbs1959/Downloads/QuickDialog
+-Xclang
+-detailed-preprocessing-record
+-fno-objc-arc
+SDK_PRODUCT_BUILD_VERSION=9B176

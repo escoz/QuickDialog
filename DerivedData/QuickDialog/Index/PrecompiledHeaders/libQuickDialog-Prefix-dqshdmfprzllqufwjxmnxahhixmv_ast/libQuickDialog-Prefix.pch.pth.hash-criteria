@@ -1,0 +1,29 @@
+Contents of /Users/iainstubbs1959/Downloads/QuickDialog/libQuickDialog/libQuickDialog-Prefix.pch
+3.1 (tags/Apple/clang-318.0.58) (based on LLVM 3.1svn)
+arm-apple-darwin11.3.0
+-x
+objective-c
+-arch
+armv7
+-fmessage-length=0
+-std=gnu99
+-fobjc-arc
+-fpascal-strings
+-O0
+-DDEBUG=1
+-isysroot
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk
+-g
+-DIBOutlet=__attribute__((iboutlet))
+-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))
+-DIBAction=void)__attribute__((ibaction)
+-miphoneos-version-min=4.0
+-iquote
+-iquote
+-I/Users/iainstubbs1959/Downloads/QuickDialog/DerivedData/QuickDialog/Build/Products/Debug-iphoneos/include
+-F/Users/iainstubbs1959/Downloads/QuickDialog/DerivedData/QuickDialog/Build/Products/Debug-iphoneos
+-ferror-limit=10
+-working-directory=/Users/iainstubbs1959/Downloads/QuickDialog
+-Xclang
+-detailed-preprocessing-record
+SDK_PRODUCT_BUILD_VERSION=9B176

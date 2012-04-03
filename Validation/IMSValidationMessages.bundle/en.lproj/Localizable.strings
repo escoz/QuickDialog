@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  AussiePsych
+
+  Created by Iain Stubbs on 18/03/12.
+  Copyright (c) 2012 Parallel ThirtyEight South. All rights reserved.
+*/
+
+// error titles
+"ErrorValidation" = "Errors";
+"ErrorTransaction" = "Error in Transaction";
+"Information" = "Information";
+
+// email
+
+"EmailInvalid" = "Please enter %1$@ %2$@";
+
+// multi check
+
+"Multi1" = "You must input %1$@ - as %2$@ have been entered";
+"Multi2" = "You must input %1$@ - as %2$@ has been entered";
+
+// null 
+
+"Null" = "Please enter %1$@ %2$@";
+
+// url
+"Url" = "Please enter %1$@ %2$@";
+
+// numeric
+
+"Numeric" = "You can only enter the numerals 0-9 in %1$@ %2$@";
+
+// alphabetic
+
+"Alphabetic" = "You can only enter the alphabetic characters a-z or A-Z in %1$@ %2$@";
+
+// alphanumeric
+
+"Alphanumeric" = "You can only enter the characters 0-9, a-z or A-Z in %1$@ %2$@";
+
+// field size
+
+"FieldSize" = "The length of %3$@ %4$@ must be between %1$u and %2$u characters long";
+
+// number range
+
+"NumberRange" = "You must enter a number which is between %1sd and %s%d for %3$@ %4$@";
+
+// fixed length
+
+"FixedLength" = "The length of %2$@ %3$@ must be %1$u characters in length";
