@@ -20,6 +20,7 @@
 #import "IMSAlphanumericValidator.h"
 #import "IMSFieldSizeValidator.h"
 #import "IMSNumberRangeValidator.h"
+#import "IMSFixedLengthValidator.h"
 
 
 

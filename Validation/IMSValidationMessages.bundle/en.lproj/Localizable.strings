@@ -7,8 +7,9 @@
 */
 
 // error titles
-"ErrorValidation" = "Please correct errors";
+"ErrorValidation" = "Errors";
 "ErrorTransaction" = "Error in Transaction";
+"Information" = "Information";
 
 // email
 
@@ -45,3 +46,7 @@
 // number range
 
 "NumberRange" = "You must enter a number which is between %1sd and %s%d for %3$@ %4$@";
+
+// fixed length
+
+"FixedLength" = "The length of %2$@ %3$@ must be %1$u characters in length";
