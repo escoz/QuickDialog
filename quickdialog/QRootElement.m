@@ -89,7 +89,6 @@
     }
 
     [[QBindingEvaluator new] bindObject:self toData:data];
-
 }
 
 -(void)dealloc {
