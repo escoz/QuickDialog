@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "QBindingEvaluator.h"
+
 @implementation QRadioElement {
     QSection *_internalRadioItemsSection;
 }

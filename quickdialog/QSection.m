@@ -81,9 +81,7 @@
 }
 
 - (void)bindToObject:(id)data {
-
     if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
-
             for (QElement *el in self.elements) {
                 [el bindToObject:data];
             }

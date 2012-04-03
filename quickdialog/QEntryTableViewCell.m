@@ -232,14 +232,12 @@
 }
 
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton {
-    NSLog(@"is %d", _textField.isEditing);
     [self endEditing:YES];
     [self endEditing:NO];
     [_textField resignFirstResponder];
 
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 
-    NSLog(@"is %d", _textField.isEditing);
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
         [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
     }

@@ -66,6 +66,17 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     return element;
 }
 
+- (QSection *)buildSectionWithObject:(NSDictionary *)obj {
+    QSection *sect = nil;
+    if ([obj valueForKey:[NSString stringWithFormat:@"type"]]!=nil){
+        sect = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
+    } else {
+        sect = [[QSection alloc] init];
+    }
+    [self updateObject:sect withPropertiesFrom:obj];
+    return sect;
+}
+
 - (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root {
     QSection *sect = nil;
     if ([obj valueForKey:[NSString stringWithFormat:@"type"]]!=nil){
