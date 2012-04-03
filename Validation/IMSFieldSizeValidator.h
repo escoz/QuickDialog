@@ -6,7 +6,7 @@
 
 
 #import <Foundation/Foundation.h>
-
+#import "Validation.h"
 
 @interface IMSFieldSizeValidator : NSObject <IMSValidatorProtocol>
 {

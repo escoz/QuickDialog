@@ -14,7 +14,10 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QuickDialogController : UIViewController {
+@class IMSSearchDisplayController;
+
+@interface QuickDialogController : UIViewController <UISearchDisplayDelegate>
+{
 
 @private
     QRootElement *_root;
@@ -30,7 +33,11 @@
 @property(nonatomic, copy) void (^willDisappearCallback)();
 @property(nonatomic, strong) QuickDialogTableView *quickDialogTableView;
 @property(nonatomic) BOOL resizeWhenKeyboardPresented;
-
+@property(nonatomic) BOOL hasSearchBar;
+@property(nonatomic,retain)NSMutableArray* searchList;
+@property(nonatomic,retain)IMSSearchDisplayController *searchController;
+@property(nonatomic,retain)NSMutableArray* filteredSearchList;
+@property(nonatomic)IMSTableSearchType searchType;
 
 - (void)loadView;
 
@@ -44,5 +51,8 @@
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
+
+- (void) searchTableView;
+- (void) doneSearching_Clicked: (id)sender;
 
 @end

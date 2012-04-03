@@ -7,18 +7,20 @@
 //
 
 #import "IMSFixedLengthValidator.h"
+#import "IMSValidationCheck.h"
+#import "NSString+IMSExtensions.h"
 
 @implementation IMSFixedLengthValidator
 
 @synthesize length;
 
-SharedDataSingleton *mSds;
+NSBundle *messBundle;
 
 -(IMSFixedLengthValidator *)initWithLength:(NSUInteger)len;
 {
     self = [super init];
     length = len;
-    mSds = [SharedDataSingleton sharedSingleton];
+    messBundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IMSValidationMessages.bundle"]];
     return self;
     
 }
@@ -29,9 +31,9 @@ SharedDataSingleton *mSds;
     
     if (theCheck.input.length != length)
     {
-        if (mSds.validationBundle)
+        if (messBundle)
         {
-            return [NSString stringWithFormat:[mSds.validationBundle localizedStringForKey:@"FixedLength" value:@"FixedLength" table:nil],length,theCheck.article,theCheck.fieldName];
+            return [NSString stringWithFormat:[messBundle localizedStringForKey:@"FixedLength" value:@"FixedLength" table:nil],length,theCheck.article,theCheck.fieldName];
         }
     }
     

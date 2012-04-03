@@ -18,9 +18,15 @@
 @synthesize sections = _sections;
 @synthesize grouped = _grouped;
 @synthesize controllerName = _controllerName;
+@synthesize hasSearchBar = _hasSearchBar;
+@synthesize searchList = _searchList;
+@synthesize searchType = _searchType;
 
 - (QRootElement *)init {
     self = [super init];
+    self.hasSearchBar = NO;
+    self.searchList = nil;
+    self.searchType = IMSTableSearchTypeBeginningOnly;
     return self;
 }
 - (void)addSection:(QSection *)section {
@@ -62,15 +68,6 @@
 
     }
 }
-
-- (void)fetchValueUsingBindingsIntoObject:(id)obj {
-    for (QSection *s in _sections){
-        [s fetchValueUsingBindingsIntoObject:obj];
-    }
-    [super fetchValueUsingBindingsIntoObject:obj];
-}
-
-
 
 - (void)bindToObject:(id)obj {
     for (QSection *s in _sections){

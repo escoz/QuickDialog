@@ -15,6 +15,14 @@
 #import "QElement.h"
 #import "QSection.h"
 
+typedef enum {
+    IMSTableSearchTypeBeginningOnly = 0,
+    IMSTableSearchTypeWordBeginning,
+    IMSTableSearchTypeEndingOnly,
+    IMSTableSearchTypeWordEnding,
+    IMSTableSearchTypeSubstring
+} IMSTableSearchType;
+
 @interface QRootElement : QElement {
 
 @protected
@@ -23,12 +31,17 @@
     NSString *_title;
     NSMutableArray *_sections;
     NSString *_controllerName;
+    BOOL _hasSearchBar;
+    NSMutableArray* _searchList;
+    IMSTableSearchType _searchType;
 }
 
 @property(nonatomic, retain) NSString *title;
 @property(nonatomic, strong) NSMutableArray *sections;
 @property(assign) BOOL grouped;
-
+@property(assign) BOOL hasSearchBar;
+@property(nonatomic,retain) NSMutableArray* searchList;
+@property(assign) IMSTableSearchType searchType;
 @property(nonatomic, retain) NSString *controllerName;
 
 
@@ -38,8 +51,6 @@
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
 
-
-- (void)fetchValueUsingBindingsIntoObject:(id)object;
 
 - (QElement *)elementWithKey:(NSString *)string;
 @end

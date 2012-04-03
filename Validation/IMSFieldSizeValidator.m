@@ -6,21 +6,21 @@
 
 
 #import "IMSFieldSizeValidator.h"
-
+#import "NSString+IMSExtensions.h"
 
 @implementation IMSFieldSizeValidator
 
 @synthesize minimum;
 @synthesize maximum;
 
-SharedDataSingleton *mSds;
+NSBundle *messBundle;
 
 -(IMSFieldSizeValidator *)init
 {
     self = [super init];
     minimum = 0;
     maximum = NSUIntegerMax;
-    mSds = [SharedDataSingleton sharedSingleton];
+    messBundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IMSValidationMessages.bundle"]];
     return self;
 }
 
@@ -29,7 +29,7 @@ SharedDataSingleton *mSds;
     self = [super init];
     minimum = min;
     maximum = max;
-    mSds = [SharedDataSingleton sharedSingleton];
+    messBundle = [NSBundle bundleWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"IMSValidationMessages.bundle"]];
     return self;
 }
 
@@ -39,10 +39,9 @@ SharedDataSingleton *mSds;
 
     if (theCheck.input.length < minimum || theCheck.input.length > maximum)
     {
-        if (mSds.validationBundle)
+        if (messBundle)
         {
-             return [NSString stringWithFormat:[mSds.validationBundle localizedStringForKey:@"FieldSize" value:@"FieldSize" table:nil],minimum,maximum,theCheck.article,theCheck.fieldName];
-
+             return [NSString stringWithFormat:[messBundle localizedStringForKey:@"FieldSize" value:@"FieldSize" table:nil],minimum,maximum,theCheck.article,theCheck.fieldName];
         }
     }
 

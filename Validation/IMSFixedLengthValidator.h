@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMSValidatorProtocol.h"
 
 @interface IMSFixedLengthValidator : NSObject <IMSValidatorProtocol>
 {

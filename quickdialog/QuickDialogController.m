@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "IMSSearchDisplayController.h"
+#import "SearchElement.h"
 
 @interface QuickDialogController ()
 
@@ -19,18 +21,23 @@
 
 @end
 
-
 @implementation QuickDialogController {
     BOOL _keyboardVisible;
     BOOL _viewOnScreen;
     BOOL _resizeWhenKeyboardPresented;
+    BOOL _hasSearchBar;
+    IMSSearchDisplayController *searchController;
 }
 
 @synthesize root = _root;
 @synthesize willDisappearCallback = _willDisappearCallback;
 @synthesize quickDialogTableView = _quickDialogTableView;
 @synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
-
+@synthesize hasSearchBar = _hasSearchBar;
+@synthesize searchController = _searchController;
+@synthesize searchList = _searchList;
+@synthesize filteredSearchList;
+@synthesize searchType;
 
 + (QuickDialogController *)buildControllerWithClass:(Class)controllerClass root:(QRootElement *)root {
     controllerClass = controllerClass==nil? [QuickDialogController class] : controllerClass;
@@ -74,6 +81,9 @@
     self = [super init];
     if (self) {
         self.root = rootElement;
+        self.hasSearchBar = rootElement.hasSearchBar;
+        self.searchType = rootElement.searchType;
+        self.searchList = rootElement.searchList;
         self.resizeWhenKeyboardPresented =YES;
     }
     return self;
@@ -92,6 +102,23 @@
     [super viewWillAppear:animated];
     if (_root!=nil)
         self.title = _root.title;
+    if (self.root.hasSearchBar)
+    {
+        UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame: CGRectMake(0.0f, 0.0f, 320.0f, 45.0f)];
+        [searchBar sizeToFit];        
+        searchBar.barStyle=UIBarStyleBlackTranslucent;
+        searchBar.autocorrectionType=UITextAutocorrectionTypeNo;
+        searchBar.autocapitalizationType=UITextAutocapitalizationTypeNone;
+        searchBar.tintColor = self.navigationController.navigationBar.tintColor;
+        searchBar.placeholder = @"Search";
+        
+        _searchController = [[IMSSearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];
+        _searchController.delegate = self;
+        _searchController.searchResultsDelegate = self;
+        _searchController.searchResultsDataSource = self;
+        self.quickDialogTableView.tableHeaderView = searchBar;
+        self.searchList = self.root.searchList;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -175,5 +202,125 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
+#pragma mark - UISearchDisplayDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString 
+{
+    searchString = [[searchString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] lowercaseString];
+    NSInteger searchStringLength = [searchString length];
+    NSString *searchStringNewWordBeginning = [NSString stringWithFormat:@" %@", searchString];
+    NSString *searchStringNewWordEnding = [NSString stringWithFormat:@"%@ ", searchString];
+    
+    if (filteredSearchList == nil) 
+    {
+        filteredSearchList = [[NSMutableArray alloc] init];
+    }
+    else 
+    {
+        [filteredSearchList removeAllObjects];
+    }
+    
+    BOOL searchMatchesBeginning, searchMatchesNewWordBeginning, searchMatchesSubstring = NO;
+    
+    for (int i = 0; i < _searchList.count; i++) 
+    {
+        NSObject* currentObject = [_searchList objectAtIndex:i];
+        NSString *stringToMatch;
+        if ([currentObject isKindOfClass:[SearchElement class]]) 
+        {
+            SearchElement* se = (SearchElement*)currentObject;
+            stringToMatch = se.detail;
+            
+            stringToMatch = [stringToMatch lowercaseString];
+            
+            if ([searchString length] <= [stringToMatch length]) 
+            {
+                if (searchType == IMSTableSearchTypeBeginningOnly || searchType == IMSTableSearchTypeWordBeginning) 
+                {
+                    searchMatchesBeginning = [[stringToMatch substringToIndex:searchStringLength] isEqualToString:searchString];
+                }
+                if (searchType == IMSTableSearchTypeWordBeginning) 
+                {
+                    searchMatchesNewWordBeginning = ([stringToMatch rangeOfString:searchStringNewWordBeginning].location != NSNotFound);
+                }
+                if (searchType == IMSTableSearchTypeEndingOnly || searchType == IMSTableSearchTypeWordEnding) 
+                {
+                    searchMatchesBeginning = NO;
+                    NSInteger fromIndex = [stringToMatch length] - searchStringLength;
+                    if (fromIndex > 0) 
+                    {
+                        searchMatchesBeginning = [[stringToMatch substringFromIndex:fromIndex] isEqualToString:searchString];
+                    }
+                }
+                if (searchType == IMSTableSearchTypeWordEnding) 
+                {
+                    searchMatchesNewWordBeginning = ([stringToMatch rangeOfString:searchStringNewWordEnding].location != NSNotFound);
+                }
+                if (searchType == IMSTableSearchTypeSubstring) 
+                {
+                    searchMatchesSubstring = ([stringToMatch rangeOfString:searchString].location != NSNotFound);
+                }
+                if (searchMatchesBeginning || searchMatchesNewWordBeginning || searchMatchesSubstring) 
+                {
+                    [filteredSearchList addObject:currentObject];
+                }
+            }
+        }
+    }
+    return YES;
+}
+
+#pragma mark - UITableViewDataSource Methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView 
+{
+    if (tableView == self.searchController.searchResultsTableView) 
+    {
+        if ([filteredSearchList count] > 0)
+        {
+            return 1;
+        }
+        else 
+        {
+            return 0;
+        }
+    } 
+    else 
+    {
+        return [_searchList count];
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == self.searchController.searchResultsTableView) 
+    {
+        return [filteredSearchList count];
+    } 
+    else 
+    {
+        return [[filteredSearchList objectAtIndex:section] count];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    NSObject *currentObject;
+    if (tableView == self.searchController.searchResultsTableView) 
+    {
+        currentObject = [filteredSearchList objectAtIndex:indexPath.row];
+    }
+    
+	static NSString *kCellID = @"cellID";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
+	if (cell == nil)
+	{
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID];
+	}
+
+    SearchElement* se = (SearchElement*)currentObject;
+	cell.textLabel.text = se.detail;
+	return cell;
+}
 
 @end
