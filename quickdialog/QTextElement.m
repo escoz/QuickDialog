@@ -20,7 +20,6 @@
 @synthesize text = _text;
 @synthesize font = _font;
 @synthesize color = _color;
-@synthesize title = _title;
 
 
 - (QTextElement *)init {
@@ -56,12 +55,6 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    if (self.onSelected) {
-        self.onSelected();
-    }
-    
-}
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
 

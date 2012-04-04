@@ -10,7 +10,7 @@
             ]
         },
         { "title":"Commits for QuickDialog", "bind":"iterate:commits", "elementTemplate":
-				{ "type":"QLabelElement", "bind":"title:message, value:committed_date", "controllerName":"QuickDialogController", "grouped":true, "sections":[
+				{ "type":"QTextElement", "bind":"text:message, title:committed_date", "controllerName":"QuickDialogController", "grouped":true, "sections":[
                     {"title":"Dates", "elements":[
                         { "type":"QLabelElement", "title":"Committed date", "bind":"value:committed_date"},
                         { "type":"QLabelElement", "title":"Authored date", "bind":"value:authored_date"}
