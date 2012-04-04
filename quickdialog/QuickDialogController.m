@@ -13,6 +13,8 @@
 //
 
 
+#import <UIKit/UIKit.h>
+
 @interface QuickDialogController ()
 
 + (Class)controllerClassForRoot:(QRootElement *)root;
@@ -156,7 +158,8 @@
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
         animations:^{
             CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-            self.quickDialogTableView.contentInset = UIEdgeInsetsMake(0.0, 0.0,  up ? keyboardFrame.size.height : 0, 0.0);
+            const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
+            self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  up ? keyboardFrame.size.height : 0, oldInset.right);
         }
         completion:NULL];
 }
