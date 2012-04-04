@@ -18,6 +18,7 @@
 @implementation QElement {
 @private
     NSObject *_object;
+    NSString *_controllerAccessoryAction;
 }
 
 @synthesize parentSection = _parentSection;
@@ -28,6 +29,8 @@
 @synthesize controllerAction = _controllerAction;
 @synthesize object = _object;
 @synthesize height = _height;
+@synthesize controllerAccessoryAction = _controllerAccessoryAction;
+
 
 - (QElement *)init {
     self = [super init];
@@ -44,7 +47,7 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     if (cell == nil){
-        cell = [[QTableViewCell alloc] initWithReuseIdentifier:@"QuickformElementCell"];
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.showsReorderControl = YES;
@@ -56,7 +59,7 @@
     if (_onSelected!= nil)
           _onSelected();
 
-    if (self.controllerAction!=NULL){
+    if (self.controllerAction!=NULL && !controller.quickDialogTableView.editing){
         SEL selector = NSSelectorFromString(self.controllerAction);
         if ([controller respondsToSelector:selector]) {
             objc_msgSend(controller,selector, self);
@@ -64,6 +67,17 @@
             NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [controller class]);
         }
     }
+}
+
+- (void)selectedAccessory:(QuickDialogTableView *)tableView  controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath{
+    if (self.controllerAccessoryAction!=NULL){
+            SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
+            if ([controller respondsToSelector:selector]) {
+                objc_msgSend(controller,selector, self);
+            }  else {
+                NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [controller class]);
+            }
+        }
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {

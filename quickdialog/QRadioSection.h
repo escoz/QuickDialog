@@ -17,7 +17,6 @@
 
 @interface QRadioSection : QSelectSection
 
-@property (nonatomic) NSInteger selected;
+@property(nonatomic) NSInteger selected;
 
-- (QSection *)initWithDict:(id)valuesDictionary selected:(int)selected title:(NSString *)title;
 @end

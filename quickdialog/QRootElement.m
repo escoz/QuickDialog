@@ -12,12 +12,20 @@
 // permissions and limitations under the License.
 //
 
-@implementation QRootElement
+#import "QBindingEvaluator.h"
+
+@implementation QRootElement {
+@private
+    NSDictionary *_sectionTemplate;
+}
+
 
 @synthesize title = _title;
 @synthesize sections = _sections;
 @synthesize grouped = _grouped;
 @synthesize controllerName = _controllerName;
+@synthesize sectionTemplate = _sectionTemplate;
+
 
 - (QRootElement *)init {
     self = [super init];
@@ -43,7 +51,8 @@
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    cell.textLabel.text = _title;
+    if (_title!= nil)
+        cell.textLabel.text = _title;
     return cell;
 }
 
@@ -70,14 +79,16 @@
     [super fetchValueUsingBindingsIntoObject:obj];
 }
 
-
-
-- (void)bindToObject:(id)obj {
-    for (QSection *s in _sections){
-        [s bindToObject:obj];
+- (void)bindToObject:(id)data {
+    if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
+        for (QSection *sections in self.sections) {
+            [sections bindToObject:data];
+        }
+    } else {
+        [self.sections removeAllObjects];
     }
-    [super bindToObject:obj];
 
+    [[QBindingEvaluator new] bindObject:self toData:data];
 }
 
 -(void)dealloc {

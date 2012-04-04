@@ -70,7 +70,10 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection  *section = [_tableView.root.sections objectAtIndex:(NSUInteger) indexPath.section];
-    return ([section isKindOfClass:[QSortingSection class]] && [(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
+    if ([section isKindOfClass:[QSortingSection class]]){
+        return ([(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
+    }
+    return tableView.editing;
 }
 
 @end

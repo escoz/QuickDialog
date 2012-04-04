@@ -53,6 +53,14 @@
 }
 
 
+- (void)setTicksValue:(NSNumber *)ticks {
+    self.dateValue = [NSDate dateWithTimeIntervalSince1970:ticks.doubleValue];
+}
+
+-(NSNumber *)ticksValue {
+    return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
+}
+
 - (QDateTimeInlineElement *)initWithDate:(NSDate *)date {
     return [self initWithTitle:nil date:date];
 }
@@ -64,6 +72,7 @@
         cell = [[QDateEntryTableViewCell alloc] init];
     }
     [cell prepareForElement:self inTableView:tableView];
+    cell.imageView.image = self.image;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue ;
     return cell;
 

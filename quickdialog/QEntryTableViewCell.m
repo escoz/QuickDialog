@@ -37,7 +37,7 @@
     _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
     _prevNext.momentary = YES;
     _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
-    _prevNext.tintColor = [UIColor darkGrayColor];
+    _prevNext.tintColor = actionBar.tintColor;
     [_prevNext addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_prevNext];
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -69,8 +69,12 @@
 }
 
 - (CGRect)calculateFrameForEntryElement {
-    if (_entryElement.title == NULL) {
-        return CGRectMake(10,10,self.contentView.frame.size.width-10, 24);
+    int extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? 10 :0;
+    if (_entryElement.title == NULL && _entryElement.image==NULL) {
+        return CGRectMake(10,10,self.contentView.frame.size.width-10-extra, self.frame.size.height-20);
+    }
+    if (_entryElement.title == NULL && _entryElement.image!=NULL){
+        return CGRectMake( _entryElement.image.size.width, 10, self.contentView.frame.size.width-10-_entryElement.image.size.width-extra , self.frame.size.height-20);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -84,7 +88,7 @@
                     titleWidth = size.width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20,24);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
@@ -108,11 +112,12 @@
     _textField.keyboardType = _entryElement.keyboardType;
     _textField.keyboardAppearance = _entryElement.keyboardAppearance;
     _textField.secureTextEntry = _entryElement.secureTextEntry;
+    _textField.clearsOnBeginEditing = _entryElement.clearsOnBeginEditing;
     
     _textField.returnKeyType = _entryElement.returnKeyType;
     _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;
 
-    self.accessoryType = UITableViewCellAccessoryNone;
+    self.accessoryType = _entryElement.accessoryType;
 
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
@@ -227,14 +232,12 @@
 }
 
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton {
-    NSLog(@"is %d", _textField.isEditing);
     [self endEditing:YES];
     [self endEditing:NO];
     [_textField resignFirstResponder];
 
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 
-    NSLog(@"is %d", _textField.isEditing);
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
         [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
     }

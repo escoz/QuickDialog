@@ -31,7 +31,7 @@
 {
     if ((self = [super init]))
     {
-        self.title = title;
+        self.title = (title!=nil) ? title : NSLocalizedString(@"Note", @"Note");
         _textView = [[UITextView alloc] init];
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _textView.font = [UIFont systemFontOfSize:18.0f];
