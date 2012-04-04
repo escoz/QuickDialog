@@ -39,6 +39,14 @@
     __block QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
     textController.resizeWhenKeyboardPresented = YES;
     textController.textView.text = self.textValue;
+    textController.textView.autocapitalizationType = self.autocapitalizationType;
+    textController.textView.autocorrectionType = self.autocorrectionType;
+    textController.textView.keyboardAppearance = self.keyboardAppearance;
+    textController.textView.keyboardType = self.keyboardType;
+    textController.textView.secureTextEntry = self.secureTextEntry;
+    textController.textView.autocapitalizationType = self.autocapitalizationType;
+    textController.textView.returnKeyType = self.returnKeyType;
+
     __block QMultilineElement *weakSelf = self;
     textController.willDisappearCallback = ^ {
         weakSelf.textValue = textController.textView.text;
