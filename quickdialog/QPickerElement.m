@@ -5,22 +5,23 @@
 @implementation QPickerElement
 {
 @private
-    NSArray *_componentsOptions;
+    NSArray *_items;
     void (^_onValueChanged)();
 }
 
-@synthesize componentsOptions = _componentsOptions;
+@synthesize items = _items;
 @synthesize valueParser = _valueParser;
 @synthesize onValueChanged = _onValueChanged;
 
-- (QPickerElement *)initWithTitle:(NSString *)title componentsOptions:(NSArray *)componentsOptions value:(NSString *)value
+- (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(NSString *)value
 {
-    if (self = [super initWithTitle:title Value:value]) {
-        _componentsOptions = componentsOptions;
+    if ((self = [super initWithTitle:title Value:value])) {
+        _items = items;
         self.valueParser = [QPickerWhitespaceDelimitedStringParser new];
     }
     return self;
 }
+
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
 {
@@ -28,7 +29,7 @@
     if (cell == nil) {
         cell = [[QPickerTableViewCell alloc] init];
     }
-    
+
     [cell prepareForElement:self inTableView:tableView];
     cell.imageView.image = self.image;
     

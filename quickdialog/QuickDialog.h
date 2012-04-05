@@ -32,6 +32,7 @@
 #import "QEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
 #import "QFloatElement.h"
+#import "QPickerElement.h"
 #import "QMapElement.h"
 #import "QRadioElement.h"
 #import "QRadioItemElement.h"

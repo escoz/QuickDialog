@@ -20,7 +20,7 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 - (QPickerTableViewCell *)init
 {
-    if (self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:QPickerTableViewCellIdentifier])
+    if ((self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:QPickerTableViewCellIdentifier]))
     {
         [self createSubviews];
 		self.selectionStyle = UITableViewCellSelectionStyleBlue;
@@ -78,17 +78,17 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return self.pickerElement.componentsOptions.count;
+    return self.pickerElement.items.count;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [[self.pickerElement.componentsOptions objectAtIndex:component] count];
+    return [[self.pickerElement.items objectAtIndex:(NSUInteger) component] count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [[[self.pickerElement.componentsOptions objectAtIndex:component] objectAtIndex:row] description]; 
+    return [[[self.pickerElement.items objectAtIndex:(NSUInteger) component] objectAtIndex:(NSUInteger) row] description];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -123,17 +123,17 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 {
     NSArray *componentsValues = [self.pickerElement.valueParser componentsValuesFromObject:value];
     
-    for (int compIdx = 0; compIdx < componentsValues.count && _pickerView.numberOfComponents; compIdx++)
+    for (int componentIndex = 0; componentIndex < componentsValues.count && _pickerView.numberOfComponents; componentIndex++)
     {
-        id componentValue = [componentsValues objectAtIndex:compIdx];
+        id componentValue = [componentsValues objectAtIndex:(NSUInteger) componentIndex];
         
-        NSInteger numberOfRows = [self pickerView:_pickerView numberOfRowsInComponent:compIdx];
+        NSInteger numberOfRows = [self pickerView:_pickerView numberOfRowsInComponent:componentIndex];
         for (int rowIdx = 0; rowIdx < numberOfRows; rowIdx++)
         {
-            NSString *rowTitle =  [self pickerView:_pickerView titleForRow:rowIdx forComponent:compIdx];
+            NSString *rowTitle =  [self pickerView:_pickerView titleForRow:rowIdx forComponent:componentIndex];
             if ([componentValue isEqual:rowTitle])
             {
-                [_pickerView selectRow:rowIdx inComponent:compIdx animated:YES];
+                [_pickerView selectRow:rowIdx inComponent:componentIndex animated:YES];
                 break;
             }
         }

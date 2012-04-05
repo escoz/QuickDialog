@@ -38,6 +38,7 @@
 	[subsection	addElement:[[QDateTimeInlineElement alloc] init]];
 	[subsection	addElement:[[QFloatElement alloc] init]];
 	[subsection	addElement:[[QMapElement alloc] init]];
+    [subsection	addElement:[[QPickerElement alloc] init]];
 	[subsection	addElement:[[QRadioElement alloc] init]];
 	[subsection	addElement:[[QRadioItemElement alloc] init]];
 	[subsection	addElement:[[QTextElement alloc] init]];
@@ -286,7 +287,7 @@
     NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
     
     [section addElement:[[QPickerElement alloc] initWithTitle:@"Key"
-                                            componentsOptions:[NSArray arrayWithObjects:component1, component2, nil]
+                                            items:[NSArray arrayWithObjects:component1, component2, nil]
                                                         value:nil]];
     [root addSection:section];
     

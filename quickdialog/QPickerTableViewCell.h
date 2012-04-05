@@ -16,5 +16,4 @@ NSString * const QPickerTableViewCellIdentifier;
 }
 
 @property (nonatomic, strong) UIPickerView *pickerView;
-
 @end
