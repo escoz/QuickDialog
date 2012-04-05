@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QPickerValueParser.h"
 
-@interface QPickerWhitespaceDelimitedStringParser : NSObject
+@interface QPickerWhitespaceDelimitedStringParser : NSObject <QPickerValueParser>
 
 @end

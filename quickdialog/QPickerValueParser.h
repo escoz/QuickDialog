@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol QPickerValueExtrator <NSObject>
+@protocol QPickerValueParser <NSObject>
+
+@required
+- (id)objectFromComponentsValues:(NSArray *)componentsValues;
+- (NSArray *)componentsValuesFromObject:(id)object;
 
 @end

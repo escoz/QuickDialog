@@ -10,4 +10,15 @@
 
 @implementation QPickerWhitespaceDelimitedStringParser
 
+- (id)objectFromComponentsValues:(NSArray *)componentsValues
+{
+    return [componentsValues componentsJoinedByString:@" "];
+}
+
+- (NSArray *)componentsValuesFromObject:(id)object
+{
+    NSString *stringValue = [object isKindOfClass:[NSString class]] ? object : [object description];
+    return [stringValue componentsSeparatedByString:@" "];
+}
+
 @end
