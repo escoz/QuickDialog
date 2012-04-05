@@ -162,6 +162,11 @@
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
+- (QuickDialogController *)controllerForRoot:(QRootElement *)root backgroundImage:(UIImage *)image {
+    Class controllerClass = [[self class] controllerClassForRoot:root];
+    return [QuickDialogController buildControllerWithClass:controllerClass root:root];
+}
+
 
 - (void) resizeForKeyboard:(NSNotification*)aNotification {
     if (!_viewOnScreen)
