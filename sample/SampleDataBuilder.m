@@ -74,7 +74,7 @@
 + (QElement *)reallyLongList {
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.title = @"Really long list";
-    QSection *subsection = [[QSection alloc] initWithTitle:@"Long List"];
+    QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     for (int i = 0; i<1000; i++){
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
