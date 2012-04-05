@@ -73,6 +73,9 @@
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
 
+    if (section.title==nil)
+        return 0;
+
     if (!_tableView.root.grouped)
         return 22.f;
 
