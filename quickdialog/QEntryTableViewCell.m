@@ -202,7 +202,7 @@
     }
     
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldReturnForElement:andCell:)]){
-        [_entryElement.delegate QEntryShouldReturnForElement:_entryElement andCell:self];
+        return [_entryElement.delegate QEntryShouldReturnForElement:_entryElement andCell:self];
     }
     
     return YES;

@@ -44,5 +44,6 @@
 
 - (void)fetchValueUsingBindingsIntoObject:(id)object;
 
+- (QSection *)sectionWithKey:(NSString *)key;
 - (QElement *)elementWithKey:(NSString *)string;
 @end
