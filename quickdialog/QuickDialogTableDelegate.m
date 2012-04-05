@@ -73,6 +73,9 @@
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
 
+    if (!_tableView.root.grouped)
+        return 22.f;
+
     CGFloat stringTitleHeight = 0;
 
     if (section.title != nil) {
@@ -83,8 +86,9 @@
                                               constrainedToSize:maximumLabelSize
                                                   lineBreakMode:UILineBreakModeWordWrap];
 
-        stringTitleHeight = expectedLabelSize.height+(_tableView.root.grouped ? 23.f : 1.f);
+        stringTitleHeight = expectedLabelSize.height+23.f;
     }
+
 
     return section.title != NULL? stringTitleHeight : 0;
 }
