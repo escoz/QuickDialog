@@ -111,6 +111,7 @@
         cell.imageView.image = nil;
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.textField.userInteractionEnabled = NO;
     return cell;
 }
