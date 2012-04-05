@@ -73,7 +73,20 @@
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
 
-    return section.title == NULL? 0 : _tableView.root.grouped? 44 :  22;
+    CGFloat stringTitleHeight = 0;
+
+    if (section.title != nil) {
+        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 20;
+        CGFloat maxHeight = 9999;
+        CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
+        CGSize expectedLabelSize = [section.title sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
+                                              constrainedToSize:maximumLabelSize
+                                                  lineBreakMode:UILineBreakModeWordWrap];
+
+        stringTitleHeight = expectedLabelSize.height+(_tableView.root.grouped ? 23.f : 1.f);
+    }
+
+    return section.title != NULL? stringTitleHeight : 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)index {

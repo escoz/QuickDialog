@@ -235,10 +235,12 @@
     [btnSection2 addElement:button2];
     btnSection2.footer = @"Here's a really long footer text that could be used to make your users happy!";
 
-    QSection *segmented = [[QSection alloc] initWithTitle:@"Change something"];
-        QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
-        radioElement.key = @"segmented1";
-        [segmented addElement:segmentedElement];
+    QSection *segmented = [[QSection alloc] initWithTitle:@"Here's a long title for this segmented control"];
+    segmented.footer = @"And heres a long footer text for this segmented control";
+
+    QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+    radioElement.key = @"segmented1";
+    [segmented addElement:segmentedElement];
 
     [root addSection:controls];
     [root addSection:segmented];
