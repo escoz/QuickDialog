@@ -5,4 +5,7 @@
 
 @property(nonatomic, strong) NSString * url;
 
+- (void)reload;
+
+
 @end

@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import <objc/message.h>
+
 @implementation QBooleanElement {
     __unsafe_unretained QuickDialogController *_controller;
 }
@@ -73,15 +75,20 @@
         ((UIImageView *)cell.accessoryView).image =  _boolValue ? _onImage : _offImage;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (_sections!=nil)
-        [self handleElementSelected:controller];
+    [self handleElementSelected:controller];
 }
 
 - (void)buttonPressed:(UIButton *)boolButton {
     _boolValue = !boolButton.selected;
     boolButton.selected = _boolValue;
-    if (_controller!=nil && self.controllerAction!=nil)
-        [self handleElementSelected:_controller];
+    if (_controller!=nil && self.controllerAccessoryAction!=nil) {
+        SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
+        if ([_controller respondsToSelector:selector]) {
+            objc_msgSend(_controller,selector, self);
+        }  else {
+            NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
+        }
+    }
 }
 
 - (void)switched:(id)boolSwitch {

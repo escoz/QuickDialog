@@ -25,5 +25,8 @@
 
 - (QElement *)buildElementWithObject:(id)obj;
 
+- (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root;
 
+
+- (QSection *)buildSectionWithObject:(NSDictionary *)dictionary;
 @end

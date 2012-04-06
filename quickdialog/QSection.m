@@ -19,6 +19,7 @@
     NSString *_headerImage;
     NSString *_footerImage;
     NSDictionary *_elementTemplate;
+    BOOL _canDeleteRows;
 }
 @synthesize title;
 @synthesize footer;
@@ -32,6 +33,7 @@
 @synthesize headerImage = _headerImage;
 @synthesize footerImage = _footerImage;
 @synthesize elementTemplate = _elementTemplate;
+@synthesize canDeleteRows = _canDeleteRows;
 
 
 - (BOOL)needsEditing {
@@ -79,9 +81,7 @@
 }
 
 - (void)bindToObject:(id)data {
-
     if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
-
             for (QElement *el in self.elements) {
                 [el bindToObject:data];
             }

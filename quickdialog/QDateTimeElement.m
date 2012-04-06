@@ -41,6 +41,14 @@
     [self initializeRoot];
 }
 
+- (void)setTicksValue:(NSNumber *)ticks {
+    [self setDateValue:[NSDate dateWithTimeIntervalSince1970:ticks.doubleValue]];
+}
+
+-(NSNumber *)ticksValue {
+    return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
+}
+
 - (UIDatePickerMode)mode {
     return _mode;
 }
@@ -98,7 +106,6 @@
         dateForSection = NSDate.date;
     }
 	QSection *section = [[QSection alloc] initWithTitle:(_mode == UIDatePickerModeDateAndTime ? @"\n" : @"\n\n")];
-
     if (_mode == UIDatePickerModeDate || _mode == UIDatePickerModeDateAndTime){
         QDateTimeInlineElement *dateElement = (QDateTimeInlineElement *) [[QDateTimeInlineElement alloc] initWithKey:@"date"];
         dateElement.dateValue = dateForSection;

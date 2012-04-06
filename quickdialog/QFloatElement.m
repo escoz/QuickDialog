@@ -41,7 +41,6 @@
 - (CGFloat)calculateSliderWidth:(QuickDialogTableView *)view cell:(UITableViewCell *)cell {
     if (_title==nil)
         return view.contentSize.width-40;
-    NSLog(@"sadf %f", view.contentSize.width);
     return view.contentSize.width - [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width - 50;
 }
 

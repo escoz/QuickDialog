@@ -20,7 +20,6 @@
 @synthesize text = _text;
 @synthesize font = _font;
 @synthesize color = _color;
-@synthesize title = _title;
 
 
 - (QTextElement *)init {
@@ -56,19 +55,13 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    if (self.onSelected) {
-        self.onSelected();
-    }
-    
-}
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
 
     if (_text==nil || _text == @""){
         return [super getRowHeightForTableView:tableView];
     }
-    CGSize constraint = CGSizeMake(tableView.frame.size.width, 20000);
+    CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 	CGFloat predictedHeight = size.height + 20.0f;
     if (self.title!=nil)

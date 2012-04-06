@@ -10,7 +10,8 @@
         },
         { "elements":[
                 { "type":"QBooleanElement", "title":"Boolean", "boolValue":0, "bind":"boolValue:bool"},
-                { "type":"QFloatElement", "title":"Progress", "floatValue":0, "bind":"floatValue:float"}
+                { "type":"QFloatElement", "title":"Progress", "floatValue":0, "bind":"floatValue:float"},
+                { "type":"QRadioElement", "title":"Radio", "selected":0, "bind":"selectedValue:radio", "items":["item 1", "item 2", "item 3"]}
 			]
 		},
 		{ "elements":[

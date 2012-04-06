@@ -51,6 +51,7 @@
         cell = [[QEntryTableViewCell alloc] init];
     }
     cell.textField.enabled = YES;
+    cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
@@ -78,6 +79,7 @@
 @synthesize enablesReturnKeyAutomatically = _enablesReturnKeyAutomatically;
 @synthesize secureTextEntry = _secureTextEntry;
 @synthesize clearsOnBeginEditing = _clearsOnBeginEditing;
+@synthesize accessoryType = _accessoryType;
 
 
 @end

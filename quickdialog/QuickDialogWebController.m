@@ -46,9 +46,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loading:YES];
-    self.url = (NSString *) self.root.object;
-    [self reload];
+    if (self.url==nil && [self.root.object isKindOfClass:[NSString class]])
+        self.url = (NSString *) self.root.object;
+
+    if (self.url!=nil){
+        [self loading:YES];
+        [self reload];
+    }
 
 }
 

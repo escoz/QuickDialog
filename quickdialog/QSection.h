@@ -51,6 +51,8 @@
 @property(nonatomic, strong) NSDictionary *elementTemplate;
 
 
+@property(nonatomic, assign) BOOL canDeleteRows;
+
 - (QSection *)initWithTitle:(NSString *)string;
 - (void)addElement:(QElement *)element;
 - (void)fetchValueIntoObject:(id)obj;

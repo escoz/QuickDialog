@@ -74,7 +74,7 @@
 + (QElement *)reallyLongList {
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.title = @"Really long list";
-    QSection *subsection = [[QSection alloc] initWithTitle:@"Long List"];
+    QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     for (int i = 0; i<1000; i++){
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
@@ -235,10 +235,12 @@
     [btnSection2 addElement:button2];
     btnSection2.footer = @"Here's a really long footer text that could be used to make your users happy!";
 
-    QSection *segmented = [[QSection alloc] initWithTitle:@"Change something"];
-        QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
-        radioElement.key = @"segmented1";
-        [segmented addElement:segmentedElement];
+    QSection *segmented = [[QSection alloc] initWithTitle:@"Here's a long title for this segmented control"];
+    segmented.footer = @"And heres a long footer text for this segmented control";
+
+    QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+    radioElement.key = @"segmented1";
+    [segmented addElement:segmentedElement];
 
     [root addSection:controls];
     [root addSection:segmented];
@@ -278,6 +280,7 @@
     root.title = @"Web and map";
 
     QWebElement *element1 = [[QWebElement alloc] initWithTitle:@"ESCOZ Inc" url:@"http://escoz.com"];
+    element1.controllerAction = @"handleWebElementControllerAction:";
     QWebElement *element2 = [[QWebElement alloc] initWithTitle:@"Quicklytics" url:@"http://escoz.com/quicklytics"];
     QMapElement *element4 = [[QMapElement alloc] initWithTitle:@"Florianopolis, Brazil" coordinate:CLLocationCoordinate2DMake(-27.59, -48.55)];
 
