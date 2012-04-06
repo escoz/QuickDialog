@@ -97,6 +97,15 @@
     }
 }
 
+- (QSection *)sectionWithKey:(NSString *)key
+{
+    for (QSection *section in _sections) {
+        if ([section.key isEqualToString:key]) {
+            return section;
+        }
+    }
+    return nil;
+}
 
 - (QElement *)elementWithKey:(NSString *)elementKey {
     for (QSection *s in _sections){
