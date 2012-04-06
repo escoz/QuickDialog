@@ -69,9 +69,10 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     [super prepareForElement:element inTableView:tableView];
     
     QPickerElement *pickerElement = (QPickerElement *)element;
-    
+
     self.detailTextLabel.text = [pickerElement.value description];
-	_textField.text = [pickerElement.value description];
+	self.textField.text = [pickerElement.value description];
+    [self setNeedsDisplay];
 }
 
 #pragma mark - UIPickerView data source and delegate
@@ -115,7 +116,8 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
             [componentsValues addObject:[NSNull null]];
         }
     }
-    
+
+    NSLog(@"AA%@", [self.pickerElement.valueParser objectFromComponentsValues:componentsValues]);
     return [self.pickerElement.valueParser objectFromComponentsValues:componentsValues];
 }
 
