@@ -32,6 +32,7 @@
 @synthesize willDisappearCallback = _willDisappearCallback;
 @synthesize quickDialogTableView = _quickDialogTableView;
 @synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
+@synthesize backgroundImage;
 
 
 + (QuickDialogController *)buildControllerWithClass:(Class)controllerClass root:(QRootElement *)root {
@@ -42,6 +43,11 @@
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [self controllerClassForRoot:root];
     return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
+}
+
++ (QuickDialogController *)controllerForRoot:(QRootElement *)root backgroundImage:(UIImage *)image {
+    Class controllerClass = [self controllerClassForRoot:root];
+    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root backgroundImage:image];
 }
 
 
@@ -65,6 +71,16 @@
     [super loadView];
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
     self.view = self.quickDialogTableView;
+    
+    if(self.backgroundImage) {
+        self.quickDialogTableView.backgroundColor = [UIColor clearColor];
+        self.quickDialogTableView.opaque = NO;
+    
+        UIImageView *backgroundView = [[UIImageView alloc] initWithImage:self.backgroundImage];
+        [backgroundView setFrame:self.quickDialogTableView.frame]; 
+    
+        self.quickDialogTableView.backgroundView = backgroundView; 
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -77,6 +93,16 @@
     if (self) {
         self.root = rootElement;
         self.resizeWhenKeyboardPresented =YES;
+    }
+    return self;
+}
+
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement backgroundImage:(UIImage *)image {
+    self = [super init];
+    if (self) {
+        self.root = rootElement;
+        self.resizeWhenKeyboardPresented =YES;
+        self.backgroundImage = image;
     }
     return self;
 }

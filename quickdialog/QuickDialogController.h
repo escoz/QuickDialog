@@ -30,11 +30,15 @@
 @property(nonatomic, copy) void (^willDisappearCallback)();
 @property(nonatomic, strong) QuickDialogTableView *quickDialogTableView;
 @property(nonatomic) BOOL resizeWhenKeyboardPresented;
+@property(nonatomic, strong) UIImage *backgroundImage;
+
 
 
 - (void)loadView;
 
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
+
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement backgroundImage:(UIImage *)image;
 
 - (void)displayViewController:(UIViewController *)newController;
 
@@ -43,6 +47,8 @@
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root;
+
++ (QuickDialogController *)controllerForRoot:(QRootElement *)root backgroundImage:(UIImage *)image;
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
 
