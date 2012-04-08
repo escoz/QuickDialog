@@ -13,20 +13,10 @@
 //
 
 #import "QSection.h"
+#import "QSelectSection.h"
 
-@interface QRadioSection : QSection {
+@interface QRadioSection : QSelectSection
 
-@protected
-    NSArray *_items;
-    NSInteger _selected;
-}
-
-@property(nonatomic, strong) NSArray *items;
 @property(nonatomic) NSInteger selected;
-
-
-- (QRadioSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected;
-
-- (QRadioSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title;
 
 @end

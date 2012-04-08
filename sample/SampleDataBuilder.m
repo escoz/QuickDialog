@@ -12,14 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
 #import <objc/runtime.h>
-#import "LoginController.h"
 #import "SampleDataBuilder.h"
-#import "QRootElement.h"
-#import "QSection.h"
 #import "QDynamicDataSection.h"
-#import "QPickerElement.h"
 
 @implementation SampleDataBuilder
 
@@ -38,6 +33,7 @@
 	[subsection	addElement:[[QDateTimeInlineElement alloc] init]];
 	[subsection	addElement:[[QFloatElement alloc] init]];
 	[subsection	addElement:[[QMapElement alloc] init]];
+    [subsection	addElement:[[QPickerElement alloc] init]];
 	[subsection	addElement:[[QRadioElement alloc] init]];
 	[subsection	addElement:[[QRadioItemElement alloc] init]];
 	[subsection	addElement:[[QTextElement alloc] init]];
@@ -267,11 +263,53 @@
     QSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
     [root addSection:section2];
 
-    QSection *section3 = [[QSection alloc] initWithTitle:@"Picker Element"];
-    [section3 addElement:[[QPickerElement alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Picker"]];
-    [root addSection:section3];
+    return root;
+}
 
++ (QElement *)createPickerRoot
+{
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Picker";
+    root.grouped = YES;
+    
+    QSection *section = [[QSection alloc] initWithTitle:@"Picker element"];
+    
+    NSMutableArray *component1 = [NSMutableArray array];
+    for (int i = 1; i <= 12; i++) {
+        [component1 addObject:[NSNumber numberWithInt:i]];
+    }
+    
+    NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
+    
+    [section addElement:[[QPickerElement alloc] initWithTitle:@"Key"
+                                            items:[NSArray arrayWithObjects:component1, component2, nil]
+                                                        value:nil]];
+    [root addSection:section];
+    
+    return root;
+}
 
++ (QElement *)createSelectRoot
+{
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Select";
+    root.grouped = YES;
+    
+    QSelectSection *simpleSelectSection =
+        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+                              selectedIndexes:nil title:@"Simple select"];
+    
+    QSelectSection *multipleSelectSection =
+        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+                              selectedIndexes:[NSArray arrayWithObjects:
+                                               [NSNumber numberWithUnsignedInteger:0],
+                                               [NSNumber numberWithUnsignedInteger:1], nil]
+                                        title:@"Multiple select"];
+    multipleSelectSection.multipleAllowed = YES;
+    
+    [root addSection:simpleSelectSection];
+    [root addSection:multipleSelectSection];
+    
     return root;
 }
 
@@ -565,6 +603,8 @@
     [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
+    [sectionElements addElement:[self createPickerRoot]];
+    [sectionElements addElement:[self createSelectRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];

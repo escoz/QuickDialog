@@ -69,7 +69,7 @@
 }
 
 - (CGRect)calculateFrameForEntryElement {
-    int extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? 10 :0;
+    int extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? 15 :10;
     if (_entryElement.title == NULL && _entryElement.image==NULL) {
         return CGRectMake(10,10,self.contentView.frame.size.width-10-extra, self.frame.size.height-20);
     }
@@ -146,6 +146,7 @@
 - (void)prepareForReuse {
     _quickformTableView = nil;
     _entryElement = nil;
+    _textField.textAlignment = UITextAlignmentLeft;
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
@@ -201,7 +202,7 @@
     }
     
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldReturnForElement:andCell:)]){
-        [_entryElement.delegate QEntryShouldReturnForElement:_entryElement andCell:self];
+        return [_entryElement.delegate QEntryShouldReturnForElement:_entryElement andCell:self];
     }
     
     return YES;

@@ -61,7 +61,6 @@
     if (_text==nil || _text == @""){
         return [super getRowHeightForTableView:tableView];
     }
-    NSLog(@"Wdith %f", tableView.frame.size.width);
     CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
 	CGFloat predictedHeight = size.height + 20.0f;
