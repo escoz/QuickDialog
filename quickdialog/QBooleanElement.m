@@ -30,8 +30,8 @@
 
 - (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value {
     self = [self initWithTitle:title Value:nil];
-    _boolValue = value;
-    _enabled = YES;
+    self.boolValue = value;
+    self.enabled = YES;
     return self;
 }
 
@@ -50,8 +50,8 @@
     _controller = controller;
     if ((_onImage==nil) && (_offImage==nil))  {
         UISwitch *boolSwitch = [[UISwitch alloc] init];
-        boolSwitch.on = _boolValue;
-        boolSwitch.enabled = _enabled;
+        boolSwitch.on = self.boolValue;
+        boolSwitch.enabled = self.enabled;
         [boolSwitch addTarget:self action:@selector(switched:) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = boolSwitch;
 
@@ -60,8 +60,8 @@
         [boolButton setImage:self.offImage forState:UIControlStateNormal];
         [boolButton setImage:self.onImage forState:UIControlStateSelected];
         cell.accessoryView = boolButton;
-        boolButton.enabled = _enabled;
-        boolButton.selected = _boolValue;
+        boolButton.enabled = self.enabled;
+        boolButton.selected = self.boolValue;
         [boolButton sizeToFit];
         [boolButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -70,16 +70,16 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    _boolValue = !_boolValue;
+    self.boolValue = !self.boolValue;
     if ([cell.accessoryView class] == [UIImageView class]){
-        ((UIImageView *)cell.accessoryView).image =  _boolValue ? _onImage : _offImage;
+        ((UIImageView *)cell.accessoryView).image =  self.boolValue ? _onImage : _offImage;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self handleElementSelected:controller];
 }
 
 - (void)buttonPressed:(UIButton *)boolButton {
-    _boolValue = !boolButton.selected;
+    self.boolValue = !boolButton.selected;
     boolButton.selected = _boolValue;
     if (_controller!=nil && self.controllerAccessoryAction!=nil) {
         SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
@@ -92,7 +92,7 @@
 }
 
 - (void)switched:(id)boolSwitch {
-    _boolValue = ((UISwitch *)boolSwitch).on;
+    self.boolValue = ((UISwitch *)boolSwitch).on;
     if (_controller!=nil && self.controllerAction!=nil)
         [self handleElementSelected:_controller];
 }
@@ -100,7 +100,7 @@
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;
-    [obj setValue:[NSNumber numberWithBool:_boolValue] forKey:_key];
+    [obj setValue:[NSNumber numberWithBool:self.boolValue] forKey:_key];
 }
 
 
