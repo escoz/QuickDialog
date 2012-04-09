@@ -4,8 +4,8 @@
     "controllerName": "LoginController",
 	"sections": [
 		{ "title":"Awesome Login Form", "headerImage":"logo", "footer":"Please type your credentials.", "elements": [
-				{ "type":"QEntryElement", "key":"login",  "title":"Login","placeholder":"Login or email"},
-				{  "type":"QEntryElement","key":"password", "title":"Password", "placeholder":"Password",  "secureTextEntry":true }
+				{ "type":"QEntryElement", "title":"Login","placeholder":"Login or email", "bind":"textValue:login"},
+				{  "type":"QEntryElement", "title":"Password", "placeholder":"Password",  "secureTextEntry":true, "bind":"textValue:password" }
 			]
 		},
 		{ "elements":[

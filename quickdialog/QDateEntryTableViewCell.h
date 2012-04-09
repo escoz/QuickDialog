@@ -27,5 +27,5 @@
 @property(nonatomic, retain) UILabel *centeredLabel;
 
 
-
++ (UIDatePicker *)getPickerForDate;
 @end

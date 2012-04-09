@@ -16,10 +16,15 @@
 #import <Foundation/Foundation.h>
 #import "QuickDialog.h"
 
+@class ArtistElement;
+
 @interface QTableViewCell : UITableViewCell {
 
 
 }
 
+@property(nonatomic, strong) ArtistElement *element;
+
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
+
 @end

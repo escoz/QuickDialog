@@ -66,6 +66,17 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     return element;
 }
 
+- (QSection *)buildSectionWithObject:(NSDictionary *)obj {
+    QSection *sect = nil;
+    if ([obj valueForKey:[NSString stringWithFormat:@"type"]]!=nil){
+        sect = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
+    } else {
+        sect = [[QSection alloc] init];
+    }
+    [self updateObject:sect withPropertiesFrom:obj];
+    return sect;
+}
+
 - (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root {
     QSection *sect = nil;
     if ([obj valueForKey:[NSString stringWithFormat:@"type"]]!=nil){
@@ -140,6 +151,13 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     [NSNumber numberWithInt:UIActivityIndicatorViewStyleWhite], @"White",
                                     [NSNumber numberWithInt:UIActivityIndicatorViewStyleWhiteLarge], @"WhiteLarge",
                                     nil], @"indicatorViewStyle",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryDetailDisclosureButton], @"DetailDisclosureButton",
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryCheckmark], @"Checkmark",
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryDisclosureIndicator], @"DisclosureIndicator",
+                                                        [NSNumber numberWithInt:UITableViewCellAccessoryNone], @"None",
+                                                        nil], @"accessoryType",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                                     [NSNumber numberWithInt:UIDatePickerModeDate], @"Date",

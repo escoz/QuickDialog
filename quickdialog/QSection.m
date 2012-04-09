@@ -19,6 +19,7 @@
     NSString *_headerImage;
     NSString *_footerImage;
     NSDictionary *_elementTemplate;
+    BOOL _canDeleteRows;
 }
 @synthesize title;
 @synthesize footer;
@@ -32,6 +33,7 @@
 @synthesize headerImage = _headerImage;
 @synthesize footerImage = _footerImage;
 @synthesize elementTemplate = _elementTemplate;
+@synthesize canDeleteRows = _canDeleteRows;
 
 
 - (BOOL)needsEditing {
@@ -58,12 +60,32 @@
     return self;
 }
 
-- (void)addElement:(QElement *)element {
-    if (self.elements==nil)
-            self.elements = [[NSMutableArray alloc] init];
-
-    [self.elements addObject:element];
+- (void)addElement:(QElement *)element
+{
+    if (self.elements == nil) {
+        self.elements = [NSMutableArray array];
+    }
+    
     element.parentSection = self;
+    [self.elements addObject:element];
+}
+
+- (void)insertElement:(QElement *)element atIndex:(NSUInteger)index
+{
+    if (self.elements == nil) {
+        self.elements = [NSMutableArray array];
+    }
+    
+    element.parentSection = self;
+    [self.elements insertObject:element atIndex:index];
+}
+
+- (NSUInteger)indexOfElement:(QElement *)element
+{
+    if (self.elements) {
+        return [self.elements indexOfObject:element];
+    }
+    return NSNotFound;
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -79,18 +101,22 @@
 }
 
 - (void)bindToObject:(id)data {
-
     if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
-        
-        for (QElement *el in self.elements) {
-            [el bindToObject:data];
+            for (QElement *el in self.elements) {
+                [el bindToObject:data];
+            }
+        } else {
+            [self.elements removeAllObjects];
         }
-    } else {
-        [self.elements removeAllObjects];
-    }
 
-    [[QBindingEvaluator new] bindObject:self toData:data];
+        [[QBindingEvaluator new] bindObject:self toData:data];
 
 }
 
+- (void)fetchValueUsingBindingsIntoObject:(id)data {
+    for (QElement *el in self.elements) {
+        [el fetchValueUsingBindingsIntoObject:data];
+    }
+
+}
 @end

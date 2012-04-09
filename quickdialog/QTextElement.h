@@ -15,7 +15,7 @@
 
 #import "QElement.h"
 
-@interface QTextElement : QElement {
+@interface QTextElement : QRootElement {
 
 @protected
     NSString *_text;
@@ -28,8 +28,6 @@
 
 
 @property(nonatomic, retain) UIColor *color;
-
-@property(nonatomic, copy) NSString *title;
 
 - (QTextElement *)initWithText:(NSString *)string;
 @end

@@ -31,6 +31,7 @@
     return self;
 }
 
+
 - (void)bindObject:(id)object toData:(id)data {
     if (![object respondsToSelector:@selector(bind)])
         return;
@@ -47,7 +48,10 @@
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
             [self bindSection:(QSection *)object toCollection:[data valueForKey:valueName]];
-            
+
+        } else if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QRootElement class]]) {
+            [self bindRootElement:(QRootElement *)object toCollection:[data valueForKey:valueName]];
+
         } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
             [self bindSection:(QSection *)object toProperties:[data valueForKey:valueName]];
 
@@ -82,14 +86,38 @@
     }
 }
 
+
+- (void)bindRootElement:(QRootElement *)element toCollection:(NSArray *)items  {
+    [element.sections removeAllObjects];
+    for (id item in items){
+        QSection *section = [_builder buildSectionWithObject:element.sectionTemplate];
+        [element addSection:section];
+        [section bindToObject:item];
+    }
+}
+
 - (void)bindSection:(QSection *)section toProperties:(NSDictionary *)object {
     [section.elements removeAllObjects];
     for (id item in [object allKeys]){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
         [section addElement:element];
-
         [element bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:item, @"key", [object valueForKey:item], @"value", nil]];
     }
 }
 
+- (void)fetchValueFromObject:(QElement *)element toData:(id)data {
+    if (element.bind == nil || ([element.bind length] == 0)) {
+        return;
+    }
+
+    for (NSString *each in [element.bind componentsSeparatedByString:@","])
+    {
+        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
+        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+        [data setValue:[element valueForKey:propName] forKey:valueName];
+    }
+
+}
 @end

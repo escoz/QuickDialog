@@ -25,6 +25,7 @@
 }
 
 @property(nonatomic, retain) NSDate *dateValue;
+@property(nonatomic, assign) NSNumber *ticksValue;
 
 @property (assign) UIDatePickerMode mode;
 

@@ -12,12 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
 #import <objc/runtime.h>
-#import "LoginController.h"
 #import "SampleDataBuilder.h"
-#import "QRootElement.h"
-#import "QSection.h"
 #import "QDynamicDataSection.h"
 
 @implementation SampleDataBuilder
@@ -37,6 +33,7 @@
 	[subsection	addElement:[[QDateTimeInlineElement alloc] init]];
 	[subsection	addElement:[[QFloatElement alloc] init]];
 	[subsection	addElement:[[QMapElement alloc] init]];
+    [subsection	addElement:[[QPickerElement alloc] init]];
 	[subsection	addElement:[[QRadioElement alloc] init]];
 	[subsection	addElement:[[QRadioItemElement alloc] init]];
 	[subsection	addElement:[[QTextElement alloc] init]];
@@ -73,7 +70,7 @@
 + (QElement *)reallyLongList {
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.title = @"Really long list";
-    QSection *subsection = [[QSection alloc] initWithTitle:@"Long List"];
+    QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     for (int i = 0; i<1000; i++){
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
@@ -234,10 +231,12 @@
     [btnSection2 addElement:button2];
     btnSection2.footer = @"Here's a really long footer text that could be used to make your users happy!";
 
-    QSection *segmented = [[QSection alloc] initWithTitle:@"Change something"];
-        QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
-        radioElement.key = @"segmented1";
-        [segmented addElement:segmentedElement];
+    QSection *segmented = [[QSection alloc] initWithTitle:@"Here's a long title for this segmented control"];
+    segmented.footer = @"And heres a long footer text for this segmented control";
+
+    QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+    radioElement.key = @"segmented1";
+    [segmented addElement:segmentedElement];
 
     [root addSection:controls];
     [root addSection:segmented];
@@ -254,6 +253,8 @@
     QSection *section1 = [[QSection alloc] initWithTitle:@"Radio element with push"];
     [section1 addElement:[[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0]];
     [section1 addElement:[[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"]];
+    [section1 addElement:[[QRadioElement alloc] initWithDict:[NSDictionary dictionaryWithObjectsAndKeys:@"FerrariObj", @"Ferrari", @"McLarenObj", @"McLaren", @"MercedesObj", @"Mercedes", nil] selected:0 title:@"With Dict"]];
+
     QRadioElement *elementWithAction = [[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Ferrari", @"McLaren", @"Lotus", nil] selected:0 title:@"WithAction"];
     elementWithAction.controllerAction = @"exampleAction:";
     [section1 addElement:elementWithAction];
@@ -262,7 +263,53 @@
     QSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
     [root addSection:section2];
 
+    return root;
+}
 
++ (QElement *)createPickerRoot
+{
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Picker";
+    root.grouped = YES;
+    
+    QSection *section = [[QSection alloc] initWithTitle:@"Picker element"];
+    
+    NSMutableArray *component1 = [NSMutableArray array];
+    for (int i = 1; i <= 12; i++) {
+        [component1 addObject:[NSNumber numberWithInt:i]];
+    }
+    
+    NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
+    
+    [section addElement:[[QPickerElement alloc] initWithTitle:@"Key"
+                                            items:[NSArray arrayWithObjects:component1, component2, nil]
+                                                        value:nil]];
+    [root addSection:section];
+    
+    return root;
+}
+
++ (QElement *)createSelectRoot
+{
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Select";
+    root.grouped = YES;
+    
+    QSelectSection *simpleSelectSection =
+        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+                              selectedIndexes:nil title:@"Simple select"];
+    
+    QSelectSection *multipleSelectSection =
+        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+                              selectedIndexes:[NSArray arrayWithObjects:
+                                               [NSNumber numberWithUnsignedInteger:0],
+                                               [NSNumber numberWithUnsignedInteger:1], nil]
+                                        title:@"Multiple select"];
+    multipleSelectSection.multipleAllowed = YES;
+    
+    [root addSection:simpleSelectSection];
+    [root addSection:multipleSelectSection];
+    
     return root;
 }
 
@@ -271,6 +318,7 @@
     root.title = @"Web and map";
 
     QWebElement *element1 = [[QWebElement alloc] initWithTitle:@"ESCOZ Inc" url:@"http://escoz.com"];
+    element1.controllerAction = @"handleWebElementControllerAction:";
     QWebElement *element2 = [[QWebElement alloc] initWithTitle:@"Quicklytics" url:@"http://escoz.com/quicklytics"];
     QMapElement *element4 = [[QMapElement alloc] initWithTitle:@"Florianopolis, Brazil" coordinate:CLLocationCoordinate2DMake(-27.59, -48.55)];
 
@@ -547,7 +595,7 @@
     root.title = @"QuickForms!";
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
-    [sectionSamples addElement:[LoginController createLoginForm]];
+    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];
@@ -559,6 +607,8 @@
     [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
+    [sectionElements addElement:[self createPickerRoot]];
+    [sectionElements addElement:[self createSelectRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
@@ -576,11 +626,9 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"sample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsondatasample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
+        [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonremote"]];
         [root addSection:sectionJson];
     }
-
-	
-
 
     return root;
 }

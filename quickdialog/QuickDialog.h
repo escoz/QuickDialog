@@ -14,6 +14,7 @@
 
 
 #import "QuickDialogController.h"
+#import "QuickDialogWebController.h"
 #import "QuickDialogController+Loading.h"
 #import "NSMutableArray+MoveObject.h"
 #import "QuickDialogTableView.h"
@@ -31,9 +32,12 @@
 #import "QEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
 #import "QFloatElement.h"
+#import "QPickerElement.h"
 #import "QMapElement.h"
 #import "QRadioElement.h"
 #import "QRadioItemElement.h"
+#import "QPickerElement.h"
+#import "QSelectItemElement.h"
 #import "QTextElement.h"
 #import "QWebElement.h"
 #import "QDecimalElement.h"

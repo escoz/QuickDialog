@@ -14,15 +14,20 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QRadioElement : QRootElement {
+@interface QRadioElement : QEntryElement {
     NSArray *_items;
     NSArray *_values;
     NSInteger _selected;
 }
 
 @property(nonatomic, retain) NSArray *items;
+@property(nonatomic, assign) id selectedItem;
 @property(nonatomic, assign, readwrite) NSInteger selected;
 @property(nonatomic, retain) NSArray *values;
+
+- (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title;
+
+- (void)createElements;
 
 - (void)setSelectedValue:(NSObject *)aSelected;
 

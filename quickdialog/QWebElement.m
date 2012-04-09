@@ -28,6 +28,7 @@
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    [self handleElementSelected:controller];
     if ([_url hasPrefix:@"http"]) {
         QWebViewController *webController = [[QWebViewController alloc] initWithUrl:_url];
         [controller displayViewController:webController];

@@ -13,6 +13,8 @@
 //
 
 
+#import <UIKit/UIKit.h>
+
 @interface QuickDialogController ()
 
 + (Class)controllerClassForRoot:(QRootElement *)root;
@@ -77,6 +79,11 @@
         self.resizeWhenKeyboardPresented =YES;
     }
     return self;
+}
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [self.quickDialogTableView setEditing:editing animated:animated];
 }
 
 - (void)setRoot:(QRootElement *)root {
@@ -151,7 +158,8 @@
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
         animations:^{
             CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-            self.quickDialogTableView.contentInset = UIEdgeInsetsMake(0.0, 0.0,  up ? keyboardFrame.size.height : 0, 0.0);
+            const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
+            self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  up ? keyboardFrame.size.height : 0, oldInset.right);
         }
         completion:NULL];
 }
@@ -165,14 +173,14 @@
       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     } else {
       [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     }
   }
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 
