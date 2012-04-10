@@ -12,6 +12,7 @@
 
 -(UITableView *) searchResultsTableView 
 {
+    if (
     [self setValue:[NSNumber numberWithInt:UITableViewStyleGrouped]
         forKey:@"_searchResultsTableViewStyle"];
     return [super searchResultsTableView];

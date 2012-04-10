@@ -38,6 +38,7 @@
 @property(nonatomic,retain)IMSSearchDisplayController *searchController;
 @property(nonatomic,retain)NSMutableArray* filteredSearchList;
 @property(nonatomic)IMSTableSearchType searchType;
+@property(nonatomic) BOOL groupedSearchBar;
 
 - (void)loadView;
 
@@ -51,8 +52,5 @@
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
-
-- (void) searchTableView;
-- (void) doneSearching_Clicked: (id)sender;
 
 @end

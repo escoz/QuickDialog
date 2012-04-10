@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		191BC17F152BBA6000C2FC85 /* Searching.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 191BC17E152BBA6000C2FC85 /* Searching.pdf */; };
 		194C3FC214EDF0510036C9E7 /* DOAutocompleteTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */; };
 		194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */; };
 		194C3FC714EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */; };
@@ -205,7 +204,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		191BC17E152BBA6000C2FC85 /* Searching.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = Searching.pdf; path = ../Searching.pdf; sourceTree = "<group>"; };
+		19078660152E693D00BD08C0 /* Searching.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Searching.pdf; sourceTree = "<group>"; };
 		194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		194C3FC514EDF1350036C9E7 /* NSMutableArray+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+IMSExtensions.h"; sourceTree = SOURCE_ROOT; };
@@ -449,6 +448,7 @@
 		19F9FED21523C29500196191 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				19078660152E693D00BD08C0 /* Searching.pdf */,
 				195992AB152BAD2A00BEC0F6 /* IMSValidationMessages.bundle */,
 				195992AC152BAD2A00BEC0F6 /* IMSFieldSizeValidator.h */,
 				195992AD152BAD2A00BEC0F6 /* IMSFieldSizeValidator.m */,
@@ -602,22 +602,21 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
-				191BC17E152BBA6000C2FC85 /* Searching.pdf */,
 				195992D7152BB35B00BEC0F6 /* SearchElement.h */,
 				195992D8152BB35B00BEC0F6 /* SearchElement.m */,
 				195992D3152BB2A800BEC0F6 /* IMSSearchDisplayController.h */,
 				195992D4152BB2A800BEC0F6 /* IMSSearchDisplayController.m */,
-				195992CB152BB22E00BEC0F6 /* QRootElement.h */,
-				195992CC152BB22E00BEC0F6 /* QRootElement.m */,
-				195992CD152BB22E00BEC0F6 /* QuickDialogController.h */,
-				195992CE152BB22E00BEC0F6 /* QuickDialogController.m */,
 				19F9FED21523C29500196191 /* Validation */,
 				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
 				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
 				D8B394681514E8B3008ECB34 /* QSegmentedElement.m */,
+				195992CB152BB22E00BEC0F6 /* QRootElement.h */,
+				195992CC152BB22E00BEC0F6 /* QRootElement.m */,
 				D8B394671514E8B3008ECB34 /* QSegmentedElement.h */,
 				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
 				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
+				195992CD152BB22E00BEC0F6 /* QuickDialogController.h */,
+				195992CE152BB22E00BEC0F6 /* QuickDialogController.m */,
 				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
 				D8B3944C151394E1008ECB34 /* QMultilineElement.m */,
 				D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */,
@@ -911,7 +910,6 @@
 				19F9FE7C1523BACB00196191 /* bg-blue.png in Resources */,
 				19F9FE7D1523BACB00196191 /* bg-orange.png in Resources */,
 				19F9FE7E1523BACB00196191 /* bg-red.png in Resources */,
-				191BC17F152BBA6000C2FC85 /* Searching.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -85,6 +85,7 @@
         self.searchType = rootElement.searchType;
         self.searchList = rootElement.searchList;
         self.resizeWhenKeyboardPresented =YES;
+        self.groupedSearchResults = rootElement.groupedSearchResults;
     }
     return self;
 }

@@ -21,6 +21,7 @@
 @synthesize hasSearchBar = _hasSearchBar;
 @synthesize searchList = _searchList;
 @synthesize searchType = _searchType;
+@synthesize groupedSearchResults = _groupedSearchResults;
 
 - (QRootElement *)init {
     self = [super init];

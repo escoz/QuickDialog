@@ -34,6 +34,7 @@ typedef enum {
     BOOL _hasSearchBar;
     NSMutableArray* _searchList;
     IMSTableSearchType _searchType;
+    BOOL _groupedSearchResults;
 }
 
 @property(nonatomic, retain) NSString *title;
@@ -43,7 +44,7 @@ typedef enum {
 @property(nonatomic,retain) NSMutableArray* searchList;
 @property(assign) IMSTableSearchType searchType;
 @property(nonatomic, retain) NSString *controllerName;
-
+@property(assign) BOOL groupedSearchResults;
 
 - (QRootElement *)init;
 
