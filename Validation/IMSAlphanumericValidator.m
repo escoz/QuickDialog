@@ -29,7 +29,7 @@ NSBundle *messBundle;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9a-zA-Z]" options:0 error:&error];
     NSUInteger numberOfMatches = [regex numberOfMatchesInString:theCheck.input options:0 range:NSMakeRange(0, theCheck.input.length)];
 
-    if (numberOfMatches == theCheck.input.length)
+    if (numberOfMatches != theCheck.input.length)
     {
         if (messBundle)
         {

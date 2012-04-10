@@ -22,19 +22,19 @@ NSBundle *messBundle;
 - (NSString*) validate:(IMSValidationCheck*)theCheck
 {
     theCheck.input = [theCheck.input trimWhitespace];
-
+    
     NSError *error             = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:0 error:&error];
     NSUInteger numberOfMatches = [regex numberOfMatchesInString:theCheck.input options:0 range:NSMakeRange(0, theCheck.input.length)];
-
-    if (numberOfMatches == theCheck.input.length)
+    
+    if (numberOfMatches != theCheck.input.length)
     {
         if (messBundle)
         {
-            return [NSString stringWithFormat:[NSString stringWithFormat:[messBundle localizedStringForKey:@"Url" value:@"Url" table:nil],theCheck.article,theCheck.fieldName]];
+            return [NSString stringWithFormat:[NSString stringWithFormat:[messBundle localizedStringForKey:@"Numeric" value:@"Numeric" table:nil],theCheck.article,theCheck.fieldName]];
         }
     }
-
+    
     return @"";
 }
 

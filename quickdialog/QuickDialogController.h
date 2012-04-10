@@ -38,7 +38,6 @@
 @property(nonatomic,retain)IMSSearchDisplayController *searchController;
 @property(nonatomic,retain)NSMutableArray* filteredSearchList;
 @property(nonatomic)IMSTableSearchType searchType;
-@property(nonatomic) BOOL groupedSearchBar;
 
 - (void)loadView;
 
