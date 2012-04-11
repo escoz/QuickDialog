@@ -13,9 +13,13 @@
 //
 
 @implementation QButtonElement
+@synthesize enabled = _enabled;
 
 - (QButtonElement *)init {
     self = [super init];
+    if (self) {
+        self.enabled = YES;
+    }
     return self;
 }
 
@@ -29,15 +33,23 @@
     if (cell == nil){
         cell= [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickformButtonElement"];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    if (self.enabled) {
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.textLabel.textColor = [UIColor colorWithRed:50.0f/255.0f green:79.0f/255.0f blue:133.0f/255.0f alpha:1];    
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+    }
+    
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = UITextAlignmentCenter;
-    cell.textLabel.textColor = [UIColor colorWithRed:50.0f/255.0f green:79.0f/255.0f blue:133.0f/255.0f alpha:1];
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    [super selected:tableView controller:controller indexPath:indexPath];
+    if (self.enabled) {
+        [super selected:tableView controller:controller indexPath:indexPath];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
