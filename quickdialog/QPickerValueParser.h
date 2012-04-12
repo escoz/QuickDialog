@@ -13,4 +13,7 @@
 - (id)objectFromComponentsValues:(NSArray *)componentsValues;
 - (NSArray *)componentsValuesFromObject:(id)object;
 
+@optional
+- (NSString *)presentationOfObject:(id)object;
+
 @end

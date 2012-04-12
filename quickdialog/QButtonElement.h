@@ -14,9 +14,9 @@
 
 #import "QLabelElement.h"
 
-@interface QButtonElement : QLabelElement {
+@interface QButtonElement : QLabelElement
 
-}
+@property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 - (QButtonElement *)init;
 

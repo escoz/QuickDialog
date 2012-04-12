@@ -15,6 +15,7 @@
 #import <objc/runtime.h>
 #import "SampleDataBuilder.h"
 #import "QDynamicDataSection.h"
+#import "PeriodPickerValueParser.h"
 
 @implementation SampleDataBuilder
 
@@ -272,7 +273,7 @@
     root.title = @"Picker";
     root.grouped = YES;
     
-    QSection *section = [[QSection alloc] initWithTitle:@"Picker element"];
+    QSection *simplePickerSection = [[QSection alloc] initWithTitle:@"Picker element"];
     
     NSMutableArray *component1 = [NSMutableArray array];
     for (int i = 1; i <= 12; i++) {
@@ -281,10 +282,25 @@
     
     NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
     
-    [section addElement:[[QPickerElement alloc] initWithTitle:@"Key"
+    [simplePickerSection addElement:[[QPickerElement alloc] initWithTitle:@"Key"
                                             items:[NSArray arrayWithObjects:component1, component2, nil]
                                                         value:nil]];
-    [root addSection:section];
+    [root addSection:simplePickerSection];
+    
+    QSection *customParserSection = [[QSection alloc] initWithTitle:@"Custom value parser"];
+    
+    PeriodPickerValueParser *periodParser = [[PeriodPickerValueParser alloc] init];
+    
+    QPickerElement *periodPickerEl =
+        [[QPickerElement alloc] initWithTitle:@"Period"
+                                        items:[NSArray arrayWithObject:periodParser.stringPeriods]
+                                        value:[NSNumber numberWithUnsignedInteger:NSMonthCalendarUnit]];
+    
+    periodPickerEl.valueParser = periodParser;
+    periodPickerEl.onValueChanged = ^{ NSLog(@"New value: %@", periodPickerEl.value); };
+    
+    [customParserSection addElement:periodPickerEl];
+    [root addSection:customParserSection];
     
     return root;
 }
