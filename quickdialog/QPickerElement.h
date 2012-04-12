@@ -13,6 +13,6 @@
 
 @property(nonatomic, strong) NSArray *items;
 
-- (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(NSString *)value;
+- (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(id)value;
 
 @end
