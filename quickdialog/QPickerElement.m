@@ -13,13 +13,13 @@
 @synthesize valueParser = _valueParser;
 @synthesize onValueChanged = _onValueChanged;
 
--(QPickerElement *)init {
+- (QPickerElement *)init {
     self = [super init];
     self.valueParser = [QPickerWhitespaceDelimitedStringParser new];
     return self;
 }
 
-- (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(NSString *)value
+- (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(id)value
 {
     if ((self = [super initWithTitle:title Value:value])) {
         _items = items;
