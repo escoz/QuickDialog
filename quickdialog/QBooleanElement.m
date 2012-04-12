@@ -71,8 +71,10 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     _boolValue = !_boolValue;
-    if ([cell.accessoryView class] == [UIImageView class]){
+    if ([cell.accessoryView class] == [UIImageView class]) {
         ((UIImageView *)cell.accessoryView).image =  _boolValue ? _onImage : _offImage;
+    } else if ([cell.accessoryView class] == [UIButton class]) {
+        ((UIButton *)cell.accessoryView).selected = _boolValue;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self handleElementSelected:controller];

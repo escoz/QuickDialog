@@ -385,6 +385,10 @@
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With a value" Value:@"Value"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Or a simple number" Value:@"123"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text long text long text long text" Value:@"this is the value"]];
+    UIImage *avatarImage = [UIImage imageNamed:@"avatar"];
+    QPhotoElement *avatarElement = [[QPhotoElement alloc] initWithTitle:@"With an image" photo:avatarImage];
+    avatarElement.photoSize = avatarImage.size;
+    [s1 addElement:avatarElement];    
 
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
     QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
