@@ -74,7 +74,8 @@
     if ([cell.accessoryView class] == [UIImageView class]){
         ((UIImageView *)cell.accessoryView).image =  self.boolValue ? _onImage : _offImage;
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.controllerAction==nil)
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self handleElementSelected:controller];
 }
 

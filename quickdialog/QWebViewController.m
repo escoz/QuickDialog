@@ -81,6 +81,7 @@
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
     _previousToolbarState = self.navigationController.toolbarHidden;
     self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbar.tintColor = self.navigationController.navigationBar.tintColor;
 
     UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     spacer1.width = 30;

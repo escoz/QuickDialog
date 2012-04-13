@@ -17,7 +17,6 @@
 @interface QBooleanElement : QLabelElement {
     BOOL _boolValue;
     BOOL _enabled;
-@private
     UIImage *_onImage;
     UIImage *_offImage;
 }

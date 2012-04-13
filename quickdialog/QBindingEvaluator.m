@@ -47,19 +47,19 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
-            [self bindSection:(QSection *)object toCollection:[data valueForKey:valueName]];
+            [self bindSection:(QSection *)object toCollection:[data valueForKeyPath:valueName]];
 
         } else if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QRootElement class]]) {
-            [self bindRootElement:(QRootElement *)object toCollection:[data valueForKey:valueName]];
+            [self bindRootElement:(QRootElement *)object toCollection:[data valueForKeyPath:valueName]];
 
         } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
-            [self bindSection:(QSection *)object toProperties:[data valueForKey:valueName]];
+            [self bindSection:(QSection *)object toProperties:[data valueForKeyPath:valueName]];
 
         } else if ([valueName isEqualToString:@"self"]) {
             [QRootBuilder trySetProperty:propName onObject:object withValue:data];
 
         } else {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKey:valueName]];
+            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName]];
         }
     }
 }

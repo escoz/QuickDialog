@@ -14,8 +14,6 @@
 
 
 @implementation QTableViewCell
-@synthesize element = _element;
-
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
