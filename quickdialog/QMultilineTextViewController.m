@@ -20,6 +20,7 @@
 @implementation QMultilineTextViewController {
     BOOL _viewOnScreen;
     BOOL _keyboardVisible;
+    UITextView* _textView;
 }
 
 @synthesize textView = _textView;

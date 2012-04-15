@@ -14,6 +14,7 @@
 
 #import "LoginController.h"
 
+// Subclassing from LoginController in order to inherit the quickDialogTableview style settings.
 @interface AboutController : LoginController {
   
 }

@@ -29,4 +29,6 @@
 - (void)addOption:(NSString *)option;
 - (void)insertOption:(NSString *)option atIndex:(NSUInteger)index;
 
+- (void)createElements;
+
 @end
