@@ -25,5 +25,8 @@
 
 - (void)bindSection:(QSection *)section toProperties:(id)object;
 
+- (void)bindRootElement:(QRootElement *)element toCollection:(NSArray *)items;
+
 - (void)fetchValueFromObject:(QElement *)element toData:(id)data;
+
 @end
