@@ -25,6 +25,7 @@
 
 - (QButtonElement *)initWithTitle:(NSString *)title {
     self = [super initWithTitle:title Value:nil];
+    self.enabled = YES;
     return self;
 }
 
