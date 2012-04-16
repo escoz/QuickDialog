@@ -51,6 +51,8 @@
 }
 
 - (void)onLogin:(QButtonElement *)buttonElement {
+
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     [self loading:YES];
     LoginInfo *info = [[LoginInfo alloc] init];
     [self.root fetchValueUsingBindingsIntoObject:info];
