@@ -33,7 +33,7 @@
     if (self!=nil){
         _webView = [[UIWebView alloc] init];
         _webView.delegate = self;
-        _webView.scalesPageToFit = YES;        
+        _webView.scalesPageToFit = YES;
         _url = url;
         self.view = _webView;
         
@@ -44,6 +44,8 @@
         
         _btBack.enabled = NO;
         _btForward.enabled = NO;
+
+        self.hidesBottomBarWhenPushed = YES;
     }
     return self;
 }
