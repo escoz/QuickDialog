@@ -72,7 +72,7 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
     if ([pickerElement.valueParser respondsToSelector:@selector(presentationOfObject:)]) {
         self.detailTextLabel.text = [pickerElement.valueParser presentationOfObject:pickerElement.value];
-        _textField.text = [pickerElement.valueParser presentationOfObject:pickerElement.valueParser];
+        _textField.text = [pickerElement.valueParser presentationOfObject:pickerElement.value];
     } else {
         self.detailTextLabel.text = [pickerElement.value description];
         _textField.text = [pickerElement.value description];
