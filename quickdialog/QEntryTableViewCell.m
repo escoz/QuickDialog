@@ -191,7 +191,6 @@
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [_textField resignFirstResponder];
 
     QEntryElement *element = [self findNextElementToFocusOn];
     if (element!=nil){
@@ -199,6 +198,8 @@
         if (cell!=nil){
             [cell becomeFirstResponder];
         }
+    }  else {
+        [_textField resignFirstResponder];
     }
     
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldReturnForElement:andCell:)]){
