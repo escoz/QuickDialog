@@ -277,14 +277,18 @@
     
     NSMutableArray *component1 = [NSMutableArray array];
     for (int i = 1; i <= 12; i++) {
-        [component1 addObject:[NSNumber numberWithInt:i]];
+        [component1 addObject:[NSString stringWithFormat:@"%d", i]];
     }
     
     NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
     
-    [simplePickerSection addElement:[[QPickerElement alloc] initWithTitle:@"Key"
-                                            items:[NSArray arrayWithObjects:component1, component2, nil]
-                                                        value:nil]];
+    QPickerElement *simplePickerEl =
+        [[QPickerElement alloc] initWithTitle:@"Key"
+                                        items:[NSArray arrayWithObjects:component1, component2, nil]
+                                        value:@"3 B"];
+    simplePickerEl.onValueChanged = ^{ NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]); };
+    
+    [simplePickerSection addElement:simplePickerEl];
     [root addSection:simplePickerSection];
     
     QSection *customParserSection = [[QSection alloc] initWithTitle:@"Custom value parser"];
