@@ -425,9 +425,20 @@
     [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 3" Value:@"200"]];
     [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 4" Value:@"1000"]];
     [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 5" Value:@"TEST"]];
+    
+    QSection *s3 = [[QSection alloc] initWithTitle:@"Labeling policies"];
+    
+    QLabelElement *trimTitleEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimTitle" Value:@"really really really long value"];
+    trimTitleEl.labelingPolicy = QLabelingPolicyTrimTitle;  // this is default
+    [s3 addElement:trimTitleEl];
+    
+    QLabelElement *trimValueEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimValue" Value:@"really really really long value"];
+    trimValueEl.labelingPolicy = QLabelingPolicyTrimValue;
+    [s3 addElement:trimValueEl];
 
     [root addSection:s1];
     [root addSection:s2];
+    [root addSection:s3];
     [root addSection:secImg];
 
 

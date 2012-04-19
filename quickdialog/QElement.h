@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 #import "QSection.h"
+#import "QTableViewCell.h"
 
 @class QuickDialogTableView;
 @class QuickDialogController;
@@ -40,6 +41,8 @@
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) NSObject *object;
 @property(nonatomic, retain) NSString *bind;
+
+@property (nonatomic) QLabelingPolicy labelingPolicy;
 
 - (QElement *)initWithKey:(NSString *)key;
 

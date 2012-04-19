@@ -15,32 +15,39 @@
 
 @implementation QTableViewCell
 
+@synthesize labelingPolicy = _labelingPolicy;
+
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
     return self;
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews
+{
     [super layoutSubviews];
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
-    CGSize valueSize = CGSizeZero;
-    if (self.detailTextLabel.text!=nil)
-        valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
 
     CGSize imageSize = CGSizeZero;
     if (self.imageView!=nil)
         imageSize = self.imageView.frame.size;
 
+    
+    if (_labelingPolicy == QLabelingPolicyTrimTitle)
+    {
+        CGSize valueSize = CGSizeZero;
+        if (self.detailTextLabel.text!=nil)
+            valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
 
-    CGRect labelFrame = self.textLabel.frame;
-    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-            self.contentView.bounds.size.width - valueSize.width - imageSize.width - 20, labelFrame.size.height);
+        CGRect labelFrame = self.textLabel.frame;
+        self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
+                self.contentView.bounds.size.width - valueSize.width - imageSize.width - 20, labelFrame.size.height);
 
-    CGRect detailsFrame = self.detailTextLabel.frame;
-    self.detailTextLabel.frame = CGRectMake(
-            self.contentView.bounds.size.width - valueSize.width - 10,
-            detailsFrame.origin.y, valueSize.width, detailsFrame.size.height);
+        CGRect detailsFrame = self.detailTextLabel.frame;
+        self.detailTextLabel.frame = CGRectMake(
+                self.contentView.bounds.size.width - valueSize.width - 10,
+                detailsFrame.origin.y, valueSize.width, detailsFrame.size.height);
+    }
 }
 
 @end
