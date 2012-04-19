@@ -41,7 +41,6 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.selected = NO;
-    _pickerView = nil;
     [_pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     _pickerView = nil;
 
