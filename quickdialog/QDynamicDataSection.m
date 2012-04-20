@@ -10,6 +10,7 @@
     self = [super init];
     if (self) {
         _emptyMessage = @"Empty";
+        [self addElement:[[QLoadingElement alloc] init]];
     }
     return self;
 }
