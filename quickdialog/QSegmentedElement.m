@@ -43,8 +43,7 @@
     control.frame = CGRectMake(9, 0, 302, 46);
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
-    control.apportionsSegmentWidthsByContent = YES;
-    
+
     [cell addSubview:control];
     return cell;
 }
