@@ -258,12 +258,14 @@
 
 - (QEntryElement *)findPreviousElementToFocusOn {
     QEntryElement *previousElement = nil;
-    for (QElement * e in _entryElement.parentSection.elements){
-        if (e == _entryElement) {
-			return previousElement;
-        }
-        else if ([e isKindOfClass:[QEntryElement class]]){
-            previousElement = (QEntryElement *)e;
+    for (QSection *section in _entryElement.parentSection.rootElement.sections) {
+        for (QElement * e in section.elements){
+            if (e == _entryElement) {
+                return previousElement;
+            }
+            else if ([e isKindOfClass:[QEntryElement class]]){
+                previousElement = (QEntryElement *)e;
+            }
         }
     }
     return nil;
@@ -271,12 +273,14 @@
 
 - (QEntryElement *)findNextElementToFocusOn {
     BOOL foundSelf = NO;
-    for (QElement * e in _entryElement.parentSection.elements){
-        if (e == _entryElement) {
-           foundSelf = YES;
-        }
-        else if (foundSelf && [e isKindOfClass:[QEntryElement class]]){
-            return (QEntryElement *) e;
+    for (QSection *section in _entryElement.parentSection.rootElement.sections) {
+        for (QElement * e in section.elements){
+            if (e == _entryElement) {
+                foundSelf = YES;
+            }
+            else if (foundSelf && [e isKindOfClass:[QEntryElement class]]){
+                return (QEntryElement *) e;
+            }
         }
     }
     return nil;
