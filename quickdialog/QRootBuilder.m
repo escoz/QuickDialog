@@ -24,12 +24,13 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
 
 @implementation QRootBuilder
 
-+ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value {
++ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value  localized:(BOOL)shouldLocalize{
+    shouldLocalize = shouldLocalize && ![propertyName isEqualToString:@"bind"] && ![propertyName isEqualToString:@"type"];
     if ([value isKindOfClass:[NSString class]]) {
         if ([QRootBuilderStringToTypeConversionDict objectForKey:propertyName]!=nil) {
             [target setValue:[[QRootBuilderStringToTypeConversionDict objectForKey:propertyName] objectForKey:value] forKeyPath:propertyName];
         } else {
-            [target setValue:QTranslate(value) forKeyPath:propertyName];
+            [target setValue:shouldLocalize ? QTranslate(value) : value forKeyPath:propertyName];
         }
     } else if ([value isKindOfClass:[NSNumber class]]){
         [target setValue:value forKeyPath:propertyName];
@@ -38,16 +39,18 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
         NSUInteger i= 0;
         NSMutableArray * itemsTranslated = [(NSArray *) value mutableCopy];
 
-        for (id obj in (NSArray *)value){
-            if ([obj isKindOfClass:[NSString class]]){
-                @try {
-                    [itemsTranslated replaceObjectAtIndex:i withObject:QTranslate(obj)];
+        if (shouldLocalize){
+            for (id obj in (NSArray *)value){
+                if ([obj isKindOfClass:[NSString class]]){
+                    @try {
+                        [itemsTranslated replaceObjectAtIndex:i withObject:QTranslate(obj)];
+                    }
+                    @catch (NSException * e) {
+                        NSLog(@"Exception: %@", e);
+                    }
                 }
-                @catch (NSException * e) {
-                    NSLog(@"Exception: %@", e);
-                }
+                i++;
             }
-            i++;
         }
 
         [target setValue:itemsTranslated forKeyPath:propertyName];
@@ -66,7 +69,7 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
             continue;
 
         id value = [dict valueForKey:key];
-        [QRootBuilder trySetProperty:key onObject:element withValue:value];
+        [QRootBuilder trySetProperty:key onObject:element withValue:value localized:YES];
     }
 }
 

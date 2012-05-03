@@ -56,10 +56,10 @@
             [self bindSection:(QSection *)object toProperties:[data valueForKeyPath:valueName]];
 
         } else if ([valueName isEqualToString:@"self"]) {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:data];
+            [QRootBuilder trySetProperty:propName onObject:object withValue:data localized:NO];
 
         } else {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName]];
+            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
         }
     }
 }
