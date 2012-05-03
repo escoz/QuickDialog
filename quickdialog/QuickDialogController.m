@@ -13,8 +13,6 @@
 //
 
 
-#import <UIKit/UIKit.h>
-
 @interface QuickDialogController ()
 
 + (Class)controllerClassForRoot:(QRootElement *)root;

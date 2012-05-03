@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+
 NSDictionary *QRootBuilderStringToTypeConversionDict;
 
 @interface QRootBuilder ()
@@ -28,12 +29,28 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
         if ([QRootBuilderStringToTypeConversionDict objectForKey:propertyName]!=nil) {
             [target setValue:[[QRootBuilderStringToTypeConversionDict objectForKey:propertyName] objectForKey:value] forKeyPath:propertyName];
         } else {
-            [target setValue:value forKeyPath:propertyName];
+            [target setValue:QTranslate(value) forKeyPath:propertyName];
         }
     } else if ([value isKindOfClass:[NSNumber class]]){
         [target setValue:value forKeyPath:propertyName];
     } else if ([value isKindOfClass:[NSArray class]]) {
-        [target setValue:value forKeyPath:propertyName];
+
+        NSUInteger i= 0;
+        NSMutableArray * itemsTranslated = [(NSArray *) value mutableCopy];
+
+        for (id obj in (NSArray *)value){
+            if ([obj isKindOfClass:[NSString class]]){
+                @try {
+                    [itemsTranslated replaceObjectAtIndex:i withObject:QTranslate(obj)];
+                }
+                @catch (NSException * e) {
+                    NSLog(@"Exception: %@", e);
+                }
+            }
+            i++;
+        }
+
+        [target setValue:itemsTranslated forKeyPath:propertyName];
     } else if ([value isKindOfClass:[NSDictionary class]]){
         [target setValue:value forKeyPath:propertyName];
     } else if ([value isKindOfClass:[NSObject class]]){
