@@ -19,7 +19,7 @@
 
 @interface QMultilineTextViewController : UIViewController <UITextViewDelegate>
 
-@property (nonatomic, readonly) UITextView *textView;
+@property (nonatomic, strong, readonly) UITextView *textView;
 
 @property(nonatomic, assign) BOOL resizeWhenKeyboardPresented;
 
