@@ -31,6 +31,7 @@
 @synthesize height = _height;
 @synthesize controllerAccessoryAction = _controllerAccessoryAction;
 
+@synthesize labelingPolicy = _labelingPolicy;
 
 - (QElement *)init {
     self = [super init];
@@ -52,6 +53,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;
+    cell.labelingPolicy = _labelingPolicy;
     return cell;
 }
 

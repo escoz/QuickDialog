@@ -48,10 +48,6 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    _pickerView = [[UIPickerView alloc] init];
-    _pickerView.showsSelectionIndicator = YES;
-    _pickerView.dataSource = self;
-    _pickerView.delegate = self;
     [_pickerView sizeToFit];
     
     _textField.inputView = _pickerView;
@@ -62,6 +58,18 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     
     [super textFieldDidBeginEditing:textField];
     self.selected = YES;
+}
+
+- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView pickerView:(UIPickerView **)pickerView
+{
+    [self prepareForElement:element inTableView:tableView];
+    
+    _pickerView = [[UIPickerView alloc] init];
+    _pickerView.showsSelectionIndicator = YES;
+    _pickerView.dataSource = self;
+    _pickerView.delegate = self;
+    
+    *pickerView = _pickerView;
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView
@@ -134,17 +142,8 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     for (int componentIndex = 0; componentIndex < componentsValues.count && _pickerView.numberOfComponents; componentIndex++)
     {
         id componentValue = [componentsValues objectAtIndex:(NSUInteger) componentIndex];
-        
-        NSInteger numberOfRows = [self pickerView:_pickerView numberOfRowsInComponent:componentIndex];
-        for (int rowIdx = 0; rowIdx < numberOfRows; rowIdx++)
-        {
-            NSString *rowTitle =  [self pickerView:_pickerView titleForRow:rowIdx forComponent:componentIndex];
-            if ([componentValue isEqual:rowTitle])
-            {
-                [_pickerView selectRow:rowIdx inComponent:componentIndex animated:YES];
-                break;
-            }
-        }
+        NSInteger rowIndex = [[self.pickerElement.items objectAtIndex:componentIndex] indexOfObject:componentValue];
+        [_pickerView selectRow:rowIndex inComponent:componentIndex animated:YES];
     }
 }
 
