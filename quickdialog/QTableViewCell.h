@@ -16,11 +16,15 @@
 #import <Foundation/Foundation.h>
 #import "QuickDialog.h"
 
-@interface QTableViewCell : UITableViewCell {
+typedef enum {
+    QLabelingPolicyTrimTitle,
+    QLabelingPolicyTrimValue
+} QLabelingPolicy;
 
-
-}
+@interface QTableViewCell : UITableViewCell
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
+
+@property (nonatomic) QLabelingPolicy labelingPolicy;
 
 @end
