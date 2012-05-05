@@ -40,6 +40,10 @@
     [self createElements];
 }
 
+-(NSObject *)selectedValue {
+    return [_values objectAtIndex:(NSUInteger) _selected];
+}
+
 -(void)setSelectedValue:(NSObject *)aSelected {
     if ([aSelected isKindOfClass:[NSNumber class]]) {
     _selected = [(NSNumber *)aSelected integerValue];

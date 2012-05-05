@@ -29,6 +29,7 @@
 
 - (void)createElements;
 
+- (NSObject *)selectedValue;
 - (void)setSelectedValue:(NSObject *)aSelected;
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
