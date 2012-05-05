@@ -38,7 +38,7 @@
 {
     __block QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
     textController.entryElement = self;
-    textController.entryCell = [tableView cellForElement:self];
+    textController.entryCell = (QEntryTableViewCell *) [tableView cellForElement:self];
     textController.resizeWhenKeyboardPresented = YES;
     textController.textView.text = self.textValue;
     textController.textView.autocapitalizationType = self.autocapitalizationType;
