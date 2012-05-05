@@ -201,6 +201,10 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     [NSNumber numberWithInt:UIReturnKeyEmergencyCall], @"EmergencyCall",
                                     nil], @"returnKeyType",
 
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                        [NSNumber numberWithInt:QLabelingPolicyTrimTitle], @"trimTitle",
+                                                        [NSNumber numberWithInt:QLabelingPolicyTrimValue], @"trimValue",
+                                    nil], @"labelingPolicy",
                     nil];
 }
 
