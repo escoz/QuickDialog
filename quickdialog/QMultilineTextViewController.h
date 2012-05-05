@@ -16,6 +16,8 @@
 #import <UIKit/UIKit.h>
 
 @class QMultilineTextViewController;
+@class QMultilineElement;
+@class QEntryTableViewCell;
 
 @interface QMultilineTextViewController : UIViewController <UITextViewDelegate>
 
@@ -24,6 +26,10 @@
 @property(nonatomic, assign) BOOL resizeWhenKeyboardPresented;
 
 @property(nonatomic, copy) void (^willDisappearCallback)();
+
+@property(nonatomic, strong) QMultilineElement *entryElement;
+
+@property(nonatomic, strong) QEntryTableViewCell *entryCell;
 
 - (id)initWithTitle:(NSString *)title;
 

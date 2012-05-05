@@ -13,6 +13,8 @@
 //
 
 
+#import "QuickDialog.h"
+
 @interface QMultilineTextViewController ()
 
 @end
@@ -26,6 +28,8 @@
 @synthesize textView = _textView;
 @synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
 @synthesize willDisappearCallback = _willDisappearCallback;
+@synthesize entryElement = _entryElement;
+@synthesize entryCell = _entryCell;
 
 
 - (id)initWithTitle:(NSString *)title
@@ -34,6 +38,7 @@
     {
         self.title = (title!=nil) ? title : NSLocalizedString(@"Note", @"Note");
         _textView = [[UITextView alloc] init];
+        _textView.delegate = self;
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _textView.font = [UIFont systemFontOfSize:18.0f];
     }
@@ -104,6 +109,36 @@
       [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     }
   }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidBeginEditingElement:andCell:)]){
+        [_entryElement.delegate QEntryDidBeginEditingElement:_entryElement andCell:self.entryCell];
+    }
+
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    _entryElement.textValue = textView.text;
+
+   if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidEndEditingElement:andCell:)]){
+       [_entryElement.delegate QEntryDidEndEditingElement:_entryElement andCell:self.entryCell];
+   }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRangeForElement:andCell:)]){
+        return [_entryElement.delegate QEntryShouldChangeCharactersInRangeForElement:_entryElement andCell:self.entryCell];
+    }
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    _entryElement.textValue = textView.text;
+
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
+        [_entryElement.delegate QEntryEditingChangedForElement:_entryElement andCell:self.entryCell];
+    }
 }
 
 
