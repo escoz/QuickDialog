@@ -40,11 +40,11 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QuickformText"];
     }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-        cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
-        cell.detailTextLabel.numberOfLines = 0;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.detailTextLabel.numberOfLines = 0;
 
+    cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.text = self.title;
     cell.detailTextLabel.font = _font;
     if([cell.detailTextLabel respondsToSelector:@selector(textColor:)]) {
