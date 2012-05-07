@@ -43,7 +43,8 @@
     if ( width > 320.0 ) width -= 70.0;
     if (_title==nil)
         width -= 40;
-    width -= [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width + 50;
+    else
+        width -= [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width + 50;
     return width;
 }
 
