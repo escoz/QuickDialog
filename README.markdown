@@ -13,6 +13,9 @@ QuickDialog allows you to create HIG-compliant iOS forms for your apps  without 
 
 Download the project and run the demo app, I'm sure you'll like how simple it is to create powerful dialogs!
 
+Have a question? ask it on our new Google Groups: https://groups.google.com/forum/?fromgroups&hl=en#!forum/quickdialog
+
+
 ----------
 
 *QuickDialog is inspired by the brilliant MonoTouch.Dialog library created by Miguel de Icaza, which can be found at https://github.com/migueldeicaza/MonoTouch.Dialog.*
