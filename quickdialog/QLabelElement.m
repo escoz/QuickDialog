@@ -50,7 +50,7 @@
     cell.textLabel.text = _title;
     cell.detailTextLabel.text = [_value description];
     cell.imageView.image = _image;
-    cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? (_accessoryType != (int) nil ? _accessoryType : UITableViewCellAccessoryDisclosureIndicator) : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
 
     return cell;
