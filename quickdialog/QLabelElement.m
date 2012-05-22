@@ -18,12 +18,14 @@
 @implementation QLabelElement {
 @private
     UITableViewCellAccessoryType _accessoryType;
+    UITableViewCellSelectionStyle _selectionStyle;
 }
 
 
 @synthesize image = _image;
 @synthesize value = _value;
 @synthesize accessoryType = _accessoryType;
+@synthesize selectionStyle = _selectionStyle;
 
 
 - (QLabelElement *)initWithTitle:(NSString *)title Value:(id)value {
@@ -51,7 +53,7 @@
     cell.detailTextLabel.text = [_value description];
     cell.imageView.image = _image;
     cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? (_accessoryType != (int) nil ? _accessoryType : UITableViewCellAccessoryDisclosureIndicator) : UITableViewCellAccessoryNone;
-    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil || self.selectionStyle != (int) nil ? (_selectionStyle != (int)nil ? _selectionStyle : UITableViewCellSelectionStyleBlue) : UITableViewCellSelectionStyleNone;
 
     return cell;
 }
