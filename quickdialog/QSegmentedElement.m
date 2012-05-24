@@ -27,7 +27,6 @@
     return self;
 }
 
-
 - (void)handleSegmentedControlValueChanged:(id)control {
     _selected = ((UISegmentedControl *)control).selectedSegmentIndex;
     [self handleElementSelected:_controller];
@@ -40,9 +39,12 @@
     cell.backgroundColor = [UIColor clearColor];
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
     [control addTarget:self action:@selector(handleSegmentedControlValueChanged:)   forControlEvents:UIControlEventValueChanged];
-    control.frame = CGRectMake(9, 0, 302, 46);
+    const BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
+    control.frame = CGRectMake(isPhone ? 9 : 30, 0, isPhone ? 302 : 260, 46);
+    control.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
+    control.tag = 4321;
 
     [cell addSubview:control];
     return cell;

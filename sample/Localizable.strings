@@ -7,3 +7,12 @@
 "Done" = "Done";
 
 
+
+"Metric %li" = "Metric %li";
+"REVENUE" = "REVENUE";
+"TRANSACTIONS" = "TRANSACTIONS";
+"CONVERSION RATE" = "CONVERSION RATE";
+"GOALS VALUE" = "GOALS VALUE";
+"GOALS TOTAL" = "GOALS TOTAL";
+"NEW VISITS" = "NEW VISITS";
+"TAP AND HOLD\nto change the metric" = "TAP AND HOLD\nto change the metric";
