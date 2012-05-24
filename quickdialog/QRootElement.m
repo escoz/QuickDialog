@@ -25,6 +25,7 @@
 @synthesize grouped = _grouped;
 @synthesize controllerName = _controllerName;
 @synthesize sectionTemplate = _sectionTemplate;
+@synthesize emptyMessage = _emptyMessage;
 
 
 - (QRootElement *)init {

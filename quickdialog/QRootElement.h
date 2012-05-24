@@ -33,6 +33,8 @@
 @property(nonatomic, retain) NSString *controllerName;
 
 
+@property(nonatomic, copy) NSString *emptyMessage;
+
 - (QRootElement *)init;
 
 - (void)addSection:(QSection *)section;
