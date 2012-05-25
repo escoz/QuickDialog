@@ -22,6 +22,7 @@
 @implementation QBindingEvaluator {
     QRootBuilder *_builder;
 }
+
 - (id)init {
     self = [super init];
     if (self) {
@@ -86,13 +87,17 @@
     }
 }
 
-
 - (void)bindRootElement:(QRootElement *)element toCollection:(NSArray *)items  {
     [element.sections removeAllObjects];
     for (id item in items){
         QSection *section = [_builder buildSectionWithObject:element.sectionTemplate];
         [element addSection:section];
         [section bindToObject:item];
+    }
+    if (element.sections.count==0 && element.emptyMessage !=nil){
+        QSection *section = [[QSection alloc] init];
+        [section addElement:[[QTextElement alloc] initWithText:element.emptyMessage]];
+        [element addSection:section];
     }
 }
 
