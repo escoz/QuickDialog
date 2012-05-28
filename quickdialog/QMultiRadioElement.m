@@ -62,7 +62,7 @@
 	if (_key==nil)
 		return;
 	
-	[obj setValue:self.selectedItems forKey:_key];
+	[obj setValue:self.selectedIndexes forKey:_key];
 }
 
 - (QMultiRadioElement *)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray*)selected title:(NSString *)title {
