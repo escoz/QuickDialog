@@ -261,7 +261,8 @@
     [section1 addElement:elementWithAction];
     [root addSection:section1];
 
-    QSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
+    QRadioSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
+    section2.onSelected = ^{ NSLog(@"selected index: %d", section2.selected); };
     [root addSection:section2];
 
     return root;

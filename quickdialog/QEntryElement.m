@@ -52,7 +52,9 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = YES;
+    cell.textField.userInteractionEnabled = YES;
     cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
