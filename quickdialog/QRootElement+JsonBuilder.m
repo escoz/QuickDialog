@@ -42,7 +42,7 @@
 
 - (QRootElement *)initWithJSON:(id)jsonRoot andData:(id)data {
 
-    self = [[QRootBuilder new] buildSectionsWithObject:jsonRoot];
+    self = [[QRootBuilder new] buildWithObject:jsonRoot];
     if (data!=nil)
         [self bindToObject:data];
     return self;
