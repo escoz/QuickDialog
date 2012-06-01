@@ -459,6 +459,26 @@
     [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" Value:@"" Placeholder:@"text"]];
     
     [root addSection:firstSection];
+
+    QSection *prefixSuffixSection = [[QSection alloc] initWithTitle:@"Prefix/suffix"];
+    prefixSuffixSection.footer = @"Prefix/suffix is only displayed, they're not stored in textValue";
+
+    QEntryElement *prefixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with prefix"];
+    prefixElement.keyboardType = UIKeyboardTypeNumberPad;
+    prefixElement.prefix = @"$";
+
+    QEntryElement *suffixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with suffix"];
+    suffixElement.keyboardType = UIKeyboardTypeNumberPad;
+    suffixElement.suffix = @" km";
+
+    QEntryElement *prefixSuffixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with prefix and suffix"];
+    prefixSuffixElement.prefix = @"* ";
+    prefixSuffixElement.suffix = @" *";
+
+    [prefixSuffixSection addElement:prefixElement];
+    [prefixSuffixSection addElement:suffixElement];
+    [prefixSuffixSection addElement:prefixSuffixElement];
+    [root addSection:prefixSuffixSection];
     
     QSection *traitsSection = [[QSection alloc] initWithTitle:@"UITextInputTraits"];
     

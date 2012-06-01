@@ -13,8 +13,6 @@
 //
 
 #import "QDecimalTableViewCell.h"
-#import "QEntryElement.h"
-#import "QDecimalElement.h"
 
 @implementation QDecimalTableViewCell {
     NSNumberFormatter *_numberFormatter;
@@ -32,7 +30,7 @@
 }
 
 - (void)createSubviews {
-    _textField = [[UITextField alloc] init];
+    _textField = [[QTextField alloc] init];
     [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.keyboardType = UIKeyboardTypeDecimalPad;
