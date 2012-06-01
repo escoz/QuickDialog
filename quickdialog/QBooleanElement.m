@@ -94,8 +94,9 @@
 
 - (void)switched:(id)boolSwitch {
     self.boolValue = ((UISwitch *)boolSwitch).on;
-    if (_controller!=nil && self.controllerAction!=nil)
+    if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
         [self handleElementSelected:_controller];
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {
