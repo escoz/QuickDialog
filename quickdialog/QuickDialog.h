@@ -22,7 +22,7 @@
 #import "QuickDialogTableDelegate.h"
 
 #import "QTableViewCell.h"
-#import "QRootElement+Builder.h"
+#import "QRootElement+JsonBuilder.h"
 #import "QLoadingElement.h"
 #import "QRootElement.h"
 #import "QLabelElement.h"

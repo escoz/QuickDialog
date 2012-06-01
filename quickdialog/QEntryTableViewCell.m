@@ -243,7 +243,7 @@
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
         [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
     }
-    
+
     return NO;
 }
 

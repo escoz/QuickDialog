@@ -16,7 +16,7 @@
 #import "QRootElement.h"
 
 
-@interface QRootElement (Builder)
+@interface QRootElement (JsonBuilder)
 
 - (QRootElement *)initWithJSONFile:(NSString *)json andData:(id)data;
 
