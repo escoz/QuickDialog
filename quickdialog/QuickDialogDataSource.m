@@ -31,11 +31,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QElement *element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
     UITableViewCell *cell = [element getCellForTableView:(QuickDialogTableView *) tableView controller:_tableView.controller];
-    if (_tableView.styleProvider!=nil){
-        [_tableView.styleProvider cell:cell willAppearForElement:element atIndexPath:indexPath];
-    }
     return cell;
 }
 
