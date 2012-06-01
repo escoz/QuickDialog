@@ -39,9 +39,13 @@
 }
 
 - (CGFloat)calculateSliderWidth:(QuickDialogTableView *)view cell:(UITableViewCell *)cell {
+    CGFloat width = view.contentSize.width;
+    if ( width > 320.0 ) width -= 70.0;
     if (_title==nil)
-        return view.contentSize.width-40;
-    return view.contentSize.width - [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width - 50;
+        width -= 40;
+    else
+        width -= [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width + 50;
+    return width;
 }
 
 - (void)valueChanged:(UISlider *)slider {
