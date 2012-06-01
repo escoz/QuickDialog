@@ -150,8 +150,13 @@
 
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
 	radioElement.key = @"radio1";
+  [controls addElement:radioElement];
+  
 
-
+  QMultiRadioElement *multiRadioElement = [[QMultiRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selectedIndexes:[NSArray arrayWithObjects:[NSNumber numberWithUnsignedInteger:1],[NSNumber numberWithUnsignedInteger:2], nil] title:@"MultiRadio"];
+	multiRadioElement.key = @"radio2";
+  [controls addElement:multiRadioElement];
+  
 
     QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
     boolElement.controllerAction = @"exampleAction:";
@@ -169,7 +174,6 @@
     controls.footer = @"More controls will be added.";
     [controls addElement:element1];
 
-    [controls addElement:radioElement];
     [controls addElement:entryElement];
     [controls addElement:autoElement];
 	
