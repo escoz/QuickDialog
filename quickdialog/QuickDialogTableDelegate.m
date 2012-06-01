@@ -122,6 +122,14 @@
     return section.footer != NULL? stringFooterHeight : 0;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+    QElement *element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    if (_tableView.styleProvider != nil) {
+        [_tableView.styleProvider cell:cell willAppearForElement:element atIndexPath:indexPath];
+    }
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
     QSection *section = [_tableView.root getSectionForIndex:index];
 
