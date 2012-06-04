@@ -36,6 +36,18 @@
     [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,2)] withRowAnimation:UITableViewRowAnimationFade];
 
 }
+-(void)readValuesFromForm:(QElement *)button {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [self.root fetchValueUsingBindingsIntoObject:dict];
+
+    NSString *msg = @"Values:";
+    for (NSString *aKey in dict){
+        msg = [msg stringByAppendingFormat:@"\n- %@: %@", aKey, [dict valueForKey:aKey]];
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
+                                                    message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
 
 -(void)handleSetValuesDirectly:(QElement *)button {
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];

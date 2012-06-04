@@ -92,7 +92,7 @@
 		D81F2EF214BBAFCE0066C372 /* QRadioItemElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B013EC905B00E3922B /* QRadioItemElement.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF314BBAFCE0066C372 /* QRadioSection.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B213EC905B00E3922B /* QRadioSection.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF414BBAFCE0066C372 /* QRootElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B413EC905B00E3922B /* QRootElement.h */; settings = {ATTRIBUTES = (); }; };
-		D81F2EF514BBAFCE0066C372 /* QRootElement+Builder.h in Headers */ = {isa = PBXBuildFile; fileRef = D871018414BB3D7A00156D9D /* QRootElement+Builder.h */; settings = {ATTRIBUTES = (); }; };
+		D81F2EF514BBAFCE0066C372 /* QRootElement+JsonBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF614BBAFCE0066C372 /* QSection.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B613EC905B00E3922B /* QSection.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF714BBAFCE0066C372 /* QSortingSection.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B813EC905B00E3922B /* QSortingSection.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BA13EC905B00E3922B /* QTextElement.h */; settings = {ATTRIBUTES = (); }; };
@@ -107,7 +107,7 @@
 		D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F614BB5AB5002F0585 /* jsondatasample.json */; };
 		D86249FB14BB5AB5002F0585 /* loginform.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F714BB5AB5002F0585 /* loginform.json */; };
 		D86249FC14BB5AB5002F0585 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F814BB5AB5002F0585 /* sample.json */; };
-		D871018714BB3D7A00156D9D /* QRootElement+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = D871018514BB3D7A00156D9D /* QRootElement+Builder.m */; };
+		D871018714BB3D7A00156D9D /* QRootElement+JsonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */; };
 		D87B4FCB14F16197006DA833 /* QAutoEntryElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D87B4FC514F16197006DA833 /* QAutoEntryElement.h */; };
 		D87B4FCC14F16197006DA833 /* QAutoEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B4FC614F16197006DA833 /* QAutoEntryElement.m */; };
 		D87B4FCD14F16197006DA833 /* QAutoEntryTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D87B4FC714F16197006DA833 /* QAutoEntryTableViewCell.h */; };
@@ -272,8 +272,8 @@
 		D86249F614BB5AB5002F0585 /* jsondatasample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = jsondatasample.json; path = sample/Resources/jsondatasample.json; sourceTree = SOURCE_ROOT; };
 		D86249F714BB5AB5002F0585 /* loginform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loginform.json; path = sample/Resources/loginform.json; sourceTree = SOURCE_ROOT; };
 		D86249F814BB5AB5002F0585 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = sample.json; path = sample/Resources/sample.json; sourceTree = SOURCE_ROOT; };
-		D871018414BB3D7A00156D9D /* QRootElement+Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QRootElement+Builder.h"; path = "quickdialog/QRootElement+Builder.h"; sourceTree = SOURCE_ROOT; };
-		D871018514BB3D7A00156D9D /* QRootElement+Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QRootElement+Builder.m"; path = "quickdialog/QRootElement+Builder.m"; sourceTree = SOURCE_ROOT; };
+		D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QRootElement+JsonBuilder.h"; path = "quickdialog/QRootElement+JsonBuilder.h"; sourceTree = SOURCE_ROOT; };
+		D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QRootElement+JsonBuilder.m"; path = "quickdialog/QRootElement+JsonBuilder.m"; sourceTree = SOURCE_ROOT; };
 		D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
 		D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		D87B4FC514F16197006DA833 /* QAutoEntryElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAutoEntryElement.h; path = quickdialog/QAutoEntryElement.h; sourceTree = SOURCE_ROOT; };
@@ -573,8 +573,8 @@
 				F2E614A1151CA1A100F36976 /* QSelectItemElement.m */,
 				D811F8B413EC905B00E3922B /* QRootElement.h */,
 				D811F8B513EC905B00E3922B /* QRootElement.m */,
-				D871018414BB3D7A00156D9D /* QRootElement+Builder.h */,
-				D871018514BB3D7A00156D9D /* QRootElement+Builder.m */,
+				D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */,
+				D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */,
 				D811F8B613EC905B00E3922B /* QSection.h */,
 				D811F8B713EC905B00E3922B /* QSection.m */,
 				D811F8B813EC905B00E3922B /* QSortingSection.h */,
@@ -657,7 +657,7 @@
 				D81F2EF214BBAFCE0066C372 /* QRadioItemElement.h in Headers */,
 				D81F2EF314BBAFCE0066C372 /* QRadioSection.h in Headers */,
 				D81F2EF414BBAFCE0066C372 /* QRootElement.h in Headers */,
-				D81F2EF514BBAFCE0066C372 /* QRootElement+Builder.h in Headers */,
+				D81F2EF514BBAFCE0066C372 /* QRootElement+JsonBuilder.h in Headers */,
 				D81F2EF614BBAFCE0066C372 /* QSection.h in Headers */,
 				D81F2EF714BBAFCE0066C372 /* QSortingSection.h in Headers */,
 				D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */,
@@ -819,7 +819,7 @@
 				2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */,
 				D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */,
 				D8F180E813F0599A009B0CB3 /* QBindingEvaluator.m in Sources */,
-				D871018714BB3D7A00156D9D /* QRootElement+Builder.m in Sources */,
+				D871018714BB3D7A00156D9D /* QRootElement+JsonBuilder.m in Sources */,
 				D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */,
 				D8F180E813F0599A009B0CBC /* QLoadingElement.m in Sources */,
 				D8F180E813F0599A009B0CC0 /* QDynamicDataSection.m in Sources */,

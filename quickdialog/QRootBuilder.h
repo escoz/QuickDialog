@@ -19,7 +19,7 @@
 
 }
 
-- (QRootElement *)buildSectionsWithObject:(id)obj;
+- (QRootElement *)buildWithObject:(id)obj;
 
 + (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value localized:(BOOL)shouldLocalize;
 

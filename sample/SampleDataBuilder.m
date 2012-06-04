@@ -688,6 +688,11 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsondatasample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonremote"]];
+
+        NSString *jsonSample = @"{\"title\": \"In memory struct\",\n"
+                            "    \"controllerName\": \"LoginController\", \"sections\":[]}";
+        id const parsedJson = [NSJSONSerialization JSONObjectWithData:[jsonSample dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
+        [sectionJson addElement:[[QRootElement alloc] initWithJSON:parsedJson andData:nil]];
         [root addSection:sectionJson];
     }
 
