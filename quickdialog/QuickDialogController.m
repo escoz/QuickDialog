@@ -107,12 +107,16 @@
     }
 }
 
-- (void)popToPreviousRootElement {
+- (void)popToPreviousRootElementOnMainThread {
     if (self.navigationController!=nil){
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         [self dismissModalViewControllerAnimated:YES];
     }
+}
+
+- (void)popToPreviousRootElement {
+    [self performSelectorOnMainThread:@selector(popToPreviousRootElementOnMainThread) withObject:nil waitUntilDone:YES];
 }
 
 - (void)displayViewController:(UIViewController *)newController {

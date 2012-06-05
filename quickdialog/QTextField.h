@@ -1,5 +1,6 @@
 //
 // Copyright 2011 ESCOZ Inc  - http://escoz.com
+// Created by hivehicks on 5/23/12.
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
 // file except in compliance with the License. You may obtain a copy of the License at
@@ -12,21 +13,11 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "quickdialog.h"
+#import <UIKit/UIKit.h>
 
-@interface QRootBuilder : NSObject {
+@interface QTextField : UITextField
 
-}
+@property (nonatomic, copy) NSString *prefix;
+@property (nonatomic, copy) NSString *suffix;
 
-- (QRootElement *)buildWithObject:(id)obj;
-
-+ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value localized:(BOOL)shouldLocalize;
-
-- (QElement *)buildElementWithObject:(id)obj;
-
-- (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root;
-
-
-- (QSection *)buildSectionWithObject:(NSDictionary *)dictionary;
 @end

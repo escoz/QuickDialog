@@ -19,18 +19,19 @@
 
 @class QEntryElement;
 @class QuickDialogTableView;
+@class QTextField;
 
 
 @interface QEntryTableViewCell : QTableViewCell<UITextFieldDelegate> {
 
     QEntryElement *_entryElement;
-    UITextField *_textField;
+    QTextField *_textField;
 
 @protected
     __unsafe_unretained QuickDialogTableView *_quickformTableView;
 }
 
-@property(nonatomic, strong) UITextField *textField;
+@property(nonatomic, strong) QTextField *textField;
 
 - (void)updatePrevNextStatus;
 

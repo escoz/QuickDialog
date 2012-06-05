@@ -112,7 +112,7 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     }
 }
 
-- (QRootElement *)buildSectionsWithObject:(id)obj {
+- (QRootElement *)buildWithObject:(id)obj {
     if (QRootBuilderStringToTypeConversionDict ==nil)
         [self initializeMappings];
     

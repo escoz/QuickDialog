@@ -12,8 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
-
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;
@@ -47,7 +45,7 @@
 }
 
 - (void)createSubviews {
-    _textField = [[UITextField alloc] init];
+    _textField = [[QTextField alloc] init];
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
@@ -106,6 +104,8 @@
     _entryElement = element;
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
+    _textField.prefix = _entryElement.prefix;
+    _textField.suffix = _entryElement.suffix;
 
     _textField.autocapitalizationType = _entryElement.autocapitalizationType;
     _textField.autocorrectionType = _entryElement.autocorrectionType;
@@ -243,7 +243,7 @@
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){
         [_entryElement.delegate QEntryMustReturnForElement:_entryElement andCell:self];
     }
-    
+
     return NO;
 }
 

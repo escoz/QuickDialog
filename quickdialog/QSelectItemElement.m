@@ -69,6 +69,10 @@
             [_selectSection.selectedIndexes addObject:numberIndex];
         }
     }
+
+    if (_selectSection.onSelected) {
+        _selectSection.onSelected();
+    }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
