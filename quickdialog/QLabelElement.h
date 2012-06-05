@@ -27,7 +27,6 @@
 @property(nonatomic, strong) UIImage *image;
 @property(nonatomic, assign) NSString *imageNamed;
 @property(nonatomic, assign) UITableViewCellAccessoryType accessoryType;
-@property(nonatomic, assign) UITableViewCellSelectionStyle selectionStyle;
 @property(nonatomic, strong) id value;
 
 
