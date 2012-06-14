@@ -84,5 +84,17 @@
     }
 }
 
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
+    if (_radioElement.valueLineBreakPolicy == QValueLineBreakPolicyWrap) {
+        CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
+        CGSize  size= [_title sizeWithFont:self.font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGFloat predictedHeight = size.height + 20.0f;
+        CGFloat height = [super getRowHeightForTableView:tableView];
+        return (height >= predictedHeight) ? height : predictedHeight;        
+    } else {
+        return [super getRowHeightForTableView:tableView];
+    }
+}
+
 
 @end
