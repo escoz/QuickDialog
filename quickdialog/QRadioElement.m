@@ -119,6 +119,9 @@
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 //    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 //    cell.textField.userInteractionEnabled = NO;
+    if (self.title == nil) {
+        cell.detailTextLabel.textAlignment = UITextAlignmentLeft;
+    }
     return cell;
 }
 
