@@ -141,7 +141,8 @@
         CGFloat predictedHeight = size.height + 20.0f;
         if (self.title!=nil)
             predictedHeight+=30;
-        return (_height >= predictedHeight) ? _height : predictedHeight;        
+        CGFloat height = [super getRowHeightForTableView:tableView];
+        return (height >= predictedHeight) ? height : predictedHeight;        
     } else {
         return [super getRowHeightForTableView:tableView];
     }
