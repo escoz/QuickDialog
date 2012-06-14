@@ -99,31 +99,49 @@
 
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
 
     NSString *selectedValue = nil;
     if (_selected >= 0 && _selected <_items.count)
         selectedValue = [[_items objectAtIndex:(NSUInteger) _selected] description];
-
-    if (self.title == NULL){
-        cell.textField.text = selectedValue;
-        cell.detailTextLabel.text = nil;
-        cell.imageView.image = nil;
-    } else {
-        cell.textLabel.text = _title;
-        cell.textField.text = selectedValue;
-        cell.imageView.image = nil;
-    }
-    cell.textField.textAlignment = UITextAlignmentRight;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    cell.textField.userInteractionEnabled = NO;
+    self.value = selectedValue;
+    QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
+    
+//    if (self.title == NULL){
+//        cell.textField.text = selectedValue;
+//        cell.detailTextLabel.text = nil;
+//        cell.imageView.image = nil;
+//    } else {
+//        cell.textLabel.text = _title;
+//        cell.textField.text = selectedValue;
+//        cell.imageView.image = nil;
+//    }
+//    cell.textField.textAlignment = UITextAlignmentRight;
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+//    cell.textField.userInteractionEnabled = NO;
     return cell;
 }
 
 -(void)setSelected:(NSInteger)aSelected {
     _selected = aSelected;
 
+}
+
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
+    if (self.valueLineBreakPolicy == QValueLineBreakPolicyWrap) {
+        NSString *selectedValue = nil;
+        if (_selected >= 0 && _selected <_items.count)
+            selectedValue = [[_items objectAtIndex:(NSUInteger) _selected] description];
+
+        CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
+        CGSize  size= [selectedValue sizeWithFont:self.font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGFloat predictedHeight = size.height + 20.0f;
+        if (self.title!=nil)
+            predictedHeight+=30;
+        return (_height >= predictedHeight) ? _height : predictedHeight;        
+    } else {
+        return [super getRowHeightForTableView:tableView];
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {

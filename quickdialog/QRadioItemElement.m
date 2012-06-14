@@ -40,6 +40,9 @@
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     NSInteger selectedIndex = _radioElement==nil? _radioSection.selected : _radioElement.selected;
     cell.accessoryType = selectedIndex == _index ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    if (_radioElement.valueLineBreakPolicy == QValueLineBreakPolicyWrap) {
+        cell.textLabel.numberOfLines = 0;
+    }
     return cell;
 }
 

@@ -32,6 +32,8 @@
 @synthesize controllerAccessoryAction = _controllerAccessoryAction;
 
 @synthesize labelingPolicy = _labelingPolicy;
+@synthesize valueLineBreakPolicy = _valueLineBreakPolicy;
+
 
 - (QElement *)init {
     self = [super init];
@@ -59,6 +61,7 @@
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;
     cell.labelingPolicy = _labelingPolicy;
+    cell.valueLineBreakPolicy = _valueLineBreakPolicy;
     return cell;
 }
 
@@ -95,6 +98,7 @@
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
     return _height > 44 ? _height : 44;
+    
 }
 
 - (void)fetchValueIntoObject:(id)obj {
