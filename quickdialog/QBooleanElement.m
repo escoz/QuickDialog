@@ -68,32 +68,23 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    self.boolValue = !self.boolValue;
-    if ([cell.accessoryView class] == [UIImageView class]){
-        ((UIImageView *)cell.accessoryView).image =  self.boolValue ? _onImage : _offImage;
-    }
-    if (self.controllerAction==nil)
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self handleElementSelected:controller];
-}
-
-- (void)handleChange {
-    if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
-        [self handleElementSelected:_controller];
-    }
+- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    ;
 }
 
 - (void)buttonPressed:(UIButton *)boolButton {
     self.boolValue = !boolButton.selected;
     boolButton.selected = _boolValue;
-    [self handleChange];
+    if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
+        [self handleElementSelected:_controller];
+    }
 }
 
 - (void)switched:(id)boolSwitch {
     self.boolValue = ((UISwitch *)boolSwitch).on;
-    [self handleChange];
+    if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
+        [self handleElementSelected:_controller];
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {
