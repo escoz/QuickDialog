@@ -68,27 +68,15 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    self.boolValue = !self.boolValue;
-    if ([cell.accessoryView class] == [UIImageView class]){
-        ((UIImageView *)cell.accessoryView).image =  self.boolValue ? _onImage : _offImage;
-    }
-    if (self.controllerAction==nil)
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self handleElementSelected:controller];
+- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    ;
 }
 
 - (void)buttonPressed:(UIButton *)boolButton {
     self.boolValue = !boolButton.selected;
     boolButton.selected = _boolValue;
-    if (_controller!=nil && self.controllerAccessoryAction!=nil) {
-        SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
-        if ([_controller respondsToSelector:selector]) {
-            objc_msgSend(_controller,selector, self);
-        }  else {
-            NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
-        }
+    if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
+        [self handleElementSelected:_controller];
     }
 }
 

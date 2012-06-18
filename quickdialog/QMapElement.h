@@ -14,11 +14,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "QLabelElement.h"
 
-@class QRootElement;
 
-
-@interface QMapElement : QRootElement {
+@interface QMapElement : QLabelElement {
 
 @protected
     CLLocationCoordinate2D _coordinate;
