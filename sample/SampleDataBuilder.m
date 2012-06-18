@@ -341,12 +341,17 @@
 
     QWebElement *element1 = [[QWebElement alloc] initWithTitle:@"ESCOZ Inc" url:@"http://escoz.com"];
     element1.controllerAction = @"handleWebElementControllerAction:";
+    element1.image = [UIImage imageNamed:@"iPhone"];
     QWebElement *element2 = [[QWebElement alloc] initWithTitle:@"Quicklytics" url:@"http://escoz.com/quicklytics"];
+    QMapElement *element3 = [[QMapElement alloc] initWithTitle:@"Florianopolis, Brazil" coordinate:CLLocationCoordinate2DMake(-27.59, -48.55)];
+    element3.image = [UIImage imageNamed:@"keyboard"];
     QMapElement *element4 = [[QMapElement alloc] initWithTitle:@"Florianopolis, Brazil" coordinate:CLLocationCoordinate2DMake(-27.59, -48.55)];
+
 
     QSection *section1 = [[QSection alloc] init];
     [section1 addElement:element1];
     [section1 addElement:element2];
+    [section1 addElement:element3];
     [section1 addElement:element4];
 
     [root addSection:section1];
