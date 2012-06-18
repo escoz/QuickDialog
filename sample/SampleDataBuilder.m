@@ -76,6 +76,7 @@
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
         bool1.offImage = [UIImage imageNamed:@"imgOff"];
+        bool1.controllerAction = @"handleCheckbox:";
         [subsection addElement:bool1];
     }
     [subForm addSection:subsection];
