@@ -13,9 +13,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QRootElement.h"
+#import "QLabelElement.h"
 
-@interface QWebElement : QRootElement {
+@interface QWebElement : QLabelElement {
 
 @protected
     NSString *_url;
