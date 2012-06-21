@@ -123,6 +123,7 @@
         timeElement.hiddenToolbar = YES;
         [section addElement:timeElement];
     }
+    [[self sections] removeAllObjects];
     [self addSection:section];
 }
 
