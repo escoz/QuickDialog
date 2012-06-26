@@ -140,5 +140,8 @@
     }
 }
 
+- (BOOL)canTakeFocus {
+    return NO;
+}
 
 @end

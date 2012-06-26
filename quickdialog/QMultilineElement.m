@@ -65,5 +65,8 @@
 	[obj setValue:self.textValue forKey:_key];
 }
 
+- (BOOL)canTakeFocus {
+    return NO;
+}
 
 @end
