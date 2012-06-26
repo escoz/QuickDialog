@@ -212,23 +212,33 @@
     return YES;
 }
 
-- (void) handleActionBarPreviousNext:(UISegmentedControl *)control {
+- (void)handleActionBarPreviousNext:(UISegmentedControl *)control {
+
 	QEntryElement *element;
+
     const BOOL isNext = control.selectedSegmentIndex == 1;
-    if (isNext){
+    if (isNext) {
 		element = [self findNextElementToFocusOn];
 	} else {
 		element = [self findPreviousElementToFocusOn];
 	}
-	if (element!=nil){
+
+	if (element != nil) {
+
         UITableViewCell *cell = [_quickformTableView cellForElement:element];
-		if (cell!=nil){
+		if (cell != nil) {
 			[cell becomeFirstResponder];
-		} else {
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+		}
+        else {
+
+            [_quickformTableView scrollToRowAtIndexPath:[_quickformTableView indexForElement:element]
+                                       atScrollPosition:UITableViewScrollPositionMiddle
+                                               animated:YES];
+
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^{
                 UITableViewCell *c = [_quickformTableView cellForElement:element];
-                if (c!=nil){
+                if (c != nil) {
                     [c becomeFirstResponder];
                 }
             });
