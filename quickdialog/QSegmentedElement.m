@@ -50,4 +50,8 @@
     return cell;
 }
 
+- (BOOL)canTakeFocus {
+    return NO;
+}
+
 @end
