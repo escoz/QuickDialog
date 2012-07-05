@@ -74,6 +74,9 @@
     if ([cell.accessoryView class] == [UIButton class]) {
         ((UIButton *)cell.accessoryView).selected = self.boolValue;
     }
+    else if ([cell.accessoryView class] == [UISwitch class]) {
+        [((UISwitch *)cell.accessoryView) setOn:self.boolValue animated:YES];
+    }
 
     if (self.controllerAction==nil)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
