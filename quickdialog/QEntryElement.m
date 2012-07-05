@@ -19,6 +19,7 @@
 @synthesize prefix = _prefix;
 @synthesize suffix = _suffix;
 @synthesize hiddenToolbar = _hiddenToolbar;
+@synthesize disabled = _disabled;
 
 @synthesize delegate = _delegate;
 
@@ -32,6 +33,7 @@
         self.returnKeyType = UIReturnKeyDefault;
         self.enablesReturnKeyAutomatically = NO;
         self.secureTextEntry = NO;
+        self.disabled = NO;
     }
     return self;
 }
@@ -52,6 +54,7 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
+    
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = YES;
     cell.textField.userInteractionEnabled = YES;
@@ -61,8 +64,12 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
+    if (_disabled) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        return;
+    }
     [super selected:tableView controller:controller indexPath:indexPath];
-
+    
 }
 
 - (void)fetchValueIntoObject:(id)obj {
