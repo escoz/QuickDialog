@@ -57,8 +57,9 @@
 
     } else {
         UIButton *boolButton = [[UIButton alloc] init];
-        [boolButton setImage:self.offImage forState:UIControlStateNormal];
-        [boolButton setImage:self.onImage forState:UIControlStateSelected];
+        [boolButton setImage:self.offImage forState: UIControlStateNormal];
+        [boolButton setImage:self.onImage forState: UIControlStateSelected];
+        [boolButton setImage:self.onImage forState: UIControlStateSelected | UIControlStateDisabled];
         cell.accessoryView = boolButton;
         boolButton.enabled = self.enabled;
         boolButton.selected = self.boolValue;
