@@ -18,8 +18,9 @@
 
 @interface QMultilineElement : QEntryElement
 
-@property(nonatomic, assign) id< QuickDialogEntryElementDelegate> delegate;
+@property (nonatomic, strong) UIColor *backgroundColor;
 
+@property(nonatomic, assign) id <QuickDialogEntryElementDelegate> delegate;
 
 - (QMultilineElement *)initWithTitle:(NSString *)title value:(NSString *)text;
 
