@@ -43,6 +43,8 @@
 @property(nonatomic, retain) NSString *bind;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
+@property (nonatomic) QValueLineBreakPolicy valueLineBreakPolicy;
+
 
 - (QElement *)initWithKey:(NSString *)key;
 

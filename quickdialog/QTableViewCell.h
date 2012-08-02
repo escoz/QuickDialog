@@ -21,10 +21,16 @@ typedef enum {
     QLabelingPolicyTrimValue
 } QLabelingPolicy;
 
+typedef enum {
+    QValueLineBreakPolicyNone = 0,
+    QValueLineBreakPolicyWrap,
+} QValueLineBreakPolicy;
+
 @interface QTableViewCell : UITableViewCell
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
+@property (nonatomic) QValueLineBreakPolicy valueLineBreakPolicy;
 
 @end

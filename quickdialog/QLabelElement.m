@@ -18,18 +18,29 @@
 @implementation QLabelElement {
 @private
     UITableViewCellAccessoryType _accessoryType;
+    UIFont* _font;
 }
 
 
 @synthesize image = _image;
 @synthesize value = _value;
 @synthesize accessoryType = _accessoryType;
+@synthesize font = _font;
 
-
+- (QLabelElement *)init {
+    self = [super init];
+    if (self) {
+        _font = [UIFont systemFontOfSize:17];
+    }
+    return self;
+}
 - (QLabelElement *)initWithTitle:(NSString *)title Value:(id)value {
-   self = [super init];
-   _title = title;
-   _value = value;
+    self = [super init];
+    if (self) {
+        _title = title;
+        _value = value;
+        _font = [UIFont systemFontOfSize:17];
+    }
     return self;
 }
 
@@ -49,6 +60,10 @@
 
     cell.textLabel.text = _title;
     cell.detailTextLabel.text = [_value description];
+    if (self.valueLineBreakPolicy == QValueLineBreakPolicyWrap) {
+        cell.detailTextLabel.numberOfLines = 0;
+    }
+    cell.detailTextLabel.font = self.font;
     cell.imageView.image = _image;
     cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? (_accessoryType != (int) nil ? _accessoryType : UITableViewCellAccessoryDisclosureIndicator) : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
@@ -61,4 +76,18 @@
 }
 
 
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
+    if (self.valueLineBreakPolicy == QValueLineBreakPolicyWrap) {
+        CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
+        CGSize  size= [[_value description] sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+        CGFloat predictedHeight = size.height + 20.0f;
+        if (self.title!=nil)
+            predictedHeight+=30;
+        CGFloat height = [super getRowHeightForTableView:tableView];
+        return (height >= predictedHeight) ? height : predictedHeight;
+        
+    } else {
+        return [super getRowHeightForTableView:tableView];
+    }
+}
 @end

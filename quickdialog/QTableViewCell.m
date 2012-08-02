@@ -16,6 +16,8 @@
 @implementation QTableViewCell
 
 @synthesize labelingPolicy = _labelingPolicy;
+@synthesize valueLineBreakPolicy = _valueLineBreakPolicy;
+
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
@@ -32,12 +34,11 @@
     if (self.imageView!=nil)
         imageSize = self.imageView.frame.size;
 
-    
-    if (_labelingPolicy == QLabelingPolicyTrimTitle)
+    if (_valueLineBreakPolicy == QValueLineBreakPolicyNone && _labelingPolicy == QLabelingPolicyTrimTitle)
     {
         CGSize valueSize = CGSizeZero;
         if (self.detailTextLabel.text!=nil)
-            valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
+            valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font ];
 
         CGRect labelFrame = self.textLabel.frame;
         self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,

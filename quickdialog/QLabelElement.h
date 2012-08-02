@@ -28,7 +28,7 @@
 @property(nonatomic, assign) NSString *imageNamed;
 @property(nonatomic, assign) UITableViewCellAccessoryType accessoryType;
 @property(nonatomic, strong) id value;
-
+@property(nonatomic, strong) UIFont *font;
 
 - (QLabelElement *)initWithTitle:(NSString *)string Value:(id)value;
 
