@@ -1,14 +1,14 @@
 //
-//  QPickerWhitespaceDelimitedStringParser.m
+//  QPickerTabDelimitedStringParser.m
 //  QuickDialog
 //
 //  Created by HiveHicks on 05.04.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "QPickerWhitespaceDelimitedStringParser.h"
+#import "QPickerTabDelimitedStringParser.h"
 
-@implementation QPickerWhitespaceDelimitedStringParser
+@implementation QPickerTabDelimitedStringParser
 
 - (id)objectFromComponentsValues:(NSArray *)componentsValues
 {
