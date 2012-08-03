@@ -13,52 +13,52 @@
 //
 
 
-#import "QuickDialogController.h"
-#import "QuickDialogWebController.h"
-#import "QuickDialogController+Loading.h"
-#import "QuickDialogController+Helpers.h"
-#import "NSMutableArray+MoveObject.h"
-#import "QuickDialogTableView.h"
-#import "QuickDialogTableDelegate.h"
+#import <QuickDialog/QuickDialogController.h>
+#import <QuickDialog/QuickDialogWebController.h>
+#import <QuickDialog/QuickDialogController+Loading.h>
+#import <QuickDialog/QuickDialogController+Helpers.h>
+#import <QuickDialog/NSMutableArray+MoveObject.h>
+#import <QuickDialog/QuickDialogTableView.h>
+#import <QuickDialog/QuickDialogTableDelegate.h>
 
-#import "QTableViewCell.h"
-#import "QRootElement+JsonBuilder.h"
-#import "QLoadingElement.h"
-#import "QRootElement.h"
-#import "QLabelElement.h"
-#import "QBadgeElement.h"
-#import "QBooleanElement.h"
-#import "QButtonElement.h"
-#import "QEntryElement.h"
-#import "QEntryTableViewCell.h"
-#import "QDateTimeInlineElement.h"
-#import "QFloatElement.h"
-#import "QPickerElement.h"
-#import "QMapElement.h"
-#import "QRadioElement.h"
-#import "QRadioItemElement.h"
-#import "QPickerElement.h"
-#import "QSelectItemElement.h"
-#import "QTextElement.h"
-#import "QWebElement.h"
-#import "QDecimalElement.h"
-#import "QSortingSection.h"
-#import "QDateTimeElement.h"
-#import "QWebViewController.h"
-#import "QBadgeLabel.h"
-#import "QSegmentedElement.h"
-#import "QMultilineTextViewController.h"
-#import "QMultilineElement.h"
+#import <QuickDialog/QTableViewCell.h>
+#import <QuickDialog/QRootElement+JsonBuilder.h>
+#import <QuickDialog/QLoadingElement.h>
+#import <QuickDialog/QRootElement.h>
+#import <QuickDialog/QLabelElement.h>
+#import <QuickDialog/QBadgeElement.h>
+#import <QuickDialog/QBooleanElement.h>
+#import <QuickDialog/QButtonElement.h>
+#import <QuickDialog/QEntryElement.h>
+#import <QuickDialog/QEntryTableViewCell.h>
+#import <QuickDialog/QDateTimeInlineElement.h>
+#import <QuickDialog/QFloatElement.h>
+#import <QuickDialog/QPickerElement.h>
+#import <QuickDialog/QMapElement.h>
+#import <QuickDialog/QRadioElement.h>
+#import <QuickDialog/QRadioItemElement.h>
+#import <QuickDialog/QPickerElement.h>
+#import <QuickDialog/QSelectItemElement.h>
+#import <QuickDialog/QTextElement.h>
+#import <QuickDialog/QWebElement.h>
+#import <QuickDialog/QDecimalElement.h>
+#import <QuickDialog/QSortingSection.h>
+#import <QuickDialog/QDateTimeElement.h>
+#import <QuickDialog/QWebViewController.h>
+#import <QuickDialog/QBadgeLabel.h>
+#import <QuickDialog/QSegmentedElement.h>
+#import <QuickDialog/QMultilineTextViewController.h>
+#import <QuickDialog/QMultilineElement.h>
 
-#import "QuickDialogStyleProvider.h"
-#import "QuickDialogEntryElementDelegate.h"
+#import <QuickDialog/QuickDialogStyleProvider.h>
+#import <QuickDialog/QuickDialogEntryElementDelegate.h>
 
-#import "QuickDialogController+Loading.h"
+#import <QuickDialog/QuickDialogController+Loading.h>
 
-#import "QAutoEntryElement.h"
-#import "QAutoEntryTableViewCell.h"
-#import "QDateEntryTableViewCell.h"
+#import <QuickDialog/QAutoEntryElement.h>
+#import <QuickDialog/QAutoEntryTableViewCell.h>
+#import <QuickDialog/QDateEntryTableViewCell.h>
 
-#import "QRootBuilder.h"
+#import <QuickDialog/QRootBuilder.h>
 
-#import "QTextField.h"
+#import <QuickDialog/QTextField.h>
