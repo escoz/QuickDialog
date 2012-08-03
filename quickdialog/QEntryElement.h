@@ -43,6 +43,8 @@
 
 
 - (QEntryElement *)init;
-
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
+
+- (BOOL)canTakeFocus;
+
 @end

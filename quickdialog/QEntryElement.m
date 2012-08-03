@@ -72,6 +72,9 @@
 	[obj setValue:_textValue forKey:_key];
 }
 
+- (BOOL)canTakeFocus {
+    return YES;
+}
 
 #pragma mark - UITextInputTraits
 

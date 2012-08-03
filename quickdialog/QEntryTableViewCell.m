@@ -212,23 +212,33 @@
     return YES;
 }
 
-- (void) handleActionBarPreviousNext:(UISegmentedControl *)control {
+- (void)handleActionBarPreviousNext:(UISegmentedControl *)control {
+
 	QEntryElement *element;
+
     const BOOL isNext = control.selectedSegmentIndex == 1;
-    if (isNext){
+    if (isNext) {
 		element = [self findNextElementToFocusOn];
 	} else {
 		element = [self findPreviousElementToFocusOn];
 	}
-	if (element!=nil){
+
+	if (element != nil) {
+
         UITableViewCell *cell = [_quickformTableView cellForElement:element];
-		if (cell!=nil){
+		if (cell != nil) {
 			[cell becomeFirstResponder];
-		} else {
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+		}
+        else {
+
+            [_quickformTableView scrollToRowAtIndexPath:[_quickformTableView indexForElement:element]
+                                       atScrollPosition:UITableViewScrollPositionMiddle
+                                               animated:YES];
+
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^{
                 UITableViewCell *c = [_quickformTableView cellForElement:element];
-                if (c!=nil){
+                if (c != nil) {
                     [c becomeFirstResponder];
                 }
             });
@@ -260,13 +270,14 @@
 }
 
 - (QEntryElement *)findPreviousElementToFocusOn {
+
     QEntryElement *previousElement = nil;
     for (QSection *section in _entryElement.parentSection.rootElement.sections) {
-        for (QElement * e in section.elements){
+        for (QElement *e in section.elements) {
             if (e == _entryElement) {
                 return previousElement;
             }
-            else if ([e isKindOfClass:[QEntryElement class]]){
+            else if ([e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
                 previousElement = (QEntryElement *)e;
             }
         }
@@ -275,13 +286,14 @@
 }
 
 - (QEntryElement *)findNextElementToFocusOn {
+
     BOOL foundSelf = NO;
     for (QSection *section in _entryElement.parentSection.rootElement.sections) {
-        for (QElement * e in section.elements){
+        for (QElement *e in section.elements) {
             if (e == _entryElement) {
                 foundSelf = YES;
             }
-            else if (foundSelf && [e isKindOfClass:[QEntryElement class]]){
+            else if (foundSelf && [e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
                 return (QEntryElement *) e;
             }
         }
