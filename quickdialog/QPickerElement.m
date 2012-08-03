@@ -1,6 +1,6 @@
 #import "QPickerElement.h"
 #import "QPickerTableViewCell.h"
-#import "QPickerWhitespaceDelimitedStringParser.h"
+#import "QPickerTabDelimitedStringParser.h"
 
 @implementation QPickerElement
 {
@@ -18,7 +18,7 @@
 - (QPickerElement *)init
 {
     if (self = [super init]) {
-        self.valueParser = [QPickerWhitespaceDelimitedStringParser new];
+        self.valueParser = [QPickerTabDelimitedStringParser new];
     }
     return self;
 }
@@ -27,7 +27,7 @@
 {
     if ((self = [super initWithTitle:title Value:value])) {
         _items = items;
-        self.valueParser = [QPickerWhitespaceDelimitedStringParser new];
+        self.valueParser = [QPickerTabDelimitedStringParser new];
     }
     return self;
 }

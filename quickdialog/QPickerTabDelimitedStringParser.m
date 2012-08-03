@@ -1,24 +1,24 @@
 //
-//  QPickerWhitespaceDelimitedStringParser.m
+//  QPickerTabDelimitedStringParser.m
 //  QuickDialog
 //
 //  Created by HiveHicks on 05.04.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "QPickerWhitespaceDelimitedStringParser.h"
+#import "QPickerTabDelimitedStringParser.h"
 
-@implementation QPickerWhitespaceDelimitedStringParser
+@implementation QPickerTabDelimitedStringParser
 
 - (id)objectFromComponentsValues:(NSArray *)componentsValues
 {
-    return [componentsValues componentsJoinedByString:@" "];
+    return [componentsValues componentsJoinedByString:@"\t"];
 }
 
 - (NSArray *)componentsValuesFromObject:(id)object
 {
     NSString *stringValue = [object isKindOfClass:[NSString class]] ? object : [object description];
-    return [stringValue componentsSeparatedByString:@" "];
+    return [stringValue componentsSeparatedByString:@"\t"];
 }
 
 @end

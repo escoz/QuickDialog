@@ -153,8 +153,8 @@
 		F2F23A22152DD48B00EB6685 /* QPickerTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1B152DD48B00EB6685 /* QPickerTableViewCell.h */; };
 		F2F23A23152DD48B00EB6685 /* QPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1C152DD48B00EB6685 /* QPickerTableViewCell.m */; };
 		F2F23A24152DD48B00EB6685 /* QPickerValueParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1D152DD48B00EB6685 /* QPickerValueParser.h */; };
-		F2F23A25152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1E152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h */; };
-		F2F23A26152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1F152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m */; };
+		F2F23A25152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1E152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h */; };
+		F2F23A26152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1F152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m */; };
 		F2F23A26152DD48B00EB6687 /* QuickDialogController+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */; };
 		F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */; };
 /* End PBXBuildFile section */
@@ -331,8 +331,8 @@
 		F2F23A1B152DD48B00EB6685 /* QPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPickerTableViewCell.h; path = quickdialog/QPickerTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		F2F23A1C152DD48B00EB6685 /* QPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPickerTableViewCell.m; path = quickdialog/QPickerTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		F2F23A1D152DD48B00EB6685 /* QPickerValueParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPickerValueParser.h; path = quickdialog/QPickerValueParser.h; sourceTree = SOURCE_ROOT; };
-		F2F23A1E152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPickerWhitespaceDelimitedStringParser.h; path = quickdialog/QPickerWhitespaceDelimitedStringParser.h; sourceTree = SOURCE_ROOT; };
-		F2F23A1F152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPickerWhitespaceDelimitedStringParser.m; path = quickdialog/QPickerWhitespaceDelimitedStringParser.m; sourceTree = SOURCE_ROOT; };
+		F2F23A1E152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPickerTabDelimitedStringParser.h; path = quickdialog/QPickerTabDelimitedStringParser.h; sourceTree = SOURCE_ROOT; };
+		F2F23A1F152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPickerTabDelimitedStringParser.m; path = quickdialog/QPickerTabDelimitedStringParser.m; sourceTree = SOURCE_ROOT; };
 		F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Helpers.m"; path = "quickdialog/QuickDialogController+Helpers.m"; sourceTree = SOURCE_ROOT; };
 		F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuickDialogController+Helpers.h"; path = "quickdialog/QuickDialogController+Helpers.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -612,8 +612,8 @@
 				F2F23A1B152DD48B00EB6685 /* QPickerTableViewCell.h */,
 				F2F23A1C152DD48B00EB6685 /* QPickerTableViewCell.m */,
 				F2F23A1D152DD48B00EB6685 /* QPickerValueParser.h */,
-				F2F23A1E152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h */,
-				F2F23A1F152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m */,
+				F2F23A1E152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h */,
+				F2F23A1F152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m */,
 			);
 			name = QPickerElement;
 			sourceTree = "<group>";
@@ -680,7 +680,7 @@
 				F2F23A20152DD48B00EB6685 /* QPickerElement.h in Headers */,
 				F2F23A22152DD48B00EB6685 /* QPickerTableViewCell.h in Headers */,
 				F2F23A24152DD48B00EB6685 /* QPickerValueParser.h in Headers */,
-				F2F23A25152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h in Headers */,
+				F2F23A25152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h in Headers */,
 				F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */,
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
@@ -837,7 +837,7 @@
 				F2E614A3151CA1A100F36976 /* QSelectItemElement.m in Sources */,
 				F2F23A21152DD48B00EB6685 /* QPickerElement.m in Sources */,
 				F2F23A23152DD48B00EB6685 /* QPickerTableViewCell.m in Sources */,
-				F2F23A26152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m in Sources */,
+				F2F23A26152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m in Sources */,
 				F2F23A26152DD48B00EB6687 /* QuickDialogController+Helpers.m in Sources */,
 				D894F38B15559D34000E3C0F /* NSMutableArray+IMSExtensions.m in Sources */,
 				F2304358156CDFDD006D0A56 /* QTextField.m in Sources */,
