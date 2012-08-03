@@ -80,10 +80,13 @@
     if (CGRectEqualToRect(CGRectZero, _entryElement.parentSection.entryPosition)) {
         for (QElement *el in _entryElement.parentSection.elements){
             if ([el isKindOfClass:[QEntryElement class]]){
+                QEntryElement *q = (QEntryElement*)el; 
+                CGFloat imageWidth = q.image == NULL ? 0 : q.image.size.width + 10;  
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
                 CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:UILineBreakModeWordWrap] ;
-                if (size.width>titleWidth)
-                    titleWidth = size.width;
+                CGFloat width = size.width + imageWidth;
+                if (width>titleWidth)
+                    titleWidth = width;
             }
         }
         _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
