@@ -12,13 +12,13 @@
 
 - (id)objectFromComponentsValues:(NSArray *)componentsValues
 {
-    return [componentsValues componentsJoinedByString:@" "];
+    return [componentsValues componentsJoinedByString:@"\t"];
 }
 
 - (NSArray *)componentsValuesFromObject:(id)object
 {
     NSString *stringValue = [object isKindOfClass:[NSString class]] ? object : [object description];
-    return [stringValue componentsSeparatedByString:@" "];
+    return [stringValue componentsSeparatedByString:@"\t"];
 }
 
 @end
