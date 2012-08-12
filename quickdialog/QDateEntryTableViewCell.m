@@ -56,6 +56,8 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     _pickerView.datePickerMode = element.mode;
     _pickerView.maximumDate = element.maximumDate;
     _pickerView.minimumDate = element.minimumDate;
+    _pickerView.minuteInterval = element.minuteInterval;
+    
     if (element.dateValue!=nil)
         _pickerView.date = element.dateValue;
 
