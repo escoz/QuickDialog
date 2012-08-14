@@ -16,4 +16,7 @@
 
 - (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(id)value;
 
+- (void)reloadAllComponents;
+- (void)reloadComponent:(NSInteger)index;
+
 @end
