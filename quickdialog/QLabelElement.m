@@ -60,5 +60,10 @@
     [super selected:tableView controller:controller indexPath:path];
 }
 
+- (void)fetchValueIntoObject:(id)obj {
+    for (QSection *s in _sections){
+        [s fetchValueIntoObject:obj];
+    }
+}
 
 @end
