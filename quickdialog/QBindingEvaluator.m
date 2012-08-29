@@ -80,8 +80,20 @@
 - (void)bindSection:(QSection *)section toCollection:(NSArray *)items {
     [section.elements removeAllObjects];
 
+    for (id item in section.beforeTemplateElements){
+        QElement *element = [_builder buildElementWithObject:item];
+        [section addElement:element];
+        [element bindToObject:item];
+    }
+
     for (id item in items){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
+        [section addElement:element];
+        [element bindToObject:item];
+    }
+
+    for (id item in section.afterTemplateElements){
+        QElement *element = [_builder buildElementWithObject:item];
         [section addElement:element];
         [element bindToObject:item];
     }
