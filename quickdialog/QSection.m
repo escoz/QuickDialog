@@ -20,6 +20,8 @@
     NSString *_footerImage;
     NSDictionary *_elementTemplate;
     BOOL _canDeleteRows;
+    NSMutableArray *_afterTemplateElements;
+    NSMutableArray *_beforeTemplateElements;
 }
 @synthesize title;
 @synthesize footer;
@@ -34,6 +36,8 @@
 @synthesize footerImage = _footerImage;
 @synthesize elementTemplate = _elementTemplate;
 @synthesize canDeleteRows = _canDeleteRows;
+@synthesize afterTemplateElements = _afterTemplateElements;
+@synthesize beforeTemplateElements = _beforeTemplateElements;
 
 
 - (BOOL)needsEditing {
