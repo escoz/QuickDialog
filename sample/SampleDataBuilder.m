@@ -602,6 +602,7 @@
 
     QDateTimeElement *el7 = [[QDateTimeElement alloc] initWithTitle:@"Full Date" date:[NSDate date]];
     el7.mode = UIDatePickerModeDateAndTime;
+    el7.minuteInterval = 3;
     [section2 addElement:el7];
 
     [root addSection:section];

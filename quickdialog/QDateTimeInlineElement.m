@@ -29,7 +29,7 @@
 @synthesize maximumDate = _maximumDate;
 @synthesize minimumDate = _minimumDate;
 @synthesize onValueChanged = _onValueChanged;
-
+@synthesize minuteInterval = _minuteInterval;
 
 - (QDateTimeInlineElement *)init {
     self = [super init];

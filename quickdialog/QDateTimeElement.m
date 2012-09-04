@@ -35,6 +35,13 @@
 	[self initializeRoot];
 }
 
+- (void)setMinuteInterval:(NSInteger)minuteInterval
+{
+    _minuteInterval = minuteInterval;
+    self.sections = nil;
+    [self initializeRoot];
+}
+
 - (void)setDateValue:(NSDate *)date {
     _dateValue = date;
     self.sections = nil;
@@ -51,6 +58,11 @@
 
 - (UIDatePickerMode)mode {
     return _mode;
+}
+
+- (NSInteger)minuteInterval
+{
+    return _minuteInterval;
 }
 
 - (QDateTimeElement *)init {
@@ -112,6 +124,8 @@
         dateElement.centerLabel = YES;
         dateElement.mode =  UIDatePickerModeDate;
         dateElement.hiddenToolbar = YES;
+        dateElement.minuteInterval = _minuteInterval;
+        
         [section addElement:dateElement];
 
     }
@@ -121,6 +135,8 @@
         timeElement.centerLabel = YES;
         timeElement.mode = UIDatePickerModeTime;
         timeElement.hiddenToolbar = YES;
+        timeElement.minuteInterval = _minuteInterval;
+        
         [section addElement:timeElement];
     }
     [self addSection:section];
