@@ -92,23 +92,28 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     QDateTimeInlineElement *dateElement = ((QDateTimeInlineElement *) element);
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    switch (dateElement.mode) {
-        case UIDatePickerModeDate:
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-            break;
-        case UIDatePickerModeTime:
-            [dateFormatter setDateStyle:NSDateFormatterNoStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-            break;
-        case UIDatePickerModeDateAndTime:
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-            break;
-		case UIDatePickerModeCountDownTimer:
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-			break;
+
+    if (element.customDateFormat!=nil){
+        dateFormatter.dateFormat = element.customDateFormat;
+    } else {
+        switch (dateElement.mode) {
+            case UIDatePickerModeDate:
+                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+                [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+                break;
+            case UIDatePickerModeTime:
+                [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+                [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+                break;
+            case UIDatePickerModeDateAndTime:
+                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+                [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+                break;
+            case UIDatePickerModeCountDownTimer:
+                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+                [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+                break;
+        }
     }
 
     if (!dateElement.centerLabel){

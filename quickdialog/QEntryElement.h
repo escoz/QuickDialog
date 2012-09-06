@@ -42,6 +42,8 @@
 @property(nonatomic, assign) BOOL clearsOnBeginEditing;                   // default is NO
 
 
+@property(nonatomic, copy) NSString *customDateFormat;
+
 - (QEntryElement *)init;
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
 
