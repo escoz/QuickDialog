@@ -38,7 +38,7 @@
     [super layoutSubviews];
     CGRect rect = self.contentView.frame;
     CGSize badgeTextSize = [_badgeLabel.text sizeWithFont:_badgeLabel.font];
-    _badgeLabel.frame = CGRectIntegral(CGRectMake(rect.size.width - badgeTextSize.width - 10, (rect.size.height - badgeTextSize.height) / 2, badgeTextSize.width, badgeTextSize.height));
+    _badgeLabel.frame = CGRectIntegral(CGRectMake(rect.size.width - badgeTextSize.width - 10, ((rect.size.height - badgeTextSize.height) / 2)+1, badgeTextSize.width, badgeTextSize.height));
     CGRect lblFrame = self.textLabel.frame;
     self.textLabel.frame = CGRectMake(lblFrame.origin.x, lblFrame.origin.y, lblFrame.size.width-badgeTextSize.width-20, lblFrame.size.height);
 }
