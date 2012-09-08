@@ -19,7 +19,6 @@
     NSDate *_maximumDate;
     NSDate *_minimumDate;
 
-    void (^_onValueChanged)();
 
 }
 
@@ -28,7 +27,6 @@
 @synthesize centerLabel = _centerLabel;
 @synthesize maximumDate = _maximumDate;
 @synthesize minimumDate = _minimumDate;
-@synthesize onValueChanged = _onValueChanged;
 
 
 - (QDateTimeInlineElement *)init {

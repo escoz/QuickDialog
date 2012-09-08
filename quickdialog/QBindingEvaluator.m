@@ -133,7 +133,7 @@
         NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
-        [data setValue:[element valueForKey:propName] forKey:valueName];
+        [data setValue:[element valueForKey:propName] forKeyPath:valueName];
     }
 
 }
