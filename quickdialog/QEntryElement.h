@@ -45,7 +45,7 @@
 @property(nonatomic, copy) NSString *customDateFormat;
 
 - (QEntryElement *)init;
-- (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
+- (QEntryElement *)initWithTitle:(NSString *)string value:(NSString *)param placeholder:(NSString *)string1;
 
 - (BOOL)canTakeFocus;
 

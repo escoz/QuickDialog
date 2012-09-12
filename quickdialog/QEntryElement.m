@@ -40,7 +40,7 @@
     return self;
 }
 
-- (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
+- (QEntryElement *)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder {
     self = [self init];
     if (self) {
         _title = title;

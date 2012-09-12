@@ -30,6 +30,6 @@
 @property(nonatomic, strong) id value;
 
 
-- (QLabelElement *)initWithTitle:(NSString *)string Value:(id)value;
+- (QLabelElement *)initWithTitle:(NSString *)string value:(id)value;
 
 @end

@@ -23,7 +23,7 @@
 
 - (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items value:(id)value
 {
-    if ((self = [super initWithTitle:title Value:value])) {
+    if ((self = [super initWithTitle:title value:value])) {
         _items = items;
         self.valueParser = [QPickerTabDelimitedStringParser new];
     }

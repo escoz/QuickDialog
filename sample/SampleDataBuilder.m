@@ -73,7 +73,7 @@
     subForm.title = @"Really long list";
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     for (int i = 0; i<1000; i++){
-        QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
+        QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] boolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
         bool1.offImage = [UIImage imageNamed:@"imgOff"];
         [subsection addElement:bool1];
@@ -88,12 +88,12 @@
     subForm.grouped = YES;
     subForm.title = @"Subform";
 
-    [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" Value:@"Some value"]];
-    QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" Value:nil Placeholder:@"type here"];
+    [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" value:@"Some value"]];
+    QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" value:nil placeholder:@"type here"];
     elementEntry.key = @"entryElement";
     [subsection addElement:elementEntry];
-    [subsection addElement:[[QBooleanElement alloc] initWithTitle:@"boolean" BoolValue:YES]];
-    [subsection addElement:[[QEntryElement alloc] initWithTitle:@"Entry 2" Value:@"Some value" Placeholder:@"type here two"]];
+    [subsection addElement:[[QBooleanElement alloc] initWithTitle:@"boolean" boolValue:YES]];
+    [subsection addElement:[[QEntryElement alloc] initWithTitle:@"Entry 2" value:@"Some value" placeholder:@"type here two"]];
     [subForm addSection:subsection];
 
     QSection *subsection2 = [[QSection alloc] init];
@@ -103,11 +103,11 @@
     [subForm addSection:subsection2];
 
     QSection *subsection3 = [[QSection alloc] init];
-    QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:@"First option" BoolValue:YES];
+    QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:@"First option" boolValue:YES];
     bool1.onImage = [UIImage imageNamed:@"imgOn"];
     bool1.offImage = [UIImage imageNamed:@"imgOff"];
     [subsection3 addElement:bool1];
-    QBooleanElement *bool2 = [[QBooleanElement alloc] initWithTitle:@"Second option" BoolValue:NO];
+    QBooleanElement *bool2 = [[QBooleanElement alloc] initWithTitle:@"Second option" boolValue:NO];
     bool2.onImage = [UIImage imageNamed:@"imgOn"];
     bool2.offImage = [UIImage imageNamed:@"imgOff"];
     bool2.controllerAction = @"exampleAction:";
@@ -145,7 +145,7 @@
     root.title = @"Sample Controls";
     QSection *controls = [[QSection alloc] initWithTitle:@"Change something"];
 
-    QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" Value:@"element"];
+    QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" value:@"element"];
 
 
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
@@ -153,11 +153,11 @@
 
 
 
-    QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
+    QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" boolValue:YES];
     boolElement.controllerAction = @"exampleAction:";
 	boolElement.key = @"bool1";
 	
-    QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" Value:nil Placeholder:@"type here"];
+    QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" value:nil placeholder:@"type here"];
 	entryElement.key = @"entry1";
 
     NSArray *values = [NSArray arrayWithObjects:@"Ferrari", @"Ms.",@"Mrs.",@"Miss",@"Mr.",@"Prof.",@"A/Prof.",nil];
@@ -187,7 +187,7 @@
     decimal.fractionDigits = 2;
     [controls addElement:decimal];
 
-    QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" Value:@"70"];
+    QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" value:@"70"];
     element2.height = 70;
     [controls addElement:element2];
 
@@ -386,54 +386,54 @@
     root.title = @"Labels";
     root.grouped = YES;
     QSection *s1 = [[QSection alloc] initWithTitle:@"LabelElement"];
-    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With no value" Value:nil]];
-    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With a value" Value:@"Value"]];
-    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Or a simple number" Value:@"123"]];
-    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text long text long text long text" Value:@"this is the value"]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With no value" value:nil]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With a value" value:@"Value"]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Or a simple number" value:@"123"]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text long text long text long text" value:@"this is the value"]];
 
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
-    QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
+    QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" value:@"1"];
     [s2 addElement:badge1];
-    QBadgeElement *badge2 = [[QBadgeElement alloc] initWithTitle:@"With a pink badge" Value:@"123"];
+    QBadgeElement *badge2 = [[QBadgeElement alloc] initWithTitle:@"With a pink badge" value:@"123"];
     badge2.badgeColor = [UIColor colorWithRed:0.9518 green:0.3862 blue:0.4113 alpha:1.0000];
     [s2 addElement:badge2];
 
     QSection *secImg = [[QSection alloc] initWithTitle:@"Images"];
-    QLabelElement *b1 = [[QLabelElement alloc] initWithTitle:@"Processor" Value:@"OK"];
+    QLabelElement *b1 = [[QLabelElement alloc] initWithTitle:@"Processor" value:@"OK"];
     b1.image = [UIImage imageNamed:@"intel"];
     [secImg addElement:b1];
 
-    QLabelElement *b2 = [[QLabelElement alloc] initWithTitle:@"iPhone" Value:@"OK"];
+    QLabelElement *b2 = [[QLabelElement alloc] initWithTitle:@"iPhone" value:@"OK"];
     b2.image = [UIImage imageNamed:@"iPhone"];
     [secImg addElement:b2];
 
-    QBadgeElement *b3 = [[QBadgeElement alloc] initWithTitle:@"Keyboard" Value:@"ERROR"];
+    QBadgeElement *b3 = [[QBadgeElement alloc] initWithTitle:@"Keyboard" value:@"ERROR"];
     b3.image = [UIImage imageNamed:@"keyboard"];
     b3.badgeColor = [UIColor redColor];
     [secImg addElement:b3];
 
-    QBadgeElement *badge3 = [[QBadgeElement alloc] initWithTitle:@"With some action" Value:@"123"];
+    QBadgeElement *badge3 = [[QBadgeElement alloc] initWithTitle:@"With some action" value:@"123"];
     badge3.badgeColor = [UIColor purpleColor];
     QSection *sec = [[QSection alloc] initWithTitle:@"Jazzin.."];
     [badge3 addSection:sec];
 
-    QBadgeElement *b4 = [[QBadgeElement alloc] initWithTitle:@"With a really really really long title" Value:@"YEAH"];
+    QBadgeElement *b4 = [[QBadgeElement alloc] initWithTitle:@"With a really really really long title" value:@"YEAH"];
     [s2 addElement:b4];
 
     [s2 addElement:badge3];
-    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test" Value:@"0"]];
-    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 2" Value:@"10"]];
-    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 3" Value:@"200"]];
-    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 4" Value:@"1000"]];
-    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 5" Value:@"TEST"]];
+    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test" value:@"0"]];
+    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 2" value:@"10"]];
+    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 3" value:@"200"]];
+    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 4" value:@"1000"]];
+    [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test 5" value:@"TEST"]];
     
     QSection *s3 = [[QSection alloc] initWithTitle:@"Labeling policies"];
     
-    QLabelElement *trimTitleEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimTitle" Value:@"really really really long value"];
+    QLabelElement *trimTitleEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimTitle" value:@"really really really long value"];
     trimTitleEl.labelingPolicy = QLabelingPolicyTrimTitle;  // this is default
     [s3 addElement:trimTitleEl];
     
-    QLabelElement *trimValueEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimValue" Value:@"really really really long value"];
+    QLabelElement *trimValueEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimValue" value:@"really really really long value"];
     trimValueEl.labelingPolicy = QLabelingPolicyTrimValue;
     [s3 addElement:trimValueEl];
 
@@ -455,24 +455,24 @@
     
     QSection *firstSection = [[QSection alloc] initWithTitle:@"Entry Elements"];
     
-    [firstSection addElement:[[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"placeholder"]];
-    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Title" Value:nil Placeholder:@"text here"]];
-    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" Value:@"" Placeholder:@"text"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"placeholder"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Title" value:nil placeholder:@"text here"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" value:@"" placeholder:@"text"]];
     
     [root addSection:firstSection];
 
     QSection *prefixSuffixSection = [[QSection alloc] initWithTitle:@"Prefix/suffix"];
     prefixSuffixSection.footer = @"Prefix/suffix is only displayed, they're not stored in textValue";
 
-    QEntryElement *prefixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with prefix"];
+    QEntryElement *prefixElement = [[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"with prefix"];
     prefixElement.keyboardType = UIKeyboardTypeNumberPad;
     prefixElement.prefix = @"$";
 
-    QEntryElement *suffixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with suffix"];
+    QEntryElement *suffixElement = [[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"with suffix"];
     suffixElement.keyboardType = UIKeyboardTypeNumberPad;
     suffixElement.suffix = @" km";
 
-    QEntryElement *prefixSuffixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with prefix and suffix"];
+    QEntryElement *prefixSuffixElement = [[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"with prefix and suffix"];
     prefixSuffixElement.prefix = @"* ";
     prefixSuffixElement.suffix = @" *";
 
@@ -483,31 +483,31 @@
     
     QSection *traitsSection = [[QSection alloc] initWithTitle:@"UITextInputTraits"];
     
-    QEntryElement *secureElement = [[QEntryElement alloc] initWithTitle:@"Secure" Value:@"" Placeholder:@"YES"];
+    QEntryElement *secureElement = [[QEntryElement alloc] initWithTitle:@"Secure" value:@"" placeholder:@"YES"];
     secureElement.secureTextEntry = YES;
     [traitsSection addElement:secureElement];
 
-    QEntryElement *keyboardTypeElement = [[QEntryElement alloc] initWithTitle:@"KB Type" Value:@"" Placeholder:@"NumberPad"];
+    QEntryElement *keyboardTypeElement = [[QEntryElement alloc] initWithTitle:@"KB Type" value:@"" placeholder:@"NumberPad"];
     keyboardTypeElement.keyboardType = UIKeyboardTypeNumberPad;
     [traitsSection addElement:keyboardTypeElement];
     
-    QEntryElement *keyboardAppearanceElement = [[QEntryElement alloc] initWithTitle:@"KB Appearance" Value:@"" Placeholder:@"Alert"];
+    QEntryElement *keyboardAppearanceElement = [[QEntryElement alloc] initWithTitle:@"KB Appearance" value:@"" placeholder:@"Alert"];
     keyboardAppearanceElement.keyboardAppearance = UIKeyboardAppearanceAlert;
     [traitsSection addElement:keyboardAppearanceElement];
     
-    QEntryElement *correctionElement = [[QEntryElement alloc] initWithTitle:@"Correction" Value:@"" Placeholder:@"No"];
+    QEntryElement *correctionElement = [[QEntryElement alloc] initWithTitle:@"Correction" value:@"" placeholder:@"No"];
     correctionElement.autocorrectionType = UITextAutocorrectionTypeNo;
     [traitsSection addElement:correctionElement];
     
-    QEntryElement *capitalizationElement = [[QEntryElement alloc] initWithTitle:@"Capitalization" Value:@"" Placeholder:@"AllCharacters"];
+    QEntryElement *capitalizationElement = [[QEntryElement alloc] initWithTitle:@"Capitalization" value:@"" placeholder:@"AllCharacters"];
     capitalizationElement.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     [traitsSection addElement:capitalizationElement];
     
-    QEntryElement *googleElement = [[QEntryElement alloc] initWithTitle:@"Return Key" Value:@"" Placeholder:@"Google"];
+    QEntryElement *googleElement = [[QEntryElement alloc] initWithTitle:@"Return Key" value:@"" placeholder:@"Google"];
     googleElement.returnKeyType = UIReturnKeyGoogle;
     [traitsSection addElement:googleElement];
     
-    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto Return" Value:@"" Placeholder:@"YES"];
+    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto Return" value:@"" placeholder:@"YES"];
     enableReturnElement.enablesReturnKeyAutomatically = YES;
     [traitsSection addElement:enableReturnElement];
 
@@ -534,11 +534,11 @@
 
     QSortingSection *sortingSection = [[QSortingSection alloc] init];
     sortingSection.key = @"sortedSection";
-    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"First" Value:@"1"]];
-    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Second" Value:@"2"]];
-    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Third" Value:@"3"]];
-    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Forth" Value:@"4"]];
-    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Fifth" Value:@"5"]];
+    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"First" value:@"1"]];
+    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Second" value:@"2"]];
+    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Third" value:@"3"]];
+    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Forth" value:@"4"]];
+    [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Fifth" value:@"5"]];
 
     int i = 1;
     for (QElement * el in sortingSection.elements){

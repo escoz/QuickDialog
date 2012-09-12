@@ -26,7 +26,7 @@
 @property (nonatomic) BOOL boolValue;
 @property(nonatomic) BOOL enabled;
 
-- (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
+- (QBooleanElement *)initWithTitle:(NSString *)title boolValue:(BOOL)value;
 
 - (void)setOnImageName:(NSString *)name;
 
