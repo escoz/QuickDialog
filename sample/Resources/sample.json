@@ -31,6 +31,9 @@
             {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
             ]
         } ,
+        { "title":"Photo", "elements":[     
+            {  "type":"QImageElement", "title":"Photo", "detailImageNamed":"icon" }
+        ]} ,
         { "elements":[
             {"type":"QSegmentedElement", "items":["Senna", "Fittipaldi", "Schumacher"], "selected":1}
         ]}
