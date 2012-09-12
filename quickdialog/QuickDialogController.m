@@ -54,12 +54,7 @@
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [self controllerClassForRoot:root];
-    QuickDialogController *controller = [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
-    
-
-    
-    
-    return controller;
+    return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
 }
 
 
