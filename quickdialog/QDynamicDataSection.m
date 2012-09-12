@@ -41,7 +41,7 @@
         [self addElement:[[QLoadingElement alloc] init]];
     
     if (collection!=nil && collection.count==0)
-        [self addElement:[[QLabelElement alloc] initWithTitle:_emptyMessage Value:nil]];
+        [self addElement:[[QLabelElement alloc] initWithTitle:_emptyMessage value:nil]];
 }
 
 

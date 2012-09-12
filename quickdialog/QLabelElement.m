@@ -26,7 +26,7 @@
 @synthesize accessoryType = _accessoryType;
 
 
-- (QLabelElement *)initWithTitle:(NSString *)title Value:(id)value {
+- (QLabelElement *)initWithTitle:(NSString *)title value:(id)value {
    self = [super init];
    _title = title;
    _value = value;

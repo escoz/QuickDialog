@@ -28,5 +28,5 @@
 @property(nonatomic, strong) NSString *badge;
 
 
-- (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value;
+- (QBadgeElement *)initWithTitle:(NSString *)title value:(NSString *)value;
 @end
