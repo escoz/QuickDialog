@@ -31,8 +31,9 @@
             {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
             ]
         } ,
-        { "title":"Photo", "elements":[     
-            {  "type":"QImageElement", "title":"Photo", "detailImageNamed":"icon" }
+        { "title":"Image Element", "elements":[     
+            {  "type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90 },
+            {  "type":"QImageElement", "title":"ImagePicker", "imageNamed":"iPhone", "detailImageNamed":"icon", "height":90 }
         ]} ,
         { "elements":[
             {"type":"QSegmentedElement", "items":["Senna", "Fittipaldi", "Schumacher"], "selected":1}

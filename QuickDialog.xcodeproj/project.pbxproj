@@ -379,6 +379,17 @@
 			path = quickform;
 			sourceTree = "<group>";
 		};
+		82B00D7E160069B8007BDF86 /* QImageElement */ = {
+			isa = PBXGroup;
+			children = (
+				82582ACB16002C5B0057A072 /* QImageElement.h */,
+				82582ACC16002C5B0057A072 /* QImageElement.m */,
+				82582ACD16002C5B0057A072 /* QImageTableViewCell.h */,
+				82582ACE16002C5B0057A072 /* QImageTableViewCell.m */,
+			);
+			name = QImageElement;
+			sourceTree = "<group>";
+		};
 		D80B0E2813E052DF00FA85CA = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				F2F23A12152DD45100EB6685 /* QPickerElement */,
+				82B00D7E160069B8007BDF86 /* QImageElement */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
 				D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */,
 				F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */,
@@ -551,10 +563,6 @@
 				D811F89913EC905B00E3922B /* QFloatElement.m */,
 				D811F89A13EC905B00E3922B /* QLabelElement.h */,
 				D811F89B13EC905B00E3922B /* QLabelElement.m */,
-				82582ACB16002C5B0057A072 /* QImageElement.h */,
-				82582ACC16002C5B0057A072 /* QImageElement.m */,
-				82582ACD16002C5B0057A072 /* QImageTableViewCell.h */,
-				82582ACE16002C5B0057A072 /* QImageTableViewCell.m */,
 				D811F89C13EC905B00E3922B /* QMapElement.h */,
 				D811F89D13EC905B00E3922B /* QMapElement.m */,
 				D811F89E13EC905B00E3922B /* QMapViewController.h */,

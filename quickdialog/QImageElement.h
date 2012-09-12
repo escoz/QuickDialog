@@ -1,5 +1,5 @@
 //                                
-// Copyright 2011 ESCOZ Inc  - http://escoz.com
+// Copyright 2012 Ludovic Landry - http://about.me/ludoviclandry
 // 
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this 
 // file except in compliance with the License. You may obtain a copy of the License at 
@@ -17,7 +17,7 @@
 #import <UIKit/UIKit.h>
 #import "QRootElement.h"
 
-@interface QImageElement : QLabelElement
+@interface QImageElement : QEntryElement
 
 @property (nonatomic, strong) UIImage *detailImage;
 @property (nonatomic, readonly, strong) UIImageView *detailImageView;

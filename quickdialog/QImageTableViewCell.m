@@ -16,50 +16,36 @@
 
 @synthesize detailImageView = _detailImageView;
 
-- (void)createSubviews {
-   _detailImageView = [[UIImageView alloc] init];
-   _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
-   _detailImageView.layer.cornerRadius = 4.0f;
-   _detailImageView.layer.masksToBounds = YES;
-   _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
-   _detailImageView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
-   _detailImageView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
-   [self.contentView addSubview:_detailImageView];
-   [self setNeedsLayout];
-}
-
 - (QImageTableViewCell *)init {
    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
    if (self!=nil){
-      self.selectionStyle = UITableViewCellSelectionStyleNone;
-      
       [self createSubviews];
+      self.selectionStyle = UITableViewCellSelectionStyleBlue;
    }
    return self;
 }
 
-- (CGRect)calculateFrameForEntryElement {
-   
-   CGFloat detailImageMargin = 2.0f;
-   CGFloat detailImageSize = self.contentView.frame.size.height - 2 * detailImageMargin;
-   
-   _imageElement.parentSection.entryPosition = CGRectMake(self.contentView.frame.size.width - detailImageMargin - detailImageSize,
-                                                          detailImageMargin, detailImageSize, detailImageSize);
-   
-   return _imageElement.parentSection.entryPosition;
+- (void)createSubviews {
+   _detailImageView = [[UIImageView alloc] init];
+   _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
+   _detailImageView.layer.cornerRadius = 7.0f;
+   _detailImageView.layer.masksToBounds = YES;
+   _detailImageView.layer.borderWidth = 1.0f;
+   _detailImageView.layer.borderColor = [UIColor colorWithWhite:0.0f alpha:0.2f].CGColor;
+   _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
+   _detailImageView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
+   _detailImageView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+   [self.contentView addSubview:_detailImageView];
+   [self setNeedsLayout];
 }
 
 - (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView {
+   [super prepareForElement:element inTableView:tableView];
    
-   _quickformTableView = tableView;
    _imageElement = element;
    
-   self.textLabel.text = element.title;
-   self.textLabel.textColor = [UIColor lightGrayColor];
-   self.textLabel.textAlignment = UITextAlignmentLeft;
    self.imageView.image = element.image;
    self.detailImageView.image = element.detailImage;
-   self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)layoutSubviews {
@@ -68,16 +54,18 @@
 }
 
 - (void)recalculateDetailImageViewPosition {
-   _imageElement.parentSection.entryPosition = CGRectZero;
-   _detailImageView.frame = [self calculateFrameForEntryElement];
+   
+   CGFloat detailImageMargin = 2.0f;
+   CGFloat detailImageSize = self.contentView.frame.size.height - 2 * detailImageMargin;
+   
+   _detailImageView.frame = CGRectMake(self.contentView.frame.size.width - detailImageMargin - detailImageSize,
+                                       detailImageMargin, detailImageSize, detailImageSize);
+    _imageElement.parentSection.entryPosition = _detailImageView.frame;
+   
    CGRect labelFrame = self.textLabel.frame;
+   CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-                                     _imageElement.parentSection.entryPosition.origin.x-20, labelFrame.size.height);
-}
-
-- (void)prepareForReuse {
-   _quickformTableView = nil;
-   _imageElement = nil;
+                                     _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
 }
 
 @end
