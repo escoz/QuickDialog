@@ -62,7 +62,15 @@
 - (void)loadView {
     [super loadView];
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
-    self.view = self.quickDialogTableView;
+}
+
+// default impl, replace self.view with the new value of self.quickDialogTableView
+//
+// Subclasses can provide their own impl and change where the new quickDialogTableView gets stored
+- (void)setQuickDialogTableView:(QuickDialogTableView *)tableView
+{
+    _quickDialogTableView = tableView;
+    self.view = tableView;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
