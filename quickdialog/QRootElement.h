@@ -32,6 +32,7 @@
 
 @property(nonatomic, retain) NSString *controllerName;
 @property(nonatomic, copy) void (^onValueChanged)(void);
+@property(nonatomic, copy) void (^onSearch)(NSString *searchText);
 
 @property(nonatomic, copy) NSString *emptyMessage;
 

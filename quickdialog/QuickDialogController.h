@@ -14,7 +14,7 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QuickDialogController : UIViewController {
+@interface QuickDialogController : UIViewController<UISearchBarDelegate> {
 
 @private
     QRootElement *_root;
