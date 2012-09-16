@@ -12,6 +12,10 @@
 // permissions and limitations under the License.
 //
 
+@interface QImageTableViewCell ()
+@property (nonatomic, retain) UIImageView *detailImageView;
+@end
+
 @implementation QImageTableViewCell
 
 @synthesize detailImageView = _detailImageView;
@@ -31,7 +35,7 @@
    _detailImageView.layer.cornerRadius = 7.0f;
    _detailImageView.layer.masksToBounds = YES;
    _detailImageView.layer.borderWidth = 1.0f;
-   _detailImageView.layer.borderColor = [UIColor colorWithWhite:0.0f alpha:0.2f].CGColor;
+   _detailImageView.layer.borderColor = [UIColor colorWithWhite:0.2f alpha:0.4f].CGColor;
    _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
    _detailImageView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
    _detailImageView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
@@ -45,7 +49,7 @@
    _imageElement = element;
    
    self.imageView.image = element.image;
-   self.detailImageView.image = element.detailImage;
+   self.detailImageView.image = element.detailImageValue;
 }
 
 - (void)layoutSubviews {

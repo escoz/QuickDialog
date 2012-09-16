@@ -20,21 +20,20 @@
 
 @implementation QImageElement
 
-@synthesize detailImage;
-@synthesize detailImageView;
+@synthesize detailImageValue;
 @synthesize imagePickerController;
 
 - (QImageElement *)initWithTitle:(NSString *)aTitle detailImage:(UIImage *)anImage {
    self = [super init];
    if (self) {
       self.title = aTitle;
-      self.detailImage = anImage;
+      self.detailImageValue = anImage;
    }
    return self;
 }
 
 - (void)setDetailImageNamed:(NSString *)name {
-   self.detailImage = [UIImage imageNamed:name];
+   self.detailImageValue = [UIImage imageNamed:name];
 }
 
 - (NSString *)detailImageNamed {
@@ -72,7 +71,7 @@
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-   self.detailImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+   self.detailImageValue = [info valueForKey:UIImagePickerControllerOriginalImage];
    [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
 }
 

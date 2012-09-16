@@ -19,8 +19,9 @@
 
 @interface QImageElement : QEntryElement
 
-@property (nonatomic, strong) UIImage *detailImage;
-@property (nonatomic, readonly, strong) UIImageView *detailImageView;
+@property (nonatomic, strong) UIImage *detailImageValue;
 @property (nonatomic, assign) NSString *detailImageNamed;
+
+- (QImageElement *)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
 
 @end
