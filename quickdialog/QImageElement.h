@@ -1,5 +1,5 @@
 //                                
-// Copyright 2011 ESCOZ Inc  - http://escoz.com
+// Copyright 2012 Ludovic Landry - http://about.me/ludoviclandry
 // 
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this 
 // file except in compliance with the License. You may obtain a copy of the License at 
@@ -12,26 +12,16 @@
 // permissions and limitations under the License.
 //
 
-#import "QLabelElement.h"
 
-@interface QBooleanElement : QLabelElement {
-    BOOL _boolValue;
-    BOOL _enabled;
-    UIImage *_onImage;
-    UIImage *_offImage;
-}
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "QRootElement.h"
 
-@property(nonatomic, retain) UIImage *onImage;
-@property(nonatomic, retain) UIImage *offImage;
-@property (nonatomic) BOOL boolValue;
-@property(nonatomic) BOOL enabled;
+@interface QImageElement : QEntryElement
 
-- (QBooleanElement *)initWithTitle:(NSString *)title boolValue:(BOOL)value;
+@property (nonatomic, strong) UIImage *detailImageValue;
+@property (nonatomic, assign) NSString *detailImageNamed;
 
-- (void)setOnImageName:(NSString *)name;
+- (QImageElement *)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
 
-- (void)setOffImageName:(NSString *)name;
-
-
-- (void)switched:(id)switched;
 @end

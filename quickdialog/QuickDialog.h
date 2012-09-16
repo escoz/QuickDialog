@@ -12,7 +12,6 @@
 // permissions and limitations under the License.
 //
 
-
 #import "QuickDialogController.h"
 #import "QuickDialogWebController.h"
 #import "QuickDialogController+Loading.h"
@@ -49,6 +48,8 @@
 #import "QSegmentedElement.h"
 #import "QMultilineTextViewController.h"
 #import "QMultilineElement.h"
+#import "QImageElement.h"
+#import "QImageTableViewCell.h"
 
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"

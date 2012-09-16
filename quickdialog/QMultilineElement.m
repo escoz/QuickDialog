@@ -19,7 +19,7 @@
 
 - (QMultilineElement *)initWithTitle:(NSString *)title value:(NSString *)text
 {
-    if ((self = [super initWithTitle:title Value:nil])) {
+    if ((self = [super initWithTitle:title value:nil])) {
         self.textValue = text;
     }
     return self;

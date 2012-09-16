@@ -42,7 +42,7 @@
 }
 
 - (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date {
-    self = [super initWithTitle:string Value:[date description]];
+    self = [super initWithTitle:string value:[date description]];
     if (self!=nil){
         _dateValue = date;
         _mode = UIDatePickerModeDateAndTime;
