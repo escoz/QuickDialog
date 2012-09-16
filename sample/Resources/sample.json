@@ -32,7 +32,7 @@
             ]
         } ,
         { "title":"Image Element", "elements":[
-            {  "type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90 },
+            {  "type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90 , "bind":"detailImageValue:photo" },
             {  "type":"QImageElement", "title":"ImagePicker", "imageNamed":"iPhone", "detailImageNamed":"icon", "height":90 }
         ]} ,
         { "elements":[

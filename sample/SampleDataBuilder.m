@@ -21,11 +21,11 @@
 
 + (QRootElement *)createWithInitDefault {
 
-    QRootElement *subForm = [[QRootElement alloc] init];
-    subForm.grouped = YES;
-    subForm.title = @"Default Initialization";
+   QRootElement *subForm = [[QRootElement alloc] init];
+   subForm.grouped = YES;
+   subForm.title = @"Default Initialization";
 	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
-    [subForm addSection:subsection];
+   [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] init]];
 	[subsection	addElement:[[QBadgeElement alloc] init]];
@@ -34,7 +34,7 @@
 	[subsection	addElement:[[QDateTimeInlineElement alloc] init]];
 	[subsection	addElement:[[QFloatElement alloc] init]];
 	[subsection	addElement:[[QMapElement alloc] init]];
-    [subsection	addElement:[[QPickerElement alloc] init]];
+   [subsection	addElement:[[QPickerElement alloc] init]];
 	[subsection	addElement:[[QRadioElement alloc] init]];
 	[subsection	addElement:[[QRadioItemElement alloc] init]];
 	[subsection	addElement:[[QTextElement alloc] init]];
@@ -46,14 +46,14 @@
 
 + (QRootElement *)createWithInitAndKey {
 	
-    QRootElement *subForm = [[QRootElement alloc] init];
-    subForm.grouped = YES;
-    subForm.title = @"Initialization With Key";
+   QRootElement *subForm = [[QRootElement alloc] init];
+   subForm.grouped = YES;
+   subForm.title = @"Initialization With Key";
 	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
-    [subForm addSection:subsection];
+   [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] initWithKey:@"Key1"]];
-    [subsection addElement:[[QMultilineElement alloc] initWithKey:@"Key3"]];
+   [subsection addElement:[[QMultilineElement alloc] initWithKey:@"Key3"]];
 	[subsection	addElement:[[QBadgeElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QBooleanElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QButtonElement alloc] initWithKey:@"Key1"]];
@@ -191,6 +191,10 @@
     element2.height = 70;
     [controls addElement:element2];
 
+    QImageElement *image = [[QImageElement alloc] initWithTitle:@"Image Picker" detailImage:[UIImage imageNamed:@"icon"]];
+    image.height = 90;
+    [controls addElement:image];
+
     [controls addElement:[QLoadingElement new]];
 
     QSection *btnSection = [[QSection alloc] init];
@@ -308,6 +312,32 @@
     [root addSection:customParserSection];
     
     return root;
+}
+
++ (QElement *)createImageRoot
+{
+   QRootElement *root = [[QRootElement alloc] init];
+   root.title = @"Image";
+   root.grouped = YES;
+
+   QSection *imageElementSection = [[QSection alloc] initWithTitle:@"Image Element"];
+
+   QImageElement *imagePickerEl = [[QImageElement alloc] initWithTitle:@"Photo Picker" detailImage:[UIImage imageNamed:@"icon"]];
+   imagePickerEl.height = 100.f;
+
+   [imageElementSection addElement:imagePickerEl];
+   [root addSection:imageElementSection];
+
+   QSection *imageElementSection2 = [[QSection alloc] initWithTitle:@"Image Element"];
+
+   QImageElement *imagePickerEl2 = [[QImageElement alloc] initWithTitle:@"Photo" detailImage:[UIImage imageNamed:@"icon"]];
+   imagePickerEl2.imageNamed = @"iPhone";
+   imagePickerEl2.height = 100.f;
+
+   [imageElementSection2 addElement:imagePickerEl2];
+   [root addSection:imageElementSection2];
+
+   return root;
 }
 
 + (QElement *)createSelectRoot
@@ -654,7 +684,7 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"QuickForms!";
-	QSection *sectionSamples = [[QSection alloc] init];
+         QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
@@ -669,14 +699,15 @@
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
     [sectionElements addElement:[self createPickerRoot]];
+    [sectionElements addElement:[self createImageRoot]];
     [sectionElements addElement:[self createSelectRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
     [sectionElements addElement:[self createSortingRoot]];
     [sectionElements addElement:[self createDynamicSectionRoot]];
-	[sectionElements addElement:[self createWithInitDefault]];
-	[sectionElements addElement:[self createWithInitAndKey]];
+         [sectionElements addElement:[self createWithInitDefault]];
+         [sectionElements addElement:[self createWithInitAndKey]];
 
     [root addSection:sectionSamples];
     [root addSection:sectionElements];
