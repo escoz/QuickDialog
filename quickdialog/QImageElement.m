@@ -14,14 +14,18 @@
 
 #import "QImageElement.h"
 
-@interface QImageElement () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface QImageElement () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
+
 @property (nonatomic, retain) UIImagePickerController *imagePickerController;
+@property (nonatomic, strong) UIPopoverController *popoverController;
+
 @end
 
 @implementation QImageElement
 
 @synthesize detailImageValue;
 @synthesize imagePickerController;
+@synthesize popoverController;
 
 - (QImageElement *)initWithTitle:(NSString *)aTitle detailImage:(UIImage *)anImage {
    self = [super init];
@@ -51,13 +55,28 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-   //[super selected:tableView controller:controller indexPath:path];
-   //[tableView deselectRowAtIndexPath:path animated:YES];
+   [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+   [tableView deselectRowAtIndexPath:path animated:YES];
 
    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-   [controller displayViewController:self.imagePickerController];
-}
 
+   BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
+   if (isPhone) {
+      [controller displayViewController:self.imagePickerController];
+   } else {
+      UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:path];
+      if ([tableViewCell isKindOfClass:[QImageTableViewCell class]]) {
+         UIView *presentingView = ((QImageTableViewCell *)tableViewCell).detailImageView;
+
+         UIPopoverController *aPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.imagePickerController];
+         [aPopoverController presentPopoverFromRect:presentingView.bounds
+                                             inView:presentingView
+                           permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+         aPopoverController.delegate = self;
+         self.popoverController = aPopoverController;
+      }
+   }
+}
 
 - (UIImagePickerController *)imagePickerController {
    if (!imagePickerController) {
@@ -67,16 +86,32 @@
    return imagePickerController;
 }
 
+- (void)dismissImagePickerController {
+   BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
+   if (isPhone) {
+      [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
+   } else {
+      [self.popoverController dismissPopoverAnimated:YES];
+   }
+}
+
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
    self.detailImageValue = [info valueForKey:UIImagePickerControllerOriginalImage];
-   [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
+   [self dismissImagePickerController];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-   [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
+   [self dismissImagePickerController];
+}
+
+#pragma mark -
+#pragma mark UIPopoverControllerDelegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+   self.popoverController = nil;
 }
 
 @end

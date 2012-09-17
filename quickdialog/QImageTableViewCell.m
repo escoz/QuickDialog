@@ -12,12 +12,17 @@
 // permissions and limitations under the License.
 //
 
+static NSString *kDetailImageValueObservanceContext = @"detailImageValue";
+
 @interface QImageTableViewCell ()
-@property (nonatomic, retain) UIImageView *detailImageView;
+
+@property (nonatomic, retain) QImageElement *imageElement;
+
 @end
 
 @implementation QImageTableViewCell
 
+@synthesize imageElement = _imageElement;
 @synthesize detailImageView = _detailImageView;
 
 - (QImageTableViewCell *)init {
@@ -25,6 +30,7 @@
    if (self!=nil){
       [self createSubviews];
       self.selectionStyle = UITableViewCellSelectionStyleBlue;
+      [self addObserver:self forKeyPath:@"imageElement.detailImageValue" options:0 context:(__bridge void *)(kDetailImageValueObservanceContext)];
    }
    return self;
 }
@@ -46,10 +52,10 @@
 - (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView {
    [super prepareForElement:element inTableView:tableView];
 
-   _imageElement = element;
+   self.imageElement = element;
 
-   self.imageView.image = element.image;
-   self.detailImageView.image = element.detailImageValue;
+   self.imageView.image = self.imageElement.image;
+   self.detailImageView.image = self.imageElement.detailImageValue;
 }
 
 - (void)layoutSubviews {
@@ -70,6 +76,18 @@
    CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
                                      _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+   if (context == (__bridge void *)(kDetailImageValueObservanceContext)) {
+      self.detailImageView.image = self.imageElement.detailImageValue;
+   } else {
+      [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+   }
+}
+
+- (void)dealloc {
+   [self removeObserver:self forKeyPath:@"imageElement.detailImageValue" context:(__bridge void *)(kDetailImageValueObservanceContext)];
 }
 
 @end

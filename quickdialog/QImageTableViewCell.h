@@ -26,6 +26,8 @@
    UIImageView *_detailImageView;
 }
 
+@property (nonatomic, retain) UIImageView *detailImageView;
+
 - (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView;
 - (void)createSubviews;
 
