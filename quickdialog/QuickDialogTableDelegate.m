@@ -109,7 +109,7 @@
     CGFloat stringFooterHeight = 28.0;
 
     if (section.footer != nil) {
-        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 20;
+        CGFloat maxWidth = tableView.frame.size.width - 40;
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
         CGSize expectedLabelSize = [section.footer sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
