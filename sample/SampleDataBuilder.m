@@ -525,6 +525,40 @@
     return root;
 }
 
++ (QRootElement *)createFilteringRoot {
+    
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Filtering";
+    root.grouped = YES;
+    
+    QSection *filteringSection = [[QSection alloc] init];
+    filteringSection.key = @"filteringSection";
+    
+    NSArray *items = [NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil];
+    
+    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:items selected:0 title:@"Filtering"];
+    
+    radioElement.onSearch = ^(NSString* searchTerm) {
+        radioElement.selectedItem = nil;
+        if ([searchTerm isEqualToString:@""]) {
+            radioElement.items = items;
+        } else {
+            radioElement.items = [items filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self CONTAINS[cd] %@", searchTerm]];
+        }
+    };
+    
+    radioElement.onSelected = ^{
+        id selectedItem = radioElement.selectedItem;
+        radioElement.items = items;
+        radioElement.selectedItem = selectedItem;
+    };
+    
+    [filteringSection addElement:radioElement];
+    
+    [root addSection:filteringSection];
+
+    return root;
+}
 
 + (QRootElement *)createSortingRoot {
 
@@ -674,6 +708,7 @@
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
     [sectionElements addElement:[self createSortingRoot]];
+    [sectionElements addElement:[self createFilteringRoot]];
     [sectionElements addElement:[self createDynamicSectionRoot]];
 	[sectionElements addElement:[self createWithInitDefault]];
 	[sectionElements addElement:[self createWithInitAndKey]];
