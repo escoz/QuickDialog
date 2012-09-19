@@ -23,9 +23,8 @@
 @synthesize items = _items;
 
 - (QSegmentedElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
-    self = [self initWithItems:valuesDictionary.allKeys selected:(NSUInteger) selected];
+    self = [self initWithItems:valuesDictionary.allKeys selected:(NSInteger)selected title:title];
     _values = valuesDictionary.allValues;
-    self.title = title;
     return self;
 }
 
