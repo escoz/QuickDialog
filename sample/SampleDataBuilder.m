@@ -139,6 +139,28 @@
     return sliders;
 }
 
++ (QRootElement *)createSegmentedRoot {
+    QRootElement *sliders = [[QRootElement alloc] init];
+    sliders.grouped = YES;
+    sliders.title = @"Segmented";
+    QSection *detailsSection = [[QSection alloc] initWithTitle:@"SegmentedElement"];
+    
+    [sliders addSection:detailsSection];
+    
+    [detailsSection addElement:[[QSegmentedElement alloc] initWithItems:[NSArray arrayWithObjects:@"1", @"2", @"3", nil]
+                                                               selected:1
+                                                                  title:@"Small"]];
+    
+    [detailsSection addElement:[[QSegmentedElement alloc] initWithItems:[NSArray arrayWithObjects:@"No", @"N/A", @"Yes", nil]
+                                                               selected:1
+                                                                  title:@"Medium"]];
+    
+    [detailsSection addElement:[[QSegmentedElement alloc] initWithItems:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil]
+                                                               selected:1
+                                                                  title:@"Large"]];
+    return sliders;
+}
+
 + (QElement *)createSampleControls {
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
@@ -667,6 +689,7 @@
     [sectionElements addElement:[self createLabelsRoot]];
     [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
+    [sectionElements addElement:[self createSegmentedRoot]];
     [sectionElements addElement:[self createRadioRoot]];
     [sectionElements addElement:[self createPickerRoot]];
     [sectionElements addElement:[self createSelectRoot]];
