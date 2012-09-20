@@ -22,18 +22,18 @@
         ]
         },
         { "title":"Entry Elements", "elements":[
-            {  "type":"QEntryElement", "title":"secureTextEntry", "placeholder":"Text", "secureTextEntry":true },
-            {  "type":"QEntryElement", "title":"enablesReturnKey", "placeholder":"Text", "enablesReturnKeyAutomatically":true },
-            {  "type":"QEntryElement", "title":"autocapitalizationType", "placeholder":"Words",  "autocapitalizationType":"Words" },
-            {  "type":"QEntryElement", "title":"autocorrectionType", "placeholder":"No",  "autocorrectionType":"No" },
-            {  "type":"QEntryElement", "title":"keyboardType", "placeholder":"PhonePad",  "keyboardType":"PhonePad" },
-            {  "type":"QEntryElement", "title":"keyboardAppearance", "placeholder":"Alert",  "keyboardAppearance":"Alert" },
-            {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
+            {"type":"QEntryElement", "title":"secureTextEntry", "placeholder":"Text", "secureTextEntry":true },
+            {"type":"QEntryElement", "title":"enablesReturnKey", "placeholder":"Text", "enablesReturnKeyAutomatically":true },
+            {"type":"QEntryElement", "title":"autocapitalizationType", "placeholder":"Words",  "autocapitalizationType":"Words" },
+            {"type":"QEntryElement", "title":"autocorrectionType", "placeholder":"No",  "autocorrectionType":"No" },
+            {"type":"QEntryElement", "title":"keyboardType", "placeholder":"PhonePad",  "keyboardType":"PhonePad" },
+            {"type":"QEntryElement", "title":"keyboardAppearance", "placeholder":"Alert",  "keyboardAppearance":"Alert" },
+            {"type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
             ]
         } ,
         { "title":"Image Element", "elements":[
-            {  "type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90 , "detailImageMaxLength":100, "bind":"detailImageValue:photo" },
-            {  "type":"QImageElement", "title":"ImagePicker", "imageNamed":"iPhone", "detailImageNamed":"icon", "detailImageMaxLength":10, "height":90 }
+            {"type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90, "detailImageMaxLength":100, "bind":"detailImageValue:photo" },
+            {"type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90, "detailImageMaxLength":50, "imageNamed":"iPhone" }
         ]} ,
         { "elements":[
             {"type":"QSegmentedElement", "items":["Senna", "Fittipaldi", "Schumacher"], "selected":1}
