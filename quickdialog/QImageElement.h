@@ -20,7 +20,8 @@
 @interface QImageElement : QEntryElement
 
 @property (nonatomic, strong) UIImage *detailImageValue;
-@property (nonatomic, assign) NSString *detailImageNamed;
+@property (nonatomic, strong) NSString *detailImageNamed;
+@property (nonatomic, assign) CGFloat detailImageMaxLength;
 
 - (QImageElement *)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
 

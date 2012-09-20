@@ -32,8 +32,8 @@
             ]
         } ,
         { "title":"Image Element", "elements":[
-            {  "type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90 , "bind":"detailImageValue:photo" },
-            {  "type":"QImageElement", "title":"ImagePicker", "imageNamed":"iPhone", "detailImageNamed":"icon", "height":90 }
+            {  "type":"QImageElement", "title":"ImagePicker", "detailImageNamed":"icon", "height":90 , "detailImageMaxLength":100, "bind":"detailImageValue:photo" },
+            {  "type":"QImageElement", "title":"ImagePicker", "imageNamed":"iPhone", "detailImageNamed":"icon", "detailImageMaxLength":10, "height":90 }
         ]} ,
         { "elements":[
             {"type":"QSegmentedElement", "items":["Senna", "Fittipaldi", "Schumacher"], "selected":1}

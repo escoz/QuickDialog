@@ -193,6 +193,7 @@
 
     QImageElement *image = [[QImageElement alloc] initWithTitle:@"Image Picker" detailImage:[UIImage imageNamed:@"icon"]];
     image.height = 90;
+    image.detailImageMaxLength = 180;
     [controls addElement:image];
 
     [controls addElement:[QLoadingElement new]];
@@ -323,6 +324,7 @@
    QSection *imageElementSection = [[QSection alloc] initWithTitle:@"Image Element"];
 
    QImageElement *imagePickerEl = [[QImageElement alloc] initWithTitle:@"Photo Picker" detailImage:[UIImage imageNamed:@"icon"]];
+   imagePickerEl.detailImageMaxLength = 150.f;
    imagePickerEl.height = 100.f;
 
    [imageElementSection addElement:imagePickerEl];
@@ -330,8 +332,9 @@
 
    QSection *imageElementSection2 = [[QSection alloc] initWithTitle:@"Image Element"];
 
-   QImageElement *imagePickerEl2 = [[QImageElement alloc] initWithTitle:@"Photo" detailImage:[UIImage imageNamed:@"icon"]];
+   QImageElement *imagePickerEl2 = [[QImageElement alloc] initWithTitle:@"Photo (reduced 50%)" detailImage:[UIImage imageNamed:@"icon"]];
    imagePickerEl2.imageNamed = @"iPhone";
+   imagePickerEl2.detailImageMaxLength = 50.f;
    imagePickerEl2.height = 100.f;
 
    [imageElementSection2 addElement:imagePickerEl2];

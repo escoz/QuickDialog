@@ -24,6 +24,7 @@
 @implementation QImageElement
 
 @synthesize detailImageValue;
+@synthesize detailImageMaxLength;
 @synthesize imagePickerController;
 @synthesize popoverController;
 
@@ -32,12 +33,14 @@
    if (self) {
       self.title = aTitle;
       self.detailImageValue = anImage;
+      self.detailImageMaxLength = FLT_MAX;
    }
    return self;
 }
 
 - (void)setDetailImageNamed:(NSString *)name {
    self.detailImageValue = [UIImage imageNamed:name];
+   [self reducedImageIfNeeded];
 }
 
 - (NSString *)detailImageNamed {
@@ -95,11 +98,26 @@
    }
 }
 
+- (void)reducedImageIfNeeded {
+   if (self.detailImageValue.size.width > self.detailImageMaxLength || self.detailImageValue.size.height > self.detailImageMaxLength) {
+                float scale = self.detailImageMaxLength / MAX(self.detailImageValue.size.width, self.detailImageValue.size.height);
+      CGSize scaledSize = CGSizeMake(self.detailImageValue.size.width*scale, self.detailImageValue.size.height*scale);
+
+      UIGraphicsBeginImageContext(scaledSize);
+      [self.detailImageValue drawInRect:CGRectMake(0, 0, scaledSize.width, scaledSize.height)];
+      self.detailImageValue = UIGraphicsGetImageFromCurrentImageContext();
+      UIGraphicsEndImageContext();
+        }
+}
+
 #pragma mark -
 #pragma mark UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
    self.detailImageValue = [info valueForKey:UIImagePickerControllerOriginalImage];
+   [self reducedImageIfNeeded];
+
    [self dismissImagePickerController];
 }
 
