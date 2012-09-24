@@ -37,6 +37,9 @@
 @property(nonatomic, retain) NSString *title;
 @property(nonatomic, retain) NSString *footer;
 @property(nonatomic, retain) NSMutableArray * elements;
+@property(nonatomic, retain) NSMutableArray * beforeTemplateElements;
+@property(nonatomic, retain) NSMutableArray * afterTemplateElements;
+
 @property(nonatomic, assign) QRootElement *rootElement;
 
 @property(nonatomic, readonly) BOOL needsEditing;

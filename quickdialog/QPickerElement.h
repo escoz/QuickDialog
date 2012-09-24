@@ -9,7 +9,6 @@
 }
 
 @property (nonatomic, strong) id<QPickerValueParser> valueParser;
-@property (nonatomic, copy) void (^onValueChanged)(void);
 
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, readonly) NSArray *selectedIndexes;

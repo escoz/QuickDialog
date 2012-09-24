@@ -14,11 +14,14 @@
 
 @implementation QEntryElement
 
+
 @synthesize textValue = _textValue;
 @synthesize placeholder = _placeholder;
 @synthesize prefix = _prefix;
 @synthesize suffix = _suffix;
 @synthesize hiddenToolbar = _hiddenToolbar;
+
+@synthesize onValueChanged = _onValueChanged;
 
 @synthesize delegate = _delegate;
 
@@ -72,6 +75,9 @@
 	[obj setValue:_textValue forKey:_key];
 }
 
+- (BOOL)canTakeFocus {
+    return YES;
+}
 
 #pragma mark - UITextInputTraits
 
@@ -84,6 +90,7 @@
 @synthesize secureTextEntry = _secureTextEntry;
 @synthesize clearsOnBeginEditing = _clearsOnBeginEditing;
 @synthesize accessoryType = _accessoryType;
+@synthesize customDateFormat = _customDateFormat;
 
 
 @end

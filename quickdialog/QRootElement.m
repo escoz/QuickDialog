@@ -17,6 +17,7 @@
 @implementation QRootElement {
 @private
     NSDictionary *_sectionTemplate;
+    void (^_onValueChanged)();
 }
 
 
@@ -26,6 +27,7 @@
 @synthesize controllerName = _controllerName;
 @synthesize sectionTemplate = _sectionTemplate;
 @synthesize emptyMessage = _emptyMessage;
+@synthesize onValueChanged = _onValueChanged;
 
 
 - (QRootElement *)init {

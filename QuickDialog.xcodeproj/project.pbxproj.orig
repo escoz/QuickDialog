@@ -167,12 +167,15 @@
 		F2F23A21152DD48B00EB6685 /* QPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1A152DD48B00EB6685 /* QPickerElement.m */; };
 		F2F23A22152DD48B00EB6685 /* QPickerTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1B152DD48B00EB6685 /* QPickerTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2F23A23152DD48B00EB6685 /* QPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1C152DD48B00EB6685 /* QPickerTableViewCell.m */; };
+<<<<<<< HEAD
 		F2F23A24152DD48B00EB6685 /* QPickerValueParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1D152DD48B00EB6685 /* QPickerValueParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2F23A25152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1E152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2F23A26152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1F152DD48B00EB6685 /* QPickerWhitespaceDelimitedStringParser.m */; };
+=======
 		F2F23A24152DD48B00EB6685 /* QPickerValueParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1D152DD48B00EB6685 /* QPickerValueParser.h */; };
 		F2F23A25152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A1E152DD48B00EB6685 /* QPickerTabDelimitedStringParser.h */; };
 		F2F23A26152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A1F152DD48B00EB6685 /* QPickerTabDelimitedStringParser.m */; };
+>>>>>>> upstream/master
 		F2F23A26152DD48B00EB6687 /* QuickDialogController+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */; };
 		F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
