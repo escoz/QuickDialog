@@ -47,6 +47,7 @@
                 82582AD016002C5B0057A072 /* QImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 82582ACC16002C5B0057A072 /* QImageElement.m */; };
                 82582AD116002C5B0057A072 /* QImageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 82582ACD16002C5B0057A072 /* QImageTableViewCell.h */; };
                 82582AD216002C5B0057A072 /* QImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82582ACE16002C5B0057A072 /* QImageTableViewCell.m */; };
+                82CD1AE01617DAC60021FB49 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 82CD1ADF1617DAC60021FB49 /* Default-568h@2x.png */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -182,6 +183,7 @@
                 82582ACC16002C5B0057A072 /* QImageElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QImageElement.m; path = quickdialog/QImageElement.m; sourceTree = SOURCE_ROOT; };
                 82582ACD16002C5B0057A072 /* QImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QImageTableViewCell.h; path = quickdialog/QImageTableViewCell.h; sourceTree = SOURCE_ROOT; };
                 82582ACE16002C5B0057A072 /* QImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QImageTableViewCell.m; path = quickdialog/QImageTableViewCell.m; sourceTree = SOURCE_ROOT; };
+                82CD1ADF1617DAC60021FB49 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -393,6 +395,7 @@
 		D80B0E2813E052DF00FA85CA = {
 			isa = PBXGroup;
 			children = (
+                                82CD1ADF1617DAC60021FB49 /* Default-568h@2x.png */,
 				2CE450A8145ADF8000B77D0E /* libQuickDialog */,
 				D860356713E0534000CB1785 /* quickdialog */,
 				D80B0E3D13E052DF00FA85CA /* sample */,
@@ -798,6 +801,7 @@
 				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
 				D86249FC14BB5AB5002F0585 /* sample.json in Resources */,
 				D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */,
+                                82CD1AE01617DAC60021FB49 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
