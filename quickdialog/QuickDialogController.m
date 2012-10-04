@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import "QuickDialogController.h"
 
 @interface QuickDialogController ()
 
@@ -62,7 +63,13 @@
 - (void)loadView {
     [super loadView];
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
-    self.view = self.quickDialogTableView;
+}
+
+// default impl
+- (void)setQuickDialogTableView:(QuickDialogTableView *)tableView
+{
+    _quickDialogTableView = tableView;
+    self.view = tableView;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
