@@ -26,6 +26,11 @@
     return self;
 }
 
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return [super getCellForTableView:tableView controller:controller];
+}
+
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     [self handleElementSelected:controller];

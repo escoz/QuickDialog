@@ -6,14 +6,12 @@
 {
 @private
     NSArray *_items;
-    void (^_onValueChanged)();
     
     UIPickerView *_pickerView;
 }
 
 @synthesize items = _items;
 @synthesize valueParser = _valueParser;
-@synthesize onValueChanged = _onValueChanged;
 
 - (QPickerElement *)init
 {

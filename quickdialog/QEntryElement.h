@@ -34,6 +34,7 @@
 
 @property(nonatomic) UITextAutocapitalizationType autocapitalizationType; // default is UITextAutocapitalizationTypeSentences
 @property(nonatomic) UITextAutocorrectionType autocorrectionType;         // default is UITextAutocorrectionTypeDefault
+@property(nonatomic) UITextAlignment textAlignment;                       // default is UITextAlignmentLeft
 @property(nonatomic) UIKeyboardType keyboardType;                         // default is UIKeyboardTypeDefault
 @property(nonatomic) UIKeyboardAppearance keyboardAppearance;             // default is UIKeyboardAppearanceDefault
 @property(nonatomic) UIReturnKeyType returnKeyType;                       // default is UIReturnKeyDefault (See note under UIReturnKeyType enum)
@@ -41,6 +42,7 @@
 @property(nonatomic,getter=isSecureTextEntry) BOOL secureTextEntry;       // default is NO
 @property(nonatomic, assign) BOOL clearsOnBeginEditing;                   // default is NO
 
+@property(nonatomic, copy) NSString *customDateFormat;
 
 - (QEntryElement *)init;
 - (QEntryElement *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;

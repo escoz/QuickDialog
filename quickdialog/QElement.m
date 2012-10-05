@@ -94,7 +94,7 @@
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
-    return _height > 44 ? _height : 44;
+    return _height > 0 ? _height : 44;
 }
 
 - (void)fetchValueIntoObject:(id)obj {
