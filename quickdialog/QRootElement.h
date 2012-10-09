@@ -53,6 +53,9 @@ typedef enum  {
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
 
+- (QSection *)getVisibleSectionForIndex:(NSInteger)index;
+- (NSInteger)visibleNumberOfSections;
+- (NSUInteger)getVisibleIndexForSection: (QSection*)section;
 
 - (void)fetchValueIntoObject:(id)obj;
 

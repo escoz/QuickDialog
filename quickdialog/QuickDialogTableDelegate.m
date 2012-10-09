@@ -20,15 +20,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+    QElement * element = [section getVisibleElementForIndex: indexPath.row];
 
     [element selectedAccessory:_tableView controller:_tableView.controller indexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+    QElement * element = [section getVisibleElementForIndex: indexPath.row];
 
     [element selected:_tableView controller:_tableView.controller indexPath:indexPath];
 }
@@ -43,7 +43,7 @@
 
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
     return section.canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 
@@ -52,24 +52,24 @@
 }
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    BOOL isDestinationOK = [[_tableView.root getSectionForIndex:proposedDestinationIndexPath.section] isKindOfClass:[QSortingSection class]];
+    BOOL isDestinationOK = [[_tableView.root getVisibleSectionForIndex:proposedDestinationIndexPath.section] isKindOfClass:[QSortingSection class]];
     return isDestinationOK ? proposedDestinationIndexPath : sourceIndexPath;
 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-    QElement * element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+    QElement * element = [section getVisibleElementForIndex: indexPath.row];
     return [element getRowHeightForTableView:(QuickDialogTableView *) tableView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)index {
-    QSection *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:index];
 
     if (section.headerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionHeaderWillAppearForSection:atIndex:)]){
         [_tableView.styleProvider sectionHeaderWillAppearForSection:section atIndex:index];
     }
-
+    
     if (section.headerView!=nil)
             return section.headerView.frame.size.height;
 
@@ -97,12 +97,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)index {
-    QSection *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:index];
 
     if (section.footerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionFooterWillAppearForSection:atIndex:)]){
         [_tableView.styleProvider sectionFooterWillAppearForSection:section atIndex:index];
     }
-
+    
     if (section.footerView!=nil)
         return section.footerView.frame.size.height;
 
@@ -110,21 +110,21 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    QSection *section = [_tableView.root getSectionForIndex:indexPath.section];
-    QElement *element = [section.elements objectAtIndex:(NSUInteger) indexPath.row];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+    QElement *element = [section getVisibleElementForIndex: indexPath.row];
     if (_tableView.styleProvider != nil) {
         [_tableView.styleProvider cell:cell willAppearForElement:element atIndexPath:indexPath];
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
-    QSection *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:index];
 
     return section.headerView;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
-    QSection *section = [_tableView.root getSectionForIndex:index];
+    QSection *section = [_tableView.root getVisibleSectionForIndex:index];
     return section.footerView;
 }
 

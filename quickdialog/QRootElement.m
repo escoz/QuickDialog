@@ -53,6 +53,38 @@
     return [_sections count];
 }
 
+- (QSection *)getVisibleSectionForIndex:(NSInteger)index
+{
+    for (QSection * q in _sections)
+    {
+        if (!q.hidden && index-- == 0)
+            return q;
+    }
+    return nil;
+}
+- (NSInteger)visibleNumberOfSections
+{
+    NSUInteger c = 0;
+    for (QSection * q in _sections)
+    {
+        if (!q.hidden)
+            c++;
+    }
+    return c;
+}
+- (NSUInteger)getVisibleIndexForSection: (QSection*)section
+{
+    NSUInteger c = 0;
+    for (QSection * q in _sections)
+    {
+        if (q == section)
+            return c;
+        if (!q.hidden)
+            ++c;
+    }
+    return NSNotFound;
+}
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -79,10 +111,10 @@
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)obj {
+    [super fetchValueUsingBindingsIntoObject:obj];
     for (QSection *s in _sections){
         [s fetchValueUsingBindingsIntoObject:obj];
     }
-    [super fetchValueUsingBindingsIntoObject:obj];
 }
 
 - (void)bindToObject:(id)data {
