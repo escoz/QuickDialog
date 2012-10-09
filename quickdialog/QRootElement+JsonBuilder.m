@@ -60,7 +60,7 @@
 }
 
 + (QRootElement *)rootForJSON:(NSString *)json {
-    QRootElement *root = [[QRootElement alloc] initWithJSONFile:json];
+    QRootElement *root = [[self alloc] initWithJSONFile:json];
     return root;
 }
 
