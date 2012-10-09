@@ -22,6 +22,7 @@
 - (QRootElement *)buildWithObject:(id)obj;
 
 + (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value localized:(BOOL)shouldLocalize;
++ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value localizedFrom:(NSString*)table;
 
 - (QElement *)buildElementWithObject:(id)obj;
 

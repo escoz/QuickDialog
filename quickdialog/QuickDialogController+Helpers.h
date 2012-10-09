@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-NSString *QTranslate(NSString *value);
+NSString *QTranslate(NSString *value, NSString* table);
 
 
 @interface QuickDialogController (Helpers)
