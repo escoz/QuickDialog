@@ -29,6 +29,8 @@
 @synthesize controllerAction = _controllerAction;
 @synthesize object = _object;
 @synthesize height = _height;
+@synthesize hidden = _hidden;
+@dynamic visibleIndex;
 @synthesize controllerAccessoryAction = _controllerAccessoryAction;
 
 @synthesize labelingPolicy = _labelingPolicy;
@@ -50,7 +52,7 @@
     if (cell == nil){
         cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     }
-
+    
     cell.textLabel.text = nil; 
     cell.detailTextLabel.text = nil; 
     cell.imageView.image = nil; 
@@ -82,7 +84,7 @@
             if ([controller respondsToSelector:selector]) {
                 objc_msgSend(controller,selector, self);
             }  else {
-                NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [controller class]);
+                NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [controller class]);
             }
         }
 }
@@ -97,6 +99,16 @@
     return _height > 0 ? _height : 44;
 }
 
+- (NSUInteger) visibleIndex
+{
+    return [self.parentSection getVisibleIndexForElement:self];
+}
+- (NSIndexPath*) getIndexPath
+{
+    if (self.hidden || _parentSection.hidden)
+        return nil;
+    return [NSIndexPath indexPathForRow:self.visibleIndex inSection:_parentSection.visibleIndex];
+}
 - (void)fetchValueIntoObject:(id)obj {
 }
 

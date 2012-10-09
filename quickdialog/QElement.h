@@ -25,6 +25,7 @@
     NSString *_bind;
 	
 	CGFloat _height;
+    BOOL _hidden;
 
     void (^_onSelected)(void);
     NSString * _controllerAction;
@@ -35,6 +36,8 @@
 @property(nonatomic, retain) NSString *controllerAccessoryAction;
 
 @property(nonatomic) CGFloat height;
+@property(nonatomic) BOOL    hidden;
+@property(nonatomic,readonly) NSUInteger visibleIndex;
 
 @property(nonatomic, assign) QSection *parentSection;
 
@@ -45,6 +48,8 @@
 @property (nonatomic) QLabelingPolicy labelingPolicy;
 
 - (QElement *)initWithKey:(NSString *)key;
+
+- (NSIndexPath*) getIndexPath;
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
 

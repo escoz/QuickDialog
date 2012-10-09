@@ -18,8 +18,8 @@
 
 @private
     QRootElement *_root;
-    id <UITableViewDataSource> _dataSource;
-    id <UITableViewDelegate> _delegate;
+    //    id <UITableViewDataSource> _dataSource;
+    //    id <UITableViewDelegate> _delegate;
     QuickDialogTableView * _quickDialogTableView;
 
     void (^_willDisappearCallback)(void);
