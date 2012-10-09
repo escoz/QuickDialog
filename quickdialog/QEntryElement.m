@@ -12,8 +12,9 @@
 // permissions and limitations under the License.
 //
 
-@implementation QEntryElement
-
+@implementation QEntryElement  {
+    __unsafe_unretained QuickDialogController *_controller;
+}
 
 @synthesize textValue = _textValue;
 @synthesize placeholder = _placeholder;
@@ -56,6 +57,7 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
+    _controller = controller;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = YES;
     cell.textField.userInteractionEnabled = YES;
@@ -68,6 +70,11 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     [super selected:tableView controller:controller indexPath:indexPath];
 
+}
+
+- (void) fieldDidEndEditing
+{
+    [self handleElementSelected:_controller];
 }
 
 - (void)fetchValueIntoObject:(id)obj {
