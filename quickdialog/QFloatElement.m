@@ -17,6 +17,8 @@
 @implementation QFloatElement
 
 @synthesize floatValue = _floatValue;
+@synthesize minimumValue = _minimumValue;
+@synthesize maximumValue = _maximumValue;
 
 - (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;
@@ -58,6 +60,8 @@
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, [self calculateSliderWidth:tableView cell:cell], 20)];
     [slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     slider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    slider.minimumValue = _minimumValue;
+    slider.maximumValue = _maximumValue;
     slider.value = _floatValue;
     cell.accessoryView = slider;
     return cell;

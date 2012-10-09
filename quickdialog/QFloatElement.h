@@ -16,11 +16,15 @@
 #import "QLabelElement.h"
 
 @interface QFloatElement : QLabelElement {
-
+    
     float _floatValue;
+    float _minimumValue;
+    float _maximumValue;
 }
 
 @property(nonatomic, assign) float floatValue;
+@property(nonatomic, assign) float minimumValue;
+@property(nonatomic, assign) float maximumValue;
 
 
 - (QFloatElement *)initWithTitle:(NSString *)string value:(float)value;
