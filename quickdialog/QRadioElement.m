@@ -26,12 +26,11 @@
 - (void)createElements {
     _sections = nil;
     _internalRadioItemsSection = [[QSection alloc] init];
-    _parentSection = _internalRadioItemsSection;
 
-    [self addSection:_parentSection];
+    [self addSection:_internalRadioItemsSection];
 
     for (NSUInteger i=0; i< [_items count]; i++){
-        [_parentSection addElement:[[QRadioItemElement alloc] initWithIndex:i RadioElement:self]];
+        [_internalRadioItemsSection addElement:[[QRadioItemElement alloc] initWithIndex:i RadioElement:self]];
     }
 }
 
@@ -41,15 +40,17 @@
 }
 
 -(NSObject *)selectedValue {
+    if (_selected < 0 || _selected >= _values.count)
+        return nil;
     return [_values objectAtIndex:(NSUInteger) _selected];
 }
 
 -(void)setSelectedValue:(NSObject *)aSelected {
-    if ([aSelected isKindOfClass:[NSNumber class]]) {
-    _selected = [(NSNumber *)aSelected integerValue];
-    } else {
-    _selected = [_values indexOfObject:aSelected];
-    }
+    NSUInteger idx = [_values indexOfObject:aSelected];
+    if (idx == NSNotFound && [aSelected isKindOfClass:[NSNumber class]])
+        idx = [(NSNumber *)aSelected integerValue];
+    
+    _selected = idx;
 }
 
 
