@@ -62,3 +62,7 @@
 #import "QRootBuilder.h"
 
 #import "QTextField.h"
+
+#import "QColorPickerElement.h"
+#import "QColorPickerViewController.h"
+#import "UIColor+ColorUtilities.h"
