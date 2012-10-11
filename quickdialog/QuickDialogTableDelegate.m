@@ -104,22 +104,9 @@
     }
 
     if (section.footerView!=nil)
-            return section.footerView.frame.size.height;
+        return section.footerView.frame.size.height;
 
-    CGFloat stringFooterHeight = 28.0;
-
-    if (section.footer != nil) {
-        CGFloat maxWidth = tableView.frame.size.width - 40;
-        CGFloat maxHeight = 9999;
-        CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
-        CGSize expectedLabelSize = [section.footer sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
-                                              constrainedToSize:maximumLabelSize
-                                                  lineBreakMode:UILineBreakModeWordWrap];
-
-        stringFooterHeight = expectedLabelSize.height+5;
-    }
-
-    return section.footer != NULL? stringFooterHeight : 0;
+    return section.footer != NULL? -1 : 0;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
