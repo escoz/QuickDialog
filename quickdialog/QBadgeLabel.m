@@ -46,11 +46,14 @@
 
 	CGContextSaveGState(context);
     CGContextSetFillColorWithColor(context, [_badgeColor CGColor]);
+    CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
+    CGContextSetLineWidth(context, 1.0);
+    CGContextSetLineJoin(context, kCGLineJoinRound);
 	CGContextBeginPath(context);
 	CGContextAddArc(context, 0+radius, radius, radius, (CGFloat)M_PI_2 , 3.0f * (CGFloat)M_PI_2, NO);
 	CGContextAddArc(context, 0 + self.frame.size.width-radius, radius, radius, 3.0f * (CGFloat)M_PI_2, (CGFloat)M_PI_2, NO);
 	CGContextClosePath(context);
-	CGContextFillPath(context);
+	CGContextDrawPath(context, kCGPathFillStroke);
 	CGContextRestoreGState(context);
 
     [super drawRect:rect];
