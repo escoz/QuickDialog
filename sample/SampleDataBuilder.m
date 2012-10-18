@@ -275,19 +275,14 @@
     root.grouped = YES;
     
     QSection *simplePickerSection = [[QSection alloc] initWithTitle:@"Picker element"];
+
+    NSArray *component1 = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"];
+    NSArray *component2 = @[@"A", @"B"];
     
-    NSMutableArray *component1 = [NSMutableArray array];
-    for (int i = 1; i <= 12; i++) {
-        [component1 addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    
-    NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
-    
-    QPickerElement *simplePickerEl =
-        [[QPickerElement alloc] initWithTitle:@"Key"
-                                        items:[NSArray arrayWithObjects:component1, component2, nil]
-                                        value:@"3 B"];
-    simplePickerEl.onValueChanged = ^{ NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]); };
+    QPickerElement *simplePickerEl = [[QPickerElement alloc] initWithTitle:@"Key" items:@[component1, component2] value:@"3\tB"];
+    simplePickerEl.onValueChanged = ^{
+        NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]);
+    };
     
     [simplePickerSection addElement:simplePickerEl];
     [root addSection:simplePickerSection];
