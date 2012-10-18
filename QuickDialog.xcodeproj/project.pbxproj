@@ -144,6 +144,8 @@
 		F209CEE41536AB100043F61C /* PeriodPickerValueParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F209CEE31536AB100043F61C /* PeriodPickerValueParser.m */; };
 		F2304357156CDFDD006D0A56 /* QTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = F2304355156CDFDD006D0A56 /* QTextField.h */; };
 		F2304358156CDFDD006D0A56 /* QTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F2304356156CDFDD006D0A56 /* QTextField.m */; };
+		F23EC16F162F123D004AB783 /* QSelectElement.h in Headers */ = {isa = PBXBuildFile; fileRef = F23EC16D162F123D004AB783 /* QSelectElement.h */; };
+		F23EC170162F123D004AB783 /* QSelectElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F23EC16E162F123D004AB783 /* QSelectElement.m */; };
 		F2E6149E151C9E4D00F36976 /* QSelectSection.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E6149C151C9E4D00F36976 /* QSelectSection.h */; };
 		F2E6149F151C9E4D00F36976 /* QSelectSection.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E6149D151C9E4D00F36976 /* QSelectSection.m */; };
 		F2E614A2151CA1A100F36976 /* QSelectItemElement.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E614A0151CA1A100F36976 /* QSelectItemElement.h */; };
@@ -322,6 +324,8 @@
 		F209CEE31536AB100043F61C /* PeriodPickerValueParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeriodPickerValueParser.m; path = sample/PeriodPickerValueParser.m; sourceTree = SOURCE_ROOT; };
 		F2304355156CDFDD006D0A56 /* QTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTextField.h; path = quickdialog/QTextField.h; sourceTree = SOURCE_ROOT; };
 		F2304356156CDFDD006D0A56 /* QTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTextField.m; path = quickdialog/QTextField.m; sourceTree = SOURCE_ROOT; };
+		F23EC16D162F123D004AB783 /* QSelectElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSelectElement.h; path = quickdialog/QSelectElement.h; sourceTree = SOURCE_ROOT; };
+		F23EC16E162F123D004AB783 /* QSelectElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSelectElement.m; path = quickdialog/QSelectElement.m; sourceTree = SOURCE_ROOT; };
 		F2E6149C151C9E4D00F36976 /* QSelectSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSelectSection.h; path = quickdialog/QSelectSection.h; sourceTree = SOURCE_ROOT; };
 		F2E6149D151C9E4D00F36976 /* QSelectSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSelectSection.m; path = quickdialog/QSelectSection.m; sourceTree = SOURCE_ROOT; };
 		F2E614A0151CA1A100F36976 /* QSelectItemElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSelectItemElement.h; path = quickdialog/QSelectItemElement.h; sourceTree = SOURCE_ROOT; };
@@ -567,6 +571,8 @@
 				D811F8B113EC905B00E3922B /* QRadioItemElement.m */,
 				D811F8B213EC905B00E3922B /* QRadioSection.h */,
 				D811F8B313EC905B00E3922B /* QRadioSection.m */,
+				F23EC16D162F123D004AB783 /* QSelectElement.h */,
+				F23EC16E162F123D004AB783 /* QSelectElement.m */,
 				F2E6149C151C9E4D00F36976 /* QSelectSection.h */,
 				F2E6149D151C9E4D00F36976 /* QSelectSection.m */,
 				F2E614A0151CA1A100F36976 /* QSelectItemElement.h */,
@@ -684,6 +690,7 @@
 				F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */,
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
+				F23EC16F162F123D004AB783 /* QSelectElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +848,7 @@
 				F2F23A26152DD48B00EB6687 /* QuickDialogController+Helpers.m in Sources */,
 				D894F38B15559D34000E3C0F /* NSMutableArray+IMSExtensions.m in Sources */,
 				F2304358156CDFDD006D0A56 /* QTextField.m in Sources */,
+				F23EC170162F123D004AB783 /* QSelectElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
