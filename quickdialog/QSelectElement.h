@@ -16,7 +16,7 @@ typedef NSComparisonResult (^QSelectItemsSortBlock)(id value1, id title1, id val
 @interface QSelectElement : QEntryElement
 
 @property (nonatomic, retain, readonly) NSIndexSet *selectedIndexes;
-@property (nonatomic, retain) NSArray *selectedValues;
+@property (nonatomic, copy) NSArray *selectedValues;
 
 - (QSelectElement *)initWithItemTitles:(NSArray *)itemTitlesArray
                        selectedIndexes:(NSIndexSet *)selectedIndex

@@ -28,7 +28,7 @@
     if (self = [super initWithTitle:title Value:nil Placeholder:nil])
     {
         _valuesToTitlesDict = valuesToTitlesDict ? valuesToTitlesDict : @{};
-        _selectedValues = selectedValues ? selectedValues : @[];
+        _selectedValues = selectedValues ? [selectedValues copy] : @[];
 
         _sortBlock = sortBlock ? _sortBlock : ^(id key1, id value1, id key2, id value2) {
             return [key1 compare:key2];
