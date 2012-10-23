@@ -158,6 +158,10 @@
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
         [_entryElement.delegate QEntryEditingChangedForElement:_entryElement andCell:self];
     }
+    
+    if(_entryElement.onValueChanged) {
+        _entryElement.onValueChanged();
+    }
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
