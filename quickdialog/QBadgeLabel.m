@@ -36,13 +36,12 @@
     [super setFrame:newFrame];
 }
 
-
 - (void) drawRect:(CGRect)rect
 {
     [self sizeToFit];
 
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	float radius = self.frame.size.height / 2.0f;
+	float radius = self.frame.size.height / 2.0f - 1;
 
 	CGContextSaveGState(context);
     CGContextSetFillColorWithColor(context, [_badgeColor CGColor]);
@@ -50,8 +49,8 @@
     CGContextSetLineWidth(context, 1.0);
     CGContextSetLineJoin(context, kCGLineJoinRound);
 	CGContextBeginPath(context);
-	CGContextAddArc(context, 0+radius, radius, radius, (CGFloat)M_PI_2 , 3.0f * (CGFloat)M_PI_2, NO);
-	CGContextAddArc(context, 0 + self.frame.size.width-radius, radius, radius, 3.0f * (CGFloat)M_PI_2, (CGFloat)M_PI_2, NO);
+	CGContextAddArc(context, 0+radius+1.5, radius+1.5, radius, (CGFloat)M_PI_2 , 3.0f * (CGFloat)M_PI_2, NO);
+	CGContextAddArc(context, 0 + self.frame.size.width-radius, radius+1.5, radius, 3.0f * (CGFloat)M_PI_2, (CGFloat)M_PI_2, NO);
 	CGContextClosePath(context);
 	CGContextDrawPath(context, kCGPathFillStroke);
 	CGContextRestoreGState(context);

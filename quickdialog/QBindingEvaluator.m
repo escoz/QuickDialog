@@ -122,6 +122,66 @@
     }
 }
 
+- (NSMutableArray*)fetchCollectionFromSection:(QSection*)section toData:(id)data {
+    NSMutableArray * collection = [NSMutableArray new];
+    
+    for (NSUInteger i = 0; i < section.beforeTemplateElements.count; ++i)
+    {
+        QElement * el = [section.elements objectAtIndex:i];
+        [el fetchValueUsingBindingsIntoObject:data];
+    }
+    
+    for (NSUInteger i = section.beforeTemplateElements.count; i < section.elements.count - section.afterTemplateElements.count; ++i)
+    {
+        QElement * el = [section.elements objectAtIndex:i];
+        for (NSString *each in [el.bind componentsSeparatedByString:@","])
+        {
+            NSArray *bindingParams = [each componentsSeparatedByString:@":"];
+            NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if ([valueName isEqualToString:@"self"])
+            {
+                id obj = [el valueForKeyPath:propName];
+                [el fetchValueUsingBindingsIntoObject:obj];
+                [collection addObject:obj];
+            }
+        }
+    }
+    
+    for (NSUInteger i = section.elements.count - section.afterTemplateElements.count; i < section.elements.count; ++i)
+    {
+        QElement * el = [section.elements objectAtIndex:i];
+        [el fetchValueUsingBindingsIntoObject:data];
+    }
+    return collection;
+}
+
+- (void)fetchValueFromSection:(QSection *)section toData:(id)data
+{
+    if (section.bind == nil || ([section.bind length] == 0)) {
+        return;
+    }
+    
+    for (NSString *each in [section.bind componentsSeparatedByString:@","])
+    {
+        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
+        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if ([propName isEqualToString:@"iterate"])
+        {
+            if ([[section.elementTemplate objectForKey:@"bind"] rangeOfString:@"self"].location != NSNotFound)
+            {
+                NSMutableArray * collection = [self fetchCollectionFromSection:section toData:data];
+                [data setValue:collection forKeyPath:valueName];
+            }
+        } else if (![valueName isEqualToString:@"self"])
+        {
+            [data setValue:[section valueForKey:propName] forKeyPath:valueName];
+        }
+    }
+}
+
 - (void)fetchValueFromObject:(QElement *)element toData:(id)data {
     if (element.bind == nil || ([element.bind length] == 0)) {
         return;

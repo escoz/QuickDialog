@@ -158,8 +158,12 @@
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
-    for (QElement *el in self.elements) {
-        [el fetchValueUsingBindingsIntoObject:data];
+    if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound) {
+        for (QElement *el in self.elements) {
+            [el fetchValueUsingBindingsIntoObject:data];
+        }
+    } else {
+        [[QBindingEvaluator new] fetchValueFromSection:self toData:data];
     }
 
 }

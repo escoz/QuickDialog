@@ -28,5 +28,6 @@
 - (void)bindRootElement:(QRootElement *)element toCollection:(NSArray *)items;
 
 - (void)fetchValueFromObject:(QElement *)element toData:(id)data;
+- (void)fetchValueFromSection:(QSection *)section toData:(id)data;
 
 @end

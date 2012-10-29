@@ -29,6 +29,7 @@
 - (QDecimalElement *)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;
     _floatValue = value;
+    self.keyboardType = UIKeyboardTypeDecimalPad;
     return self;
 }
 
@@ -36,6 +37,7 @@
 - (QDecimalElement *)initWithValue:(float)value {
     self = [super init];
     _floatValue = value;
+    self.keyboardType = UIKeyboardTypeDecimalPad;
     return self;
 }
 
