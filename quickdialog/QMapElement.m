@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#ifdef MK_EXTERN
+
 #import "QMapViewController.h"
 #import "QMapElement.h"
 
@@ -45,3 +47,5 @@
 
 }
 @end
+
+#endif
