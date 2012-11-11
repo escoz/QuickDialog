@@ -24,12 +24,14 @@
 @synthesize image = _image;
 @synthesize value = _value;
 @synthesize accessoryType = _accessoryType;
+@synthesize keepSelected = _keepSelected;
 
 
 - (QLabelElement *)initWithTitle:(NSString *)title Value:(id)value {
-   self = [super init];
-   _title = title;
-   _value = value;
+    self = [super init];
+    _title = title;
+    _value = value;
+    _keepSelected = YES;
     return self;
 }
 
@@ -58,7 +60,8 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     [super selected:tableView controller:controller indexPath:path];
-    [tableView deselectRowAtIndexPath:path animated:YES];
+    if (self.keepSelected)
+        [tableView deselectRowAtIndexPath:path animated:YES];
 }
 
 
