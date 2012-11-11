@@ -20,7 +20,6 @@
 
 @synthesize coordinate = _coordinate;
 
-#ifdef MK_EXTERN
 - (QMapElement *)init {
     self = [self initWithTitle:@"" coordinate:CLLocationCoordinate2DMake(0, 0)];
     return self;
@@ -47,5 +46,3 @@
 
 }
 @end
-
-#endif

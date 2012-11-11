@@ -19,8 +19,6 @@
 @implementation QMapViewController
 
 
-#ifdef MK_EXTERN
-
 - (QMapViewController *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [self initWithCoordinate:coordinate];
     _mapTitle = title;
@@ -61,5 +59,3 @@
 
 
 @end
-
-#endif
