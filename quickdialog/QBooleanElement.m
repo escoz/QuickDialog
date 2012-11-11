@@ -35,6 +35,14 @@
     return self;
 }
 
+-(void)setNumberValue:(NSNumber *)number {
+    self.boolValue = number.boolValue;
+}
+
+-(NSNumber *)numberValue {
+    return [NSNumber numberWithBool:self.boolValue];
+}
+
 - (void)setOnImageName:(NSString *)name {
     self.onImage = [UIImage imageNamed:name];
 }
