@@ -11,13 +11,15 @@
 // ANY KIND, either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-#ifdef MK_EXTERN
 
 #import <MapKit/MKAnnotation.h>
 #import "QMapViewController.h"
 #import "QMapAnnotation.h"
 
 @implementation QMapViewController
+
+
+#ifdef MK_EXTERN
 
 - (QMapViewController *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [self initWithCoordinate:coordinate];

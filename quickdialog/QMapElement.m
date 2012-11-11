@@ -12,7 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#ifdef MK_EXTERN
 
 #import "QMapViewController.h"
 #import "QMapElement.h"
@@ -21,6 +20,7 @@
 
 @synthesize coordinate = _coordinate;
 
+#ifdef MK_EXTERN
 - (QMapElement *)init {
     self = [self initWithTitle:@"" coordinate:CLLocationCoordinate2DMake(0, 0)];
     return self;
