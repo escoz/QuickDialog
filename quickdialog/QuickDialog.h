@@ -43,6 +43,7 @@
 #import "QWebElement.h"
 #import "QDecimalElement.h"
 #import "QSortingSection.h"
+#import "QSectionToolbar.h"
 #import "QDateTimeElement.h"
 #import "QWebViewController.h"
 #import "QBadgeLabel.h"

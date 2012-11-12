@@ -20,19 +20,19 @@
 
 }
 
-
-@synthesize sortingEnabled = _sortingEnabled;
 @synthesize canDeleteRows = _canDeleteRows;
+@synthesize canReorderRows = _canReorderRows;
 
 
 - (QSortingSection *)init {
     self = [super init];
-    self.sortingEnabled = YES;
+    _canDeleteRows = NO;
+    _canReorderRows = NO;
     return self;
 }
 
 - (BOOL)needsEditing {
-    return _sortingEnabled;
+    return _canDeleteRows || _canReorderRows;
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -46,17 +46,27 @@
     [obj setValue:result forKey:_key];
 }
 
-- (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to {
+
+- (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to
+{
+    from = [self.elements indexOfObject:[self getVisibleElementForIndex:from]];
+    to   = [self.elements indexOfObject:[self getVisibleElementForIndex:to]];
     [self.elements moveObjectFromIndex:from toIndex:to];
 }
-
-- (BOOL)removeElementForRow:(NSInteger)index {
-    [self.elements removeObjectAtIndex:(NSUInteger) index];
-    return YES;
-
+- (void)removeElementForRow:(NSUInteger)row
+{
+    row = [self.elements indexOfObject:[self getVisibleElementForIndex:row]];
+    [self.elements removeObjectAtIndex:row];
+}
+- (BOOL)canMoveElementForRow:(NSUInteger)row
+{
+    row = [self.elements indexOfObject:[self getVisibleElementForIndex:row]];
+    return row >= self.beforeTemplateElements.count && self.elements.count - self.afterTemplateElements.count > row;
+}
+- (BOOL)canRemoveElementForRow:(NSUInteger)row
+{
+    row = [self.elements indexOfObject:[self getVisibleElementForIndex:row]];
+    return row >= self.beforeTemplateElements.count && self.elements.count - self.afterTemplateElements.count > row;
 }
 
-- (BOOL)canRemoveElementForRow:(NSInteger)integer {
-    return YES;
-}
 @end

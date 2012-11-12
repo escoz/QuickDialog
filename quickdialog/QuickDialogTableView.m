@@ -44,12 +44,8 @@
 
 -(void)setRoot:(QRootElement *)root{
     _root = root;
-    for (QSection *section in _root.sections) {
-        if (section.needsEditing == YES){
-            [self setEditing:YES animated:YES];
-            self.allowsSelectionDuringEditing = YES;
-        }
-    }
+    [self setEditing:root.needsEditing animated:YES];
+    self.allowsSelectionDuringEditing = YES;
     [self reloadData];
 }
 

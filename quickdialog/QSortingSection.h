@@ -14,19 +14,14 @@
 
 #import "QSection.h"
 
-@interface QSortingSection : QSection {
-
-    BOOL _sortingEnabled;
-}
-
-@property(nonatomic, assign) BOOL sortingEnabled;
-
+@interface QSortingSection : QSection
 
 @property(nonatomic, assign) BOOL canDeleteRows;
+@property(nonatomic, assign) BOOL canReorderRows;
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to;
+- (void)removeElementForRow:(NSUInteger)row;
+- (BOOL)canMoveElementForRow:(NSUInteger)row;
+- (BOOL)canRemoveElementForRow:(NSUInteger)row;
 
-- (BOOL)removeElementForRow:(NSInteger)integer;
-
-- (BOOL)canRemoveElementForRow:(NSInteger)integer;
 @end

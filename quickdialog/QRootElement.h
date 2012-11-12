@@ -35,6 +35,8 @@
 
 @property(nonatomic, copy) NSString *emptyMessage;
 
+@property(nonatomic, readonly) BOOL needsEditing;
+
 - (QRootElement *)init;
 
 - (void)addSection:(QSection *)section;

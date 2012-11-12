@@ -29,6 +29,13 @@
 @synthesize emptyMessage = _emptyMessage;
 @synthesize onValueChanged = _onValueChanged;
 
+- (BOOL) needsEditing
+{
+    for (QSection * s in _sections)
+        if (s.needsEditing)
+            return YES;
+    return NO;
+}
 
 - (QRootElement *)init {
     self = [super init];

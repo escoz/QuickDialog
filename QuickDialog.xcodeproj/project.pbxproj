@@ -42,6 +42,8 @@
 		2C5423DB145ADF2B0026A152 /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BB13EC905B00E3922B /* QTextElement.m */; };
 		2C5423DD145ADF2B0026A152 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BD13EC905B00E3922B /* QWebElement.m */; };
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
+		5F3359571651294C00B3970B /* QSectionToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3359551651294C00B3970B /* QSectionToolbar.h */; };
+		5F3359581651294C00B3970B /* QSectionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3359561651294C00B3970B /* QSectionToolbar.m */; };
 		D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB8 /* QRootBuilder.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB4 /* QBindingEvaluator.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */; settings = {ATTRIBUTES = (); }; };
@@ -129,6 +131,8 @@
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		5F3359551651294C00B3970B /* QSectionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSectionToolbar.h; path = quickdialog/QSectionToolbar.h; sourceTree = SOURCE_ROOT; };
+		5F3359561651294C00B3970B /* QSectionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSectionToolbar.m; path = quickdialog/QSectionToolbar.m; sourceTree = SOURCE_ROOT; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -416,6 +420,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				5F3359551651294C00B3970B /* QSectionToolbar.h */,
+				5F3359561651294C00B3970B /* QSectionToolbar.m */,
 				F2F23A12152DD45100EB6685 /* QPickerElement */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
 				D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */,
@@ -624,6 +630,7 @@
 				F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */,
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
+				5F3359571651294C00B3970B /* QSectionToolbar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,6 +739,7 @@
 				F2F23A26152DD48B00EB6687 /* QuickDialogController+Helpers.m in Sources */,
 				D894F38B15559D34000E3C0F /* NSMutableArray+IMSExtensions.m in Sources */,
 				F2304358156CDFDD006D0A56 /* QTextField.m in Sources */,
+				5F3359581651294C00B3970B /* QSectionToolbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
