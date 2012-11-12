@@ -42,7 +42,7 @@
 
 - (void)displayViewControllerForRoot:(QRootElement *)element;
 
-- (void)displayViewControllerInPopover:(QuickDialogController *)newController withNavigation:(BOOL)navigation;
+- (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation;
 
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root;
