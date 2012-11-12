@@ -25,10 +25,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     QRootElement *root = [SampleDataBuilder create];
     ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
-    self.window.rootViewController = nav;
+
+    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
+        self.window.rootViewController = nav;
+    } else {
+        UISplitViewController *split = [[UISplitViewController alloc] init];
+        split.delegate = self;
+        split.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:quickformController], [[UINavigationController alloc] initWithRootViewController:[QuickDialogController new]]];
+        self.window.rootViewController = split;
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
+}
+
 
 @end

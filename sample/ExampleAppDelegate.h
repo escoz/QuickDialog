@@ -16,7 +16,7 @@
 
 @class ExampleViewController;
 
-@interface ExampleAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ExampleAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
