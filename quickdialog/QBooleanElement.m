@@ -35,6 +35,14 @@
     return self;
 }
 
+-(void)setNumberValue:(NSNumber *)number {
+    self.boolValue = number.boolValue;
+}
+
+-(NSNumber *)numberValue {
+    return [NSNumber numberWithBool:self.boolValue];
+}
+
 - (void)setOnImageName:(NSString *)name {
     self.onImage = [UIImage imageNamed:name];
 }
@@ -101,6 +109,9 @@
     self.boolValue = ((UISwitch *)boolSwitch).on;
     if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
         [self handleElementSelected:_controller];
+    }
+    if (self.onValueChanged!=nil){
+        self.onValueChanged();
     }
 }
 

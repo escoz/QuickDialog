@@ -30,6 +30,8 @@
 @property(nonatomic, strong) id value;
 
 
+@property(nonatomic) BOOL keepSelected;
+
 - (QLabelElement *)initWithTitle:(NSString *)string Value:(id)value;
 
 @end

@@ -18,6 +18,7 @@
 
 @implementation QMapViewController
 
+
 - (QMapViewController *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [self initWithCoordinate:coordinate];
     _mapTitle = title;
@@ -55,5 +56,6 @@
     pin.pinColor = MKPinAnnotationColorGreen;
     return pin;
 }
+
 
 @end

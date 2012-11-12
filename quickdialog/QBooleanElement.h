@@ -23,10 +23,12 @@
 
 @property(nonatomic, retain) UIImage *onImage;
 @property(nonatomic, retain) UIImage *offImage;
+@property(nonatomic, readwrite) NSNumber *numberValue;
 @property (nonatomic) BOOL boolValue;
 @property(nonatomic) BOOL enabled;
 
 - (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
+
 
 - (void)setOnImageName:(NSString *)name;
 
