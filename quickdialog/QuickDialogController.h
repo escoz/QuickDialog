@@ -14,7 +14,7 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QuickDialogController : UIViewController {
+@interface QuickDialogController : UIViewController <UIPopoverControllerDelegate> {
 
 @private
     QRootElement *_root;
@@ -32,6 +32,8 @@
 @property(nonatomic) BOOL resizeWhenKeyboardPresented;
 
 
+@property(nonatomic, strong) UIPopoverController *popoverBeingPresented;
+
 - (void)loadView;
 
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
@@ -39,6 +41,9 @@
 - (void)displayViewController:(UIViewController *)newController;
 
 - (void)displayViewControllerForRoot:(QRootElement *)element;
+
+- (void)displayViewControllerInPopover:(QuickDialogController *)newController withNavigation:(BOOL)navigation;
+
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
