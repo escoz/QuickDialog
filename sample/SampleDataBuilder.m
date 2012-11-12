@@ -518,9 +518,8 @@
     multiline.title = @"Multiline entry";
     [multilineSection addElement:multiline];
 
-
-    [root addSection:traitsSection];
     [root addSection:multilineSection];
+    [root addSection:traitsSection];
     
     return root;
 }

@@ -17,10 +17,20 @@
 @synthesize delegate = _delegate;
 
 
+- (QEntryElement *)init {
+    self = [super init];
+    if (self) {
+        self.presentationMode = QPresentationModePopover;
+    }
+
+    return self;
+}
+
 - (QMultilineElement *)initWithTitle:(NSString *)title value:(NSString *)text
 {
     if ((self = [super initWithTitle:title Value:nil])) {
         self.textValue = text;
+        self.presentationMode = QPresentationModePopover;
     }
     return self;
 }
@@ -54,7 +64,7 @@
         weakSelf.textValue = textController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
     };
-    [controller displayViewController:textController];
+    [controller displayViewControllerInPopover:textController withNavigation:NO];
 }
 
 - (void)fetchValueIntoObject:(id)obj
