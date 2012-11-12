@@ -60,7 +60,8 @@
     if (_radioElement!= nil)
     {
         _radioElement.selected = _index;
-        [_radioElement handleElementSelected:controller];
+        //[_radioElement handleElementSelected:controller];
+        [_radioElement fieldDidEndEditing];
         tableView.userInteractionEnabled = NO;
 
         [NSTimer scheduledTimerWithTimeInterval:0.3

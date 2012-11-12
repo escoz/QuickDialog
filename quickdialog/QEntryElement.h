@@ -49,4 +49,6 @@
 
 - (BOOL)canTakeFocus;
 
+- (void) fieldDidEndEditing;
+
 @end
