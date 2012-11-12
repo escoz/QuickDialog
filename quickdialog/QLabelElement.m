@@ -60,7 +60,7 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     [super selected:tableView controller:controller indexPath:path];
-    if (self.keepSelected)
+    if (!self.keepSelected)
         [tableView deselectRowAtIndexPath:path animated:YES];
 }
 
