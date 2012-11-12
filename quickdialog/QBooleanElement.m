@@ -110,6 +110,9 @@
     if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
         [self handleElementSelected:_controller];
     }
+    if (self.onValueChanged!=nil){
+        self.onValueChanged();
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {
