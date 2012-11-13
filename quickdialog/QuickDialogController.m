@@ -148,9 +148,20 @@
 
     if (root.presentationMode==QPresentationModeNormal) {
         [self displayViewController:newController];
-
     } else if (root.presentationMode == QPresentationModePopover || root.presentationMode == QPresentationModeNavigationInPopover) {
         [self displayViewControllerInPopover:newController withNavigation:root.presentationMode==QPresentationModeNavigationInPopover];
+    } else if (root.presentationMode == QPresentationModeModalForm) {
+        UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
+        navigation.modalPresentationStyle = UIModalPresentationFormSheet;
+        [self presentModalViewController:navigation animated:YES];
+    }  else if (root.presentationMode == QPresentationModeModalFullScreen) {
+        UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
+        navigation.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentModalViewController:navigation animated:YES];
+    }  else if (root.presentationMode == QPresentationModeModalPage) {
+        UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
+        navigation.modalPresentationStyle = UIModalPresentationPageSheet;
+        [self presentModalViewController:navigation animated:YES];
     }
 }
 

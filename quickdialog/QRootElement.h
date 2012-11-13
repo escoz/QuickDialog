@@ -19,7 +19,10 @@
 typedef enum  {
     QPresentationModeNormal = 0,
     QPresentationModePopover,
-    QPresentationModeNavigationInPopover
+    QPresentationModeNavigationInPopover,
+    QPresentationModeModalForm,
+    QPresentationModeModalFullScreen,
+    QPresentationModeModalPage
 } QPresentationMode;
 
 @interface QRootElement : QElement {
