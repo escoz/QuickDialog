@@ -43,7 +43,7 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSortingSection *section = (id)[_tableView.root getVisibleSectionForIndex:indexPath.section];
-    return section.canDeleteRows && [section canRemoveElementForRow:indexPath.row] ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
+    return section.needsEditing && section.canDeleteRows && [section canRemoveElementForRow:indexPath.row] ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
