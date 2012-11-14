@@ -125,7 +125,7 @@
         return;
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.title = @"Error";
-    [_webView loadHTMLString:[NSString stringWithFormat:@"<html style='margin:2em'><p><font size=+5>Could not open page %@.</font></p><br/><p><font size=+5>%@</font></p></html>",_url, [error localizedDescription]] baseURL:nil];
+    [_webView loadHTMLString:[NSString stringWithFormat:@"<html style='margin:2em'><header><title>Error</title><header><body><h3>Unable to connect to the internet.</h3><p>%@</p><p><br/><br/>Try again: <br/><a href=\"%@\">%@</a></p></body></html>",[error localizedDescription], _url, _url] baseURL:nil];
 }
 
 
