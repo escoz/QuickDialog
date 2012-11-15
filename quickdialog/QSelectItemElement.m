@@ -45,6 +45,18 @@
                     : [_selectSection.selectedIndexes containsObject:@(_index)];
 
     cell.accessoryType = selected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+
+    if (_selectSection.delegate && [_selectSection.delegate respondsToSelector:@selector(imageForItem:atIndex:inSection:)])
+    {
+        UIImage *itemImage =
+                [_selectSection.delegate imageForItem:[_selectSection.items objectAtIndex:_index]
+                                              atIndex:_index
+                                            inSection:_selectSection];
+
+        if (itemImage) {
+            cell.imageView.image = itemImage;
+        }
+    }
     
     return cell;
 }

@@ -14,7 +14,6 @@
 @synthesize multipleAllowed = _multipleAllowed;
 @synthesize onSelected = _onSelected;
 
-
 - (QSelectSection *)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected
 {
     return [self initWithItems:stringArray selectedIndexes:selected title:nil];
