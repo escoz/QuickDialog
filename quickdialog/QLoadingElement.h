@@ -17,10 +17,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface QLoadingElement : QElement {
+@interface QLoadingElement : QElement
 
-}
-@property(nonatomic) UIActivityIndicatorViewStyle indicatorStyle;
-
+@property (nonatomic) UIActivityIndicatorViewStyle indicatorStyle;
+@property (nonatomic, retain, readonly) UILabel *textLabel;
 
 @end

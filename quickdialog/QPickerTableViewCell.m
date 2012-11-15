@@ -139,7 +139,7 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 {
     NSArray *componentsValues = [self.pickerElement.valueParser componentsValuesFromObject:value];
     
-    for (int componentIndex = 0; componentIndex < componentsValues.count && _pickerView.numberOfComponents; componentIndex++)
+    for (int componentIndex = 0; componentIndex < componentsValues.count && componentIndex < _pickerView.numberOfComponents; componentIndex++)
     {
         id componentValue = [componentsValues objectAtIndex:(NSUInteger) componentIndex];
         NSInteger rowIndex = [[self.pickerElement.items objectAtIndex:componentIndex] indexOfObject:componentValue];

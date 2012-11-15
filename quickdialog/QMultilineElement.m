@@ -14,6 +14,7 @@
 
 @implementation QMultilineElement
 
+@synthesize backgroundColor = _backgroundColor;
 @synthesize delegate = _delegate;
 
 
@@ -58,6 +59,10 @@
     textController.textView.secureTextEntry = self.secureTextEntry;
     textController.textView.autocapitalizationType = self.autocapitalizationType;
     textController.textView.returnKeyType = self.returnKeyType;
+    
+    if (self.backgroundColor) {
+        textController.textView.backgroundColor = self.backgroundColor;
+    }
 
     __block QMultilineElement *weakSelf = self;
     textController.willDisappearCallback = ^ {

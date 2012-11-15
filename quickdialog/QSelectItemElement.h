@@ -12,11 +12,8 @@
 #import "QSelectSection.h"
 
 @interface QSelectItemElement : QLabelElement
-{
-    NSUInteger _index;
-    QSelectSection *_selectSection;
-}
 
 - (QSelectItemElement *)initWithIndex:(NSUInteger)integer selectSection:(QSelectSection *)section;
+- (QSelectItemElement *)initWithIndex:(NSUInteger)integer selectElement:(QSelectElement *)element;
 
 @end

@@ -62,6 +62,11 @@
 - (void)insertElement:(QElement *)element atIndex:(NSUInteger)index;
 - (NSUInteger)indexOfElement:(QElement *)element;
 
+- (void)removeElement:(QElement *)element;
+- (void)removeElementAtIndex:(NSUInteger)index;
+
+- (void)replaceElement:(QElement *)oldElement withElement:(QElement *)newElement;
+
 - (void)bindToObject:(id)data;
 - (void)fetchValueIntoObject:(id)obj;
 - (void)fetchValueUsingBindingsIntoObject:(id)data;

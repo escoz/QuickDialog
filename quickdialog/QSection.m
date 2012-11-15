@@ -92,6 +92,30 @@
     return NSNotFound;
 }
 
+- (void)removeElement:(QElement *)element
+{
+    if ([self.elements containsObject:element]) {
+        element.parentSection = nil;
+        [self.elements removeObject:element];
+    }
+}
+
+- (void)removeElementAtIndex:(NSUInteger)index
+{
+    QElement *element = [self.elements objectAtIndex:index];
+    element.parentSection = nil;
+    [self.elements removeObjectAtIndex:index];
+}
+
+- (void)replaceElement:(QElement *)oldElement withElement:(QElement *)newElement
+{
+    NSUInteger index = [self.elements indexOfObject:oldElement];
+    if (index != NSNotFound) {
+        [self.elements removeObjectAtIndex:index];
+        [self.elements insertObject:newElement atIndex:index];
+    }
+}
+
 - (void)fetchValueIntoObject:(id)obj {
     for (QElement *el in elements){
         [el fetchValueIntoObject:obj];

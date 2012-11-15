@@ -18,24 +18,42 @@
     UIActivityIndicatorViewStyle _indicatorStyle;
 }
 @synthesize indicatorStyle = _indicatorStyle;
-
+@synthesize textLabel = _textLabel;
 
 - (QLoadingElement *)init {
-    self = [super init];
-    self.indicatorStyle = UIActivityIndicatorViewStyleGray;
+    if (self = [super init]) {
+        self.indicatorStyle = UIActivityIndicatorViewStyleGray;
+        _textLabel = [UILabel new];
+    }
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
+{
     UITableViewCell *const cell = [[QTableViewCell alloc] init];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
     [spin startAnimating];
     [spin sizeToFit];
-    spin.frame = CGRectMake(150, 12, spin.frame.size.width, spin.frame.size.height);
-    spin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
+
+    [_textLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [_textLabel sizeToFit];
+    [_textLabel setFrame:CGRectMake(spin.frame.size.width + 10, 0, _textLabel.frame.size.width, _textLabel.frame.size.height)];
+
+    CGFloat viewWidth = _textLabel.frame.size.width + spin.frame.size.width + (_textLabel.text ? 10 : 0);
+    CGFloat viewHeight = MAX(_textLabel.frame.size.height, spin.frame.size.height);
+    CGFloat viewX = (320 - viewWidth) / 2;
+
+    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(viewX, 12, viewWidth, viewHeight)];
+    container.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
             UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [[cell contentView] addSubview:spin];
+
+    [container addSubview:spin];
+    [container addSubview:_textLabel];
+    [cell.contentView addSubview:container];
+
     return cell;
 }
 
