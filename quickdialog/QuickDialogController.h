@@ -33,16 +33,12 @@
 
 
 @property(nonatomic, strong) UIPopoverController *popoverBeingPresented;
+@property(nonatomic, strong) UIPopoverController *popoverForChildRoot;
+
 
 - (void)loadView;
 
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
-
-- (void)displayViewController:(UIViewController *)newController;
-
-- (void)displayViewControllerForRoot:(QRootElement *)element;
-
-- (void)displayViewControllerInPopover:(QuickDialogController *)newController withNavigation:(BOOL)navigation;
 
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root;
