@@ -116,7 +116,6 @@
     }
 }
 
-
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [[self class] controllerClassForRoot:root];
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];

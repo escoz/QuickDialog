@@ -9,7 +9,7 @@
     if (self.navigationController != nil ){
         [self.navigationController pushViewController:newController animated:YES];
     } else {
-        [self presentModalViewController:newController animated:YES];
+        [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:newController] animated:YES];
     }
 }
 
