@@ -40,16 +40,6 @@
 
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
 
-<<<<<<< HEAD
-=======
-- (void)displayViewController:(UIViewController *)newController;
-
-- (void)displayViewControllerForRoot:(QRootElement *)element;
-
-- (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation;
-
->>>>>>> d96429390c477a0d853cf70fbda503d3e4702580
-
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root;
