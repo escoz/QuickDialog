@@ -22,17 +22,25 @@
         [self displayViewControllerInPopover:newController withNavigation:root.presentationMode==QPresentationModeNavigationInPopover];
     } else if (root.presentationMode == QPresentationModeModalForm) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentModalViewController:navigation animated:YES];
     }  else if (root.presentationMode == QPresentationModeModalFullScreen) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentModalViewController:navigation animated:YES];
     }  else if (root.presentationMode == QPresentationModeModalPage) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationPageSheet;
         [self presentModalViewController:navigation animated:YES];
     }
+}
+
+- (void)dismissModalViewController {
+    [self dismissModalViewControllerAnimated:YES];
+
 }
 
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation {
