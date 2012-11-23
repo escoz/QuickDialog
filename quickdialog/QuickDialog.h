@@ -14,6 +14,7 @@
 
 
 #import "QuickDialogController.h"
+#import "QuickDialogController+Animations.h"
 #import "QuickDialogController+Navigation.h"
 #import "QuickDialogWebController.h"
 #import "QuickDialogController+Loading.h"
