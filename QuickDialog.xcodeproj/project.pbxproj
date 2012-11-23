@@ -44,7 +44,30 @@
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
 		5F3359571651294C00B3970B /* QSectionToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F3359551651294C00B3970B /* QSectionToolbar.h */; };
 		5F3359581651294C00B3970B /* QSectionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3359561651294C00B3970B /* QSectionToolbar.m */; };
-		D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB8 /* QRootBuilder.h */; settings = {ATTRIBUTES = (); }; };
+		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
+		5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */; };
+		5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E404FC15CFA443ABBB5C /* navigation.json */; };
+		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
+		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
+		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
+		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
+		D811F8FB13EC907200E3922B /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8DE13EC907200E3922B /* AboutController.m */; };
+		D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E013EC907200E3922B /* SampleDataBuilder.m */; };
+		D811F8FE13EC907200E3922B /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E513EC907200E3922B /* LoginController.m */; };
+		D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E713EC907200E3922B /* LoginInfo.m */; };
+		D811F90013EC907200E3922B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E813EC907200E3922B /* main.m */; };
+		D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8EC13EC907200E3922B /* ExampleAppDelegate.m */; };
+		D811F90313EC907200E3922B /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8EE13EC907200E3922B /* ExampleViewController.m */; };
+		D811F90413EC907200E3922B /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F013EC907200E3922B /* footer.png */; };
+		D811F90513EC907200E3922B /* footer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F113EC907200E3922B /* footer@2x.png */; };
+		D811F90613EC907200E3922B /* imgOff.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F213EC907200E3922B /* imgOff.png */; };
+		D811F90713EC907200E3922B /* imgOn.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F313EC907200E3922B /* imgOn.png */; };
+		D811F90813EC907200E3922B /* intel.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F413EC907200E3922B /* intel.png */; };
+		D811F90913EC907200E3922B /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F513EC907200E3922B /* iPhone.png */; };
+		D811F90A13EC907200E3922B /* keyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F613EC907200E3922B /* keyboard.png */; };
+		D811F90B13EC907200E3922B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F713EC907200E3922B /* logo.png */; };
+		D811F90C13EC907200E3922B /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D811F8F813EC907200E3922B /* logo@2x.png */; };
+        D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB8 /* QRootBuilder.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB4 /* QBindingEvaluator.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EDA14BBAFCE0066C372 /* QDecimalTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9C /* QDecimalTableViewCell.h */; settings = {ATTRIBUTES = (); }; };
@@ -106,7 +129,12 @@
 		D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */; };
 		D8B394691514E8B3008ECB34 /* QSegmentedElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B394671514E8B3008ECB34 /* QSegmentedElement.h */; };
 		D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B394681514E8B3008ECB34 /* QSegmentedElement.m */; };
-		D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
+
+		D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */; };
+		D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */; };
+		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
+		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
+        D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
 		D8F180E813F0599A009B0CB3 /* QBindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB2 /* QBindingEvaluator.m */; };
 		D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB6 /* QRootBuilder.m */; };
 		D8F180E813F0599A009B0CBA /* QuickDialogEntryElementDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */; };
@@ -144,6 +172,11 @@
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		5F3359551651294C00B3970B /* QSectionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSectionToolbar.h; path = quickdialog/QSectionToolbar.h; sourceTree = SOURCE_ROOT; };
 		5F3359561651294C00B3970B /* QSectionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSectionToolbar.m; path = quickdialog/QSectionToolbar.m; sourceTree = SOURCE_ROOT; };
+
+		5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuickDialogController+Animations.h"; path = "quickdialog/QuickDialogController+Animations.h"; sourceTree = SOURCE_ROOT; };
+		5C50E404FC15CFA443ABBB5C /* navigation.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; name = navigation.json; path = QuickDialog.xcodeproj/navigation.json; sourceTree = SOURCE_ROOT; };
+		5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "quickdialog/QuickDialogController+Animations.m"; sourceTree = SOURCE_ROOT; };
+		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -260,6 +293,8 @@
 		D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMultilineTextViewController.m; path = quickdialog/QMultilineTextViewController.m; sourceTree = SOURCE_ROOT; };
 		D8B394671514E8B3008ECB34 /* QSegmentedElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSegmentedElement.h; path = quickdialog/QSegmentedElement.h; sourceTree = SOURCE_ROOT; };
 		D8B394681514E8B3008ECB34 /* QSegmentedElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSegmentedElement.m; path = quickdialog/QSegmentedElement.m; sourceTree = SOURCE_ROOT; };
+		D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuickDialogController+Navigation.h"; path = "quickdialog/QuickDialogController+Navigation.h"; sourceTree = SOURCE_ROOT; };
+		D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Navigation.m"; path = "quickdialog/QuickDialogController+Navigation.m"; sourceTree = SOURCE_ROOT; };
 		D8F180E513F0599A009B0C96 /* quickdialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quickdialog.png; sourceTree = "<group>"; };
 		D8F180E613F0599A009B0C96 /* quickdialog@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quickdialog@2x.png"; sourceTree = "<group>"; };
 		D8F180E813F0599A009B0C97 /* QDecimalElement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QDecimalElement.m; path = quickdialog/QDecimalElement.m; sourceTree = SOURCE_ROOT; };
@@ -512,6 +547,8 @@
 				D811F8A313EC905B00E3922B /* QuickDialogController.m */,
 				D811F8A413EC905B00E3922B /* QuickDialogController+Loading.h */,
 				D811F8A513EC905B00E3922B /* QuickDialogController+Loading.m */,
+				D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */,
+				D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */,
 				D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */,
 				D811F8A713EC905B00E3922B /* QuickDialogDataSource.m */,
 				D811F8A813EC905B00E3922B /* QuickDialogStyleProvider.h */,
@@ -546,6 +583,8 @@
 				D811F8BF13EC905B00E3922B /* QWebViewController.m */,
 				194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */,
 				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
+				5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */,
+				5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -559,6 +598,7 @@
 				D86249F614BB5AB5002F0585 /* jsondatasample.json */,
 				D86249F714BB5AB5002F0585 /* loginform.json */,
 				D86249F814BB5AB5002F0585 /* sample.json */,
+				5C50E404FC15CFA443ABBB5C /* navigation.json */,
 			);
 			name = json;
 			sourceTree = "<group>";
@@ -644,7 +684,9 @@
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
 				5F3359571651294C00B3970B /* QSectionToolbar.h in Headers */,
-			);
+				D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */,
+				5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */,
+            );
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
@@ -691,6 +733,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D80B0E3113E052DF00FA85CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D811F90413EC907200E3922B /* footer.png in Resources */,
+				D811F90513EC907200E3922B /* footer@2x.png in Resources */,
+				D811F90613EC907200E3922B /* imgOff.png in Resources */,
+				D811F90713EC907200E3922B /* imgOn.png in Resources */,
+				D811F90813EC907200E3922B /* intel.png in Resources */,
+				D811F90913EC907200E3922B /* iPhone.png in Resources */,
+				D811F90A13EC907200E3922B /* keyboard.png in Resources */,
+				D811F90B13EC907200E3922B /* logo.png in Resources */,
+				D811F90C13EC907200E3922B /* logo@2x.png in Resources */,
+				D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */,
+				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
+				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
+				D86249EB14BB59D6002F0585 /* icon.png in Resources */,
+				D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */,
+				D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */,
+				D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */,
+				D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */,
+				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
+				D86249FC14BB5AB5002F0585 /* sample.json in Resources */,
+				D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */,
+				5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C54238F145ADEBD0026A152 /* Sources */ = {
@@ -753,6 +826,24 @@
 				D894F38B15559D34000E3C0F /* NSMutableArray+IMSExtensions.m in Sources */,
 				F2304358156CDFDD006D0A56 /* QTextField.m in Sources */,
 				5F3359581651294C00B3970B /* QSectionToolbar.m in Sources */,
+				D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */,
+				5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D80B0E2F13E052DF00FA85CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D811F8FB13EC907200E3922B /* AboutController.m in Sources */,
+				D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */,
+				D811F8FE13EC907200E3922B /* LoginController.m in Sources */,
+				D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */,
+				D811F90013EC907200E3922B /* main.m in Sources */,
+				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
+				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
+				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
+				F209CEE41536AB100043F61C /* PeriodPickerValueParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

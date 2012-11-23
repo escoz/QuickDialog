@@ -15,6 +15,16 @@
 #import "QElement.h"
 #import "QSection.h"
 
+
+typedef enum  {
+    QPresentationModeNormal = 0,
+    QPresentationModePopover,
+    QPresentationModeNavigationInPopover,
+    QPresentationModeModalForm,
+    QPresentationModeModalFullScreen,
+    QPresentationModeModalPage
+} QPresentationMode;
+
 @interface QRootElement : QElement {
 
 @protected
@@ -34,6 +44,8 @@
 @property(nonatomic, copy) void (^onValueChanged)(void);
 
 @property(nonatomic, copy) NSString *emptyMessage;
+@property(nonatomic) QPresentationMode presentationMode;
+
 
 @property(nonatomic, readonly) BOOL needsEditing;
 

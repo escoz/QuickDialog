@@ -17,6 +17,7 @@
 @implementation QRootElement {
 @private
     NSDictionary *_sectionTemplate;
+    QPresentationMode _presentationMode;
     void (^_onValueChanged)();
 }
 
@@ -28,6 +29,7 @@
 @synthesize sectionTemplate = _sectionTemplate;
 @synthesize emptyMessage = _emptyMessage;
 @synthesize onValueChanged = _onValueChanged;
+@synthesize presentationMode = _presentationMode;
 
 - (BOOL) needsEditing
 {
@@ -40,6 +42,7 @@
 - (QRootElement *)init {
     self = [super init];
     return self;
+
 }
 - (void)addSection:(QSection *)section {
     if (_sections==nil)

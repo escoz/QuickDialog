@@ -25,12 +25,15 @@
     BOOL _keyboardVisible;
     BOOL _viewOnScreen;
     BOOL _resizeWhenKeyboardPresented;
+    UIPopoverController *_popoverForChildRoot;
 }
 
 @synthesize root = _root;
 @synthesize willDisappearCallback = _willDisappearCallback;
 @synthesize quickDialogTableView = _quickDialogTableView;
 @synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
+@synthesize popoverBeingPresented = _popoverBeingPresented;
+@synthesize popoverForChildRoot = _popoverForChildRoot;
 
 
 + (QuickDialogController *)buildControllerWithClass:(Class)controllerClass root:(QRootElement *)root {
@@ -65,7 +68,6 @@
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
 }
 
-// default impl
 - (void)setQuickDialogTableView:(QuickDialogTableView *)tableView
 {
     _quickDialogTableView = tableView;
@@ -113,32 +115,6 @@
         _willDisappearCallback();
     }
 }
-
-- (void)popToPreviousRootElementOnMainThread {
-    if (self.navigationController!=nil){
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        [self dismissModalViewControllerAnimated:YES];
-    }
-}
-
-- (void)popToPreviousRootElement {
-    [self performSelectorOnMainThread:@selector(popToPreviousRootElementOnMainThread) withObject:nil waitUntilDone:YES];
-}
-
-- (void)displayViewController:(UIViewController *)newController {
-    if (self.navigationController != nil ){
-        [self.navigationController pushViewController:newController animated:YES];
-    } else {
-        [self presentModalViewController:newController animated:YES];
-    }
-}
-
-- (void)displayViewControllerForRoot:(QRootElement *)root {
-    QuickDialogController *newController = [self controllerForRoot: root];
-    [self displayViewController:newController];
-}
-
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [[self class] controllerClassForRoot:root];
@@ -191,117 +167,5 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
-
-- (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation elements:(QElement*)element,...
-{
-    va_list args;
-    va_start(args, element);
-    [self hideElementsWithInsertAnimation:animation removeAnimation:animation elements:element args:args];
-    va_end(args);
-}
-- (void) hideSectionsWithAnimation:(UITableViewRowAnimation)animation sections:(QSection*)section,...
-{
-    va_list args;
-    va_start(args, section);
-    [self hideSectionsWithInsertAnimation:animation removeAnimation:animation sections:section args:args];
-    va_end(args);
-}
-- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elements:(QElement*)element,...
-{
-    va_list args;
-    va_start(args, element);
-    [self hideElementsWithInsertAnimation:insertAnimation removeAnimation:removeAnimation elements:element args:args];
-    va_end(args);
-}
-- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sections:(QSection*)section,...
-{
-    va_list args;
-    va_start(args, section);
-    [self hideSectionsWithInsertAnimation:insertAnimation removeAnimation:removeAnimation sections:section args:args];
-    va_end(args);
-}
-
-- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elements:(QElement*)element args:(va_list)args
-{
-    NSMutableArray * idx = [NSMutableArray new];
-    NSMutableArray * del = [NSMutableArray new];
-    NSMutableArray * ins = [NSMutableArray new];
-    
-    while (element)
-    {
-        BOOL h = va_arg(args, /*BOOL*/int);
-        if (h)
-            [del addObject:element];
-        else
-            [ins addObject:element];
-        element = va_arg(args, QElement*);
-    }
-    
-    [self.quickDialogTableView beginUpdates];
-    NSEnumerator * i = [del reverseObjectEnumerator];
-    while ((element =/*=*/ i.nextObject))
-    {
-        if (!element.hidden)
-        {
-            [idx addObject:[NSIndexPath indexPathForRow:element.visibleIndex inSection:element.parentSection.visibleIndex]];
-            element.hidden = YES;
-        }
-    }
-    [self.quickDialogTableView deleteRowsAtIndexPaths:idx withRowAnimation:removeAnimation];
-    
-    [idx removeAllObjects];
-    for (element in ins)
-    {
-        if (element.hidden)
-        {
-            element.hidden = NO;
-            [idx addObject:[NSIndexPath indexPathForRow:element.visibleIndex inSection:element.parentSection.visibleIndex]];
-        }
-    }
-    [self.quickDialogTableView insertRowsAtIndexPaths:idx withRowAnimation:insertAnimation];
-    [self.quickDialogTableView endUpdates];
-}
-
-- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sections:(QSection *)section args:(va_list)args
-{
-    NSMutableIndexSet * idx = [NSMutableIndexSet new];
-    NSMutableArray * del = [NSMutableArray new];
-    NSMutableArray * ins = [NSMutableArray new];
-    while (section)
-    {
-        BOOL h = va_arg(args, /*BOOL*/int);
-        if (h)
-            [del addObject:section];
-        else
-            [ins addObject:section];
-        section = va_arg(args, QSection*);
-    }
-    
-    [self.quickDialogTableView beginUpdates];
-    NSEnumerator * i = [del reverseObjectEnumerator];
-    while ((section =/*=*/ i.nextObject))
-    {
-        if (!section.hidden)
-        {
-            [idx addIndex:section.visibleIndex];
-            section.hidden = YES;
-        }
-    }
-    [self.quickDialogTableView deleteSections:idx withRowAnimation:removeAnimation];
-    
-    [idx removeAllIndexes];
-    for (section in ins)
-    {
-        if (section.hidden)
-        {
-            section.hidden = NO;
-            [idx addIndex:section.visibleIndex];
-        }
-    }
-    [self.quickDialogTableView insertSections:idx withRowAnimation:insertAnimation];
-    [self.quickDialogTableView endUpdates];
-}
-
 
 @end

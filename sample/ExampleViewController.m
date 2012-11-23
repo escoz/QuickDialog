@@ -48,5 +48,24 @@
     [alert show];
 }
 
+- (void)displayViewControllerForRoot:(QRootElement *)element {
+
+    QuickDialogController *newController = [QuickDialogController controllerForRoot:element];
+    if (self.splitViewController!=nil){
+        UINavigationController * navController = [self.splitViewController.viewControllers objectAtIndex:1];
+
+        for (QSection *section in self.root.sections) {
+            for (QElement *current in section.elements){
+                if (current==element) {
+                    self.splitViewController.viewControllers = @[[self.splitViewController.viewControllers objectAtIndex:0], [[UINavigationController alloc] initWithRootViewController:newController]];
+                    return;
+                }
+            }
+        }
+        [navController pushViewController:newController animated:YES];
+    } else {
+        [super displayViewController:newController];
+    }
+}
 
 @end

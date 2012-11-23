@@ -14,7 +14,7 @@
 
 #import "QuickDialogTableView.h"
 
-@interface QuickDialogController : UIViewController {
+@interface QuickDialogController : UIViewController <UIPopoverControllerDelegate> {
 
 @private
     QRootElement *_root;
@@ -32,25 +32,18 @@
 @property(nonatomic) BOOL resizeWhenKeyboardPresented;
 
 
+@property(nonatomic, strong) UIPopoverController *popoverBeingPresented;
+@property(nonatomic, strong) UIPopoverController *popoverForChildRoot;
+
+
 - (void)loadView;
 
 - (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
-
-- (void)displayViewController:(UIViewController *)newController;
-
-- (void)displayViewControllerForRoot:(QRootElement *)element;
 
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
-
-
-- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elements:(QElement*)element,...;
-- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sections:(QSection*)section,...;
-
-- (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation elements:(QElement*)element,...;
-- (void) hideSectionsWithAnimation:(UITableViewRowAnimation)animation sections:(QSection*)section,...;
 
 @end

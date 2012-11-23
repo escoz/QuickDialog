@@ -518,9 +518,8 @@
     multiline.title = @"Multiline entry";
     [multilineSection addElement:multiline];
 
-
-    [root addSection:traitsSection];
     [root addSection:multilineSection];
+    [root addSection:traitsSection];
     
     return root;
 }
@@ -668,6 +667,7 @@
     [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
+    [sectionElements addElement:[[QRootElement alloc] initWithJSONFile:@"navigation"]];
     [sectionElements addElement:[self createPickerRoot]];
     [sectionElements addElement:[self createSelectRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
@@ -698,4 +698,5 @@
 
     return root;
 }
+
 @end
