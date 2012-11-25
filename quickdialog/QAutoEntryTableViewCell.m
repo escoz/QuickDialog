@@ -36,7 +36,7 @@
 }
 
 - (QAutoEntryTableViewCell *)init {
-    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
+    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformAutoEntryElement"];
     if (self!=nil){
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
