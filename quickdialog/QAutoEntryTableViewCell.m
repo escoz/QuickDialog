@@ -14,13 +14,13 @@
 //
 
 @implementation QAutoEntryTableViewCell {
-    NSString *_lastAutoComplete;
+    NSString *_lastFullStringWithAutocompletion;
     QAutoEntryElement *_autoEntryElement;
 }
 
 @synthesize autoCompleteField = _autoCompleteField;
 @synthesize autoCompleteValues;
-@synthesize lastAutoComplete = _lastAutoComplete;
+@synthesize lastFullStringWithAutocompletion = _lastFullStringWithAutocompletion;
 
 
 - (void)createSubviews {
@@ -99,9 +99,8 @@
     _entryElement = nil;
 }
 
-
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    _autoCompleteField.text = self.lastAutoComplete;
+    _autoCompleteField.text = self.lastFullStringWithAutocompletion;
     _entryElement.textValue = _autoCompleteField.text;
 }
 
@@ -131,11 +130,18 @@
         if([strlower hasPrefix:lowPrefix])
         {
             NSRange range = NSMakeRange(0,prefix.length);
-            _lastAutoComplete = string;
+            _lastFullStringWithAutocompletion = string;
             return [string stringByReplacingCharactersInRange:range withString:@""];
         }
     }
-    _lastAutoComplete = @"";
+    
+    // If we have got here, there is no auto-completion available.  
+    // We want to allow the user to save this string, so the
+    // last full string with auto-completion is == the string the user has
+    // entered.
+    _lastFullStringWithAutocompletion = prefix;
+    
+    // Return null string to indicate no autocompleteion possible
     return @"";
 }
 
