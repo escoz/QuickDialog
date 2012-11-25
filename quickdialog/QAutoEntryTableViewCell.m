@@ -13,6 +13,7 @@
 // permissions and limitations under the License.
 //
 
+
 @implementation QAutoEntryTableViewCell {
     NSString *_lastFullStringWithAutocompletion;
     QAutoEntryElement *_autoEntryElement;
@@ -101,11 +102,18 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     _autoCompleteField.text = self.lastFullStringWithAutocompletion;
-    _entryElement.textValue = _autoCompleteField.text;
+    if (! [_entryElement.textValue isEqualToString:_autoCompleteField.text]) {
+        // In an AutoEntryElement, a DidEndEditing event might actually be a
+        // change to the text value.  This is because it is an implicit acceptance
+        // of the displayed auto-chosen value.
+        _entryElement.textValue = _autoCompleteField.text;
+        [self handleEditingChanged];
+    }
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textField {
     _entryElement.textValue = _autoCompleteField.text;
+    [self handleEditingChanged];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
