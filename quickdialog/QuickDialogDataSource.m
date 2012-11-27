@@ -25,7 +25,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_tableView.root getSectionForIndex:section].visibleNumberOfElements;
+    return [_tableView.root getVisibleSectionForIndex:section].visibleNumberOfElements;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
