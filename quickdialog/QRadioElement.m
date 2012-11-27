@@ -22,10 +22,18 @@
 @synthesize values = _values;
 @synthesize items = _items;
 
+- (QRadioElement*) init
+{
+    self = [super init];
+    if (self == nil)
+        return nil;
+    
+    self.presentationMode = QPresentationModeNavigationInPopover;
+    return self;
+}
 
 - (void)createElements {
     _sections = nil;
-    self.presentationMode = QPresentationModeNavigationInPopover;
     _internalRadioItemsSection = [[QSection alloc] init];
 
     [self addSection:_internalRadioItemsSection];
