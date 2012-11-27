@@ -32,6 +32,7 @@
 - (void)createSubviews {
     _textField = [[QTextField alloc] init];
     [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.keyboardType = UIKeyboardTypeDecimalPad;
     _textField.delegate = self;
