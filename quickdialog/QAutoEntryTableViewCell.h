@@ -33,7 +33,7 @@
 
 @property(nonatomic, strong) DOAutocompleteTextField *autoCompleteField;
 @property(nonatomic, retain) NSArray *autoCompleteValues;
-@property(nonatomic, strong) NSString *lastAutoComplete;
+@property(nonatomic, strong) NSString *lastFullStringWithAutocompletion;
 
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
