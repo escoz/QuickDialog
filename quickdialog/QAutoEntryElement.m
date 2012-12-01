@@ -52,11 +52,16 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     
-    QAutoEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
+    QAutoEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformAutoEntryElement"];
     if (cell==nil){
         cell = [[QAutoEntryTableViewCell alloc] init];
     }
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textField.enabled = YES;
+    cell.textField.userInteractionEnabled = YES;
+    cell.textField.textAlignment = self.textAlignment;
+    cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
