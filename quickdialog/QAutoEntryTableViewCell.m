@@ -130,6 +130,10 @@
 #pragma mark - DOAutocompleteTextFieldDelegate
 - (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 {
+    if (!prefix) {
+        return nil;
+    }
+    
     NSString* lowPrefix = [prefix lowercaseString];
     
     for (NSString *string in autoCompleteValues)
@@ -149,7 +153,7 @@
     // entered.
     _lastFullStringWithAutocompletion = prefix;
     
-    // Return null string to indicate no autocompleteion possible
+    // Return null string to indicate no autocompletion possible
     return @"";
 }
 
