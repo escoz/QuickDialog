@@ -13,6 +13,7 @@
 //
 
 #import "QBadgeTableCell.h"
+#import "QBadgeLabel.h"
 
 @interface QBadgeTableCell ()
 @end

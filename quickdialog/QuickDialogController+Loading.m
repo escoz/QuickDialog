@@ -13,6 +13,7 @@
 //
 
 #import <CoreGraphics/CoreGraphics.h>
+#import "QuickDialogController.h"
 
 @implementation QuickDialogController (Loading)
 

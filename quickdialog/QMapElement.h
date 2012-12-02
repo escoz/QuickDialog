@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class QRootElement;
+#import "QRootElement.h"
 
 
 @interface QMapElement : QRootElement {

@@ -14,7 +14,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "QuickDialog.h"
+
 
 typedef enum {
     QLabelingPolicyTrimTitle,

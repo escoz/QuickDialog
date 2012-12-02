@@ -12,7 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
+
+@class QuickDialogTableView;
 
 @interface QuickDialogDataSource : NSObject<UITableViewDataSource> {
 

@@ -15,6 +15,7 @@
 #import "QSection.h"
 #import "QSortingSection.h"
 #import "QElement.h"
+#import "NSMutableArray+MoveObject.h"
 
 @implementation QSortingSection {
 

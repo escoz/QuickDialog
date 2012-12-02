@@ -13,6 +13,8 @@
 //
 
 
+#import "QRootBuilder.h"
+
 NSDictionary *QRootBuilderStringToTypeConversionDict;
 
 @interface QRootBuilder ()

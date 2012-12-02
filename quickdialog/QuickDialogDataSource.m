@@ -14,6 +14,7 @@
 
 #import "QuickDialogDataSource.h"
 #import "QSortingSection.h"
+#import "QuickDialog.h"
 
 @implementation QuickDialogDataSource
 

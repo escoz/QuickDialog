@@ -7,6 +7,7 @@
 //
 
 #import "QSelectSection.h"
+#import "QuickDialog.h"
 
 @implementation QSelectSection
 

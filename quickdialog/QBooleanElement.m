@@ -14,6 +14,9 @@
 
 #import <objc/message.h>
 
+#import "QBooleanElement.h"
+#import "QuickDialogController.h"
+
 @implementation QBooleanElement {
     __unsafe_unretained QuickDialogController *_controller;
 }

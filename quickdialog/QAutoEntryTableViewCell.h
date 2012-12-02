@@ -15,8 +15,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "QuickDialog.h"
+
 #import "DOAutocompleteTextField.h"
+#import "QEntryTableViewCell.h"
 
 @class QEntryElement;
 @class QuickDialogTableView;

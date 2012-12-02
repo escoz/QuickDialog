@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import "QLoadingElement.h"
 
 @implementation QLoadingElement {
 @private
