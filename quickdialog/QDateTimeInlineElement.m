@@ -72,6 +72,7 @@
     [cell prepareForElement:self inTableView:tableView];
     cell.imageView.image = self.image;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue ;
+    cell.labelingPolicy = self.labelingPolicy;
     return cell;
 
 }

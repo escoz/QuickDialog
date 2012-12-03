@@ -83,6 +83,7 @@
         _autocompleteLabel.text = @"";
     }
     
+    [self _tryToUpdateLabelWithNewCompletion];
     _autocompleteLabel.hidden = NO;
     return [super becomeFirstResponder];
 }
@@ -136,7 +137,12 @@
 
 - (void)_textDidChange:(NSNotification*)notification
 {
-    if ([((id<DOAutocompleteTextFieldDelegate>)self.delegate) respondsToSelector:@selector(textField:completionForPrefix:)] ) 
+    [self _tryToUpdateLabelWithNewCompletion];
+}
+
+- (void)_tryToUpdateLabelWithNewCompletion
+{
+    if ([((id<DOAutocompleteTextFieldDelegate>)self.delegate) respondsToSelector:@selector(textField:completionForPrefix:)] )
     {
         _autoCompleteString = [((id<DOAutocompleteTextFieldDelegate>)self.delegate) textField:self completionForPrefix:self.text];
         [self _updateAutocompleteLabel];
