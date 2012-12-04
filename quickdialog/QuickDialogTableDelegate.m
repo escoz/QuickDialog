@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "QuickDialogTableDelegate.h"
+#import "QuickDialog.h"
 @implementation QuickDialogTableDelegate
 
 

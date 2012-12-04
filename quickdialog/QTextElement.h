@@ -15,6 +15,8 @@
 
 #import "QElement.h"
 
+#import "QRootElement.h"
+
 @interface QTextElement : QRootElement {
 
 @protected

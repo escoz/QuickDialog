@@ -13,7 +13,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QRootElement.h"
+#import "QLabelElement.h"
 
 @interface QWebElement : QLabelElement {
 

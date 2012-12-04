@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
+#import "QTableViewCell.h"
 @implementation QTableViewCell
 
 @synthesize labelingPolicy = _labelingPolicy;

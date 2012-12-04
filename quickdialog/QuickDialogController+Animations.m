@@ -1,5 +1,5 @@
 #import "QuickDialogController+Animations.h"
-
+#import "QuickDialog.h"
 
 @implementation QuickDialogController (Animations)
 

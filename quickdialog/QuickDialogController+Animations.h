@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import "QuickDialogController.h"
 
 @interface QuickDialogController (Animations)
 

@@ -12,6 +12,9 @@
 // permissions and limitations under the License.
 //
 
+#import "QEntryTableViewCell.h"
+#import "QuickDialog.h"
+
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
 - (QEntryElement *)findNextElementToFocusOn;

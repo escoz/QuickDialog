@@ -18,6 +18,9 @@
 
 #import "QDateTimeElement.h"
 #import "QDateTimeInlineElement.h"
+#import "QuickDialogController.h"
+#import "QuickDialog.h"
+
 
 @interface QDateTimeElement ()
 - (void)initializeRoot;

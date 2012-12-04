@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import "QBadgeLabel.h"
 
 @implementation QBadgeLabel {
     UIColor *_badgeColor;

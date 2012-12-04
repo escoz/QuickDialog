@@ -14,6 +14,8 @@
 
 #import <objc/message.h>
 #import "QBindingEvaluator.h"
+#import "QElement.h"
+#import "QuickDialog.h"
 
 @implementation QElement {
 @private
