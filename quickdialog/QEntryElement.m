@@ -57,10 +57,13 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
+    if (!self.enabled) {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+    }
     _controller = controller;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textField.enabled = YES;
-    cell.textField.userInteractionEnabled = YES;
+    cell.textField.enabled = self.enabled;
+    cell.textField.userInteractionEnabled = self.enabled;
     cell.textField.textAlignment = self.textAlignment;
     cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
