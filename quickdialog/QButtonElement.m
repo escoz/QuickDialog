@@ -13,7 +13,6 @@
 //
 
 @implementation QButtonElement
-@synthesize enabled = _enabled;
 
 - (QButtonElement *)init {
     self = [super init];
@@ -25,7 +24,9 @@
 
 - (QButtonElement *)initWithTitle:(NSString *)title {
     self = [super initWithTitle:title Value:nil];
-    self.enabled = YES;
+    if (self) {
+        self.enabled = YES;
+    }
     return self;
 }
 
@@ -34,16 +35,12 @@
     if (cell == nil){
         cell= [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickformButtonElement"];
     }
-    if (self.enabled) {
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        cell.textLabel.textColor = [UIColor colorWithRed:50.0f/255.0f green:79.0f/255.0f blue:133.0f/255.0f alpha:1];    
-    } else {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (!self.enabled) {
         cell.textLabel.textColor = [UIColor lightGrayColor];
     }
-    
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.userInteractionEnabled = self.enabled;
     return cell;
 }
 

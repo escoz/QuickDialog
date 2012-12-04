@@ -58,8 +58,8 @@
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textField.enabled = YES;
-    cell.textField.userInteractionEnabled = YES;
+    cell.textField.enabled = self.enabled;
+    cell.textField.userInteractionEnabled = self.enabled;
     cell.textField.textAlignment = self.textAlignment;
     cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];

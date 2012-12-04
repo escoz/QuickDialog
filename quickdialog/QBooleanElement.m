@@ -20,7 +20,6 @@
 @synthesize onImage = _onImage;
 @synthesize offImage = _offImage;
 @synthesize boolValue = _boolValue;
-@synthesize enabled = _enabled;
 
 
 - (QBooleanElement *)init {

@@ -21,6 +21,7 @@
     NSString *_controllerAccessoryAction;
 }
 
+@synthesize enabled = _enabled;
 @synthesize parentSection = _parentSection;
 @synthesize key = _key;
 @synthesize bind = _bind;
@@ -37,13 +38,18 @@
 
 - (QElement *)init {
     self = [super init];
-
+    if (self) {
+        self.enabled = YES;
+    }
     return self;
 }
 
 - (QElement *)initWithKey:(NSString *)key {
     self = [super init];
-    self.key = key;
+    if (self){
+        self.key = key;
+        self.enabled = YES;
+    }
     return self;
 }
 
@@ -52,11 +58,14 @@
     if (cell == nil){
         cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     }
+    if (!self.enabled) {
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+    }
     
     cell.textLabel.text = nil; 
     cell.detailTextLabel.text = nil; 
     cell.imageView.image = nil; 
-
+    cell.userInteractionEnabled = self.enabled;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;
@@ -91,7 +100,6 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     [[tableView cellForRowAtIndexPath:indexPath] becomeFirstResponder];
-
     [self handleElementSelected:controller];
 }
 

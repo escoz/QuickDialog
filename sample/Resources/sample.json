@@ -28,7 +28,8 @@
             {  "type":"QEntryElement", "title":"autocorrectionType", "placeholder":"No",  "autocorrectionType":"No" },
             {  "type":"QEntryElement", "title":"keyboardType", "placeholder":"PhonePad",  "keyboardType":"PhonePad" },
             {  "type":"QEntryElement", "title":"keyboardAppearance", "placeholder":"Alert",  "keyboardAppearance":"Alert" },
-            {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" }
+            {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" },
+            {  "type":"QEntryElement", "title":"Disabled", "placeholder":"Disabled",  "enabled":false}
             ]
         } ,
         { "elements":[
