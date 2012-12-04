@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "QButtonElement.h"
+
 @implementation QButtonElement
 
 - (QButtonElement *)init {

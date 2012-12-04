@@ -13,6 +13,8 @@
 //
 
 #import "QBindingEvaluator.h"
+#import "QSection.h"
+#import "QuickDialog.h"
 
 @implementation QSection {
 @private

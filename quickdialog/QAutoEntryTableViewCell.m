@@ -13,6 +13,8 @@
 // permissions and limitations under the License.
 //
 
+#import "QAutoEntryTableViewCell.h"
+#import "QuickDialog.h"
 
 @implementation QAutoEntryTableViewCell {
     NSString *_lastFullStringWithAutocompletion;

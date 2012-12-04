@@ -13,6 +13,8 @@
 //
 
 #import "QBadgeTableCell.h"
+#import "QBadgeElement.h"
+#import "QuickDialog.h"
 
 @implementation QBadgeElement {
 
@@ -30,8 +32,10 @@
 
 - (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value {
     self = [self init];
-    _title = title;
-    _badge = value;
+	if (self) {
+		_title = title;
+		_badge = value;
+	}
     return self;
 }
 

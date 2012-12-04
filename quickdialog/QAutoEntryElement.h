@@ -15,6 +15,9 @@
 #import "QLabelElement.h"
 #import "DOAutocompleteTextField.h"
 
+#import "QEntryElement.h"
+
+
 @interface QAutoEntryElement : QEntryElement <UITextInputTraits, DOAutocompleteTextFieldDelegate>
 
 @property(nonatomic, retain) NSString *textValue;
