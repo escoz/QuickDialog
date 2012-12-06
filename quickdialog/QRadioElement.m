@@ -13,6 +13,8 @@
 //
 
 #import "QBindingEvaluator.h"
+#import "QRadioElement.h"
+#import "QuickDialog.h"
 
 @implementation QRadioElement {
     QSection *_internalRadioItemsSection;

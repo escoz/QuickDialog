@@ -11,9 +11,10 @@
 // ANY KIND, either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-#import "QSection.h"
+
 #import "QTableViewCell.h"
 
+@class QSection;
 @class QuickDialogTableView;
 @class QuickDialogController;
 
@@ -30,6 +31,8 @@
     void (^_onSelected)(void);
     NSString * _controllerAction;
 }
+
+@property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 @property(nonatomic, copy) void (^onSelected)(void);
 @property(nonatomic, retain) NSString *controllerAction;

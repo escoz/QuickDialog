@@ -1,5 +1,6 @@
 #import "QuickDialogController+Navigation.h"
-
+#import "QRootBuilder.h"
+#import "QuickDialog.h"
 
 @implementation QuickDialogController(Navigation)
 
@@ -43,7 +44,7 @@
 
 }
 
-- (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation {
+- (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation fromRect:(CGRect)position {
 
     if ([UIDevice currentDevice].userInterfaceIdiom!=UIUserInterfaceIdiomPad){
         [self displayViewController:newController];
@@ -61,8 +62,13 @@
     }
     popoverController.delegate = self;
 
-    CGRect position = [self.quickDialogTableView rectForRowAtIndexPath:self.quickDialogTableView.indexPathForSelectedRow];
     [popoverController presentPopoverFromRect:position inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+- (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation {
+
+    CGRect position = [self.quickDialogTableView rectForRowAtIndexPath:self.quickDialogTableView.indexPathForSelectedRow];
+    [self displayViewControllerInPopover:newController withNavigation:navigation fromRect:position];
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {

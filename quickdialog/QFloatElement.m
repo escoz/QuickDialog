@@ -22,15 +22,20 @@
 
 - (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;
-    _floatValue = value;
+    if (self) {
+        _floatValue = value;
+        self.enabled = YES;
+    }
     return self;
 }
 
 
 - (QElement *)initWithValue:(float)value {
     self = [super init];
-    _floatValue = value;
-
+    if (self) {
+        _floatValue = value;
+        self.enabled = YES;
+    }
     return self;
 }
 

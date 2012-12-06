@@ -14,7 +14,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "QuickDialog.h"
+#import "QTableViewCell.h"
+
 
 
 @class QEntryElement;
@@ -52,5 +53,6 @@
 
 - (void)recalculateEntryFieldPosition;
 
+- (void)handleEditingChanged;
 
 @end

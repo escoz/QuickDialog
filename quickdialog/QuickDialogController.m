@@ -13,7 +13,7 @@
 //
 
 #import "QuickDialogController.h"
-
+#import "QRootElement.h"
 @interface QuickDialogController ()
 
 + (Class)controllerClassForRoot:(QRootElement *)root;

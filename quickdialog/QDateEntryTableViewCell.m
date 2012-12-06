@@ -15,6 +15,7 @@
 #import "QEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
+#import "QTextField.h"
 
 UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
 

@@ -7,6 +7,7 @@
 //
 
 #import "QPickerTableViewCell.h"
+#import "QuickDialog.h"
 
 NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 

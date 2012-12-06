@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-
+#import "QuickDialogController.h"
 
 @interface QuickDialogWebController : QuickDialogController
 

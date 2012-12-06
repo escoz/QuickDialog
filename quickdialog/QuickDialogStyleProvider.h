@@ -12,7 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialog.h"
+
+@class QElement;
+@class QSection;
 
 @protocol QuickDialogStyleProvider
 

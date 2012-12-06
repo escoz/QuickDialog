@@ -13,6 +13,7 @@
 //
 
 #import "QuickDialogTableView.h"
+#import "QEntryElement.h"
 
 @interface QRadioElement : QEntryElement {
     NSArray *_items;

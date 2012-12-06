@@ -13,6 +13,8 @@
 //
 
 #import "QBindingEvaluator.h"
+#import "QRootElement.h"
+#import "QuickDialog.h"
 
 @implementation QRootElement {
 @private

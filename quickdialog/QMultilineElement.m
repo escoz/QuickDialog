@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "QMultilineElement.h"
+#import "QuickDialog.h"
 @implementation QMultilineElement
 
 @synthesize delegate = _delegate;

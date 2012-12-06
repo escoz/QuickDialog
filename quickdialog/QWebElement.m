@@ -12,12 +12,13 @@
 // permissions and limitations under the License.
 //
 
+#import "QWebElement.h"
+#import "QuickDialog.h"
 @implementation QWebElement
 
 @synthesize url = _url;
 
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url {
-
     self = [super init];
     if (self!=nil){
         _url = url;

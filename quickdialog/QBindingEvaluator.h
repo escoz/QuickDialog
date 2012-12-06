@@ -15,6 +15,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class QSection;
+@class QRootElement;
+@class QElement;
+
 
 @interface QBindingEvaluator : NSObject {
 }

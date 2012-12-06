@@ -13,7 +13,8 @@
 //
 
 #import "QDateEntryTableViewCell.h"
-
+#import "QDateTimeInlineElement.h"
+#import "QuickDialog.h"
 @implementation QDateTimeInlineElement {
 @private
     NSDate *_maximumDate;
