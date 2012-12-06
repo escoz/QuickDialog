@@ -85,7 +85,8 @@ static UIBarButtonItem * fixedSpace;
     
     // make transparent
     [self setBackgroundImage:clearImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    [self setShadowImage:clearImage forToolbarPosition:UIToolbarPositionAny];
+    if ([self respondsToSelector:@selector(setShadowImage:forToolbarPosition:)])
+        [self setShadowImage:clearImage forToolbarPosition:UIToolbarPositionAny];
     
     NSUInteger index = 0;
     NSMutableArray * res = [NSMutableArray arrayWithCapacity:elements.count+2];
