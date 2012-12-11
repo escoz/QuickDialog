@@ -57,6 +57,9 @@
 
 - (void)valueChanged:(UISlider *)slider {
    _floatValue = slider.value;
+
+    if (self.onValueChanged!=nil)
+        self.onValueChanged();
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
