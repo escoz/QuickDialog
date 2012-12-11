@@ -47,7 +47,6 @@
 
 - (CGFloat)calculateSliderWidth:(QuickDialogTableView *)view cell:(UITableViewCell *)cell {
     CGFloat width = view.contentSize.width;
-    if ( width > 320.0 ) width -= 70.0;
     if (_title==nil)
         width -= 40;
     else
@@ -57,6 +56,9 @@
 
 - (void)valueChanged:(UISlider *)slider {
    _floatValue = slider.value;
+
+    if (self.onValueChanged!=nil)
+        self.onValueChanged();
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
