@@ -95,7 +95,7 @@
     control.frame = frame;
     control.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     control.segmentedControlStyle = 6;
-    control.selectedSegmentIndex = _selected + 1;
+    control.selectedSegmentIndex = _selected;
     control.tag = 4321;
     [control setEnabled:NO forSegmentAtIndex:0];
     [control setEnabled:NO forSegmentAtIndex:item.count-1];
