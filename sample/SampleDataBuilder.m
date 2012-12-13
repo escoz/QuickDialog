@@ -151,6 +151,9 @@
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
 	radioElement.key = @"radio1";
 
+    
+    QSelectElement *selectElement = [[QSelectElement alloc] initWithItems: [NSArray arrayWithObjects: @"Option 1", @"Option 2", @"Option 3", nil] selectedIndexes: [NSArray arrayWithObjects: [NSNumber numberWithInt: 0], [NSNumber numberWithInt: 2], nil]];
+    selectElement.title = @"Select";
 
 
     QBooleanElement *boolElement = [[QBooleanElement alloc] initWithTitle:@"Boolean Element" BoolValue:YES];
@@ -170,6 +173,7 @@
     [controls addElement:element1];
 
     [controls addElement:radioElement];
+    [controls addElement: selectElement];
     [controls addElement:entryElement];
     [controls addElement:autoElement];
 	

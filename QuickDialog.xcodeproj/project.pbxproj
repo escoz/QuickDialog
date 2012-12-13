@@ -43,6 +43,8 @@
 		2C5423DD145ADF2B0026A152 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BD13EC905B00E3922B /* QWebElement.m */; };
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
 		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
+		4FF728631679E7940021DC60 /* QSelectElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF728611679E7940021DC60 /* QSelectElement.h */; };
+		4FF728641679E7940021DC60 /* QSelectElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF728621679E7940021DC60 /* QSelectElement.m */; };
 		5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */; };
 		5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E404FC15CFA443ABBB5C /* navigation.json */; };
 		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
@@ -181,6 +183,8 @@
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		4FF728611679E7940021DC60 /* QSelectElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSelectElement.h; path = quickdialog/QSelectElement.h; sourceTree = SOURCE_ROOT; };
+		4FF728621679E7940021DC60 /* QSelectElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSelectElement.m; path = quickdialog/QSelectElement.m; sourceTree = SOURCE_ROOT; };
 		5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuickDialogController+Animations.h"; path = "quickdialog/QuickDialogController+Animations.h"; sourceTree = SOURCE_ROOT; };
 		5C50E404FC15CFA443ABBB5C /* navigation.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; name = navigation.json; path = QuickDialog.xcodeproj/navigation.json; sourceTree = SOURCE_ROOT; };
 		5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "quickdialog/QuickDialogController+Animations.m"; sourceTree = SOURCE_ROOT; };
@@ -490,6 +494,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				4FF728611679E7940021DC60 /* QSelectElement.h */,
+				4FF728621679E7940021DC60 /* QSelectElement.m */,
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
 				D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
@@ -705,6 +711,7 @@
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
 				D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */,
 				5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */,
+				4FF728631679E7940021DC60 /* QSelectElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +872,7 @@
 				F2304358156CDFDD006D0A56 /* QTextField.m in Sources */,
 				D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */,
 				5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */,
+				4FF728641679E7940021DC60 /* QSelectElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
