@@ -111,12 +111,11 @@
     if (self.title == NULL){
         cell.textField.text = selectedValue;
         cell.detailTextLabel.text = nil;
-        cell.imageView.image = nil;
     } else {
         cell.textLabel.text = _title;
         cell.textField.text = selectedValue;
-        cell.imageView.image = nil;
     }
+    cell.imageView.image = _image;
     cell.textField.textAlignment = UITextAlignmentRight;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
