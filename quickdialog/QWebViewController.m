@@ -27,6 +27,24 @@
     BOOL _firstPageFinished;
     BOOL _previousToolbarState;
 }
+- (QWebViewController *)initWithHtml:(NSString *)string {
+	
+    self = [super init];
+    if (self!=nil){
+        _webView = [[UIWebView alloc] init];
+        _webView.delegate = self;
+        _webView.scalesPageToFit = YES;
+        _html = string;
+        self.view = _webView;
+        
+        _btBack.enabled = NO;
+        _btForward.enabled = NO;
+		
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (QWebViewController *)initWithUrl:(NSString *)url {
 
     self = [super init];
@@ -80,24 +98,31 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
-    _previousToolbarState = self.navigationController.toolbarHidden;
-    self.navigationController.toolbarHidden = NO;
+	
+	_previousToolbarState = self.navigationController.toolbarHidden;
 
-    UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spacer1.width = 30;
-    UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spacer2.width = 30;
-    self.toolbarItems = [NSArray arrayWithObjects:
-            _btBack,
-            spacer1,
-            _btForward,
-            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionRefresh)],
-            spacer2,        
-            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionGoToSafari)],
-            nil];
-    
+	if (_html) {
+		[_webView loadHTMLString:_html baseURL:nil];
+		self.navigationController.toolbarHidden = YES;
+	}
+	else {
+		[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
+		self.navigationController.toolbarHidden = NO;
+
+		UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+		spacer1.width = 30;
+		UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+		spacer2.width = 30;
+		self.toolbarItems = [NSArray arrayWithObjects:
+				_btBack,
+				spacer1,
+				_btForward,
+				[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+				[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(actionRefresh)],
+				spacer2,        
+				[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionGoToSafari)],
+				nil];
+	}
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
