@@ -69,7 +69,6 @@
     if (self!=nil){
 		_title = title;
         _dateValue = date;
-        [self initializeRoot];
     }
     return self;
 }
