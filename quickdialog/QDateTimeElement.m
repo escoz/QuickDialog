@@ -65,8 +65,10 @@
 }
 
 - (QDateTimeElement *)initWithTitle:(NSString *)title date:(NSDate *)date {
-    self = [self init];
+    self = [super init];
     if (self!=nil){
+        _grouped = YES;
+        _mode = UIDatePickerModeDateAndTime;
 		_title = title;
         _dateValue = date;
         [self initializeRoot];
