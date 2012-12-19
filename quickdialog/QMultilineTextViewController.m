@@ -72,6 +72,9 @@
 
 
 - (void) resizeForKeyboard:(NSNotification*)aNotification {
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+        return;
+
     if (!_viewOnScreen)
         return;
 
