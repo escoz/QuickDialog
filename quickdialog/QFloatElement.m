@@ -23,16 +23,22 @@
 - (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;
     if (self) {
+		[self setDefaultMinMaxValue];
         _floatValue = value;
         self.enabled = YES;
     }
     return self;
 }
 
+- (void)setDefaultMinMaxValue {
+	_minimumValue = 0.0f;
+	_maximumValue = 1.0f;
+}
 
 - (QElement *)initWithValue:(float)value {
     self = [super init];
     if (self) {
+		[self setDefaultMinMaxValue];
         _floatValue = value;
         self.enabled = YES;
     }
@@ -46,31 +52,42 @@
 }
 
 - (CGFloat)calculateSliderWidth:(QuickDialogTableView *)view cell:(UITableViewCell *)cell {
-    CGFloat width = view.contentSize.width;
-    if (_title==nil)
-        width -= 40;
-    else
-        width -= [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width + 50;
+	CGFloat width = view.contentSize.width;
+	if (view.style == UITableViewStyleGrouped) {
+		width = cell.frame.size.width;
+		if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+			width -= 60.0f;
+		}
+	}
+	if (_title != nil && ![[_title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+		width -= [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width;
+	}
     return width;
 }
 
 - (void)valueChanged:(UISlider *)slider {
-   _floatValue = slider.value;
-
+	_floatValue = slider.value;
+	
     if (self.onValueChanged!=nil)
         self.onValueChanged();
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
-
+	
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, [self calculateSliderWidth:tableView cell:cell], 20)];
     [slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     slider.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     slider.minimumValue = _minimumValue;
     slider.maximumValue = _maximumValue;
     slider.value = _floatValue;
-    cell.accessoryView = slider;
+	if (_title == nil || [[_title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] isEqualToString:@""]) {
+		[cell.contentView addSubview:slider];
+		[slider setCenter:CGPointMake(CGRectGetWidth(cell.contentView.frame)*0.5f, CGRectGetHeight(cell.contentView.frame)*0.5f)];
+		[slider setBounds:CGRectMake(0, 0, CGRectGetWidth(cell.contentView.frame)-20, slider.frame.size.height)];
+	} else {
+		cell.accessoryView = slider;
+	}
     return cell;
 }
 
