@@ -30,19 +30,32 @@
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller {
     self = [super initWithFrame:CGRectMake(0, 0, 0, 0) style:controller.root.grouped ? UITableViewStyleGrouped : UITableViewStylePlain];
     if (self!=nil){
-        _controller = controller;
-        self.root = _controller.root;
-        self.deselectRowWhenViewAppears = YES;
-
-        quickformDataSource = [[QuickDialogDataSource alloc] initForTableView:self];
-        self.dataSource = quickformDataSource;
-
-        quickformDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
-        self.delegate = quickformDelegate;
-
-        self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [self initController:controller];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+
+    }
+    return self;
+}
+
+- (void)initController:(QuickDialogController *)controller {
+    _controller = controller;
+    self.root = _controller.root;
+    self.deselectRowWhenViewAppears = YES;
+
+    quickformDataSource = [[QuickDialogDataSource alloc] initForTableView:self];
+    self.dataSource = quickformDataSource;
+
+    quickformDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
+    self.delegate = quickformDelegate;
+
+    self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 }
 
 -(void)setRoot:(QRootElement *)root{

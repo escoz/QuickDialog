@@ -32,6 +32,7 @@
 @synthesize willDisappearCallback = _willDisappearCallback;
 @synthesize quickDialogTableView = _quickDialogTableView;
 @synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
+@synthesize useStoryboard = _useStoryboard;
 @synthesize popoverBeingPresented = _popoverBeingPresented;
 @synthesize popoverForChildRoot = _popoverForChildRoot;
 
@@ -65,13 +66,17 @@
 
 - (void)loadView {
     [super loadView];
-    self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
+    if (!self.useStoryboard) {
+        self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];
+    }
 }
 
 - (void)setQuickDialogTableView:(QuickDialogTableView *)tableView
 {
     _quickDialogTableView = tableView;
-    self.view = tableView;
+    if (!self.useStoryboard) {
+        self.view = tableView;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -98,6 +103,15 @@
     self.quickDialogTableView.root = root;
     self.title = _root.title;
     self.navigationItem.title = _root.title;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    if (self.useStoryboard) {
+        [self.quickDialogTableView initController:self];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
