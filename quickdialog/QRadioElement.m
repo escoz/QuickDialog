@@ -94,8 +94,9 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-    if (self.sections==nil)
-            return;
+    if ((self.sections == nil) || !self.enabled){
+        return;
+    }
 
     [controller displayViewControllerForRoot:self];
 }
@@ -118,8 +119,8 @@
         cell.imageView.image = nil;
     }
     cell.textField.textAlignment = UITextAlignmentRight;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;
     return cell;
 }
