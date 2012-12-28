@@ -75,6 +75,8 @@
         _autoCompleteField.inputAccessoryView = [self createActionBar];
     }
 
+    _autoCompleteField.userInteractionEnabled = element.enabled;
+
     [self updatePrevNextStatus];
 }
 
