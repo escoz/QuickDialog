@@ -102,6 +102,8 @@
     [control setWidth:10 forSegmentAtIndex:0];
     [control setWidth:10 forSegmentAtIndex:item.count-1];
 
+    control.userInteractionEnabled = self.enabled;
+
     [container addSubview:control];
     return cell;
 }
