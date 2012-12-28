@@ -71,11 +71,13 @@
         cell = [[QDateEntryTableViewCell alloc] init];
     }
     [cell prepareForElement:self inTableView:tableView];
+    cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
+    cell.textField.enabled = self.enabled;
+    cell.textField.userInteractionEnabled = self.enabled;
+    cell.textLabel.textColor = self.enabled ? [UIColor blackColor] : [UIColor lightGrayColor];
     cell.imageView.image = self.image;
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue ;
     cell.labelingPolicy = self.labelingPolicy;
     return cell;
-
 }
 
 - (void)fetchValueIntoObject:(id)obj {
