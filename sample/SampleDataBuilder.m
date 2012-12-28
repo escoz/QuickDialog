@@ -678,6 +678,17 @@
 	[sectionElements addElement:[self createWithInitDefault]];
 	[sectionElements addElement:[self createWithInitAndKey]];
 
+    QRootElement *samplesDisabled = (QRootElement *)[self createSampleControls];
+    samplesDisabled.title = @"Disabled Elements";
+    for(QSection *section in samplesDisabled.sections)
+    {
+        for(QElement *element in section.elements)
+        {
+            element.enabled = NO;
+        }
+    }
+    [sectionElements addElement:samplesDisabled];
+
     [root addSection:sectionSamples];
     [root addSection:sectionElements];
 
