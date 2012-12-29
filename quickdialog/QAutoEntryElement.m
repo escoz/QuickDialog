@@ -59,6 +59,7 @@
         cell = [[QAutoEntryTableViewCell alloc] init];
     }
     
+    cell.textLabel.textColor = self.enabled ? [UIColor blackColor] : [UIColor lightGrayColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;
@@ -69,8 +70,9 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    [super selected:tableView controller:controller indexPath:indexPath];
-    
+    if(self.enabled){
+        [super selected:tableView controller:controller indexPath:indexPath];
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {

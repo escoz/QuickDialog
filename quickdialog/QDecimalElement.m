@@ -46,8 +46,11 @@
         cell = [[QDecimalTableViewCell alloc] init];
     }
     [cell prepareForElement:self inTableView:tableView];
-    return cell;
 
+    cell.textLabel.textColor = self.enabled ? [UIColor blackColor] : [UIColor lightGrayColor];
+    cell.textField.userInteractionEnabled = self.enabled;
+
+    return cell;
 }
 
 - (void)fetchValueIntoObject:(id)obj {
