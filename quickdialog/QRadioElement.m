@@ -94,8 +94,9 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-    if (self.sections==nil)
-            return;
+    if ((self.sections == nil) || !self.enabled){
+        return;
+    }
 
     [controller displayViewControllerForRoot:self];
 }
@@ -111,19 +112,18 @@
     if (self.title == NULL){
         cell.textField.text = selectedValue;
         cell.detailTextLabel.text = nil;
-        cell.imageView.image = nil;
     } else {
         cell.textLabel.text = _title;
         cell.textField.text = selectedValue;
-        cell.imageView.image = nil;
     }
+    cell.imageView.image = _image;
 #ifdef __IPHONE_6_0
     cell.textField.textAlignment = NSTextAlignmentRight;
 #else
     cell.textField.textAlignment = UITextAlignmentRight;
 #endif
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
+    cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;
     return cell;
 }
