@@ -41,7 +41,11 @@
         cell.textLabel.textColor = [UIColor lightGrayColor];
     }
     cell.textLabel.text = _title;
+#ifdef __IPHONE_6_0
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+#else
     cell.textLabel.textAlignment = UITextAlignmentCenter;
+#endif
     cell.userInteractionEnabled = self.enabled;
     return cell;
 }

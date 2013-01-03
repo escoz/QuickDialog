@@ -64,7 +64,11 @@
     _autocompleteLabel.font = self.font;
     _autocompleteLabel.backgroundColor = [UIColor clearColor];
     _autocompleteLabel.textColor = [UIColor lightGrayColor];
+#ifdef __IPHONE_6_0
+    _autocompleteLabel.lineBreakMode = NSLineBreakByClipping;
+#else
     _autocompleteLabel.lineBreakMode = UILineBreakModeClip;
+#endif
     [self addSubview:_autocompleteLabel];
     [self bringSubviewToFront:_autocompleteLabel];
     
@@ -106,14 +110,26 @@
     CGRect textRect = [self textRectForBounds:self.bounds];
     //    NSLog(@"textRect: %@", NSStringFromCGRect(textRect));
     
+#ifdef __IPHONE_6_0
+    CGSize prefixTextSize = [self.text sizeWithFont:self.font
+                                  constrainedToSize:textRect.size
+                                      lineBreakMode:NSLineBreakByCharWrapping];
+#else
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
                                       lineBreakMode:UILineBreakModeCharacterWrap];
+#endif
     //    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
     
-    CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont:self.font 
+#ifdef __IPHONE_6_0
+    CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont:self.font
+                                                  constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
+                                                      lineBreakMode:NSLineBreakByCharWrapping];
+#else
+    CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont:self.font
                                                   constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
                                                       lineBreakMode:UILineBreakModeCharacterWrap];
+#endif
     
     //    NSLog(@"autocompleteTextSize: %@",  NSStringFromCGSize(autocompleteTextSize)); 
     

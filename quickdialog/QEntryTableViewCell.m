@@ -86,7 +86,11 @@
                 QEntryElement *q = (QEntryElement*)el; 
                 CGFloat imageWidth = q.image == NULL ? 0 : q.image.size.width + 10;  
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
+#ifdef __IPHONE_6_0
+                CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByWordWrapping] ;
+#else
                 CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:UILineBreakModeWordWrap] ;
+#endif
                 CGFloat width = size.width + imageWidth;
                 if (width>titleWidth)
                     titleWidth = width;
@@ -152,7 +156,11 @@
 - (void)prepareForReuse {
     _quickformTableView = nil;
     _entryElement = nil;
-    _textField.textAlignment = UITextAlignmentLeft;
+#ifdef __IPHONE_6_0
+	_textField.textAlignment = NSTextAlignmentLeft;
+#else
+	_textField.textAlignment = UITextAlignmentLeft;
+#endif
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
