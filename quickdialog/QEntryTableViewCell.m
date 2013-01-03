@@ -108,7 +108,9 @@
 
     _quickformTableView = tableView;
     _entryElement = element;
-    _textField.text = _entryElement.textValue;
+    if ([_entryElement.textValue isKindOfClass:[NSString class]]) {
+        _textField.text = _entryElement.textValue;
+    }
     _textField.placeholder = _entryElement.placeholder;
     _textField.prefix = _entryElement.prefix;
     _textField.suffix = _entryElement.suffix;
