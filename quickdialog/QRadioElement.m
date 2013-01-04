@@ -117,7 +117,11 @@
         cell.textField.text = selectedValue;
     }
     cell.imageView.image = _image;
+#ifdef __IPHONE_6_0
+    cell.textField.textAlignment = NSTextAlignmentRight;
+#else
     cell.textField.textAlignment = UITextAlignmentRight;
+#endif
     cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;

@@ -10,7 +10,11 @@
     if (self.navigationController != nil ){
         [self.navigationController pushViewController:newController animated:YES];
     } else {
+#ifdef __IPHONE_6_0
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:newController] animated:YES completion:NULL];
+#else
         [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:newController] animated:YES];
+#endif
     }
 }
 
@@ -25,22 +29,38 @@
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFormSheet;
+#ifdef __IPHONE_6_0
+        [self presentViewController:navigation animated:YES completion:NULL];
+#else
         [self presentModalViewController:navigation animated:YES];
+#endif
     }  else if (root.presentationMode == QPresentationModeModalFullScreen) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFullScreen;
+#ifdef __IPHONE_6_0
+        [self presentViewController:navigation animated:YES completion:NULL];
+#else
         [self presentModalViewController:navigation animated:YES];
+#endif
     }  else if (root.presentationMode == QPresentationModeModalPage) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationPageSheet;
+#ifdef __IPHONE_6_0
+        [self presentViewController:navigation animated:YES completion:NULL];
+#else
         [self presentModalViewController:navigation animated:YES];
+#endif
     }
 }
 
 - (void)dismissModalViewController {
+#ifdef __IPHONE_6_0
+    [self dismissViewControllerAnimated:YES completion:NULL];
+#else
     [self dismissModalViewControllerAnimated:YES];
+#endif
 
 }
 
@@ -89,7 +109,11 @@
     else if (self.navigationController!=nil){
         [self.navigationController popViewControllerAnimated:YES];
     } else {
-        [self dismissModalViewControllerAnimated:YES];
+#ifdef __IPHONE_6_0
+		[self dismissViewControllerAnimated:YES completion:NULL];
+#else
+		[self dismissModalViewControllerAnimated:YES];
+#endif
     }
 }
 

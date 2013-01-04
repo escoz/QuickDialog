@@ -28,7 +28,11 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _title;
+#ifdef __IPHONE_6_0
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+#else
     cell.textLabel.textAlignment = UITextAlignmentCenter;
+#endif
     cell.textLabel.textColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
     return cell;

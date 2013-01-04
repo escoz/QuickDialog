@@ -41,7 +41,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QuickformText"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+#ifdef __IPHONE_6_0
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+#else
     cell.detailTextLabel.lineBreakMode = UILineBreakModeWordWrap;
+#endif
     cell.detailTextLabel.numberOfLines = 0;
 
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
@@ -60,7 +64,11 @@
         return [super getRowHeightForTableView:tableView];
     }
     CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
+#ifdef __IPHONE_6_0
+    CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+#else
     CGSize  size= [_text sizeWithFont:_font constrainedToSize:constraint lineBreakMode:UILineBreakModeWordWrap];
+#endif
 	CGFloat predictedHeight = size.height + 20.0f;
     if (self.title!=nil)
         predictedHeight+=30;

@@ -26,7 +26,11 @@
     self.backgroundColor = [UIColor clearColor];
     self.badgeColor = [UIColor colorWithRed:0.530f green:0.600f blue:0.738f alpha:1.000f];
     self.font = [UIFont boldSystemFontOfSize:14];
+#ifdef __IPHONE_6_0
+    self.textAlignment = NSTextAlignmentCenter;
+#else
     self.textAlignment = UITextAlignmentCenter;
+#endif
     self.clipsToBounds = NO;
     return self;
 }

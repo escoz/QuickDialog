@@ -29,7 +29,10 @@
         [self.contentView addSubview:_badgeLabel];
         _badgeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _badgeLabel.contentMode = UIViewContentModeRedraw;
-        _badgeLabel.contentStretch = CGRectMake(1., 0., 0., 0.);
+#ifndef __IPHONE_6_0
+		// shouldn't need this on iOS 6
+		_badgeLabel.contentStretch = CGRectMake(1., 0., 0., 0.);
+#endif
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;

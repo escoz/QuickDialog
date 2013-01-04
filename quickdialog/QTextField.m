@@ -24,7 +24,11 @@
     if (_prefix || _suffix) {
         NSString *textWithSuffix = [NSString stringWithFormat:@"%@%@%@", _prefix ? _prefix : @"", self.text, _suffix ? _suffix : @""];
         CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), self.textColor.CGColor);
+#ifdef __IPHONE_6_0
+        [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
+#else
         [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeTailTruncation alignment:self.textAlignment];
+#endif
     } else {
         [super drawTextInRect:rect];
     }

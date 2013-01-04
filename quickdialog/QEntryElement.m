@@ -33,7 +33,11 @@
     if (self){
         self.autocapitalizationType = UITextAutocapitalizationTypeSentences;
         self.autocorrectionType = UITextAutocorrectionTypeDefault;
-        self.textAlignment = UITextAlignmentLeft;
+#ifdef __IPHONE_6_0
+		self.textAlignment = NSTextAlignmentLeft;
+#else
+		self.textAlignment = UITextAlignmentLeft;
+#endif
         self.keyboardType = UIKeyboardTypeDefault;
         self.keyboardAppearance = UIKeyboardAppearanceDefault;
         self.returnKeyType = UIReturnKeyDefault;

@@ -87,9 +87,16 @@
         CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 20;
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
+		
+#ifdef __IPHONE_6_0
         CGSize expectedLabelSize = [section.title sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
-                                              constrainedToSize:maximumLabelSize
-                                                  lineBreakMode:UILineBreakModeWordWrap];
+											 constrainedToSize:maximumLabelSize
+												 lineBreakMode:NSLineBreakByWordWrapping];
+#else
+        CGSize expectedLabelSize = [section.title sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
+											 constrainedToSize:maximumLabelSize
+												 lineBreakMode:UILineBreakModeWordWrap];
+#endif
 
         stringTitleHeight = expectedLabelSize.height+23.f;
     }

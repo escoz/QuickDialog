@@ -48,7 +48,7 @@
     [cell prepareForElement:self inTableView:tableView];
 
     cell.textLabel.textColor = self.enabled ? [UIColor blackColor] : [UIColor lightGrayColor];
-    cell.textField.userInteractionEnabled = self.enabled;
+    ((UIView *)cell.textField).userInteractionEnabled = self.enabled;
 
     return cell;
 }
