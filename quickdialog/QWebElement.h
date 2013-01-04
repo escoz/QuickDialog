@@ -26,7 +26,7 @@
 @property(nonatomic, strong) NSString *html;
 
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url;
-- (QWebElement *)initWithHTML:(NSString *)title HTML:(NSString *)html;
+- (QWebElement *)initWithTitle:(NSString *)title HTML:(NSString *)html;
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path;
 

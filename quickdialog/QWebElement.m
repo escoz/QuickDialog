@@ -28,7 +28,7 @@
     return self;
 }
 
-- (QWebElement *)initWithHTML:(NSString *)title HTML:(NSString *)html {
+- (QWebElement *)initWithTitle:(NSString *)title HTML:(NSString *)html {
 	
     self = [super init];
     if (self!=nil){
@@ -48,7 +48,8 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     [self handleElementSelected:controller];
 	if (_html) {
-		QWebViewController *webController = [[QWebViewController alloc] initWithHtml:_html];
+		QWebViewController *webController = [[QWebViewController alloc] initWithHTML:_html];
+        webController.title = self.title;
 		[controller displayViewController:webController];
 	}
 	else {
