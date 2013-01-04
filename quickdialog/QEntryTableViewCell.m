@@ -92,7 +92,7 @@
                     titleWidth = width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,9,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
