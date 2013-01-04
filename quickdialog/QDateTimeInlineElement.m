@@ -56,6 +56,10 @@
     self.dateValue = [NSDate dateWithTimeIntervalSince1970:ticks.doubleValue];
 }
 
+- (void)setDateValue:(NSDate *)date {
+    _dateValue = date;
+}
+
 -(NSNumber *)ticksValue {
     return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
 }
