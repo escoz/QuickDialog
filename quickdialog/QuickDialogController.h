@@ -31,8 +31,9 @@
 
 @property(nonatomic, retain) QRootElement * root;
 @property(nonatomic, copy) void (^willDisappearCallback)();
-@property(nonatomic, strong) QuickDialogTableView *quickDialogTableView;
+@property(nonatomic, strong) IBOutlet QuickDialogTableView *quickDialogTableView;
 @property(nonatomic) BOOL resizeWhenKeyboardPresented;
+@property(nonatomic) BOOL useStoryboard;
 
 
 @property(nonatomic, strong) UIPopoverController *popoverBeingPresented;
