@@ -104,8 +104,10 @@
     _viewOnScreen = YES;
     [self.quickDialogTableView viewWillAppear];
     [super viewWillAppear:animated];
-    if (_root!=nil)
+    if (_root!=nil) {
         self.title = _root.title;
+        self.navigationItem.title = _root.title;
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

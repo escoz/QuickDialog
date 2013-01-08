@@ -12,4 +12,7 @@
 
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation;
 
+- (void)popToPreviousRootElement;
+
+
 @end

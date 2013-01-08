@@ -74,18 +74,17 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     [self.quickDialogTableView reloadData];
     self.popoverForChildRoot = nil;
-
 }
 
-
 - (void)popToPreviousRootElementOnMainThread {
-
     if ([self popoverBeingPresented]!=nil){
         [self.popoverBeingPresented dismissPopoverAnimated:YES];
         if (self.popoverBeingPresented.delegate!=nil){
             [self.popoverBeingPresented.delegate popoverControllerDidDismissPopover:self.popoverBeingPresented];
         }
     }
+    else if (self.presentingViewController!=nil)
+        [self dismissViewControllerAnimated:YES completion:nil];
     else if (self.navigationController!=nil){
         [self.navigationController popViewControllerAnimated:YES];
     } else {
