@@ -53,7 +53,6 @@
             self.allowsSelectionDuringEditing = YES;
         }
     }
-    [self applyAppearanceForRoot:root];
     [self reloadData];
 }
 
@@ -116,6 +115,8 @@
 }
 
 - (void)viewWillAppear {
+
+    [self applyAppearanceForRoot:self.root];
     NSArray *selected = nil;
     if ([self indexPathForSelectedRow]!=nil && _deselectRowWhenViewAppears){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];

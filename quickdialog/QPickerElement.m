@@ -17,6 +17,7 @@
 {
     if (self = [super init]) {
         self.valueParser = [QPickerTabDelimitedStringParser new];
+        self.keepSelected = YES;
     }
     return self;
 }
