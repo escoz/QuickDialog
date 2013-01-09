@@ -17,6 +17,7 @@
 
 @interface QTextField : UITextField
 
+@property (nonatomic, strong) UIColor *placeholderColor;
 @property (nonatomic, copy) NSString *prefix;
 @property (nonatomic, copy) NSString *suffix;
 
