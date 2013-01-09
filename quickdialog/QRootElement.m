@@ -47,6 +47,12 @@
     section.rootElement = self;
 }
 
++ (QRootElement *)rootForJSON:(NSString *)jsonFileName withObject:(id)object {
+    QRootElement *root = [self rootForJSON:jsonFileName];
+    root.object = object;
+    return root;
+}
+
 - (QSection *)getSectionForIndex:(NSInteger)index {
    return [_sections objectAtIndex:(NSUInteger) index];
 }

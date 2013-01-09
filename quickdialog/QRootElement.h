@@ -50,6 +50,9 @@ typedef enum  {
 - (QRootElement *)init;
 
 - (void)addSection:(QSection *)section;
+
++ (QRootElement *)rootForJSON:(NSString *)jsonFileName withObject:(id)object;
+
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
 
