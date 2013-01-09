@@ -87,7 +87,7 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
         _textField.text = [pickerElement.value description];
     }
     
-    [self setNeedsDisplay];
+    [self setNeedsLayout];
 }
 
 #pragma mark - UIPickerView data source and delegate
