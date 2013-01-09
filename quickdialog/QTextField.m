@@ -16,6 +16,7 @@
 
 @implementation QTextField
 
+@synthesize placeholderColor = _placeholderColor;
 @synthesize prefix = _prefix;
 @synthesize suffix = _suffix;
 
@@ -27,6 +28,15 @@
         [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeTailTruncation alignment:self.textAlignment];
     } else {
         [super drawTextInRect:rect];
+    }
+}
+
+- (void)drawPlaceholderInRect:(CGRect)rect {
+    if (!_placeholderColor) {
+        [super drawPlaceholderInRect:rect];
+    } else {
+        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), _placeholderColor.CGColor);
+        [self.placeholder drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeTailTruncation alignment:self.textAlignment];
     }
 }
 
