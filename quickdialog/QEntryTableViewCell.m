@@ -49,7 +49,7 @@
 
 - (void)createSubviews {
     _textField = [[QTextField alloc] init];
-    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -316,6 +316,14 @@
         }
     }
     return nil;
+}
+
+- (void)applyAppearanceForElement:(QElement *)element {
+    [super applyAppearanceForElement:element];
+
+    QAppearance *appearance = element.appearance;
+    _textField.font = appearance.entryFont;
+    _textField.textColor = element.enabled ? appearance.entryTextColorEnabled : appearance.entryTextColorDisabled;
 }
 
 

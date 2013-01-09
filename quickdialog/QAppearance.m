@@ -22,6 +22,15 @@
     _backgroundColorEnabled = [UIColor whiteColor];
 
     _tableSeparatorColor = [UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
+
+    _entryTextColorDisabled = [UIColor lightGrayColor];
+    _entryTextColorEnabled = [UIColor blackColor];
+    _entryFont = [UIFont systemFontOfSize:15];
+
+    _valueColorEnabled = [UIColor colorWithRed:0.1653 green:0.2532 blue:0.4543 alpha:1.0000];
+    _valueColorDisabled = [UIColor lightGrayColor];
+    _valueFont = [UIFont systemFontOfSize:15];
+    _valueAlignment = NSTextAlignmentRight;
 }
 
 - (id)copyWithZone:(NSZone *)zone {

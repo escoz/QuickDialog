@@ -32,7 +32,7 @@
     if (self.imageView!=nil)
         imageSize = self.imageView.frame.size;
 
-    
+
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
         CGSize valueSize = CGSizeZero;
@@ -56,6 +56,10 @@
     self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
     self.textLabel.font = appearance.labelFont;
     self.textLabel.textAlignment = appearance.labelAlignment;
+
+    self.detailTextLabel.textColor = element.enabled ? appearance.valueColorEnabled : appearance.valueColorDisabled;
+    self.detailTextLabel.font = appearance.valueFont;
+    self.detailTextLabel.textAlignment = appearance.valueAlignment;
 
     self.backgroundColor = appearance.backgroundColorDisabled;
 

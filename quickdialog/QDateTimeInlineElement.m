@@ -33,12 +33,14 @@
 - (QDateTimeInlineElement *)init {
     self = [super init];
     _dateValue = [NSDate date];
+    self.keepSelected = YES;
     return self;
 }
 
 - (QDateTimeInlineElement *)initWithKey:(NSString *)key {
     self = [super initWithKey:key];
     _dateValue = [NSDate date];
+    self.keepSelected = YES;
     return self;
 }
 
