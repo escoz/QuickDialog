@@ -55,6 +55,7 @@
     QAppearance *appearance = element.appearance;
     self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
     self.textLabel.font = appearance.labelFont;
+    self.textLabel.textAlignment = appearance.labelAlignment;
 
     self.backgroundColor = appearance.backgroundColorDisabled;
 

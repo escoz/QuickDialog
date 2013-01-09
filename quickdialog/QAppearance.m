@@ -2,8 +2,6 @@
 @implementation QAppearance {
 
 }
-@synthesize labelColorDisabled = _labelColorDisabled;
-
 
 - (QAppearance *)init {
     self = [super init];
@@ -18,6 +16,7 @@
     _labelColorDisabled = [UIColor lightGrayColor];
     _labelColorEnabled = [UIColor blackColor];
     _labelFont = [UIFont boldSystemFontOfSize:15];
+    _labelAlignment = NSTextAlignmentLeft;
 
     _backgroundColorDisabled = [UIColor colorWithWhite:0.9605 alpha:1.0000];
     _backgroundColorEnabled = [UIColor whiteColor];

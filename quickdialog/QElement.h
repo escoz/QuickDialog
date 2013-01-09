@@ -56,6 +56,8 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
 
+-(QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView;
+
 - (void)handleElementSelected:(QuickDialogController *)controller;
 
 - (void)selectedAccessory:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;

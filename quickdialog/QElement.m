@@ -56,10 +56,7 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
-    if (cell == nil){
-        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
-    }
+    QTableViewCell *cell= [self getOrCreateEmptyCell:tableView];
 
     [cell applyAppearanceForElement:self];
 
@@ -71,6 +68,14 @@
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;
     cell.labelingPolicy = _labelingPolicy;
+    return cell;
+}
+
+- (QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView {
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
+    if (cell == nil){
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
+    }
     return cell;
 }
 

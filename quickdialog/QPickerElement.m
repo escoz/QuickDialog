@@ -36,6 +36,7 @@
     if (cell == nil) {
         cell = [[QPickerTableViewCell alloc] init];
     }
+    [cell applyAppearanceForElement:self];
 
     UIPickerView *pickerView = nil;
     [cell prepareForElement:self inTableView:tableView pickerView:&pickerView];
