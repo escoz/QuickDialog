@@ -104,6 +104,8 @@
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
+    [self applyAppearanceForElement:element];
+
     self.textLabel.text = element.title;
 
     _quickformTableView = tableView;

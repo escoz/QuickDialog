@@ -9,4 +9,9 @@
 @property (nonatomic,strong)UIColor * backgroundColorEnabled;
 @property (nonatomic,strong)UIColor * backgroundColorDisabled;
 @property (nonatomic) NSTextAlignment labelAlignment;
+
+@property (nonatomic,strong)UIColor *tableGroupedBackgroundColor;
+@property (nonatomic,strong)UIColor *tableBackgroundColor;
+@property (nonatomic,strong)UIView *tableBackgroundView;
+@property (nonatomic,strong)UIColor *tableSeparatorColor;
 @end

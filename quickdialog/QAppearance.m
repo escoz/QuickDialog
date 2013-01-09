@@ -21,6 +21,7 @@
     _backgroundColorDisabled = [UIColor colorWithWhite:0.9605 alpha:1.0000];
     _backgroundColorEnabled = [UIColor whiteColor];
 
+    _tableSeparatorColor = [UIColor colorWithRed:224/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
