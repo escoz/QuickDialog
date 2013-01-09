@@ -19,7 +19,7 @@
 
 @implementation QElement {
 @private
-    NSObject *_object;
+    id _object;
     NSString *_controllerAccessoryAction;
 }
 
@@ -60,10 +60,9 @@
     if (cell == nil){
         cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
     }
-    if (!self.enabled) {
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    
+
+    [cell applyAppearanceForElement:self];
+
     cell.textLabel.text = nil; 
     cell.detailTextLabel.text = nil; 
     cell.imageView.image = nil; 

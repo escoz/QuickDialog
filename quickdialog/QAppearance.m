@@ -1,35 +1,34 @@
 
 @implementation QAppearance {
 
-    NSMutableDictionary *_dict;
 }
+@synthesize labelColorDisabled = _labelColorDisabled;
 
-- (id)init {
+
+- (QAppearance *)init {
     self = [super init];
     if (self) {
-        _dict = [NSMutableDictionary new];
+        [self setDefaults];
     }
 
     return self;
 }
 
-- (id)initWithObjects:(const id [])objects forKeys:(const id [])keys count:(NSUInteger)cnt {
-    _dict = [NSMutableDictionary dictionaryWithObjects:objects forKeys:keys count:cnt];
-    return self;
-}
-- (NSUInteger)count {
-    return [_dict count];
-}
-- (id)objectForKey:(id)aKey {
-    return [_dict objectForKey:aKey];
-}
-- (NSEnumerator *)keyEnumerator {
-    return [_dict keyEnumerator];
-}
+- (void)setDefaults {
+    _labelColorDisabled = [UIColor lightGrayColor];
+    _labelColorEnabled = [UIColor blackColor];
+    _labelFont = [UIFont boldSystemFontOfSize:15];
 
-
-- (void)setObject:(NSString *)object forKey:(NSString *)key {
-    [_dict setObject:object forKey:key];
+    _backgroundColorDisabled = [UIColor colorWithWhite:0.9605 alpha:1.0000];
+    _backgroundColorEnabled = [UIColor whiteColor];
 
 }
+
+- (id)copyWithZone:(NSZone *)zone {
+    QAppearance *copy = [[[self class] allocWithZone:zone] init];
+    if (copy != nil) {
+    }
+    return copy;
+}
+
 @end

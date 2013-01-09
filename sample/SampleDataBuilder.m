@@ -652,13 +652,14 @@
 + (QRootElement *)create {
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
-    root.title = @"QuickForms!";
+    root.title = @"QuickDialog!";
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];
+    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"themes"]];
 
 
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
@@ -699,6 +700,7 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsondatasample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonremote"]];
+
 
         NSString *jsonSample = @"{\"title\": \"In memory struct\",\n"
                             "    \"controllerName\": \"LoginController\", \"sections\":[]}";

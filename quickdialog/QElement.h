@@ -45,7 +45,7 @@
 @property(nonatomic, assign) QSection *parentSection;
 
 @property(nonatomic, retain) NSString *key;
-@property(nonatomic, retain) NSObject *object;
+@property(nonatomic, retain) id object;
 @property(nonatomic, retain) NSString *bind;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;

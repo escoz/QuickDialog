@@ -68,4 +68,14 @@
     }
 }
 
+
+-(void)setTheme:(QElement *)element  {
+
+    if ([element.object isEqualToString:@"blue"]) {
+        QAppearance *appearance = [QElement appearance];
+        appearance.labelFont = [UIFont systemFontOfSize:14];
+        appearance.backgroundColorDisabled = [UIColor colorWithRed:0.4353 green:0.6975 blue:0.9595 alpha:1.0000];
+    }
+
+}
 @end
