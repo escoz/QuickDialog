@@ -1,5 +1,6 @@
 #import <objc/runtime.h>
 #import "QElement+Appearance.h"
+#import "QAppearance.h"
 
 
 static void * const KEY_APPEARANCE_OBJECT = (void*)&KEY_APPEARANCE_OBJECT;
@@ -7,34 +8,33 @@ static void * const KEY_APPEARANCE_OBJECT = (void*)&KEY_APPEARANCE_OBJECT;
 @implementation QElement (Appearance)
 
 
-+ (NSMutableDictionary *)appearance {
-    NSMutableDictionary *appearance = objc_getAssociatedObject(self, &KEY_APPEARANCE_OBJECT);
++ (QAppearance *)appearance {
+    QAppearance *appearance = objc_getAssociatedObject(self, &KEY_APPEARANCE_OBJECT);
     if (appearance==nil && [[self class].superclass respondsToSelector:@selector(appearance)]){
         appearance = [[self class].superclass appearance];
     }
     if (appearance==nil) {
-        appearance = [NSMutableDictionary new];
+        appearance = [QAppearance new];
         [self setAppearance:appearance];
     }
     return appearance;
 }
 
-+ (void)setAppearance:(NSMutableDictionary *)newAppearance {
++ (void)setAppearance:(QAppearance *)newAppearance {
     objc_setAssociatedObject(self, &KEY_APPEARANCE_OBJECT, newAppearance, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
-- (NSMutableDictionary *)appearance {
-    NSMutableDictionary *objAppearance = objc_getAssociatedObject(self, &KEY_APPEARANCE_OBJECT);
+- (QAppearance *)appearance {
+    QAppearance *objAppearance = objc_getAssociatedObject(self, &KEY_APPEARANCE_OBJECT);
     if (objAppearance==nil) {
-        NSLog(@"Reading from obj class %@ - %@", self.class,  [(QElement *)self.class appearance]);
         objAppearance = [[(QElement *)self.class appearance] mutableCopy];
         self.appearance = objAppearance;
     }
     return objAppearance;
 }
 
-- (void)setAppearance:(NSMutableDictionary *)newAppearance {
+- (void)setAppearance:(QAppearance *)newAppearance {
     objc_setAssociatedObject(self, &KEY_APPEARANCE_OBJECT, newAppearance, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

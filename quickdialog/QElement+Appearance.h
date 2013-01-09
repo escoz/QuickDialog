@@ -1,11 +1,13 @@
 #import <Foundation/Foundation.h>
 
+@class QAppearance;
+
 @interface QElement (Appearance)
 
-@property(nonatomic, retain) NSMutableDictionary *appearance;
+@property(nonatomic, retain) QAppearance *appearance;
 
-+ (NSMutableDictionary *)appearance;
-+ (void)setAppearance:(NSMutableDictionary *)newAppearance;
++ (QAppearance *)appearance;
++ (void)setAppearance:(QAppearance *)newAppearance;
 
 
 @end

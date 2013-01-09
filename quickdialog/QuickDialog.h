@@ -23,6 +23,8 @@
 #import "QuickDialogTableDelegate.h"
 
 #import "QElement.h"
+
+#import "QAppearance.h"
 #import "QElement+Appearance.h"
 
 #import "QTableViewCell.h"
