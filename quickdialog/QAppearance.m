@@ -36,6 +36,24 @@
 - (id)copyWithZone:(NSZone *)zone {
     QAppearance *copy = [[[self class] allocWithZone:zone] init];
     if (copy != nil) {
+        copy.labelColorDisabled = _labelColorDisabled;
+        copy.labelColorEnabled = _labelColorEnabled;
+        copy.labelFont = _labelFont;
+        copy.labelAlignment = _labelAlignment;
+
+        copy.backgroundColorDisabled = _backgroundColorDisabled;
+        copy.backgroundColorEnabled = _backgroundColorEnabled;
+
+        copy.tableSeparatorColor = _tableSeparatorColor;
+
+        copy.entryTextColorDisabled = _entryTextColorDisabled;
+        copy.entryTextColorEnabled = _entryTextColorEnabled;
+        copy.entryFont = _entryFont;
+
+        copy.valueColorEnabled = _valueColorEnabled;
+        copy.valueColorDisabled = _valueColorDisabled;
+        copy.valueFont = _valueFont;
+        copy.valueAlignment = _valueAlignment;
     }
     return copy;
 }
