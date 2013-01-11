@@ -22,10 +22,13 @@
     NSDate * _dateValue;
 @private
     UIDatePickerMode _mode;
+    NSInteger _minuteInterval;
 }
 
 @property(nonatomic, retain) NSDate *dateValue;
 @property(nonatomic, assign) NSNumber *ticksValue;
+
+@property (assign) NSInteger minuteInterval;
 
 @property (assign) UIDatePickerMode mode;
 
