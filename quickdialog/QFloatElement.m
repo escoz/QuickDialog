@@ -55,7 +55,7 @@
 }
 
 - (void)valueChanged:(UISlider *)slider {
-   _floatValue = slider.value;
+   self.floatValue = slider.value;
 
     if (self.onValueChanged!=nil)
         self.onValueChanged();
