@@ -40,6 +40,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     NSInteger selectedIndex = _radioElement==nil? _radioSection.selected : _radioElement.selected;
     cell.accessoryType = selectedIndex == _index ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.textLabel.textAlignment = UITextAlignmentLeft; // hardcoded so that appearance doesn't change it
     return cell;
 }
 
