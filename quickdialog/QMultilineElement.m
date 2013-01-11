@@ -48,7 +48,7 @@
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath
 {
-    __weak QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
+    QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
     textController.entryElement = self;
     textController.entryCell = (QEntryTableViewCell *) [tableView cellForElement:self];
     textController.resizeWhenKeyboardPresented = YES;
@@ -63,8 +63,9 @@
     textController.textView.editable = self.enabled;
 
     __weak QMultilineElement *weakSelf = self;
+	__weak QMultilineTextViewController *weakTextController = textController;
     textController.willDisappearCallback = ^ {
-        weakSelf.textValue = textController.textView.text;
+        weakSelf.textValue = weakTextController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
     };
     [controller displayViewControllerInPopover:textController withNavigation:NO];
