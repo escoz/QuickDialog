@@ -83,11 +83,11 @@
             [self.popoverBeingPresented.delegate popoverControllerDidDismissPopover:self.popoverBeingPresented];
         }
     }
-    else if (self.presentingViewController!=nil)
-        [self dismissViewControllerAnimated:YES completion:nil];
     else if (self.navigationController!=nil){
         [self.navigationController popViewControllerAnimated:YES];
-    } else {
+    } else if (self.presentingViewController!=nil)
+        [self dismissViewControllerAnimated:YES completion:nil];
+    else {
         [self dismissModalViewControllerAnimated:YES];
     }
 }
