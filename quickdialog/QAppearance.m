@@ -4,6 +4,8 @@
 }
 @synthesize sectionTitleFont = _sectionTitleFont;
 @synthesize sectionTitleColor = _sectionTitleColor;
+@synthesize sectionFooterFont = _sectionFooterFont;
+@synthesize sectionFooterColor = _sectionFooterColor;
 
 
 - (QAppearance *)init {
@@ -24,6 +26,9 @@
 
     _sectionTitleFont = [UIFont boldSystemFontOfSize:17];
     _sectionTitleColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
+
+    _sectionFooterFont = [UIFont systemFontOfSize:15];
+    _sectionFooterColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
 
     _labelFont = [UIFont boldSystemFontOfSize:15];
     _labelAlignment = NSTextAlignmentLeft;
@@ -72,6 +77,8 @@
 
         copy.sectionTitleColor = _sectionTitleColor;
         copy.sectionTitleFont = _sectionTitleFont;
+        copy.sectionFooterColor = _sectionFooterColor;
+        copy.sectionFooterFont = _sectionFooterFont;
     }
     return copy;
 }

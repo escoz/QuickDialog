@@ -25,4 +25,6 @@
 @property(nonatomic, strong) UIColor * actionColorDisabled;
 @property(nonatomic, strong) UIFont *sectionTitleFont;
 @property(nonatomic, strong) UIColor *sectionTitleColor;
+@property(nonatomic, strong) UIFont *sectionFooterFont;
+@property(nonatomic, strong) UIColor *sectionFooterColor;
 @end

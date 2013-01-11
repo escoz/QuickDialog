@@ -110,7 +110,11 @@
     if (section.footerView!=nil)
         return section.footerView.frame.size.height;
 
-    return section.footer != NULL? -1 : 0;
+    QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
+
+    return section.footer == NULL
+            ? -1
+            : [section.footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)].height+22;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -135,7 +139,8 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, tableView.frame.size.width-40, [self tableView:tableView heightForHeaderInSection:index]-10)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.text = title;
-        [containerView addSubview:label];   label.backgroundColor = [UIColor clearColor];
+        [containerView addSubview:label];
+        label.backgroundColor = [UIColor clearColor];
         label.font = appearance.sectionTitleFont;
         label.numberOfLines = 0;
         label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
@@ -149,6 +154,33 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
+
+    NSString *footer = [tableView.dataSource tableView:tableView titleForFooterInSection:index];
+
+    QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
+
+    if (section.footerView==nil && footer != nil && ![footer isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
+        CGSize textSize = [footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height+8)];
+        containerView.backgroundColor = [UIColor clearColor];
+        containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.frame.size.width-40, textSize.height)];
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        label.text = footer;
+        label.textAlignment = NSTextAlignmentCenter;
+        [containerView addSubview:label];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = appearance.sectionFooterFont;
+        label.textColor = appearance.sectionFooterColor;
+        label.numberOfLines = 0;
+        label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
+        label.shadowOffset = CGSizeMake(0, 1);
+
+        section.footerView = containerView;
+    }
+
+
     return section.footerView;
 }
 
