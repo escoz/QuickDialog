@@ -146,7 +146,7 @@
     newController.quickDialogTableView.scrollEnabled = NO;
     [controller displayViewController:newController];
 
-	__block QuickDialogController *controllerForBlock = newController;
+	__weak QuickDialogController *controllerForBlock = newController;
 	
     newController.willDisappearCallback = ^{
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
