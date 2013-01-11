@@ -147,6 +147,7 @@
             CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
             const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
             self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  up ? keyboardFrame.size.height : 0, oldInset.right);
+            self.quickDialogTableView.scrollIndicatorInsets = self.quickDialogTableView.contentInset;
         }
         completion:NULL];
 }
