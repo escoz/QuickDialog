@@ -2,6 +2,9 @@
 @implementation QAppearance {
 
 }
+@synthesize sectionTitleFont = _sectionTitleFont;
+@synthesize sectionTitleColor = _sectionTitleColor;
+
 
 - (QAppearance *)init {
     self = [super init];
@@ -18,6 +21,9 @@
 
     _actionColorDisabled = [UIColor lightGrayColor];
     _actionColorEnabled = [UIColor blackColor];
+
+    _sectionTitleFont = [UIFont boldSystemFontOfSize:17];
+    _sectionTitleColor = [UIColor colorWithRed:0.265 green:0.294 blue:0.367 alpha:1.000];
 
     _labelFont = [UIFont boldSystemFontOfSize:15];
     _labelAlignment = NSTextAlignmentLeft;
@@ -63,6 +69,9 @@
 
         copy.tableBackgroundColor = _tableBackgroundColor;
         copy.tableGroupedBackgroundColor = _tableGroupedBackgroundColor;
+
+        copy.sectionTitleColor = _sectionTitleColor;
+        copy.sectionTitleFont = _sectionTitleFont;
     }
     return copy;
 }

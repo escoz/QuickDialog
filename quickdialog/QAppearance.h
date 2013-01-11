@@ -23,4 +23,6 @@
 @property (nonatomic)NSTextAlignment valueAlignment;
 @property(nonatomic, strong) UIColor *actionColorEnabled;
 @property(nonatomic, strong) UIColor * actionColorDisabled;
+@property(nonatomic, strong) UIFont *sectionTitleFont;
+@property(nonatomic, strong) UIColor *sectionTitleColor;
 @end

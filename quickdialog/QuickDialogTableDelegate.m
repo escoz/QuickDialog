@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import <sys/ucred.h>
 #import "QuickDialogTableDelegate.h"
 #import "QuickDialog.h"
 @implementation QuickDialogTableDelegate
@@ -121,7 +122,26 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
+    NSString *title = [tableView.dataSource tableView:tableView titleForHeaderInSection:index];
 
+    QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
+
+    if (section.headerView==nil && title!= nil && ![title isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+        containerView.backgroundColor = [UIColor clearColor];
+        containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, tableView.frame.size.width, 30)];
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        label.text = title;
+        [containerView addSubview:label];   label.backgroundColor = [UIColor clearColor];
+        label.font = appearance.sectionTitleFont;
+        label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
+        label.shadowOffset = CGSizeMake(0, 1);
+        label.textColor = appearance.sectionTitleColor;
+
+        section.headerView = containerView;
+    }
     return section.headerView;
 }
 
