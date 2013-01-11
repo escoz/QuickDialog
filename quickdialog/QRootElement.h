@@ -46,6 +46,7 @@ typedef enum  {
 @property(nonatomic, copy) NSString *emptyMessage;
 @property(nonatomic) QPresentationMode presentationMode;
 
+@property(nonatomic, strong) NSIndexPath *preselectedElementIndex;
 
 - (QRootElement *)init;
 

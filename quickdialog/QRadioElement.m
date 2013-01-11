@@ -49,9 +49,9 @@
 
 -(void)setSelectedValue:(NSObject *)aSelected {
     if ([aSelected isKindOfClass:[NSNumber class]]) {
-    _selected = [(NSNumber *)aSelected integerValue];
+    self.selected = [(NSNumber *)aSelected integerValue];
     } else {
-    _selected = [_values indexOfObject:aSelected];
+    self.selected = [_values indexOfObject:aSelected];
     }
 }
 
@@ -126,6 +126,8 @@
 
 -(void)setSelected:(NSInteger)aSelected {
     _selected = aSelected;
+
+    self.preselectedElementIndex = [NSIndexPath indexPathForItem:_selected inSection:0];
 
 }
 

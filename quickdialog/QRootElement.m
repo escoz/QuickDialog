@@ -32,6 +32,7 @@
 @synthesize emptyMessage = _emptyMessage;
 @synthesize onValueChanged = _onValueChanged;
 @synthesize presentationMode = _presentationMode;
+@synthesize preselectedElementIndex = _preselectedElementIndex;
 
 
 - (QRootElement *)init {
