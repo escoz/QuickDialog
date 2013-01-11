@@ -54,6 +54,9 @@
         copy.valueColorDisabled = _valueColorDisabled;
         copy.valueFont = _valueFont;
         copy.valueAlignment = _valueAlignment;
+
+        copy.tableBackgroundColor = _tableBackgroundColor;
+        copy.tableGroupedBackgroundColor = _tableGroupedBackgroundColor;
     }
     return copy;
 }
