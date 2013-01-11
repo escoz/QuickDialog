@@ -33,13 +33,11 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformButtonElement"];
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformButtonElement"];
     if (cell == nil){
         cell= [[QTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QuickformButtonElement"];
     }
-    if (!self.enabled) {
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-    }
+    [cell applyAppearanceForElement:self];
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.font = self.appearance.labelFont;

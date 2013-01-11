@@ -61,7 +61,7 @@
     self.detailTextLabel.font = appearance.valueFont;
     self.detailTextLabel.textAlignment = appearance.valueAlignment;
 
-    self.backgroundColor = appearance.backgroundColorDisabled;
+    self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
 
 }
 @end
