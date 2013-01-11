@@ -64,4 +64,13 @@
     return selectedIndexes;
 }
 
+- (void)reloadAllComponents
+{
+    [_pickerView reloadAllComponents];
+}
+
+- (void)reloadComponent:(NSInteger)index
+{
+    [_pickerView reloadComponent:index];
+}
 @end
