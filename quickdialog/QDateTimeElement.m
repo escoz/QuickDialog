@@ -24,6 +24,7 @@
 
 @interface QDateTimeElement ()
 - (void)initializeRoot;
+- (void)updateElements;
 
 @end
 
@@ -34,14 +35,13 @@
 
 - (void)setMode:(UIDatePickerMode)mode {
 	_mode = mode;
-	self.sections = nil;
+	[[self sections] removeAllObjects];
 	[self initializeRoot];
 }
 
 - (void)setDateValue:(NSDate *)date {
     _dateValue = date;
-    self.sections = nil;
-    [self initializeRoot];
+    [self updateElements];
 }
 
 - (void)setTicksValue:(NSNumber *)ticks {
@@ -71,7 +71,7 @@
         _mode = UIDatePickerModeDateAndTime;
 		_title = title;
         _dateValue = date;
-        [self initializeRoot];
+        [self updateElements];
     }
     return self;
 }
@@ -129,6 +129,22 @@
         [section addElement:timeElement];
     }
     [self addSection:section];
+}
+
+- (void)updateElements
+{
+    QDateTimeInlineElement *dateElement = (QDateTimeInlineElement *)[self elementWithKey:@"date"];
+    QDateTimeInlineElement *timeElement = (QDateTimeInlineElement *)[self elementWithKey:@"time"];
+    
+    NSDate *dateForElements = (_dateValue == nil) ? NSDate.date : _dateValue;
+    
+    if (dateElement != nil) {
+        dateElement.dateValue = dateForElements;
+    }
+    
+    if (timeElement != nil) {
+        timeElement.dateValue = dateForElements;
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {
