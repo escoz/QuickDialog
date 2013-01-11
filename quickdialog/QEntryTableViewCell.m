@@ -70,6 +70,7 @@
 }
 
 - (CGRect)calculateFrameForEntryElement {
+
     int extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? 15 :10;
     if (_entryElement.title == NULL && _entryElement.image==NULL) {
         return CGRectMake(10,10,self.contentView.frame.size.width-10-extra, self.frame.size.height-20);
@@ -92,7 +93,7 @@
                     titleWidth = width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,9,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
@@ -121,7 +122,8 @@
     _textField.keyboardAppearance = _entryElement.keyboardAppearance;
     _textField.secureTextEntry = _entryElement.secureTextEntry;
     _textField.clearsOnBeginEditing = _entryElement.clearsOnBeginEditing;
-    
+    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+
     _textField.returnKeyType = _entryElement.returnKeyType;
     _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;
 
@@ -134,6 +136,7 @@
     }
 
     [self updatePrevNextStatus];
+
 }
 
 - (void)layoutSubviews {
