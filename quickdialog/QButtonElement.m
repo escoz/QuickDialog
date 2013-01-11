@@ -41,7 +41,9 @@
         cell.textLabel.textColor = [UIColor lightGrayColor];
     }
     cell.textLabel.text = _title;
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.font = self.appearance.labelFont;
+    cell.textLabel.textColor = self.enabled ? self.appearance.actionColorEnabled : self.appearance.actionColorDisabled;
     cell.userInteractionEnabled = self.enabled;
     return cell;
 }

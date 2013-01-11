@@ -15,6 +15,10 @@
 - (void)setDefaults {
     _labelColorDisabled = [UIColor lightGrayColor];
     _labelColorEnabled = [UIColor blackColor];
+
+    _actionColorDisabled = [UIColor lightGrayColor];
+    _actionColorEnabled = [UIColor blackColor];
+
     _labelFont = [UIFont boldSystemFontOfSize:15];
     _labelAlignment = NSTextAlignmentLeft;
 
@@ -36,6 +40,10 @@
     if (copy != nil) {
         copy.labelColorDisabled = _labelColorDisabled;
         copy.labelColorEnabled = _labelColorEnabled;
+
+        copy.actionColorDisabled = _actionColorDisabled;
+        copy.actionColorEnabled = _actionColorEnabled;
+
         copy.labelFont = _labelFont;
         copy.labelAlignment = _labelAlignment;
 
