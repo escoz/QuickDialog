@@ -23,7 +23,7 @@
     _actionColorEnabled = [UIColor blackColor];
 
     _sectionTitleFont = [UIFont boldSystemFontOfSize:17];
-    _sectionTitleColor = [UIColor colorWithRed:0.265 green:0.294 blue:0.367 alpha:1.000];
+    _sectionTitleColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
 
     _labelFont = [UIFont boldSystemFontOfSize:15];
     _labelAlignment = NSTextAlignmentLeft;
