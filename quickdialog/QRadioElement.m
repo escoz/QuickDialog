@@ -55,9 +55,19 @@
     }
 }
 
+- (QEntryElement *)init {
+    self = [super init];
+    if (self) {
+        _selected = -1;
+    }
+
+    return self;
+}
+
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
+    _selected = -1;
     return self;
 }
 
@@ -65,6 +75,7 @@
 - (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
     self = [self initWithItems:valuesDictionary.allKeys selected:(NSUInteger) selected];
     _values = valuesDictionary.allValues;
+    _selected = -1;
     self.title = title;
     return self;
 }
@@ -112,12 +123,13 @@
     if (self.title == NULL){
         cell.textField.text = selectedValue;
         cell.detailTextLabel.text = nil;
+        cell.textField.textAlignment = NSTextAlignmentLeft;
     } else {
         cell.textLabel.text = _title;
         cell.textField.text = selectedValue;
+        cell.textField.textAlignment = NSTextAlignmentRight;
     }
     cell.imageView.image = _image;
-    cell.textField.textAlignment = UITextAlignmentRight;
     cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;
