@@ -38,6 +38,7 @@
 #import "QEntryElement.h"
 #import "QEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
+#import "QCountdownElement.h"
 #import "QFloatElement.h"
 #import "QPickerElement.h"
 #import "QMapElement.h"

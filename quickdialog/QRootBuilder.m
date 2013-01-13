@@ -196,7 +196,6 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     [NSNumber numberWithInt:UIDatePickerModeDate], @"Date",
                                     [NSNumber numberWithInt:UIDatePickerModeTime], @"Time",
                                     [NSNumber numberWithInt:UIDatePickerModeDateAndTime], @"DateAndTime",
-                                    [NSNumber numberWithInt:UIDatePickerModeCountDownTimer], @"CountDownTimer",
                                     nil], @"mode",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:

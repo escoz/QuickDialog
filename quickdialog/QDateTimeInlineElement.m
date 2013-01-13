@@ -87,6 +87,16 @@
     return cell;
 }
 
+
+- (NSString *)textValue {
+    NSTimeInterval timeInterval = self.dateValue.timeIntervalSinceNow;
+    NSInteger ti = (NSInteger)timeInterval;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    return [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
+}
+
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;

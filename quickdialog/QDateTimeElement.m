@@ -106,8 +106,6 @@
             [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
             break;
 		case UIDatePickerModeCountDownTimer:
-            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-            [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 			break;
     }
 
@@ -123,17 +121,6 @@
         dateForSection = NSDate.date;
     }
 	QSection *section = [[QSection alloc] initWithTitle:(_mode == UIDatePickerModeDateAndTime ? @"\n" : @"\n\n")];
-    if (_mode == UIDatePickerModeDate || _mode == UIDatePickerModeDateAndTime){
-        QDateTimeInlineElement *dateElement = (QDateTimeInlineElement *) [[QDateTimeInlineElement alloc] initWithKey:@"date"];
-        dateElement.dateValue = dateForSection;
-        dateElement.centerLabel = YES;
-        dateElement.mode =  UIDatePickerModeDate;
-        dateElement.hiddenToolbar = YES;
-        dateElement.minuteInterval = _minuteInterval;
-        
-        [section addElement:dateElement];
-
-    }
     if (_mode == UIDatePickerModeTime || _mode == UIDatePickerModeDateAndTime){
         QDateTimeInlineElement *timeElement = (QDateTimeInlineElement *) [[QDateTimeInlineElement alloc] initWithKey:@"time"];
         timeElement.dateValue = dateForSection;
@@ -198,6 +185,8 @@
         else if (_mode == UIDatePickerModeDateAndTime){
             date = [dict valueForKey:@"date"];
             time = [dict valueForKey:@"time"];
+        } else {
+            NSLog(@"This control was not created to handle this time of UIDatePickerMode");
         }
 
         NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
