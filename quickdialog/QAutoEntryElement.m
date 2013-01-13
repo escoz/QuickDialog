@@ -63,7 +63,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;
-    cell.textField.textAlignment = self.textAlignment;
+    cell.textField.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;

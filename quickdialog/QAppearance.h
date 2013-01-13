@@ -20,11 +20,12 @@
 @property (nonatomic,strong)UIColor *valueColorEnabled;
 @property (nonatomic,strong)UIColor *valueColorDisabled;
 @property (nonatomic,strong)UIFont *valueFont;
-@property (nonatomic)NSTextAlignment valueAlignment;
+@property (nonatomic) NSTextAlignment valueAlignment;
 @property(nonatomic, strong) UIColor *actionColorEnabled;
 @property(nonatomic, strong) UIColor * actionColorDisabled;
 @property(nonatomic, strong) UIFont *sectionTitleFont;
 @property(nonatomic, strong) UIColor *sectionTitleColor;
 @property(nonatomic, strong) UIFont *sectionFooterFont;
 @property(nonatomic, strong) UIColor *sectionFooterColor;
+@property(nonatomic) NSTextAlignment entryAlignment;
 @end

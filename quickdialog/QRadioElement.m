@@ -123,11 +123,11 @@
     if (self.title == NULL){
         cell.textField.text = selectedValue;
         cell.detailTextLabel.text = nil;
-        cell.textField.textAlignment = NSTextAlignmentLeft;
+        cell.textField.textAlignment = self.appearance.labelAlignment;
     } else {
         cell.textLabel.text = _title;
         cell.textField.text = selectedValue;
-        cell.textField.textAlignment = NSTextAlignmentRight;
+        cell.textField.textAlignment = self.appearance.valueAlignment;
     }
     cell.imageView.image = _image;
     cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;

@@ -6,6 +6,7 @@
 @synthesize sectionTitleColor = _sectionTitleColor;
 @synthesize sectionFooterFont = _sectionFooterFont;
 @synthesize sectionFooterColor = _sectionFooterColor;
+@synthesize entryAlignment = _entryAlignment;
 
 
 - (QAppearance *)init {
@@ -38,6 +39,7 @@
 
     _entryTextColorDisabled = [UIColor lightGrayColor];
     _entryTextColorEnabled = [UIColor blackColor];
+    _entryAlignment = NSTextAlignmentLeft;
     _entryFont = [UIFont systemFontOfSize:15];
 
     _valueColorEnabled = [UIColor colorWithRed:0.1653 green:0.2532 blue:0.4543 alpha:1.0000];
@@ -65,6 +67,7 @@
 
         copy.entryTextColorDisabled = _entryTextColorDisabled;
         copy.entryTextColorEnabled = _entryTextColorEnabled;
+        copy.entryAlignment = _entryAlignment;
         copy.entryFont = _entryFont;
 
         copy.valueColorEnabled = _valueColorEnabled;
