@@ -28,13 +28,12 @@
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
 
-    CGSize imageSize = CGSizeZero;
-    if (self.imageView!=nil)
-        imageSize = self.imageView.frame.size;
-
-
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
+        CGSize imageSize = CGSizeZero;
+            if (self.imageView!=nil)
+                imageSize = self.imageView.frame.size;
+
         CGSize valueSize = CGSizeZero;
         if (self.detailTextLabel.text!=nil)
             valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
