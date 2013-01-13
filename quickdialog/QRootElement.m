@@ -20,7 +20,6 @@
 @private
     NSDictionary *_sectionTemplate;
     QPresentationMode _presentationMode;
-    void (^_onValueChanged)();
 }
 
 
@@ -167,5 +166,10 @@
         }
     }
     return nil;
+}
+
+- (QRootElement *)rootWithKey:(NSString *)string {
+    return (QRootElement *) [self elementWithKey:string];
+
 }
 @end

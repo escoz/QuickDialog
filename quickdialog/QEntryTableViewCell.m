@@ -123,6 +123,7 @@
     _textField.secureTextEntry = _entryElement.secureTextEntry;
     _textField.clearsOnBeginEditing = _entryElement.clearsOnBeginEditing;
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    _textField.textAlignment = _entryElement.appearance.valueAlignment;
 
     _textField.returnKeyType = _entryElement.returnKeyType;
     _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;
@@ -173,7 +174,7 @@
     }
     
     if(_entryElement.onValueChanged) {
-        _entryElement.onValueChanged();
+        _entryElement.onValueChanged(_entryElement);
     }
 }
 

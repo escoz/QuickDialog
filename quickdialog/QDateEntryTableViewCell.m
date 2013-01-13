@@ -89,7 +89,7 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     }
     [self prepareForElement:_entryElement inTableView:_quickformTableView];
     if (element.onValueChanged!=nil)
-        element.onValueChanged();
+        element.onValueChanged(_entryElement);
 
 }
 

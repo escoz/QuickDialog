@@ -110,7 +110,7 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (self.pickerElement.onValueChanged != nil) {
-        self.pickerElement.onValueChanged();
+        self.pickerElement.onValueChanged(self.pickerElement);
     }
 
     self.pickerElement.value = [self getPickerViewValue];

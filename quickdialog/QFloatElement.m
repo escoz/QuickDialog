@@ -58,7 +58,7 @@
    self.floatValue = slider.value;
 
     if (self.onValueChanged!=nil)
-        self.onValueChanged();
+        self.onValueChanged(self);
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {

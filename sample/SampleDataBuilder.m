@@ -76,7 +76,7 @@
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
         bool1.offImage = [UIImage imageNamed:@"imgOff"];
-        bool1.onValueChanged = ^{
+        bool1.onValueChanged = ^(QRootElement *el){
             NSLog(@"Bool selected! ");
         };
         [subsection addElement:bool1];
@@ -281,7 +281,7 @@
     NSArray *component2 = @[@"A", @"B"];
     QPickerElement *simplePickerEl = [[QPickerElement alloc] initWithTitle:@"Key" items:@[component1, component2] value:@"3\tB"];
 
-    simplePickerEl.onValueChanged = ^{
+    simplePickerEl.onValueChanged = ^(QRootElement *el){
         NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]);
     };
 
@@ -299,7 +299,7 @@
                                         value:[NSNumber numberWithUnsignedInteger:NSMonthCalendarUnit]];
     
     periodPickerEl.valueParser = periodParser;
-    periodPickerEl.onValueChanged = ^{ NSLog(@"New value: %@", periodPickerEl.value); };
+    periodPickerEl.onValueChanged = ^(QRootElement *el){ NSLog(@"New value: %@", periodPickerEl.value); };
     
     [customParserSection addElement:periodPickerEl];
     [root addSection:customParserSection];

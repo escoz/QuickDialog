@@ -129,7 +129,7 @@
     }
     
     if (_entryElement.onValueChanged) {
-        _entryElement.onValueChanged();
+        _entryElement.onValueChanged(_entryElement);
     }
 }
 

@@ -110,7 +110,7 @@
 -(void)setBoolValue:(BOOL)boolValue {
     _boolValue = boolValue;
     if (self.onValueChanged!=nil){
-        self.onValueChanged();
+        self.onValueChanged(self);
     }
 }
 
