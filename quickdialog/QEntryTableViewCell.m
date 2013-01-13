@@ -76,7 +76,7 @@
         return CGRectMake(10,10,self.contentView.frame.size.width-10-extra, self.frame.size.height-20);
     }
     if (_entryElement.title == NULL && _entryElement.image!=NULL){
-        return CGRectMake( _entryElement.image.size.width, 10, self.contentView.frame.size.width-10-_entryElement.image.size.width-extra , self.frame.size.height-20);
+        return CGRectMake( self.imageView.frame.size.width, 10, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -85,7 +85,7 @@
         for (QElement *el in _entryElement.parentSection.elements){
             if ([el isKindOfClass:[QEntryElement class]]){
                 QEntryElement *q = (QEntryElement*)el; 
-                CGFloat imageWidth = q.image == NULL ? 0 : q.image.size.width + 10;  
+                CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
                 CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:UILineBreakModeWordWrap] ;
                 CGFloat width = size.width + imageWidth;
@@ -158,7 +158,6 @@
 - (void)prepareForReuse {
     _quickformTableView = nil;
     _entryElement = nil;
-    _textField.textAlignment = UITextAlignmentLeft;
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {

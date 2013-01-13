@@ -23,6 +23,7 @@
 @synthesize selected = _selected;
 @synthesize values = _values;
 @synthesize items = _items;
+@synthesize itemsImageNames = _itemsImageNames;
 
 
 - (void)createElements {
@@ -34,7 +35,9 @@
     [self addSection:_parentSection];
 
     for (NSUInteger i=0; i< [_items count]; i++){
-        [_parentSection addElement:[[QRadioItemElement alloc] initWithIndex:i RadioElement:self]];
+        QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
+        element.imageNamed = [self.itemsImageNames objectAtIndex:i];
+        [_parentSection addElement:element];
     }
 }
 
@@ -49,10 +52,11 @@
 
 -(void)setSelectedValue:(NSObject *)aSelected {
     if ([aSelected isKindOfClass:[NSNumber class]]) {
-    self.selected = [(NSNumber *)aSelected integerValue];
+        self.selected = [(NSNumber *)aSelected integerValue];
     } else {
-    self.selected = [_values indexOfObject:aSelected];
+        self.selected = [_values indexOfObject:aSelected];
     }
+
 }
 
 - (QEntryElement *)init {
@@ -117,8 +121,9 @@
     QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
 
     NSString *selectedValue = nil;
-    if (_selected >= 0 && _selected <_items.count)
+    if (_selected >= 0 && _selected <_items.count){
         selectedValue = [[_items objectAtIndex:(NSUInteger) _selected] description];
+    }
 
     if (self.title == NULL){
         cell.textField.text = selectedValue;
@@ -133,6 +138,7 @@
     cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;
+    [cell setNeedsLayout];
     return cell;
 }
 
@@ -140,6 +146,7 @@
     _selected = aSelected;
 
     self.preselectedElementIndex = [NSIndexPath indexPathForItem:_selected inSection:0];
+    self.image = [UIImage imageNamed:[_itemsImageNames objectAtIndex:(NSUInteger) self.selected]];
 
 }
 
