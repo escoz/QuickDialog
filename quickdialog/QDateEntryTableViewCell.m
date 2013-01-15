@@ -141,21 +141,21 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
 }
 
 - (NSString *) formatInterval: (NSTimeInterval) interval
- {
-     unsigned long seconds = (unsigned long) interval;
-     unsigned long minutes = seconds / 60;
-     seconds %= 60;
-     unsigned long hours = minutes / 60;
-     minutes %= 60;
+{
+    unsigned long seconds = (unsigned long) interval;
+    unsigned long minutes = seconds / 60;
+    seconds %= 60;
+    unsigned long hours = minutes / 60;
+    minutes %= 60;
 
-     NSMutableString * result = [NSMutableString new];
-     if(hours)
-         [result appendFormat:@"%d hrs, ", (int) hours];
+    NSMutableString * result = [NSMutableString new];
+    if(hours)
+     [result appendFormat:@"%d hrs, ", (int) hours];
 
-     [result appendFormat:@"%d mins", (int) minutes];
-     //[result appendFormat:@"%d", (int) seconds];
+    [result appendFormat:@"%d mins", (int) minutes];
+    //[result appendFormat:@"%d", (int) seconds];
 
-     return result;
- }
+    return result;
+}
 
 @end

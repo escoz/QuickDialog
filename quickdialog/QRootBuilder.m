@@ -77,8 +77,10 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
 
 - (QElement *)buildElementWithObject:(id)obj {
     QElement *element = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
-    if (element==nil)
-            return nil;
+    if (element==nil) {
+        NSLog(@"Couldn't build element for type %@", [obj valueForKey:[NSString stringWithFormat:@"type"]]);
+        return nil;
+    }
     [self updateObject:element withPropertiesFrom:obj];
     
     if ([element isKindOfClass:[QRootElement class]] && [obj valueForKey:[NSString stringWithFormat:@"sections"]]!=nil) {
@@ -216,7 +218,15 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                                         [NSNumber numberWithInt:QLabelingPolicyTrimTitle], @"trimTitle",
                                                         [NSNumber numberWithInt:QLabelingPolicyTrimValue], @"trimValue",
                                     nil], @"labelingPolicy",
-                    nil];
+
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                            [NSNumber numberWithInt:UIImagePickerControllerSourceTypePhotoLibrary], @"photoLibrary",
+                                                            [NSNumber numberWithInt:UIImagePickerControllerSourceTypeCamera], @"camera",
+                                                            [NSNumber numberWithInt:UIImagePickerControllerSourceTypeSavedPhotosAlbum], @"savedPhotosAlbum",
+                                    nil], @"source",
+            nil];
+
 }
 
 

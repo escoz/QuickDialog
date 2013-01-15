@@ -12,102 +12,121 @@
 // permissions and limitations under the License.
 //
 
-#import "QImageElement.h"
 #import "QImageTableViewCell.h"
+
 @interface QImageElement () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 
-@property (nonatomic, retain) UIImagePickerController *imagePickerController;
-@property (nonatomic, strong) UIPopoverController *popoverController;
+@property(nonatomic, retain) UIImagePickerController *imagePickerController;
+@property(nonatomic, strong) UIPopoverController *popoverController;
 
 @end
 
-@implementation QImageElement
+@implementation QImageElement {
+    enum UIImagePickerControllerSourceType _source;
+}
 
-@synthesize detailImageValue;
-@synthesize detailImageMaxLength;
+@synthesize imageValue;
+@synthesize imageMaxLength;
 @synthesize imagePickerController;
 @synthesize popoverController;
+@synthesize source = _source;
+
+
+- (QEntryElement *)init {
+    self = [super init];
+    if (self) {
+        _source = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.imageMaxLength = FLT_MAX;
+    }
+
+    return self;
+}
 
 - (QImageElement *)initWithTitle:(NSString *)aTitle detailImage:(UIImage *)anImage {
-   self = [super init];
-   if (self) {
-      self.title = aTitle;
-      self.detailImageValue = anImage;
-      self.detailImageMaxLength = FLT_MAX;
-   }
-   return self;
+    self = [super init];
+    if (self) {
+        self.title = aTitle;
+        self.imageValue = anImage;
+        self.imageMaxLength = FLT_MAX;
+        _source = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    return self;
 }
 
-- (void)setDetailImageNamed:(NSString *)name {
-   self.detailImageValue = [UIImage imageNamed:name];
-   [self reducedImageIfNeeded];
-}
-
-- (NSString *)detailImageNamed {
-   return nil;
+- (void)setImageValueNamed:(NSString *)name {
+    self.imageValue = [UIImage imageNamed:name];
+    [self reducedImageIfNeeded];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-   QImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformImageElement"];
-   if (cell==nil){
-      cell = [[QImageTableViewCell alloc] init];
-   }
-   [cell prepareForElement:self inTableView:tableView];
+    QImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformImageElement"];
+    if (cell == nil) {
+        cell = [[QImageTableViewCell alloc] init];
+    }
+    [cell prepareForElement:self inTableView:tableView];
 
-   return cell;
+    return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-   [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-   [tableView deselectRowAtIndexPath:path animated:YES];
+    [tableView deselectRowAtIndexPath:path animated:YES];
 
-   self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentImagePicker:tableView controller:controller path:path];
+}
 
-   BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
-   if (isPhone) {
-      [controller displayViewController:self.imagePickerController];
-   } else {
-      UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:path];
-      if ([tableViewCell isKindOfClass:[QImageTableViewCell class]]) {
-         UIView *presentingView = ((QImageTableViewCell *)tableViewCell).detailImageView;
+- (void)presentImagePicker:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller path:(NSIndexPath *)path {
+    if ([UIImagePickerController isSourceTypeAvailable:_source]) {
+        self.imagePickerController.sourceType = _source;
+    } else {
+        NSLog(@"Source not available, using default Library type.");
+        self.imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
 
-         UIPopoverController *aPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.imagePickerController];
-         [aPopoverController presentPopoverFromRect:presentingView.bounds
-                                             inView:presentingView
-                           permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-         aPopoverController.delegate = self;
-         self.popoverController = aPopoverController;
-      }
-   }
+    BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
+    if (isPhone) {
+        [controller displayViewController:self.imagePickerController];
+    } else {
+        UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:path];
+        if ([tableViewCell isKindOfClass:[QImageTableViewCell class]]) {
+            UIView *presentingView = ((QImageTableViewCell *) tableViewCell).imageViewButton;
+
+            UIPopoverController *aPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.imagePickerController];
+            [aPopoverController presentPopoverFromRect:presentingView.bounds
+                                                inView:presentingView
+                              permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            aPopoverController.delegate = self;
+            self.popoverController = aPopoverController;
+        }
+    }
 }
 
 - (UIImagePickerController *)imagePickerController {
-   if (!imagePickerController) {
-      imagePickerController = [[UIImagePickerController alloc] init];
-      imagePickerController.delegate = self;
-   }
-   return imagePickerController;
+    if (!imagePickerController) {
+        imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+    }
+    return imagePickerController;
 }
 
 - (void)dismissImagePickerController {
-   BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
-   if (isPhone) {
-      [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
-   } else {
-      [self.popoverController dismissPopoverAnimated:YES];
-   }
+    BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
+    if (isPhone) {
+        [self.imagePickerController dismissViewControllerAnimated:YES completion:NULL];
+    } else {
+        [self.popoverController dismissPopoverAnimated:YES];
+    }
 }
 
 - (void)reducedImageIfNeeded {
-   if (self.detailImageValue.size.width > self.detailImageMaxLength || self.detailImageValue.size.height > self.detailImageMaxLength) {
-                float scale = self.detailImageMaxLength / MAX(self.detailImageValue.size.width, self.detailImageValue.size.height);
-      CGSize scaledSize = CGSizeMake(self.detailImageValue.size.width*scale, self.detailImageValue.size.height*scale);
+    if (self.imageValue.size.width > self.imageMaxLength || self.imageValue.size.height > self.imageMaxLength) {
+        float scale = self.imageMaxLength / MAX(self.imageValue.size.width, self.imageValue.size.height);
+        CGSize scaledSize = CGSizeMake(self.imageValue.size.width * scale, self.imageValue.size.height * scale);
 
-      UIGraphicsBeginImageContext(scaledSize);
-      [self.detailImageValue drawInRect:CGRectMake(0, 0, scaledSize.width, scaledSize.height)];
-      self.detailImageValue = UIGraphicsGetImageFromCurrentImageContext();
-      UIGraphicsEndImageContext();
-        }
+        UIGraphicsBeginImageContext(scaledSize);
+        [self.imageValue drawInRect:CGRectMake(0, 0, scaledSize.width, scaledSize.height)];
+        self.imageValue = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
 }
 
 #pragma mark -
@@ -115,21 +134,21 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
-   self.detailImageValue = [info valueForKey:UIImagePickerControllerOriginalImage];
-   [self reducedImageIfNeeded];
+    self.imageValue = [info valueForKey:UIImagePickerControllerOriginalImage];
+    [self reducedImageIfNeeded];
 
-   [self dismissImagePickerController];
+    [self dismissImagePickerController];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-   [self dismissImagePickerController];
+    [self dismissImagePickerController];
 }
 
 #pragma mark -
 #pragma mark UIPopoverControllerDelegate
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
-   self.popoverController = nil;
+    self.popoverController = nil;
 }
 
 @end

@@ -14,7 +14,7 @@
 
 #import "QImageTableViewCell.h"
 #import "QImageElement.h"
-static NSString *kDetailImageValueObservanceContext = @"detailImageValue";
+static NSString *kDetailImageValueObservanceContext = @"imageValue";
 
 @interface QImageTableViewCell ()
 
@@ -25,39 +25,46 @@ static NSString *kDetailImageValueObservanceContext = @"detailImageValue";
 @implementation QImageTableViewCell
 
 @synthesize imageElement = _imageElement;
-@synthesize detailImageView = _detailImageView;
+@synthesize imageViewButton = _imageViewButton;
 
 - (QImageTableViewCell *)init {
    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
    if (self!=nil){
       [self createSubviews];
       self.selectionStyle = UITableViewCellSelectionStyleBlue;
-      [self addObserver:self forKeyPath:@"imageElement.detailImageValue" options:0 context:(__bridge void *)(kDetailImageValueObservanceContext)];
+      [self addObserver:self forKeyPath:@"imageElement.imageValue" options:0 context:(__bridge void *)(kDetailImageValueObservanceContext)];
    }
    return self;
 }
 
 - (void)createSubviews {
-   _detailImageView = [[UIImageView alloc] init];
-   _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
-   _detailImageView.layer.cornerRadius = 7.0f;
-   _detailImageView.layer.masksToBounds = YES;
-   _detailImageView.layer.borderWidth = 1.0f;
-   _detailImageView.layer.borderColor = [UIColor colorWithWhite:0.2f alpha:0.4f].CGColor;
-   _detailImageView.contentMode = UIViewContentModeScaleAspectFill;
-   _detailImageView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.3];
-   _detailImageView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
-   [self.contentView addSubview:_detailImageView];
-   [self setNeedsLayout];
+    _imageViewButton = [[UIButton alloc] init];
+    _imageViewButton.contentMode = UIViewContentModeScaleAspectFill;
+    _imageViewButton.layer.cornerRadius = 7.2f;
+    _imageViewButton.layer.masksToBounds = YES;
+    _imageViewButton.contentMode = UIViewContentModeScaleAspectFill;
+    _imageViewButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.1];
+    _imageViewButton.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
+    [_imageViewButton addTarget:self action:@selector(handleImageSelected) forControlEvents:UIControlEventTouchUpInside];
+    [self.contentView addSubview:_imageViewButton];
+    [self setNeedsLayout];
 }
 
-- (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView {
+- (void)handleImageSelected {
+    if (((QImageElement *)_entryElement).imageValue!=nil){
+
+    } else{
+
+    }
+}
+
+- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
    [super prepareForElement:element inTableView:tableView];
 
-   self.imageElement = element;
+   self.imageElement = (QImageElement *) element;
 
    self.imageView.image = self.imageElement.image;
-   self.detailImageView.image = self.imageElement.detailImageValue;
+   self.imageViewButton.imageView.image = self.imageElement.imageValue;
 }
 
 - (void)layoutSubviews {
@@ -70,9 +77,9 @@ static NSString *kDetailImageValueObservanceContext = @"detailImageValue";
    CGFloat detailImageMargin = 2.0f;
    CGFloat detailImageSize = self.contentView.frame.size.height - 2 * detailImageMargin;
 
-   _detailImageView.frame = CGRectMake(self.contentView.frame.size.width - detailImageMargin - detailImageSize,
+   _imageViewButton.frame = CGRectMake(self.contentView.frame.size.width - detailImageMargin - detailImageSize,
                                        detailImageMargin, detailImageSize, detailImageSize);
-    _imageElement.parentSection.entryPosition = _detailImageView.frame;
+    _imageElement.parentSection.entryPosition = _imageViewButton.frame;
 
    CGRect labelFrame = self.textLabel.frame;
    CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
@@ -82,14 +89,14 @@ static NSString *kDetailImageValueObservanceContext = @"detailImageValue";
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
    if (context == (__bridge void *)(kDetailImageValueObservanceContext)) {
-      self.detailImageView.image = self.imageElement.detailImageValue;
+       [self.imageViewButton setImage:self.imageElement.imageValue forState:UIControlStateNormal];
    } else {
       [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
    }
 }
 
 - (void)dealloc {
-   [self removeObserver:self forKeyPath:@"imageElement.detailImageValue" context:(__bridge void *)(kDetailImageValueObservanceContext)];
+   [self removeObserver:self forKeyPath:@"imageElement.imageValue" context:(__bridge void *)(kDetailImageValueObservanceContext)];
 }
 
 @end

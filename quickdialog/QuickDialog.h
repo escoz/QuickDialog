@@ -56,6 +56,7 @@
 #import "QSegmentedElement.h"
 #import "QMultilineTextViewController.h"
 #import "QMultilineElement.h"
+#import "QImageElement.h"
 
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"

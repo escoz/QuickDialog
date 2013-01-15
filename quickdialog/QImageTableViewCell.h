@@ -23,12 +23,12 @@
 @interface QImageTableViewCell : QEntryTableViewCell {
 
    QImageElement *_imageElement;
-   UIImageView *_detailImageView;
+   UIButton *_imageViewButton;
 }
 
-@property (nonatomic, retain) UIImageView *detailImageView;
+@property (nonatomic, retain) UIButton *imageViewButton;
 
-- (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView;
+- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
 - (void)createSubviews;
 
 @end

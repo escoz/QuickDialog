@@ -126,6 +126,10 @@
 		D87B4FCE14F16197006DA833 /* QAutoEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B4FC814F16197006DA833 /* QAutoEntryTableViewCell.m */; };
 		D8820B5116A246860070AE22 /* QCountdownElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8820B4F16A246860070AE22 /* QCountdownElement.h */; };
 		D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8820B5016A246860070AE22 /* QCountdownElement.m */; };
+		D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8820C7716A352990070AE22 /* QImageElement.m */; };
+		D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8820C7916A352990070AE22 /* QImageTableViewCell.m */; };
+		D8820C7F16A3544C0070AE22 /* QImageElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8820C7616A352990070AE22 /* QImageElement.h */; };
+		D8820C8016A3544F0070AE22 /* QImageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D8820C7816A352990070AE22 /* QImageTableViewCell.h */; };
 		D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */; };
 		D894F38B15559D34000E3C0F /* NSMutableArray+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */; };
 		D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A3DD86146045F000DE3528 /* Localizable.strings */; };
@@ -308,6 +312,10 @@
 		D87B4FC814F16197006DA833 /* QAutoEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QAutoEntryTableViewCell.m; path = quickdialog/QAutoEntryTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		D8820B4F16A246860070AE22 /* QCountdownElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCountdownElement.h; path = quickdialog/QCountdownElement.h; sourceTree = SOURCE_ROOT; };
 		D8820B5016A246860070AE22 /* QCountdownElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCountdownElement.m; path = quickdialog/QCountdownElement.m; sourceTree = SOURCE_ROOT; };
+		D8820C7616A352990070AE22 /* QImageElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QImageElement.h; path = quickdialog/QImageElement.h; sourceTree = SOURCE_ROOT; };
+		D8820C7716A352990070AE22 /* QImageElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QImageElement.m; path = quickdialog/QImageElement.m; sourceTree = SOURCE_ROOT; };
+		D8820C7816A352990070AE22 /* QImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QImageTableViewCell.h; path = quickdialog/QImageTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		D8820C7916A352990070AE22 /* QImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QImageTableViewCell.m; path = quickdialog/QImageTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+IMSExtensions.h"; path = "quickdialog/NSMutableArray+IMSExtensions.h"; sourceTree = SOURCE_ROOT; };
 		D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+IMSExtensions.m"; path = "quickdialog/NSMutableArray+IMSExtensions.m"; sourceTree = SOURCE_ROOT; };
 		D8A3DD86146045F000DE3528 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = sample/Localizable.strings; sourceTree = SOURCE_ROOT; };
@@ -509,6 +517,10 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				D8820C7616A352990070AE22 /* QImageElement.h */,
+				D8820C7716A352990070AE22 /* QImageElement.m */,
+				D8820C7816A352990070AE22 /* QImageTableViewCell.h */,
+				D8820C7916A352990070AE22 /* QImageTableViewCell.m */,
 				D8820B4F16A246860070AE22 /* QCountdownElement.h */,
 				D8820B5016A246860070AE22 /* QCountdownElement.m */,
 				D87A4D8E169DB59500D4DD63 /* QAppearance.h */,
@@ -678,6 +690,8 @@
 				D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */,
 				D81F2EDA14BBAFCE0066C372 /* QDecimalTableViewCell.h in Headers */,
 				D81F2EDB14BBAFCE0066C372 /* QDecimalElement.h in Headers */,
+				D8820C7F16A3544C0070AE22 /* QImageElement.h in Headers */,
+				D8820C8016A3544F0070AE22 /* QImageTableViewCell.h in Headers */,
 				D81F2EDC14BBAFCE0066C372 /* QBadgeElement.h in Headers */,
 				D81F2EDD14BBAFCE0066C372 /* QBadgeTableCell.h in Headers */,
 				D81F2EDE14BBAFCE0066C372 /* QBooleanElement.h in Headers */,
@@ -900,6 +914,8 @@
 				D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */,
 				5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */,
 				D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */,
+				D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */,
+				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

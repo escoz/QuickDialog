@@ -21,6 +21,7 @@
 @class QEntryElement;
 @class QuickDialogTableView;
 @class QTextField;
+@class QImageElement;
 
 
 @interface QEntryTableViewCell : QTableViewCell<UITextFieldDelegate> {
