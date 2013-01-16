@@ -69,14 +69,20 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
 - (void)createSubviews {
     [super createSubviews];
     _textField.hidden = YES;
-
+    
+    CGFloat contentViewWidth = self.contentView.frame.size.width;
+    if ([_quickformTableView.styleProvider respondsToSelector:@selector(contentWidthForElement:atIndexPath:)]) {
+        NSIndexPath *indexPath = [_quickformTableView indexForElement:_entryElement];
+        contentViewWidth = [_quickformTableView.styleProvider contentWidthForElement:_entryElement atIndexPath:indexPath];
+    }
+    
     self.centeredLabel = [[UILabel alloc] init];
     self.centeredLabel.textColor = [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
     self.centeredLabel.highlightedTextColor = [UIColor whiteColor];
     self.centeredLabel.font = [UIFont systemFontOfSize:17];
     self.centeredLabel.textAlignment = NSTextAlignmentCenter;
 	self.centeredLabel.backgroundColor = [UIColor clearColor];
-    self.centeredLabel.frame = CGRectMake(10, 10, self.contentView.frame.size.width-20, self.contentView.frame.size.height-20);
+    self.centeredLabel.frame = CGRectMake(10, 10, contentViewWidth-20, self.contentView.frame.size.height-20);
     [self.contentView addSubview:self.centeredLabel];
 }
 

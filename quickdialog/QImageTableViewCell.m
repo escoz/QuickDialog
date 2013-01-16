@@ -27,13 +27,13 @@ static NSString *kImageValueObservanceContext = @"imageValue";
 @synthesize imageValueView = _imageValueView;
 
 - (QImageTableViewCell *)init {
-   self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
-   if (self!=nil){
-      [self createSubviews];
-      self.selectionStyle = UITableViewCellSelectionStyleBlue;
-      [self addObserver:self forKeyPath:@"imageElement.imageValue" options:0 context:(__bridge void *)(kImageValueObservanceContext)];
-   }
-   return self;
+    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
+    if (self!=nil){
+        [self createSubviews];
+        self.selectionStyle = UITableViewCellSelectionStyleBlue;
+        [self addObserver:self forKeyPath:@"imageElement.imageValue" options:0 context:(__bridge void *)(kImageValueObservanceContext)];
+    }
+    return self;
 }
 
 - (void)createSubviews {
@@ -51,44 +51,50 @@ static NSString *kImageValueObservanceContext = @"imageValue";
 }
 
 - (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView {
-   [super prepareForElement:element inTableView:tableView];
-
-   self.imageElement = element;
-
-   self.imageView.image = self.imageElement.image;
-   self.imageValueView.image = self.imageElement.imageValue;
+    [super prepareForElement:element inTableView:tableView];
+    
+    self.imageElement = element;
+    
+    self.imageView.image = self.imageElement.image;
+    self.imageValueView.image = self.imageElement.imageValue;
 }
 
 - (void)layoutSubviews {
-   [super layoutSubviews];
-   [self recalculateDetailImageViewPosition];
+    [super layoutSubviews];
+    [self recalculateImageValueViewPosition];
 }
 
-- (void)recalculateDetailImageViewPosition {
-
-   CGFloat detailImageMargin = 2.0f;
-   CGFloat detailImageSize = self.contentView.frame.size.height - 2 * detailImageMargin;
-
-   _imageValueView.frame = CGRectMake(self.contentView.frame.size.width - detailImageMargin - detailImageSize,
-                                       detailImageMargin, detailImageSize, detailImageSize);
+- (void)recalculateImageValueViewPosition {
+    
+    CGFloat contentViewWidth = self.contentView.frame.size.width;
+    if ([_quickformTableView.styleProvider respondsToSelector:@selector(contentWidthForElement:atIndexPath:)]) {
+        NSIndexPath *indexPath = [_quickformTableView indexForElement:_entryElement];
+        contentViewWidth = [_quickformTableView.styleProvider contentWidthForElement:_entryElement atIndexPath:indexPath];
+    }
+    
+    CGFloat imageMargin = 2.0f;
+    CGFloat imageSize = self.contentView.frame.size.height - 2 * imageMargin;
+    
+    _imageValueView.frame = CGRectMake(contentViewWidth - imageMargin - imageSize,
+                                       imageMargin, imageSize, imageSize);
     _imageElement.parentSection.entryPosition = _imageValueView.frame;
-
-   CGRect labelFrame = self.textLabel.frame;
-   CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
-   self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-                                     _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
+    
+    CGRect labelFrame = self.textLabel.frame;
+    CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
+    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
+                                      _imageElement.parentSection.entryPosition.origin.x - extra - imageMargin, labelFrame.size.height);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-   if (context == (__bridge void *)(kImageValueObservanceContext)) {
-       self.imageValueView.image = self.imageElement.imageValue;
-   } else {
-      [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-   }
+    if (context == (__bridge void *)(kImageValueObservanceContext)) {
+        self.imageValueView.image = self.imageElement.imageValue;
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 - (void)dealloc {
-   [self removeObserver:self forKeyPath:@"imageElement.imageValue" context:(__bridge void *)(kImageValueObservanceContext)];
+    [self removeObserver:self forKeyPath:@"imageElement.imageValue" context:(__bridge void *)(kImageValueObservanceContext)];
 }
 
 @end

@@ -70,15 +70,21 @@
 }
 
 - (CGRect)calculateFrameForEntryElement {
-
+    
+    CGFloat contentViewWidth = self.contentView.frame.size.width;
+    if ([_quickformTableView.styleProvider respondsToSelector:@selector(contentWidthForElement:atIndexPath:)]) {
+        NSIndexPath *indexPath = [_quickformTableView indexForElement:_entryElement];
+        contentViewWidth = [_quickformTableView.styleProvider contentWidthForElement:_entryElement atIndexPath:indexPath];
+    }
+    
     int extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? 15 :10;
     if (_entryElement.title == NULL && _entryElement.image==NULL) {
-        return CGRectMake(10,10,self.contentView.frame.size.width-10-extra, self.frame.size.height-20);
+        return CGRectMake(10,10,contentViewWidth-10-extra, self.frame.size.height-20);
     }
     if (_entryElement.title == NULL && _entryElement.image!=NULL){
-        return CGRectMake( self.imageView.frame.size.width, 10, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
+        return CGRectMake( self.imageView.frame.size.width, 10, contentViewWidth-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
     }
-    CGFloat totalWidth = self.contentView.frame.size.width;
+    CGFloat totalWidth = contentViewWidth;
     CGFloat titleWidth = 0;
 
     if (CGRectEqualToRect(CGRectZero, _entryElement.parentSection.entryPosition)) {
@@ -95,7 +101,7 @@
         }
         _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
     }
-
+    
     return _entryElement.parentSection.entryPosition;
 }
 
