@@ -21,12 +21,13 @@
 @class QuickDialogTableView;
 
 @interface QImageTableViewCell : QEntryTableViewCell {
-
-   QImageElement *_imageElement;
-   UIImageView *_imageValueView;
+    
+    QImageElement *_imageElement;
+    UIImageView *_imageValueView;
 }
 
 @property (nonatomic, retain) UIImageView *imageValueView;
+@property (nonatomic, assign) CGFloat imageValueViewMargin;
 
 - (void)prepareForElement:(QImageElement *)element inTableView:(QuickDialogTableView *)tableView;
 - (void)createSubviews;

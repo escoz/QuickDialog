@@ -25,10 +25,12 @@ static NSString *kImageValueObservanceContext = @"imageValue";
 
 @synthesize imageElement = _imageElement;
 @synthesize imageValueView = _imageValueView;
+@synthesize imageValueViewMargin = _imageValueViewMargin;
 
 - (QImageTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
-    if (self!=nil){
+    if (self){
+        self.imageValueViewMargin = 2.f;
         [self createSubviews];
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
         [self addObserver:self forKeyPath:@"imageElement.imageValue" options:0 context:(__bridge void *)(kImageValueObservanceContext)];
@@ -72,17 +74,16 @@ static NSString *kImageValueObservanceContext = @"imageValue";
         contentViewWidth = [_quickformTableView.styleProvider contentWidthForElement:_entryElement atIndexPath:indexPath];
     }
     
-    CGFloat imageMargin = 2.0f;
-    CGFloat imageSize = self.contentView.frame.size.height - 2 * imageMargin;
+    CGFloat imageSize = self.contentView.frame.size.height - 2 * self.imageValueViewMargin;
     
-    _imageValueView.frame = CGRectMake(contentViewWidth - imageMargin - imageSize,
-                                       imageMargin, imageSize, imageSize);
+    _imageValueView.frame = CGRectMake(contentViewWidth - self.imageValueViewMargin - imageSize,
+                                       self.imageValueViewMargin, imageSize, imageSize);
     _imageElement.parentSection.entryPosition = _imageValueView.frame;
     
     CGRect labelFrame = self.textLabel.frame;
     CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
     self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-                                      _imageElement.parentSection.entryPosition.origin.x - extra - imageMargin, labelFrame.size.height);
+                                      _imageElement.parentSection.entryPosition.origin.x - extra - self.imageValueViewMargin, labelFrame.size.height);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
