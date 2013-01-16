@@ -14,12 +14,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "QuickDialog.h"
+#import "QTableViewCell.h"
+
 
 
 @class QEntryElement;
 @class QuickDialogTableView;
 @class QTextField;
+@class QImageElement;
 
 
 @interface QEntryTableViewCell : QTableViewCell<UITextFieldDelegate> {
@@ -52,5 +54,6 @@
 
 - (void)recalculateEntryFieldPosition;
 
+- (void)handleEditingChanged;
 
 @end

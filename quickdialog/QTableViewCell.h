@@ -14,7 +14,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "QuickDialog.h"
+
 
 typedef enum {
     QLabelingPolicyTrimTitle,
@@ -27,4 +27,5 @@ typedef enum {
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
 
+- (void)applyAppearanceForElement:(QElement *)element;
 @end

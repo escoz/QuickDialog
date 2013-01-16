@@ -13,14 +13,17 @@
 // permissions and limitations under the License.
 //
 
+#import "QAutoEntryTableViewCell.h"
+#import "QuickDialog.h"
+
 @implementation QAutoEntryTableViewCell {
-    NSString *_lastAutoComplete;
+    NSString *_lastFullStringWithAutocompletion;
     QAutoEntryElement *_autoEntryElement;
 }
 
 @synthesize autoCompleteField = _autoCompleteField;
 @synthesize autoCompleteValues;
-@synthesize lastAutoComplete = _lastAutoComplete;
+@synthesize lastFullStringWithAutocompletion = _lastFullStringWithAutocompletion;
 
 
 - (void)createSubviews {
@@ -36,7 +39,7 @@
 }
 
 - (QAutoEntryTableViewCell *)init {
-    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
+    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformAutoEntryElement"];
     if (self!=nil){
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -72,6 +75,8 @@
         _autoCompleteField.inputAccessoryView = [self createActionBar];
     }
 
+    _autoCompleteField.userInteractionEnabled = element.enabled;
+
     [self updatePrevNextStatus];
 }
 
@@ -99,14 +104,20 @@
     _entryElement = nil;
 }
 
-
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    _autoCompleteField.text = self.lastAutoComplete;
-    _entryElement.textValue = _autoCompleteField.text;
+    _autoCompleteField.text = self.lastFullStringWithAutocompletion;
+    if (! [_entryElement.textValue isEqualToString:_autoCompleteField.text]) {
+        // In an AutoEntryElement, a DidEndEditing event might actually be a
+        // change to the text value.  This is because it is an implicit acceptance
+        // of the displayed auto-chosen value.
+        _entryElement.textValue = _autoCompleteField.text;
+        [self handleEditingChanged];
+    }
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textField {
     _entryElement.textValue = _autoCompleteField.text;
+    [self handleEditingChanged];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -123,6 +134,10 @@
 #pragma mark - DOAutocompleteTextFieldDelegate
 - (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 {
+    if (!prefix) {
+        return nil;
+    }
+    
     NSString* lowPrefix = [prefix lowercaseString];
     
     for (NSString *string in autoCompleteValues)
@@ -131,11 +146,18 @@
         if([strlower hasPrefix:lowPrefix])
         {
             NSRange range = NSMakeRange(0,prefix.length);
-            _lastAutoComplete = string;
+            _lastFullStringWithAutocompletion = string;
             return [string stringByReplacingCharactersInRange:range withString:@""];
         }
     }
-    _lastAutoComplete = @"";
+    
+    // If we have got here, there is no auto-completion available.  
+    // We want to allow the user to save this string, so the
+    // last full string with auto-completion is == the string the user has
+    // entered.
+    _lastFullStringWithAutocompletion = prefix;
+    
+    // Return null string to indicate no autocompletion possible
     return @"";
 }
 

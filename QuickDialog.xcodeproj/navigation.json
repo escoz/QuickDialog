@@ -1,0 +1,72 @@
+{
+	"grouped": true,
+	"title": "Navigation",
+	"sections": [
+		{ "elements": [
+                { "type":"QButtonElement", "key":"button", "title":"Mode: Normal", "presentationMode":"Normal",
+                    "sections": [
+                		{ "title":"Inside Popup", "elements": [
+                                { "type":"QLabelElement", "title":"something here"}
+                			]
+                		}
+                	]
+                }
+			]
+		},
+		{ "elements": [
+                { "type":"QButtonElement", "key":"button", "title":"Mode: Popover", "presentationMode":"Popover",
+                    "sections": [
+                        { "title":"Inside Popup", "elements": [
+                                { "type":"QLabelElement", "title":"something here"}
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        { "elements": [
+                 { "type":"QButtonElement", "key":"button", "title":"Mode: NavigationInPopover", "presentationMode":"NavigationInPopover",
+                     "sections": [
+                         { "title":"Inside Popup", "elements": [
+                                 { "type":"QLabelElement", "title":"something here"}
+                             ]
+                         }
+                     ]
+                 }
+             ]
+        },
+        { "elements": [
+                  { "type":"QButtonElement", "key":"button", "title":"Mode: ModalForm", "presentationMode":"ModalForm",
+                      "sections": [
+                          { "title":"Inside Popup", "elements": [
+                                  { "type":"QLabelElement", "title":"something here"}
+                              ]
+                          }
+                      ]
+                  }
+              ]
+        },
+        { "elements": [
+                 { "type":"QButtonElement", "key":"button", "title":"Mode: ModalFullScreen", "presentationMode":"ModalFullScreen",
+                     "sections": [
+                         { "title":"Inside Popup", "elements": [
+                                 { "type":"QLabelElement", "title":"something here"}
+                             ]
+                         }
+                     ]
+                 }
+             ]
+        },
+        { "elements": [
+               { "type":"QButtonElement", "key":"button", "title":"Mode: ModalPage", "presentationMode":"ModalPage",
+                   "sections": [
+                       { "title":"Inside Popup", "elements": [
+                               { "type":"QLabelElement", "title":"something here"}
+                           ]
+                       }
+                   ]
+               }
+           ]
+        }
+	]
+}

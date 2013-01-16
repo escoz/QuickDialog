@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
+#import "QTableViewCell.h"
 @implementation QTableViewCell
 
 @synthesize labelingPolicy = _labelingPolicy;
@@ -28,13 +28,12 @@
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
 
-    CGSize imageSize = CGSizeZero;
-    if (self.imageView!=nil)
-        imageSize = self.imageView.frame.size;
-
-    
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
+        CGSize imageSize = CGSizeZero;
+            if (self.imageView!=nil)
+                imageSize = self.imageView.frame.size;
+
         CGSize valueSize = CGSizeZero;
         if (self.detailTextLabel.text!=nil)
             valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
@@ -50,4 +49,18 @@
     }
 }
 
+
+- (void)applyAppearanceForElement:(QElement *)element {
+    QAppearance *appearance = element.appearance;
+    self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
+    self.textLabel.font = appearance.labelFont;
+    self.textLabel.textAlignment = appearance.labelAlignment;
+
+    self.detailTextLabel.textColor = element.enabled ? appearance.valueColorEnabled : appearance.valueColorDisabled;
+    self.detailTextLabel.font = appearance.valueFont;
+    self.detailTextLabel.textAlignment = appearance.valueAlignment;
+
+    self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
+
+}
 @end

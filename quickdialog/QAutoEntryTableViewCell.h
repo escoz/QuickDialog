@@ -15,8 +15,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "QuickDialog.h"
+
 #import "DOAutocompleteTextField.h"
+#import "QEntryTableViewCell.h"
 
 @class QEntryElement;
 @class QuickDialogTableView;
@@ -33,7 +34,7 @@
 
 @property(nonatomic, strong) DOAutocompleteTextField *autoCompleteField;
 @property(nonatomic, retain) NSArray *autoCompleteValues;
-@property(nonatomic, strong) NSString *lastAutoComplete;
+@property(nonatomic, strong) NSString *lastFullStringWithAutocompletion;
 
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;

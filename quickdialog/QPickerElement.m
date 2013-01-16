@@ -17,6 +17,7 @@
 {
     if (self = [super init]) {
         self.valueParser = [QPickerTabDelimitedStringParser new];
+        self.keepSelected = YES;
     }
     return self;
 }
@@ -36,6 +37,7 @@
     if (cell == nil) {
         cell = [[QPickerTableViewCell alloc] init];
     }
+    [cell applyAppearanceForElement:self];
 
     UIPickerView *pickerView = nil;
     [cell prepareForElement:self inTableView:tableView pickerView:&pickerView];
@@ -62,4 +64,13 @@
     return selectedIndexes;
 }
 
+- (void)reloadAllComponents
+{
+    [_pickerView reloadAllComponents];
+}
+
+- (void)reloadComponent:(NSInteger)index
+{
+    [_pickerView reloadComponent:index];
+}
 @end

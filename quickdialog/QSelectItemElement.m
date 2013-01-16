@@ -23,7 +23,7 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
 {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.accessoryType =
         [_selectSection.selectedIndexes containsObject:[NSNumber numberWithUnsignedInteger:_index]]
             ? UITableViewCellAccessoryCheckmark

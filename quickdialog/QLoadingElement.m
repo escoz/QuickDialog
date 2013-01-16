@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import "QLoadingElement.h"
 
 @implementation QLoadingElement {
 @private
@@ -27,7 +28,8 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *const cell = [[QTableViewCell alloc] init];
+    QTableViewCell *const cell = [[QTableViewCell alloc] init];
+    [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
     [spin startAnimating];

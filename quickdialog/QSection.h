@@ -53,6 +53,8 @@
 @property(nonatomic) CGRect entryPosition;
 @property(nonatomic, strong) NSDictionary *elementTemplate;
 
+@property(nonatomic, assign) BOOL hidden;
+@property(nonatomic, readonly) NSUInteger visibleIndex;
 
 @property(nonatomic, assign) BOOL canDeleteRows;
 
@@ -61,6 +63,10 @@
 - (void)addElement:(QElement *)element;
 - (void)insertElement:(QElement *)element atIndex:(NSUInteger)index;
 - (NSUInteger)indexOfElement:(QElement *)element;
+
+- (QElement *)getVisibleElementForIndex:(NSInteger)index;
+- (NSInteger)visibleNumberOfElements;
+- (NSUInteger)getVisibleIndexForElement:(QElement*)element;
 
 - (void)bindToObject:(id)data;
 - (void)fetchValueIntoObject:(id)obj;

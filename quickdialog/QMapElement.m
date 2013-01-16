@@ -12,8 +12,10 @@
 // permissions and limitations under the License.
 //
 
+
 #import "QMapViewController.h"
 #import "QMapElement.h"
+#import "QuickDialog.h"
 
 @implementation QMapElement
 

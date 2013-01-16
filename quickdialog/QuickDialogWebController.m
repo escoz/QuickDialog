@@ -1,5 +1,5 @@
 #import "QuickDialogWebController.h"
-
+#import "QuickDialog.h"
 
 @implementation QuickDialogWebController {
 

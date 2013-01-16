@@ -13,17 +13,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QRootElement.h"
+#import "QLabelElement.h"
 
 @interface QWebElement : QLabelElement {
 
 @protected
     NSString *_url;
+	NSString *_html;
 }
 
 @property(nonatomic, strong) NSString *url;
+@property(nonatomic, strong) NSString *html;
 
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url;
+- (QWebElement *)initWithTitle:(NSString *)title HTML:(NSString *)html;
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path;
 

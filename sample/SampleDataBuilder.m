@@ -25,7 +25,7 @@
    subForm.grouped = YES;
    subForm.title = @"Default Initialization";
 	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
-   [subForm addSection:subsection];
+        [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] init]];
 	[subsection	addElement:[[QBadgeElement alloc] init]];
@@ -34,7 +34,7 @@
 	[subsection	addElement:[[QDateTimeInlineElement alloc] init]];
 	[subsection	addElement:[[QFloatElement alloc] init]];
 	[subsection	addElement:[[QMapElement alloc] init]];
-   [subsection	addElement:[[QPickerElement alloc] init]];
+        [subsection	addElement:[[QPickerElement alloc] init]];
 	[subsection	addElement:[[QRadioElement alloc] init]];
 	[subsection	addElement:[[QRadioItemElement alloc] init]];
 	[subsection	addElement:[[QTextElement alloc] init]];
@@ -43,17 +43,16 @@
 	return subForm;
 }
 
-
 + (QRootElement *)createWithInitAndKey {
 	
    QRootElement *subForm = [[QRootElement alloc] init];
    subForm.grouped = YES;
    subForm.title = @"Initialization With Key";
 	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
-   [subForm addSection:subsection];
+        [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] initWithKey:@"Key1"]];
-   [subsection addElement:[[QMultilineElement alloc] initWithKey:@"Key3"]];
+        [subsection addElement:[[QMultilineElement alloc] initWithKey:@"Key3"]];
 	[subsection	addElement:[[QBadgeElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QBooleanElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QButtonElement alloc] initWithKey:@"Key1"]];
@@ -76,6 +75,9 @@
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] boolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];
         bool1.offImage = [UIImage imageNamed:@"imgOff"];
+        bool1.onValueChanged = ^(QRootElement *el){
+            NSLog(@"Bool selected! ");
+        };
         [subsection addElement:bool1];
     }
     [subForm addSection:subsection];
@@ -148,7 +150,7 @@
     QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" value:@"element"];
 
 
-    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3",@"Option 11", @"Option 12", @"Option 13", @"Option 21", @"Option 22", @"Option 33", @"Option 41", @"Option 42", @"Option 43", @"Option 51", @"Option 52", @"Option 53", @"Option 61", @"Option 62", @"Option 63", @"Option 71", @"Option 72", @"Option 73", nil] selected:7 title:@"Radio"];
 	radioElement.key = @"radio1";
 
 
@@ -193,7 +195,7 @@
 
     QImageElement *image = [[QImageElement alloc] initWithTitle:@"Image Picker" detailImage:[UIImage imageNamed:@"icon"]];
     image.height = 90;
-    image.detailImageMaxLength = 180;
+    image.imageMaxLength = 180;
     [controls addElement:image];
 
     [controls addElement:[QLoadingElement new]];
@@ -278,22 +280,16 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.title = @"Picker";
     root.grouped = YES;
-    
+
+    NSArray *component1 = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"];
+    NSArray *component2 = @[@"A", @"B"];
+    QPickerElement *simplePickerEl = [[QPickerElement alloc] initWithTitle:@"Key" items:@[component1, component2] value:@"3\tB"];
+
+    simplePickerEl.onValueChanged = ^(QRootElement *el){
+        NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]);
+    };
+
     QSection *simplePickerSection = [[QSection alloc] initWithTitle:@"Picker element"];
-    
-    NSMutableArray *component1 = [NSMutableArray array];
-    for (int i = 1; i <= 12; i++) {
-        [component1 addObject:[NSString stringWithFormat:@"%d", i]];
-    }
-    
-    NSArray *component2 = [NSArray arrayWithObjects:@"A", @"B", nil];
-    
-    QPickerElement *simplePickerEl =
-        [[QPickerElement alloc] initWithTitle:@"Key"
-                                        items:[NSArray arrayWithObjects:component1, component2, nil]
-                                        value:@"3 B"];
-    simplePickerEl.onValueChanged = ^{ NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]); };
-    
     [simplePickerSection addElement:simplePickerEl];
     [root addSection:simplePickerSection];
     
@@ -307,7 +303,7 @@
                                         value:[NSNumber numberWithUnsignedInteger:NSMonthCalendarUnit]];
     
     periodPickerEl.valueParser = periodParser;
-    periodPickerEl.onValueChanged = ^{ NSLog(@"New value: %@", periodPickerEl.value); };
+    periodPickerEl.onValueChanged = ^(QRootElement *el){ NSLog(@"New value: %@", periodPickerEl.value); };
     
     [customParserSection addElement:periodPickerEl];
     [root addSection:customParserSection];
@@ -324,7 +320,7 @@
    QSection *imageElementSection = [[QSection alloc] initWithTitle:@"Image Element"];
 
    QImageElement *imagePickerEl = [[QImageElement alloc] initWithTitle:@"Photo Picker" detailImage:[UIImage imageNamed:@"icon"]];
-   imagePickerEl.detailImageMaxLength = 150.f;
+   imagePickerEl.imageMaxLength = 150.f;
    imagePickerEl.height = 100.f;
 
    [imageElementSection addElement:imagePickerEl];
@@ -334,7 +330,7 @@
 
    QImageElement *imagePickerEl2 = [[QImageElement alloc] initWithTitle:@"Photo (reduced 50%)" detailImage:[UIImage imageNamed:@"icon"]];
    imagePickerEl2.imageNamed = @"iPhone";
-   imagePickerEl2.detailImageMaxLength = 50.f;
+   imagePickerEl2.imageMaxLength = 50.f;
    imagePickerEl2.height = 100.f;
 
    [imageElementSection2 addElement:imagePickerEl2];
@@ -551,9 +547,8 @@
     multiline.title = @"Multiline entry";
     [multilineSection addElement:multiline];
 
-
-    [root addSection:traitsSection];
     [root addSection:multilineSection];
+    [root addSection:traitsSection];
     
     return root;
 }
@@ -635,6 +630,7 @@
 
     QDateTimeElement *el7 = [[QDateTimeElement alloc] initWithTitle:@"Full Date" date:[NSDate date]];
     el7.mode = UIDatePickerModeDateAndTime;
+    el7.minuteInterval = 3;
     [section2 addElement:el7];
 
     [root addSection:section];
@@ -686,13 +682,14 @@
 + (QRootElement *)create {
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
-    root.title = @"QuickForms!";
-         QSection *sectionSamples = [[QSection alloc] init];
+    root.title = @"QuickDialog!";
+    QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];
+    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"themes"]];
 
 
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
@@ -701,6 +698,7 @@
     [sectionElements addElement:[self createEntryRoot]];
     [sectionElements addElement:[self createSlidersRoot]];
     [sectionElements addElement:[self createRadioRoot]];
+    [sectionElements addElement:[[QRootElement alloc] initWithJSONFile:@"navigation"]];
     [sectionElements addElement:[self createPickerRoot]];
     [sectionElements addElement:[self createImageRoot]];
     [sectionElements addElement:[self createSelectRoot]];
@@ -711,6 +709,17 @@
     [sectionElements addElement:[self createDynamicSectionRoot]];
          [sectionElements addElement:[self createWithInitDefault]];
          [sectionElements addElement:[self createWithInitAndKey]];
+
+    QRootElement *samplesDisabled = (QRootElement *)[self createSampleControls];
+    samplesDisabled.title = @"Disabled Elements";
+    for(QSection *section in samplesDisabled.sections)
+    {
+        for(QElement *element in section.elements)
+        {
+            element.enabled = NO;
+        }
+    }
+    [sectionElements addElement:samplesDisabled];
 
     [root addSection:sectionSamples];
     [root addSection:sectionElements];
@@ -723,6 +732,7 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonremote"]];
 
+
         NSString *jsonSample = @"{\"title\": \"In memory struct\",\n"
                             "    \"controllerName\": \"LoginController\", \"sections\":[]}";
         id const parsedJson = [NSJSONSerialization JSONObjectWithData:[jsonSample dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableLeaves error:nil];
@@ -732,4 +742,5 @@
 
     return root;
 }
+
 @end

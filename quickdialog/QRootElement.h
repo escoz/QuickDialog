@@ -15,6 +15,16 @@
 #import "QElement.h"
 #import "QSection.h"
 
+
+typedef enum  {
+    QPresentationModeNormal = 0,
+    QPresentationModePopover,
+    QPresentationModeNavigationInPopover,
+    QPresentationModeModalForm,
+    QPresentationModeModalFullScreen,
+    QPresentationModeModalPage
+} QPresentationMode;
+
 @interface QRootElement : QElement {
 
 @protected
@@ -31,16 +41,26 @@
 @property(assign) BOOL grouped;
 
 @property(nonatomic, retain) NSString *controllerName;
-@property(nonatomic, copy) void (^onValueChanged)(void);
 
 @property(nonatomic, copy) NSString *emptyMessage;
+@property(nonatomic) QPresentationMode presentationMode;
+
+@property(nonatomic, strong) NSIndexPath *preselectedElementIndex;
+
+@property(nonatomic, copy) void (^onValueChanged)(QRootElement *);
 
 - (QRootElement *)init;
 
 - (void)addSection:(QSection *)section;
+
++ (QRootElement *)rootForJSON:(NSString *)jsonFileName withObject:(id)object;
+
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;
 
+- (QSection *)getVisibleSectionForIndex:(NSInteger)index;
+- (NSInteger)visibleNumberOfSections;
+- (NSUInteger)getVisibleIndexForSection: (QSection*)section;
 
 - (void)fetchValueIntoObject:(id)obj;
 
@@ -48,4 +68,6 @@
 
 - (QSection *)sectionWithKey:(NSString *)key;
 - (QElement *)elementWithKey:(NSString *)string;
+
+- (QRootElement *)rootWithKey:(NSString *)string;
 @end

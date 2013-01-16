@@ -19,7 +19,8 @@
                 { "type":"QButtonElement", "key":"bt2", "title":"Bind to Object", "controllerAction":"handleBindToObject:"} ,
                 { "type":"QButtonElement", "key":"bt2", "title":"Load JSON with Object", "controllerAction":"handleLoadJsonWithDict:"},
                 { "type":"QButtonElement", "key":"bt3", "title":"Load JSON", "controllerAction":"handleReloadJson:"},
-                { "type":"QButtonElement", "key":"bt4", "title":"Read Values from Form", "controllerAction":"readValuesFromForm:"}
+                { "type":"QButtonElement", "key":"bt4", "title":"Read Values from Form", "controllerAction":"readValuesFromForm:"},
+                { "type":"QButtonElement", "key":"bt5", "title":"Disabled Button","enabled":false}
 
 
 			]

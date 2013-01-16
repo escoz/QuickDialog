@@ -12,8 +12,11 @@
 // permissions and limitations under the License.
 //
 
-@implementation QEntryElement
-
+#import "QEntryElement.h"
+#import "QuickDialog.h"
+@implementation QEntryElement  {
+    __unsafe_unretained QuickDialogController *_controller;
+}
 
 @synthesize textValue = _textValue;
 @synthesize placeholder = _placeholder;
@@ -30,7 +33,6 @@
     if (self){
         self.autocapitalizationType = UITextAutocapitalizationTypeSentences;
         self.autocorrectionType = UITextAutocorrectionTypeDefault;
-        self.textAlignment = UITextAlignmentLeft;
         self.keyboardType = UIKeyboardTypeDefault;
         self.keyboardAppearance = UIKeyboardAppearanceDefault;
         self.returnKeyType = UIReturnKeyDefault;
@@ -56,10 +58,13 @@
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
+
+    [cell applyAppearanceForElement:self];
+    _controller = controller;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textField.enabled = YES;
-    cell.textField.userInteractionEnabled = YES;
-    cell.textField.textAlignment = self.textAlignment;
+    cell.textField.enabled = self.enabled;
+    cell.textField.userInteractionEnabled = self.enabled;
+    cell.textField.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
@@ -70,6 +75,11 @@
 
 }
 
+- (void) fieldDidEndEditing
+{
+    [self handleElementSelected:_controller];
+}
+
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;
@@ -78,14 +88,18 @@
 }
 
 - (BOOL)canTakeFocus {
-    return YES;
+	if (self.hidden) {
+		return NO;
+	}
+	else {
+		return YES;
+	}
 }
 
 #pragma mark - UITextInputTraits
 
 @synthesize autocorrectionType = _autocorrectionType;
 @synthesize autocapitalizationType = _autocapitalizationType;
-@synthesize textAlignment = _textAlignment;
 @synthesize keyboardType = _keyboardType;
 @synthesize keyboardAppearance = _keyboardAppearance;
 @synthesize returnKeyType = _returnKeyType;

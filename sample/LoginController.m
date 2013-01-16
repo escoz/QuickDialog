@@ -62,9 +62,7 @@
 
 - (void)onAbout {
     QRootElement *details = [LoginController createDetailsForm];
-
-    QuickDialogController *quickform = [QuickDialogController controllerForRoot:details];
-    [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:quickform] animated:YES];
+    [self displayViewControllerForRoot:details];
 }
 
 -(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath{
@@ -77,6 +75,7 @@
 
 + (QRootElement *)createDetailsForm {
     QRootElement *details = [[QRootElement alloc] init];
+    details.presentationMode = QPresentationModeModalForm;
     details.title = @"Details";
     details.controllerName = @"AboutController";
     details.grouped = YES;

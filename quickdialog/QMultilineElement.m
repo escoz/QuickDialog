@@ -12,15 +12,27 @@
 // permissions and limitations under the License.
 //
 
+#import "QMultilineElement.h"
+#import "QuickDialog.h"
 @implementation QMultilineElement
 
 @synthesize delegate = _delegate;
 
 
+- (QEntryElement *)init {
+    self = [super init];
+    if (self) {
+        self.presentationMode = QPresentationModePopover;
+    }
+
+    return self;
+}
+
 - (QMultilineElement *)initWithTitle:(NSString *)title value:(NSString *)text
 {
     if ((self = [super initWithTitle:title value:nil])) {
         self.textValue = text;
+        self.presentationMode = QPresentationModePopover;
     }
     return self;
 }
@@ -28,15 +40,17 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = NO;
+    cell.textField.textAlignment = self.appearance.labelAlignment;
+
     return cell;
 }
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath
 {
-    __block QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
+    QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
     textController.entryElement = self;
     textController.entryCell = (QEntryTableViewCell *) [tableView cellForElement:self];
     textController.resizeWhenKeyboardPresented = YES;
@@ -48,13 +62,15 @@
     textController.textView.secureTextEntry = self.secureTextEntry;
     textController.textView.autocapitalizationType = self.autocapitalizationType;
     textController.textView.returnKeyType = self.returnKeyType;
+    textController.textView.editable = self.enabled;
 
-    __block QMultilineElement *weakSelf = self;
+    __weak QMultilineElement *weakSelf = self;
+	__weak QMultilineTextViewController *weakTextController = textController;
     textController.willDisappearCallback = ^ {
-        weakSelf.textValue = textController.textView.text;
+        weakSelf.textValue = weakTextController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
     };
-    [controller displayViewController:textController];
+    [controller displayViewControllerInPopover:textController withNavigation:NO];
 }
 
 - (void)fetchValueIntoObject:(id)obj

@@ -13,8 +13,10 @@
 //
 
 
-#import "QElement.h"
-#import "QMultilineTextViewController.h"
+#import "QEntryElement.h"
+
+@class QMultilineElement;
+@protocol QuickDialogEntryElementDelegate;
 
 @interface QMultilineElement : QEntryElement
 
