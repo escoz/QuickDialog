@@ -12,15 +12,14 @@
 // permissions and limitations under the License.
 //
 
-
 #import <Foundation/Foundation.h>
 
 @class QRootElement;
-
 
 @interface SampleDataBuilder : NSObject {
 
 }
 
 + (QRootElement *)create;
+
 @end

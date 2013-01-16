@@ -26,7 +26,7 @@
 @property(nonatomic, readwrite, assign) NSNumber *numberValue;
 @property (nonatomic) BOOL boolValue;
 
-- (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
+- (QBooleanElement *)initWithTitle:(NSString *)title boolValue:(BOOL)value;
 
 
 - (void)setOnImageName:(NSString *)name;

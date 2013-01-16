@@ -12,12 +12,12 @@
 // permissions and limitations under the License.
 //
 
-#import "QImageTableViewCell.h"
+#import "QImageElement.h"
 
 @interface QImageElement () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 
-@property(nonatomic, retain) UIImagePickerController *imagePickerController;
-@property(nonatomic, strong) UIPopoverController *popoverController;
+@property (nonatomic, retain) UIImagePickerController *imagePickerController;
+@property (nonatomic, strong) UIPopoverController *popoverController;
 
 @end
 
@@ -88,7 +88,7 @@
     } else {
         UITableViewCell *tableViewCell = [tableView cellForRowAtIndexPath:path];
         if ([tableViewCell isKindOfClass:[QImageTableViewCell class]]) {
-            UIView *presentingView = ((QImageTableViewCell *) tableViewCell).imageViewButton;
+            UIView *presentingView = ((QImageTableViewCell *) tableViewCell).imageValueView;
 
             UIPopoverController *aPopoverController = [[UIPopoverController alloc] initWithContentViewController:self.imagePickerController];
             [aPopoverController presentPopoverFromRect:presentingView.bounds

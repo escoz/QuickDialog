@@ -21,7 +21,7 @@
 @synthesize maximumValue = _maximumValue;
 
 - (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
-    self = [super initWithTitle:title Value:nil] ;
+    self = [super initWithTitle:title value:nil] ;
     if (self) {
         _floatValue = value;
         self.enabled = YES;

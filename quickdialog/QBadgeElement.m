@@ -30,7 +30,7 @@
     return self;
 }
 
-- (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value {
+- (QBadgeElement *)initWithTitle:(NSString *)title value:(NSString *)value {
     self = [self init];
 	if (self) {
 		_title = title;

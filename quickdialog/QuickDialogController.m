@@ -122,13 +122,42 @@
     }
 }
 
+/*
+
+- (void)popToPreviousRootElementOnMainThread {
+    if (self.navigationController!=nil){
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self dismissModalViewControllerAnimated:YES];
+    }
+}
+
+- (void)popToPreviousRootElement {
+    [self performSelectorOnMainThread:@selector(popToPreviousRootElementOnMainThread) withObject:nil waitUntilDone:YES];
+}
+
+- (void)displayViewController:(UIViewController *)newController {
+    if (self.navigationController != nil && ![newController isKindOfClass:[UINavigationController class]]){
+        [self.navigationController pushViewController:newController animated:YES];
+    } else {
+        [self presentModalViewController:newController animated:YES];
+    }
+}
+
+- (void)displayViewControllerForRoot:(QRootElement *)root {
+    QuickDialogController *newController = [self controllerForRoot: root];
+    [self displayViewController:newController];
+}
+
+*/
+
 - (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [[self class] controllerClassForRoot:root];
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
 
-- (void) resizeForKeyboard:(NSNotification*)aNotification {
+- (void)resizeForKeyboard:(NSNotification*)aNotification {
     if (!_viewOnScreen)
         return;
 
@@ -174,6 +203,5 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
-
 
 @end

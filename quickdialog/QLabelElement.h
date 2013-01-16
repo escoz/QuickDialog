@@ -28,10 +28,8 @@
 @property(nonatomic, assign) NSString *imageNamed;
 @property(nonatomic, assign) UITableViewCellAccessoryType accessoryType;
 @property(nonatomic, strong) id value;
-
-
 @property(nonatomic) BOOL keepSelected;
 
-- (QLabelElement *)initWithTitle:(NSString *)string Value:(id)value;
+- (QLabelElement *)initWithTitle:(NSString *)string value:(id)value;
 
 @end
