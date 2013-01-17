@@ -53,7 +53,7 @@
     cell.detailTextLabel.text = [_value description];
     cell.imageView.image = _image;
     cell.accessoryType = _accessoryType != UITableViewCellAccessoryNone ? _accessoryType : ( self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone);
-    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil || self.onSelected ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
 
     return cell;
 }
