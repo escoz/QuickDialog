@@ -175,5 +175,22 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+-(void)hideElement:(QElement *)elem
+{
+    [elem setHidden:YES];
+    NSMutableArray * idx = [[NSMutableArray alloc] initWithObjects:[NSIndexPath indexPathForRow:elem.visibleIndex inSection:elem.parentSection.visibleIndex], nil];
+    
+    [self.quickDialogTableView deleteRowsAtIndexPaths:idx withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+
+-(void)showElement:(QElement *)elem
+{
+    [elem setHidden:NO];
+    NSMutableArray * idx = [[NSMutableArray alloc] initWithObjects:[NSIndexPath indexPathForRow:elem.visibleIndex inSection:elem.parentSection.visibleIndex], nil];
+    
+    [self.quickDialogTableView insertRowsAtIndexPaths:idx withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 
 @end

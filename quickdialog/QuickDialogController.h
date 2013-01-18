@@ -49,5 +49,8 @@
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
 
+- (void)hideElement:(QElement *)elem;
+- (void)showElement:(QElement *)elem;
+
 
 @end
