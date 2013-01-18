@@ -61,6 +61,7 @@
     self.detailTextLabel.textAlignment = appearance.valueAlignment;
 
     self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
+    self.selectedBackgroundView = element.appearance.selectedBackgroundView;
 
 }
 @end

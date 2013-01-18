@@ -7,6 +7,7 @@
 @synthesize sectionFooterFont = _sectionFooterFont;
 @synthesize sectionFooterColor = _sectionFooterColor;
 @synthesize entryAlignment = _entryAlignment;
+@synthesize selectedBackgroundView = _selectedBackgroundView;
 
 
 - (QAppearance *)init {
