@@ -57,7 +57,7 @@
 #import "QMultilineTextViewController.h"
 #import "QMultilineElement.h"
 #import "QImageElement.h"
-
+#import "QPickerTableViewCell.h"
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"
 

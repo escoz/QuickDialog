@@ -13,6 +13,7 @@
 //
 
 #import "QEntryTableViewCell.h"
+
 #import "QuickDialog.h"
 
 @interface QEntryTableViewCell ()
@@ -198,13 +199,38 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+    if([self.superview isKindOfClass:[UITableView class]])
+    {
+        UITableView *tableView=(UITableView *)self.superview;
+        NSIndexPath *selectedIndexPath=[tableView indexPathForSelectedRow];
+        if(selectedIndexPath)[tableView deselectRowAtIndexPath:selectedIndexPath animated:NO];
+    }
     _entryElement.textValue = _textField.text;
     
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidEndEditingElement:andCell:)]){
         [_entryElement.delegate QEntryDidEndEditingElement:_entryElement andCell:self];
     }
     
+    
+    if([self isKindOfClass:[QDateEntryTableViewCell class]])
+    {
+        QDateEntryTableViewCell *cell=(QDateEntryTableViewCell *)self;
+        if([cell respondsToSelector:@selector(dateChanged:)])
+        {
+            [cell performSelector:@selector(dateChanged:) withObject:nil];
+        }
+    }
+    else if([self isKindOfClass:[QPickerTableViewCell class]])
+    {
+        QPickerTableViewCell *cell=(QPickerTableViewCell *)self;
+        QPickerElement *pickerElement=(QPickerElement *)_entryElement;
+        
+        pickerElement.value=[cell getPickerViewValue];
+        [self prepareForElement:_entryElement inTableView:_quickformTableView];
+    }
+    
     [_entryElement performSelector:@selector(fieldDidEndEditing)];
+
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
