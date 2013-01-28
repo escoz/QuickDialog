@@ -1,5 +1,5 @@
 //
-// Copyright 2011 ESCOZ Inc  - http://escoz.com
+// Copyright 2012 Ludovic Landry - http://about.me/ludoviclandry
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
 // file except in compliance with the License. You may obtain a copy of the License at
@@ -14,18 +14,17 @@
 
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "QRootElement.h"
+
+@interface QImageElement : QEntryElement
+
+@property (nonatomic, strong) UIImage *imageValue;
+@property (nonatomic, strong) NSString *imageValueNamed;
+@property (nonatomic, assign) float imageMaxLength;
+@property(nonatomic) enum UIImagePickerControllerSourceType source;
 
 
-typedef enum {
-    QLabelingPolicyTrimTitle,
-    QLabelingPolicyTrimValue
-} QLabelingPolicy;
+- (QImageElement *)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
 
-@interface QTableViewCell : UITableViewCell
-
-- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
-
-@property (nonatomic) QLabelingPolicy labelingPolicy;
-
-- (void)applyAppearanceForElement:(QElement *)element;
 @end

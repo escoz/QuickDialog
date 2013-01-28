@@ -21,12 +21,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated]; 
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(close)];
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
-- (void)close {
-    [self dismissModalViewControllerAnimated:YES];
-}
 
 
 @end

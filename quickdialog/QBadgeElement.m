@@ -42,6 +42,7 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QBadgeTableCell *cell = [[QBadgeTableCell alloc] init];
     cell.textLabel.text = _title;
+    [cell applyAppearanceForElement:self];
     cell.badgeLabel.badgeColor = _badgeColor;
     cell.badgeLabel.textColor = _badgeTextColor;
     cell.badgeLabel.text = _badge;

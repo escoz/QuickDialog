@@ -42,7 +42,7 @@
 - (void)handleSegmentedControlValueChanged:(id)control {
     _selected = ((UISegmentedControl *)control).selectedSegmentIndex - 1;
     if (self.onValueChanged!=nil)
-        self.onValueChanged();
+        self.onValueChanged(self);
 
     [self handleElementSelected:_controller];
 }
@@ -101,6 +101,8 @@
     [control setEnabled:NO forSegmentAtIndex:item.count-1];
     [control setWidth:10 forSegmentAtIndex:0];
     [control setWidth:10 forSegmentAtIndex:item.count-1];
+
+    control.userInteractionEnabled = self.enabled;
 
     [container addSubview:control];
     return cell;

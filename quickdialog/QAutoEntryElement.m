@@ -58,19 +58,21 @@
     if (cell==nil){
         cell = [[QAutoEntryTableViewCell alloc] init];
     }
-    
+
+    [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;
-    cell.textField.textAlignment = self.textAlignment;
+    cell.textField.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    [super selected:tableView controller:controller indexPath:indexPath];
-    
+    if(self.enabled){
+        [super selected:tableView controller:controller indexPath:indexPath];
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {

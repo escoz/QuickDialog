@@ -52,7 +52,7 @@
     if (root.controllerName!=NULL){
         controllerClass = NSClassFromString(root.controllerName);
     } else {
-        controllerClass = [self class];
+        controllerClass = [QuickDialogController class];
     }
     return controllerClass;
 }
@@ -104,8 +104,14 @@
     _viewOnScreen = YES;
     [self.quickDialogTableView viewWillAppear];
     [super viewWillAppear:animated];
-    if (_root!=nil)
+    if (_root!=nil) {
         self.title = _root.title;
+        self.navigationItem.title = _root.title;
+        if (_root.preselectedElementIndex !=nil)
+            [self.quickDialogTableView scrollToRowAtIndexPath:_root.preselectedElementIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+    }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -145,6 +151,7 @@
             CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
             const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
             self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  up ? keyboardFrame.size.height : 0, oldInset.right);
+            self.quickDialogTableView.scrollIndicatorInsets = self.quickDialogTableView.contentInset;
         }
         completion:NULL];
 }

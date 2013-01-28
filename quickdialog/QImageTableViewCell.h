@@ -1,5 +1,5 @@
 //
-// Copyright 2011 ESCOZ Inc  - http://escoz.com
+// Copyright 2012 Ludovic Landry - http://about.me/ludoviclandry
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
 // file except in compliance with the License. You may obtain a copy of the License at
@@ -12,20 +12,23 @@
 // permissions and limitations under the License.
 //
 
-
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+#import "QEntryTableViewCell.h"
 
+@class QImageElement;
+@class QuickDialogTableView;
 
-typedef enum {
-    QLabelingPolicyTrimTitle,
-    QLabelingPolicyTrimValue
-} QLabelingPolicy;
+@interface QImageTableViewCell : QEntryTableViewCell {
 
-@interface QTableViewCell : UITableViewCell
+   QImageElement *_imageElement;
+   UIButton *_imageViewButton;
+}
 
-- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
+@property (nonatomic, retain) UIButton *imageViewButton;
 
-@property (nonatomic) QLabelingPolicy labelingPolicy;
+- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
+- (void)createSubviews;
 
-- (void)applyAppearanceForElement:(QElement *)element;
 @end

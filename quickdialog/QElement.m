@@ -19,7 +19,7 @@
 
 @implementation QElement {
 @private
-    NSObject *_object;
+    id _object;
     NSString *_controllerAccessoryAction;
 }
 
@@ -56,14 +56,10 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
-    if (cell == nil){
-        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
-    }
-    if (!self.enabled) {
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-    }
-    
+    QTableViewCell *cell= [self getOrCreateEmptyCell:tableView];
+
+    [cell applyAppearanceForElement:self];
+
     cell.textLabel.text = nil; 
     cell.detailTextLabel.text = nil; 
     cell.imageView.image = nil; 
@@ -72,6 +68,14 @@
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;
     cell.labelingPolicy = _labelingPolicy;
+    return cell;
+}
+
+- (QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView {
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
+    if (cell == nil){
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@", self.key]];
+    }
     return cell;
 }
 

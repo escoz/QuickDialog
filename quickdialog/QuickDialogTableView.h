@@ -48,6 +48,6 @@
 
 - (void)viewWillAppear;
 
-- (void)reloadCellForElements:(QElement *)element, ...;
+- (void)reloadCellForElements:(QElement *)element, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

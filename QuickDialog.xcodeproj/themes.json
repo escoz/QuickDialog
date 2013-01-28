@@ -1,0 +1,15 @@
+{
+	"grouped": true,
+	"title": "Themes",
+	"controllerName":"ExampleViewController",
+	"sections": [
+		{ "elements":[
+                { "type":"QButtonElement", "key":"button", "title":"Blue Theme", "controllerAction":"setTheme:", "object":"blue"}
+			]
+		},
+		{ "elements":[
+                { "type":"QButtonElement", "key":"button", "title":"Red Theme", "controllerAction":"setTheme:", "object":"red"}
+            ]
+        }
+	]
+}

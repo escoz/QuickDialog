@@ -107,13 +107,17 @@
     }
 }
 
+-(void)setBoolValue:(BOOL)boolValue {
+    _boolValue = boolValue;
+    if (self.onValueChanged!=nil){
+        self.onValueChanged(self);
+    }
+}
+
 - (void)switched:(id)boolSwitch {
     self.boolValue = ((UISwitch *)boolSwitch).on;
     if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
         [self handleElementSelected:_controller];
-    }
-    if (self.onValueChanged!=nil){
-        self.onValueChanged();
     }
 }
 

@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import <sys/ucred.h>
 #import "QuickDialogTableDelegate.h"
 #import "QuickDialog.h"
 @implementation QuickDialogTableDelegate
@@ -99,7 +100,8 @@
         CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 20;
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
-        CGSize expectedLabelSize = [section.title sizeWithFont:[UIFont boldSystemFontOfSize:[UIFont labelFontSize]]
+        QAppearance *appearance = ((QuickDialogTableView *)tableView).root.appearance;
+        CGSize expectedLabelSize = [section.title sizeWithFont:appearance==nil? [UIFont systemFontOfSize:[UIFont labelFontSize]] : appearance.sectionTitleFont
                                               constrainedToSize:maximumLabelSize
                                                   lineBreakMode:UILineBreakModeWordWrap];
 
@@ -123,7 +125,11 @@
     if (section.footerItems!=nil)
         return 44;
 
-    return section.footer != NULL? -1 : 0;
+    QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
+
+    return section.footer == NULL
+            ? -1
+            : [section.footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)].height+22;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,8 +146,34 @@
     
     if (view && [_tableView.styleProvider respondsToSelector:@selector(headerView:willAppearForSection:atIndex:)])
         [_tableView.styleProvider headerView:view willAppearForSection:section atIndex:index];
-    
+
     return view;
+    
+    /*
+    NSString *title = [tableView.dataSource tableView:tableView titleForHeaderInSection:index];
+    
+    QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
+    
+    if (section.headerView==nil && title!= nil && ![title isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+        containerView.backgroundColor = [UIColor clearColor];
+        containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, tableView.frame.size.width-40, [self tableView:tableView heightForHeaderInSection:index]-10)];
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        label.text = title;
+        [containerView addSubview:label];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = appearance.sectionTitleFont;
+        label.numberOfLines = 0;
+        label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
+        label.shadowOffset = CGSizeMake(0, 1);
+        label.textColor = appearance.sectionTitleColor;
+        
+        section.headerView = containerView;
+    }
+    return section.headerView;
+    */
 }
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
@@ -150,14 +182,46 @@
         [_tableView.styleProvider headerView:view willAppearForSection:sect atIndex:section];
 }
 
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
+
     UIView *view = [section getFooterViewForTable:_tableView controller:_tableView.controller];
     
     if (view && [_tableView.styleProvider respondsToSelector:@selector(footerView:willAppearForSection:atIndex:)])
         [_tableView.styleProvider footerView:view willAppearForSection:section atIndex:index];
     
     return view;
+    
+    /*
+    NSString *footer = [tableView.dataSource tableView:tableView titleForFooterInSection:index];
+    
+    QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
+    
+    if (section.footerView==nil && footer != nil && ![footer isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
+        CGSize textSize = [footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height+8)];
+        containerView.backgroundColor = [UIColor clearColor];
+        containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.frame.size.width-40, textSize.height)];
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        label.text = footer;
+        label.textAlignment = NSTextAlignmentCenter;
+        [containerView addSubview:label];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = appearance.sectionFooterFont;
+        label.textColor = appearance.sectionFooterColor;
+        label.numberOfLines = 0;
+        label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
+        label.shadowOffset = CGSizeMake(0, 1);
+        
+        section.footerView = containerView;
+    }
+    
+    
+    return section.footerView;
+    */
 }
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
@@ -165,5 +229,6 @@
     if ([_tableView.styleProvider respondsToSelector:@selector(footerView:willAppearForSection:atIndex:)])
         [_tableView.styleProvider footerView:view willAppearForSection:sect atIndex:section];
 }
+
 
 @end

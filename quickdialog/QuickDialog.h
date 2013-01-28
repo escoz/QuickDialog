@@ -23,6 +23,11 @@
 #import "QuickDialogTableView.h"
 #import "QuickDialogTableDelegate.h"
 
+#import "QElement.h"
+
+#import "QAppearance.h"
+#import "QElement+Appearance.h"
+
 #import "QTableViewCell.h"
 #import "QRootElement+JsonBuilder.h"
 #import "QLoadingElement.h"
@@ -34,6 +39,7 @@
 #import "QEntryElement.h"
 #import "QEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
+#import "QCountdownElement.h"
 #import "QFloatElement.h"
 #import "QPickerElement.h"
 #import "QMapElement.h"
@@ -52,6 +58,7 @@
 #import "QSegmentedElement.h"
 #import "QMultilineTextViewController.h"
 #import "QMultilineElement.h"
+#import "QImageElement.h"
 
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"

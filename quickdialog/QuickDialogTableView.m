@@ -52,6 +52,22 @@
     [self reloadData];
 }
 
+- (void)applyAppearanceForRoot:(QRootElement *)element {
+    if (element.appearance.tableGroupedBackgroundColor !=nil){
+        
+        self.backgroundColor = element.grouped 
+                ? element.appearance.tableGroupedBackgroundColor 
+                : element.appearance.tableBackgroundColor;
+
+        self.backgroundView = element.appearance.tableBackgroundView;
+    }
+    if (element.appearance.tableBackgroundView!=nil)
+        self.backgroundView = element.appearance.tableBackgroundView;
+
+    self.separatorColor = element.appearance.tableSeparatorColor;
+
+}
+
 - (NSIndexPath *)indexForElement:(QElement *)element {
     return element.getIndexPath;
 }
@@ -85,6 +101,8 @@
 }
 
 - (void)viewWillAppear {
+
+    [self applyAppearanceForRoot:self.root];
     NSArray *selected = nil;
     if ([self indexPathForSelectedRow]!=nil && _deselectRowWhenViewAppears){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];

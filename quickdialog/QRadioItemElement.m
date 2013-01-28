@@ -40,6 +40,8 @@
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     NSInteger selectedIndex = _radioElement==nil? _radioSection.selected : _radioElement.selected;
     cell.accessoryType = selectedIndex == _index ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.textLabel.textAlignment = NSTextAlignmentLeft; // hardcoded so that appearance doesn't change it
+    cell.textLabel.textColor = self.enabled ? self.appearance.valueColorEnabled : self.appearance.valueColorDisabled;
     return cell;
 }
 
@@ -60,7 +62,6 @@
     if (_radioElement!= nil)
     {
         _radioElement.selected = _index;
-        //[_radioElement handleElementSelected:controller];
         [_radioElement fieldDidEndEditing];
         tableView.userInteractionEnabled = NO;
 
