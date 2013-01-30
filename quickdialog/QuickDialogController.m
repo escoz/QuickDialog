@@ -52,7 +52,7 @@
     if (root.controllerName!=NULL){
         controllerClass = NSClassFromString(root.controllerName);
     } else {
-        controllerClass = [QuickDialogController class];
+        controllerClass = self;
     }
     return controllerClass;
 }
