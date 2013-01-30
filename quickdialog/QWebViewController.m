@@ -15,8 +15,8 @@
 #import "QWebViewController.h"
 
 @interface QWebViewController ()
-- (CGImageRef)createBackArrowImageRef;
-- (CGImageRef)createForwardArrowImageRef;
+- (UIImage *)createBackArrowImage;
+- (UIImage *)createForwardArrowImage;
 
 
 @end
@@ -46,8 +46,8 @@
     _webView.scalesPageToFit = YES;
     self.view = _webView;
 
-    UIImage *backImage = [[UIImage alloc] initWithCGImage:[self createBackArrowImageRef]];
-    UIImage *forwardImage = [[UIImage alloc] initWithCGImage:[self createForwardArrowImageRef]];
+    UIImage *backImage = [self createBackArrowImage];
+    UIImage *forwardImage = [self createForwardArrowImage];
     _btBack = [[UIBarButtonItem alloc] initWithImage:backImage style:UIBarButtonItemStylePlain target:self action:@selector(actionRewind)];
     _btForward = [[UIBarButtonItem alloc] initWithImage:forwardImage style:UIBarButtonItemStylePlain target:self action:@selector(actionForward)];
 
@@ -169,7 +169,7 @@
    return context;
 }
 
-- (CGImageRef)createBackArrowImageRef
+- (UIImage *)createBackArrowImage
 {
    CGContextRef context = [self createContext];
    CGColorRef fillColor = [[UIColor blackColor] CGColor];
@@ -182,10 +182,13 @@
    CGContextFillPath(context);
    CGImageRef image = CGBitmapContextCreateImage(context);
    CGContextRelease(context);
-   return image;
+   UIImage *ret = [UIImage imageWithCGImage:image];
+   CGImageRelease(image);
+    
+   return ret;
 }
 
-- (CGImageRef)createForwardArrowImageRef
+- (UIImage *)createForwardArrowImage
 {
    CGContextRef context = [self createContext];
    CGColorRef fillColor = [[UIColor blackColor] CGColor];
@@ -198,7 +201,10 @@
    CGContextFillPath(context);
    CGImageRef image = CGBitmapContextCreateImage(context);
    CGContextRelease(context);
-   return image;
+   UIImage *ret = [UIImage imageWithCGImage:image];
+   CGImageRelease(image);
+    
+   return ret;
 }
 
 @end
