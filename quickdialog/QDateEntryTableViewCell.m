@@ -144,7 +144,6 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
 {
     unsigned long seconds = (unsigned long) interval;
     unsigned long minutes = seconds / 60;
-    seconds %= 60;
     unsigned long hours = minutes / 60;
     minutes %= 60;
 
