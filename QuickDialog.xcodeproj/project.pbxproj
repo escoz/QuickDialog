@@ -42,8 +42,6 @@
 		2C5423DB145ADF2B0026A152 /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BB13EC905B00E3922B /* QTextElement.m */; };
 		2C5423DD145ADF2B0026A152 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BD13EC905B00E3922B /* QWebElement.m */; };
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
-		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
-		5C50E1652D781293C5963717 /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E2CE6D8D6B3DD766CCCC /* themes.json */; };
 		5C50E1E06A0557312EB9B187 /* QAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50EB0025DCEF8A3740C477 /* QAppearance.h */; };
 		5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */; };
 		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
@@ -85,7 +83,6 @@
 		D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BA13EC905B00E3922B /* QTextElement.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF914BBAFCE0066C372 /* QWebElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BC13EC905B00E3922B /* QWebElement.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EFA14BBAFCE0066C372 /* QWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BE13EC905B00E3922B /* QWebViewController.h */; settings = {ATTRIBUTES = (); }; };
-		D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83BD545169661EA00188061 /* Default-568h@2x.png */; };
 		D85E2C5F1650698700510973 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D85E2C611650699000510973 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D871018714BB3D7A00156D9D /* QRootElement+JsonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */; };
@@ -727,7 +724,7 @@
 		D80B0E2A13E052DF00FA85CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = D80B0E2D13E052DF00FA85CA /* Build configuration list for PBXProject "QuickDialog" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -745,39 +742,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		D80B0E3113E052DF00FA85CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D811F90413EC907200E3922B /* footer.png in Resources */,
-				D811F90513EC907200E3922B /* footer@2x.png in Resources */,
-				D811F90613EC907200E3922B /* imgOff.png in Resources */,
-				D811F90713EC907200E3922B /* imgOn.png in Resources */,
-				D811F90813EC907200E3922B /* intel.png in Resources */,
-				D811F90913EC907200E3922B /* iPhone.png in Resources */,
-				D811F90A13EC907200E3922B /* keyboard.png in Resources */,
-				D811F90B13EC907200E3922B /* logo.png in Resources */,
-				D811F90C13EC907200E3922B /* logo@2x.png in Resources */,
-				D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */,
-				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
-				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
-				D86249EB14BB59D6002F0585 /* icon.png in Resources */,
-				D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */,
-				D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */,
-				D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */,
-				D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */,
-				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
-				D86249FC14BB5AB5002F0585 /* sample.json in Resources */,
-				D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */,
-				5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */,
-				D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */,
-				5C50E1652D781293C5963717 /* themes.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C54238F145ADEBD0026A152 /* Sources */ = {
@@ -850,22 +814,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D80B0E2F13E052DF00FA85CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D811F8FB13EC907200E3922B /* AboutController.m in Sources */,
-				D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */,
-				D811F8FE13EC907200E3922B /* LoginController.m in Sources */,
-				D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */,
-				D811F90013EC907200E3922B /* main.m in Sources */,
-				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
-				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
-				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
-				F209CEE41536AB100043F61C /* PeriodPickerValueParser.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -917,6 +865,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -930,6 +882,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
@@ -943,12 +896,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

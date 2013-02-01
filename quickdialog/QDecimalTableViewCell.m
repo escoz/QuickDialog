@@ -61,18 +61,26 @@
 }
 
 - (void)updateElementFromTextField:(NSString *)value {
-    NSMutableString *result = [[NSMutableString alloc] init];
-    for (NSUInteger i = 0; i< [value length]; i++){
+    float f = 0;
+    BOOL neg = NO;
+    for (NSUInteger i = 0; i < [value length]; i++)
+    {
         unichar c = [value characterAtIndex:i];
-        NSString *charStr = [NSString stringWithCharacters:&c length:1];
-        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:c]) {
-            [result appendString:charStr];
+        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:c])
+        {
+            NSString *charStr = [NSString stringWithCharacters:&c length:1];
+            f = f * 10 + [charStr intValue];
+        } else if (c == '-')
+        {
+            neg = !neg;
+        } else if (c == '+')
+        {
+            neg = NO;
         }
     }
-    [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits]; 
-    [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits];
-    [self decimalElement].floatValue= [[_numberFormatter numberFromString:result] floatValue];
-    [self decimalElement].floatValue = (float) (((QDecimalElement *)_entryElement).floatValue / pow(10,[self decimalElement].fractionDigits));
+    if (neg)
+        f = -f;
+    [self decimalElement].floatValue = f / pow(10,[self decimalElement].fractionDigits);
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {

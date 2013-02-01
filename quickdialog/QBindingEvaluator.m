@@ -143,8 +143,11 @@
             if ([valueName isEqualToString:@"self"])
             {
                 id obj = [el valueForKeyPath:propName];
-                [el fetchValueUsingBindingsIntoObject:obj];
-                [collection addObject:obj];
+                if (obj)
+                {
+                    [el fetchValueUsingBindingsIntoObject:obj];
+                    [collection addObject:obj];
+                }
             }
         }
     }
