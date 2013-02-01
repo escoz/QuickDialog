@@ -145,7 +145,9 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     {
         id componentValue = [componentsValues objectAtIndex:(NSUInteger) componentIndex];
         NSInteger rowIndex = [[self.pickerElement.items objectAtIndex:componentIndex] indexOfObject:componentValue];
-        [_pickerView selectRow:rowIndex inComponent:componentIndex animated:YES];
+        if (rowIndex != NSNotFound) {
+            [_pickerView selectRow:rowIndex inComponent:componentIndex animated:YES];
+        }
     }
 }
 
