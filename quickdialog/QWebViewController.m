@@ -51,6 +51,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     [_webView stopLoading];
     [self.navigationController setToolbarHidden:_previousToolbarState animated:YES];
     _webView = nil;
