@@ -39,6 +39,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     _mapView.region = MKCoordinateRegionMake(_coordinate, MKCoordinateSpanMake(0.05, 0.05));
     _mapView.zoomEnabled = YES;
     [_mapView regionThatFits:_mapView.region];
