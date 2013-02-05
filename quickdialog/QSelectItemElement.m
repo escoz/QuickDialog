@@ -6,9 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "QSelectItemElement.h"
+@implementation QSelectItemElement {
+    UIImage *_checkmarkImage;
+}
+@synthesize selectSection = _selectSection;
+@synthesize index = _index;
+@synthesize checkmarkImage = _checkmarkImage;
 
-@implementation QSelectItemElement
 
 - (QSelectItemElement *)initWithIndex:(NSUInteger)index selectSection:(QSelectSection *)section
 {
@@ -18,6 +22,10 @@
         _title = [[_selectSection.items objectAtIndex:_index] description];
     }
     return self;
+}
+
+-(void)setCheckmarkImageNamed:(NSString *)name {
+    self.checkmarkImage = [UIImage imageNamed:name];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
@@ -43,9 +51,16 @@
     {
         if ([_selectSection.selectedIndexes containsObject:numberIndex]) {
             selectedCell.accessoryType = UITableViewCellAccessoryNone;
+            selectedCell.accessoryView = nil;
             [_selectSection.selectedIndexes removeObject:numberIndex];
         } else {
-            selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            if (self.checkmarkImage==nil){
+                selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            } else {
+                UIImageView *view = [[UIImageView alloc] initWithImage:_checkmarkImage];
+                [view sizeToFit];
+                selectedCell.accessoryView = view;
+            }
             [_selectSection.selectedIndexes addObject:numberIndex];
         }
     }
@@ -58,14 +73,22 @@
             {
                 UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:
                                             [NSIndexPath indexPathForRow:[oldCellRowNumber unsignedIntegerValue]
-                                                               inSection:indexPath.section]];
+                                            inSection:indexPath.section]];
                 
                 oldCell.accessoryType = UITableViewCellAccessoryNone;
+                oldCell.accessoryView = nil;
                 [_selectSection.selectedIndexes removeObject:oldCellRowNumber];
                 [oldCell setNeedsDisplay];
             }
-            
-            selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+            if (self.checkmarkImage==nil){
+                selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+                selectedCell.accessoryView = nil;
+            } else {
+                selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                UIImageView *view = [[UIImageView alloc] initWithImage:_checkmarkImage];
+                [view sizeToFit];
+                selectedCell.accessoryView = view;
+            }
             [_selectSection.selectedIndexes addObject:numberIndex];
         }
     }
