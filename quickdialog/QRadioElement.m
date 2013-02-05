@@ -37,6 +37,7 @@
     for (NSUInteger i=0; i< [_items count]; i++){
         QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
         element.imageNamed = [self.itemsImageNames objectAtIndex:i];
+        element.title = [self.items objectAtIndex:i];
         [_parentSection addElement:element];
     }
 }
@@ -120,26 +121,30 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
 
-    NSString *selectedValue = nil;
+    id selectedValue = nil;
     if (_selected >= 0 && _selected <_items.count){
-        selectedValue = [[_items objectAtIndex:(NSUInteger) _selected] description];
+        selectedValue = [_items objectAtIndex:(NSUInteger) _selected];
     }
 
-    if (self.title == NULL){
-        cell.textField.text = selectedValue;
-        cell.detailTextLabel.text = nil;
-        cell.textField.textAlignment = self.appearance.labelAlignment;
-    } else {
-        cell.textLabel.text = _title;
-        cell.textField.text = selectedValue;
-        cell.textField.textAlignment = self.appearance.valueAlignment;
-    }
-    cell.imageView.image = _image;
+    [self updateCell:cell selectedValue:selectedValue];
     cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;
     [cell setNeedsLayout];
     return cell;
+}
+
+- (void)updateCell:(QEntryTableViewCell *)cell selectedValue:(id)selectedValue {
+    if (self.title == NULL){
+        cell.textField.text = [selectedValue description];
+        cell.detailTextLabel.text = nil;
+        cell.textField.textAlignment = self.appearance.labelAlignment;
+    } else {
+        cell.textLabel.text = _title;
+        cell.textField.text = [selectedValue description];
+        cell.textField.textAlignment = self.appearance.valueAlignment;
+    }
+    cell.imageView.image = _image;
 }
 
 -(void)setSelected:(NSInteger)aSelected {

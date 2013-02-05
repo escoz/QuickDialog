@@ -23,7 +23,6 @@
     self = [super init];
     _radioElement = radioElement;
     _index = index;
-    _title = [[radioElement.items objectAtIndex:_index] description];
     return self;
 }
 
@@ -31,7 +30,6 @@
     self = [super init];
     _radioSection = section;
     _index = index;
-    _title = [[_radioSection.items objectAtIndex:_index] description];
     return self;
 }
 
