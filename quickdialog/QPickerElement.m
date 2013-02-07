@@ -31,6 +31,12 @@
     return self;
 }
 
+- (void)setItems:(NSArray *)items
+{
+    _items = items;
+    [_pickerView reloadAllComponents];
+}
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
 {
     QPickerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QPickerTableViewCellIdentifier];
