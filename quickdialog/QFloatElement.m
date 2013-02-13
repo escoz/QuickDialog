@@ -78,6 +78,16 @@
     return cell;
 }
 
+- (void)setNilValueForKey:(NSString *)key;
+{
+    if ([key isEqualToString:@"floatValue"]){
+        self.floatValue = 0;
+    }
+    else {
+        [super setNilValueForKey:key];
+    }
+}
+
 
 
 

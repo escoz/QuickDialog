@@ -128,4 +128,16 @@
 }
 
 
+- (void)setNilValueForKey:(NSString *)key;
+{
+    if ([key isEqualToString:@"boolValue"]){
+        self.boolValue = NO;
+    }
+    else {
+        [super setNilValueForKey:key];
+    }
+}
+
+
+
 @end
