@@ -24,6 +24,8 @@
     self = [super initWithTitle:title Value:nil] ;
     if (self) {
         _floatValue = value;
+        _minimumValue = 0.0;
+        _maximumValue = 1.0;
         self.enabled = YES;
     }
     return self;
@@ -34,6 +36,8 @@
     self = [super init];
     if (self) {
         _floatValue = value;
+        _minimumValue = 0.0;
+        _maximumValue = 1.0;
         self.enabled = YES;
     }
     return self;
