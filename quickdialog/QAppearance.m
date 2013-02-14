@@ -7,6 +7,8 @@
 @synthesize sectionFooterFont = _sectionFooterFont;
 @synthesize sectionFooterColor = _sectionFooterColor;
 @synthesize entryAlignment = _entryAlignment;
+@synthesize selectedBackgroundView = _selectedBackgroundView;
+@synthesize sectionTitleShadowColor = _sectionTitleShadowColor;
 
 
 - (QAppearance *)init {
@@ -26,6 +28,7 @@
     _actionColorEnabled = [UIColor blackColor];
 
     _sectionTitleFont = [UIFont boldSystemFontOfSize:17];
+    _sectionTitleShadowColor = [UIColor colorWithWhite:1.0 alpha:1];
     _sectionTitleColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
 
     _sectionFooterFont = [UIFont systemFontOfSize:15];
@@ -79,6 +82,7 @@
         copy.tableGroupedBackgroundColor = _tableGroupedBackgroundColor;
 
         copy.sectionTitleColor = _sectionTitleColor;
+        copy.sectionTitleShadowColor = _sectionTitleShadowColor;
         copy.sectionTitleFont = _sectionTitleFont;
         copy.sectionFooterColor = _sectionFooterColor;
         copy.sectionFooterFont = _sectionFooterFont;

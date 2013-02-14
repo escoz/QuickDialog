@@ -16,6 +16,11 @@
     NSUInteger _index;
     QSelectSection *_selectSection;
 }
+@property(nonatomic, strong) QSelectSection *selectSection;
+@property(nonatomic) NSUInteger index;
+@property(nonatomic, strong) UIImage *checkmarkImage;
+@property(nonatomic, copy) NSString *checkmarkImageNamed;
+
 
 - (QSelectItemElement *)initWithIndex:(NSUInteger)integer selectSection:(QSelectSection *)section;
 

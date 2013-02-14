@@ -41,7 +41,9 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return [super getCellForTableView:tableView controller:controller];
+    UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    return cell;
 }
 
 

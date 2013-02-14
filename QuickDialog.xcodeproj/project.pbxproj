@@ -48,6 +48,10 @@
 		5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */; };
 		5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E404FC15CFA443ABBB5C /* navigation.json */; };
 		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
+		B45EC5681625E473007B96E2 /* QColorPickerElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B45EC5621625E473007B96E2 /* QColorPickerElement.h */; };
+		B45EC56A1625E473007B96E2 /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B45EC5631625E473007B96E2 /* QColorPickerElement.m */; };
+		B45EC56E1625E473007B96E2 /* UIColor+ColorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */; };
+		B45EC5701625E473007B96E2 /* UIColor+ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B45EC5671625E473007B96E2 /* UIColor+ColorUtilities.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -199,6 +203,10 @@
 		5C50E404FC15CFA443ABBB5C /* navigation.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; name = navigation.json; path = QuickDialog.xcodeproj/navigation.json; sourceTree = SOURCE_ROOT; };
 		5C50EB0025DCEF8A3740C477 /* QAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAppearance.h; path = QuickDialog/quickdialog/QAppearance.h; sourceTree = "<group>"; };
 		5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "quickdialog/QuickDialogController+Animations.m"; sourceTree = SOURCE_ROOT; };
+		B45EC5621625E473007B96E2 /* QColorPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QColorPickerElement.h; path = quickdialog/QColorPickerElement.h; sourceTree = SOURCE_ROOT; };
+		B45EC5631625E473007B96E2 /* QColorPickerElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QColorPickerElement.m; path = quickdialog/QColorPickerElement.m; sourceTree = SOURCE_ROOT; };
+		B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ColorUtilities.h"; path = "quickdialog/UIColor+ColorUtilities.h"; sourceTree = SOURCE_ROOT; };
+		B45EC5671625E473007B96E2 /* UIColor+ColorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorUtilities.m"; path = "quickdialog/UIColor+ColorUtilities.m"; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -531,6 +539,22 @@
 				D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
 				D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */,
+				B45EC5621625E473007B96E2 /* QColorPickerElement.h */,
+				B45EC5631625E473007B96E2 /* QColorPickerElement.m */,
+				B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */,
+				B45EC5671625E473007B96E2 /* UIColor+ColorUtilities.m */,
+				F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */,
+				F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */,
+				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
+				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
+				D8B394681514E8B3008ECB34 /* QSegmentedElement.m */,
+				D8B394671514E8B3008ECB34 /* QSegmentedElement.h */,
+				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
+				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
+				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
+				D8B3944C151394E1008ECB34 /* QMultilineElement.m */,
+				D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */,
+				D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */,
 				D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */,
 				D8F180E813F0599A009B0CC7 /* NSMutableArray+MoveObject.m */,
 				D87B4FC514F16197006DA833 /* QAutoEntryElement.h */,
@@ -749,6 +773,8 @@
 				5C50E1E06A0557312EB9B187 /* QAppearance.h in Headers */,
 				D87A4D90169DB59500D4DD63 /* QAppearance.h in Headers */,
 				D8820B5116A246860070AE22 /* QCountdownElement.h in Headers */,
+				B45EC5681625E473007B96E2 /* QColorPickerElement.h in Headers */,
+				B45EC56E1625E473007B96E2 /* UIColor+ColorUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -796,7 +822,7 @@
 		D80B0E2A13E052DF00FA85CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = D80B0E2D13E052DF00FA85CA /* Build configuration list for PBXProject "QuickDialog" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -916,6 +942,8 @@
 				D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */,
 				D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */,
 				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
+				B45EC56A1625E473007B96E2 /* QColorPickerElement.m in Sources */,
+				B45EC5701625E473007B96E2 /* UIColor+ColorUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1022,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1007,6 +1039,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -1019,12 +1052,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

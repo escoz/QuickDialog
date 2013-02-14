@@ -265,7 +265,8 @@
     [root addSection:section1];
 
     QRadioSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
-    section2.onSelected = ^{ NSLog(@"selected index: %d", section2.selected); };
+    __weak QRadioSection *_section2 = section2;
+    section2.onSelected = ^{ NSLog(@"selected index: %d", _section2.selected); };
     [root addSection:section2];
 
     return root;
@@ -280,9 +281,11 @@
     NSArray *component1 = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"11", @"12"];
     NSArray *component2 = @[@"A", @"B"];
     QPickerElement *simplePickerEl = [[QPickerElement alloc] initWithTitle:@"Key" items:@[component1, component2] value:@"3\tB"];
+    
+    __weak QPickerElement *_simplePickerEl = simplePickerEl;
 
     simplePickerEl.onValueChanged = ^(QRootElement *el){
-        NSLog(@"Selected indexes: %@", [simplePickerEl.selectedIndexes componentsJoinedByString:@","]);
+        NSLog(@"Selected indexes: %@", [_simplePickerEl.selectedIndexes componentsJoinedByString:@","]);
     };
 
     QSection *simplePickerSection = [[QSection alloc] initWithTitle:@"Picker element"];
@@ -299,7 +302,8 @@
                                         value:[NSNumber numberWithUnsignedInteger:NSMonthCalendarUnit]];
     
     periodPickerEl.valueParser = periodParser;
-    periodPickerEl.onValueChanged = ^(QRootElement *el){ NSLog(@"New value: %@", periodPickerEl.value); };
+    __weak QPickerElement *_periodPickerEl = periodPickerEl;
+    periodPickerEl.onValueChanged = ^(QRootElement *el){ NSLog(@"New value: %@", _periodPickerEl.value); };
     
     [customParserSection addElement:periodPickerEl];
     [root addSection:customParserSection];

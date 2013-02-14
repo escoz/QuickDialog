@@ -36,4 +36,7 @@
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title;
+
+- (void)updateCell:(QEntryTableViewCell *)cell selectedValue:(id)selectedValue;
+
 @end

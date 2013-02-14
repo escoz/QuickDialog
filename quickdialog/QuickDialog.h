@@ -58,6 +58,10 @@
 #import "QMultilineElement.h"
 #import "QImageElement.h"
 #import "QPickerTableViewCell.h"
+#import "QColorPickerElement.h"
+#import "UIColor+ColorUtilities.h"
+
+
 #import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"
 

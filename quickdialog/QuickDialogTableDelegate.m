@@ -133,6 +133,7 @@
 
     if (section.headerView==nil && title!= nil && ![title isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+        containerView.tag = 98989;
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
@@ -143,11 +144,16 @@
         label.backgroundColor = [UIColor clearColor];
         label.font = appearance.sectionTitleFont;
         label.numberOfLines = 0;
-        label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
+        label.shadowColor = appearance.sectionTitleShadowColor;
         label.shadowOffset = CGSizeMake(0, 1);
         label.textColor = appearance.sectionTitleColor;
 
         section.headerView = containerView;
+    } else {
+        if (section.headerView.tag==98989){
+            ((UILabel *)[section.headerView.subviews objectAtIndex:0]).text = section.title;
+        }
+
     }
     return section.headerView;
 }
