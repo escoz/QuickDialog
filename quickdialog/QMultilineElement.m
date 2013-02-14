@@ -70,7 +70,7 @@
         weakSelf.textValue = weakTextController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
     };
-    [controller displayViewControllerInPopover:textController withNavigation:NO];
+    [controller displayViewController:textController withPresentationMode:self.presentationMode];
 }
 
 - (void)fetchValueIntoObject:(id)obj
