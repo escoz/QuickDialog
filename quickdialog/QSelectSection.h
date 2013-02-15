@@ -7,8 +7,9 @@
 //
 
 #import "QSection.h"
+#import "QDynamicDataSection.h"
 
-@interface QSelectSection : QSection
+@interface QSelectSection : QDynamicDataSection
 {
     NSMutableArray *_items;
 }
@@ -20,6 +21,7 @@
 @property (nonatomic)           BOOL             multipleAllowed;
 
 @property(nonatomic, copy) void (^onSelected)(void);
+
 
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected;
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title;

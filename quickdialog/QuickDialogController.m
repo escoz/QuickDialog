@@ -140,7 +140,7 @@
     _keyboardVisible = up;
     NSDictionary* userInfo = [aNotification userInfo];
     NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
+    UIViewAnimationOptions animationCurve;
     CGRect keyboardEndFrame;
     [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];

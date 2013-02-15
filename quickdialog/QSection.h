@@ -58,6 +58,9 @@
 @property(nonatomic, assign) BOOL hidden;
 @property(nonatomic, readonly) NSUInteger visibleIndex;
 
+@property(nonatomic, assign) BOOL canDeleteRows;
+@property(nonatomic, strong) id object;
+
 - (QSection *)initWithTitle:(NSString *)string;
 
 - (void)addElement:(QElement *)element;
