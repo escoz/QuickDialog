@@ -13,8 +13,12 @@
 //
 
 
+#import <MapKit/MapKit.h>
+
 @class QElement;
 @class QSection;
+@class UITableViewCell;
+@class NSIndexPath;
 
 @protocol QuickDialogStyleProvider
 

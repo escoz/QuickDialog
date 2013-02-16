@@ -13,6 +13,8 @@
 //
 
 
+#import <UIKit/UIKit.h>
+
 @class QuickDialogTableView;
 
 @interface QuickDialogDataSource : NSObject<UITableViewDataSource> {
