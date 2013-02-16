@@ -369,6 +369,21 @@
     return root;
 }
 
++ (QRootElement *)createMailRoot {
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Mail";
+    
+    QMailElement *element1 = [[QMailElement alloc] initWithTitle:@"Contact escoz" subject:@"Hello Escoz" messageBody:@"Dear Escoz" toRecipients:@[@"contact@escoz.com"] ccRecipients:nil bccRecipients:nil];
+    QMailElement *element2 = [[QMailElement alloc] initWithTitle:@"Contact flyerhzm" subject:@"Hello Richard" messageBody:@"Dear Richard" toRecipients:@[@"flyerhzm@gmail.com"] ccRecipients:nil bccRecipients:nil];
+    
+    QSection *section = [[QSection alloc] init];
+    [section addElement:element1];
+    [section addElement:element2];
+    
+    [root addSection:section];
+    return root;
+}
+
 + (QRootElement *)createWebAndMapRoot {
     QRootElement *root = [[QRootElement alloc] init];
     root.controllerName = @"ExampleViewController";
@@ -720,6 +735,7 @@
     [sectionElements addElement:[[QRootElement alloc] initWithJSONFile:@"navigation"]];
     [sectionElements addElement:[self createPickerRoot]];
     [sectionElements addElement:[self createSelectRoot]];
+    [sectionElements addElement:[self createMailRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];
