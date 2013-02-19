@@ -25,20 +25,17 @@
 @synthesize items = _items;
 @synthesize itemsImageNames = _itemsImageNames;
 
-
 - (void)createElements {
     _sections = nil;
-    self.presentationMode = QPresentationModeNavigationInPopover;
     _internalRadioItemsSection = [[QSection alloc] init];
-    _parentSection = _internalRadioItemsSection;
 
-    [self addSection:_parentSection];
+    [self addSection:_internalRadioItemsSection];
 
     for (NSUInteger i=0; i< [_items count]; i++){
         QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
-        element.imageNamed = [self.itemsImageNames objectAtIndex:i];
         element.title = [self.items objectAtIndex:i];
-        [_parentSection addElement:element];
+        element.imageNamed = [self.itemsImageNames objectAtIndex:i];
+        [_internalRadioItemsSection addElement:element];
     }
 }
 
@@ -48,22 +45,24 @@
 }
 
 -(NSObject *)selectedValue {
+    if (_selected < 0 || _selected >= _values.count)
+        return nil;
     return [_values objectAtIndex:(NSUInteger) _selected];
 }
 
 -(void)setSelectedValue:(NSObject *)aSelected {
-    if ([aSelected isKindOfClass:[NSNumber class]]) {
-        self.selected = [(NSNumber *)aSelected integerValue];
-    } else {
-        self.selected = [_values indexOfObject:aSelected];
-    }
-
+    NSUInteger idx = [_values indexOfObject:aSelected];
+    if (idx == NSNotFound && [aSelected isKindOfClass:[NSNumber class]])
+        idx = [(NSNumber *)aSelected integerValue];
+    
+    _selected = idx;
 }
 
 - (QEntryElement *)init {
     self = [super init];
     if (self) {
         _selected = -1;
+        self.presentationMode = QPresentationModeNavigationInPopover;
     }
 
     return self;

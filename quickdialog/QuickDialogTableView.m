@@ -47,12 +47,8 @@
 
 -(void)setRoot:(QRootElement *)root{
     _root = root;
-    for (QSection *section in _root.sections) {
-        if (section.needsEditing == YES){
-            [self setEditing:YES animated:YES];
-            self.allowsSelectionDuringEditing = YES;
-        }
-    }
+    [self setEditing:root.needsEditing animated:YES];
+    self.allowsSelectionDuringEditing = YES;
     [self reloadData];
 }
 
@@ -73,17 +69,7 @@
 }
 
 - (NSIndexPath *)indexForElement:(QElement *)element {
-    for (int i=0; i< [_root.sections count]; i++){
-        QSection * currSection = [_root.sections objectAtIndex:(NSUInteger) i];
-
-        for (int j=0; j< [currSection.elements count]; j++){
-            QElement *currElement = [currSection.elements objectAtIndex:(NSUInteger) j];
-            if (currElement == element){
-                return [NSIndexPath indexPathForRow:j inSection:i];
-            }
-        }
-    }
-    return NULL;
+    return element.getIndexPath;
 }
 
 - (NSIndexPath *)visibleIndexForElement:(QElement *)element {

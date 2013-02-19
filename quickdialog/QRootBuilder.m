@@ -16,6 +16,7 @@
 #import "QRootBuilder.h"
 
 NSDictionary *QRootBuilderStringToTypeConversionDict;
+NSSet *QRootBuilderNoUpdateProperties;
 
 @interface QRootBuilder ()
 - (void)buildSectionWithObject:(id)obj forRoot:(QRootElement *)root;
@@ -25,14 +26,26 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
 @end
 
 @implementation QRootBuilder
+{
+    NSMutableArray * _localizeStack;
+}
 
-+ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value  localized:(BOOL)shouldLocalize{
++ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value  localized:(BOOL)shouldLocalize
+{
+    [self trySetProperty:propertyName onObject:target withValue:value localized:shouldLocalize fromTable:nil];
+}
++ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value localizedFrom:(NSString*)table
+{
+    [self trySetProperty:propertyName onObject:target withValue:value localized:YES fromTable:table];
+}
+
++ (void)trySetProperty:(NSString *)propertyName onObject:(id)target withValue:(id)value  localized:(BOOL)shouldLocalize fromTable: (NSString*) localizeTable {
     shouldLocalize = shouldLocalize && ![propertyName isEqualToString:@"bind"] && ![propertyName isEqualToString:@"type"];
     if ([value isKindOfClass:[NSString class]]) {
         if ([QRootBuilderStringToTypeConversionDict objectForKey:propertyName]!=nil) {
             [target setValue:[[QRootBuilderStringToTypeConversionDict objectForKey:propertyName] objectForKey:value] forKeyPath:propertyName];
         } else {
-            [target setValue:shouldLocalize ? QTranslate(value) : value forKeyPath:propertyName];
+            [target setValue:shouldLocalize ? QTranslate(value, localizeTable) : value forKeyPath:propertyName];
         }
     } else if ([value isKindOfClass:[NSNumber class]]){
         [target setValue:value forKeyPath:propertyName];
@@ -45,7 +58,7 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
             for (id obj in (NSArray *)value){
                 if ([obj isKindOfClass:[NSString class]]){
                     @try {
-                        [itemsTranslated replaceObjectAtIndex:i withObject:QTranslate(obj)];
+                        [itemsTranslated replaceObjectAtIndex:i withObject:QTranslate(obj, localizeTable)];
                     }
                     @catch (NSException * e) {
                         NSLog(@"Exception: %@", e);
@@ -65,22 +78,44 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     }
 }
 
+- (void) beginElementWithProperties:(NSDictionary*)dict
+{
+    id file = [dict valueForKey:@"localizeFile"];
+    if (file)
+    {
+        if (_localizeStack == nil)
+            _localizeStack = [NSMutableArray new];
+        [_localizeStack addObject:file];
+    }
+}
+
+- (void) endElementWithProperties:(NSDictionary*)dict
+{
+    id file = [dict valueForKey:@"localizeFile"];
+    if (file)
+        [_localizeStack removeLastObject];
+}
+
 - (void)updateObject:(id)element withPropertiesFrom:(NSDictionary *)dict {
     for (NSString *key in dict.allKeys){
-        if ([key isEqualToString:@"type"] || [key isEqualToString:@"sections"]|| [key isEqualToString:@"elements"])
-            continue;
-
-        id value = [dict valueForKey:key];
-        [QRootBuilder trySetProperty:key onObject:element withValue:value localized:YES];
+        if (![QRootBuilderNoUpdateProperties containsObject:key])
+        {
+            id value = [dict valueForKey:key];
+            [QRootBuilder trySetProperty:key onObject:element withValue:value localizedFrom:_localizeStack.lastObject];
+        }
     }
 }
 
 - (QElement *)buildElementWithObject:(id)obj {
     QElement *element = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
+
     if (element==nil) {
         NSLog(@"Couldn't build element for type %@", [obj valueForKey:[NSString stringWithFormat:@"type"]]);
         return nil;
     }
+    
+    [self beginElementWithProperties:obj];
+    
     [self updateObject:element withPropertiesFrom:obj];
     
     if ([element isKindOfClass:[QRootElement class]] && [obj valueForKey:[NSString stringWithFormat:@"sections"]]!=nil) {
@@ -88,6 +123,9 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
             [self buildSectionWithObject:section forRoot:(QRootElement *) element];
         }
     }
+    
+    [self endElementWithProperties:obj];
+    
     return element;
 }
 
@@ -98,7 +136,13 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     } else {
         sect = [[QSection alloc] init];
     }
+    
+    [self beginElementWithProperties:obj];
+    
     [self updateObject:sect withPropertiesFrom:obj];
+    
+    [self endElementWithProperties:obj];
+    
     return sect;
 }
 
@@ -109,22 +153,66 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     } else {
         sect = [[QSection alloc] init];
     }
+    
+    [self beginElementWithProperties:obj];
+    
     [self updateObject:sect withPropertiesFrom:obj];
     [root addSection:sect];
     for (id element in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"elements"]]){
        [sect addElement:[self buildElementWithObject:element] ];
     }
+    
+    if ([obj valueForKey:@"headerItems"])
+    {
+        NSArray * items = [obj valueForKey:@"headerItems"];
+        NSMutableArray * res = [NSMutableArray arrayWithCapacity:items.count];
+        for (NSDictionary * dic in items)
+        {
+            QSectionToolbarItem * i = [QSectionToolbarItem new];
+            i.section = sect;
+            [self updateObject:i withPropertiesFrom:dic];
+            [res addObject:i];
+        }
+        sect.headerItems = res;
+    }
+    
+    if ([obj valueForKey:@"footerItems"])
+    {
+        NSArray * items = [obj valueForKey:@"footerItems"];
+        NSMutableArray * res = [NSMutableArray arrayWithCapacity:items.count];
+        for (NSDictionary * dic in items)
+        {
+            QSectionToolbarItem * i = [QSectionToolbarItem new];
+            i.section = sect;
+            [self updateObject:i withPropertiesFrom:dic];
+            [res addObject:i];
+        }
+        sect.footerItems = res;
+    }
+    
+    
+    [self endElementWithProperties:obj];
 }
 
 - (QRootElement *)buildWithObject:(id)obj {
-    if (QRootBuilderStringToTypeConversionDict ==nil)
+    if (QRootBuilderStringToTypeConversionDict == nil)
         [self initializeMappings];
     
-    QRootElement *root = [QRootElement new];
+    QRootElement *root = nil;
+    if ([obj valueForKey:[NSString stringWithFormat:@"type"]]!=nil){
+        root = [[NSClassFromString([obj valueForKey:[NSString stringWithFormat:@"type"]]) alloc] init];
+    } else {
+        root = [[QRootElement alloc] init];
+    }
+    
+    [self beginElementWithProperties:obj];
+    
     [self updateObject:root withPropertiesFrom:obj];
     for (id section in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"sections"]]){
         [self buildSectionWithObject:section forRoot:root];
     }
+    
+    [self endElementWithProperties:obj];
     
     return root;
 }
@@ -213,12 +301,38 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     [NSNumber numberWithInt:UIReturnKeyDone], @"Done",
                                     [NSNumber numberWithInt:UIReturnKeyEmergencyCall], @"EmergencyCall",
                                     nil], @"returnKeyType",
+                                              
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemDone], @"Done",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemCancel], @"Cancel",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemEdit], @"Edit",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemSave], @"Save",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemAdd], @"Add",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemFlexibleSpace], @"FlexibleSpace",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemFixedSpace], @"FixedSpace",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemCompose], @"Compose",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemReply], @"Reply",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemAction], @"Action",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemOrganize], @"Organize",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemBookmarks], @"Bookmarks",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemSearch], @"Search",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemRefresh], @"Refresh",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemStop], @"Stop",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemCamera], @"Camera",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemTrash], @"Trash",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemPlay], @"Play",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemPause], @"Pause",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemRewind], @"Rewind",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemFastForward], @"FastForward",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemUndo], @"Undo",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemRedo], @"Redo",
+                                   [NSNumber numberWithInt:UIBarButtonSystemItemPageCurl], @"PageCurl",
+                                   nil], @"systemItem",
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                                                         [NSNumber numberWithInt:QLabelingPolicyTrimTitle], @"trimTitle",
                                                         [NSNumber numberWithInt:QLabelingPolicyTrimValue], @"trimValue",
                                     nil], @"labelingPolicy",
-
 
                     [[NSDictionary alloc] initWithObjectsAndKeys:
                                                             [NSNumber numberWithInt:UIImagePickerControllerSourceTypePhotoLibrary], @"photoLibrary",
@@ -227,6 +341,15 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                     nil], @"source",
             nil];
 
+    
+    QRootBuilderNoUpdateProperties = [NSSet setWithObjects:
+                                      @"elements",
+                                      @"localizeFile",
+                                      @"sections",
+                                      @"type",
+                                      @"headerItems",
+                                      @"footerItems",
+                                      nil];
 }
 
 

@@ -44,20 +44,30 @@
     return self;
 }
 
-
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
-    return section.canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
+    QSortingSection *section = (id)[_tableView.root getVisibleSectionForIndex:indexPath.section];
+    return section.needsEditing && section.canDeleteRows && [section canRemoveElementForRow:indexPath.row] ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    return NO;
 }
 - (NSIndexPath *)tableView:(UITableView *)tableView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
 {
-    BOOL isDestinationOK = [[_tableView.root getVisibleSectionForIndex:proposedDestinationIndexPath.section] isKindOfClass:[QSortingSection class]];
-    return isDestinationOK ? proposedDestinationIndexPath : sourceIndexPath;
-
+    QSection * section = [_tableView.root getVisibleSectionForIndex:sourceIndexPath.section];
+    NSIndexPath * first = [[section.elements objectAtIndex:section.beforeTemplateElements.count] getIndexPath];
+    NSIndexPath * last = [[section.elements objectAtIndex:section.elements.count - section.afterTemplateElements.count - 1] getIndexPath];
+    
+    if (proposedDestinationIndexPath.section < sourceIndexPath.section)
+        return first;
+    if (proposedDestinationIndexPath.section > sourceIndexPath.section)
+        return last;
+    
+    if (proposedDestinationIndexPath.row < first.row)
+        return first;
+    if (proposedDestinationIndexPath.row > last.row)
+        return last;
+    return proposedDestinationIndexPath;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,13 +79,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
 
-    if (section.headerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionHeaderWillAppearForSection:atIndex:)]){
+    if (section.headerView==nil && section.headerItems==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionHeaderWillAppearForSection:atIndex:)]){
         [_tableView.styleProvider sectionHeaderWillAppearForSection:section atIndex:index];
     }
     
     if (section.headerView!=nil)
-            return section.headerView.frame.size.height;
-
+        return section.headerView.frame.size.height;
+    if (section.headerItems!=nil)
+        return 44;
+    
     if (section.title==nil)
         return 0;
 
@@ -103,12 +115,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
 
-    if (section.footerView==nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionFooterWillAppearForSection:atIndex:)]){
+    if (section.footerView==nil && section.footerItems == nil && _tableView.styleProvider!=nil && [_tableView.styleProvider respondsToSelector:@selector(sectionFooterWillAppearForSection:atIndex:)]){
         [_tableView.styleProvider sectionFooterWillAppearForSection:section atIndex:index];
     }
     
     if (section.footerView!=nil)
         return section.footerView.frame.size.height;
+    
+    if (section.footerItems!=nil)
+        return 44;
 
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
 
@@ -127,16 +142,24 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
+    UIView* view = [section getHeaderViewForTable:_tableView controller:_tableView.controller];
+    
+    if (view && [_tableView.styleProvider respondsToSelector:@selector(headerView:willAppearForSection:atIndex:)])
+        [_tableView.styleProvider headerView:view willAppearForSection:section atIndex:index];
+
+    return view;
+    
+    /*
     NSString *title = [tableView.dataSource tableView:tableView titleForHeaderInSection:index];
-
+    
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
-
+    
     if (section.headerView==nil && title!= nil && ![title isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
         containerView.tag = 98989;
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-
+        
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, tableView.frame.size.width-40, [self tableView:tableView heightForHeaderInSection:index]-10)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.text = title;
@@ -147,7 +170,7 @@
         label.shadowColor = appearance.sectionTitleShadowColor;
         label.shadowOffset = CGSizeMake(0, 1);
         label.textColor = appearance.sectionTitleColor;
-
+        
         section.headerView = containerView;
     } else {
         if (section.headerView.tag==98989){
@@ -156,21 +179,37 @@
 
     }
     return section.headerView;
+    */
 }
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    QSection *sect = [_tableView.root getVisibleSectionForIndex:section];
+    if ([_tableView.styleProvider respondsToSelector:@selector(headerView:willAppearForSection:atIndex:)])
+        [_tableView.styleProvider headerView:view willAppearForSection:sect atIndex:section];
+}
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
 
+    UIView *view = [section getFooterViewForTable:_tableView controller:_tableView.controller];
+    
+    if (view && [_tableView.styleProvider respondsToSelector:@selector(footerView:willAppearForSection:atIndex:)])
+        [_tableView.styleProvider footerView:view willAppearForSection:section atIndex:index];
+    
+    return view;
+    
+    /*
     NSString *footer = [tableView.dataSource tableView:tableView titleForFooterInSection:index];
-
+    
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
-
+    
     if (section.footerView==nil && footer != nil && ![footer isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
         CGSize textSize = [footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height+8)];
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-
+        
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.frame.size.width-40, textSize.height)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.text = footer;
@@ -182,12 +221,19 @@
         label.numberOfLines = 0;
         label.shadowColor = [UIColor colorWithWhite:1.0 alpha:1];
         label.shadowOffset = CGSizeMake(0, 1);
-
+        
         section.footerView = containerView;
     }
-
-
+    
+    
     return section.footerView;
+    */
+}
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+{
+    QSection *sect = [_tableView.root getVisibleSectionForIndex:section];
+    if ([_tableView.styleProvider respondsToSelector:@selector(footerView:willAppearForSection:atIndex:)])
+        [_tableView.styleProvider footerView:view willAppearForSection:sect atIndex:section];
 }
 
 

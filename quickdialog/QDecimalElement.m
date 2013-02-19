@@ -25,6 +25,12 @@
 @synthesize floatValue = _floatValue;
 @synthesize fractionDigits = _fractionDigits;
 
+- (QDecimalElement *)init
+{
+    self = [super init];
+    self.keyboardType = UIKeyboardTypeNumberPad;
+    return self;
+}
 
 - (QDecimalElement *)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;

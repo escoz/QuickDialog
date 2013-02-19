@@ -33,6 +33,13 @@
 @synthesize presentationMode = _presentationMode;
 @synthesize preselectedElementIndex = _preselectedElementIndex;
 
+- (BOOL) needsEditing
+{
+    for (QSection * s in _sections)
+        if (s.needsEditing)
+            return YES;
+    return NO;
+}
 
 - (QRootElement *)init {
     self = [super init];

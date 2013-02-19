@@ -53,7 +53,7 @@
     QMultilineTextViewController *textController = [[QMultilineTextViewController alloc] initWithTitle:self.title];
     textController.entryElement = self;
     textController.entryCell = (QEntryTableViewCell *) [tableView cellForElement:self];
-    textController.resizeWhenKeyboardPresented = YES;
+    textController.resizeWhenKeyboardPresented = controller.resizeWhenKeyboardPresented;
     textController.textView.text = self.textValue;
     textController.textView.autocapitalizationType = self.autocapitalizationType;
     textController.textView.autocorrectionType = self.autocorrectionType;
@@ -70,7 +70,7 @@
         weakSelf.textValue = weakTextController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
     };
-    [controller displayViewControllerInPopover:textController withNavigation:NO];
+    [controller displayViewController:textController withPresentationMode:self.presentationMode];
 }
 
 - (void)fetchValueIntoObject:(id)obj

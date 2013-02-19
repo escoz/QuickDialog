@@ -24,5 +24,6 @@
 
 -(void) sectionHeaderWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
 -(void) sectionFooterWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
-
+-(void) headerView:(UIView*)header willAppearForSection:(QSection*)section atIndex:(NSInteger)indexPath;
+-(void) footerView:(UIView*)header willAppearForSection:(QSection*)section atIndex:(NSInteger)indexPath;
 @end

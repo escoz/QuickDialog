@@ -14,6 +14,7 @@
 
 
 #import "QuickDialogController.h"
+#import "QuickDialogController+Animations.h"
 #import "QuickDialogController+Navigation.h"
 #import "QuickDialogWebController.h"
 #import "QuickDialogController+Loading.h"
@@ -50,6 +51,7 @@
 #import "QWebElement.h"
 #import "QDecimalElement.h"
 #import "QSortingSection.h"
+#import "QSectionToolbar.h"
 #import "QDateTimeElement.h"
 #import "QWebViewController.h"
 #import "QBadgeLabel.h"

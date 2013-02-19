@@ -49,5 +49,4 @@
 
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
 
-
 @end

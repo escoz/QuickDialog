@@ -42,12 +42,11 @@
 		2C5423DB145ADF2B0026A152 /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BB13EC905B00E3922B /* QTextElement.m */; };
 		2C5423DD145ADF2B0026A152 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BD13EC905B00E3922B /* QWebElement.m */; };
 		2C5423DF145ADF2B0026A152 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BF13EC905B00E3922B /* QWebViewController.m */; };
-		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
-		5C50E1652D781293C5963717 /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E2CE6D8D6B3DD766CCCC /* themes.json */; };
 		5C50E1E06A0557312EB9B187 /* QAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50EB0025DCEF8A3740C477 /* QAppearance.h */; };
 		5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */; };
-		5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E404FC15CFA443ABBB5C /* navigation.json */; };
 		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
+		5F9D416E1670B30F00EB1441 /* QSectionToolbar.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F9D416C1670B30F00EB1441 /* QSectionToolbar.h */; };
+		5F9D416F1670B30F00EB1441 /* QSectionToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9D416D1670B30F00EB1441 /* QSectionToolbar.m */; };
 		B45EC5681625E473007B96E2 /* QColorPickerElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B45EC5621625E473007B96E2 /* QColorPickerElement.h */; };
 		B45EC56A1625E473007B96E2 /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B45EC5631625E473007B96E2 /* QColorPickerElement.m */; };
 		B45EC56E1625E473007B96E2 /* UIColor+ColorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */; };
@@ -107,18 +106,8 @@
 		D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BA13EC905B00E3922B /* QTextElement.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF914BBAFCE0066C372 /* QWebElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BC13EC905B00E3922B /* QWebElement.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EFA14BBAFCE0066C372 /* QWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BE13EC905B00E3922B /* QWebViewController.h */; settings = {ATTRIBUTES = (); }; };
-		D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83BD545169661EA00188061 /* Default-568h@2x.png */; };
 		D85E2C5F1650698700510973 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D85E2C611650699000510973 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D86035C413E0538600CB1785 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		D86035C613E0539A00CB1785 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		D86249EB14BB59D6002F0585 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EA14BB59D6002F0585 /* icon.png */; };
-		D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EC14BB59DC002F0585 /* icon@2x.png */; };
-		D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EE14BB5A06002F0585 /* iconIpad.png */; };
-		D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F514BB5AB5002F0585 /* jsonadvancedsample.json */; };
-		D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F614BB5AB5002F0585 /* jsondatasample.json */; };
-		D86249FB14BB5AB5002F0585 /* loginform.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F714BB5AB5002F0585 /* loginform.json */; };
-		D86249FC14BB5AB5002F0585 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F814BB5AB5002F0585 /* sample.json */; };
 		D871018714BB3D7A00156D9D /* QRootElement+JsonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */; };
 		D87A4D6E169DABA900D4DD63 /* QElement+Appearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D87A4D6C169DABA900D4DD63 /* QElement+Appearance.h */; };
 		D87A4D6F169DABA900D4DD63 /* QElement+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D87A4D6D169DABA900D4DD63 /* QElement+Appearance.m */; };
@@ -136,7 +125,6 @@
 		D8820C8016A3544F0070AE22 /* QImageTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D8820C7816A352990070AE22 /* QImageTableViewCell.h */; };
 		D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */; };
 		D894F38B15559D34000E3C0F /* NSMutableArray+IMSExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */; };
-		D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8A3DD86146045F000DE3528 /* Localizable.strings */; };
 		D8B39450151394E1008ECB34 /* QEmptyListElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B39449151394E1008ECB34 /* QEmptyListElement.h */; };
 		D8B39451151394E1008ECB34 /* QEmptyListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944A151394E1008ECB34 /* QEmptyListElement.m */; };
 		D8B39452151394E1008ECB34 /* QMultilineElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B3944B151394E1008ECB34 /* QMultilineElement.h */; };
@@ -147,10 +135,7 @@
 		D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B394681514E8B3008ECB34 /* QSegmentedElement.m */; };
 		D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */; };
 		D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */; };
-		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
-		D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E613F0599A009B0C96 /* quickdialog@2x.png */; };
 		D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */; };
-		D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CAB /* JsonDataSampleController.m */; };
 		D8F180E813F0599A009B0CB3 /* QBindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB2 /* QBindingEvaluator.m */; };
 		D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB6 /* QRootBuilder.m */; };
 		D8F180E813F0599A009B0CBA /* QuickDialogEntryElementDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */; };
@@ -162,10 +147,8 @@
 		D8F180E813F0599A009B0CC6 /* QTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CC5 /* QTableViewCell.h */; };
 		D8F180E813F0599A009B0CC8 /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CC7 /* NSMutableArray+MoveObject.m */; };
 		D8F180E813F0599A009B0CCA /* NSMutableArray+MoveObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */; };
-		D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CCF /* jsonremote.json */; };
 		D8F180E813F0599A009B0CD2 /* QuickDialogWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */; };
 		D8F180E813F0599A009B0CD4 /* QuickDialogWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */; };
-		F209CEE41536AB100043F61C /* PeriodPickerValueParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F209CEE31536AB100043F61C /* PeriodPickerValueParser.m */; };
 		F2304357156CDFDD006D0A56 /* QTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = F2304355156CDFDD006D0A56 /* QTextField.h */; };
 		F2304358156CDFDD006D0A56 /* QTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F2304356156CDFDD006D0A56 /* QTextField.m */; };
 		F2E6149E151C9E4D00F36976 /* QSelectSection.h in Headers */ = {isa = PBXBuildFile; fileRef = F2E6149C151C9E4D00F36976 /* QSelectSection.h */; };
@@ -183,16 +166,6 @@
 		F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2CE450B1145AE43700B77D0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D80B0E2A13E052DF00FA85CA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2C542392145ADEBD0026A152;
-			remoteInfo = QuickDialog;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
@@ -203,6 +176,8 @@
 		5C50E404FC15CFA443ABBB5C /* navigation.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; name = navigation.json; path = QuickDialog.xcodeproj/navigation.json; sourceTree = SOURCE_ROOT; };
 		5C50EB0025DCEF8A3740C477 /* QAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAppearance.h; path = QuickDialog/quickdialog/QAppearance.h; sourceTree = "<group>"; };
 		5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "quickdialog/QuickDialogController+Animations.m"; sourceTree = SOURCE_ROOT; };
+		5F9D416C1670B30F00EB1441 /* QSectionToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSectionToolbar.h; path = quickdialog/QSectionToolbar.h; sourceTree = SOURCE_ROOT; };
+		5F9D416D1670B30F00EB1441 /* QSectionToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSectionToolbar.m; path = quickdialog/QSectionToolbar.m; sourceTree = SOURCE_ROOT; };
 		B45EC5621625E473007B96E2 /* QColorPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QColorPickerElement.h; path = quickdialog/QColorPickerElement.h; sourceTree = SOURCE_ROOT; };
 		B45EC5631625E473007B96E2 /* QColorPickerElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QColorPickerElement.m; path = quickdialog/QColorPickerElement.m; sourceTree = SOURCE_ROOT; };
 		B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ColorUtilities.h"; path = "quickdialog/UIColor+ColorUtilities.h"; sourceTree = SOURCE_ROOT; };
@@ -394,19 +369,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D80B0E3013E052DF00FA85CA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */,
-				D86035C613E0539A00CB1785 /* MapKit.framework in Frameworks */,
-				D86035C413E0538600CB1785 /* CoreLocation.framework in Frameworks */,
-				D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */,
-				D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */,
-				D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -433,7 +395,6 @@
 		D80B0E3413E052DF00FA85CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */,
 				2C542393145ADEBD0026A152 /* libQuickDialog.a */,
 			);
 			name = Products;
@@ -525,6 +486,9 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				5F9D416C1670B30F00EB1441 /* QSectionToolbar.h */,
+				5F9D416D1670B30F00EB1441 /* QSectionToolbar.m */,
+				F2F23A12152DD45100EB6685 /* QPickerElement */,
 				D8820C7616A352990070AE22 /* QImageElement.h */,
 				D8820C7716A352990070AE22 /* QImageElement.m */,
 				D8820C7816A352990070AE22 /* QImageTableViewCell.h */,
@@ -557,18 +521,34 @@
 				D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */,
 				D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */,
 				D8F180E813F0599A009B0CC7 /* NSMutableArray+MoveObject.m */,
+				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
+				D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */,
 				D87B4FC514F16197006DA833 /* QAutoEntryElement.h */,
 				D87B4FC614F16197006DA833 /* QAutoEntryElement.m */,
 				D87B4FC714F16197006DA833 /* QAutoEntryTableViewCell.h */,
 				D87B4FC814F16197006DA833 /* QAutoEntryTableViewCell.m */,
-				D811F88413EC905B00E3922B /* QBadgeElement.h */,
-				D811F88513EC905B00E3922B /* QBadgeElement.m */,
-				D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */,
-				D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */,
-				D811F88613EC905B00E3922B /* QBadgeTableCell.h */,
-				D811F88713EC905B00E3922B /* QBadgeTableCell.m */,
+				D8F180E813F0599A009B0CC5 /* QTableViewCell.h */,
+				D8F180E813F0599A009B0CC3 /* QTableViewCell.m */,
+				D8F180E813F0599A009B0CC1 /* QDynamicDataSection.h */,
+				D8F180E813F0599A009B0CBF /* QDynamicDataSection.m */,
+				D8F180E813F0599A009B0CBD /* QLoadingElement.h */,
+				D8F180E813F0599A009B0CBB /* QLoadingElement.m */,
+				D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */,
+				D8F180E813F0599A009B0CB8 /* QRootBuilder.h */,
+				D8F180E813F0599A009B0CB6 /* QRootBuilder.m */,
 				D8F180E813F0599A009B0CB4 /* QBindingEvaluator.h */,
 				D8F180E813F0599A009B0CB2 /* QBindingEvaluator.m */,
+				D8F180E813F0599A009B0CA9 /* QBadgeLabel.h */,
+				D8F180E813F0599A009B0CA7 /* QBadgeLabel.m */,
+				D8F180E813F0599A009B0C9E /* QuickDialog.h */,
+				D8F180E813F0599A009B0C9C /* QDecimalTableViewCell.h */,
+				D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */,
+				D8F180E813F0599A009B0C99 /* QDecimalElement.h */,
+				D8F180E813F0599A009B0C97 /* QDecimalElement.m */,
+				D811F88413EC905B00E3922B /* QBadgeElement.h */,
+				D811F88513EC905B00E3922B /* QBadgeElement.m */,
+				D811F88613EC905B00E3922B /* QBadgeTableCell.h */,
+				D811F88713EC905B00E3922B /* QBadgeTableCell.m */,
 				D811F88813EC905B00E3922B /* QBooleanElement.h */,
 				D811F88913EC905B00E3922B /* QBooleanElement.m */,
 				D811F88A13EC905B00E3922B /* QButtonElement.h */,
@@ -579,16 +559,10 @@
 				D811F88F13EC905B00E3922B /* QDateTimeElement.m */,
 				D811F89013EC905B00E3922B /* QDateTimeInlineElement.h */,
 				D811F89113EC905B00E3922B /* QDateTimeInlineElement.m */,
-				D8F180E813F0599A009B0C99 /* QDecimalElement.h */,
-				D8F180E813F0599A009B0C97 /* QDecimalElement.m */,
-				D8F180E813F0599A009B0C9C /* QDecimalTableViewCell.h */,
-				D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */,
-				D8F180E813F0599A009B0CC1 /* QDynamicDataSection.h */,
-				D8F180E813F0599A009B0CBF /* QDynamicDataSection.m */,
 				D811F89213EC905B00E3922B /* QElement.h */,
 				D811F89313EC905B00E3922B /* QElement.m */,
-				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
-				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
+				F2304355156CDFDD006D0A56 /* QTextField.h */,
+				F2304356156CDFDD006D0A56 /* QTextField.m */,
 				D811F89413EC905B00E3922B /* QEntryElement.h */,
 				D811F89513EC905B00E3922B /* QEntryElement.m */,
 				D811F89613EC905B00E3922B /* QEntryTableViewCell.h */,
@@ -597,75 +571,54 @@
 				D811F89913EC905B00E3922B /* QFloatElement.m */,
 				D811F89A13EC905B00E3922B /* QLabelElement.h */,
 				D811F89B13EC905B00E3922B /* QLabelElement.m */,
-				D8F180E813F0599A009B0CBD /* QLoadingElement.h */,
-				D8F180E813F0599A009B0CBB /* QLoadingElement.m */,
-				D811F8A013EC905B00E3922B /* QMapAnnotation.h */,
-				D811F8A113EC905B00E3922B /* QMapAnnotation.m */,
 				D811F89C13EC905B00E3922B /* QMapElement.h */,
 				D811F89D13EC905B00E3922B /* QMapElement.m */,
 				D811F89E13EC905B00E3922B /* QMapViewController.h */,
 				D811F89F13EC905B00E3922B /* QMapViewController.m */,
-				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
-				D8B3944C151394E1008ECB34 /* QMultilineElement.m */,
-				D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */,
-				D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */,
-				F2F23A12152DD45100EB6685 /* QPickerElement */,
+				D811F8A013EC905B00E3922B /* QMapAnnotation.h */,
+				D811F8A113EC905B00E3922B /* QMapAnnotation.m */,
+				D811F8A213EC905B00E3922B /* QuickDialogController.h */,
+				D811F8A313EC905B00E3922B /* QuickDialogController.m */,
+				D811F8A413EC905B00E3922B /* QuickDialogController+Loading.h */,
+				D811F8A513EC905B00E3922B /* QuickDialogController+Loading.m */,
+				D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */,
+				D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */,
+				D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */,
+				D811F8A713EC905B00E3922B /* QuickDialogDataSource.m */,
+				D811F8A813EC905B00E3922B /* QuickDialogStyleProvider.h */,
+				D811F8A913EC905B00E3922B /* QuickDialogTableDelegate.h */,
+				D811F8AA13EC905B00E3922B /* QuickDialogTableDelegate.m */,
+				D811F8AB13EC905B00E3922B /* QuickDialogTableView.h */,
+				D811F8AC13EC905B00E3922B /* QuickDialogTableView.m */,
+				D811F8AD13EC905B00E3922B /* quickform-Prefix.pch */,
 				D811F8AE13EC905B00E3922B /* QRadioElement.h */,
 				D811F8AF13EC905B00E3922B /* QRadioElement.m */,
 				D811F8B013EC905B00E3922B /* QRadioItemElement.h */,
 				D811F8B113EC905B00E3922B /* QRadioItemElement.m */,
 				D811F8B213EC905B00E3922B /* QRadioSection.h */,
 				D811F8B313EC905B00E3922B /* QRadioSection.m */,
-				D8F180E813F0599A009B0CB8 /* QRootBuilder.h */,
-				D8F180E813F0599A009B0CB6 /* QRootBuilder.m */,
-				D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */,
-				D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */,
-				D811F8B413EC905B00E3922B /* QRootElement.h */,
-				D811F8B513EC905B00E3922B /* QRootElement.m */,
-				D811F8B613EC905B00E3922B /* QSection.h */,
-				D811F8B713EC905B00E3922B /* QSection.m */,
-				D8B394671514E8B3008ECB34 /* QSegmentedElement.h */,
-				D8B394681514E8B3008ECB34 /* QSegmentedElement.m */,
-				F2E614A0151CA1A100F36976 /* QSelectItemElement.h */,
-				F2E614A1151CA1A100F36976 /* QSelectItemElement.m */,
 				F2E6149C151C9E4D00F36976 /* QSelectSection.h */,
 				F2E6149D151C9E4D00F36976 /* QSelectSection.m */,
+				F2E614A0151CA1A100F36976 /* QSelectItemElement.h */,
+				F2E614A1151CA1A100F36976 /* QSelectItemElement.m */,
+				D811F8B413EC905B00E3922B /* QRootElement.h */,
+				D811F8B513EC905B00E3922B /* QRootElement.m */,
+				D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */,
+				D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */,
+				D811F8B613EC905B00E3922B /* QSection.h */,
+				D811F8B713EC905B00E3922B /* QSection.m */,
 				D811F8B813EC905B00E3922B /* QSortingSection.h */,
 				D811F8B913EC905B00E3922B /* QSortingSection.m */,
-				D8F180E813F0599A009B0CC5 /* QTableViewCell.h */,
-				D8F180E813F0599A009B0CC3 /* QTableViewCell.m */,
 				D811F8BA13EC905B00E3922B /* QTextElement.h */,
 				D811F8BB13EC905B00E3922B /* QTextElement.m */,
-				F2304355156CDFDD006D0A56 /* QTextField.h */,
-				F2304356156CDFDD006D0A56 /* QTextField.m */,
-				D8F180E813F0599A009B0C9E /* QuickDialog.h */,
-				5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */,
-				5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */,
-				F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */,
-				F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */,
-				D811F8A413EC905B00E3922B /* QuickDialogController+Loading.h */,
-				D811F8A513EC905B00E3922B /* QuickDialogController+Loading.m */,
-				D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */,
-				D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */,
-				D811F8A213EC905B00E3922B /* QuickDialogController.h */,
-				D811F8A313EC905B00E3922B /* QuickDialogController.m */,
-				D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */,
-				D811F8A713EC905B00E3922B /* QuickDialogDataSource.m */,
-				D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */,
-				D811F8A813EC905B00E3922B /* QuickDialogStyleProvider.h */,
-				D811F8A913EC905B00E3922B /* QuickDialogTableDelegate.h */,
-				D811F8AA13EC905B00E3922B /* QuickDialogTableDelegate.m */,
-				D811F8AB13EC905B00E3922B /* QuickDialogTableView.h */,
-				D811F8AC13EC905B00E3922B /* QuickDialogTableView.m */,
-				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
-				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
-				D811F8AD13EC905B00E3922B /* quickform-Prefix.pch */,
 				D811F8BC13EC905B00E3922B /* QWebElement.h */,
 				D811F8BD13EC905B00E3922B /* QWebElement.m */,
 				D811F8BE13EC905B00E3922B /* QWebViewController.h */,
 				D811F8BF13EC905B00E3922B /* QWebViewController.m */,
 				194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */,
 				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
+				5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */,
+				5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -769,6 +722,7 @@
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
 				D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */,
 				5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */,
+				5F9D416E1670B30F00EB1441 /* QSectionToolbar.h in Headers */,
 				D87A4D6E169DABA900D4DD63 /* QElement+Appearance.h in Headers */,
 				5C50E1E06A0557312EB9B187 /* QAppearance.h in Headers */,
 				D87A4D90169DB59500D4DD63 /* QAppearance.h in Headers */,
@@ -798,24 +752,6 @@
 			productReference = 2C542393145ADEBD0026A152 /* libQuickDialog.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D80B0E3213E052DF00FA85CA /* QuickDialogExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D80B0E4B13E052DF00FA85CA /* Build configuration list for PBXNativeTarget "QuickDialogExample" */;
-			buildPhases = (
-				D80B0E2F13E052DF00FA85CA /* Sources */,
-				D80B0E3013E052DF00FA85CA /* Frameworks */,
-				D80B0E3113E052DF00FA85CA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2CE450B2145AE43700B77D0E /* PBXTargetDependency */,
-			);
-			name = QuickDialogExample;
-			productName = quickformexample;
-			productReference = D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -836,44 +772,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D80B0E3213E052DF00FA85CA /* QuickDialogExample */,
 				2C542392145ADEBD0026A152 /* QuickDialog */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		D80B0E3113E052DF00FA85CA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D811F90413EC907200E3922B /* footer.png in Resources */,
-				D811F90513EC907200E3922B /* footer@2x.png in Resources */,
-				D811F90613EC907200E3922B /* imgOff.png in Resources */,
-				D811F90713EC907200E3922B /* imgOn.png in Resources */,
-				D811F90813EC907200E3922B /* intel.png in Resources */,
-				D811F90913EC907200E3922B /* iPhone.png in Resources */,
-				D811F90A13EC907200E3922B /* keyboard.png in Resources */,
-				D811F90B13EC907200E3922B /* logo.png in Resources */,
-				D811F90C13EC907200E3922B /* logo@2x.png in Resources */,
-				D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */,
-				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
-				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
-				D86249EB14BB59D6002F0585 /* icon.png in Resources */,
-				D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */,
-				D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */,
-				D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */,
-				D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */,
-				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
-				D86249FC14BB5AB5002F0585 /* sample.json in Resources */,
-				D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */,
-				5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */,
-				D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */,
-				5C50E1652D781293C5963717 /* themes.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C54238F145ADEBD0026A152 /* Sources */ = {
@@ -939,6 +841,7 @@
 				F2304358156CDFDD006D0A56 /* QTextField.m in Sources */,
 				D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */,
 				5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */,
+				5F9D416F1670B30F00EB1441 /* QSectionToolbar.m in Sources */,
 				D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */,
 				D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */,
 				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
@@ -947,31 +850,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D80B0E2F13E052DF00FA85CA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D811F8FB13EC907200E3922B /* AboutController.m in Sources */,
-				D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */,
-				D811F8FE13EC907200E3922B /* LoginController.m in Sources */,
-				D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */,
-				D811F90013EC907200E3922B /* main.m in Sources */,
-				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
-				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
-				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
-				F209CEE41536AB100043F61C /* PeriodPickerValueParser.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2CE450B2145AE43700B77D0E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2C542392145ADEBD0026A152 /* QuickDialog */;
-			targetProxy = 2CE450B1145AE43700B77D0E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D811F8E213EC907200E3922B /* InfoPlist.strings */ = {
@@ -993,7 +872,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libQuickDialog/libQuickDialog-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /include/QuickDialog;
@@ -1009,7 +888,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libQuickDialog/libQuickDialog-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /include/QuickDialog;
@@ -1041,8 +920,9 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1064,43 +944,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D80B0E4C13E052DF00FA85CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
-				INFOPLIST_FILE = "sample/quickdialogexample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		D80B0E4D13E052DF00FA85CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
-				INFOPLIST_FILE = "sample/quickdialogexample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -1121,15 +970,6 @@
 			buildConfigurations = (
 				D80B0E4913E052DF00FA85CA /* Debug */,
 				D80B0E4A13E052DF00FA85CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D80B0E4B13E052DF00FA85CA /* Build configuration list for PBXNativeTarget "QuickDialogExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D80B0E4C13E052DF00FA85CA /* Debug */,
-				D80B0E4D13E052DF00FA85CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

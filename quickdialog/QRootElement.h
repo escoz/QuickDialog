@@ -49,6 +49,8 @@ typedef enum  {
 
 @property(nonatomic, copy) void (^onValueChanged)(QRootElement *);
 
+@property(nonatomic, readonly) BOOL needsEditing;
+
 - (QRootElement *)init;
 
 - (void)addSection:(QSection *)section;
