@@ -28,7 +28,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _title;
-    cell.textLabel.textAlignment = UITextAlignmentCenter;
+    cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
     cell.textLabel.font = [UIFont boldSystemFontOfSize:15];
     return cell;
