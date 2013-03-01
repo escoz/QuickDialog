@@ -267,6 +267,8 @@
             });
         }
 	}
+
+    [control setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }
 
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton {
