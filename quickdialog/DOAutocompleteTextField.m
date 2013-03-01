@@ -64,7 +64,7 @@
     _autocompleteLabel.font = self.font;
     _autocompleteLabel.backgroundColor = [UIColor clearColor];
     _autocompleteLabel.textColor = [UIColor lightGrayColor];
-    _autocompleteLabel.lineBreakMode = UILineBreakModeClip;
+    _autocompleteLabel.lineBreakMode = NSLineBreakByClipping;
     [self addSubview:_autocompleteLabel];
     [self bringSubviewToFront:_autocompleteLabel];
     
@@ -108,12 +108,12 @@
     
     CGSize prefixTextSize = [self.text sizeWithFont:self.font
                                   constrainedToSize:textRect.size
-                                      lineBreakMode:UILineBreakModeCharacterWrap];
+                                      lineBreakMode:NSLineBreakByCharWrapping];
     //    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
     
     CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont:self.font 
                                                   constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
-                                                      lineBreakMode:UILineBreakModeCharacterWrap];
+                                                      lineBreakMode:NSLineBreakByCharWrapping];
     
     //    NSLog(@"autocompleteTextSize: %@",  NSStringFromCGSize(autocompleteTextSize)); 
     
