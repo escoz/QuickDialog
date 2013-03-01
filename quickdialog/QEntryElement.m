@@ -88,12 +88,7 @@
 }
 
 - (BOOL)canTakeFocus {
-	if (self.hidden) {
-		return NO;
-	}
-	else {
-		return YES;
-	}
+    return self.enabled && !self.hidden;
 }
 
 #pragma mark - UITextInputTraits
