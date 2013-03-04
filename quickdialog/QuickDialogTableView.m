@@ -72,20 +72,6 @@
 
 }
 
-- (NSIndexPath *)indexForElement:(QElement *)element {
-    for (int i=0; i< [_root.sections count]; i++){
-        QSection * currSection = [_root.sections objectAtIndex:(NSUInteger) i];
-
-        for (int j=0; j< [currSection.elements count]; j++){
-            QElement *currElement = [currSection.elements objectAtIndex:(NSUInteger) j];
-            if (currElement == element){
-                return [NSIndexPath indexPathForRow:j inSection:i];
-            }
-        }
-    }
-    return NULL;
-}
-
 - (NSIndexPath *)visibleIndexForElement:(QElement *)element {
     if (element.hidden)
         return NULL;
