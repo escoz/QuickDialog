@@ -254,7 +254,7 @@
 		}
         else {
 
-            [_quickformTableView scrollToRowAtIndexPath:[_entryElement getIndexPath]
+            [_quickformTableView scrollToRowAtIndexPath:[element getIndexPath]
                                        atScrollPosition:UITableViewScrollPositionMiddle
                                                animated:YES];
 
