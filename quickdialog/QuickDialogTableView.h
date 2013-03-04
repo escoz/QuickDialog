@@ -42,8 +42,6 @@
 
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
 
-- (NSIndexPath *)indexForElement:(QElement *)element;
-
 - (UITableViewCell *)cellForElement:(QElement *)element;
 
 - (void)viewWillAppear;

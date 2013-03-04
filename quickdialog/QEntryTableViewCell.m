@@ -184,7 +184,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [_quickformTableView scrollToRowAtIndexPath:[_quickformTableView indexForElement:_entryElement] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        [_quickformTableView scrollToRowAtIndexPath:[_entryElement getIndexPath] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     });
 
 
@@ -254,7 +254,7 @@
 		}
         else {
 
-            [_quickformTableView scrollToRowAtIndexPath:[_quickformTableView indexForElement:element]
+            [_quickformTableView scrollToRowAtIndexPath:[element getIndexPath]
                                        atScrollPosition:UITableViewScrollPositionMiddle
                                                animated:YES];
 
