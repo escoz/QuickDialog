@@ -76,12 +76,17 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {
-    NSString *newValue = [_textField.text stringByReplacingCharactersInRange:range withString:replacement];
-    [self updateElementFromTextField:newValue];
-    [self updateTextFieldFromElement];
+    BOOL shouldChange = YES;
     
-    [_entryElement handleEditingChanged:self];
-
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
+        shouldChange = [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:_entryElement andCell:self];
+    
+    if( shouldChange ) {
+        NSString *newValue = [_textField.text stringByReplacingCharactersInRange:range withString:replacement];
+        [self updateElementFromTextField:newValue];
+        [self updateTextFieldFromElement];
+        [_entryElement handleEditingChanged:self];
+    }
     return NO;
 }
 
