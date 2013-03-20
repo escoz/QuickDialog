@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import <UIKit/UIKit.h>
 
 @class QElement;
 @class QSection;

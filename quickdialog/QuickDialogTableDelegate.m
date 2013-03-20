@@ -103,7 +103,7 @@
         QAppearance *appearance = ((QuickDialogTableView *)tableView).root.appearance;
         CGSize expectedLabelSize = [section.title sizeWithFont:appearance==nil? [UIFont systemFontOfSize:[UIFont labelFontSize]] : appearance.sectionTitleFont
                                               constrainedToSize:maximumLabelSize
-                                                  lineBreakMode:UILineBreakModeWordWrap];
+                                                  lineBreakMode:NSLineBreakByWordWrapping];
 
         stringTitleHeight = expectedLabelSize.height+23.f;
     }
