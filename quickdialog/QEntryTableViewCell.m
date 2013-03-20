@@ -267,6 +267,10 @@
             });
         }
 	}
+    
+    if (_entryElement.keepSelected) {
+        [_quickformTableView deselectRowAtIndexPath:[_entryElement getIndexPath] animated:YES];
+    }
 
     [control setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }
