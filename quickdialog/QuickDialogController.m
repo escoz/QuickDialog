@@ -127,7 +127,7 @@
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
-- (void)keyboardDidChangeFrame:(NSNotification *)notification
+- (void)keyboardWillChangeFrame:(NSNotification *)notification
 {
     NSDictionary* userInfo = [notification userInfo];
     CGRect keyboardEndFrame;
@@ -165,7 +165,7 @@
         
         if (_resizeWhenKeyboardPresented) {
             
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardWillChangeFrameNotification              object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification              object:nil];
         } else {
             
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
