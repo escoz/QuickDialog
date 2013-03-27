@@ -6,12 +6,12 @@
 
 - (void)displayViewController:(UIViewController *)newController {
     if ([newController isKindOfClass:[UINavigationController class]]) {
-        [self presentModalViewController:newController animated:YES];
+        [self presentViewController:newController animated:YES completion:nil];
     }
     else if (self.navigationController != nil){
         [self.navigationController pushViewController:newController animated:YES];
     } else {
-        [self presentModalViewController:[[UINavigationController alloc] initWithRootViewController:newController] animated:YES];
+        [self presentViewController:[[UINavigationController alloc] initWithRootViewController:newController] animated:YES completion:nil];
     }
 }
 
@@ -29,12 +29,12 @@
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentModalViewController:navigation animated:YES];
+        [self presentViewController:navigation animated:YES completion:nil];
     }  else if (mode == QPresentationModeModalPage) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationPageSheet;
-        [self presentModalViewController:navigation animated:YES];
+        [self presentViewController:navigation animated:YES completion:nil];
     }
 }
 
@@ -44,8 +44,7 @@
 }
 
 - (void)dismissModalViewController {
-    [self dismissModalViewControllerAnimated:YES];
-
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation fromRect:(CGRect)position {
@@ -92,7 +91,7 @@
     } else if (self.presentingViewController!=nil)
         [self dismissViewControllerAnimated:YES completion:nil];
     else {
-        [self dismissModalViewControllerAnimated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

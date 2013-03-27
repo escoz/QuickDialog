@@ -24,7 +24,7 @@
     if (_prefix || _suffix) {
         NSString *textWithSuffix = [NSString stringWithFormat:@"%@%@%@", _prefix ? _prefix : @"", self.text, _suffix ? _suffix : @""];
         CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), self.textColor.CGColor);
-        [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:UILineBreakModeTailTruncation alignment:self.textAlignment];
+        [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
     } else {
         [super drawTextInRect:rect];
     }
