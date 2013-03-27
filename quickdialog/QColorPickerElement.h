@@ -11,4 +11,5 @@
 @interface QColorPickerElement : QRadioElement
 
 
+- (void)setSelectedColor:(id)o;
 @end

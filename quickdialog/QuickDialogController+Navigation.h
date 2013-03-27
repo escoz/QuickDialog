@@ -1,10 +1,13 @@
 #import <Foundation/Foundation.h>
-#import "QuickDialogController.h"
+#import "QuickDialog.h"
+#import "QRootElement.h"
 
 @class QRootElement;
 @interface QuickDialogController(Navigation)
 
 - (void)displayViewController:(UIViewController *)newController;
+
+- (void)displayViewController:(UIViewController *)newController withPresentationMode:(QPresentationMode)mode;
 
 - (void)displayViewControllerForRoot:(QRootElement *)element;
 

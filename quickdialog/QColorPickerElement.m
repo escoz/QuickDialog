@@ -30,6 +30,8 @@
 }
 
 - (void)updateCell:(QEntryTableViewCell *)cell selectedValue:(id)selectedValue {
+    self.image = [self getImageFromItem:selectedValue];
+    [super updateCell:cell selectedValue:selectedValue];
     if (self.title == NULL){
         cell.textField.text = [[selectedValue objectAtIndex:0] description];
         cell.detailTextLabel.text = nil;
@@ -39,15 +41,14 @@
         cell.textField.text = [[selectedValue objectAtIndex:0] description];
         cell.textField.textAlignment = self.appearance.valueAlignment;
     }
-    self.image = [self getImageFromItem:selectedValue];;
 }
 
-- (UIImage *)getImageFromItem:(id)selectedValue {
-    id obj = [selectedValue objectAtIndex:1];
-    if ([obj isKindOfClass:[UIColor class]])
-        return [obj imageByDrawingCircleOfColor];
-    if ([obj isKindOfClass:[NSString class]])
-        return [[QColorPickerElement colorFromHexString:obj] imageByDrawingCircleOfColor];
+- (UIImage *)getImageFromItem:(NSArray *)selectedValue {
+    id color = [[selectedValue objectAtIndex:1] description];
+    if ([color isKindOfClass:[UIColor class]])
+        return [color imageByDrawingCircleOfColor];
+    if ([color isKindOfClass:[NSString class]])
+        return [[QColorPickerElement colorFromHexString:color] imageByDrawingCircleOfColor];
     return [[UIColor blackColor] imageByDrawingCircleOfColor];
 }
 
@@ -74,6 +75,18 @@
     [scanner setScanLocation:1]; // bypass '#' character
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
+}
+
+- (void)setSelectedColor:(NSString *)colorName {
+    for (NSArray *item in _items){
+        if ([colorName isEqualToString:[item objectAtIndex:0]]) {
+            self.selected = [_items indexOfObject:item];
+            return;
+        }
+    }
+    self.selected = 0;
+
+
 }
 
 

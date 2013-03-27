@@ -4,8 +4,6 @@
 
 @implementation QuickDialogController(Navigation)
 
-
-
 - (void)displayViewController:(UIViewController *)newController {
     if ([newController isKindOfClass:[UINavigationController class]]) {
         [self presentModalViewController:newController animated:YES];
@@ -17,29 +15,32 @@
     }
 }
 
-- (void)displayViewControllerForRoot:(QRootElement *)root {
-    QuickDialogController *newController = [self controllerForRoot: root];
-
-    if (root.presentationMode==QPresentationModeNormal) {
+- (void)displayViewController:(UIViewController *)newController withPresentationMode:(QPresentationMode)mode {
+    if (mode==QPresentationModeNormal) {
         [self displayViewController:newController];
-    } else if (root.presentationMode == QPresentationModePopover || root.presentationMode == QPresentationModeNavigationInPopover) {
-        [self displayViewControllerInPopover:newController withNavigation:root.presentationMode==QPresentationModeNavigationInPopover];
-    } else if (root.presentationMode == QPresentationModeModalForm) {
+    } else if (mode == QPresentationModePopover || mode == QPresentationModeNavigationInPopover) {
+        [self displayViewControllerInPopover:newController withNavigation:mode==QPresentationModeNavigationInPopover];
+    } else if (mode == QPresentationModeModalForm) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentModalViewController:navigation animated:YES];
-    }  else if (root.presentationMode == QPresentationModeModalFullScreen) {
+    }  else if (mode == QPresentationModeModalFullScreen) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentModalViewController:navigation animated:YES];
-    }  else if (root.presentationMode == QPresentationModeModalPage) {
+    }  else if (mode == QPresentationModeModalPage) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationPageSheet;
         [self presentModalViewController:navigation animated:YES];
     }
+}
+
+- (void)displayViewControllerForRoot:(QRootElement *)root {
+    QuickDialogController *newController = [self controllerForRoot: root];
+    [self displayViewController:newController withPresentationMode:root.presentationMode];
 }
 
 - (void)dismissModalViewController {
