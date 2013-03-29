@@ -23,6 +23,8 @@
 @property(nonatomic, copy) void (^onSelected)(void);
 
 
+@property(nonatomic) BOOL deselectAllowed;
+
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected;
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title;
 - (id)initWithItems:(NSArray *)stringArray selectedItems:(NSArray *)selectedItems title:(NSString *)title;

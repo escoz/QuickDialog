@@ -22,6 +22,7 @@
     if (self) {
         self.selectedIndexes = [@[] mutableCopy];
         self.multipleAllowed = NO;
+        self.deselectAllowed = NO;
     }
 
     return self;
