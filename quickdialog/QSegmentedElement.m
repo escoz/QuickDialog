@@ -41,6 +41,7 @@
 
 - (void)handleSegmentedControlValueChanged:(id)control {
     _selected = ((UISegmentedControl *)control).selectedSegmentIndex;
+    NSLog(@"Valu echanged to %i", _selected);
     if (self.onValueChanged!=nil)
         self.onValueChanged(self);
 
@@ -60,6 +61,7 @@
     control.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
+    NSLog(@"Set control to %i", _selected);
     control.tag = 4321;
     
     [cell addSubview:control];

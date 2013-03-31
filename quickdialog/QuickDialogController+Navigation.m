@@ -70,8 +70,10 @@
 
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation {
 
-    CGRect position = [self.quickDialogTableView rectForRowAtIndexPath:self.quickDialogTableView.indexPathForSelectedRow];
-    [self displayViewControllerInPopover:newController withNavigation:navigation fromRect:position];
+    CGRect frame = [self.quickDialogTableView rectForRowAtIndexPath:self.quickDialogTableView.indexPathForSelectedRow];
+    CGPoint yOffset = self.quickDialogTableView.contentOffset;
+
+    [self displayViewControllerInPopover:newController withNavigation:navigation fromRect:CGRectMake(frame.origin.x, (frame.origin.y - yOffset.y), frame.size.width, frame.size.height)];
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
