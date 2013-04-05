@@ -46,7 +46,7 @@
     
     NSNumber *numberIndex = [NSNumber numberWithUnsignedInteger:_index];
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    
+
     if (_selectSection.multipleAllowed)
     {
         if ([_selectSection.selectedIndexes containsObject:numberIndex]) {
@@ -63,9 +63,7 @@
             }
             [_selectSection.selectedIndexes addObject:numberIndex];
         }
-    }
-    else
-    {
+    }  else {
         if (![_selectSection.selectedIndexes containsObject:numberIndex])
         {
             NSNumber *oldCellRowNumber = [_selectSection.selectedIndexes count] > 0 ? [_selectSection.selectedIndexes objectAtIndex:0] : nil;

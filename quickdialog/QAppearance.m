@@ -2,6 +2,7 @@
 @implementation QAppearance {
 
 }
+
 @synthesize sectionTitleFont = _sectionTitleFont;
 @synthesize sectionTitleColor = _sectionTitleColor;
 @synthesize sectionFooterFont = _sectionFooterFont;
