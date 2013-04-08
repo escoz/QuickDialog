@@ -86,32 +86,10 @@
     return NULL;
 }
 
-- (NSIndexPath *)visibleIndexForElement:(QElement *)element {
-    if (element.hidden)
-        return NULL;
-    
-    NSUInteger s = 0;
-    for (QSection * q in _root.sections)
-    {
-        if (!q.hidden)
-        {
-            NSUInteger e = 0;
-            for (QElement * r in q.elements)
-            {
-                if (r == element)
-                    return [NSIndexPath indexPathForRow:e inSection:s];
-                ++e;
-            }
-        }
-        ++s;
-    }
-    return NULL;
-}
-
 - (UITableViewCell *)cellForElement:(QElement *)element {
     if (element.hidden)
         return nil;
-    return [self cellForRowAtIndexPath:[self visibleIndexForElement:element]];
+    return [self cellForRowAtIndexPath:[element getIndexPath]];
 }
 
 - (void)viewWillAppear {
