@@ -60,8 +60,10 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     _pickerView.minimumDate = element.minimumDate;
     _pickerView.minuteInterval = element.minuteInterval;
     
-    if (element.dateValue!=nil)
+    if (element.mode != UIDatePickerModeCountDownTimer && element.dateValue != nil)
         _pickerView.date = element.dateValue;
+    else if (element.mode == UIDatePickerModeCountDownTimer && element.ticksValue != nil)
+        _pickerView.countDownDuration = [element.ticksValue doubleValue];
 
     [super textFieldDidBeginEditing:textField];
     self.selected = YES;
