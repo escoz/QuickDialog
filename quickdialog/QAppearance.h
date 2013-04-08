@@ -28,6 +28,8 @@
 @property(nonatomic, strong) UIFont *sectionFooterFont;
 @property(nonatomic, strong) UIColor *sectionFooterColor;
 @property(nonatomic) NSTextAlignment entryAlignment;
+@property(nonatomic) NSTextAlignment buttonAlignment;
 @property(nonatomic, strong) UIView *selectedBackgroundView;
 @property(nonatomic, strong) UIColor *sectionTitleShadowColor;
+
 @end

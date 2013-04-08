@@ -51,6 +51,7 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
 
     _pickerView = [QDateEntryTableViewCell getPickerForDate];
+    _pickerView.timeZone = [NSTimeZone localTimeZone];
     [_pickerView sizeToFit];
     _textField.inputView = _pickerView;
     [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
