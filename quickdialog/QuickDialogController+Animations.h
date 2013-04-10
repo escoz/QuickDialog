@@ -3,10 +3,14 @@
 
 @interface QuickDialogController (Animations)
 
-- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elements:(QElement*)element,...;
-- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sections:(QSection*)section,...;
+- (void)switchElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray *)elements;
 
-- (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation elements:(QElement*)element,...;
-- (void) hideSectionsWithAnimation:(UITableViewRowAnimation)animation sections:(QSection*)section,...;
+- (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray*)elements;
+- (void) hideSectionsWithAnimation:(UITableViewRowAnimation)animation sections:(NSArray*)sections;
+- (void) showElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray*)elements;
+- (void) showSectionsWithAnimation:(UITableViewRowAnimation)animation sections:(NSArray*)sections;
+
+- (void) showHideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elementsToInsert:(NSArray*)ins elementsToRemove:(NSArray*) del;
+- (void) showHideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sectionsToInsert:(NSArray*)ins sectionsToRemove:(NSArray*)del;
 
 @end
