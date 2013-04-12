@@ -236,44 +236,29 @@
 }
 
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control {
-
-	QEntryElement *element;
-
     const BOOL isNext = control.selectedSegmentIndex == 1;
-    if (isNext) {
-		element = [self findNextElementToFocusOn];
-	} else {
-		element = [self findPreviousElementToFocusOn];
-	}
-
-	if (element != nil) {
-
-        UITableViewCell *cell = [_quickformTableView cellForElement:element];
-		if (cell != nil) {
-			[cell becomeFirstResponder];
-		}
-        else {
-
-            [_quickformTableView scrollToRowAtIndexPath:[element getIndexPath]
-                                       atScrollPosition:UITableViewScrollPositionMiddle
-                                               animated:YES];
-
+    
+    QEntryElement *element = isNext ? [self findNextElementToFocusOn] : [self findPreviousElementToFocusOn];
+    
+    NSIndexPath *indexPath = [element getIndexPath];
+	if (!!indexPath) {
+		if ([[_quickformTableView indexPathsForVisibleRows] containsObject:indexPath]) { // is this row visible ?
+            [_quickformTableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            [_quickformTableView.delegate tableView:_quickformTableView didSelectRowAtIndexPath:indexPath];
+		} else { // it's not, let's scroll to it first, and then select it
+            [_quickformTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            [_quickformTableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
             dispatch_after(popTime, dispatch_get_main_queue(), ^{
-                UITableViewCell *c = [_quickformTableView cellForElement:element];
-                if (c != nil) {
-                    [c becomeFirstResponder];
-                }
+                [_quickformTableView.delegate tableView:_quickformTableView didSelectRowAtIndexPath:indexPath];
             });
         }
 	}
     
-    if (_entryElement.keepSelected) {
-        [_quickformTableView deselectRowAtIndexPath:[_entryElement getIndexPath] animated:YES];
-    }
-
     [control setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }
+
 
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton {
     [self endEditing:YES];
