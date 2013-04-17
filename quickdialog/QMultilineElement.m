@@ -69,6 +69,7 @@
     textController.willDisappearCallback = ^ {
         weakSelf.textValue = weakTextController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     };
     [controller displayViewControllerInPopover:textController withNavigation:NO];
 }
