@@ -59,6 +59,7 @@
 #import "QImageElement.h"
 #import "QColorPickerElement.h"
 #import "UIColor+ColorUtilities.h"
+#import "QProgressElement.h"
 
 
 #import "QuickDialogStyleProvider.h"
