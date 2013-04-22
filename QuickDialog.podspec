@@ -12,8 +12,15 @@ Pod::Spec.new do |s|
                    'having to directly deal with UITableViews, delegates and data sources. Fast ' \
                    'and efficient, you can create forms with multiple text fields, or with ' \
                    'thousands of items with no sweat!'
-  s.source_files = 'quickdialog', '*.{h,m}' 
+
+  s.source_files = 'quickdialog', '*.{h,m}'
   s.requires_arc = true
   s.frameworks   = 'MapKit', 'CoreLocation'
+
+  s.prefix_header_contents = <<-EOS
+#ifdef __OBJC__
+    #import "QuickDialog.h"
+#endif
+EOS
 end
 
