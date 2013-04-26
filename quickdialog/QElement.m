@@ -62,7 +62,8 @@
 
     cell.textLabel.text = nil; 
     cell.detailTextLabel.text = nil; 
-    cell.imageView.image = nil; 
+    cell.imageView.image = nil;
+    cell.imageView.highlightedImage = nil;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;

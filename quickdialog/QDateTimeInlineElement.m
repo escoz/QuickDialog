@@ -83,6 +83,7 @@
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;
     cell.imageView.image = self.image;
+    cell.imageView.highlightedImage = self.highlightedImage;
     cell.labelingPolicy = self.labelingPolicy;
     return cell;
 }

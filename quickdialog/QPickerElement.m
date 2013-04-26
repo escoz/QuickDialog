@@ -44,6 +44,7 @@
     _pickerView = pickerView;
     
     cell.imageView.image = self.image;
+    cell.imageView.highlightedImage = self.highlightedImage;
     
     return cell;
 }

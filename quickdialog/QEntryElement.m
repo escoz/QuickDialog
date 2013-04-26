@@ -66,6 +66,7 @@
     cell.textField.userInteractionEnabled = self.enabled;
     cell.textField.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
+    cell.imageView.highlightedImage = self.highlightedImage;
     [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
