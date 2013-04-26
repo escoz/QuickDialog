@@ -22,10 +22,13 @@
 @protected
     id _value;
     UIImage *_image;
+    UIImage *_highlightedImage;
 }
 
 @property(nonatomic, strong) UIImage *image;
+@property(nonatomic, strong) UIImage *highlightedImage;
 @property(nonatomic, assign) NSString *imageNamed;
+@property(nonatomic, assign) NSString *highlightedImageNamed;
 @property(nonatomic, assign) UITableViewCellAccessoryType accessoryType;
 @property(nonatomic, strong) id value;
 

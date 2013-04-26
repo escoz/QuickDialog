@@ -22,6 +22,7 @@
 
 
 @synthesize image = _image;
+@synthesize highlightedImage = _highlightedImage;
 @synthesize value = _value;
 @synthesize accessoryType = _accessoryType;
 @synthesize keepSelected = _keepSelected;
@@ -39,6 +40,10 @@
     self.image = [UIImage imageNamed:name];
 }
 
+-(void)setHighlightedImageNamed:(NSString *)highlightedImageName {
+    self.highlightedImage = [UIImage imageNamed:highlightedImageName];
+}
+
 - (NSString *)imageNamed {
     return nil;
 }
@@ -50,6 +55,7 @@
     cell.textLabel.text = _title;
     cell.detailTextLabel.text = [_value description];
     cell.imageView.image = _image;
+    cell.imageView.highlightedImage = _highlightedImage;
     cell.accessoryType = _accessoryType != UITableViewCellAccessoryNone ? _accessoryType : ( self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone);
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
 
