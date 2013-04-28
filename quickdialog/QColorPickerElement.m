@@ -17,8 +17,9 @@
         self.items = @[
                 @[@"Black", [UIColor blackColor]],
                 @[@"White", [UIColor whiteColor]],
-                @[@"Blue", [UIColor grayColor]],
-                @[@"Red",  [UIColor blueColor]],
+                @[@"Gray", [UIColor grayColor]],
+                @[@"Blue",  [UIColor blueColor]],
+                @[@"Red",  [UIColor redColor]],
                 @[@"Green", [UIColor greenColor]],
                 @[@"Yellow", [UIColor yellowColor]],
                 @[@"Purple", [UIColor purpleColor]],
