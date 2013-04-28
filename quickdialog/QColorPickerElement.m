@@ -44,7 +44,7 @@
 }
 
 - (UIImage *)getImageFromItem:(NSArray *)selectedValue {
-    id color = [[selectedValue objectAtIndex:1] description];
+    id color = [selectedValue objectAtIndex:1];
     if ([color isKindOfClass:[UIColor class]])
         return [color imageByDrawingCircleOfColor];
     if ([color isKindOfClass:[NSString class]])
