@@ -50,13 +50,6 @@
     [obj setValue:[NSNumber numberWithFloat:_floatValue] forKey:_key];
 }
 
-- (CGFloat)calculateSliderWidth:(QuickDialogTableView *)view cell:(UITableViewCell *)cell {
-    CGFloat width = cell.bounds.size.width;
-    if (_title!=nil)
-        width -= [cell.textLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:17]].width;
-    return width;
-}
-
 - (void)valueChanged:(UISlider *)slider {
     self.floatValue = slider.value;
 
