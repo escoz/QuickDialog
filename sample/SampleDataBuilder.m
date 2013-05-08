@@ -117,7 +117,6 @@
     [subsection3 addElement:bool2];
 
     QTextElement *element2 = [[QTextElement alloc] initWithText:@"You get all kinds of notifications on your iOS device: new email, texts, friend requests, and more. With Notification Center, you can keep track of them all in one convenient location. Just swipe down from the top of any screen to enter Notification Center. Choose which notifications you want to see. Even see a stock ticker and the current weather. New notifications appear briefly at the top of your screen, without interrupting what you’re doing. And the Lock screen displays notifications so you can act on them with just a swipe. Notification Center is the best way to stay on top of your life’s breaking news."];
-    element2.font = [UIFont boldSystemFontOfSize:12];
     QSection *subsection4 = [[QSection alloc] init];
     [subsection4 addElement:element2];
 
@@ -368,10 +367,8 @@
             "Good-bye\""];
 
     QTextElement *element2 = [[QTextElement alloc] initWithText:@"You get all kinds of notifications on your iOS device: new email, texts, friend requests, and more. With Notification Center, you can keep track of them all in one convenient location. Just swipe down from the top of any screen to enter Notification Center. Choose which notifications you want to see. Even see a stock ticker and the current weather. New notifications appear briefly at the top of your screen, without interrupting what you’re doing. And the Lock screen displays notifications so you can act on them with just a swipe. Notification Center is the best way to stay on top of your life’s breaking news."];
-    element2.font = [UIFont boldSystemFontOfSize:12];
 
     QTextElement *element3 = [[QTextElement alloc] initWithText:@"Quicklytics App!"];
-    element3.font = [UIFont fontWithName:@"Cochin-BoldItalic" size:24];
     element3.color = [UIColor blueColor];
 
     QSection *section1 = [[QSection alloc] init];
