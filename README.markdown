@@ -5,6 +5,13 @@
 ## For more information and documentation, please go to [the project official website](http://escoz.com/open-source/quickdialog).
 
 
+<!-- MacBuildServer Install Button -->
+<div class="macbuildserver-block">
+    <a class="macbuildserver-button" href="http://macbuildserver.com/project/github/build/?xcode_project=QuickDialog.xcodeproj&amp;target=QuickDialogExample&amp;repo_url=git%3A%2F%2Fgithub.com%2Fescoz%2FQuickDialog.git&amp;build_conf=Release" target="_blank"><img src="http://com.macbuildserver.github.s3-website-us-east-1.amazonaws.com/button_up.png"/></a><br/><sup><a href="http://macbuildserver.com/" target="_blank">by MacBuildServer</a></sup>
+</div>
+<!-- MacBuildServer Install Button -->
+
+
 QuickDialog allows you to create HIG-compliant iOS forms for your apps  without having to directly deal with UITableViews, delegates and data sources. Fast and efficient, you can create forms with multiple text fields, or with thousands of items with no sweat!
 
 ![Sample](https://github.com/escoz/QuickDialog/raw/master/other/quickdialog2.png "Sample")
