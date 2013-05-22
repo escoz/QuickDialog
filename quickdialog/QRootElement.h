@@ -70,4 +70,7 @@ typedef enum  {
 - (QElement *)elementWithKey:(NSString *)string;
 
 - (QRootElement *)rootWithKey:(NSString *)string;
+
+- (void)handleEditingChanged;
+
 @end

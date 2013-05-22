@@ -91,9 +91,8 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
         element.dateValue = _pickerView.date;
     }
     [self prepareForElement:_entryElement inTableView:_quickformTableView];
-    if (element.onValueChanged!=nil)
-        element.onValueChanged(_entryElement);
-
+    
+    [element handleEditingChanged:self];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {

@@ -87,7 +87,7 @@
     }
     self.selected = 0;
 
-
+    [self handleEditingChanged];
 }
 
 
