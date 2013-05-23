@@ -55,14 +55,13 @@
     cell.backgroundColor = [UIColor clearColor];
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
     [control addTarget:self action:@selector(handleSegmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
-    const BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
-    control.frame = CGRectMake(isPhone ? 9 : 30, 0, isPhone ? 302 : 260, self.height);
-    control.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    control.frame = cell.contentView.bounds;
+    control.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
     control.tag = 4321;
     
-    [cell addSubview:control];
+    [cell.contentView addSubview:control];
     return cell;
 }
 
