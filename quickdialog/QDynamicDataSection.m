@@ -1,5 +1,6 @@
 #import "QDynamicDataSection.h"
 #import "QuickDialog.h"
+#import "QEmptyListElement.h"
 
 @implementation QDynamicDataSection {
     NSString *_emptyMessage;
@@ -42,7 +43,7 @@
         [self addElement:[[QLoadingElement alloc] init]];
     
     if (collection!=nil && collection.count==0)
-        [self addElement:[[QLabelElement alloc] initWithTitle:_emptyMessage Value:nil]];
+        [self addElement:[[QEmptyListElement alloc] initWithTitle:_emptyMessage Value:nil]];
 }
 
 
