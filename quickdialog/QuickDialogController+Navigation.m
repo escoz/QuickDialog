@@ -22,17 +22,17 @@
         [self displayViewControllerInPopover:newController withNavigation:mode==QPresentationModeNavigationInPopover];
     } else if (mode == QPresentationModeModalForm) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
-        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentModalViewController:navigation animated:YES];
     }  else if (mode == QPresentationModeModalFullScreen) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
-        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:navigation animated:YES completion:nil];
     }  else if (mode == QPresentationModeModalPage) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
-        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationPageSheet;
         [self presentViewController:navigation animated:YES completion:nil];
     }
