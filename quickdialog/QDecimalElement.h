@@ -19,10 +19,10 @@
 
 }
 
-@property(nonatomic, assign) float floatValue;
+@property(nonatomic, retain) NSNumber * floatValue;
 @property(nonatomic, assign) NSUInteger fractionDigits;
 
-- (QDecimalElement *)initWithTitle:(NSString *)string value:(float)value;
-- (QDecimalElement *)initWithValue:(float)value;
+- (QDecimalElement *)initWithTitle:(NSString *)string value:(NSNumber *)value;
+- (QDecimalElement *)initWithValue:(NSNumber *)value;
 
 @end
