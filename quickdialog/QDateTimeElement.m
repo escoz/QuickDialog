@@ -52,7 +52,8 @@
 }
 
 - (void)setTicksValue:(NSNumber *)ticks {
-    [self setDateValue:[NSDate dateWithTimeIntervalSince1970:ticks.doubleValue]];
+    if (ticks!=nil)
+        [self setDateValue:[NSDate dateWithTimeIntervalSince1970:ticks.doubleValue]];
 }
 
 -(NSNumber *)ticksValue {
