@@ -84,7 +84,7 @@
 
     if (CGRectEqualToRect(CGRectZero, _entryElement.parentSection.entryPosition)) {
         for (QElement *el in _entryElement.parentSection.elements){
-            if ([el isKindOfClass:[QEntryElement class]]){
+            if ([el isKindOfClass:[QEntryElement class]] || [el isKindOfClass:[QRadioItemElement class]]){
                 QEntryElement *q = (QEntryElement*)el; 
                 CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
