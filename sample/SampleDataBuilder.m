@@ -184,7 +184,7 @@
 	slider.key = @"slider1";
     [controls addElement:slider];
     
-    QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
+    QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:@0.5];
     decimal.key = @"decimal1";
     decimal.fractionDigits = 2;
     [controls addElement:decimal];

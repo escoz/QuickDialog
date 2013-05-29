@@ -266,7 +266,6 @@
     [self endEditing:YES];
     [self endEditing:NO];
     [_textField resignFirstResponder];
-
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryMustReturnForElement:andCell:)]){

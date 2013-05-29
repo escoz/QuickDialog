@@ -48,6 +48,9 @@
 }
 
 -(NSObject *)selectedValue {
+    if (_selected<0 || _selected>=_values.count)
+        return nil;
+
     return [_values objectAtIndex:(NSUInteger) _selected];
 }
 
@@ -87,7 +90,7 @@
 
 
 -(void)setSelectedItem:(id)item {
-    if (self.items==nil)
+    if (self.items==nil || item==nil)
         return;
     self.selected = [self.items indexOfObject:item];
 }

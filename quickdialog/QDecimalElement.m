@@ -26,16 +26,30 @@
 @synthesize fractionDigits = _fractionDigits;
 
 
-- (QDecimalElement *)initWithTitle:(NSString *)title value:(float)value {
+- (QDecimalElement *)initWithTitle:(NSString *)title value:(NSNumber *)value {
     self = [super initWithTitle:title Value:nil] ;
     _floatValue = value;
     return self;
 }
 
+- (void)setFloatValue:(NSNumber *)floatValue {
+    _floatValue = floatValue;
+    if (_floatValue==nil)
+        _floatValue = @0;
+}
 
-- (QDecimalElement *)initWithValue:(float)value {
+- (QDecimalElement *)initWithValue:(NSNumber *)value {
     self = [super init];
     _floatValue = value;
+    return self;
+}
+
+- (QEntryElement *)init {
+    self = [super init];
+    if (self) {
+        _floatValue = @0;
+    }
+
     return self;
 }
 
@@ -56,7 +70,7 @@
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;
-    [obj setValue:[NSNumber numberWithFloat:_floatValue] forKey:_key];
+    [obj setValue:_floatValue forKey:_key];
 }
 
 @end
