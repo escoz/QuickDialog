@@ -84,7 +84,7 @@
 
     if (CGRectEqualToRect(CGRectZero, _entryElement.parentSection.entryPosition)) {
         for (QElement *el in _entryElement.parentSection.elements){
-            if ([el isKindOfClass:[QEntryElement class]] || [el isKindOfClass:[QRadioItemElement class]]){
+            if ([el isKindOfClass:[QEntryElement class]]){
                 QEntryElement *q = (QEntryElement*)el; 
                 CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
@@ -92,6 +92,9 @@
                 CGFloat width = size.width + imageWidth;
                 if (width>titleWidth)
                     titleWidth = width;
+            }
+            if ([el isKindOfClass:[QRadioItemElement class]]) {
+                titleWidth = 200;   //TODO: QRadioItemElement need to be calculate
             }
         }
         _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
