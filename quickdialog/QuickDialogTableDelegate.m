@@ -178,6 +178,7 @@
     if (section.footerView==nil && footer != nil && ![footer isEqualToString:@""] && appearance!=nil && tableView.style == UITableViewStyleGrouped){
         CGSize textSize = [footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height+8)];
+        containerView.tag = 89898;
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
@@ -194,6 +195,10 @@
         label.shadowOffset = CGSizeMake(0, 1);
 
         section.footerView = containerView;
+    } else {
+        if (section.footerView.tag==89898){
+            ((UILabel *)[section.footerView.subviews objectAtIndex:0]).text = section.footer;
+        }
     }
 
 
