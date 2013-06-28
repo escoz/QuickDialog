@@ -93,7 +93,7 @@
     CGFloat stringTitleHeight = 0;
 
     if (section.title != nil) {
-        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width - 20;
+        CGFloat maxWidth = tableView.bounds.size.width - 20;
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
         QAppearance *appearance = ((QuickDialogTableView *)tableView).root.appearance;
