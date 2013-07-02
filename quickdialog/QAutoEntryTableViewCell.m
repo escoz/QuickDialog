@@ -111,13 +111,13 @@
         // change to the text value.  This is because it is an implicit acceptance
         // of the displayed auto-chosen value.
         _entryElement.textValue = _autoCompleteField.text;
-        [self handleEditingChanged];
+        [_entryElement handleEditingChanged];
     }
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textField {
     _entryElement.textValue = _autoCompleteField.text;
-    [self handleEditingChanged];
+    [_entryElement handleEditingChanged];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

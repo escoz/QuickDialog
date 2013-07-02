@@ -59,10 +59,9 @@
 }
 
 - (void)valueChanged:(UISlider *)slider {
-   self.floatValue = slider.value;
+    self.floatValue = slider.value;
 
-    if (self.onValueChanged!=nil)
-        self.onValueChanged(self);
+    [self handleEditingChanged];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
