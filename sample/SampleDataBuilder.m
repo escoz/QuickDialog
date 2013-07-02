@@ -189,10 +189,14 @@
     decimal.fractionDigits = 2;
     [controls addElement:decimal];
 
+    QMultilineElement *multiline = [[QMultilineElement alloc] initWithTitle:@"Multiline" value:@""];
+    multiline.key = @"multiline";
+    [controls addElement:multiline];
+    
     QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" Value:@"70"];
     element2.height = 70;
     [controls addElement:element2];
-
+    
     [controls addElement:[QLoadingElement new]];
 
     QSection *btnSection = [[QSection alloc] init];
@@ -245,8 +249,23 @@
     [root addSection:segmented];
     [root addSection:btnSection];
     [root addSection:btnSection2];
+    
+    for (QSection *section in root.sections) {
+        for (QElement *e in section.elements) {
+            if ([e isKindOfClass:[QEntryElement class]]) {
+                ((QEntryElement *)e).onValueChanged = ^(QRootElement *el){
+                    NSLog(@"Value changed: %@", el);
+                };
+            }
+        }
+    }
     return root;
 }
+
++ (void)QEntryEditingChangedForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    NSLog(@"Editing changed");
+}
+
 
 + (QElement *)createRadioRoot {
     QRootElement *root = [[QRootElement alloc] init];

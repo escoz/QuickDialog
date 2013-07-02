@@ -41,10 +41,10 @@
 
 - (void)handleSegmentedControlValueChanged:(id)control {
     _selected = ((UISegmentedControl *)control).selectedSegmentIndex;
-    if (self.onValueChanged!=nil)
-        self.onValueChanged(self);
 
     [self handleElementSelected:_controller];
+    
+    [self handleEditingChanged];
 }
 
 

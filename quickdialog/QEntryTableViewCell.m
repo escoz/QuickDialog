@@ -165,20 +165,8 @@
 - (void)textFieldEditingChanged:(UITextField *)textFieldEditingChanged {
    _entryElement.textValue = _textField.text;
     
-    [self handleEditingChanged];
+    [_entryElement handleEditingChanged:self];
 }
-
-- (void)handleEditingChanged
-{
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
-        [_entryElement.delegate QEntryEditingChangedForElement:_entryElement andCell:self];
-    }
-    
-    if(_entryElement.onValueChanged) {
-        _entryElement.onValueChanged(_entryElement);
-    }
-}
-
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);

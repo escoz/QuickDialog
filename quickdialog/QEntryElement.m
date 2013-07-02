@@ -91,6 +91,15 @@
     return self.enabled && !self.hidden;
 }
 
+- (void)handleEditingChanged:(QEntryTableViewCell *)cell
+{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
+        [self.delegate QEntryEditingChangedForElement:self andCell:cell];
+    }
+
+    [self handleEditingChanged];
+}
+
 #pragma mark - UITextInputTraits
 
 @synthesize autocorrectionType = _autocorrectionType;

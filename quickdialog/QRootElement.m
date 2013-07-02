@@ -110,6 +110,13 @@
     [controller displayViewControllerForRoot:self];
 }
 
+- (void)handleEditingChanged
+{    
+    if(self.onValueChanged) {
+        self.onValueChanged(self);
+    }
+}
+
 - (void)fetchValueIntoObject:(id)obj {
     for (QSection *s in _sections){
         [s fetchValueIntoObject:obj];
