@@ -51,7 +51,7 @@
     [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits];
     [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits]; 
     QDecimalElement *el = (QDecimalElement *)_entryElement;
-    _textField.text = [_numberFormatter stringFromNumber:el.floatValue];
+    _textField.text = [_numberFormatter stringFromNumber:el.numberValue];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)view {
@@ -72,7 +72,7 @@
     [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits]; 
     [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits];
     float parsedValue = [_numberFormatter numberFromString:result].floatValue;
-    [self decimalElement].floatValue = [NSNumber numberWithFloat:(float) (parsedValue / pow(10, [self decimalElement].fractionDigits))];
+    [self decimalElement].numberValue = [NSNumber numberWithFloat:(float) (parsedValue / pow(10, [self decimalElement].fractionDigits))];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {
