@@ -145,6 +145,7 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"Sample Controls";
+    root.controllerName = @"ExampleViewController";
     QSection *controls = [[QSection alloc] initWithTitle:@"Change something"];
 
     QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" Value:@"element"];
