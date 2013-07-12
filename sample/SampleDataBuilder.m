@@ -24,7 +24,8 @@
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.grouped = YES;
     subForm.title = @"Default Initialization";
-	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
+	subForm.controllerName = @"ExampleViewController";
+    QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] init]];
@@ -49,6 +50,7 @@
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.grouped = YES;
     subForm.title = @"Initialization With Key";
+    subForm.controllerName = @"ExampleViewController";
 	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     [subForm addSection:subsection];
 	
@@ -71,6 +73,7 @@
 + (QElement *)reallyLongList {
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.title = @"Really long list";
+    subForm.controllerName = @"ExampleViewController";
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     for (int i = 0; i<1000; i++){
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
@@ -90,6 +93,7 @@
     QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     subForm.grouped = YES;
     subForm.title = @"Subform";
+    subForm.controllerName = @"ExampleViewController";
 
     [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" Value:@"Some value"]];
     QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" Value:nil Placeholder:@"type here"];
@@ -130,6 +134,7 @@
     QRootElement *sliders = [[QRootElement alloc] init];
     sliders.grouped = YES;
     sliders.title = @"Sliders";
+    sliders.controllerName = @"ExampleViewController";
     QSection *detailsSection = [[QSection alloc] initWithTitle:@"Slide left and right"];
 
     [sliders addSection:detailsSection];
@@ -270,6 +275,7 @@
 
 + (QElement *)createRadioRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Radio";
     root.grouped = YES;
 
@@ -294,6 +300,7 @@
 + (QElement *)createPickerRoot
 {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Picker";
     root.grouped = YES;
 
@@ -333,6 +340,7 @@
 + (QElement *)createSelectRoot
 {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Select";
     root.grouped = YES;
     
@@ -356,6 +364,7 @@
 
 + (QRootElement *)createWebAndMapRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Web and map";
 
     QWebElement *element1 = [[QWebElement alloc] initWithTitle:@"ESCOZ Inc" url:@"http://escoz.com"];
@@ -374,6 +383,7 @@
 
 + (QRootElement *)createTextRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Text";
 
     QTextElement *element1 = [[QTextElement alloc] initWithText:
@@ -401,6 +411,7 @@
 
 + (QRootElement *)createLabelsRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Labels";
     root.grouped = YES;
     QSection *s1 = [[QSection alloc] initWithTitle:@"LabelElement"];
@@ -468,6 +479,7 @@
 
 + (QRootElement *)createEntryRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Entry";
     root.grouped = YES;
     
@@ -546,6 +558,7 @@
 + (QRootElement *)createSortingRoot {
 
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Sorting";
     root.grouped = YES;
 
@@ -585,6 +598,7 @@
 
 + (QRootElement *)createDateTimeRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Date Time";
     root.grouped = YES;
 
@@ -632,6 +646,7 @@
 
 + (QElement *)createDynamicSectionRoot {
     QRootElement *const root = [[QRootElement alloc] init ];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Dynamic Data Sections";
     root.grouped = YES;
 
@@ -675,6 +690,7 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"QuickDialog!";
+    root.controllerName = @"ExampleViewController";
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
