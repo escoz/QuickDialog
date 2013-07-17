@@ -51,7 +51,7 @@
     [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits];
     [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits]; 
     QDecimalElement *el = (QDecimalElement *)_entryElement;
-    _textField.text = [_numberFormatter stringFromNumber:[NSNumber numberWithFloat:el.floatValue]];
+    _textField.text = [_numberFormatter stringFromNumber:el.numberValue];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)view {
@@ -80,7 +80,8 @@
     }
     if (neg)
         f = -f;
-    [self decimalElement].floatValue = f / pow(10,[self decimalElement].fractionDigits);
+    float parsedValue = f / pow(10,[self decimalElement].fractionDigits);
+    [self decimalElement].numberValue = [NSNumber numberWithFloat:(float) (parsedValue / pow(10, [self decimalElement].fractionDigits))];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {
@@ -88,9 +89,7 @@
     [self updateElementFromTextField:newValue];
     [self updateTextFieldFromElement];
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRangeForElement:andCell:)]){
-        [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:_entryElement andCell:self];
-    }
+    [_entryElement handleEditingChanged:self];
 
     return NO;
 }

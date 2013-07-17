@@ -32,11 +32,11 @@
 {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
-    cell.accessoryType =
-        [_selectSection.selectedIndexes containsObject:[NSNumber numberWithUnsignedInteger:_index]]
-            ? UITableViewCellAccessoryCheckmark
-            : UITableViewCellAccessoryNone;
-    
+    if ([_selectSection.selectedIndexes containsObject:[NSNumber numberWithUnsignedInteger:_index]] ) {
+        [self updateCell:cell];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 
@@ -46,7 +46,7 @@
     
     NSNumber *numberIndex = [NSNumber numberWithUnsignedInteger:_index];
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    
+
     if (_selectSection.multipleAllowed)
     {
         if ([_selectSection.selectedIndexes containsObject:numberIndex]) {
@@ -63,9 +63,7 @@
             }
             [_selectSection.selectedIndexes addObject:numberIndex];
         }
-    }
-    else
-    {
+    }  else {
         if (![_selectSection.selectedIndexes containsObject:numberIndex])
         {
             NSNumber *oldCellRowNumber = [_selectSection.selectedIndexes count] > 0 ? [_selectSection.selectedIndexes objectAtIndex:0] : nil;
@@ -80,16 +78,15 @@
                 [_selectSection.selectedIndexes removeObject:oldCellRowNumber];
                 [oldCell setNeedsDisplay];
             }
-            if (self.checkmarkImage==nil){
-                selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
-                selectedCell.accessoryView = nil;
-            } else {
-                selectedCell.accessoryType = UITableViewCellAccessoryNone;
-                UIImageView *view = [[UIImageView alloc] initWithImage:_checkmarkImage];
-                [view sizeToFit];
-                selectedCell.accessoryView = view;
-            }
+            [self updateCell:selectedCell];
             [_selectSection.selectedIndexes addObject:numberIndex];
+        } else {
+            if (_selectSection.deselectAllowed) {
+                [_selectSection.selectedIndexes removeObject:numberIndex];
+                selectedCell.accessoryType = UITableViewCellAccessoryNone;
+                selectedCell.accessoryView = nil;
+            }
+
         }
     }
 
@@ -98,6 +95,18 @@
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)updateCell:(UITableViewCell *)selectedCell {
+    if (self.checkmarkImage ==nil){
+        selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        selectedCell.accessoryView = nil;
+    } else {
+        selectedCell.accessoryType = UITableViewCellAccessoryNone;
+        UIImageView *view = [[UIImageView alloc] initWithImage:_checkmarkImage];
+        [view sizeToFit];
+        selectedCell.accessoryView = view;
+    }
 }
 
 @end

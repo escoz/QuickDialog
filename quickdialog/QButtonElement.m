@@ -39,10 +39,9 @@
     }
     [cell applyAppearanceForElement:self];
     cell.textLabel.text = _title;
-    cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.textAlignment = self.appearance.buttonAlignment;
     cell.textLabel.font = self.appearance.labelFont;
     cell.textLabel.textColor = self.enabled ? self.appearance.actionColorEnabled : self.appearance.actionColorDisabled;
-    cell.userInteractionEnabled = self.enabled;
     return cell;
 }
 

@@ -117,7 +117,6 @@
     [subsection3 addElement:bool2];
 
     QTextElement *element2 = [[QTextElement alloc] initWithText:@"You get all kinds of notifications on your iOS device: new email, texts, friend requests, and more. With Notification Center, you can keep track of them all in one convenient location. Just swipe down from the top of any screen to enter Notification Center. Choose which notifications you want to see. Even see a stock ticker and the current weather. New notifications appear briefly at the top of your screen, without interrupting what you’re doing. And the Lock screen displays notifications so you can act on them with just a swipe. Notification Center is the best way to stay on top of your life’s breaking news."];
-    element2.font = [UIFont boldSystemFontOfSize:12];
     QSection *subsection4 = [[QSection alloc] init];
     [subsection4 addElement:element2];
 
@@ -177,7 +176,7 @@
     [controls addElement:autoElement];
 	
     [controls addElement:boolElement];
-	QDateTimeInlineElement *dateElement = [[QDateTimeInlineElement alloc] initWithTitle:@"DateTime" date:[NSDate date]];
+	QDateTimeInlineElement *dateElement = [[QDateTimeInlineElement alloc] initWithTitle:@"DateTime" date:[NSDate date] andMode:UIDatePickerModeDateAndTime];
 	dateElement.key = @"date1";
     [controls addElement:dateElement];
 
@@ -185,28 +184,32 @@
 	slider.key = @"slider1";
     [controls addElement:slider];
     
-    QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:0.5];
+    QDecimalElement *decimal = [[QDecimalElement alloc] initWithTitle:@"Decimal Element" value:@0.5];
     decimal.key = @"decimal1";
     decimal.fractionDigits = 2;
     [controls addElement:decimal];
 
+    QMultilineElement *multiline = [[QMultilineElement alloc] initWithTitle:@"Multiline" value:@""];
+    multiline.key = @"multiline";
+    [controls addElement:multiline];
+    
     QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" Value:@"70"];
     element2.height = 70;
     [controls addElement:element2];
-
+    
     [controls addElement:[QLoadingElement new]];
 
     QSection *btnSection = [[QSection alloc] init];
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
 	button.onSelected = ^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
-            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%f\n6:%f\n7:%@",
+            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%f\n6:%@\n7:%@",
                 radioElement.selected ,
                 entryElement.textValue,
                 boolElement.boolValue,
                 dateElement.dateValue ,
                 slider.floatValue,
-                decimal.floatValue,
+                decimal.numberValue,
                                     autoElement.textValue]
            delegate:self 
            cancelButtonTitle:@"OK" 
@@ -246,8 +249,23 @@
     [root addSection:segmented];
     [root addSection:btnSection];
     [root addSection:btnSection2];
+    
+    for (QSection *section in root.sections) {
+        for (QElement *e in section.elements) {
+            if ([e isKindOfClass:[QEntryElement class]]) {
+                ((QEntryElement *)e).onValueChanged = ^(QRootElement *el){
+                    NSLog(@"Value changed: %@", el);
+                };
+            }
+        }
+    }
     return root;
 }
+
++ (void)QEntryEditingChangedForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    NSLog(@"Editing changed");
+}
+
 
 + (QElement *)createRadioRoot {
     QRootElement *root = [[QRootElement alloc] init];
@@ -368,10 +386,8 @@
             "Good-bye\""];
 
     QTextElement *element2 = [[QTextElement alloc] initWithText:@"You get all kinds of notifications on your iOS device: new email, texts, friend requests, and more. With Notification Center, you can keep track of them all in one convenient location. Just swipe down from the top of any screen to enter Notification Center. Choose which notifications you want to see. Even see a stock ticker and the current weather. New notifications appear briefly at the top of your screen, without interrupting what you’re doing. And the Lock screen displays notifications so you can act on them with just a swipe. Notification Center is the best way to stay on top of your life’s breaking news."];
-    element2.font = [UIFont boldSystemFontOfSize:12];
 
     QTextElement *element3 = [[QTextElement alloc] initWithText:@"Quicklytics App!"];
-    element3.font = [UIFont fontWithName:@"Cochin-BoldItalic" size:24];
     element3.color = [UIColor blueColor];
 
     QSection *section1 = [[QSection alloc] init];
@@ -574,20 +590,23 @@
     QSection *section = [[QSection alloc] init];
     section.title = @"Inline editing";
 
-    QDateTimeInlineElement *el2 = [[QDateTimeInlineElement alloc] initWithTitle:@"Today" date:[NSDate date]];
+    QDateTimeInlineElement *el2 = [[QDateTimeInlineElement alloc] initWithTitle:@"Today" date:[NSDate date] andMode:UIDatePickerModeDate];
     [section addElement:el2];
 
-    QDateTimeInlineElement *el3 = [[QDateTimeInlineElement alloc] initWithTitle:@"Date only" date:[NSDate date]];
-    el3.mode = UIDatePickerModeDate;
+    QDateTimeInlineElement *el3 = [[QDateTimeInlineElement alloc] initWithTitle:@"Date only" date:[NSDate date] andMode:UIDatePickerModeDate];
     [section addElement:el3];
 
-    QDateTimeInlineElement *el4 = [[QDateTimeInlineElement alloc] initWithTitle:@"Time only" date:[NSDate date]];
-    el4.mode = UIDatePickerModeTime;
+    QDateTimeInlineElement *el4 = [[QDateTimeInlineElement alloc] initWithTitle:@"Time only" date:[NSDate date] andMode:UIDatePickerModeTime];
     [section addElement:el4];
 
     QDateTimeInlineElement *elDiffTime = [[QDateTimeInlineElement alloc] initWithTitle:@"Different date" date:
-            [NSDate dateWithTimeIntervalSinceNow:-36000]];
+            [NSDate dateWithTimeIntervalSinceNow:-36000] andMode:UIDatePickerModeDate];
     [section addElement:elDiffTime];
+    
+    QCountdownElement *countDown = [[QCountdownElement alloc] init];
+    countDown.title = @"Countdown";
+    countDown.ticksValue = [NSNumber numberWithDouble: 9780.0]; // 2Hr 43Min
+    [section addElement:countDown];    
 
     QSection *section2 = [[QSection alloc] init];
     section2.title = @"Push editing";

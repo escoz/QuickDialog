@@ -74,6 +74,14 @@
     [self presentImagePicker:tableView controller:controller path:path];
 }
 
+- (void)fetchValueIntoObject:(id)obj
+{
+	if (_key == nil) {
+		return;
+	}
+	[obj setValue:self.imageValue forKey:_key];
+}
+
 - (void)presentImagePicker:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller path:(NSIndexPath *)path {
     if ([UIImagePickerController isSourceTypeAvailable:_source]) {
         self.imagePickerController.sourceType = _source;

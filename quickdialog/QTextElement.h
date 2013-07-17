@@ -21,14 +21,10 @@
 
 @protected
     NSString *_text;
-    UIFont *_font;
     UIColor *_color;
 }
 
 @property(nonatomic, strong) NSString *text;
-@property(nonatomic, strong) UIFont *font;
-
-
 @property(nonatomic, retain) UIColor *color;
 
 - (QTextElement *)initWithText:(NSString *)string;

@@ -114,6 +114,11 @@
 
 }
 
+- (BOOL)disablesAutomaticKeyboardDismissal
+{
+    return NO;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     _viewOnScreen = NO;
     [super viewWillDisappear:animated];

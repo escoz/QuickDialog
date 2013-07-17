@@ -44,24 +44,26 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     self.selected = NO;
     [_pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     _pickerView = nil;
-
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
 
     _pickerView = [QDateEntryTableViewCell getPickerForDate];
+    _pickerView.timeZone = [NSTimeZone localTimeZone];
     [_pickerView sizeToFit];
-    _textField.inputView = _pickerView;
     [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     _pickerView.datePickerMode = element.mode;
     _pickerView.maximumDate = element.maximumDate;
     _pickerView.minimumDate = element.minimumDate;
     _pickerView.minuteInterval = element.minuteInterval;
-    
-    if (element.dateValue!=nil)
-        _pickerView.date = element.dateValue;
 
+    if (element.mode != UIDatePickerModeCountDownTimer && element.dateValue != nil)
+        _pickerView.date = element.dateValue;
+    else if (element.mode == UIDatePickerModeCountDownTimer && element.ticksValue != nil)
+        _pickerView.countDownDuration = [element.ticksValue doubleValue];
+
+    _textField.inputView = _pickerView;
     [super textFieldDidBeginEditing:textField];
     self.selected = YES;
 }
@@ -88,9 +90,8 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
         element.dateValue = _pickerView.date;
     }
     [self prepareForElement:_entryElement inTableView:_quickformTableView];
-    if (element.onValueChanged!=nil)
-        element.onValueChanged(_entryElement);
-
+    
+    [element handleEditingChanged:self];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {

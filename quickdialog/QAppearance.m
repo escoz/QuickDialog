@@ -2,11 +2,13 @@
 @implementation QAppearance {
 
 }
+
 @synthesize sectionTitleFont = _sectionTitleFont;
 @synthesize sectionTitleColor = _sectionTitleColor;
 @synthesize sectionFooterFont = _sectionFooterFont;
 @synthesize sectionFooterColor = _sectionFooterColor;
 @synthesize entryAlignment = _entryAlignment;
+@synthesize buttonAlignment = _buttonAlignment;
 @synthesize selectedBackgroundView = _selectedBackgroundView;
 @synthesize sectionTitleShadowColor = _sectionTitleShadowColor;
 
@@ -45,6 +47,8 @@
     _entryAlignment = NSTextAlignmentLeft;
     _entryFont = [UIFont systemFontOfSize:15];
 
+    _buttonAlignment = NSTextAlignmentCenter;
+
     _valueColorEnabled = [UIColor colorWithRed:0.1653 green:0.2532 blue:0.4543 alpha:1.0000];
     _valueColorDisabled = [UIColor lightGrayColor];
     _valueFont = [UIFont systemFontOfSize:15];
@@ -72,6 +76,8 @@
         copy.entryTextColorEnabled = _entryTextColorEnabled;
         copy.entryAlignment = _entryAlignment;
         copy.entryFont = _entryFont;
+
+        copy.buttonAlignment = _buttonAlignment;
 
         copy.valueColorEnabled = _valueColorEnabled;
         copy.valueColorDisabled = _valueColorDisabled;

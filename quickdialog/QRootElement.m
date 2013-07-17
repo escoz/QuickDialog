@@ -102,10 +102,9 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     if (_title!= nil)
-        cell.textLabel.text = _title;
+        cell.textLabel.text = [NSString stringWithFormat:@"%@", _title];
     return cell;
 }
 
@@ -116,6 +115,13 @@
             return;
 
     [controller displayViewControllerForRoot:self];
+}
+
+- (void)handleEditingChanged
+{    
+    if(self.onValueChanged) {
+        self.onValueChanged(self);
+    }
 }
 
 - (void)fetchValueIntoObject:(id)obj {

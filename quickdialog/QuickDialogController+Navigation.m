@@ -4,8 +4,6 @@
 
 @implementation QuickDialogController(Navigation)
 
-
-
 - (void)displayViewController:(UIViewController *)newController {
     if ([newController isKindOfClass:[UINavigationController class]]) {
         [self presentViewController:newController animated:YES completion:nil];
@@ -17,33 +15,33 @@
     }
 }
 
-- (void)displayViewControllerForRoot:(QRootElement *)root {
-    QuickDialogController *newController = [self controllerForRoot: root];
-    [self displayViewController: newController withPresentationMode:root.presentationMode];
-}
-
-- (void)displayViewController: (UIViewController*) newController withPresentationMode:(QPresentationMode)presentationMode
+- (void)displayViewController: (UIViewController*) newController withPresentationMode:(QPresentationMode)mode
 {
-    if (presentationMode==QPresentationModeNormal) {
+    if (mode==QPresentationModeNormal) {
         [self displayViewController:newController];
-    } else if (presentationMode == QPresentationModePopover || presentationMode == QPresentationModeNavigationInPopover) {
-        [self displayViewControllerInPopover:newController withNavigation:presentationMode==QPresentationModeNavigationInPopover];
-    } else if (presentationMode == QPresentationModeModalForm) {
+    } else if (mode == QPresentationModePopover || mode == QPresentationModeNavigationInPopover) {
+        [self displayViewControllerInPopover:newController withNavigation:mode==QPresentationModeNavigationInPopover];
+    } else if (mode == QPresentationModeModalForm) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
-        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentViewController:navigation animated:YES completion:nil];
-    }  else if (presentationMode == QPresentationModeModalFullScreen) {
+    }  else if (mode == QPresentationModeModalFullScreen) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
-        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:navigation animated:YES completion:nil];
-    }  else if (presentationMode == QPresentationModeModalPage) {
+    }  else if (mode == QPresentationModeModalPage) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
-        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleDone target:self action:@selector(dismissModalViewController)];
+        newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationPageSheet;
         [self presentViewController:navigation animated:YES completion:nil];
     }
+}
+
+- (void)displayViewControllerForRoot:(QRootElement *)root {
+    QuickDialogController *newController = [self controllerForRoot: root];
+    [self displayViewController:newController withPresentationMode:root.presentationMode];
 }
 
 - (void)dismissModalViewController {
@@ -73,8 +71,10 @@
 
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation {
 
-    CGRect position = [self.quickDialogTableView rectForRowAtIndexPath:self.quickDialogTableView.indexPathForSelectedRow];
-    [self displayViewControllerInPopover:newController withNavigation:navigation fromRect:position];
+    CGRect frame = [self.quickDialogTableView rectForRowAtIndexPath:self.quickDialogTableView.indexPathForSelectedRow];
+    CGPoint yOffset = self.quickDialogTableView.contentOffset;
+
+    [self displayViewControllerInPopover:newController withNavigation:navigation fromRect:CGRectMake(frame.origin.x, (frame.origin.y - yOffset.y), frame.size.width, frame.size.height)];
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {

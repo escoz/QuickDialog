@@ -37,9 +37,8 @@
 @property(nonatomic, strong) NSDate *minimumDate;
 
 
-- (QDateTimeInlineElement *)initWithDate:(NSDate *)date;
+- (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode;
 
-- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date;
-
+- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode;
 
 @end

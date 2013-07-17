@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 #import "QLabelElement.h"
+#import "QEntryTableViewCell.h"
 
 @protocol QuickDialogEntryElementDelegate;
 
@@ -49,5 +50,7 @@
 - (BOOL)canTakeFocus;
 
 - (void) fieldDidEndEditing;
+
+- (void)handleEditingChanged:(QEntryTableViewCell *)cell;
 
 @end

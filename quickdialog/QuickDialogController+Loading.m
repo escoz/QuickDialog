@@ -46,8 +46,10 @@
     loadingView.frame = CGRectMake(self.quickDialogTableView.contentOffset.x, self.quickDialogTableView.contentOffset.y, self.quickDialogTableView.bounds.size.width, self.quickDialogTableView.bounds.size.height);
     self.quickDialogTableView.userInteractionEnabled = !visible;
 
-    if (visible)
+    if (visible) {
         loadingView.hidden = NO;
+        [self.view bringSubviewToFront:loadingView];
+    }
 
     loadingView.alpha = visible ? 0 : 1;
     [UIView animateWithDuration:0.3

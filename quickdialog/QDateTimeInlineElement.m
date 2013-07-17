@@ -46,18 +46,19 @@
     return self;
 }
 
-- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date {
+- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode{
     self = [super initWithTitle:string Value:[date description]];
     if (self!=nil){
         _dateValue = date;
-        _mode = UIDatePickerModeDateAndTime;
+        _mode = mode;
     }
     return self;
 }
 
 
 - (void)setTicksValue:(NSNumber *)ticks {
-    self.dateValue = [NSDate dateWithTimeIntervalSince1970:ticks.doubleValue];
+    if (ticks!=nil)
+        self.dateValue = [NSDate dateWithTimeIntervalSince1970:ticks.doubleValue];
 }
 
 - (void)setDateValue:(NSDate *)date {
@@ -68,8 +69,8 @@
     return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
 }
 
-- (QDateTimeInlineElement *)initWithDate:(NSDate *)date {
-    return [self initWithTitle:nil date:date];
+- (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode{
+    return [self initWithTitle:nil date:date andMode:mode];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {

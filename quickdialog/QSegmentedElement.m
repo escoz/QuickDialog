@@ -40,15 +40,14 @@
 }
 
 - (void)handleSegmentedControlValueChanged:(id)control {
-    _selected = ((UISegmentedControl *)control).selectedSegmentIndex - 1;
-    if (self.onValueChanged!=nil)
-        self.onValueChanged(self);
+    _selected = ((UISegmentedControl *)control).selectedSegmentIndex;
 
     [self handleElementSelected:_controller];
+    
+    [self handleEditingChanged];
 }
 
 /*
- 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     _controller = controller;
     QTableViewCell *cell = [[QTableViewCell alloc] init];
@@ -56,9 +55,8 @@
     cell.backgroundColor = [UIColor clearColor];
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
     [control addTarget:self action:@selector(handleSegmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
-    const BOOL isPhone = [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone;
-    control.frame = CGRectMake(isPhone ? 9 : 30, 0, isPhone ? 302 : 260, self.height);
-    control.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    control.frame = cell.contentView.bounds;
+    control.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
     control.tag = 4321;
@@ -105,6 +103,7 @@
     control.userInteractionEnabled = self.enabled;
 
     [container addSubview:control];
+
     return cell;
 }
 
