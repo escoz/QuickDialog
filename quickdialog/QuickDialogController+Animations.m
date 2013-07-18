@@ -9,32 +9,32 @@
 {
     va_list args;
     va_start(args, element);
-    [self hideElementsWithInsertAnimation:animation removeAnimation:animation elements:element args:args];
+    [self hideElementsWithInsertAnimation:animation removeAnimation:animation element:element args:args];
     va_end(args);
 }
 - (void) hideSectionsWithAnimation:(UITableViewRowAnimation)animation section:(QSection*)section,...
 {
     va_list args;
     va_start(args, section);
-    [self hideSectionsWithInsertAnimation:animation removeAnimation:animation sections:section args:args];
+    [self hideSectionsWithInsertAnimation:animation removeAnimation:animation section:section args:args];
     va_end(args);
 }
-- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elements:(QElement*)element,...
+- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation element:(QElement*)element,...
 {
     va_list args;
     va_start(args, element);
-    [self hideElementsWithInsertAnimation:insertAnimation removeAnimation:removeAnimation elements:element args:args];
+    [self hideElementsWithInsertAnimation:insertAnimation removeAnimation:removeAnimation element:element args:args];
     va_end(args);
 }
-- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sections:(QSection*)section,...
+- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation section:(QSection*)section,...
 {
     va_list args;
     va_start(args, section);
-    [self hideSectionsWithInsertAnimation:insertAnimation removeAnimation:removeAnimation sections:section args:args];
+    [self hideSectionsWithInsertAnimation:insertAnimation removeAnimation:removeAnimation section:section args:args];
     va_end(args);
 }
 
-- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation elements:(QElement*)element args:(va_list)args
+- (void) hideElementsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation element:(QElement*)element args:(va_list)args
 {
     NSMutableArray * idx = [NSMutableArray new];
     NSMutableArray * del = [NSMutableArray new];
@@ -75,7 +75,7 @@
     [self.quickDialogTableView endUpdates];
 }
 
-- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sections:(QSection *)section args:(va_list)args
+- (void) hideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation section:(QSection *)section args:(va_list)args
 {
     NSMutableIndexSet * idx = [NSMutableIndexSet new];
     NSMutableArray * del = [NSMutableArray new];

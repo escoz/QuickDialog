@@ -54,6 +54,6 @@
 
 - (void)recalculateEntryFieldPosition;
 
-- (void)handleEditingChanged;
+//- (void)handleEditingChanged;
 
 @end

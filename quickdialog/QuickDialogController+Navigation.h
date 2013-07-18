@@ -10,8 +10,6 @@
 
 - (void)displayViewControllerForRoot:(QRootElement *)element;
 
-- (void)displayViewController: (UIViewController*) newController withPresentationMode:(QPresentationMode)presentationMode;
-
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation fromRect:(CGRect)position;
 
 - (void)displayViewControllerInPopover:(UIViewController *)newController withNavigation:(BOOL)navigation;

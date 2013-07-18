@@ -25,13 +25,6 @@
 @synthesize numberValue = _numberValue;
 @synthesize fractionDigits = _fractionDigits;
 
-- (QDecimalElement *)init
-{
-    self = [super init];
-    self.keyboardType = UIKeyboardTypeNumberPad;
-    return self;
-}
-
 - (QDecimalElement *)initWithTitle:(NSString *)title value:(NSNumber *)value {
     self = [super initWithTitle:title Value:nil] ;
     _numberValue = value;
@@ -54,6 +47,7 @@
     self = [super init];
     if (self) {
         _numberValue = @0;
+        self.keyboardType = UIKeyboardTypeNumberPad;
     }
 
     return self;
