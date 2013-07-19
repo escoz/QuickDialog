@@ -47,6 +47,7 @@
 -(NSObject *)selectedValue {
     if (_selected<0 || _selected>=_values.count)
         return nil;
+    
     return [_values objectAtIndex:(NSUInteger) _selected];
 }
 

@@ -9,6 +9,9 @@
 - (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation element:(QElement*)element,... NS_REQUIRES_NIL_TERMINATION;
 - (void) hideSectionsWithAnimation:(UITableViewRowAnimation)animation section:(QSection*)section,... NS_REQUIRES_NIL_TERMINATION;
 
+
+
+
 - (void)switchElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray *)elements;
 
 - (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray*)elements;

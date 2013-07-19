@@ -115,6 +115,14 @@
     [self.quickDialogTableView endUpdates];
 }
 
+
+
+
+
+
+
+
+
 - (void) switchElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray*)elements
 {
     NSMutableArray *in= [NSMutableArray new];
@@ -126,8 +134,8 @@
             [out addObject:el];
     }
     [self showHideElementsWithInsertAnimation:animation removeAnimation:animation elementsToInsert:in elementsToRemove:out];
-
 }
+
 - (void) hideElementsWithAnimation:(UITableViewRowAnimation)animation elements:(NSArray*)elements
 {
     [self showHideElementsWithInsertAnimation:animation removeAnimation:animation elementsToInsert:nil elementsToRemove:elements];
@@ -172,7 +180,6 @@
     [self.quickDialogTableView insertRowsAtIndexPaths:idx withRowAnimation:insertAnimation];
     [self.quickDialogTableView endUpdates];
 }
-
 - (void) showHideSectionsWithInsertAnimation:(UITableViewRowAnimation)insertAnimation removeAnimation:(UITableViewRowAnimation)removeAnimation sectionsToInsert:(NSArray*)ins sectionsToRemove:(NSArray*)del
 {
     NSMutableIndexSet * idx = [NSMutableIndexSet new];
@@ -200,5 +207,6 @@
     [self.quickDialogTableView insertSections:idx withRowAnimation:insertAnimation];
     [self.quickDialogTableView endUpdates];
 }
+
 
 @end

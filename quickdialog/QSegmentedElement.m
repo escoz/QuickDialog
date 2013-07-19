@@ -40,7 +40,7 @@
 }
 
 - (void)handleSegmentedControlValueChanged:(id)control {
-    _selected = ((UISegmentedControl *)control).selectedSegmentIndex;
+    _selected = ((UISegmentedControl *)control).selectedSegmentIndex - 1;
 
     [self handleElementSelected:_controller];
     
@@ -64,7 +64,6 @@
     [cell addSubview:control];
     return cell;
 }
-
 */
 
 // heavily modified to clip the round borders of the segmented control with extra elements of defined size
@@ -103,7 +102,6 @@
     control.userInteractionEnabled = self.enabled;
 
     [container addSubview:control];
-
     return cell;
 }
 
