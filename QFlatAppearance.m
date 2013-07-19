@@ -57,14 +57,6 @@
     return nil;
 }
 
-- (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index1 {
-    return -1;
-}
-
-- (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(__unsafe_unretained QuickDialogTableView *)view andIndex:(NSInteger)index1 {
-    return -1;
-}
-
 - (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path {
     [super cell:cell willAppearForElement:element atIndexPath:path];
 }

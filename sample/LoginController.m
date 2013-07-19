@@ -28,9 +28,19 @@
     self = [super initWithRoot:rootElement];
     if (self) {
         self.root.appearance = [self.root.appearance copy];
-        self.root.appearance.backgroundColorEnabled = [UIColor colorWithRed:0.9582 green:0.9104 blue:0.7991 alpha:1.0000];
-
+        self.root.appearance.tableGroupedBackgroundColor =   [UIColor colorWithRed:0.8738 green:0.6740 blue:0.3097 alpha:1.0000];
         ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
+
+        QAppearance *fieldsAppearance = [self.root.appearance copy];
+
+        fieldsAppearance.backgroundColorEnabled = [UIColor colorWithRed:0.9582 green:0.9104 blue:0.7991 alpha:1.0000];
+        [self.root elementWithKey:@"login"].appearance = fieldsAppearance;
+        [self.root elementWithKey:@"password"].appearance = fieldsAppearance;
+
+        [self.root elementWithKey:@"button"].appearance = self.root.appearance.copy;
+
+        [self.root elementWithKey:@"button"].appearance.backgroundColorEnabled = [UIColor greenColor];
+
     }
 
     return self;
