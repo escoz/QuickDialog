@@ -25,6 +25,9 @@
 #import "QElement.h"
 
 #import "QAppearance.h"
+
+#import "QAppearance.h"
+#import "QFlatAppearance.h"
 #import "QElement+Appearance.h"
 
 #import "QTableViewCell.h"

@@ -32,4 +32,13 @@
 @property(nonatomic, strong) UIView *selectedBackgroundView;
 @property(nonatomic, strong) UIColor *sectionTitleShadowColor;
 
+- (void)setDefaults;
+
+- (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1;
+
+- (UIView *)buildFooterForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index;
+
+- (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index1;
+
+- (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(__unsafe_unretained QuickDialogTableView *)view andIndex:(NSInteger)index;
 @end

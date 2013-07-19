@@ -1,6 +1,6 @@
 #import <objc/runtime.h>
 #import "QElement+Appearance.h"
-#import "QAppearance.h"
+#import "QClassicAppearance.h"
 
 
 static void * const KEY_APPEARANCE_OBJECT = (void*)&KEY_APPEARANCE_OBJECT;
@@ -14,7 +14,7 @@ static void * const KEY_APPEARANCE_OBJECT = (void*)&KEY_APPEARANCE_OBJECT;
         appearance = [[self class].superclass appearance];
     }
     if (appearance==nil) {
-        appearance = [QAppearance new];
+        appearance = [UIView respondsToSelector:@selector(performWithoutAnimation:)] ? [QFlatAppearance new] : [QClassicAppearance new];
         [self setAppearance:appearance];
     }
     return appearance;
