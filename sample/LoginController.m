@@ -38,9 +38,7 @@
         [self.root elementWithKey:@"password"].appearance = fieldsAppearance;
 
         [self.root elementWithKey:@"button"].appearance = self.root.appearance.copy;
-
         [self.root elementWithKey:@"button"].appearance.backgroundColorEnabled = [UIColor greenColor];
-
     }
 
     return self;
