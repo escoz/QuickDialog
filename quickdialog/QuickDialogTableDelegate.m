@@ -88,7 +88,7 @@
         return section.headerView;
 
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
-    return [appearance buildHeaderForSection:section andTableView:tableView andIndex:index];
+    return [appearance buildHeaderForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
@@ -97,7 +97,7 @@
         return nil;
 
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
-    return [appearance buildFooterForSection:section andTableView:tableView andIndex:index];
+    return [appearance buildFooterForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];
 
 }
 

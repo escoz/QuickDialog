@@ -38,13 +38,13 @@
 
 - (void)setDefaults;
 
-- (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1;
+- (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index;
 
-- (UIView *)buildFooterForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index;
+- (UIView *)buildFooterForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index;
 
-- (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index1;
+- (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index;
 
-- (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(__unsafe_unretained QuickDialogTableView *)view andIndex:(NSInteger)index;
+- (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index;
 
 - (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path;
 @end
