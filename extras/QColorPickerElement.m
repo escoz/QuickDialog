@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 Quickfire Software. All rights reserved.
 //
 
+#import "QColorPickerElement.h"
+#import "UIColor+ColorUtilities.h"
+
 @implementation QColorPickerElement {
     QSection *_internalRadioItemsSection;
 }

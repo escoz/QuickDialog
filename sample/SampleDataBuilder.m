@@ -16,6 +16,8 @@
 #import "SampleDataBuilder.h"
 #import "QDynamicDataSection.h"
 #import "PeriodPickerValueParser.h"
+#import "QMapElement.h"
+#import "QWebElement.h"
 
 @implementation SampleDataBuilder
 

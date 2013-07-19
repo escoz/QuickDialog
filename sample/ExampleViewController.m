@@ -13,6 +13,7 @@
 //
 
 #import "ExampleViewController.h"
+#import "QWebElement.h"
 
 @implementation ExampleViewController
 
