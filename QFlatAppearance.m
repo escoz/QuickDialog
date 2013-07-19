@@ -36,7 +36,7 @@
     self.entryTextColorDisabled = [UIColor lightGrayColor];
     self.entryTextColorEnabled = [UIColor blackColor];
     self.entryAlignment = NSTextAlignmentLeft;
-    self.entryFont = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    self.entryFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
 
     self.buttonAlignment = NSTextAlignmentLeft;
 
