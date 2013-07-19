@@ -27,9 +27,7 @@
 
 -(UIToolbar *)createActionBar {
     UIToolbar *actionBar = [[UIToolbar alloc] init];
-    actionBar.translucent = YES;
     [actionBar sizeToFit];
-    actionBar.barStyle = UIBarStyleBlackTranslucent;
 
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
                                                                    style:UIBarButtonItemStyleDone target:self
@@ -135,8 +133,12 @@
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
     } else {
-        _textField.inputAccessoryView = [self createActionBar];
+        UIToolbar *toolbar = [self createActionBar];
+        toolbar.barStyle = element.appearance.toolbarStyle;
+        toolbar.translucent = element.appearance.toolbarTranslucent;
+        _textField.inputAccessoryView = toolbar;
     }
+    
 
     [self updatePrevNextStatus];
 

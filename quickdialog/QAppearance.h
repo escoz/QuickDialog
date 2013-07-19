@@ -32,6 +32,10 @@
 @property(nonatomic, strong) UIView *selectedBackgroundView;
 @property(nonatomic, strong) UIColor *sectionTitleShadowColor;
 
+@property(nonatomic) UIBarStyle toolbarStyle;
+
+@property(nonatomic) BOOL toolbarTranslucent;
+
 - (void)setDefaults;
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1;

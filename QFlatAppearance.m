@@ -44,6 +44,9 @@
     self.valueColorDisabled = [UIColor lightGrayColor];
     self.valueFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.valueAlignment = NSTextAlignmentRight;
+
+    self.toolbarStyle = UIBarStyleDefault;
+    self.toolbarTranslucent = YES;
 }
 
 @end
