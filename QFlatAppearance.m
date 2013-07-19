@@ -30,7 +30,7 @@
     self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline2];
     self.labelAlignment = NSTextAlignmentLeft;
 
-    self.backgroundColorDisabled = [UIColor colorWithWhite:0.9605 alpha:1.0000];
+    self.backgroundColorDisabled = [UIColor whiteColor];
     self.backgroundColorEnabled = [UIColor whiteColor];
 
     self.entryTextColorDisabled = [UIColor lightGrayColor];
@@ -48,5 +48,26 @@
     self.toolbarStyle = UIBarStyleDefault;
     self.toolbarTranslucent = YES;
 }
+
+- (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1 {
+    return nil;
+}
+
+- (UIView *)buildFooterForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1 {
+    return nil;
+}
+
+- (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index1 {
+    return -1;
+}
+
+- (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(__unsafe_unretained QuickDialogTableView *)view andIndex:(NSInteger)index1 {
+    return -1;
+}
+
+- (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path {
+    [super cell:cell willAppearForElement:element atIndexPath:path];
+}
+
 
 @end

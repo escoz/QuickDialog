@@ -72,6 +72,7 @@
 
 + (QElement *)reallyLongList {
     QRootElement *subForm = [[QRootElement alloc] init];
+    subForm.grouped = YES;
     subForm.title = @"Really long list";
     subForm.controllerName = @"ExampleViewController";
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];

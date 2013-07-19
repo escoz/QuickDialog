@@ -29,30 +29,21 @@
     if (self) {
         self.root.appearance = [self.root.appearance copy];
         self.root.appearance.backgroundColorEnabled = [UIColor colorWithRed:0.9582 green:0.9104 blue:0.7991 alpha:1.0000];
+
+        ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
     }
 
     return self;
 }
 
-- (void)setQuickDialogTableView:(QuickDialogTableView *)aQuickDialogTableView {
-    [super setQuickDialogTableView:aQuickDialogTableView];
-
-    self.quickDialogTableView.backgroundView = nil;
-    self.quickDialogTableView.backgroundColor = [UIColor colorWithHue:0.1174 saturation:0.7131 brightness:0.8618 alpha:1.0000];
-    self.quickDialogTableView.bounces = NO;
-
-    ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.tintColor = [UIColor orangeColor];
+    self.navigationController.navigationBar.tintColor = nil;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(onAbout)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.tintColor = nil;
 }
 
 - (void)loginCompleted:(LoginInfo *)info {
