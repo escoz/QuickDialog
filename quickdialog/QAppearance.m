@@ -148,10 +148,6 @@
 
 - (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
 
-    if (section.footerView==nil && tableView.styleProvider!=nil && [tableView.styleProvider respondsToSelector:@selector(sectionFooterWillAppearForSection:atIndex:)]){
-        [tableView.styleProvider sectionFooterWillAppearForSection:section atIndex:index];
-    }
-
     if (section.footerView!=nil)
         return section.footerView.frame.size.height;
 
@@ -160,5 +156,9 @@
     return section.footer == NULL
             ? -1
             : [section.footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)].height+22;
+}
+
+- (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path {
+
 }
 @end

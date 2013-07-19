@@ -98,7 +98,6 @@
 		D81F2EEB14BBAFCE0066C372 /* QuickDialogController.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8A213EC905B00E3922B /* QuickDialogController.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EEC14BBAFCE0066C372 /* QuickDialogController+Loading.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8A413EC905B00E3922B /* QuickDialogController+Loading.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EED14BBAFCE0066C372 /* QuickDialogDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */; settings = {ATTRIBUTES = (); }; };
-		D81F2EEE14BBAFCE0066C372 /* QuickDialogStyleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8A813EC905B00E3922B /* QuickDialogStyleProvider.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EEF14BBAFCE0066C372 /* QuickDialogTableDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8A913EC905B00E3922B /* QuickDialogTableDelegate.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF014BBAFCE0066C372 /* QuickDialogTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8AB13EC905B00E3922B /* QuickDialogTableView.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF114BBAFCE0066C372 /* QRadioElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8AE13EC905B00E3922B /* QRadioElement.h */; settings = {ATTRIBUTES = (); }; };
@@ -255,7 +254,6 @@
 		D811F8A513EC905B00E3922B /* QuickDialogController+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Loading.m"; path = "quickdialog/QuickDialogController+Loading.m"; sourceTree = SOURCE_ROOT; };
 		D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogDataSource.h; path = quickdialog/QuickDialogDataSource.h; sourceTree = SOURCE_ROOT; };
 		D811F8A713EC905B00E3922B /* QuickDialogDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuickDialogDataSource.m; path = quickdialog/QuickDialogDataSource.m; sourceTree = SOURCE_ROOT; };
-		D811F8A813EC905B00E3922B /* QuickDialogStyleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogStyleProvider.h; path = quickdialog/QuickDialogStyleProvider.h; sourceTree = SOURCE_ROOT; };
 		D811F8A913EC905B00E3922B /* QuickDialogTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogTableDelegate.h; path = quickdialog/QuickDialogTableDelegate.h; sourceTree = SOURCE_ROOT; };
 		D811F8AA13EC905B00E3922B /* QuickDialogTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuickDialogTableDelegate.m; path = quickdialog/QuickDialogTableDelegate.m; sourceTree = SOURCE_ROOT; };
 		D811F8AB13EC905B00E3922B /* QuickDialogTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuickDialogTableView.h; path = quickdialog/QuickDialogTableView.h; sourceTree = SOURCE_ROOT; };
@@ -660,7 +658,6 @@
 				D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */,
 				D811F8A713EC905B00E3922B /* QuickDialogDataSource.m */,
 				D8F180E813F0599A009B0CB9 /* QuickDialogEntryElementDelegate.h */,
-				D811F8A813EC905B00E3922B /* QuickDialogStyleProvider.h */,
 				D811F8A913EC905B00E3922B /* QuickDialogTableDelegate.h */,
 				D811F8AA13EC905B00E3922B /* QuickDialogTableDelegate.m */,
 				D811F8AB13EC905B00E3922B /* QuickDialogTableView.h */,
@@ -745,7 +742,6 @@
 				D81F2EEB14BBAFCE0066C372 /* QuickDialogController.h in Headers */,
 				D81F2EEC14BBAFCE0066C372 /* QuickDialogController+Loading.h in Headers */,
 				D81F2EED14BBAFCE0066C372 /* QuickDialogDataSource.h in Headers */,
-				D81F2EEE14BBAFCE0066C372 /* QuickDialogStyleProvider.h in Headers */,
 				D81F2EEF14BBAFCE0066C372 /* QuickDialogTableDelegate.h in Headers */,
 				D81F2EF014BBAFCE0066C372 /* QuickDialogTableView.h in Headers */,
 				D81F2EF114BBAFCE0066C372 /* QRadioElement.h in Headers */,

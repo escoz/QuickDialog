@@ -29,7 +29,6 @@
     self.quickDialogTableView.backgroundView = nil;
     self.quickDialogTableView.backgroundColor = [UIColor colorWithHue:0.1174 saturation:0.7131 brightness:0.8618 alpha:1.0000];
     self.quickDialogTableView.bounces = NO;
-    self.quickDialogTableView.styleProvider = self;
 
     ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
 }

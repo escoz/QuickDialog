@@ -79,9 +79,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
     QElement *element = [section getVisibleElementForIndex: indexPath.row];
-    if (_tableView.styleProvider != nil) {
-        [_tableView.styleProvider cell:cell willAppearForElement:element atIndexPath:indexPath];
-    }
+    [_tableView.root.appearance cell:cell willAppearForElement:element atIndexPath:indexPath];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)index {

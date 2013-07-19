@@ -63,8 +63,6 @@
 #import "QColorPickerElement.h"
 #import "UIColor+ColorUtilities.h"
 
-
-#import "QuickDialogStyleProvider.h"
 #import "QuickDialogEntryElementDelegate.h"
 
 #import "QuickDialogController+Loading.h"

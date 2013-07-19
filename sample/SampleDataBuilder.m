@@ -699,8 +699,6 @@
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];
-    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"themes"]];
-
 
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
 
