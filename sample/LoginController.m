@@ -23,6 +23,17 @@
 
 @implementation LoginController
 
+
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement {
+    self = [super initWithRoot:rootElement];
+    if (self) {
+        self.root.appearance = [self.root.appearance copy];
+        self.root.appearance.backgroundColorEnabled = [UIColor colorWithRed:0.9582 green:0.9104 blue:0.7991 alpha:1.0000];
+    }
+
+    return self;
+}
+
 - (void)setQuickDialogTableView:(QuickDialogTableView *)aQuickDialogTableView {
     [super setQuickDialogTableView:aQuickDialogTableView];
 
@@ -64,13 +75,6 @@
     [self displayViewControllerForRoot:details];
 }
 
--(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath{
-    cell.backgroundColor = [UIColor colorWithRed:0.9582 green:0.9104 blue:0.7991 alpha:1.0000];
-
-    if ([element isKindOfClass:[QEntryElement class]] || [element isKindOfClass:[QButtonElement class]]){
-        cell.textLabel.textColor = [UIColor colorWithRed:0.6033 green:0.2323 blue:0.0000 alpha:1.0000];
-    }   
-}
 
 + (QRootElement *)createDetailsForm {
     QRootElement *details = [[QRootElement alloc] init];
@@ -81,6 +85,7 @@
     QSection *section = [[QSection alloc] initWithTitle:@"Information"];
     [section addElement:[[QTextElement alloc] initWithText:@"Here's some more info about this app."]];
     [details addSection:section];
+
     return details;
 }
 
