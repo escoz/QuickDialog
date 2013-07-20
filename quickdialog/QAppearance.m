@@ -77,14 +77,14 @@
 - (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
     if (section.headerView!=nil)
         return section.headerView.frame.size.height;
-    return -1;
+    return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
     if (section.footerView!=nil)
         return section.footerView.frame.size.height;
 
-    return -1;
+    return UITableViewAutomaticDimension;
 }
 
 - (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path {

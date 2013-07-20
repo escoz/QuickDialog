@@ -55,10 +55,12 @@
     self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
     self.textLabel.font = appearance.labelFont;
     self.textLabel.textAlignment = appearance.labelAlignment;
+    self.textLabel.numberOfLines = 0;
 
     self.detailTextLabel.textColor = element.enabled ? appearance.valueColorEnabled : appearance.valueColorDisabled;
     self.detailTextLabel.font = appearance.valueFont;
     self.detailTextLabel.textAlignment = appearance.valueAlignment;
+    self.detailTextLabel.numberOfLines = 0;
 
     self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
     self.selectedBackgroundView = element.appearance.selectedBackgroundView;
