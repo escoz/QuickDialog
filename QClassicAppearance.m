@@ -48,6 +48,8 @@
 
     self.toolbarStyle = UIBarStyleBlack;
     self.toolbarTranslucent = YES;
+
+    self.cellBorderWidth = 20;
 }
 
 

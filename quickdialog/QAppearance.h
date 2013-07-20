@@ -36,6 +36,8 @@
 
 @property(nonatomic) BOOL toolbarTranslucent;
 
+@property(nonatomic) CGFloat cellBorderWidth;
+
 - (void)setDefaults;
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index;

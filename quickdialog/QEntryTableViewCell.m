@@ -92,7 +92,7 @@
                     titleWidth = width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-20-extra, self.frame.size.height-20);
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
@@ -155,7 +155,7 @@
     _textField.frame = [self calculateFrameForEntryElement];
     CGRect labelFrame = self.textLabel.frame;
     self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-            _entryElement.parentSection.entryPosition.origin.x-20, labelFrame.size.height);
+            _entryElement.parentSection.entryPosition.origin.x-_entryElement.appearance.cellBorderWidth, labelFrame.size.height);
     
 }
 

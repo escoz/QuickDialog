@@ -47,6 +47,8 @@
 
     self.toolbarStyle = UIBarStyleDefault;
     self.toolbarTranslucent = YES;
+
+    self.cellBorderWidth = 14;
 }
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1 {
