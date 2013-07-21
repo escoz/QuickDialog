@@ -15,6 +15,8 @@
 #import "QElement.h"
 #import "QSection.h"
 
+@class QEntryElement;
+
 
 typedef enum  {
     QPresentationModeNormal = 0,
@@ -39,6 +41,7 @@ typedef enum  {
 @property(nonatomic, strong) NSMutableArray *sections;
 @property(nonatomic, strong) NSDictionary *sectionTemplate;
 @property(assign) BOOL grouped;
+@property(assign) BOOL showKeyboardOnAppear;
 
 @property(nonatomic, retain) NSString *controllerName;
 
@@ -48,6 +51,7 @@ typedef enum  {
 @property(nonatomic, strong) NSIndexPath *preselectedElementIndex;
 
 @property(nonatomic, copy) void (^onValueChanged)(QRootElement *);
+
 
 - (QRootElement *)init;
 
@@ -70,6 +74,10 @@ typedef enum  {
 - (QElement *)elementWithKey:(NSString *)string;
 
 - (QRootElement *)rootWithKey:(NSString *)string;
+
+- (QEntryElement *)findElementToFocusOnBefore:(QElement *)previous;
+
+- (QEntryElement *)findElementToFocusOnAfter:(QElement *)element;
 
 - (void)handleEditingChanged;
 

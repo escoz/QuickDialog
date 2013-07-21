@@ -111,8 +111,22 @@
             [self.quickDialogTableView scrollToRowAtIndexPath:_root.preselectedElementIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
 
     }
-
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    if (_root.showKeyboardOnAppear) {
+        QEntryElement *elementToFocus = [_root findElementToFocusOnAfter:nil];
+        if (elementToFocus!=nil)  {
+            UITableViewCell *cell = [self.quickDialogTableView cellForElement:elementToFocus];
+            if (cell != nil) {
+                [cell becomeFirstResponder];
+            }
+        }
+    }
+}
+
 
 - (BOOL)disablesAutomaticKeyboardDismissal
 {

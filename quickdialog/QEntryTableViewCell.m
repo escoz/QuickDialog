@@ -17,7 +17,6 @@
 
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
-- (QEntryElement *)findNextElementToFocusOn;
 @end
 
 @implementation QEntryTableViewCell {
@@ -99,8 +98,8 @@
 }
 
 - (void)updatePrevNextStatus {
-    [_prevNext setEnabled:[self findPreviousElementToFocusOn]!=nil forSegmentAtIndex:0];
-    [_prevNext setEnabled:[self findNextElementToFocusOn]!=nil forSegmentAtIndex:1];
+    [_prevNext setEnabled:[_entryElement.parentSection.rootElement findElementToFocusOnBefore:_entryElement]!=nil forSegmentAtIndex:0];
+    [_prevNext setEnabled:[_entryElement.parentSection.rootElement findElementToFocusOnAfter:_entryElement]!=nil forSegmentAtIndex:1];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
@@ -178,7 +177,7 @@
 
 
     if (_textField.returnKeyType == UIReturnKeyDefault) {
-        UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
+        UIReturnKeyType returnType = ([_entryElement.parentSection.rootElement findElementToFocusOnAfter:_entryElement]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
         _textField.returnKeyType = returnType;
     }
 
@@ -204,10 +203,9 @@
     return YES;
 }
 
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 
-    QEntryElement *element = [self findNextElementToFocusOn];
+    QEntryElement *element = [_entryElement.parentSection.rootElement findElementToFocusOnAfter:_entryElement];
     if (element!=nil){
         UITableViewCell *cell = [_quickformTableView cellForElement:element];
         if (cell!=nil){
@@ -230,9 +228,9 @@
 
     const BOOL isNext = control.selectedSegmentIndex == 1;
     if (isNext) {
-		element = [self findNextElementToFocusOn];
+		element = [_entryElement.parentSection.rootElement findElementToFocusOnAfter:_entryElement];
 	} else {
-		element = [self findPreviousElementToFocusOn];
+		element = [_entryElement.parentSection.rootElement findElementToFocusOnBefore:_entryElement];
 	}
 
 	if (element != nil) {
@@ -286,37 +284,6 @@
 	return YES;
 }
 
-- (QEntryElement *)findPreviousElementToFocusOn {
-
-    QEntryElement *previousElement = nil;
-    for (QSection *section in _entryElement.parentSection.rootElement.sections) {
-        for (QElement *e in section.elements) {
-            if (e == _entryElement) {
-                return previousElement;
-            }
-            else if ([e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
-                previousElement = (QEntryElement *)e;
-            }
-        }
-    }
-    return nil;
-}
-
-- (QEntryElement *)findNextElementToFocusOn {
-
-    BOOL foundSelf = NO;
-    for (QSection *section in _entryElement.parentSection.rootElement.sections) {
-        for (QElement *e in section.elements) {
-            if (e == _entryElement) {
-                foundSelf = YES;
-            }
-            else if (foundSelf && [e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
-                return (QEntryElement *) e;
-            }
-        }
-    }
-    return nil;
-}
 
 - (void)applyAppearanceForElement:(QElement *)element {
     [super applyAppearanceForElement:element];
