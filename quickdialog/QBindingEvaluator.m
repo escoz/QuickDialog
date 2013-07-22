@@ -136,9 +136,14 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if (![propName isEqualToString:@"iterate"] && ![valueName isEqualToString:@"self"]) {
-            id value = [element valueForKeyPath:propName];
-            if (propName!= nil && value!=nil)
-                [data setValue:value forKeyPath:valueName];
+            @try {
+                id value = [element valueForKeyPath:propName];
+                if (propName!= nil && value!=nil)
+                    [data setValue:value forKeyPath:valueName];
+                }
+            @catch (NSException *exception) {
+                NSLog(@"Couldn't set property %@ on object %@", valueName, data);
+            }
         }
     }
 
