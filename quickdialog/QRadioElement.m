@@ -142,10 +142,13 @@
         cell.textField.text = [selectedValue description];
         cell.detailTextLabel.text = nil;
         cell.textField.textAlignment = self.appearance.labelAlignment;
+        cell.textField.textColor = self.enabled ? self.appearance.labelColorEnabled : self.appearance.labelColorDisabled;
     } else {
         cell.textLabel.text = _title;
         cell.textField.text = [selectedValue description];
         cell.textField.textAlignment = self.appearance.valueAlignment;
+        cell.textField.textColor = self.enabled ? self.appearance.labelColorEnabled : self.appearance.labelColorDisabled;
+        cell.detailTextLabel.textColor = self.enabled ? self.appearance.entryTextColorEnabled : self.appearance.entryTextColorDisabled;
     }
     cell.imageView.image = _image;
 }

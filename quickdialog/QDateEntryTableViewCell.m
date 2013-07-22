@@ -73,7 +73,6 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     _textField.hidden = YES;
 
     self.centeredLabel = [[UILabel alloc] init];
-    self.centeredLabel.textColor = [UIColor colorWithRed:0.243 green:0.306 blue:0.435 alpha:1.0];
     self.centeredLabel.highlightedTextColor = [UIColor whiteColor];
     self.centeredLabel.font = [UIFont systemFontOfSize:17];
     self.centeredLabel.textAlignment = NSTextAlignmentCenter;
@@ -139,6 +138,8 @@ UIDatePicker *QDATEENTRY_GLOBAL_PICKER;
     _textField.placeholder = dateElement.placeholder;
 
     _textField.inputAccessoryView.hidden = dateElement.hiddenToolbar;
+
+    self.centeredLabel.textColor = dateElement.appearance.entryTextColorEnabled;
 }
 
 - (NSString *) formatInterval: (NSTimeInterval) interval
