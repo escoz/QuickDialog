@@ -4,7 +4,7 @@
 #import "QSegmentedElement.h"
 
 @implementation QSegmentedElement {
-    QuickDialogController *_controller;
+    __unsafe_unretained QuickDialogController *_controller;
 }
 - (void)setItems:(NSArray *)anItems {
     if (_items != anItems) {

@@ -6,6 +6,7 @@
 //
 //
 
+#import "QuickDialog.h"
 #import "QSectionToolbar.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
@@ -46,7 +47,7 @@ static UIBarButtonItem * fixedSpace;
 
 @implementation QSectionToolbar
 {
-    QuickDialogController * _controller;
+    __unsafe_unretained QuickDialogController * _controller;
     NSArray * _items;
 }
 

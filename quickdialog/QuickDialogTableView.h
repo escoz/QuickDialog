@@ -34,7 +34,7 @@
 
 @property(nonatomic, strong) QRootElement *root;
 
-@property(nonatomic, readonly) QuickDialogController *controller;
+@property(nonatomic, readonly, assign) QuickDialogController *controller;
 
 @property(nonatomic, assign) NSObject<QuickDialogStyleProvider> *styleProvider;
 @property(nonatomic) BOOL deselectRowWhenViewAppears;
