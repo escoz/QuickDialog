@@ -1,0 +1,609 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>QWebViewController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">QuickDialog </a></h1>
+				<a id="developerHome" href="../index.html">Escoz</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">QWebViewController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/actionForward">&nbsp;&nbsp;&nbsp;&nbsp;- actionForward</option>
+	
+	<option value="//api/name/actionGoToSafari">&nbsp;&nbsp;&nbsp;&nbsp;- actionGoToSafari</option>
+	
+	<option value="//api/name/actionRefresh">&nbsp;&nbsp;&nbsp;&nbsp;- actionRefresh</option>
+	
+	<option value="//api/name/actionRewind">&nbsp;&nbsp;&nbsp;&nbsp;- actionRewind</option>
+	
+	<option value="//api/name/createBackArrowImage">&nbsp;&nbsp;&nbsp;&nbsp;- createBackArrowImage</option>
+	
+	<option value="//api/name/createForwardArrowImage">&nbsp;&nbsp;&nbsp;&nbsp;- createForwardArrowImage</option>
+	
+	<option value="//api/name/initWithHTML:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithHTML:</option>
+	
+	<option value="//api/name/initWithUrl:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithUrl:</option>
+	
+	<option value="//api/name/loadView">&nbsp;&nbsp;&nbsp;&nbsp;- loadView</option>
+	
+	<option value="//api/name/shouldAutorotateToInterfaceOrientation:">&nbsp;&nbsp;&nbsp;&nbsp;- shouldAutorotateToInterfaceOrientation:</option>
+	
+	<option value="//api/name/viewWillAppear:">&nbsp;&nbsp;&nbsp;&nbsp;- viewWillAppear:</option>
+	
+	<option value="//api/name/viewWillDisappear:">&nbsp;&nbsp;&nbsp;&nbsp;- viewWillDisappear:</option>
+	
+	<option value="//api/name/webView:didFailLoadWithError:">&nbsp;&nbsp;&nbsp;&nbsp;- webView:didFailLoadWithError:</option>
+	
+	<option value="//api/name/webView:shouldStartLoadWithRequest:navigationType:">&nbsp;&nbsp;&nbsp;&nbsp;- webView:shouldStartLoadWithRequest:navigationType:</option>
+	
+	<option value="//api/name/webViewDidFinishLoad:">&nbsp;&nbsp;&nbsp;&nbsp;- webViewDidFinishLoad:</option>
+	
+	<option value="//api/name/webViewDidStartLoad:">&nbsp;&nbsp;&nbsp;&nbsp;- webViewDidStartLoad:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/actionForward">actionForward</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/actionGoToSafari">actionGoToSafari</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/actionRefresh">actionRefresh</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/actionRewind">actionRewind</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createBackArrowImage">createBackArrowImage</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createForwardArrowImage">createForwardArrowImage</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithHTML:">initWithHTML:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithUrl:">initWithUrl:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loadView">loadView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldAutorotateToInterfaceOrientation:">shouldAutorotateToInterfaceOrientation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewWillAppear:">viewWillAppear:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewWillDisappear:">viewWillDisappear:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/webView:didFailLoadWithError:">webView:didFailLoadWithError:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/webView:shouldStartLoadWithRequest:navigationType:">webView:shouldStartLoadWithRequest:navigationType:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/webViewDidFinishLoad:">webViewDidFinishLoad:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/webViewDidStartLoad:">webViewDidStartLoad:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="QWebViewController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">QWebViewController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UIWebViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">QWebViewController.h<br />QWebViewController.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithUrl:">&ndash;&nbsp;initWithUrl:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithHTML:">&ndash;&nbsp;initWithHTML:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loadView">&ndash;&nbsp;loadView</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewWillDisappear:">&ndash;&nbsp;viewWillDisappear:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldAutorotateToInterfaceOrientation:">&ndash;&nbsp;shouldAutorotateToInterfaceOrientation:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/actionRewind">&ndash;&nbsp;actionRewind</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/actionForward">&ndash;&nbsp;actionForward</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/actionRefresh">&ndash;&nbsp;actionRefresh</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/actionGoToSafari">&ndash;&nbsp;actionGoToSafari</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewWillAppear:">&ndash;&nbsp;viewWillAppear:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/webView:shouldStartLoadWithRequest:navigationType:">&ndash;&nbsp;webView:shouldStartLoadWithRequest:navigationType:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/webViewDidStartLoad:">&ndash;&nbsp;webViewDidStartLoad:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/webViewDidFinishLoad:">&ndash;&nbsp;webViewDidFinishLoad:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/webView:didFailLoadWithError:">&ndash;&nbsp;webView:didFailLoadWithError:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createBackArrowImage">&ndash;&nbsp;createBackArrowImage</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createForwardArrowImage">&ndash;&nbsp;createForwardArrowImage</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/actionForward" title="actionForward"></a>
+	<h3 class="subsubtitle method-title">actionForward</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)actionForward</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/actionGoToSafari" title="actionGoToSafari"></a>
+	<h3 class="subsubtitle method-title">actionGoToSafari</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)actionGoToSafari</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/actionRefresh" title="actionRefresh"></a>
+	<h3 class="subsubtitle method-title">actionRefresh</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)actionRefresh</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/actionRewind" title="actionRewind"></a>
+	<h3 class="subsubtitle method-title">actionRewind</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)actionRewind</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createBackArrowImage" title="createBackArrowImage"></a>
+	<h3 class="subsubtitle method-title">createBackArrowImage</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UIImage *)createBackArrowImage</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createForwardArrowImage" title="createForwardArrowImage"></a>
+	<h3 class="subsubtitle method-title">createForwardArrowImage</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UIImage *)createForwardArrowImage</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithHTML:" title="initWithHTML:"></a>
+	<h3 class="subsubtitle method-title">initWithHTML:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QWebViewController *)initWithHTML:(NSString *)<em>html</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithUrl:" title="initWithUrl:"></a>
+	<h3 class="subsubtitle method-title">initWithUrl:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QWebViewController *)initWithUrl:(NSString *)<em>string</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loadView" title="loadView"></a>
+	<h3 class="subsubtitle method-title">loadView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)loadView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shouldAutorotateToInterfaceOrientation:" title="shouldAutorotateToInterfaceOrientation:"></a>
+	<h3 class="subsubtitle method-title">shouldAutorotateToInterfaceOrientation:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)<em>toInterfaceOrientation</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewWillAppear:" title="viewWillAppear:"></a>
+	<h3 class="subsubtitle method-title">viewWillAppear:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewWillAppear:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewWillDisappear:" title="viewWillDisappear:"></a>
+	<h3 class="subsubtitle method-title">viewWillDisappear:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewWillDisappear:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/webView:didFailLoadWithError:" title="webView:didFailLoadWithError:"></a>
+	<h3 class="subsubtitle method-title">webView:didFailLoadWithError:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)webView:(UIWebView *)<em>webView</em> didFailLoadWithError:(NSError *)<em>error</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/webView:shouldStartLoadWithRequest:navigationType:" title="webView:shouldStartLoadWithRequest:navigationType:"></a>
+	<h3 class="subsubtitle method-title">webView:shouldStartLoadWithRequest:navigationType:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)webView:(UIWebView *)<em>webView</em> shouldStartLoadWithRequest:(NSURLRequest *)<em>request</em> navigationType:(UIWebViewNavigationType)<em>navigationType</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/webViewDidFinishLoad:" title="webViewDidFinishLoad:"></a>
+	<h3 class="subsubtitle method-title">webViewDidFinishLoad:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)webViewDidFinishLoad:(UIWebView *)<em>webView</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/webViewDidStartLoad:" title="webViewDidStartLoad:"></a>
+	<h3 class="subsubtitle method-title">webViewDidStartLoad:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)webViewDidStartLoad:(UIWebView *)<em>webView</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Escoz. All rights reserved. (Last updated: 2013-08-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
