@@ -27,6 +27,11 @@ typedef enum  {
     QPresentationModeModalPage
 } QPresentationMode;
 
+/**
+
+  Think of a root element as a dialog: a collection of sections and cells that can be used to display some useful data to the user. Every QuickDialogController can only display one RootElement at a time, although that RootElement can contain other root elements inside, which causes a new controller to automatically be displayed. Elements are always grouped in sections in the root element, as you can see below.
+*/
+
 @interface QRootElement : QElement {
 
 @protected

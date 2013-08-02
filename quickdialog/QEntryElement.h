@@ -16,6 +16,10 @@
 
 @protocol QuickDialogEntryElementDelegate;
 
+/**
+  QEntryElement: input field to allow you to collect values from the user. Automatically resizes so that all entries in the same sections look alike.
+*/
+
 @interface QEntryElement : QLabelElement <UITextInputTraits> {
 
 @private
