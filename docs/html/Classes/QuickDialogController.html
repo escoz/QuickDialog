@@ -1,0 +1,1161 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>QuickDialogController Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">QuickDialog </a></h1>
+				<a id="developerHome" href="../index.html">Escoz</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">QuickDialogController Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/popoverBeingPresented">&nbsp;&nbsp;&nbsp;&nbsp;popoverBeingPresented</option>
+	
+	<option value="//api/name/popoverForChildRoot">&nbsp;&nbsp;&nbsp;&nbsp;popoverForChildRoot</option>
+	
+	<option value="//api/name/quickDialogTableView">&nbsp;&nbsp;&nbsp;&nbsp;quickDialogTableView</option>
+	
+	<option value="//api/name/resizeWhenKeyboardPresented">&nbsp;&nbsp;&nbsp;&nbsp;resizeWhenKeyboardPresented</option>
+	
+	<option value="//api/name/root">&nbsp;&nbsp;&nbsp;&nbsp;root</option>
+	
+	<option value="//api/name/willDisappearCallback">&nbsp;&nbsp;&nbsp;&nbsp;willDisappearCallback</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/buildControllerWithClass:root:">&nbsp;&nbsp;&nbsp;&nbsp;+ buildControllerWithClass:root:</option>
+	
+	<option value="//api/name/controllerClassForRoot:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerClassForRoot:</option>
+	
+	<option value="//api/name/controllerForRoot:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerForRoot:</option>
+	
+	<option value="//api/name/controllerWithNavigationForRoot:">&nbsp;&nbsp;&nbsp;&nbsp;+ controllerWithNavigationForRoot:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/controllerForRoot:">&nbsp;&nbsp;&nbsp;&nbsp;- controllerForRoot:</option>
+	
+	<option value="//api/name/createLoadingView">&nbsp;&nbsp;&nbsp;&nbsp;- createLoadingView</option>
+	
+	<option value="//api/name/dealloc">&nbsp;&nbsp;&nbsp;&nbsp;- dealloc</option>
+	
+	<option value="//api/name/disablesAutomaticKeyboardDismissal">&nbsp;&nbsp;&nbsp;&nbsp;- disablesAutomaticKeyboardDismissal</option>
+	
+	<option value="//api/name/dismissModalViewController">&nbsp;&nbsp;&nbsp;&nbsp;- dismissModalViewController</option>
+	
+	<option value="//api/name/displayViewController:">&nbsp;&nbsp;&nbsp;&nbsp;- displayViewController:</option>
+	
+	<option value="//api/name/displayViewController:withPresentationMode:">&nbsp;&nbsp;&nbsp;&nbsp;- displayViewController:withPresentationMode:</option>
+	
+	<option value="//api/name/displayViewControllerForRoot:">&nbsp;&nbsp;&nbsp;&nbsp;- displayViewControllerForRoot:</option>
+	
+	<option value="//api/name/displayViewControllerInPopover:withNavigation:">&nbsp;&nbsp;&nbsp;&nbsp;- displayViewControllerInPopover:withNavigation:</option>
+	
+	<option value="//api/name/displayViewControllerInPopover:withNavigation:fromRect:">&nbsp;&nbsp;&nbsp;&nbsp;- displayViewControllerInPopover:withNavigation:fromRect:</option>
+	
+	<option value="//api/name/hideElementsWithAnimation:elements:">&nbsp;&nbsp;&nbsp;&nbsp;- hideElementsWithAnimation:elements:</option>
+	
+	<option value="//api/name/hideSectionsWithAnimation:sections:">&nbsp;&nbsp;&nbsp;&nbsp;- hideSectionsWithAnimation:sections:</option>
+	
+	<option value="//api/name/initWithRoot:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithRoot:</option>
+	
+	<option value="//api/name/loadView">&nbsp;&nbsp;&nbsp;&nbsp;- loadView</option>
+	
+	<option value="//api/name/loading:">&nbsp;&nbsp;&nbsp;&nbsp;- loading:</option>
+	
+	<option value="//api/name/popToPreviousRootElement">&nbsp;&nbsp;&nbsp;&nbsp;- popToPreviousRootElement</option>
+	
+	<option value="//api/name/popToPreviousRootElementOnMainThread">&nbsp;&nbsp;&nbsp;&nbsp;- popToPreviousRootElementOnMainThread</option>
+	
+	<option value="//api/name/popoverControllerDidDismissPopover:">&nbsp;&nbsp;&nbsp;&nbsp;- popoverControllerDidDismissPopover:</option>
+	
+	<option value="//api/name/resizeForKeyboard:">&nbsp;&nbsp;&nbsp;&nbsp;- resizeForKeyboard:</option>
+	
+	<option value="//api/name/setEditing:animated:">&nbsp;&nbsp;&nbsp;&nbsp;- setEditing:animated:</option>
+	
+	<option value="//api/name/shouldAutorotateToInterfaceOrientation:">&nbsp;&nbsp;&nbsp;&nbsp;- shouldAutorotateToInterfaceOrientation:</option>
+	
+	<option value="//api/name/showElementsWithAnimation:elements:">&nbsp;&nbsp;&nbsp;&nbsp;- showElementsWithAnimation:elements:</option>
+	
+	<option value="//api/name/showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:">&nbsp;&nbsp;&nbsp;&nbsp;- showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:</option>
+	
+	<option value="//api/name/showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:">&nbsp;&nbsp;&nbsp;&nbsp;- showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:</option>
+	
+	<option value="//api/name/showSectionsWithAnimation:sections:">&nbsp;&nbsp;&nbsp;&nbsp;- showSectionsWithAnimation:sections:</option>
+	
+	<option value="//api/name/switchElementsWithAnimation:elements:">&nbsp;&nbsp;&nbsp;&nbsp;- switchElementsWithAnimation:elements:</option>
+	
+	<option value="//api/name/viewWillAppear:">&nbsp;&nbsp;&nbsp;&nbsp;- viewWillAppear:</option>
+	
+	<option value="//api/name/viewWillDisappear:">&nbsp;&nbsp;&nbsp;&nbsp;- viewWillDisappear:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Navigation Methods">Navigation Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Loading Methods">Loading Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Animations Methods">Animations Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popoverBeingPresented">popoverBeingPresented</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popoverForChildRoot">popoverForChildRoot</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/quickDialogTableView">quickDialogTableView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resizeWhenKeyboardPresented">resizeWhenKeyboardPresented</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/root">root</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/willDisappearCallback">willDisappearCallback</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/buildControllerWithClass:root:">buildControllerWithClass:root:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerClassForRoot:">controllerClassForRoot:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerForRoot:">controllerForRoot:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerWithNavigationForRoot:">controllerWithNavigationForRoot:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerForRoot:">controllerForRoot:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/createLoadingView">createLoadingView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dealloc">dealloc</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/disablesAutomaticKeyboardDismissal">disablesAutomaticKeyboardDismissal</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dismissModalViewController">dismissModalViewController</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayViewController:">displayViewController:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayViewController:withPresentationMode:">displayViewController:withPresentationMode:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayViewControllerForRoot:">displayViewControllerForRoot:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayViewControllerInPopover:withNavigation:">displayViewControllerInPopover:withNavigation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayViewControllerInPopover:withNavigation:fromRect:">displayViewControllerInPopover:withNavigation:fromRect:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hideElementsWithAnimation:elements:">hideElementsWithAnimation:elements:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hideSectionsWithAnimation:sections:">hideSectionsWithAnimation:sections:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithRoot:">initWithRoot:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loadView">loadView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loading:">loading:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popToPreviousRootElement">popToPreviousRootElement</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popToPreviousRootElementOnMainThread">popToPreviousRootElementOnMainThread</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popoverControllerDidDismissPopover:">popoverControllerDidDismissPopover:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resizeForKeyboard:">resizeForKeyboard:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setEditing:animated:">setEditing:animated:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldAutorotateToInterfaceOrientation:">shouldAutorotateToInterfaceOrientation:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showElementsWithAnimation:elements:">showElementsWithAnimation:elements:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:">showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:">showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showSectionsWithAnimation:sections:">showSectionsWithAnimation:sections:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/switchElementsWithAnimation:elements:">switchElementsWithAnimation:elements:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewWillAppear:">viewWillAppear:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewWillDisappear:">viewWillDisappear:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="QuickDialogController Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">QuickDialogController Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">UIViewController</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UIPopoverControllerDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">QuickDialogController.h<br />QuickDialogController.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><a href="../Classes/QRootElement.html">QRootElement</a> is a subclass of a UITableViewController that is responsible for actually displaying the dialog. For your application, you’ll very likely be creating subclasses of this class, one for each dialog you own. You’ll never really have to create objects of this type directly with alloc/init. The framework takes care of this for you.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/root">&nbsp;&nbsp;root</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/willDisappearCallback">&nbsp;&nbsp;willDisappearCallback</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/quickDialogTableView">&nbsp;&nbsp;quickDialogTableView</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resizeWhenKeyboardPresented">&nbsp;&nbsp;resizeWhenKeyboardPresented</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popoverBeingPresented">&nbsp;&nbsp;popoverBeingPresented</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popoverForChildRoot">&nbsp;&nbsp;popoverForChildRoot</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loadView">&ndash;&nbsp;loadView</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithRoot:">&ndash;&nbsp;initWithRoot:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerForRoot:">&ndash;&nbsp;controllerForRoot:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerForRoot:">+&nbsp;controllerForRoot:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerWithNavigationForRoot:">+&nbsp;controllerWithNavigationForRoot:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/buildControllerWithClass:root:">+&nbsp;buildControllerWithClass:root:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerClassForRoot:">+&nbsp;controllerClassForRoot:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldAutorotateToInterfaceOrientation:">&ndash;&nbsp;shouldAutorotateToInterfaceOrientation:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setEditing:animated:">&ndash;&nbsp;setEditing:animated:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewWillAppear:">&ndash;&nbsp;viewWillAppear:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/disablesAutomaticKeyboardDismissal">&ndash;&nbsp;disablesAutomaticKeyboardDismissal</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewWillDisappear:">&ndash;&nbsp;viewWillDisappear:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resizeForKeyboard:">&ndash;&nbsp;resizeForKeyboard:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dealloc">&ndash;&nbsp;dealloc</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Navigation Methods" name="task_Navigation Methods"></a>
+						<h3 class="subsubtitle task-title">Navigation Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayViewController:">&ndash;&nbsp;displayViewController:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayViewController:withPresentationMode:">&ndash;&nbsp;displayViewController:withPresentationMode:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayViewControllerForRoot:">&ndash;&nbsp;displayViewControllerForRoot:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayViewControllerInPopover:withNavigation:fromRect:">&ndash;&nbsp;displayViewControllerInPopover:withNavigation:fromRect:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/displayViewControllerInPopover:withNavigation:">&ndash;&nbsp;displayViewControllerInPopover:withNavigation:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popToPreviousRootElement">&ndash;&nbsp;popToPreviousRootElement</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dismissModalViewController">&ndash;&nbsp;dismissModalViewController</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popoverControllerDidDismissPopover:">&ndash;&nbsp;popoverControllerDidDismissPopover:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/popToPreviousRootElementOnMainThread">&ndash;&nbsp;popToPreviousRootElementOnMainThread</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Loading Methods" name="task_Loading Methods"></a>
+						<h3 class="subsubtitle task-title">Loading Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loading:">&ndash;&nbsp;loading:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/createLoadingView">&ndash;&nbsp;createLoadingView</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Animations Methods" name="task_Animations Methods"></a>
+						<h3 class="subsubtitle task-title">Animations Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/switchElementsWithAnimation:elements:">&ndash;&nbsp;switchElementsWithAnimation:elements:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hideElementsWithAnimation:elements:">&ndash;&nbsp;hideElementsWithAnimation:elements:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hideSectionsWithAnimation:sections:">&ndash;&nbsp;hideSectionsWithAnimation:sections:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showElementsWithAnimation:elements:">&ndash;&nbsp;showElementsWithAnimation:elements:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showSectionsWithAnimation:sections:">&ndash;&nbsp;showSectionsWithAnimation:sections:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:">&ndash;&nbsp;showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:">&ndash;&nbsp;showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/popoverBeingPresented" title="popoverBeingPresented"></a>
+	<h3 class="subsubtitle method-title">popoverBeingPresented</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIPopoverController *popoverBeingPresented</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/popoverForChildRoot" title="popoverForChildRoot"></a>
+	<h3 class="subsubtitle method-title">popoverForChildRoot</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) UIPopoverController *popoverForChildRoot</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/quickDialogTableView" title="quickDialogTableView"></a>
+	<h3 class="subsubtitle method-title">quickDialogTableView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) QuickDialogTableView *quickDialogTableView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resizeWhenKeyboardPresented" title="resizeWhenKeyboardPresented"></a>
+	<h3 class="subsubtitle method-title">resizeWhenKeyboardPresented</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL resizeWhenKeyboardPresented</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/root" title="root"></a>
+	<h3 class="subsubtitle method-title">root</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) QRootElement *root</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/willDisappearCallback" title="willDisappearCallback"></a>
+	<h3 class="subsubtitle method-title">willDisappearCallback</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) void ( ^ ) ( ) willDisappearCallback</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/buildControllerWithClass:root:" title="buildControllerWithClass:root:"></a>
+	<h3 class="subsubtitle method-title">buildControllerWithClass:root:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (QuickDialogController *)buildControllerWithClass:(Class)<em>controllerClass</em> root:(QRootElement *)<em>root</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerClassForRoot:" title="controllerClassForRoot:"></a>
+	<h3 class="subsubtitle method-title">controllerClassForRoot:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (Class)controllerClassForRoot:(QRootElement *)<em>root</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerForRoot:" title="controllerForRoot:"></a>
+	<h3 class="subsubtitle method-title">controllerForRoot:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (QuickDialogController *)controllerForRoot:(QRootElement *)<em>root</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerWithNavigationForRoot:" title="controllerWithNavigationForRoot:"></a>
+	<h3 class="subsubtitle method-title">controllerWithNavigationForRoot:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)<em>root</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerForRoot:" title="controllerForRoot:"></a>
+	<h3 class="subsubtitle method-title">controllerForRoot:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QuickDialogController *)controllerForRoot:(QRootElement *)<em>root</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/createLoadingView" title="createLoadingView"></a>
+	<h3 class="subsubtitle method-title">createLoadingView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)createLoadingView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dealloc" title="dealloc"></a>
+	<h3 class="subsubtitle method-title">dealloc</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)dealloc</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/disablesAutomaticKeyboardDismissal" title="disablesAutomaticKeyboardDismissal"></a>
+	<h3 class="subsubtitle method-title">disablesAutomaticKeyboardDismissal</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)disablesAutomaticKeyboardDismissal</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dismissModalViewController" title="dismissModalViewController"></a>
+	<h3 class="subsubtitle method-title">dismissModalViewController</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)dismissModalViewController</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayViewController:" title="displayViewController:"></a>
+	<h3 class="subsubtitle method-title">displayViewController:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)displayViewController:(UIViewController *)<em>newController</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayViewController:withPresentationMode:" title="displayViewController:withPresentationMode:"></a>
+	<h3 class="subsubtitle method-title">displayViewController:withPresentationMode:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)displayViewController:(UIViewController *)<em>newController</em> withPresentationMode:(QPresentationMode)<em>mode</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayViewControllerForRoot:" title="displayViewControllerForRoot:"></a>
+	<h3 class="subsubtitle method-title">displayViewControllerForRoot:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)displayViewControllerForRoot:(QRootElement *)<em>element</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayViewControllerInPopover:withNavigation:" title="displayViewControllerInPopover:withNavigation:"></a>
+	<h3 class="subsubtitle method-title">displayViewControllerInPopover:withNavigation:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)displayViewControllerInPopover:(UIViewController *)<em>newController</em> withNavigation:(BOOL)<em>navigation</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/displayViewControllerInPopover:withNavigation:fromRect:" title="displayViewControllerInPopover:withNavigation:fromRect:"></a>
+	<h3 class="subsubtitle method-title">displayViewControllerInPopover:withNavigation:fromRect:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)displayViewControllerInPopover:(UIViewController *)<em>newController</em> withNavigation:(BOOL)<em>navigation</em> fromRect:(CGRect)<em>position</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hideElementsWithAnimation:elements:" title="hideElementsWithAnimation:elements:"></a>
+	<h3 class="subsubtitle method-title">hideElementsWithAnimation:elements:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)hideElementsWithAnimation:(UITableViewRowAnimation)<em>animation</em> elements:(NSArray *)<em>elements</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hideSectionsWithAnimation:sections:" title="hideSectionsWithAnimation:sections:"></a>
+	<h3 class="subsubtitle method-title">hideSectionsWithAnimation:sections:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)hideSectionsWithAnimation:(UITableViewRowAnimation)<em>animation</em> sections:(NSArray *)<em>sections</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithRoot:" title="initWithRoot:"></a>
+	<h3 class="subsubtitle method-title">initWithRoot:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QuickDialogController *)initWithRoot:(QRootElement *)<em>rootElement</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loadView" title="loadView"></a>
+	<h3 class="subsubtitle method-title">loadView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)loadView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loading:" title="loading:"></a>
+	<h3 class="subsubtitle method-title">loading:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)loading:(BOOL)<em>value</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/popToPreviousRootElement" title="popToPreviousRootElement"></a>
+	<h3 class="subsubtitle method-title">popToPreviousRootElement</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)popToPreviousRootElement</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/popToPreviousRootElementOnMainThread" title="popToPreviousRootElementOnMainThread"></a>
+	<h3 class="subsubtitle method-title">popToPreviousRootElementOnMainThread</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)popToPreviousRootElementOnMainThread</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/popoverControllerDidDismissPopover:" title="popoverControllerDidDismissPopover:"></a>
+	<h3 class="subsubtitle method-title">popoverControllerDidDismissPopover:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)popoverControllerDidDismissPopover:(UIPopoverController *)<em>popoverController</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resizeForKeyboard:" title="resizeForKeyboard:"></a>
+	<h3 class="subsubtitle method-title">resizeForKeyboard:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)resizeForKeyboard:(NSNotification *)<em>aNotification</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setEditing:animated:" title="setEditing:animated:"></a>
+	<h3 class="subsubtitle method-title">setEditing:animated:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)setEditing:(BOOL)<em>editing</em> animated:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shouldAutorotateToInterfaceOrientation:" title="shouldAutorotateToInterfaceOrientation:"></a>
+	<h3 class="subsubtitle method-title">shouldAutorotateToInterfaceOrientation:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)<em>interfaceOrientation</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showElementsWithAnimation:elements:" title="showElementsWithAnimation:elements:"></a>
+	<h3 class="subsubtitle method-title">showElementsWithAnimation:elements:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)showElementsWithAnimation:(UITableViewRowAnimation)<em>animation</em> elements:(NSArray *)<em>elements</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:" title="showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:"></a>
+	<h3 class="subsubtitle method-title">showHideElementsWithInsertAnimation:removeAnimation:elementsToInsert:elementsToRemove:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)showHideElementsWithInsertAnimation:(UITableViewRowAnimation)<em>insertAnimation</em> removeAnimation:(UITableViewRowAnimation)<em>removeAnimation</em> elementsToInsert:(NSArray *)<em>ins</em> elementsToRemove:(NSArray *)<em>del</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:" title="showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:"></a>
+	<h3 class="subsubtitle method-title">showHideSectionsWithInsertAnimation:removeAnimation:sectionsToInsert:sectionsToRemove:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)showHideSectionsWithInsertAnimation:(UITableViewRowAnimation)<em>insertAnimation</em> removeAnimation:(UITableViewRowAnimation)<em>removeAnimation</em> sectionsToInsert:(NSArray *)<em>ins</em> sectionsToRemove:(NSArray *)<em>del</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showSectionsWithAnimation:sections:" title="showSectionsWithAnimation:sections:"></a>
+	<h3 class="subsubtitle method-title">showSectionsWithAnimation:sections:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)showSectionsWithAnimation:(UITableViewRowAnimation)<em>animation</em> sections:(NSArray *)<em>sections</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/switchElementsWithAnimation:elements:" title="switchElementsWithAnimation:elements:"></a>
+	<h3 class="subsubtitle method-title">switchElementsWithAnimation:elements:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)switchElementsWithAnimation:(UITableViewRowAnimation)<em>animation</em> elements:(NSArray *)<em>elements</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewWillAppear:" title="viewWillAppear:"></a>
+	<h3 class="subsubtitle method-title">viewWillAppear:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewWillAppear:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewWillDisappear:" title="viewWillDisappear:"></a>
+	<h3 class="subsubtitle method-title">viewWillDisappear:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)viewWillDisappear:(BOOL)<em>animated</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Escoz. All rights reserved. (Last updated: 2013-08-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

@@ -17,6 +17,10 @@
 @class QRootElement;
 @class QuickDialogTableView;
 
+/**
+ QuickDialogController is a subclass of a UITableViewController that is responsible for actually displaying the dialog. For your application, you’ll very likely be creating subclasses of this class, one for each dialog you own. You’ll never really have to create objects of this type directly with alloc/init. The framework takes care of this for you.
+ */
+
 @interface QuickDialogController : UIViewController <UIPopoverControllerDelegate> {
 
 @private
