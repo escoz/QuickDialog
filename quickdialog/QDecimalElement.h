@@ -15,6 +15,10 @@
 #import <Foundation/Foundation.h>
 #import "QEntryElement.h"
 
+/**
+  QDecimalElement: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.
+*/
+
 @interface QDecimalElement : QEntryElement {
 
 }

@@ -15,6 +15,10 @@
 #import "QuickDialogTableView.h"
 #import "QLabelElement.h"
 
+/**
+  QFloatElement: shows an slider control.
+*/
+
 @interface QFloatElement : QLabelElement {
     
     float _floatValue;
