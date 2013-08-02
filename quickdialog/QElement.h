@@ -18,6 +18,12 @@
 @class QuickDialogTableView;
 @class QuickDialogController;
 
+/**
+
+  QElement – an element object maps one-to-one map to a UITableViewCell, although it includes more functionality, like being able to read values from the cells and having multiple types. QuickDialog provides many different built-in element types, like the ButtonElement and the EntryElement, but you can also create your custom one.
+
+*/
+
 @interface QElement : NSObject {
 
 @protected

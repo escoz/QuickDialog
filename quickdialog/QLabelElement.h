@@ -17,6 +17,10 @@
 #import <UIKit/UIKit.h>
 #import "QRootElement.h"
 
+/**
+  QLabelElement: simple inline label + value cell
+*/
+
 @interface QLabelElement : QRootElement {
 
 @protected
