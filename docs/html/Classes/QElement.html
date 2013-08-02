@@ -1,0 +1,896 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>QElement Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">QuickDialog </a></h1>
+				<a id="developerHome" href="../index.html">Escoz</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">QElement Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/appearance">&nbsp;&nbsp;&nbsp;&nbsp;appearance</option>
+	
+	<option value="//api/name/bind">&nbsp;&nbsp;&nbsp;&nbsp;bind</option>
+	
+	<option value="//api/name/controllerAccessoryAction">&nbsp;&nbsp;&nbsp;&nbsp;controllerAccessoryAction</option>
+	
+	<option value="//api/name/controllerAction">&nbsp;&nbsp;&nbsp;&nbsp;controllerAction</option>
+	
+	<option value="//api/name/enabled">&nbsp;&nbsp;&nbsp;&nbsp;enabled</option>
+	
+	<option value="//api/name/height">&nbsp;&nbsp;&nbsp;&nbsp;height</option>
+	
+	<option value="//api/name/hidden">&nbsp;&nbsp;&nbsp;&nbsp;hidden</option>
+	
+	<option value="//api/name/key">&nbsp;&nbsp;&nbsp;&nbsp;key</option>
+	
+	<option value="//api/name/labelingPolicy">&nbsp;&nbsp;&nbsp;&nbsp;labelingPolicy</option>
+	
+	<option value="//api/name/object">&nbsp;&nbsp;&nbsp;&nbsp;object</option>
+	
+	<option value="//api/name/onSelected">&nbsp;&nbsp;&nbsp;&nbsp;onSelected</option>
+	
+	<option value="//api/name/parentSection">&nbsp;&nbsp;&nbsp;&nbsp;parentSection</option>
+	
+	<option value="//api/name/visibleIndex">&nbsp;&nbsp;&nbsp;&nbsp;visibleIndex</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/appearance">&nbsp;&nbsp;&nbsp;&nbsp;+ appearance</option>
+	
+	<option value="//api/name/setAppearance:">&nbsp;&nbsp;&nbsp;&nbsp;+ setAppearance:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/bindToObject:">&nbsp;&nbsp;&nbsp;&nbsp;- bindToObject:</option>
+	
+	<option value="//api/name/fetchValueIntoObject:">&nbsp;&nbsp;&nbsp;&nbsp;- fetchValueIntoObject:</option>
+	
+	<option value="//api/name/fetchValueUsingBindingsIntoObject:">&nbsp;&nbsp;&nbsp;&nbsp;- fetchValueUsingBindingsIntoObject:</option>
+	
+	<option value="//api/name/getCellForTableView:controller:">&nbsp;&nbsp;&nbsp;&nbsp;- getCellForTableView:controller:</option>
+	
+	<option value="//api/name/getIndexPath">&nbsp;&nbsp;&nbsp;&nbsp;- getIndexPath</option>
+	
+	<option value="//api/name/getOrCreateEmptyCell:">&nbsp;&nbsp;&nbsp;&nbsp;- getOrCreateEmptyCell:</option>
+	
+	<option value="//api/name/getRowHeightForTableView:">&nbsp;&nbsp;&nbsp;&nbsp;- getRowHeightForTableView:</option>
+	
+	<option value="//api/name/handleElementSelected:">&nbsp;&nbsp;&nbsp;&nbsp;- handleElementSelected:</option>
+	
+	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
+	
+	<option value="//api/name/initWithKey:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithKey:</option>
+	
+	<option value="//api/name/selected:controller:indexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- selected:controller:indexPath:</option>
+	
+	<option value="//api/name/selectedAccessory:controller:indexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- selectedAccessory:controller:indexPath:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Appearance Methods">Appearance Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/appearance">appearance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bind">bind</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerAccessoryAction">controllerAccessoryAction</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/controllerAction">controllerAction</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/enabled">enabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/height">height</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hidden">hidden</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/key">key</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/labelingPolicy">labelingPolicy</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/object">object</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/onSelected">onSelected</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/parentSection">parentSection</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/visibleIndex">visibleIndex</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/appearance">appearance</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAppearance:">setAppearance:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/bindToObject:">bindToObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchValueIntoObject:">fetchValueIntoObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchValueUsingBindingsIntoObject:">fetchValueUsingBindingsIntoObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getCellForTableView:controller:">getCellForTableView:controller:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getIndexPath">getIndexPath</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getOrCreateEmptyCell:">getOrCreateEmptyCell:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getRowHeightForTableView:">getRowHeightForTableView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handleElementSelected:">handleElementSelected:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithKey:">initWithKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selected:controller:indexPath:">selected:controller:indexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectedAccessory:controller:indexPath:">selectedAccessory:controller:indexPath:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="QElement Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">QElement Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">QElement.h<br />QElement.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>  QElement – an element <a href="#//api/name/object">object</a> maps one-to-one map to a UITableViewCell, although it includes more functionality, like being able to read values from the cells and having multiple types. QuickDialog provides many different built-in element types, like the ButtonElement and the EntryElement, but you can also create your custom one.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/enabled">&nbsp;&nbsp;enabled</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/onSelected">&nbsp;&nbsp;onSelected</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerAction">&nbsp;&nbsp;controllerAction</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/controllerAccessoryAction">&nbsp;&nbsp;controllerAccessoryAction</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/height">&nbsp;&nbsp;height</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/hidden">&nbsp;&nbsp;hidden</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/visibleIndex">&nbsp;&nbsp;visibleIndex</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/parentSection">&nbsp;&nbsp;parentSection</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/key">&nbsp;&nbsp;key</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/object">&nbsp;&nbsp;object</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bind">&nbsp;&nbsp;bind</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/labelingPolicy">&nbsp;&nbsp;labelingPolicy</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithKey:">&ndash;&nbsp;initWithKey:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getIndexPath">&ndash;&nbsp;getIndexPath</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getCellForTableView:controller:">&ndash;&nbsp;getCellForTableView:controller:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getOrCreateEmptyCell:">&ndash;&nbsp;getOrCreateEmptyCell:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleElementSelected:">&ndash;&nbsp;handleElementSelected:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/selectedAccessory:controller:indexPath:">&ndash;&nbsp;selectedAccessory:controller:indexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/selected:controller:indexPath:">&ndash;&nbsp;selected:controller:indexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getRowHeightForTableView:">&ndash;&nbsp;getRowHeightForTableView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchValueIntoObject:">&ndash;&nbsp;fetchValueIntoObject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/bindToObject:">&ndash;&nbsp;bindToObject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchValueUsingBindingsIntoObject:">&ndash;&nbsp;fetchValueUsingBindingsIntoObject:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Appearance Methods" name="task_Appearance Methods"></a>
+						<h3 class="subsubtitle task-title">Appearance Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/appearance">&nbsp;&nbsp;appearance</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/appearance">+&nbsp;appearance</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setAppearance:">+&nbsp;setAppearance:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/appearance" title="appearance"></a>
+	<h3 class="subsubtitle method-title">appearance</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) QAppearance *appearance</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/bind" title="bind"></a>
+	<h3 class="subsubtitle method-title">bind</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *bind</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerAccessoryAction" title="controllerAccessoryAction"></a>
+	<h3 class="subsubtitle method-title">controllerAccessoryAction</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *controllerAccessoryAction</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/controllerAction" title="controllerAction"></a>
+	<h3 class="subsubtitle method-title">controllerAction</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *controllerAction</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/enabled" title="enabled"></a>
+	<h3 class="subsubtitle method-title">enabled</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isEnabled) BOOL enabled</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/height" title="height"></a>
+	<h3 class="subsubtitle method-title">height</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGFloat height</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/hidden" title="hidden"></a>
+	<h3 class="subsubtitle method-title">hidden</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL hidden</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/key" title="key"></a>
+	<h3 class="subsubtitle method-title">key</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSString *key</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/labelingPolicy" title="labelingPolicy"></a>
+	<h3 class="subsubtitle method-title">labelingPolicy</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) QLabelingPolicy labelingPolicy</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/object" title="object"></a>
+	<h3 class="subsubtitle method-title">object</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) id object</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/onSelected" title="onSelected"></a>
+	<h3 class="subsubtitle method-title">onSelected</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) void ( ^ ) ( void ) onSelected</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/parentSection" title="parentSection"></a>
+	<h3 class="subsubtitle method-title">parentSection</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) QSection *parentSection</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/visibleIndex" title="visibleIndex"></a>
+	<h3 class="subsubtitle method-title">visibleIndex</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSUInteger visibleIndex</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/appearance" title="appearance"></a>
+	<h3 class="subsubtitle method-title">appearance</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (QAppearance *)appearance</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setAppearance:" title="setAppearance:"></a>
+	<h3 class="subsubtitle method-title">setAppearance:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (void)setAppearance:(QAppearance *)<em>newAppearance</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/bindToObject:" title="bindToObject:"></a>
+	<h3 class="subsubtitle method-title">bindToObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)bindToObject:(id)<em>obj</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchValueIntoObject:" title="fetchValueIntoObject:"></a>
+	<h3 class="subsubtitle method-title">fetchValueIntoObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)fetchValueIntoObject:(id)<em>obj</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchValueUsingBindingsIntoObject:" title="fetchValueUsingBindingsIntoObject:"></a>
+	<h3 class="subsubtitle method-title">fetchValueUsingBindingsIntoObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)fetchValueUsingBindingsIntoObject:(id)<em>object</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getCellForTableView:controller:" title="getCellForTableView:controller:"></a>
+	<h3 class="subsubtitle method-title">getCellForTableView:controller:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)<em>tableView</em> controller:(QuickDialogController *)<em>controller</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getIndexPath" title="getIndexPath"></a>
+	<h3 class="subsubtitle method-title">getIndexPath</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSIndexPath *)getIndexPath</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getOrCreateEmptyCell:" title="getOrCreateEmptyCell:"></a>
+	<h3 class="subsubtitle method-title">getOrCreateEmptyCell:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)<em>tableView</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getRowHeightForTableView:" title="getRowHeightForTableView:"></a>
+	<h3 class="subsubtitle method-title">getRowHeightForTableView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)<em>tableView</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/handleElementSelected:" title="handleElementSelected:"></a>
+	<h3 class="subsubtitle method-title">handleElementSelected:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)handleElementSelected:(QuickDialogController *)<em>controller</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="subsubtitle method-title">init</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QElement *)init</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithKey:" title="initWithKey:"></a>
+	<h3 class="subsubtitle method-title">initWithKey:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (QElement *)initWithKey:(NSString *)<em>key</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/selected:controller:indexPath:" title="selected:controller:indexPath:"></a>
+	<h3 class="subsubtitle method-title">selected:controller:indexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)selected:(QuickDialogTableView *)<em>tableView</em> controller:(QuickDialogController *)<em>controller</em> indexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/selectedAccessory:controller:indexPath:" title="selectedAccessory:controller:indexPath:"></a>
+	<h3 class="subsubtitle method-title">selectedAccessory:controller:indexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)selectedAccessory:(QuickDialogTableView *)<em>tableView</em> controller:(QuickDialogController *)<em>controller</em> indexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Escoz. All rights reserved. (Last updated: 2013-08-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
