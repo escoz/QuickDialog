@@ -17,6 +17,10 @@
 
 #import "QRootElement.h"
 
+/**
+  QTextElement: freeform text, which is rendered with the font provided.
+*/
+
 @interface QTextElement : QRootElement {
 
 @protected

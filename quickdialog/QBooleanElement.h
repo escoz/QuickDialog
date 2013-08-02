@@ -14,6 +14,10 @@
 
 #import "QLabelElement.h"
 
+/**
+  QBooleanElement: shows a on/off switch
+*/
+
 @interface QBooleanElement : QLabelElement {
     BOOL _boolValue;
     BOOL _enabled;

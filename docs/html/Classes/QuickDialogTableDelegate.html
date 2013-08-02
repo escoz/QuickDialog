@@ -1,0 +1,543 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>QuickDialogTableDelegate Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.1 (build 840)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">QuickDialog </a></h1>
+				<a id="developerHome" href="../index.html">Escoz</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">QuickDialogTableDelegate Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/initForTableView:">&nbsp;&nbsp;&nbsp;&nbsp;- initForTableView:</option>
+	
+	<option value="//api/name/tableView:accessoryButtonTappedForRowWithIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:accessoryButtonTappedForRowWithIndexPath:</option>
+	
+	<option value="//api/name/tableView:didSelectRowAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:didSelectRowAtIndexPath:</option>
+	
+	<option value="//api/name/tableView:editingStyleForRowAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:editingStyleForRowAtIndexPath:</option>
+	
+	<option value="//api/name/tableView:heightForFooterInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:heightForFooterInSection:</option>
+	
+	<option value="//api/name/tableView:heightForHeaderInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:heightForHeaderInSection:</option>
+	
+	<option value="//api/name/tableView:heightForRowAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:heightForRowAtIndexPath:</option>
+	
+	<option value="//api/name/tableView:shouldIndentWhileEditingRowAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:shouldIndentWhileEditingRowAtIndexPath:</option>
+	
+	<option value="//api/name/tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:</option>
+	
+	<option value="//api/name/tableView:viewForFooterInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:viewForFooterInSection:</option>
+	
+	<option value="//api/name/tableView:viewForHeaderInSection:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:viewForHeaderInSection:</option>
+	
+	<option value="//api/name/tableView:willDisplayCell:forRowAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:willDisplayCell:forRowAtIndexPath:</option>
+	
+	<option value="//api/name/tableView:willSelectRowAtIndexPath:">&nbsp;&nbsp;&nbsp;&nbsp;- tableView:willSelectRowAtIndexPath:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initForTableView:">initForTableView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:accessoryButtonTappedForRowWithIndexPath:">tableView:accessoryButtonTappedForRowWithIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:didSelectRowAtIndexPath:">tableView:didSelectRowAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:editingStyleForRowAtIndexPath:">tableView:editingStyleForRowAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:heightForFooterInSection:">tableView:heightForFooterInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:heightForHeaderInSection:">tableView:heightForHeaderInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:heightForRowAtIndexPath:">tableView:heightForRowAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:shouldIndentWhileEditingRowAtIndexPath:">tableView:shouldIndentWhileEditingRowAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:">tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:viewForFooterInSection:">tableView:viewForFooterInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:viewForHeaderInSection:">tableView:viewForHeaderInSection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:willDisplayCell:forRowAtIndexPath:">tableView:willDisplayCell:forRowAtIndexPath:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/tableView:willSelectRowAtIndexPath:">tableView:willSelectRowAtIndexPath:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="QuickDialogTableDelegate Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">QuickDialogTableDelegate Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">UITableViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">QuickDialogTableDelegate.h<br />QuickDialogTableDelegate.m</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initForTableView:">&ndash;&nbsp;initForTableView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:editingStyleForRowAtIndexPath:">&ndash;&nbsp;tableView:editingStyleForRowAtIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:willSelectRowAtIndexPath:">&ndash;&nbsp;tableView:willSelectRowAtIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:accessoryButtonTappedForRowWithIndexPath:">&ndash;&nbsp;tableView:accessoryButtonTappedForRowWithIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:didSelectRowAtIndexPath:">&ndash;&nbsp;tableView:didSelectRowAtIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:shouldIndentWhileEditingRowAtIndexPath:">&ndash;&nbsp;tableView:shouldIndentWhileEditingRowAtIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:">&ndash;&nbsp;tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:heightForRowAtIndexPath:">&ndash;&nbsp;tableView:heightForRowAtIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:heightForHeaderInSection:">&ndash;&nbsp;tableView:heightForHeaderInSection:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:heightForFooterInSection:">&ndash;&nbsp;tableView:heightForFooterInSection:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:willDisplayCell:forRowAtIndexPath:">&ndash;&nbsp;tableView:willDisplayCell:forRowAtIndexPath:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:viewForHeaderInSection:">&ndash;&nbsp;tableView:viewForHeaderInSection:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/tableView:viewForFooterInSection:">&ndash;&nbsp;tableView:viewForFooterInSection:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/initForTableView:" title="initForTableView:"></a>
+	<h3 class="subsubtitle method-title">initForTableView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (id&lt;UITableViewDelegate,UIScrollViewDelegate&gt;)initForTableView:(QuickDialogTableView *)<em>tableView</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:accessoryButtonTappedForRowWithIndexPath:" title="tableView:accessoryButtonTappedForRowWithIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:accessoryButtonTappedForRowWithIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)tableView:(UITableView *)<em>tableView</em> accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:didSelectRowAtIndexPath:" title="tableView:didSelectRowAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:didSelectRowAtIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)tableView:(UITableView *)<em>tableView</em> didSelectRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:editingStyleForRowAtIndexPath:" title="tableView:editingStyleForRowAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:editingStyleForRowAtIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UITableViewCellEditingStyle)tableView:(UITableView *)<em>tableView</em> editingStyleForRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:heightForFooterInSection:" title="tableView:heightForFooterInSection:"></a>
+	<h3 class="subsubtitle method-title">tableView:heightForFooterInSection:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (CGFloat)tableView:(UITableView *)<em>tableView</em> heightForFooterInSection:(NSInteger)<em>index</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:heightForHeaderInSection:" title="tableView:heightForHeaderInSection:"></a>
+	<h3 class="subsubtitle method-title">tableView:heightForHeaderInSection:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (CGFloat)tableView:(UITableView *)<em>tableView</em> heightForHeaderInSection:(NSInteger)<em>index</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:heightForRowAtIndexPath:" title="tableView:heightForRowAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:heightForRowAtIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (CGFloat)tableView:(UITableView *)<em>tableView</em> heightForRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:shouldIndentWhileEditingRowAtIndexPath:" title="tableView:shouldIndentWhileEditingRowAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:shouldIndentWhileEditingRowAtIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)tableView:(UITableView *)<em>tableView</em> shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:" title="tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSIndexPath *)tableView:(UITableView *)<em>tableView</em> targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)<em>sourceIndexPath</em> toProposedIndexPath:(NSIndexPath *)<em>proposedDestinationIndexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:viewForFooterInSection:" title="tableView:viewForFooterInSection:"></a>
+	<h3 class="subsubtitle method-title">tableView:viewForFooterInSection:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)tableView:(UITableView *)<em>tableView</em> viewForFooterInSection:(NSInteger)<em>index</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:viewForHeaderInSection:" title="tableView:viewForHeaderInSection:"></a>
+	<h3 class="subsubtitle method-title">tableView:viewForHeaderInSection:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UIView *)tableView:(UITableView *)<em>tableView</em> viewForHeaderInSection:(NSInteger)<em>index</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:willDisplayCell:forRowAtIndexPath:" title="tableView:willDisplayCell:forRowAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:willDisplayCell:forRowAtIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)tableView:(UITableView *)<em>tableView</em> willDisplayCell:(UITableViewCell *)<em>cell</em> forRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/tableView:willSelectRowAtIndexPath:" title="tableView:willSelectRowAtIndexPath:"></a>
+	<h3 class="subsubtitle method-title">tableView:willSelectRowAtIndexPath:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSIndexPath *)tableView:(UITableView *)<em>tableView</em> willSelectRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Escoz. All rights reserved. (Last updated: 2013-08-02)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.1 (build 840)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>
