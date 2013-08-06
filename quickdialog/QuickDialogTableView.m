@@ -57,17 +57,15 @@
 }
 
 - (void)applyAppearanceForRoot:(QRootElement *)element {
-    if (element.appearance.tableGroupedBackgroundColor !=nil){
-        
-        self.backgroundColor = element.grouped 
-                ? element.appearance.tableGroupedBackgroundColor 
-                : element.appearance.tableBackgroundColor;
-
+	if (element.appearance.tableBackgroundView!=nil) {
         self.backgroundView = element.appearance.tableBackgroundView;
-    }
-    if (element.appearance.tableBackgroundView!=nil)
-        self.backgroundView = element.appearance.tableBackgroundView;
+	}
+	
+	UIColor *backgroundColor = element.grouped
+			? element.appearance.tableGroupedBackgroundColor
+			: element.appearance.tableBackgroundColor;
 
+	self.backgroundColor = backgroundColor;
     self.separatorColor = element.appearance.tableSeparatorColor;
 
 }
