@@ -53,6 +53,9 @@
     _valueColorDisabled = [UIColor lightGrayColor];
     _valueFont = [UIFont systemFontOfSize:15];
     _valueAlignment = NSTextAlignmentRight;
+	
+	_tableBackgroundColor = [UIColor whiteColor];
+	_tableGroupedBackgroundColor = [UIColor whiteColor];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
