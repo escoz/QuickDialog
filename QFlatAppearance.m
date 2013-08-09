@@ -27,7 +27,7 @@
     self.sectionFooterFont = nil;
     self.sectionFooterColor = [UIColor colorWithRed:0.2417 green:0.5295 blue:0.9396 alpha:1.0000];
 
-    self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline2];
+    self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.labelAlignment = NSTextAlignmentLeft;
 
     self.backgroundColorDisabled = [UIColor whiteColor];

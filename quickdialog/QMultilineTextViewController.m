@@ -56,8 +56,8 @@
     [_textView becomeFirstResponder];
     [super viewWillAppear:animated];
 
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
-        self.edgesForExtendedLayout = UIExtendedEdgeNone;
+    //if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+    //    [self performSelector:@selector(setEdgesForExtendedLayout:) withObject:UIRectEdgeNone];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

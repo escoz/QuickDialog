@@ -4,6 +4,7 @@
 
 @implementation QDynamicDataSection {
     NSString *_emptyMessage;
+    BOOL showLoading;
 }
 @synthesize emptyMessage = _emptyMessage;
 
@@ -39,7 +40,7 @@
     }
 
     
-    if (collection==nil)
+    if (collection==nil && showLoading)
         [self addElement:[[QLoadingElement alloc] init]];
     
     if (collection!=nil && collection.count==0)
