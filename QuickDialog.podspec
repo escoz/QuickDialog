@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'QuickDialog'
-  s.version  = '0.8'
+  s.version  = '0.9'
   s.platform = :ios, '5.0'
   s.license  = 'Apache License, Version 2.0'
   s.summary  = 'Quick and easy dialog screens for iOS.'
@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'quickdialog', '*.{h,m}'
   s.requires_arc = true
-  s.frameworks   = 'MapKit', 'CoreLocation'
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__

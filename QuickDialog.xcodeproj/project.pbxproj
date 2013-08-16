@@ -107,10 +107,6 @@
 		D81F2EF714BBAFCE0066C372 /* QSortingSection.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B813EC905B00E3922B /* QSortingSection.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BA13EC905B00E3922B /* QTextElement.h */; settings = {ATTRIBUTES = (); }; };
 		D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83BD545169661EA00188061 /* Default-568h@2x.png */; };
-		D85E2C5F1650698700510973 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D85E2C611650699000510973 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D86035C413E0538600CB1785 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C313E0538600CB1785 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		D86035C613E0539A00CB1785 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86035C513E0539A00CB1785 /* MapKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		D86249EB14BB59D6002F0585 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EA14BB59D6002F0585 /* icon.png */; };
 		D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EC14BB59DC002F0585 /* icon@2x.png */; };
 		D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EE14BB5A06002F0585 /* iconIpad.png */; };
@@ -144,6 +140,8 @@
 		D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */; };
 		D8B394691514E8B3008ECB34 /* QSegmentedElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B394671514E8B3008ECB34 /* QSegmentedElement.h */; };
 		D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B394681514E8B3008ECB34 /* QSegmentedElement.m */; };
+		D8D0294217BEDA4D00D9B6CE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0294117BEDA4D00D9B6CE /* MapKit.framework */; };
+		D8D0294417BEDA5200D9B6CE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8D0294317BEDA5200D9B6CE /* CoreLocation.framework */; };
 		D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */; };
 		D8E0748F165A7D08004E7035 /* QuickDialogController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */; };
 		D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F180E513F0599A009B0C96 /* quickdialog.png */; };
@@ -299,8 +297,6 @@
 		D811F8F713EC907200E3922B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D811F8F813EC907200E3922B /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		D83BD545169661EA00188061 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D86035C313E0538600CB1785 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		D86035C513E0539A00CB1785 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D86249EA14BB59D6002F0585 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		D86249EC14BB59DC002F0585 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
 		D86249EE14BB5A06002F0585 /* iconIpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconIpad.png; path = ../../iconIpad.png; sourceTree = "<group>"; };
@@ -337,6 +333,8 @@
 		D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMultilineTextViewController.m; path = quickdialog/QMultilineTextViewController.m; sourceTree = SOURCE_ROOT; };
 		D8B394671514E8B3008ECB34 /* QSegmentedElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSegmentedElement.h; path = quickdialog/QSegmentedElement.h; sourceTree = SOURCE_ROOT; };
 		D8B394681514E8B3008ECB34 /* QSegmentedElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSegmentedElement.m; path = quickdialog/QSegmentedElement.m; sourceTree = SOURCE_ROOT; };
+		D8D0294117BEDA4D00D9B6CE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D8D0294317BEDA5200D9B6CE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuickDialogController+Navigation.h"; path = "quickdialog/QuickDialogController+Navigation.h"; sourceTree = SOURCE_ROOT; };
 		D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Navigation.m"; path = "quickdialog/QuickDialogController+Navigation.m"; sourceTree = SOURCE_ROOT; };
 		D8F180E513F0599A009B0C96 /* quickdialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = quickdialog.png; sourceTree = "<group>"; };
@@ -383,8 +381,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85E2C611650699000510973 /* CoreLocation.framework in Frameworks */,
-				D85E2C5F1650698700510973 /* MapKit.framework in Frameworks */,
 				2C542394145ADEBD0026A152 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,9 +389,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8D0294417BEDA5200D9B6CE /* CoreLocation.framework in Frameworks */,
+				D8D0294217BEDA4D00D9B6CE /* MapKit.framework in Frameworks */,
 				2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */,
-				D86035C613E0539A00CB1785 /* MapKit.framework in Frameworks */,
-				D86035C413E0538600CB1785 /* CoreLocation.framework in Frameworks */,
 				D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */,
 				D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */,
 				D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */,
@@ -466,8 +462,8 @@
 		D80B0E3613E052DF00FA85CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D86035C513E0539A00CB1785 /* MapKit.framework */,
-				D86035C313E0538600CB1785 /* CoreLocation.framework */,
+				D8D0294317BEDA5200D9B6CE /* CoreLocation.framework */,
+				D8D0294117BEDA4D00D9B6CE /* MapKit.framework */,
 				D80B0E3713E052DF00FA85CA /* UIKit.framework */,
 				D80B0E3913E052DF00FA85CA /* Foundation.framework */,
 				D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */,
