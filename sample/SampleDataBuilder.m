@@ -18,6 +18,7 @@
 #import "PeriodPickerValueParser.h"
 #import "QMapElement.h"
 #import "QWebElement.h"
+#import "QMailElement.h"
 
 @implementation SampleDataBuilder
 

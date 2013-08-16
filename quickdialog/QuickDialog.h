@@ -43,7 +43,6 @@
 #import "QCountdownElement.h"
 #import "QFloatElement.h"
 #import "QPickerElement.h"
-#import "QMailElement.h"
 #import "QRadioElement.h"
 #import "QRadioItemElement.h"
 #import "QSelectItemElement.h"
@@ -61,12 +60,8 @@
 #import "QColorPickerElement.h"
 #import "UIColor+ColorUtilities.h"
 #import "QProgressElement.h"
-
-
 #import "QuickDialogEntryElementDelegate.h"
-
 #import "QuickDialogController+Loading.h"
-
 #import "QAutoEntryElement.h"
 #import "QAutoEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"

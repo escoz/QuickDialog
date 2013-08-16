@@ -51,6 +51,7 @@
 		5C50E81524FD5F3E540B4D83 /* QPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E32E2F0A5EF03EB569E9 /* QPickerElement.m */; };
 		5C50E89FE330074B4391CB42 /* QFlatAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E49371B14BCCB243E489 /* QFlatAppearance.m */; };
 		5C50E8AFA475E6479AE5775D /* QClassicAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EE58374BE7405D2B7C10 /* QClassicAppearance.m */; };
+		5C50E98463F3848733205310 /* QMailElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E5ABA79D20529225F870 /* QMailElement.m */; };
 		5C50EAFF93AE7374E94BEBAE /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EAFF4C085E41DE56306E /* QColorPickerElement.m */; };
 		5C50EB6A5469607BDA08A4F0 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4957330C22B16CE6938 /* QWebViewController.m */; };
 		5C50EF790D3A46FEDCDF0FA0 /* QMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E5B0F3DD0967B8186785 /* QMapElement.m */; };
@@ -110,8 +111,7 @@
 		D82A4AF417BEE90E000986C8 /* QFloatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82A4AF017BEE90E000986C8 /* QFloatTableViewCell.m */; };
 		D82A4AF517BEE90E000986C8 /* QProgressElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D82A4AF117BEE90E000986C8 /* QProgressElement.h */; };
 		D82A4AF617BEE90E000986C8 /* QProgressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D82A4AF217BEE90E000986C8 /* QProgressElement.m */; };
-		D82A4AFD17BEEF2B000986C8 /* QMailElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D82A4AFB17BEEF2B000986C8 /* QMailElement.h */; };
-		D82A4AFE17BEEF2B000986C8 /* QMailElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D82A4AFC17BEEF2B000986C8 /* QMailElement.m */; };
+		D82A4B0017BEF033000986C8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82A4AFF17BEF033000986C8 /* MessageUI.framework */; };
 		D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83BD545169661EA00188061 /* Default-568h@2x.png */; };
 		D86249EB14BB59D6002F0585 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EA14BB59D6002F0585 /* icon.png */; };
 		D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EC14BB59DC002F0585 /* icon@2x.png */; };
@@ -206,8 +206,10 @@
 		5C50E4957330C22B16CE6938 /* QWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QWebViewController.m; sourceTree = "<group>"; };
 		5C50E498C230A92D1BD3C3EA /* QPickerTabDelimitedStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QPickerTabDelimitedStringParser.m; sourceTree = "<group>"; };
 		5C50E4D5FFEF3EC8D7D7C219 /* UIColor+ColorUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorUtilities.m"; sourceTree = "<group>"; };
+		5C50E503C0E833EBDE810039 /* QMailElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMailElement.h; sourceTree = "<group>"; };
 		5C50E53A66F53B07BEE29CE5 /* QWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QWebViewController.h; sourceTree = "<group>"; };
 		5C50E56A3F1DC223669D7417 /* QMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapAnnotation.m; sourceTree = "<group>"; };
+		5C50E5ABA79D20529225F870 /* QMailElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMailElement.m; sourceTree = "<group>"; };
 		5C50E5B0F3DD0967B8186785 /* QMapElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapElement.m; sourceTree = "<group>"; };
 		5C50E5DF83EB5A046AD7FA16 /* QMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMapViewController.h; sourceTree = "<group>"; };
 		5C50E71B9FC6B0B50346A5D0 /* QPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerTableViewCell.h; sourceTree = "<group>"; };
@@ -306,8 +308,7 @@
 		D82A4AF017BEE90E000986C8 /* QFloatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QFloatTableViewCell.m; path = quickdialog/QFloatTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		D82A4AF117BEE90E000986C8 /* QProgressElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QProgressElement.h; path = quickdialog/QProgressElement.h; sourceTree = SOURCE_ROOT; };
 		D82A4AF217BEE90E000986C8 /* QProgressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QProgressElement.m; path = quickdialog/QProgressElement.m; sourceTree = SOURCE_ROOT; };
-		D82A4AFB17BEEF2B000986C8 /* QMailElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMailElement.h; path = quickdialog/QMailElement.h; sourceTree = SOURCE_ROOT; };
-		D82A4AFC17BEEF2B000986C8 /* QMailElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMailElement.m; path = quickdialog/QMailElement.m; sourceTree = SOURCE_ROOT; };
+		D82A4AFF17BEF033000986C8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D83BD545169661EA00188061 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D86249EA14BB59D6002F0585 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		D86249EC14BB59DC002F0585 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
@@ -401,6 +402,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82A4B0017BEF033000986C8 /* MessageUI.framework in Frameworks */,
 				D8D0294417BEDA5200D9B6CE /* CoreLocation.framework in Frameworks */,
 				D8D0294217BEDA4D00D9B6CE /* MapKit.framework in Frameworks */,
 				2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */,
@@ -446,6 +448,8 @@
 				5C50EAFF4C085E41DE56306E /* QColorPickerElement.m */,
 				5C50ECD6A4FF1F8136ECB485 /* UIColor+ColorUtilities.h */,
 				5C50EF9F76D029609CD376E2 /* QColorPickerElement.h */,
+				5C50E5ABA79D20529225F870 /* QMailElement.m */,
+				5C50E503C0E833EBDE810039 /* QMailElement.h */,
 			);
 			path = extras;
 			sourceTree = "<group>";
@@ -474,6 +478,7 @@
 		D80B0E3613E052DF00FA85CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D82A4AFF17BEF033000986C8 /* MessageUI.framework */,
 				D8D0294317BEDA5200D9B6CE /* CoreLocation.framework */,
 				D8D0294117BEDA4D00D9B6CE /* MapKit.framework */,
 				D80B0E3713E052DF00FA85CA /* UIKit.framework */,
@@ -557,8 +562,6 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
-				D82A4AFB17BEEF2B000986C8 /* QMailElement.h */,
-				D82A4AFC17BEEF2B000986C8 /* QMailElement.m */,
 				D82A4AEF17BEE90E000986C8 /* QFloatTableViewCell.h */,
 				D82A4AF017BEE90E000986C8 /* QFloatTableViewCell.m */,
 				D82A4AF117BEE90E000986C8 /* QProgressElement.h */,
@@ -752,7 +755,6 @@
 				D81F2EF614BBAFCE0066C372 /* QSection.h in Headers */,
 				D81F2EF714BBAFCE0066C372 /* QSortingSection.h in Headers */,
 				D82A4AF317BEE90E000986C8 /* QFloatTableViewCell.h in Headers */,
-				D82A4AFD17BEEF2B000986C8 /* QMailElement.h in Headers */,
 				D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */,
 				D8F180E813F0599A009B0CBA /* QuickDialogEntryElementDelegate.h in Headers */,
 				D8F180E813F0599A009B0CBE /* QLoadingElement.h in Headers */,
@@ -885,7 +887,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D82A4AFE17BEEF2B000986C8 /* QMailElement.m in Sources */,
 				2C5423A1145ADF2B0026A152 /* QDecimalTableViewCell.m in Sources */,
 				2C5423A3145ADF2B0026A152 /* QDecimalElement.m in Sources */,
 				2C5423A5145ADF2B0026A152 /* QBadgeElement.m in Sources */,
@@ -970,6 +971,7 @@
 				5C50E65C85040A1F79EAD648 /* QMapViewController.m in Sources */,
 				5C50EFADB34DF61735763BCF /* UIColor+ColorUtilities.m in Sources */,
 				5C50EAFF93AE7374E94BEBAE /* QColorPickerElement.m in Sources */,
+				5C50E98463F3848733205310 /* QMailElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
