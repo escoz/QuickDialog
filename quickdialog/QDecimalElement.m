@@ -27,8 +27,11 @@
 
 
 - (QDecimalElement *)initWithTitle:(NSString *)title value:(NSNumber *)value {
-    self = [super initWithTitle:title Value:nil] ;
-    _numberValue = value;
+    self = [super initWithTitle:title Value:nil];
+    if (self) {
+        _numberValue = value;
+        self.keyboardType = UIKeyboardTypeDecimalPad;
+    }
     return self;
 }
 
@@ -40,7 +43,10 @@
 
 - (QDecimalElement *)initWithValue:(NSNumber *)value {
     self = [super init];
-    _numberValue = value;
+    if (self) {
+        _numberValue = value;
+        self.keyboardType = UIKeyboardTypeDecimalPad;
+    }
     return self;
 }
 
@@ -48,6 +54,7 @@
     self = [super init];
     if (self) {
         _numberValue = @0;
+        self.keyboardType = UIKeyboardTypeDecimalPad;
     }
 
     return self;
@@ -60,7 +67,6 @@
     if (cell==nil){
         cell = [[QDecimalTableViewCell alloc] init];
     }
-    self.keyboardType = UIKeyboardTypeDecimalPad;
     [cell prepareForElement:self inTableView:tableView];
     cell.textField.userInteractionEnabled = self.enabled;
 
