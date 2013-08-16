@@ -106,6 +106,8 @@
 		D81F2EF614BBAFCE0066C372 /* QSection.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B613EC905B00E3922B /* QSection.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF714BBAFCE0066C372 /* QSortingSection.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8B813EC905B00E3922B /* QSortingSection.h */; settings = {ATTRIBUTES = (); }; };
 		D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D811F8BA13EC905B00E3922B /* QTextElement.h */; settings = {ATTRIBUTES = (); }; };
+		D82A4AE917BEE386000986C8 /* QFloatTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = D82A4AE717BEE386000986C8 /* QFloatTableViewCell.h */; };
+		D82A4AEA17BEE386000986C8 /* QFloatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82A4AE817BEE386000986C8 /* QFloatTableViewCell.m */; };
 		D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83BD545169661EA00188061 /* Default-568h@2x.png */; };
 		D86249EB14BB59D6002F0585 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EA14BB59D6002F0585 /* icon.png */; };
 		D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EC14BB59DC002F0585 /* icon@2x.png */; };
@@ -296,6 +298,8 @@
 		D811F8F613EC907200E3922B /* keyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = keyboard.png; sourceTree = "<group>"; };
 		D811F8F713EC907200E3922B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		D811F8F813EC907200E3922B /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		D82A4AE717BEE386000986C8 /* QFloatTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QFloatTableViewCell.h; path = ../quickdialog/QFloatTableViewCell.h; sourceTree = "<group>"; };
+		D82A4AE817BEE386000986C8 /* QFloatTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = QFloatTableViewCell.m; path = ../quickdialog/QFloatTableViewCell.m; sourceTree = "<group>"; };
 		D83BD545169661EA00188061 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D86249EA14BB59D6002F0585 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
 		D86249EC14BB59DC002F0585 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
@@ -545,6 +549,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				D82A4AE717BEE386000986C8 /* QFloatTableViewCell.h */,
+				D82A4AE817BEE386000986C8 /* QFloatTableViewCell.m */,
 				D8820C7616A352990070AE22 /* QImageElement.h */,
 				D8820C7716A352990070AE22 /* QImageElement.m */,
 				D8820C7816A352990070AE22 /* QImageTableViewCell.h */,
@@ -918,6 +924,8 @@
 				D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */,
 				D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */,
 				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
+				D82A4AE917BEE386000986C8 /* QFloatTableViewCell.h in Sources */,
+				D82A4AEA17BEE386000986C8 /* QFloatTableViewCell.m in Sources */,
 				5C50E8AFA475E6479AE5775D /* QClassicAppearance.m in Sources */,
 				5C50E89FE330074B4391CB42 /* QFlatAppearance.m in Sources */,
 			);
