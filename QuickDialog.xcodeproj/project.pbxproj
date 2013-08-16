@@ -48,6 +48,9 @@
 		5C50E215ECB7C7D4B503AA4C /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */; };
 		5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E404FC15CFA443ABBB5C /* navigation.json */; };
 		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
+		91B48A7716CF5DEF001D3BC5 /* QMailElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 91B48A7516CF5DEF001D3BC5 /* QMailElement.h */; };
+		91B48A7816CF5DEF001D3BC5 /* QMailElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B48A7616CF5DEF001D3BC5 /* QMailElement.m */; };
+		91B48A7B16CF5E39001D3BC5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B48A7A16CF5E39001D3BC5 /* MessageUI.framework */; };
 		B45EC5681625E473007B96E2 /* QColorPickerElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B45EC5621625E473007B96E2 /* QColorPickerElement.h */; };
 		B45EC56A1625E473007B96E2 /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B45EC5631625E473007B96E2 /* QColorPickerElement.m */; };
 		B45EC56E1625E473007B96E2 /* UIColor+ColorUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */; };
@@ -203,6 +206,9 @@
 		5C50E404FC15CFA443ABBB5C /* navigation.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; name = navigation.json; path = QuickDialog.xcodeproj/navigation.json; sourceTree = SOURCE_ROOT; };
 		5C50EB0025DCEF8A3740C477 /* QAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAppearance.h; path = QuickDialog/quickdialog/QAppearance.h; sourceTree = "<group>"; };
 		5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "quickdialog/QuickDialogController+Animations.m"; sourceTree = SOURCE_ROOT; };
+		91B48A7516CF5DEF001D3BC5 /* QMailElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QMailElement.h; path = quickdialog/QMailElement.h; sourceTree = SOURCE_ROOT; };
+		91B48A7616CF5DEF001D3BC5 /* QMailElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QMailElement.m; path = quickdialog/QMailElement.m; sourceTree = SOURCE_ROOT; };
+		91B48A7A16CF5E39001D3BC5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B45EC5621625E473007B96E2 /* QColorPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QColorPickerElement.h; path = quickdialog/QColorPickerElement.h; sourceTree = SOURCE_ROOT; };
 		B45EC5631625E473007B96E2 /* QColorPickerElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QColorPickerElement.m; path = quickdialog/QColorPickerElement.m; sourceTree = SOURCE_ROOT; };
 		B45EC5661625E473007B96E2 /* UIColor+ColorUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+ColorUtilities.h"; path = "quickdialog/UIColor+ColorUtilities.h"; sourceTree = SOURCE_ROOT; };
@@ -404,6 +410,7 @@
 				D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */,
 				D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */,
 				D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */,
+				91B48A7B16CF5E39001D3BC5 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +429,7 @@
 		D80B0E2813E052DF00FA85CA = {
 			isa = PBXGroup;
 			children = (
+				91B48A7A16CF5E39001D3BC5 /* MessageUI.framework */,
 				2CE450A8145ADF8000B77D0E /* libQuickDialog */,
 				D860356713E0534000CB1785 /* quickdialog */,
 				D80B0E3D13E052DF00FA85CA /* sample */,
@@ -660,6 +668,8 @@
 				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
 				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
 				D811F8AD13EC905B00E3922B /* quickform-Prefix.pch */,
+				91B48A7516CF5DEF001D3BC5 /* QMailElement.h */,
+				91B48A7616CF5DEF001D3BC5 /* QMailElement.m */,
 				D811F8BC13EC905B00E3922B /* QWebElement.h */,
 				D811F8BD13EC905B00E3922B /* QWebElement.m */,
 				D811F8BE13EC905B00E3922B /* QWebViewController.h */,
@@ -775,6 +785,7 @@
 				D8820B5116A246860070AE22 /* QCountdownElement.h in Headers */,
 				B45EC5681625E473007B96E2 /* QColorPickerElement.h in Headers */,
 				B45EC56E1625E473007B96E2 /* UIColor+ColorUtilities.h in Headers */,
+				91B48A7716CF5DEF001D3BC5 /* QMailElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,6 +955,7 @@
 				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
 				B45EC56A1625E473007B96E2 /* QColorPickerElement.m in Sources */,
 				B45EC5701625E473007B96E2 /* UIColor+ColorUtilities.m in Sources */,
+				91B48A7816CF5DEF001D3BC5 /* QMailElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

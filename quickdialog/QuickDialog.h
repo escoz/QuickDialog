@@ -41,6 +41,7 @@
 #import "QCountdownElement.h"
 #import "QFloatElement.h"
 #import "QPickerElement.h"
+#import "QMailElement.h"
 #import "QMapElement.h"
 #import "QRadioElement.h"
 #import "QRadioItemElement.h"
