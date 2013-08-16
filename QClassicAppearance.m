@@ -21,7 +21,7 @@
     self.actionColorDisabled = [UIColor lightGrayColor];
     self.actionColorEnabled = [UIColor blackColor];
 
-    self.sectionTitleFont = nil;
+    self.sectionTitleFont = [UIFont boldSystemFontOfSize:16];
     self.sectionTitleShadowColor = [UIColor colorWithWhite:1.0 alpha:1];
     self.sectionTitleColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
 
@@ -55,12 +55,12 @@
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index{
     if (self.sectionTitleFont!=nil && tableView.style == UITableViewStyleGrouped){
-        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
-        containerView.tag = 98989;
+        CGFloat height = [tableView.delegate tableView:tableView heightForHeaderInSection:index];
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, height)];
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, tableView.frame.size.width-40, [tableView.delegate tableView:tableView heightForHeaderInSection:index])];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 8, tableView.frame.size.width-40, height-4)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.text = section.title;
         [containerView addSubview:label];
@@ -81,7 +81,6 @@
     if (self.sectionFooterFont!=nil && tableView.style == UITableViewStyleGrouped){
         CGSize textSize = [section.footer sizeWithFont:self.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height+8)];
-        containerView.tag = 89898;
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
@@ -120,7 +119,7 @@
     CGFloat stringTitleHeight = 0;
 
     if (section.title != nil) {
-        CGFloat maxWidth = tableView.bounds.size.width - 20;
+        CGFloat maxWidth = tableView.bounds.size.width - (section.rootElement.grouped ? 40 : 20);
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
         QAppearance *appearance = ((QuickDialogTableView *)tableView).root.appearance;
@@ -128,7 +127,7 @@
                                              constrainedToSize:maximumLabelSize
                                                  lineBreakMode:NSLineBreakByWordWrapping];
 
-        stringTitleHeight = expectedLabelSize.height+23.f;
+        stringTitleHeight = expectedLabelSize.height+24.f;
     }
 
 

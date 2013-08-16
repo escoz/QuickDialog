@@ -67,7 +67,8 @@
     if (element.appearance.tableBackgroundView!=nil)
         self.backgroundView = element.appearance.tableBackgroundView;
 
-    self.separatorColor = element.appearance.tableSeparatorColor;
+    if (element.appearance.tableSeparatorColor!=nil)
+        self.separatorColor = element.appearance.tableSeparatorColor;
 
 }
 
