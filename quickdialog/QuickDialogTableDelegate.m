@@ -93,8 +93,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)index {
     QSection *section = [_tableView.root getVisibleSectionForIndex:index];
-    if (section.footerView==nil)
-        return nil;
+    if (section.footerView!=nil)
+        return section.footerView;
 
     QAppearance *appearance = ((QuickDialogTableView *) tableView).root.appearance;
     return [appearance buildFooterForSection:section andTableView:(QuickDialogTableView*)tableView andIndex:index];

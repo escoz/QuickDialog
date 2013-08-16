@@ -25,7 +25,7 @@
     self.sectionTitleShadowColor = [UIColor colorWithWhite:1.0 alpha:1];
     self.sectionTitleColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
 
-    self.sectionFooterFont = nil;
+    self.sectionFooterFont = [UIFont systemFontOfSize:14];
     self.sectionFooterColor = [UIColor colorWithRed:0.298039 green:0.337255 blue:0.423529 alpha:1.000];
 
     self.labelFont = [UIFont boldSystemFontOfSize:15];
@@ -80,7 +80,7 @@
 - (UIView *)buildFooterForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
     if (self.sectionFooterFont!=nil && tableView.style == UITableViewStyleGrouped){
         CGSize textSize = [section.footer sizeWithFont:self.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
-        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height+8)];
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height)];
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
