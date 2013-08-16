@@ -21,6 +21,7 @@
     if (self != nil) {
         _title = title;
         _subject = subject;
+        _messageBody = messageBody;
         _toRecipients = toRecipients;
         _ccRecipients = ccRecipients;
         _bccRecipients = bccRecipients;
