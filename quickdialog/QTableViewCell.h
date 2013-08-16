@@ -21,6 +21,7 @@ typedef enum {
     QLabelingPolicyTrimTitle
 } QLabelingPolicy;
 
+
 @interface QTableViewCell : UITableViewCell
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;

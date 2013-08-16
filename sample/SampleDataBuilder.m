@@ -422,6 +422,8 @@
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With a value" Value:@"Value"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Or a simple number" Value:@"123"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text long text long text long text" Value:@"this is the value"]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text and no value - long text long text long text" Value:nil]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:nil Value:@"Long value and no title - long text long text long text"]];
 
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
     QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
@@ -463,10 +465,12 @@
     
     QLabelElement *trimTitleEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimTitle" Value:@"really really really long value"];
     trimTitleEl.labelingPolicy = QLabelingPolicyTrimTitle;  // this is default
+    trimTitleEl.height = 80;
     [s3 addElement:trimTitleEl];
     
     QLabelElement *trimValueEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimValue" Value:@"really really really long value"];
     trimValueEl.labelingPolicy = QLabelingPolicyTrimValue;
+    trimValueEl.height = 80;
     [s3 addElement:trimValueEl];
 
     [root addSection:s1];
