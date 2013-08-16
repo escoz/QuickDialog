@@ -28,7 +28,7 @@
     self = [super initWithRoot:rootElement];
     if (self) {
         self.root.appearance = [self.root.appearance copy];
-        self.root.appearance.tableGroupedBackgroundColor =   [UIColor colorWithRed:0.8738 green:0.6740 blue:0.3097 alpha:1.0000];
+        self.root.appearance.tableGroupedBackgroundColor =  [UIColor colorWithHue:40/360.f saturation:0.58f brightness:0.90f alpha:1.f];;
         ((QEntryElement *)[self.root elementWithKey:@"login"]).delegate = self;
 
         QAppearance *fieldsAppearance = [self.root.appearance copy];
