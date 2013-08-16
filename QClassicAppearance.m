@@ -54,13 +54,15 @@
 
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index{
+
+    float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
     if (self.sectionTitleFont!=nil && tableView.style == UITableViewStyleGrouped){
         CGFloat height = [tableView.delegate tableView:tableView heightForHeaderInSection:index];
-        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, height)];
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, height)];
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 8, tableView.frame.size.width-40, height-4)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, 8, tableView.bounds.size.width-margin-margin, height-4)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.text = section.title;
         [containerView addSubview:label];
@@ -78,13 +80,15 @@
 
 
 - (UIView *)buildFooterForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
+
+    float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
     if (self.sectionFooterFont!=nil && tableView.style == UITableViewStyleGrouped){
-        CGSize textSize = [section.footer sizeWithFont:self.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)];
-        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, textSize.height)];
+        CGSize textSize = [section.footer sizeWithFont:self.sectionFooterFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)];
+        UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, textSize.height)];
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.frame.size.width-40, textSize.height)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, 5, tableView.bounds.size.width-margin-margin, textSize.height)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.text = section.footer;
         label.textAlignment = NSTextAlignmentCenter;
@@ -103,8 +107,10 @@
 
 - (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
 
+    float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
+
     if (section.headerView!=nil)
-        return section.headerView.frame.size.height;
+        return section.headerView.bounds.size.height;
 
     if (section.title==nil)
         return 0;
@@ -113,7 +119,7 @@
 
         return section.footer == NULL
                 ? -1
-                : [section.title sizeWithFont:self.sectionTitleFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)].height+22;
+                : [section.title sizeWithFont:self.sectionTitleFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)].height+22;
     }
 
     CGFloat stringTitleHeight = 0;
@@ -136,19 +142,36 @@
 
 - (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
 
+    float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
     if (section.footerView!=nil)
-        return section.footerView.frame.size.height;
+        return section.footerView.bounds.size.height;
 
     QAppearance *appearance = tableView.root.appearance;
 
     return section.footer == NULL
             ? -1
-            : [section.footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.frame.size.width-40, 1000000)].height+22;
+            : [section.footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)].height+22;
 }
 
 - (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path {
 
 }
+
+
+- (float) currentGroupedTableViewMarginForTableView:(UITableView *)tableView
+{
+    float marginWidth;
+    if(tableView.bounds.size.width > 20)
+    {
+        marginWidth = tableView.bounds.size.width < 400 ? 10 : MAX(31, MIN(45, tableView.bounds.size.width * 0.06));
+    }
+    else
+    {
+        marginWidth = tableView.bounds.size.width - 10;
+    }
+    return marginWidth;
+}
+
 
 
 
