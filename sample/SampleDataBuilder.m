@@ -207,6 +207,10 @@
     [controls addElement:element2];
     
     [controls addElement:[QLoadingElement new]];
+    
+    QProgressElement *progressElement = [QProgressElement new];
+    progressElement.progress = 0.24601;
+    [controls addElement:progressElement];
 
     QSection *btnSection = [[QSection alloc] init];
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];

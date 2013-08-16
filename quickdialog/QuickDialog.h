@@ -56,6 +56,11 @@
 #import "QMultilineTextViewController.h"
 #import "QMultilineElement.h"
 #import "QImageElement.h"
+#import "QProgressElement.h"
+#import "QColorPickerElement.h"
+#import "UIColor+ColorUtilities.h"
+#import "QProgressElement.h"
+
 
 #import "QuickDialogEntryElementDelegate.h"
 
