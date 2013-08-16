@@ -29,8 +29,7 @@
 	<key>--ignore</key>
 	<array>
 		<string>./sample</string>
-		<string>./quickdialog/DOAutocompleteTextField.h</string>
-		<string>./quickdialog/DOAutocompleteTextField.m</string>
+		<string>./extras</string>
 	</array>
 	<key>--index-desc</key>
 	<string>./README.markdown</string>
