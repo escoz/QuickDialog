@@ -43,6 +43,8 @@
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root {
     Class controllerClass = [self controllerClassForRoot:root];
+    if (controllerClass==nil)
+        NSLog(@"Couldn't find a class for name %@", root.controllerName);
     return [((QuickDialogController *)[controllerClass alloc]) initWithRoot:root];
 }
 
