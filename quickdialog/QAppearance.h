@@ -38,6 +38,8 @@
 @property(nonatomic) UITableViewCellSeparatorStyle tableSeparatorStyle;
 
 
+@property(nonatomic, strong) UIView *tableGroupedBackgroundView;
+
 - (void)setDefaults;
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index;

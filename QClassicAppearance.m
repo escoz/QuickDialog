@@ -63,7 +63,7 @@
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, 8, tableView.bounds.size.width-margin-margin, height-4)];
-        label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         label.text = section.title;
         [containerView addSubview:label];
         label.backgroundColor = [UIColor clearColor];
@@ -107,7 +107,7 @@
 
 - (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
 
-    float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
+     float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
 
     if (section.headerView!=nil)
         return section.headerView.bounds.size.height;
