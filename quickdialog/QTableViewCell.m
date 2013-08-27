@@ -66,8 +66,11 @@ static const int kCellMinimumLabelWidth = 40;
         }
 
         CGSize valueSize = CGSizeZero;
-        if (self.textLabel.text!=nil)
+        if (!self.detailTextLabel.text) {
+            valueSize = sizeWithMargin;
+        } else if (self.textLabel.text!=nil) {
             valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
+        }
 
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
