@@ -25,7 +25,7 @@
 
 
 @private
-    __unsafe_unretained QuickDialogController *_controller;
+    __weak QuickDialogController *_controller;
     QRootElement *_root;
     id <UITableViewDataSource> quickDialogDataSource;
     id <UITableViewDelegate> quickDialogDelegate;
@@ -42,7 +42,7 @@
 
 - (UITableViewCell *)cellForElement:(QElement *)element;
 
-- (void)viewWillAppear;
+- (void)deselectRows;
 
 - (void)reloadCellForElements:(QElement *)element, ... NS_REQUIRES_NIL_TERMINATION;
 

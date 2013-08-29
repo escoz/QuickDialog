@@ -55,11 +55,18 @@
     [self reloadData];
 }
 
+- (void)reloadData
+{
+    [self applyAppearanceForRoot:self.root];
+    [super reloadData];
+}
+
+
 - (void)applyAppearanceForRoot:(QRootElement *)element {
     if (element.appearance.tableGroupedBackgroundColor !=nil){
         
         self.backgroundColor = element.grouped 
-                ? element.appearance.tableGroupedBackgroundColor 
+                ? element.appearance.tableGroupedBackgroundColor
                 : element.appearance.tableBackgroundColor;
 
         self.backgroundView = element.appearance.tableBackgroundView;
@@ -104,9 +111,8 @@
     return [self cellForRowAtIndexPath:[element getIndexPath]];
 }
 
-- (void)viewWillAppear {
-
-    [self applyAppearanceForRoot:self.root];
+- (void)deselectRows
+{
     NSArray *selected = nil;
     if ([self indexPathForSelectedRow]!=nil && _deselectRowWhenViewAppears){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];

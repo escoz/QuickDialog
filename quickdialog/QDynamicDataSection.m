@@ -35,11 +35,10 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         if ([propName isEqualToString:@"iterate"]) {
-            collection = [data valueForKey:valueName];
+            collection = [data valueForKeyPath:valueName];
         }
     }
 
-    
     if (collection==nil && showLoading)
         [self addElement:[[QLoadingElement alloc] init]];
     

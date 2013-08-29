@@ -104,7 +104,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     _viewOnScreen = YES;
-    [self.quickDialogTableView viewWillAppear];
+    [self.quickDialogTableView deselectRows];
     [super viewWillAppear:animated];
     if (_root!=nil) {
         self.title = _root.title;
