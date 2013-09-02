@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                    'and efficient, you can create forms with multiple text fields, or with ' \
                    'thousands of items with no sweat!'
 
-  s.source_files = 'quickdialog', '*.{h,m}'
+  s.source_files = 'quickdialog', 'extras', '*.{h,m}'
   s.requires_arc = true
 
   s.prefix_header_contents = <<-EOS
