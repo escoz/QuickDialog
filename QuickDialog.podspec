@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
                    'thousands of items with no sweat!'
 
   s.source_files = 'quickdialog', 'extras', '*.{h,m}'
+  s.frameworks = 'MapKit', 'CoreLocation'
   s.requires_arc = true
 
   s.prefix_header_contents = <<-EOS
