@@ -28,6 +28,7 @@
 
 @property(nonatomic, strong) NSString *url;
 @property(nonatomic, strong) NSString *html;
+@property(nonatomic, readonly) NSString *file;
 
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url;
 - (QWebElement *)initWithTitle:(NSString *)title HTML:(NSString *)html;
