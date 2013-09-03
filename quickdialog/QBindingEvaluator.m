@@ -116,6 +116,9 @@
 }
 
 - (void)bindSection:(QSection *)section toProperties:(NSDictionary *)object {
+    if ([object isKindOfClass:[NSNull class]]) {
+        return;
+    }
     [section.elements removeAllObjects];
     for (id item in [object allKeys]){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
