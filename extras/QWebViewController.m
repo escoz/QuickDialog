@@ -120,7 +120,8 @@
         self.toolbarItems = nil;
 	}
 	else {
-		[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
+        NSURL *url = [_url hasPrefix:@"/"]? [NSURL fileURLWithPath:_url] : [NSURL URLWithString:_url];
+        [_webView loadRequest:[NSURLRequest requestWithURL:url]];
 		self.navigationController.toolbarHidden = NO;
 
         self.toolbarItems = _urlToolbarItems;

@@ -40,7 +40,7 @@
 }
 
 -(void)setFile:(NSString *)filename {
-    _url = [[NSBundle mainBundle] pathForResource:@"filename" ofType:@"xml"];
+    _url = [[NSBundle mainBundle] pathForResource:filename ofType:@"html"];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -59,7 +59,7 @@
 		[controller displayViewController:webController];
 	}
 	else {
-		if ([_url hasPrefix:@"http"] || [_url hasPrefix:@"file"]) {
+        if ([_url hasPrefix:@"http"] || [_url hasPrefix:@"/"]) {
 			QWebViewController *webController = [[QWebViewController alloc] initWithUrl:_url];
 			[controller displayViewController:webController withPresentationMode:self.presentationMode];
 		} else {
