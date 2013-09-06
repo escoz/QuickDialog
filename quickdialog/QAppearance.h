@@ -35,7 +35,6 @@
 @property(nonatomic) CGFloat cellBorderWidth;
 
 @property(nonatomic) UIBarStyle toolbarStyle;
-@property(nonatomic) UITableViewCellSeparatorStyle tableSeparatorStyle;
 
 
 @property(nonatomic, strong) UIView *tableGroupedBackgroundView;

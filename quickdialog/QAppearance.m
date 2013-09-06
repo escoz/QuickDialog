@@ -23,7 +23,6 @@
 
 
 - (void)setDefaults {
-    self.tableSeparatorStyle = UITableViewCellSeparatorStyleSingleLine;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -63,7 +62,6 @@
         copy.sectionTitleFont = _sectionTitleFont;
         copy.sectionFooterColor = _sectionFooterColor;
         copy.sectionFooterFont = _sectionFooterFont;
-        copy.tableSeparatorStyle = _tableSeparatorStyle;
     }
     return copy;
 }

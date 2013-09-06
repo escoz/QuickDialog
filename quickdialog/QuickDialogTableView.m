@@ -79,8 +79,6 @@
 
     if (element.appearance.tableSeparatorColor!=nil)
         self.separatorColor = element.appearance.tableSeparatorColor;
-    
-    self.separatorStyle = element.appearance.tableSeparatorStyle;
 
 }
 
