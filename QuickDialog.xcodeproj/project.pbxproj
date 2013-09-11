@@ -49,8 +49,6 @@
 		5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */; };
 		5C50E7FD1C54757459D8F88B /* QPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EA8E14F439693332B438 /* QPickerTableViewCell.m */; };
 		5C50E81524FD5F3E540B4D83 /* QPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E32E2F0A5EF03EB569E9 /* QPickerElement.m */; };
-		5C50E89FE330074B4391CB42 /* QFlatAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E49371B14BCCB243E489 /* QFlatAppearance.m */; };
-		5C50E8AFA475E6479AE5775D /* QClassicAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EE58374BE7405D2B7C10 /* QClassicAppearance.m */; };
 		5C50E98463F3848733205310 /* QMailElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E5ABA79D20529225F870 /* QMailElement.m */; };
 		5C50EAFF93AE7374E94BEBAE /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50EAFF4C085E41DE56306E /* QColorPickerElement.m */; };
 		5C50EB6A5469607BDA08A4F0 /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4957330C22B16CE6938 /* QWebViewController.m */; };
@@ -61,6 +59,13 @@
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
+		D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571B17E115580052EBE3 /* QClassicAppearance.h */; };
+		D80F572017E115580052EBE3 /* QClassicAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F571C17E115580052EBE3 /* QClassicAppearance.m */; };
+		D80F572117E115580052EBE3 /* QFlatAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571D17E115580052EBE3 /* QFlatAppearance.h */; };
+		D80F572217E115580052EBE3 /* QFlatAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F571E17E115580052EBE3 /* QFlatAppearance.m */; };
+		D80F572617E1162B0052EBE3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D80F572317E1162A0052EBE3 /* icon.png */; };
+		D80F572717E1162B0052EBE3 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D80F572417E1162A0052EBE3 /* icon@2x.png */; };
+		D80F572817E1162B0052EBE3 /* iconIpad.png in Resources */ = {isa = PBXBuildFile; fileRef = D80F572517E1162A0052EBE3 /* iconIpad.png */; };
 		D811F8FB13EC907200E3922B /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8DE13EC907200E3922B /* AboutController.m */; };
 		D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E013EC907200E3922B /* SampleDataBuilder.m */; };
 		D811F8FE13EC907200E3922B /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8E513EC907200E3922B /* LoginController.m */; };
@@ -113,9 +118,6 @@
 		D82A4AF617BEE90E000986C8 /* QProgressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D82A4AF217BEE90E000986C8 /* QProgressElement.m */; };
 		D82A4B0017BEF033000986C8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82A4AFF17BEF033000986C8 /* MessageUI.framework */; };
 		D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D83BD545169661EA00188061 /* Default-568h@2x.png */; };
-		D86249EB14BB59D6002F0585 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EA14BB59D6002F0585 /* icon.png */; };
-		D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EC14BB59DC002F0585 /* icon@2x.png */; };
-		D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */ = {isa = PBXBuildFile; fileRef = D86249EE14BB5A06002F0585 /* iconIpad.png */; };
 		D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F514BB5AB5002F0585 /* jsonadvancedsample.json */; };
 		D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F614BB5AB5002F0585 /* jsondatasample.json */; };
 		D86249FB14BB5AB5002F0585 /* loginform.json in Resources */ = {isa = PBXBuildFile; fileRef = D86249F714BB5AB5002F0585 /* loginform.json */; };
@@ -230,6 +232,13 @@
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D80F571B17E115580052EBE3 /* QClassicAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QClassicAppearance.h; path = quickdialog/QClassicAppearance.h; sourceTree = SOURCE_ROOT; };
+		D80F571C17E115580052EBE3 /* QClassicAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QClassicAppearance.m; path = quickdialog/QClassicAppearance.m; sourceTree = SOURCE_ROOT; };
+		D80F571D17E115580052EBE3 /* QFlatAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QFlatAppearance.h; path = quickdialog/QFlatAppearance.h; sourceTree = SOURCE_ROOT; };
+		D80F571E17E115580052EBE3 /* QFlatAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QFlatAppearance.m; path = quickdialog/QFlatAppearance.m; sourceTree = SOURCE_ROOT; };
+		D80F572317E1162A0052EBE3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		D80F572417E1162A0052EBE3 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		D80F572517E1162A0052EBE3 /* iconIpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconIpad.png; sourceTree = "<group>"; };
 		D811F88413EC905B00E3922B /* QBadgeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBadgeElement.h; path = quickdialog/QBadgeElement.h; sourceTree = SOURCE_ROOT; };
 		D811F88513EC905B00E3922B /* QBadgeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBadgeElement.m; path = quickdialog/QBadgeElement.m; sourceTree = SOURCE_ROOT; };
 		D811F88613EC905B00E3922B /* QBadgeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBadgeTableCell.h; path = quickdialog/QBadgeTableCell.h; sourceTree = SOURCE_ROOT; };
@@ -310,9 +319,6 @@
 		D82A4AF217BEE90E000986C8 /* QProgressElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QProgressElement.m; path = quickdialog/QProgressElement.m; sourceTree = SOURCE_ROOT; };
 		D82A4AFF17BEF033000986C8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D83BD545169661EA00188061 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		D86249EA14BB59D6002F0585 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../icon.png; sourceTree = "<group>"; };
-		D86249EC14BB59DC002F0585 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../../icon@2x.png"; sourceTree = "<group>"; };
-		D86249EE14BB5A06002F0585 /* iconIpad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconIpad.png; path = ../../iconIpad.png; sourceTree = "<group>"; };
 		D86249F514BB5AB5002F0585 /* jsonadvancedsample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = jsonadvancedsample.json; path = sample/Resources/jsonadvancedsample.json; sourceTree = SOURCE_ROOT; };
 		D86249F614BB5AB5002F0585 /* jsondatasample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = jsondatasample.json; path = sample/Resources/jsondatasample.json; sourceTree = SOURCE_ROOT; };
 		D86249F714BB5AB5002F0585 /* loginform.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loginform.json; path = sample/Resources/loginform.json; sourceTree = SOURCE_ROOT; };
@@ -539,10 +545,10 @@
 		D811F8EF13EC907200E3922B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D80F572317E1162A0052EBE3 /* icon.png */,
+				D80F572417E1162A0052EBE3 /* icon@2x.png */,
+				D80F572517E1162A0052EBE3 /* iconIpad.png */,
 				D83BD545169661EA00188061 /* Default-568h@2x.png */,
-				D86249EE14BB5A06002F0585 /* iconIpad.png */,
-				D86249EC14BB59DC002F0585 /* icon@2x.png */,
-				D86249EA14BB59D6002F0585 /* icon.png */,
 				D8F180E513F0599A009B0C96 /* quickdialog.png */,
 				D8F180E613F0599A009B0C96 /* quickdialog@2x.png */,
 				D811F8F013EC907200E3922B /* footer.png */,
@@ -562,6 +568,10 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				D80F571B17E115580052EBE3 /* QClassicAppearance.h */,
+				D80F571C17E115580052EBE3 /* QClassicAppearance.m */,
+				D80F571D17E115580052EBE3 /* QFlatAppearance.h */,
+				D80F571E17E115580052EBE3 /* QFlatAppearance.m */,
 				D82A4AEF17BEE90E000986C8 /* QFloatTableViewCell.h */,
 				D82A4AF017BEE90E000986C8 /* QFloatTableViewCell.m */,
 				D82A4AF117BEE90E000986C8 /* QProgressElement.h */,
@@ -724,6 +734,7 @@
 				2C54239F145ADF2B0026A152 /* QuickDialog.h in Headers */,
 				D8F180E813F0599A009B0CCA /* NSMutableArray+MoveObject.h in Headers */,
 				D81F2ED714BBAFCE0066C372 /* QRootBuilder.h in Headers */,
+				D80F572117E115580052EBE3 /* QFlatAppearance.h in Headers */,
 				D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */,
 				D81F2EE714BBAFCE0066C372 /* QLabelElement.h in Headers */,
 				D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */,
@@ -774,6 +785,7 @@
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
 				D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */,
+				D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */,
 				5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */,
 				D82A4AF517BEE90E000986C8 /* QProgressElement.h in Headers */,
 				D87A4D6E169DABA900D4DD63 /* QElement+Appearance.h in Headers */,
@@ -860,15 +872,14 @@
 				D811F90713EC907200E3922B /* imgOn.png in Resources */,
 				D811F90813EC907200E3922B /* intel.png in Resources */,
 				D811F90913EC907200E3922B /* iPhone.png in Resources */,
+				D80F572817E1162B0052EBE3 /* iconIpad.png in Resources */,
 				D811F90A13EC907200E3922B /* keyboard.png in Resources */,
 				D811F90B13EC907200E3922B /* logo.png in Resources */,
+				D80F572617E1162B0052EBE3 /* icon.png in Resources */,
 				D811F90C13EC907200E3922B /* logo@2x.png in Resources */,
 				D8F180E713F0599A009B0C96 /* quickdialog.png in Resources */,
 				D8F180E813F0599A009B0C96 /* quickdialog@2x.png in Resources */,
 				D8A3DD87146045F000DE3528 /* Localizable.strings in Resources */,
-				D86249EB14BB59D6002F0585 /* icon.png in Resources */,
-				D86249ED14BB59DC002F0585 /* icon@2x.png in Resources */,
-				D86249EF14BB5A06002F0585 /* iconIpad.png in Resources */,
 				D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */,
 				D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */,
 				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
@@ -877,6 +888,7 @@
 				5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */,
 				D83BD546169661EA00188061 /* Default-568h@2x.png in Resources */,
 				5C50E1652D781293C5963717 /* themes.json in Resources */,
+				D80F572717E1162B0052EBE3 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +905,7 @@
 				2C5423A7145ADF2B0026A152 /* QBadgeTableCell.m in Sources */,
 				2C5423A9145ADF2B0026A152 /* QBooleanElement.m in Sources */,
 				2C5423AB145ADF2B0026A152 /* QButtonElement.m in Sources */,
+				D80F572017E115580052EBE3 /* QClassicAppearance.m in Sources */,
 				2C5423AD145ADF2B0026A152 /* QDateEntryTableViewCell.m in Sources */,
 				2C5423AF145ADF2B0026A152 /* QDateTimeElement.m in Sources */,
 				2C5423B1145ADF2B0026A152 /* QDateTimeInlineElement.m in Sources */,
@@ -908,6 +921,7 @@
 				2C5423CA145ADF2B0026A152 /* QuickDialogTableDelegate.m in Sources */,
 				2C5423CC145ADF2B0026A152 /* QuickDialogTableView.m in Sources */,
 				2C5423CF145ADF2B0026A152 /* QRadioElement.m in Sources */,
+				D80F572217E115580052EBE3 /* QFlatAppearance.m in Sources */,
 				D82A4AF617BEE90E000986C8 /* QProgressElement.m in Sources */,
 				2C5423D1145ADF2B0026A152 /* QRadioItemElement.m in Sources */,
 				2C5423D3145ADF2B0026A152 /* QRadioSection.m in Sources */,
@@ -943,8 +957,6 @@
 				D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */,
 				D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */,
 				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
-				5C50E8AFA475E6479AE5775D /* QClassicAppearance.m in Sources */,
-				5C50E89FE330074B4391CB42 /* QFlatAppearance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

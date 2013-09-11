@@ -19,6 +19,7 @@
 #import "QMapElement.h"
 #import "QWebElement.h"
 #import "QMailElement.h"
+#import "QPickerElement.h"
 
 @implementation SampleDataBuilder
 
