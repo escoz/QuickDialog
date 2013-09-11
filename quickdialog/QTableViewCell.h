@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class QElement;
 
 typedef enum {
     QLabelingPolicyTrimValue,
