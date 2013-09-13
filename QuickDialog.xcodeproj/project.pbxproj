@@ -58,6 +58,7 @@
 		5C50EF99EC7CE1AE39E8FF92 /* QClassicAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50E454445DDC1D87A430CA /* QClassicAppearance.h */; };
 		5C50EFADB34DF61735763BCF /* UIColor+ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4D5FFEF3EC8D7D7C219 /* UIColor+ColorUtilities.m */; };
 		5C50EFD5861E1FE78AD17F06 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E93B5273C6D9050767C6 /* QWebElement.m */; };
+		B2A8B4ED17E189D9004A7FD8 /* lazybind.json in Resources */ = {isa = PBXBuildFile; fileRef = B2A8B4EC17E189D9004A7FD8 /* lazybind.json */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -226,6 +227,7 @@
 		5C50EED1BB826D7F7B08055A /* QPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerElement.h; sourceTree = "<group>"; };
 		5C50EF9F76D029609CD376E2 /* QColorPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QColorPickerElement.h; sourceTree = "<group>"; };
 		5C50EFD565900926223F50D4 /* QMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapViewController.m; sourceTree = "<group>"; };
+		B2A8B4EC17E189D9004A7FD8 /* lazybind.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lazybind.json; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -710,6 +712,7 @@
 				D86249F814BB5AB5002F0585 /* sample.json */,
 				5C50E404FC15CFA443ABBB5C /* navigation.json */,
 				5C50E2CE6D8D6B3DD766CCCC /* themes.json */,
+				B2A8B4EC17E189D9004A7FD8 /* lazybind.json */,
 			);
 			name = json;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				D86249F914BB5AB5002F0585 /* jsonadvancedsample.json in Resources */,
 				D86249FA14BB5AB5002F0585 /* jsondatasample.json in Resources */,
 				D86249FB14BB5AB5002F0585 /* loginform.json in Resources */,
+				B2A8B4ED17E189D9004A7FD8 /* lazybind.json in Resources */,
 				D86249FC14BB5AB5002F0585 /* sample.json in Resources */,
 				D8F180E813F0599A009B0CD0 /* jsonremote.json in Resources */,
 				5C50E665E1BD1D5B1B8B944E /* navigation.json in Resources */,

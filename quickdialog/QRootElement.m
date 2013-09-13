@@ -16,6 +16,7 @@
 #import "QRootElement.h"
 #import "QuickDialog.h"
 #import "QEntryElement.h"
+#import "QRootBuilder.h"
 
 @implementation QRootElement {
 @private
@@ -27,6 +28,9 @@
 @synthesize title = _title;
 @synthesize sections = _sections;
 @synthesize grouped = _grouped;
+@synthesize lazy = _lazy;
+@synthesize builderData = _builderData;
+@synthesize bindingData = _bindingData;
 @synthesize controllerName = _controllerName;
 @synthesize sectionTemplate = _sectionTemplate;
 @synthesize emptyMessage = _emptyMessage;
@@ -103,6 +107,16 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    if (self.builderData && self.sections.count == 0) {
+        for (id section in (NSArray *)self.builderData){
+            [[QRootBuilder new] buildSectionWithObject:section forRoot:self];
+        }
+    }
+    
+    if (self.bindingData) {
+        [self bindToObject:self.bindingData];
+    }
+    
     [super selected:tableView controller:controller indexPath:path];
 
     if (self.sections==nil)
@@ -141,7 +155,13 @@
         [self.sections removeAllObjects];
     }
 
-    [[QBindingEvaluator new] bindObject:self toData:data];
+    if (!self.lazy) {
+        [[QBindingEvaluator new] bindObject:self toData:data];
+    }
+}
+
+- (void)shallowBindToObject:(id)data {
+    [[QBindingEvaluator new] shallowBindObject:self toData:data];
 }
 
 -(void)dealloc {

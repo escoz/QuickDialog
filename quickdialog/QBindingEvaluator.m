@@ -33,6 +33,37 @@
     return self;
 }
 
+- (void)shallowBindObject:(id)object toData:(id)data {
+    if (![object respondsToSelector:@selector(bind)])
+        return;
+    
+    NSString *string = [object bind];
+    if ([QBindingEvaluator stringIsEmpty:string])
+        return;
+    
+    for (NSString *each in [string componentsSeparatedByString:@","]) {
+        NSArray *bindingParams = [each componentsSeparatedByString:@":"];
+        
+        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
+            continue;
+            
+        } else if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QRootElement class]]) {
+            continue;
+            
+        } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
+            continue;
+            
+        } else if ([valueName isEqualToString:@"self"]) {
+            [QRootBuilder trySetProperty:propName onObject:object withValue:data localized:NO];
+            
+        } else {
+            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
+        }
+    }
+}
 
 - (void)bindObject:(id)object toData:(id)data {
     if (![object respondsToSelector:@selector(bind)])				
@@ -85,19 +116,31 @@
     for (id item in section.beforeTemplateElements){
         QElement *element = [_builder buildElementWithObject:item];
         [section addElement:element];
-        [element bindToObject:item];
+        if ([element isKindOfClass:[QRootElement class]] && ((QRootElement *)element).lazy) {
+            [(QRootElement *)element shallowBindToObject:item];
+        } else {
+            [element bindToObject:item];
+        }
     }
 
     for (id item in items){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
         [section addElement:element];
-        [element bindToObject:item];
+        if ([element isKindOfClass:[QRootElement class]] && ((QRootElement *)element).lazy) {
+            [(QRootElement *)element shallowBindToObject:item];
+        } else {
+            [element bindToObject:item];
+        }
     }
 
     for (id item in section.afterTemplateElements){
         QElement *element = [_builder buildElementWithObject:item];
         [section addElement:element];
-        [element bindToObject:item];
+        if ([element isKindOfClass:[QRootElement class]] && ((QRootElement *)element).lazy) {
+            [(QRootElement *)element shallowBindToObject:item];
+        } else {
+            [element bindToObject:item];
+        }
     }
 }
 
@@ -123,7 +166,12 @@
     for (id item in [object allKeys]){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
         [section addElement:element];
-        [element bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:item, @"key", [object valueForKey:item], @"value", nil]];
+        id objToBind = [NSDictionary dictionaryWithObjectsAndKeys:item, @"key", [object valueForKey:item], @"value", nil];
+        if ([element isKindOfClass:[QRootElement class]] && ((QRootElement *)element).lazy) {
+            [(QRootElement *)element shallowBindToObject:objToBind];
+        } else {
+            [element bindToObject:objToBind];
+        }
     }
 }
 

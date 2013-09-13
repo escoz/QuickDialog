@@ -47,6 +47,9 @@ typedef enum  {
 @property(nonatomic, strong) NSDictionary *sectionTemplate;
 @property(assign) BOOL grouped;
 @property(assign) BOOL showKeyboardOnAppear;
+@property(nonatomic, assign) BOOL lazy;
+@property(nonatomic, strong) id builderData;
+@property(nonatomic, weak) id bindingData;
 
 @property(nonatomic, retain) NSString *controllerName;
 
@@ -85,5 +88,7 @@ typedef enum  {
 - (QEntryElement *)findElementToFocusOnAfter:(QElement *)element;
 
 - (void)handleEditingChanged;
+
+- (void)shallowBindToObject:(id)data;
 
 @end

@@ -152,14 +152,20 @@
 - (void)bindToObject:(id)data {
     if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
             for (QElement *el in self.elements) {
-                [el bindToObject:data];
+                if ([el isKindOfClass:[QRootElement class]]) {
+                    QRootElement *root = (QRootElement *)el;
+                    if (root.lazy) {
+                        [root shallowBindToObject:data];
+                    } else {
+                        [el bindToObject:data];
+                    }
+                }
             }
         } else {
             [self.elements removeAllObjects];
         }
 
         [[QBindingEvaluator new] bindObject:self toData:data];
-
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
