@@ -65,6 +65,13 @@
                                                                        root:root]];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    for (QSection *section in self.root.sections) {
+        [section resetLazyElements];
+    }
+}
+
 - (void)loadView {
     [super loadView];
     self.quickDialogTableView = [[QuickDialogTableView alloc] initWithController:self];

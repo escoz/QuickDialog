@@ -149,6 +149,17 @@
     }
 }
 
+- (void)resetLazyElements {
+    for (QElement *el in self.elements) {
+        if ([el isKindOfClass:[QRootElement class]]) {
+            QRootElement *root = (QRootElement *)el;
+            if (root.lazy) {
+                [root.sections removeAllObjects];
+            }
+        }
+    }
+}
+
 - (void)bindToObject:(id)data {
     if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
             for (QElement *el in self.elements) {
