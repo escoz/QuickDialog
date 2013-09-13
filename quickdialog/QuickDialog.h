@@ -43,7 +43,6 @@
 #import "QDateTimeInlineElement.h"
 #import "QCountdownElement.h"
 #import "QFloatElement.h"
-#import "QPickerElement.h"
 #import "QRadioElement.h"
 #import "QRadioItemElement.h"
 #import "QSelectItemElement.h"
