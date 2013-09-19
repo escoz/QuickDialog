@@ -44,6 +44,8 @@
 	return actionBar;
 }
 
+static void *myContext = &myContext;
+
 - (void)createSubviews {
     _textField = [[QTextField alloc] init];
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
@@ -51,9 +53,22 @@
     _textField.delegate = self;
     _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    //as of iOS6, this does not work!
+    //[_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    [_textField addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew context:myContext];
     [self.contentView addSubview:_textField];
     [self setNeedsLayout];
+}
+
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if(context == myContext) {
+        [self textFieldEditingChanged:object];
+    }
+    else
+        [super observeValueForKeyPath:keyPath ofObject:object
+                               change:change context:context];
 }
 
 - (QEntryTableViewCell *)init {
