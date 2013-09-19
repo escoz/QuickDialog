@@ -231,6 +231,9 @@
        }
     }
     [self.quickDialogTableView reloadData];
+    //Reload sections
+    [self.quickDialogTableView beginUpdates];
+    [self.quickDialogTableView endUpdates];
     self.searchBar.text = nil;
 }
 
@@ -238,11 +241,15 @@
     NSPredicate* searchPredicate = [NSPredicate predicateWithFormat:@"SELF.title CONTAINS[cd] %@", searchText];
     for (QSection* section in self.root.sections) {
         if ([searchPredicate evaluateWithObject:section]) {
+            section.hidden = NO;
         }
         else {
+            section.hidden = YES;
+            
             for (QElement* element in section.elements) {
                 if ([searchPredicate evaluateWithObject:element]) {
                     element.hidden = NO;
+                    section.hidden = NO;
                 }
                 else {
                     element.hidden = YES;
@@ -251,6 +258,9 @@
         }
     }
     [self.quickDialogTableView reloadData];
+    //Reload sections
+    [self.quickDialogTableView beginUpdates];
+    [self.quickDialogTableView endUpdates];
 }
 
 @end
