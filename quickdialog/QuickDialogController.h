@@ -38,6 +38,9 @@
 @property(nonatomic, strong) QuickDialogTableView *quickDialogTableView;
 @property(nonatomic) BOOL resizeWhenKeyboardPresented;
 
+@property(nonatomic, readonly) UISearchBar* searchBar;
+@property(nonatomic) BOOL searchable;
+
 
 @property(nonatomic, strong) UIPopoverController *popoverBeingPresented;
 @property(nonatomic, strong) UIPopoverController *popoverForChildRoot;

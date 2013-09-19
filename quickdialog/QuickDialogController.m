@@ -14,7 +14,9 @@
 
 #import "QuickDialogController.h"
 #import "QRootElement.h"
-@interface QuickDialogController ()
+@interface QuickDialogController ()<UISearchBarDelegate>
+
+@property(nonatomic, readwrite) UISearchBar* searchBar;
 
 + (Class)controllerClassForRoot:(QRootElement *)root;
 
@@ -191,10 +193,67 @@
   }
 }
 
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+#pragma mark - Searching
+
+- (void)setSearchable:(BOOL)searchable {
+    _searchable = searchable;
+    
+    if (searchable) {
+        self.quickDialogTableView.tableHeaderView = self.searchBar;
+    } else {
+        self.quickDialogTableView.tableHeaderView = nil;
+        [self clearSearch];
+    }
+}
+
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+        _searchBar.delegate = self;
+    }
+    return _searchBar;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length == 0) {
+        [self clearSearch];
+    } else {
+        [self search:searchText];
+    }
+}
+
+- (void)clearSearch {
+    for (QSection* section in self.root.sections) {
+       for (QElement* element in section.elements) {
+           element.hidden = NO;
+       }
+    }
+    [self.quickDialogTableView reloadData];
+}
+
+- (void)search:(NSString*)searchText {
+    NSPredicate* searchPredicate = [NSPredicate predicateWithFormat:@"self.title CONTAINS[cd] %@", searchText];
+    for (QSection* section in self.root.sections) {
+        if ([searchPredicate evaluateWithObject:section]) {
+        }
+        else {
+            for (QElement* element in section.elements) {
+                if ([searchPredicate evaluateWithObject:element]) {
+                    element.hidden = NO;
+                }
+                else {
+                    element.hidden = YES;
+                }
+            }
+        }
+    }
+    [self.quickDialogTableView reloadData];
+}
 
 @end

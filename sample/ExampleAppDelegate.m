@@ -26,6 +26,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     QRootElement *root = [SampleDataBuilder create];
     ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
+    quickformController.searchable = YES;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
     if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
         self.window.rootViewController = nav;
