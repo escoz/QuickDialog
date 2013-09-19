@@ -205,19 +205,15 @@
     _searchable = searchable;
     
     if (searchable) {
+        if (!self.searchBar) {
+            self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
+            self.searchBar.delegate = self;
+        }
         self.quickDialogTableView.tableHeaderView = self.searchBar;
     } else {
         self.quickDialogTableView.tableHeaderView = nil;
         [self clearSearch];
     }
-}
-
-- (UISearchBar *)searchBar {
-    if (!_searchBar) {
-        _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 44)];
-        _searchBar.delegate = self;
-    }
-    return _searchBar;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -235,10 +231,11 @@
        }
     }
     [self.quickDialogTableView reloadData];
+    self.searchBar.text = nil;
 }
 
 - (void)search:(NSString*)searchText {
-    NSPredicate* searchPredicate = [NSPredicate predicateWithFormat:@"self.title CONTAINS[cd] %@", searchText];
+    NSPredicate* searchPredicate = [NSPredicate predicateWithFormat:@"SELF.title CONTAINS[cd] %@", searchText];
     for (QSection* section in self.root.sections) {
         if ([searchPredicate evaluateWithObject:section]) {
         }
