@@ -68,7 +68,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    QSection  *section = [_tableView.root getVisibleSectionForIndex: indexPath.section];
+    QSection *section = [_tableView.root getVisibleSectionForIndex: indexPath.section];
     if (section.canDeleteRows){
         return ([section canRemoveElementForRow:indexPath.row]);
     }
