@@ -730,6 +730,9 @@
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.footer = @"Hey there, this is a footer.";
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
+    QBooleanElement* searchToggle = [[QBooleanElement alloc] initWithTitle:@"Searchable" BoolValue:YES];
+    searchToggle.controllerAction = @"toggleSearchable:";
+    [sectionSamples addElement:searchToggle];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];

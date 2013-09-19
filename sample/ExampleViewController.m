@@ -82,4 +82,9 @@
     }
 
 }
+
+- (void)toggleSearchable:(QBooleanElement*)searchToggle {
+    self.searchable = searchToggle.boolValue;
+}
+
 @end
