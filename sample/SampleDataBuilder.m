@@ -82,7 +82,7 @@
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     subsection.canDeleteRows = YES;
     subsection.onDeleteRow = ^(QElement* element){
-        if (element.visibleIndex % 3) {
+        if (element.visibleIndex % 2) {
             return NO;
         }
         return YES;
