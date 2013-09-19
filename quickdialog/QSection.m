@@ -137,6 +137,26 @@
     return NSNotFound;
 }
 
+- (BOOL)removeElementForRow:(NSUInteger)index {
+    if (self.canDeleteRows && [self canRemoveElementForRow:index]) {
+        [self.elements removeObjectAtIndex:index];
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)canRemoveElementForRow:(NSUInteger)index {
+    BOOL onDeleteRowResponse = YES;
+    
+    if (self.onDeleteRow) {
+        onDeleteRowResponse = self.onDeleteRow(self.elements[index]);
+    }
+    
+    BOOL isInBounds = (index < self.elements.count);
+    
+    return isInBounds && onDeleteRowResponse && self.canDeleteRows;
+}
+
 - (void)fetchValueIntoObject:(id)obj {
     for (QElement *el in elements){
         [el fetchValueIntoObject:obj];
