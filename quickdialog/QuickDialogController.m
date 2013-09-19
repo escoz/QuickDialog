@@ -210,9 +210,29 @@
             self.searchBar.delegate = self;
         }
         self.quickDialogTableView.tableHeaderView = self.searchBar;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShow:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillHide:)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
+        
     } else {
         self.quickDialogTableView.tableHeaderView = nil;
         [self clearSearch];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:UIKeyboardWillShowNotification
+                                                      object:nil];
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:UIKeyboardWillHideNotification
+                                                      object:nil];
+        
     }
 }
 
@@ -261,6 +281,39 @@
     //Reload sections
     [self.quickDialogTableView beginUpdates];
     [self.quickDialogTableView endUpdates];
+}
+
+-(void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary* userInfo = [notification userInfo];
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    CGFloat keyboardHeight = (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]))?keyboardSize.height:keyboardSize.width;
+    CGFloat displayHeight = (UIDeviceOrientationIsLandscape([[UIDevice currentDevice] orientation]))?self.view.window.frame.size.height:self.view.window.frame.size.width;
+    
+    CGPoint convertedOrigin = [self.view.window convertPoint:self.view.frame.origin fromView:self.view];
+    
+    CGFloat bottomEdge = convertedOrigin.x + self.view.frame.size.height;
+    CGFloat distanceFromBottom = MAX(displayHeight-bottomEdge, 0);
+    CGFloat inset = keyboardHeight - distanceFromBottom;
+    
+    [UIView animateWithDuration:[self keyboardAnimationDurationForNotification:notification] animations:^{
+        self.quickDialogTableView.contentInset = UIEdgeInsetsMake(0, 0, inset, 0);
+    }];
+}
+
+-(void)keyboardWillHide:(NSNotification *)notification {    
+    [UIView animateWithDuration:[self keyboardAnimationDurationForNotification:notification] animations:^{
+        self.quickDialogTableView.contentInset = UIEdgeInsetsZero;
+    }];
+}
+
+- (NSTimeInterval)keyboardAnimationDurationForNotification:(NSNotification*)notification
+{
+    NSDictionary* info = [notification userInfo];
+    NSValue* value = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSTimeInterval duration = 0;
+    [value getValue:&duration];
+    return duration;
 }
 
 @end
