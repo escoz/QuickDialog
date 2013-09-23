@@ -60,7 +60,8 @@ static const int kCellMinimumLabelWidth = 40;
                 valueSize.width,
                 self.contentView.bounds.size.height- kCellMarginDouble);
     } else {
-
+        sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMarginDouble, sizeWithMargin.height);
+        
         if (self.detailTextLabel.text!=nil){
             sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height-kCellMarginDouble);
         }
