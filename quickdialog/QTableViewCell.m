@@ -15,8 +15,8 @@
 #import "QTableViewCell.h"
 @implementation QTableViewCell
 
-static const int kCellMarginDouble = 16;
-static const int kCellMargin = 8;
+static const int kCellMarginDouble = 20;
+static const int kCellMargin = 10;
 static const int kCellMinimumLabelWidth = 40;
 
 
