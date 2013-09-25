@@ -81,7 +81,7 @@
     subForm.controllerName = @"ExampleViewController";
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     subsection.canDeleteRows = YES;
-    subsection.onDeleteRow = ^(QElement* element){
+    subsection.canDeleteRow = ^BOOL (QElement* element){
         if (element.visibleIndex % 2) {
             return NO;
         }
