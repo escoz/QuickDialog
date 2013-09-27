@@ -13,3 +13,5 @@ build/
 
 xcuserdata
 .idea/*
+
+xcshareddata
