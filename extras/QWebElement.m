@@ -14,6 +14,7 @@
 
 #import "QWebElement.h"
 #import "QuickDialog.h"
+#import "QWebViewController.h"
 @implementation QWebElement
 
 @synthesize url = _url;
