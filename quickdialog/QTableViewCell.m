@@ -17,7 +17,7 @@
 
 static const int kCellMarginDouble = 16;
 static const int kCellMargin = 8;
-static const int kCellMinimumLabelWidth = 40;
+static const int kCellMinimumLabelWidth = 80;
 
 
 @synthesize labelingPolicy = _labelingPolicy;
@@ -67,7 +67,7 @@ static const int kCellMinimumLabelWidth = 40;
 
         CGSize valueSize = CGSizeZero;
         if (!self.detailTextLabel.text) {
-            valueSize = sizeWithMargin;
+            valueSize = CGSizeMake(sizeWithMargin.width - kCellMarginDouble - kCellMargin, sizeWithMargin.height);
         } else if (self.textLabel.text!=nil) {
             valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
         }
