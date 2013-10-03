@@ -31,11 +31,11 @@ static const int kCellMinimumLabelWidth = 80;
 {
     [super layoutSubviews];
 
-    CGSize imageSize = CGSizeZero;
-    if (self.imageView!=nil)
-        imageSize = self.imageView.frame.size;
-
     CGSize sizeWithMargin = self.contentView.bounds.size;
+
+    if (self.imageView.image!=nil){
+        sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - kCellMarginDouble, sizeWithMargin.height);
+    }
 
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
@@ -51,7 +51,7 @@ static const int kCellMinimumLabelWidth = 80;
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
                 kCellMargin,
-                self.contentView.bounds.size.width - valueSize.width - imageSize.width - kCellMarginDouble - kCellMarginDouble,
+                self.contentView.bounds.size.width - valueSize.width - kCellMarginDouble - kCellMarginDouble,
                 self.contentView.bounds.size.height- kCellMarginDouble);
 
         self.detailTextLabel.frame = CGRectMake(
@@ -78,7 +78,7 @@ static const int kCellMinimumLabelWidth = 80;
                 valueSize.width,
                 self.contentView.bounds.size.height- kCellMarginDouble);
 
-        CGFloat detailsWidth = self.contentView.bounds.size.width - imageSize.width - kCellMarginDouble;
+        CGFloat detailsWidth = self.contentView.bounds.size.width - kCellMarginDouble;
         if (valueSize.width>0)
             detailsWidth = detailsWidth - valueSize.width - kCellMarginDouble;
 
