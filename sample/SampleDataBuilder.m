@@ -80,6 +80,13 @@
     subForm.title = @"Really long list";
     subForm.controllerName = @"ExampleViewController";
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
+    subsection.canDeleteRows = YES;
+    subsection.onDeleteRow = ^(QElement* element){
+        if (element.visibleIndex % 2) {
+            return NO;
+        }
+        return YES;
+    };
     for (int i = 0; i<1000; i++){
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
         bool1.onImage = [UIImage imageNamed:@"imgOn"];

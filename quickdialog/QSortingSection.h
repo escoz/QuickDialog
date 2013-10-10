@@ -29,8 +29,4 @@
 @property(nonatomic, assign) BOOL canDeleteRows;
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to;
-
-- (BOOL)removeElementForRow:(NSInteger)integer;
-
-- (BOOL)canRemoveElementForRow:(NSInteger)integer;
 @end

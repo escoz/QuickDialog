@@ -56,6 +56,15 @@
 @property(nonatomic, assign) BOOL hidden;
 @property(nonatomic, readonly) NSUInteger visibleIndex;
 
+
+/** * Called before a row is deleted to check on ability, and to handle the
+ * disposal of the associated data object.
+ * @property onDeleteRow Callback to perform safety check, and update data @note
+ * The QElement will automatically be deleted by the QSection. If no callback is
+ * provided, then YES is the default return, and no action is taken on the
+ * bound data
+ **/
+@property(nonatomic, copy) BOOL (^onDeleteRow)(QElement* row);
 @property(nonatomic, assign) BOOL canDeleteRows;
 @property(nonatomic, strong) id object;
 
@@ -65,6 +74,9 @@
 - (void)addElement:(QElement *)element;
 - (void)insertElement:(QElement *)element atIndex:(NSUInteger)index;
 - (NSUInteger)indexOfElement:(QElement *)element;
+
+- (BOOL)removeElementForRow:(NSUInteger)integer;
+- (BOOL)canRemoveElementForRow:(NSUInteger)integer;
 
 - (QElement *)getVisibleElementForIndex:(NSInteger)index;
 - (NSInteger)visibleNumberOfElements;

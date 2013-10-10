@@ -51,13 +51,4 @@
     [self.elements moveObjectFromIndex:from toIndex:to];
 }
 
-- (BOOL)removeElementForRow:(NSInteger)index {
-    [self.elements removeObjectAtIndex:(NSUInteger) index];
-    return YES;
-
-}
-
-- (BOOL)canRemoveElementForRow:(NSInteger)integer {
-    return YES;
-}
 @end
