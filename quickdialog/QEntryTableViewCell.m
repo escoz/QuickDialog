@@ -200,7 +200,7 @@
     
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     if (newLength > [textField.text length]) {
-        if (textField.text.length >= _entryElement.maxLength) {
+        if (0 != _entryElement.maxLength && textField.text.length >= _entryElement.maxLength) {
             return NO;
         }
     }
