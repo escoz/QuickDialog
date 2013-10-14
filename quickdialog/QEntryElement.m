@@ -38,6 +38,7 @@
         self.returnKeyType = UIReturnKeyDefault;
         self.enablesReturnKeyAutomatically = NO;
         self.secureTextEntry = NO;
+        self.maxLength = 0;
     }
     return self;
 }

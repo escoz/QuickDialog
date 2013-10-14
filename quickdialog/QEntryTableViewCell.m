@@ -197,6 +197,14 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    if (newLength > [textField.text length]) {
+        if (0 != _entryElement.maxLength && textField.text.length >= _entryElement.maxLength) {
+            return NO;
+        }
+    }
+    
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)]){
         return [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:string forElement:_entryElement andCell:self];
     }
