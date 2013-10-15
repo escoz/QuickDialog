@@ -20,6 +20,7 @@
 #import "QWebElement.h"
 #import "QMailElement.h"
 #import "QPickerElement.h"
+#import "QLabelWithSubtitleElement.h"
 
 @implementation SampleDataBuilder
 
@@ -445,6 +446,12 @@
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text long text long text long text" Value:@"this is the value"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text and no value - long text long text long text" Value:nil]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:nil Value:@"Long value and no title - long text long text long text"]];
+    
+    QLabelWithSubtitleElement *labelWithSubtitle = [QLabelWithSubtitleElement new];
+    labelWithSubtitle.title = @"Title";
+    labelWithSubtitle.subtitle = @"Subtitle";
+    labelWithSubtitle.value = @"With a value";
+    [s1 addElement:labelWithSubtitle];
 
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
     QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
