@@ -14,6 +14,8 @@
 
 #import "QEntryElement.h"
 #import "QuickDialog.h"
+#import "NSStringMask.h"
+
 @implementation QEntryElement  {
     __unsafe_unretained QuickDialogController *_controller;
 }
@@ -23,7 +25,7 @@
 @synthesize prefix = _prefix;
 @synthesize suffix = _suffix;
 @synthesize hiddenToolbar = _hiddenToolbar;
-
+@synthesize mask = _mask;
 @synthesize onValueChanged = _onValueChanged;
 
 @synthesize delegate = _delegate;

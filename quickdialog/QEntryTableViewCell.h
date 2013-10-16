@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "QTableViewCell.h"
-
+#import "NSStringMask.h"
 
 
 @class QEntryElement;
@@ -34,6 +34,7 @@
 }
 
 @property(nonatomic, strong) QTextField *textField;
+@property (nonatomic, strong) NSStringMask *mask;
 
 - (void)updatePrevNextStatus;
 

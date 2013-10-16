@@ -60,7 +60,7 @@
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
     if (self!=nil){
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-
+        
         [self createSubviews];
     }
     return self;
@@ -137,8 +137,11 @@
         toolbar.translucent = element.appearance.toolbarTranslucent;
         _textField.inputAccessoryView = toolbar;
     }
-    
 
+    if (_entryElement.mask != nil) {
+        self.mask = [[NSStringMask alloc] initWithPattern:_entryElement.mask placeholder:@"_"];
+    }
+    
     [self updatePrevNextStatus];
 
 }
@@ -196,18 +199,55 @@
     [_entryElement performSelector:@selector(fieldDidEndEditing)];
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    if (newLength > [textField.text length]) {
-        if (0 != _entryElement.maxLength && textField.text.length >= _entryElement.maxLength) {
-            return NO;
+    if (self.mask != nil)
+    {
+        NSString *mutableString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        NSString *clean = [self.mask validCharactersForString:mutableString];
+        mutableString = [self.mask format:mutableString];
+
+        NSRange newRange = NSMakeRange(0, 0);
+        
+        if (clean.length > 0)
+        {
+            newRange = [mutableString rangeOfString:[clean substringFromIndex:clean.length-1] options:NSBackwardsSearch];
+            if (newRange.location == NSNotFound)
+            {
+                newRange.location = mutableString.length;
+            }
+            else
+            {
+                newRange.location += newRange.length;
+            }
+            
+            newRange.length = 0;
+        }
+        
+        textField.text = mutableString;
+        [textField setValue:[NSValue valueWithRange:newRange] forKey:@"selectionRange"];
+        
+        return NO;
+    }
+   
+    if (_entryElement.maxLength != 0)
+    {
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        if (newLength > [textField.text length])
+        {
+            if (textField.text.length >= _entryElement.maxLength)
+            {
+                return NO;
+            }
         }
     }
     
     if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)]){
+        NSLog(@"NORMAL");
         return [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:string forElement:_entryElement andCell:self];
     }
+    
     return YES;
 }
 

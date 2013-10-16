@@ -516,11 +516,27 @@
     root.grouped = YES;
     
     QSection *firstSection = [[QSection alloc] initWithTitle:@"Entry Elements"];
-    
+
     [firstSection addElement:[[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"placeholder"]];
     [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Title" Value:nil Placeholder:@"text here"]];
     [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" Value:@"" Placeholder:@"text"]];
     
+    QEntryElement *length = [QEntryElement new];
+    length.title = @"With Max Length";
+    length.maxLength = 4;
+    
+    QEntryElement *ssn = [QEntryElement new];
+    ssn.title = @"With SSN Mask";
+    ssn.mask = @"(\\d{3})-(\\d{2})-(\\d{3})";
+    
+    QEntryElement *phone = [QEntryElement new];
+    phone.title = @"With Phone Mask";
+    phone.mask = @"(\\d{3})-(\\d{3})-(\\d{4})";
+    
+    [firstSection addElement:length];
+    [firstSection addElement:ssn];
+    [firstSection addElement:phone];
+
     [root addSection:firstSection];
 
     QSection *prefixSuffixSection = [[QSection alloc] initWithTitle:@"Prefix/suffix"];
