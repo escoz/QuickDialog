@@ -13,6 +13,7 @@
 //
 #import "QLabelElement.h"
 #import "QEntryTableViewCell.h"
+#import "NSStringMask.h"
 
 @protocol QuickDialogEntryElementDelegate;
 
@@ -33,6 +34,7 @@
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) NSString *prefix;
 @property (nonatomic, strong) NSString *suffix;
+@property (nonatomic, strong) NSString *mask;
 @property (atomic, assign) int maxLength;
 @property (assign) BOOL hiddenToolbar;
 

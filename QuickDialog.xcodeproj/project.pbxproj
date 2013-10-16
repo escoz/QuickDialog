@@ -38,6 +38,7 @@
 		2C5423D9145ADF2B0026A152 /* QSortingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8B913EC905B00E3922B /* QSortingSection.m */; };
 		2C5423DB145ADF2B0026A152 /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D811F8BB13EC905B00E3922B /* QTextElement.m */; };
 		2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C542393145ADEBD0026A152 /* libQuickDialog.a */; };
+		573D7319180E2ADA00AE2C22 /* NSStringMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 573D7318180E2ADA00AE2C22 /* NSStringMask.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5C50E1652D781293C5963717 /* themes.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E2CE6D8D6B3DD766CCCC /* themes.json */; };
 		5C50E18E8FEC2BCC8B8C12EA /* QMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E56A3F1DC223669D7417 /* QMapAnnotation.m */; };
 		5C50E1E06A0557312EB9B187 /* QAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C50EB0025DCEF8A3740C477 /* QAppearance.h */; };
@@ -194,6 +195,8 @@
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		573D7317180E2ADA00AE2C22 /* NSStringMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSStringMask.h; path = quickdialog/NSStringMask.h; sourceTree = SOURCE_ROOT; };
+		573D7318180E2ADA00AE2C22 /* NSStringMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSStringMask.m; path = quickdialog/NSStringMask.m; sourceTree = SOURCE_ROOT; };
 		5C50E02C8F4B4A90F96E33D6 /* QMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMapAnnotation.h; sourceTree = "<group>"; };
 		5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuickDialogController+Animations.h"; path = "quickdialog/QuickDialogController+Animations.h"; sourceTree = SOURCE_ROOT; };
 		5C50E2552AD0DC4C813AF542 /* QPickerTabDelimitedStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerTabDelimitedStringParser.h; sourceTree = "<group>"; };
@@ -562,6 +565,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				573D7317180E2ADA00AE2C22 /* NSStringMask.h */,
+				573D7318180E2ADA00AE2C22 /* NSStringMask.m */,
 				D80F571B17E115580052EBE3 /* QClassicAppearance.h */,
 				D80F571C17E115580052EBE3 /* QClassicAppearance.m */,
 				D80F571D17E115580052EBE3 /* QFlatAppearance.h */,
@@ -959,6 +964,7 @@
 				D811F90013EC907200E3922B /* main.m in Sources */,
 				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,
 				D811F90313EC907200E3922B /* ExampleViewController.m in Sources */,
+				573D7319180E2ADA00AE2C22 /* NSStringMask.m in Sources */,
 				D8F180E813F0599A009B0CAC /* JsonDataSampleController.m in Sources */,
 				F209CEE41536AB100043F61C /* PeriodPickerValueParser.m in Sources */,
 				5C50EB6A5469607BDA08A4F0 /* QWebViewController.m in Sources */,
