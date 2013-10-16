@@ -16,10 +16,13 @@ Pod::Spec.new do |s|
   s.source_files = 'quickdialog', '*.{h,m}'
   s.requires_arc = true
 
+  s.subspec "Extras" do |sp|
+    sp.source_files = 'extras', '*.{h,m}'
+  end
+
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
     #import "QuickDialog.h"
 #endif
 EOS
 end
-
