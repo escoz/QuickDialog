@@ -22,8 +22,12 @@ static const int kCellMinimumLabelWidth = 80;
 
 @synthesize labelingPolicy = _labelingPolicy;
 
-- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
-    self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
+- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string
+{
+    if (self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string]) {
+        self.subtitle = [UILabel new];
+    }
+
     return self;
 }
 
@@ -87,6 +91,20 @@ static const int kCellMinimumLabelWidth = 80;
                 kCellMargin,
                 detailsWidth,
                 self.contentView.bounds.size.height- kCellMarginDouble);
+    }
+
+    if (self.subtitle.text != nil) {
+        self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x,
+                                          0,
+                                          self.textLabel.frame.size.width,
+                                          self.textLabel.frame.size.height);
+
+        self.subtitle.frame = CGRectMake(self.textLabel.frame.origin.x,
+                                         18,
+                                         self.contentView.bounds.size.width - kCellMarginDouble,
+                                         self.contentView.bounds.size.height- kCellMarginDouble);
+
+        [self.contentView addSubview:self.subtitle];
     }
 }
 

@@ -28,6 +28,7 @@ typedef enum {
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
+@property (nonatomic, strong) UILabel *subtitle;
 
 - (void)applyAppearanceForElement:(QElement *)element;
 @end
