@@ -446,6 +446,12 @@
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text and no value - long text long text long text" Value:nil]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:nil Value:@"Long value and no title - long text long text long text"]];
 
+    QLabelElement *withSubtitle = [QLabelElement new];
+    withSubtitle.title = @"With Title and Subtitle";
+    withSubtitle.subtitle = @"Subtitle";
+    withSubtitle.value = @"And Value";
+    [s1 addElement:withSubtitle];
+
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
     QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
     [s2 addElement:badge1];
