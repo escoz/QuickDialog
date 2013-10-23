@@ -14,7 +14,17 @@ Pod::Spec.new do |s|
                    'thousands of items with no sweat!'
 
   s.source_files = 'quickdialog', '*.{h,m}'
+  s.exclude_files = 'quickdialog/NSStringMask.{h,m}'
   s.requires_arc = true
+
+  s.subspec "Extras" do |sp|
+    sp.source_files = 'extras', '*.{h,m}'
+  end
+
+  s.subspec "NSStringMask" do |sp|
+    sp.source_files = 'quickdialog/NSStringMask.{h,m}'
+	sp.requires_arc = false
+  end
 
   s.prefix_header_contents = <<-EOS
 #ifdef __OBJC__
@@ -22,4 +32,3 @@ Pod::Spec.new do |s|
 #endif
 EOS
 end
-
