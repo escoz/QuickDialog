@@ -47,14 +47,11 @@
 
     self.cellBorderWidth = 14;
     
-#if __IPHONE_7_0
     if ([UIFont respondsToSelector:@selector(preferredFontForTextStyle:)]) {
         self.valueFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
         self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
         self.entryFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     }
-#endif
-    
 }
 
 - (UIView *)buildHeaderForSection:(QSection *)section andTableView:(QuickDialogTableView *)view andIndex:(NSInteger)index1 {

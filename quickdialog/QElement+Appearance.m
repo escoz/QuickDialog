@@ -14,11 +14,7 @@ static void * const KEY_APPEARANCE_OBJECT = (void*)&KEY_APPEARANCE_OBJECT;
         appearance = [[self class].superclass appearance];
     }
     if (appearance==nil) {
-#if __IPHONE_7_0
         appearance = [[[UIDevice currentDevice] systemVersion] floatValue]>=7.f ? [QFlatAppearance new] : [QClassicAppearance new];
-#else
-        appearance = [QClassicAppearance new];
-#endif
         [self setAppearance:appearance];
     }
     return appearance;
