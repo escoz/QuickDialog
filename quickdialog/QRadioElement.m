@@ -24,6 +24,7 @@
 @synthesize values = _values;
 @synthesize items = _items;
 @synthesize itemsImageNames = _itemsImageNames;
+@synthesize action = _action;
 
 
 - (void)createElements {
@@ -169,7 +170,12 @@
     if (_selected < 0 || _selected >= (_values != nil ? _values : _items).count)
         return;
 
-    if (_values==nil){
+    if (_action) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [obj setValue:[self.selectedItem performSelector:_action] forKey:_key];
+#pragma clang diagnostic pop
+    } else if (_values==nil){
         [obj setValue:[NSNumber numberWithInt:_selected] forKey:_key];
     } else {
         [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
