@@ -75,7 +75,7 @@
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
-    _selected = -1;
+    _selected = selected;
     return self;
 }
 
@@ -83,7 +83,7 @@
 - (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
     self = [self initWithItems:valuesDictionary.allKeys selected:(NSUInteger) selected];
     _values = valuesDictionary.allValues;
-    _selected = -1;
+    _selected = selected;
     self.title = title;
     return self;
 }
