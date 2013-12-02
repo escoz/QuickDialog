@@ -138,8 +138,10 @@
         _textField.inputAccessoryView = toolbar;
     }
 
-    if (_entryElement.mask != nil) {
-        self.mask = [[NSStringMask alloc] initWithPattern:_entryElement.mask placeholder:@"_"];
+    if (element.mask != nil) {
+        self.mask = [[NSStringMask alloc] initWithPattern:element.mask placeholder:@"_"];
+    } else {
+        self.mask = nil;
     }
     
     [self updatePrevNextStatus];
