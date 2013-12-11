@@ -127,7 +127,7 @@
     NSMutableArray *indexes = [[NSMutableArray alloc] init];
     QElement * element = firstElement;
     while (element != nil) {
-        if (!element.hidden)
+        if (!element.hidden && !element.parentSection.hidden)
             [indexes addObject:element.getIndexPath];
         element = va_arg(args, QElement *);
     }
