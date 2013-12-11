@@ -218,8 +218,8 @@
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
 	button.onSelected = ^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
-            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%f\n6:%@\n7:%@",
-                radioElement.selected ,
+            message:[NSString stringWithFormat:@"1: %ld\n2: %@\n3: %d\n4:%@\n5:%f\n6:%@\n7:%@",
+                (long)radioElement.selected ,
                 entryElement.textValue,
                 boolElement.boolValue,
                 dateElement.dateValue ,
@@ -300,7 +300,7 @@
 
     QRadioSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
     __weak QRadioSection *_section2 = section2;
-    section2.onSelected = ^{ NSLog(@"selected index: %d", _section2.selected); };
+    section2.onSelected = ^{ NSLog(@"selected index: %ld", (long)_section2.selected); };
     [root addSection:section2];
 
     return root;
