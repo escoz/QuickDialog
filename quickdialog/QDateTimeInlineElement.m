@@ -15,12 +15,14 @@
 #import "QDateEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
 #import "QuickDialog.h"
+#import "QDateInlineTableViewCell.h"
+
 @implementation QDateTimeInlineElement {
 @private
     NSDate *_maximumDate;
     NSDate *_minimumDate;
 
-
+    __weak QTableViewCell *_cell;
 }
 
 @synthesize dateValue = _dateValue;
@@ -75,10 +77,31 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QDateEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
-    if (cell==nil){
-        cell = [[QDateEntryTableViewCell alloc] init];
+    QTableViewCell *cell= self.showPickerInCell ? [self getInlineCell:tableView] : [self getEntryCell:tableView];
+    return cell;
+}
+
+- (QDateInlineTableViewCell *)getInlineCell:(QuickDialogTableView *)tableView
+{
+    QDateInlineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
+    if (cell == nil){
+        cell = [[QDateInlineTableViewCell alloc] init];
     }
+    _cell = cell;
+    [cell prepareForElement:self inTableView:tableView];
+    cell.selectionStyle = !self.enabled || self.showPickerInCell ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleBlue;
+    cell.imageView.image = self.image;
+    cell.labelingPolicy = self.labelingPolicy;
+    return cell;
+}
+
+- (QDateEntryTableViewCell *)getEntryCell:(QuickDialogTableView *)tableView
+{
+    QDateEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformDateTimeInlineElement"];
+    if (cell == nil){
+         cell = [[QDateEntryTableViewCell alloc] init];
+    }
+    _cell = cell;
     [cell prepareForElement:self inTableView:tableView];
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
@@ -86,6 +109,17 @@
     cell.imageView.image = self.image;
     cell.labelingPolicy = self.labelingPolicy;
     return cell;
+}
+
+- (void)handleElementSelected:(QuickDialogController *)controller
+{
+    if (self.showPickerInCell){
+        BOOL shouldEdit = !_cell.isEditing;
+
+        [controller.quickDialogTableView endEditingOnVisibleCells];
+        [_cell setEditing:shouldEdit];
+        [controller.quickDialogTableView reloadRowHeights];
+    }
 }
 
 
@@ -98,10 +132,21 @@
     return [NSString stringWithFormat:@"%02i:%02i:%02i", hours, minutes, seconds];
 }
 
+
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;
     [obj setValue:_dateValue forKey:_key];
+}
+
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView
+{
+    CGFloat height = [super getRowHeightForTableView:tableView];
+    if (!_cell.isEditing || !self.showPickerInCell) {
+        return height;
+    }
+    
+    return height + 200;
 }
 
 

@@ -142,4 +142,17 @@
 }
 
 
+- (void)reloadRowHeights
+{
+    [self beginUpdates];
+    [self endUpdates];
+}
+
+- (void)endEditingOnVisibleCells
+{
+    for (UITableViewCell *cell in self.visibleCells)
+        if (cell.isEditing)
+            [cell endEditing:YES];
+
+}
 @end

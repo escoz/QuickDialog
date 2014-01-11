@@ -40,4 +40,7 @@
 - (UITableViewCell *)cellForElement:(QElement *)element;
 - (void)reloadCellForElements:(QElement *)element, ... NS_REQUIRES_NIL_TERMINATION;
 
+- (void)reloadRowHeights;
+
+- (void)endEditingOnVisibleCells;
 @end
