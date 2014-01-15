@@ -79,6 +79,7 @@
     if (cell==nil){
         cell = [[QDateEntryTableViewCell alloc] init];
     }
+    _controller = controller;
     [cell prepareForElement:self inTableView:tableView];
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;

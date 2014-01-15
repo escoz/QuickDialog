@@ -27,6 +27,9 @@
     NSString *_textValue;
 
     BOOL _hiddenToolbar;
+
+@protected
+    __unsafe_unretained QuickDialogController *_controller;
 }
 
 @property (nonatomic, strong) NSString *textValue;

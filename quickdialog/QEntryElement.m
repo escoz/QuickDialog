@@ -15,7 +15,6 @@
 #import "QEntryElement.h"
 #import "QuickDialog.h"
 @implementation QEntryElement  {
-    __unsafe_unretained QuickDialogController *_controller;
 }
 
 @synthesize textValue = _textValue;
