@@ -47,6 +47,13 @@
     [self createElements];
 }
 
+-(void)setItemsImageNames:(NSArray *)itemsImageNames {
+    _itemsImageNames = itemsImageNames;
+    if (self.items) {
+        [self createElements];
+    }
+}
+
 -(NSObject *)selectedValue {
     if (_selected<0 || _selected>=_values.count)
         return nil;
