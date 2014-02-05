@@ -31,6 +31,7 @@
 }
 
 - (void)reload {
+    [self loading:YES];
     NSURLRequest *request = [self createRequestForUrl];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue currentQueue]
@@ -50,7 +51,6 @@
         self.url = (NSString *) self.root.object;
 
     if (self.url!=nil){
-        [self loading:YES];
         [self reload];
     }
 

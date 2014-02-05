@@ -70,6 +70,7 @@
 - (NSInteger)visibleNumberOfElements;
 - (NSUInteger)getVisibleIndexForElement:(QElement*)element;
 
+- (void)resetLazyElements;
 - (void)bindToObject:(id)data;
 - (void)fetchValueIntoObject:(id)obj;
 - (void)fetchValueUsingBindingsIntoObject:(id)data;

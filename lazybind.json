@@ -1,0 +1,202 @@
+{
+	"grouped": true,
+	"title": "Lazy Bindings",
+    "controllerName": "QuickDialogWebController",
+    "object":"https://api.github.com/repos/torvalds/linux/commits",
+	"sections":
+    [
+        {
+            "elements":
+            [
+                {
+                    "type":"QTextElement",
+                    "text":"Binding will stop at root elements which have a 'lazy' property set to 'true'. Each of the commit elements below are lazily bound, thus only their properties are bound but their child sections and elements will be bound only when navigating forward."
+                }
+            ]
+        },
+        {
+            "elements":
+            [
+                {
+                    "type":"QButtonElement",
+                    "title":"Reload Data",
+                    "controllerAction":"reload"
+                }
+            ]
+        },
+        {
+            "title":"Commits",
+            "bind":"iterate:@allObjects",
+            "elementTemplate":
+            {
+                "type":"QLabelElement",
+                "lazy":true,
+                "bind":"title:commit.message, object:url",
+                "controllerName":"QuickDialogWebController",
+                "grouped":true,
+                "height":"66",
+                "sections":
+                [
+                    {
+                        "elements":
+                        [
+                            {
+                                "type":"QTextElement",
+                                "text":"The elements displayed in this table view were created and bound to data just before presenting this view controller."
+                            }
+                        ]
+                    },
+                    {
+                        "elements":
+                        [
+                            {
+                                "type":"QButtonElement",
+                                "title":"Reload Data",
+                                "controllerAction":"reload"
+                            }
+                        ]
+                    },
+                    {
+                        "title":"Dates",
+                        "elements":
+                        [
+                            {
+                                "type":"QLabelElement",
+                                "title":"Committed date",
+                                "bind":"value:commit.committer.date"
+                            },
+                            {
+                                "type":"QLabelElement",
+                                "title":"Authored date",
+                                "bind":"value:commit.author.date"
+                            }
+                         ]
+                    },
+                    {
+                        "title":"Author",
+                        "elements":
+                        [
+                            {
+                                "type":"QLabelElement",
+                                "bind":"title:author.login, object:url",
+                                "controllerName":"QuickDialogWebController",
+                                "lazy":true,
+                                "grouped":true,
+                                "sections":
+                                [
+                                    {
+                                        "elements":
+                                        [
+                                            {
+                                                "type":"QButtonElement",
+                                                "title":"Reload Data",
+                                                "controllerAction":"reload"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "bind":"iterateproperties:author",
+                                        "elementTemplate":
+                                        {
+                                            "type":"QLabelElement",
+                                            "bind":"title:key, value:value"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "title":"Committer",
+                        "elements":
+                        [
+                            {
+                                "type":"QLabelElement",
+                                "bind":"title:committer.login, object:committer.url",
+                                "controllerName":"QuickDialogWebController",
+                                "lazy":true,
+                                "grouped":true,
+                                "sections":
+                                [
+                                    {
+                                        "elements":
+                                        [
+                                            {
+                                                "type":"QButtonElement",
+                                                "title":"Reload Data",
+                                                "controllerAction":"reload"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "elements":
+                                        [
+                                            {
+                                                "type":"QLabelElement",
+                                                "bind":"object:repos_url",
+                                                "controllerName":"QuickDialogWebController",
+                                                "lazy":true,
+                                                "grouped":true,
+                                                "title":"Repositories",
+                                                "sections":
+                                                [
+                                                    {
+                                                        "elements":
+                                                        [
+                                                            {
+                                                                "type":"QButtonElement",
+                                                                "title":"Reload Data",
+                                                                "controllerAction":"reload"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "bind":"iterate:@allObjects",
+                                                        "elementTemplate":
+                                                        {
+                                                            "type":"QLabelElement",
+                                                            "bind":"title:name",
+                                                            "sections":
+                                                            [
+                                                                {
+                                                                    "bind":"iterateproperties:owner",
+                                                                    "elementTemplate":
+                                                                    {
+                                                                        "type":"QLabelElement",
+                                                                        "bind":"title:key, value:value"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "bind":"iterateproperties:@self",
+                                        "elementTemplate":
+                                        {
+                                            "type":"QLabelElement",
+                                            "bind":"title:key, value:value"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "title":"Commit Message",
+                        "elements":
+                        [
+                            {
+                                "type":"QTextElement",
+                                "bind":"text:commit.message"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+	]
+}

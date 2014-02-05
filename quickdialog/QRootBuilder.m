@@ -86,8 +86,14 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     [self updateObject:element withPropertiesFrom:obj];
     
     if ([element isKindOfClass:[QRootElement class]] && [obj valueForKey:[NSString stringWithFormat:@"sections"]]!=nil) {
-        for (id section in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"sections"]]){
-            [self buildSectionWithObject:section forRoot:(QRootElement *) element];
+        QRootElement *rootElement = (QRootElement *)element;
+        if (rootElement.lazy) {
+            rootElement.sections = @[].mutableCopy;
+            rootElement.builderData = (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"sections"]];
+        } else {
+            for (id section in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"sections"]]){
+                [self buildSectionWithObject:section forRoot:rootElement];
+            }
         }
     }
     return element;

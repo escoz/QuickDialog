@@ -772,7 +772,7 @@
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsondatasample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonadvancedsample"]];
         [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"jsonremote"]];
-
+        [sectionJson addElement:[[QRootElement alloc] initWithJSONFile:@"lazybind"]];
 
         NSString *jsonSample = @"{\"title\": \"In memory struct\",\n"
                             "    \"controllerName\": \"LoginController\", \"sections\":[]}";
