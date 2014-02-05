@@ -148,52 +148,54 @@
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
-
-- (void) resizeForKeyboard:(NSNotification*)aNotification {
-    if (!_viewOnScreen)
-        return;
-
-    BOOL up = aNotification.name == UIKeyboardWillShowNotification;
-
-    if (_keyboardVisible == up)
-        return;
-
-    _keyboardVisible = up;
-    NSDictionary* userInfo = [aNotification userInfo];
-    NSTimeInterval animationDuration;
-    UIViewAnimationOptions animationCurve;
+- (void)keyboardWillChangeFrame:(NSNotification *)notification
+{
+    NSDictionary* userInfo = [notification userInfo];
     CGRect keyboardEndFrame;
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    
     [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-
-    [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
-        animations:^{
-            CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-            const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
-            self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  up ? keyboardFrame.size.height : 0, oldInset.right);
-            self.quickDialogTableView.scrollIndicatorInsets = self.quickDialogTableView.contentInset;
-        }
-        completion:NULL];
+    [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    if (CGRectIntersectsRect(keyboardEndFrame, screenRect)){
+        //Our Keyboard is showing
+        CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
+        const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
+        
+        //Compensate for padding on split keyboard
+        CGFloat totalHeight = (keyboardFrame.size.height + 20.0f);        
+        self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left, totalHeight, oldInset.right);
+        
+    } else {
+       //Keyboard is hidden
+        [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
+                         animations:^{
+                             const UIEdgeInsets oldInset = self.quickDialogTableView.contentInset;
+                             self.quickDialogTableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  0, oldInset.right);
+                         }
+                         completion:NULL];
+    }
 }
 
 - (void)setResizeWhenKeyboardPresented:(BOOL)observesKeyboard {
-  if (observesKeyboard != _resizeWhenKeyboardPresented) {
-    _resizeWhenKeyboardPresented = observesKeyboard;
-
-    if (_resizeWhenKeyboardPresented) {
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
-    } else {
-      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    if (observesKeyboard != _resizeWhenKeyboardPresented) {
+        _resizeWhenKeyboardPresented = observesKeyboard;
+        
+        if (_resizeWhenKeyboardPresented) {
+            
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification              object:nil];
+        } else {
+            
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
+        }
     }
-  }
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 
