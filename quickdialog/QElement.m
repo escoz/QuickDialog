@@ -85,7 +85,7 @@
     if (self.controllerAction!=NULL && !controller.quickDialogTableView.editing){
         SEL selector = NSSelectorFromString(self.controllerAction);
         if ([controller respondsToSelector:selector]) {
-            objc_msgSend(controller,selector, self);
+            ((void(*)(id, SEL, id))objc_msgSend)(controller,selector, self);
         }  else {
             NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [controller class]);
         }
@@ -96,7 +96,7 @@
     if (self.controllerAccessoryAction!=NULL){
             SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
             if ([controller respondsToSelector:selector]) {
-                objc_msgSend(controller,selector, self);
+                ((void(*)(id, SEL, id))objc_msgSend)(controller,selector, self);
             }  else {
                 NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [controller class]);
             }
