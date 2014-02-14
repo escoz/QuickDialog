@@ -30,10 +30,13 @@
 @property(nonatomic, assign, readwrite) NSInteger selected;
 @property(nonatomic, retain) NSArray *values;
 @property(nonatomic, strong) NSArray *itemsImageNames;
+@property(nonatomic) BOOL searchable;
 
 - (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title;
 
 - (void)createElements;
+- (void)hideElementsNotMatchingSearchKey:(NSString*)searchKey;
+- (void)showAllElements;
 
 - (NSObject *)selectedValue;
 - (void)setSelectedValue:(NSObject *)aSelected;

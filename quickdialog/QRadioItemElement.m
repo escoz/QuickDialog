@@ -64,6 +64,8 @@
         [_radioElement fieldDidEndEditing];
         tableView.userInteractionEnabled = NO;
 
+        [_radioElement showAllElements];
+        
         [NSTimer scheduledTimerWithTimeInterval:0.3
             target:controller
             selector:@selector(popToPreviousRootElement)

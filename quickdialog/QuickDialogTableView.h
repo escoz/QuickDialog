@@ -21,7 +21,8 @@
 @class QElement;
 @class QRootElement;
 
-@interface QuickDialogTableView : UITableView {
+// NOTE: Conforming to protocols here, but could be refactored similar as quickDialogDatasource and delegate
+@interface QuickDialogTableView : UITableView <UISearchDisplayDelegate, UISearchBarDelegate> {
 
 
 @private

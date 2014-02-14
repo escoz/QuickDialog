@@ -24,6 +24,7 @@
 @synthesize values = _values;
 @synthesize items = _items;
 @synthesize itemsImageNames = _itemsImageNames;
+@synthesize searchable = _searchable;
 
 
 - (void)createElements {
@@ -39,6 +40,34 @@
         element.imageNamed = [self.itemsImageNames objectAtIndex:i];
         element.title = [self.items objectAtIndex:i];
         [_parentSection addElement:element];
+    }
+}
+
+// NOTE: I'm not preserving "old" hidden property values, but it's important as they could've been
+//       hidden on purpose in other context
+- (void)hideElementsNotMatchingSearchKey:(NSString *)searchKey {
+    
+    for (QRadioItemElement *element in _internalRadioItemsSection.elements) {
+        
+        NSRange range = [element.title rangeOfString:searchKey
+                                             options:NSCaseInsensitiveSearch];
+        
+        if (range.location == NSNotFound) {
+            
+            [element setHidden:YES];
+        } else {
+            
+            [element setHidden:NO];
+        }
+    }
+}
+
+// NOTE: similar as above
+- (void)showAllElements {
+    
+    for (QRadioItemElement *element in _internalRadioItemsSection.elements) {
+        
+        [element setHidden:NO];
     }
 }
 
