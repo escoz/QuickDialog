@@ -17,6 +17,9 @@
 
 @implementation QuickDialogTableView {
     BOOL _deselectRowWhenViewAppears;
+    
+    UISearchBar *_searchBar;
+    UISearchDisplayController *_searchDisplayController;
 }
 
 @synthesize root = _root;
@@ -38,11 +41,56 @@
 
         quickDialogDelegate = [[QuickDialogTableDelegate alloc] initForTableView:self];
         self.delegate = quickDialogDelegate;
+        
+        if ([self.root respondsToSelector:@selector(searchable)]) {
+            
+            BOOL isSearchable = [[self.root valueForKey:@"searchable"] boolValue];
+            
+            if (isSearchable) {
+                
+                _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+                _searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:_searchBar
+                                                                             contentsController:_controller];
+                
+                _searchBar.delegate = self;
+                _searchDisplayController.delegate = self;
+                _searchDisplayController.searchResultsDataSource = self.dataSource;
+                _searchDisplayController.searchResultsDelegate = self.delegate;
+                
+                self.tableHeaderView = _searchBar;
+            }
+        }
 
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
     return self;
 }
+
+#pragma mark UISearchBarDelegate members
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    
+    if ([self.root respondsToSelector:@selector(showAllElements)]) {
+        
+        [self.root performSelector:@selector(showAllElements)];
+    }
+    
+    [self reloadData];
+}
+
+#pragma mark UISearchDisplayDelegate memebers
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    
+    if ([self.root respondsToSelector:@selector(hideElementsNotMatchingSearchKey:)]) {
+        
+        [self.root performSelector:@selector(hideElementsNotMatchingSearchKey:)
+                        withObject:searchString];
+    }
+    
+    return YES;
+}
+
 
 -(void)setRoot:(QRootElement *)root{
     _root = root;
