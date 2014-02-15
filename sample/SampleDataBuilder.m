@@ -297,6 +297,11 @@
     QRadioElement *elementWithAction = [[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Ferrari", @"McLaren", @"Lotus", nil] selected:0 title:@"WithAction"];
     elementWithAction.controllerAction = @"exampleAction:";
     [section1 addElement:elementWithAction];
+    
+    QRadioElement *elementWithFilter = [[QRadioElement alloc] initWithItems:@[@"Ferrari", @"McLaren", @"Lotus"] selected:0 title:@"Filtered"];
+    elementWithFilter.searchable = YES;
+    [section1 addElement:elementWithFilter];
+    
     [root addSection:section1];
 
     QRadioSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
