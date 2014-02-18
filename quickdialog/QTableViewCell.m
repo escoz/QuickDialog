@@ -83,9 +83,9 @@ static const int kCellMinimumLabelWidth = 80;
             detailsWidth = detailsWidth - valueSize.width - kCellMarginDouble;
 
         self.detailTextLabel.frame = CGRectMake(
-                self.contentView.bounds.size.width - detailsWidth - kCellMargin,
+                self.contentView.bounds.size.width - detailsWidth,
                 kCellMargin,
-                detailsWidth,
+                detailsWidth - (self.accessoryView==nil ? 0 : kCellMarginDouble) - (self.accessoryType!=UITableViewCellAccessoryNone ? 0 : kCellMarginDouble),
                 self.contentView.bounds.size.height- kCellMarginDouble);
     }
 }

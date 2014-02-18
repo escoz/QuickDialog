@@ -82,7 +82,7 @@
     if (_onSelected!= nil)
           _onSelected();
 
-    if (self.controllerAction!=NULL && !controller.quickDialogTableView.editing){
+    if (self.controllerAction!=NULL){
         SEL selector = NSSelectorFromString(self.controllerAction);
         if ([controller respondsToSelector:selector]) {
             objc_msgSend(controller,selector, self);
