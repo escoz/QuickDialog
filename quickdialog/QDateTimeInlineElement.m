@@ -25,7 +25,6 @@
     __weak QTableViewCell *_cell;
 }
 
-@synthesize dateValue = _dateValue;
 @synthesize mode = _mode;
 @synthesize centerLabel = _centerLabel;
 @synthesize maximumDate = _maximumDate;
@@ -65,6 +64,16 @@
 
 - (void)setDateValue:(NSDate *)date {
     _dateValue = date;
+}
+
+- (NSDate *)dateValue
+{
+    if (self.mode == UIDatePickerModeDate)   {
+        NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_dateValue];
+        _dateValue = [gregorian dateFromComponents:dateComponents];
+    }
+    return _dateValue;
 }
 
 -(NSNumber *)ticksValue {
