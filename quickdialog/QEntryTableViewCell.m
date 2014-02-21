@@ -91,7 +91,11 @@
                     titleWidth = width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra, self.frame.size.height-20);
+        int inset = 0;
+		if ([self respondsToSelector:@selector(separatorInset)]) {
+			inset = self.separatorInset.left;
+		};
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra-inset, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
