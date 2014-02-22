@@ -18,11 +18,12 @@
     return self;
 }
 
-- (void)bindToObject:(id)data {
+- (void)bindToObject:(id)data withString:(NSString *)withBindString
+{
 
     [self.elements removeAllObjects];
 
-    [super bindToObject:data];
+    [super bindToObject:data withString:withBindString];
     
     if (self.elements.count>0) //elements exist
         return;

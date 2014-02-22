@@ -96,6 +96,10 @@
     if ([_tableView.quickDialogDelegate respondsToSelector:@selector(header:willAppearForSection:atIndex:)]){
         [_tableView.quickDialogDelegate header:header willAppearForSection:section atIndex:index];
     }
+
+    if (section.headerView!=nil)
+        return section.headerView;
+
     return header;
 }
 
@@ -109,6 +113,9 @@
     if ([_tableView.quickDialogDelegate respondsToSelector:@selector(footer:willAppearForSection:atIndex:)]){
         [_tableView.quickDialogDelegate footer:footer willAppearForSection:section atIndex:index];
     }
+    if (section.footerView!=nil)
+        return section.footerView;
+
     return footer;
 }
 

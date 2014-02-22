@@ -18,7 +18,6 @@
 #import "QuickDialogController.h"
 
 @implementation QBooleanElement {
-    __unsafe_unretained QuickDialogController *_controller;
 }
 @synthesize onImage = _onImage;
 @synthesize offImage = _offImage;
@@ -57,7 +56,7 @@
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
     cell.accessoryType = self.sections!= nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.sections!= nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
-    _controller = controller;
+
     if ((_onImage==nil) && (_offImage==nil))  {
         UISwitch *boolSwitch = [[UISwitch alloc] init];
         boolSwitch.on = self.boolValue;
@@ -91,20 +90,13 @@
 
     if (self.controllerAction==nil)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self handleElementSelected:controller];
+    [self handleAction];
 }
 
 - (void)buttonPressed:(UIButton *)boolButton {
     self.boolValue = !boolButton.selected;
     boolButton.selected = _boolValue;
-    if (_controller!=nil && self.controllerAccessoryAction!=nil) {
-        SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
-        if ([_controller respondsToSelector:selector]) {
-            objc_msgSend(_controller,selector, self);
-        }  else {
-            NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
-        }
-    }
+    [self performAccessoryAction];
 }
 
 -(void)setBoolValue:(BOOL)boolValue {
@@ -115,8 +107,8 @@
 
 - (void)switched:(id)boolSwitch {
     self.boolValue = ((UISwitch *)boolSwitch).on;
-    if ((_controller != nil && self.controllerAction != nil) || _onSelected != nil) {
-        [self handleElementSelected:_controller];
+    if ((self.controller != nil && self.controllerAction != nil) || _onSelected != nil) {
+        [self handleAction];
     }
 }
 

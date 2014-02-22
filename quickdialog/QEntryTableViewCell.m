@@ -14,6 +14,7 @@
 
 #import "QEntryTableViewCell.h"
 #import "QuickDialog.h"
+#import "QTextField.h"
 
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
@@ -45,7 +46,18 @@
 }
 
 - (void)createSubviews {
-    _textField = [[QTextField alloc] init];
+    self.textField = [[QTextField alloc] init];
+
+    [self setNeedsLayout];
+}
+
+- (void)setTextField:(UITextField *)textField
+{
+    if (_textField!=nil){
+        [_textField removeTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+        [_textField removeFromSuperview];
+    }
+    _textField = textField;
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
@@ -53,8 +65,8 @@
     _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:_textField];
-    [self setNeedsLayout];
 }
+
 
 - (QEntryTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
@@ -112,8 +124,11 @@
     _entryElement = element;
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
-    _textField.prefix = _entryElement.prefix;
-    _textField.suffix = _entryElement.suffix;
+    if ([_textField isKindOfClass:[QTextField class]]) {
+        QTextField *qtf = (QTextField *) _textField;
+        qtf.prefix = _entryElement.prefix;
+        qtf.suffix = _entryElement.suffix;
+    }
 
     _textField.autocapitalizationType = _entryElement.autocapitalizationType;
     _textField.autocorrectionType = _entryElement.autocorrectionType;
@@ -131,7 +146,7 @@
 
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
-    } else {
+    } else if (_textField==nil){
         UIToolbar *toolbar = [self createActionBar];
         toolbar.barStyle = element.appearance.toolbarStyle;
         toolbar.translucent = element.appearance.toolbarTranslucent;

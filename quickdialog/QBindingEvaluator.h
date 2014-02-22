@@ -25,7 +25,7 @@
 
 - (void)bindObject:(id)section toData:(id)data;
 
-- (void)bindObject:(id)object toData:(id)data andBindingString:(id)string;
+- (void)bindObject:(id)object toData:(id)data withString:(id)string;
 
 - (void)bindSection:(QSection *)section toCollection:(NSArray *)items;
 

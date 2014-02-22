@@ -41,7 +41,7 @@
     return cell;
 }
 
-- (void)handleElementSelected:(QuickDialogController *)controller {
+- (void)handleAction:(UIViewController *)controller {
     // do nothing
 
 }

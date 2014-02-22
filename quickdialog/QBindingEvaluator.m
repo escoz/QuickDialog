@@ -39,10 +39,10 @@
         return;
 
     NSString *string = [object bind];
-    [self bindObject:object toData:data andBindingString:string];
+    [self bindObject:object toData:data withString:string];
 }
 
-- (void)bindObject:(id)object toData:(id)data andBindingString:string {
+- (void)bindObject:(id)object toData:(id)data withString:string {
 
     if ([QBindingEvaluator stringIsEmpty:string])
         return;

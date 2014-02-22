@@ -101,6 +101,7 @@
     cell.selectionStyle = !self.enabled || self.showPickerInCell ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleBlue;
     cell.imageView.image = self.image;
     cell.labelingPolicy = self.labelingPolicy;
+
     return cell;
 }
 
@@ -120,14 +121,14 @@
     return cell;
 }
 
-- (void)handleElementSelected:(QuickDialogController *)controller
+- (void)handleAction
 {
     if (self.showPickerInCell){
         BOOL shouldEdit = !_cell.isEditing;
 
-        [controller.quickDialogTableView endEditingOnVisibleCells];
+        [((QuickDialogController *)self.controller).quickDialogTableView endEditingOnVisibleCells];
         [_cell setEditing:shouldEdit];
-        [controller.quickDialogTableView reloadRowHeights];
+        [((QuickDialogController *)self.controller).quickDialogTableView reloadRowHeights];
     }
 }
 

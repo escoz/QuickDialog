@@ -92,10 +92,17 @@
 
     self.textLabel.text = element.title;
     self.detailTextLabel.text = value;
-
-    [self applyAppearanceForElement:element];
+    [self applyAppearanceForElement:element];;
 
 }
+
+- (void)applyAppearanceForElement:(QElement *)element
+{
+    [super applyAppearanceForElement:element];
+
+    self.detailTextLabel.textColor = element.enabled ? element.appearance.entryTextColorEnabled : element.appearance.entryTextColorDisabled;
+}
+
 
 - (BOOL)isEditing
 {

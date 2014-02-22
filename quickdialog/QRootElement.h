@@ -47,22 +47,17 @@ typedef enum  {
 @property(nonatomic, strong) NSDictionary *sectionTemplate;
 @property(assign) BOOL grouped;
 @property(assign) BOOL showKeyboardOnAppear;
-
 @property(nonatomic, retain) NSString *controllerName;
-
 @property(nonatomic, copy) NSString *emptyMessage;
 @property(nonatomic) QPresentationMode presentationMode;
-
 @property(nonatomic, strong) NSIndexPath *preselectedElementIndex;
-
 @property(nonatomic, copy) void (^onValueChanged)(QRootElement *);
 
 
-- (QRootElement *)init;
++ (instancetype)rootForJSON:(NSString *)jsonFileName withObject:(id)object;
+- (instancetype)init;
 
 - (void)addSection:(QSection *)section;
-
-+ (QRootElement *)rootForJSON:(NSString *)jsonFileName withObject:(id)object;
 
 - (QSection *)getSectionForIndex:(NSInteger)index;
 - (NSInteger)numberOfSections;

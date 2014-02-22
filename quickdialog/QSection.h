@@ -71,6 +71,7 @@
 - (NSUInteger)getVisibleIndexForElement:(QElement*)element;
 
 - (void)bindToObject:(id)data;
+- (void)bindToObject:(id)data withString:(NSString *)string;
 - (void)fetchValueIntoObject:(id)obj;
 - (void)fetchValueUsingBindingsIntoObject:(id)data;
 @end
