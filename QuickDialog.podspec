@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'QuickDialog'
-  s.version  = '0.9.1'
+  s.version  = '1.0'
   s.platform = :ios, '5.0'
   s.license  = 'Apache License, Version 2.0'
   s.summary  = 'Quick and easy dialog screens for iOS.'
