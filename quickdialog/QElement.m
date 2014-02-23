@@ -98,7 +98,7 @@
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     _controller = controller;
     [[tableView cellForRowAtIndexPath:indexPath] becomeFirstResponder];
-    [self handleAction];
+    [self performAction];
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
@@ -136,7 +136,8 @@
     [[QBindingEvaluator new] fetchValueFromObject:self toData:data];
 }
 
-- (void)handleAction {
+- (void)performAction
+{
     if (_onSelected!= nil)
         _onSelected();
 

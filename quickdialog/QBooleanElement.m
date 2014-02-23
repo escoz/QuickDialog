@@ -90,7 +90,7 @@
 
     if (self.controllerAction==nil)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self handleAction];
+    [self performAction];
 }
 
 - (void)buttonPressed:(UIButton *)boolButton {
@@ -108,7 +108,7 @@
 - (void)switched:(id)boolSwitch {
     self.boolValue = ((UISwitch *)boolSwitch).on;
     if ((self.controller != nil && self.controllerAction != nil) || _onSelected != nil) {
-        [self handleAction];
+        [self performAction];
     }
 }
 

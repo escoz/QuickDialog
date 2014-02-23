@@ -12,9 +12,6 @@
 // permissions and limitations under the License.
 //
 
-#import "QDateEntryTableViewCell.h"
-#import "QDateTimeInlineElement.h"
-#import "QuickDialog.h"
 #import "QDateInlineTableViewCell.h"
 
 @implementation QDateTimeInlineElement {
@@ -121,7 +118,7 @@
     return cell;
 }
 
-- (void)handleAction
+- (void)performAction
 {
     if (self.showPickerInCell){
         BOOL shouldEdit = !_cell.isEditing;

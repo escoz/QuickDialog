@@ -77,7 +77,7 @@
 
 - (void) fieldDidEndEditing
 {
-    [self handleAction];
+    [self performAction];
 }
 
 - (void)fetchValueIntoObject:(id)obj {

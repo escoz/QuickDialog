@@ -13,11 +13,14 @@
 //
 #import "QDateInlineTableViewCell.h"
 
+@interface QDateInlineTableViewCell ()
+@property(nonatomic, strong) UIDatePicker *pickerView;
+@property(nonatomic, weak) QDateTimeInlineElement *element;
+@property(nonatomic) BOOL presentingPicker;
+@end
+
 @implementation QDateInlineTableViewCell
 {
-    UIDatePicker *_pickerView;
-    BOOL _presentingPicker;
-    __weak QDateTimeInlineElement *_element;
 }
 
 
@@ -31,38 +34,38 @@
 
 - (void)prepareDateTimePicker:(QDateTimeInlineElement *)element
 {
-    if (!_pickerView)
-        _pickerView = [[UIDatePicker alloc] init];
+    if (!self.pickerView)
+        self.pickerView = [[UIDatePicker alloc] init];
 
-    _pickerView.timeZone = [NSTimeZone localTimeZone];
-    [_pickerView sizeToFit];
-    _pickerView.datePickerMode = element.mode;
-    _pickerView.maximumDate = element.maximumDate;
-    _pickerView.minimumDate = element.minimumDate;
-    _pickerView.minuteInterval = element.minuteInterval;
+    self.pickerView.timeZone = [NSTimeZone localTimeZone];
+    [self.pickerView sizeToFit];
+    self.pickerView.datePickerMode = element.mode;
+    self.pickerView.maximumDate = element.maximumDate;
+    self.pickerView.minimumDate = element.minimumDate;
+    self.pickerView.minuteInterval = element.minuteInterval;
 
     if (element.mode != UIDatePickerModeCountDownTimer && element.dateValue != nil)
-        _pickerView.date = element.dateValue;
+        self.pickerView.date = element.dateValue;
     else if (element.mode == UIDatePickerModeCountDownTimer && element.ticksValue != nil)
-        _pickerView.countDownDuration = [element.ticksValue doubleValue];
+        self.pickerView.countDownDuration = [element.ticksValue doubleValue];
 }
 
 - (void) dateChanged:(id)sender{
-    if (_element.mode == UIDatePickerModeCountDownTimer){
-        _element.ticksValue = [NSNumber numberWithDouble:_pickerView.countDownDuration];
+    if (self.element.mode == UIDatePickerModeCountDownTimer){
+        self.element.ticksValue = [NSNumber numberWithDouble:self.pickerView.countDownDuration];
     } else {
-        _element.dateValue = _pickerView.date;
+        self.element.dateValue = self.pickerView.date;
     }
-    if (_element.onValueChanged!=nil)
-        _element.onValueChanged(_element);
-    [self prepareForElement:_element inTableView:nil];
+    if (self.element.onValueChanged!=nil)
+        self.element.onValueChanged(self.element);
+    [self prepareForElement:self.element inTableView:nil];
 }
 
 - (void)prepareForElement:(QDateTimeInlineElement *)element inTableView:(QuickDialogTableView *)tableView {
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
-    _element = element;
+    self.element = element;
     if (element.customDateFormat!=nil){
         dateFormatter.dateFormat = element.customDateFormat;
     } else {
@@ -106,30 +109,30 @@
 
 - (BOOL)isEditing
 {
-    return _presentingPicker;
+    return self.presentingPicker;
 }
 
 - (void)setEditing:(BOOL)editing
 {
-    if (_presentingPicker == editing)
+    if (self.presentingPicker == editing)
         return;
 
-    _presentingPicker = editing;
+    self.presentingPicker = editing;
 
     if (editing){
-        [self.contentView addSubview:_pickerView];
-        _pickerView.alpha = 0.0;
+        [self.contentView addSubview:self.pickerView];
+        self.pickerView.alpha = 0.0;
     }
 
     [UIView animateWithDuration:0.3 animations:^{
-        _pickerView.alpha = editing ? 1.0 : 0.0;
+        self.pickerView.alpha = editing ? 1.0 : 0.0;
 
     } completion:^(BOOL finished){
         if (editing)  {
-            [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+            [self.pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
         } else {
-            [_pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
-            [_pickerView removeFromSuperview];
+            [self.pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+            [self.pickerView removeFromSuperview];
         }
 
     }];
@@ -163,9 +166,9 @@
 {
     [super layoutSubviews];
     [super layoutSubviewsInsideBounds:CGRectMake(0, 0, self.contentView.frame.size.width, 44)];
-    [_pickerView sizeToFit];
-    CGFloat width = _pickerView.frame.size.width;
-    _pickerView.frame = CGRectMake((self.contentView.frame.size.width-width) / 2, 44, width, _pickerView.frame.size.height);
+    [self.pickerView sizeToFit];
+    CGFloat width = self.pickerView.frame.size.width;
+    self.pickerView.frame = CGRectMake((self.contentView.frame.size.width-width) / 2, 44, width, self.pickerView.frame.size.height);
 }
 
 

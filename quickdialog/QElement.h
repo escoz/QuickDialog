@@ -84,7 +84,7 @@
 
 - (void)fetchValueUsingBindingsIntoObject:(id)object;
 
-- (void)handleAction;
+- (void)performAction;
 - (void)performAccessoryAction;
 
 - (void)bindToObject:(id)data shallow:(BOOL)shallow;
