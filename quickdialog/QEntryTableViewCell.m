@@ -150,7 +150,7 @@
 
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
-    } else if (_textField==nil){
+    } else if (_textField!=nil){
         UIToolbar *toolbar = [self createActionBar];
         toolbar.barStyle = element.appearance.toolbarStyle;
         toolbar.translucent = element.appearance.toolbarTranslucent;
