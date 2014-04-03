@@ -48,6 +48,8 @@
     cell.detailTextLabel.textColor = _color;
     cell.detailTextLabel.text = _text;
 
+    cell.imageView.image = _image;
+
     return cell;
 }
 

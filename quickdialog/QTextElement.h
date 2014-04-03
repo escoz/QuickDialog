@@ -30,6 +30,7 @@
 
 @property(nonatomic, strong) NSString *text;
 @property(nonatomic, retain) UIColor *color;
+@property(nonatomic, strong) UIImage *image;
 
 - (QTextElement *)initWithText:(NSString *)string;
 @end
