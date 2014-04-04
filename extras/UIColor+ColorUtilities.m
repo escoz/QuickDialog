@@ -10,7 +10,7 @@
 
 - (UIColor *)darkerColor
 {
-    float r, g, b, a;
+    CGFloat r, g, b, a;
     if ([self getRed:&r green:&g blue:&b alpha:&a])
         return [UIColor colorWithRed:MAX(r - 0.4, 0.0)
                                green:MAX(g - 0.4, 0.0)
