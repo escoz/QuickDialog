@@ -148,6 +148,9 @@
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
+- (void)willDeleteElement:(QElement *)element{
+    // Intentionally empty.
+}
 
 - (void) resizeForKeyboard:(NSNotification*)aNotification {
     if (!_viewOnScreen)

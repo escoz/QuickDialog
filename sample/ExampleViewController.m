@@ -69,6 +69,10 @@
     }
 }
 
+-(void)willDeleteElement:(QElement *)element{
+    // Optionally you could remove the element from your data source here.
+}
+
 
 -(void)setTheme:(QElement *)element  {
 

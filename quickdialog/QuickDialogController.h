@@ -51,6 +51,11 @@
 
 + (QuickDialogController *)controllerForRoot:(QRootElement *)root;
 
+/**
+ Called before a cell is removed from the tableView.
+*/
+- (void)willDeleteElement:(QElement *)element;
+
 + (UINavigationController *)controllerWithNavigationForRoot:(QRootElement *)root;
 
 
