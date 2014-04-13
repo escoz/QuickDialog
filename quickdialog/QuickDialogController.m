@@ -148,8 +148,8 @@
     return [QuickDialogController buildControllerWithClass:controllerClass root:root];
 }
 
-- (void)willDeleteElement:(QElement *)element{
-    // Intentionally empty.
+- (BOOL)shouldDeleteElement:(QElement *)element{
+    return YES;
 }
 
 - (void) resizeForKeyboard:(NSNotification*)aNotification {

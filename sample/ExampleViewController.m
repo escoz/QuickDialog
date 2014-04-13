@@ -69,8 +69,9 @@
     }
 }
 
--(void)willDeleteElement:(QElement *)element{
-    // Optionally you could remove the element from your data source here.
+-(BOOL)shouldDeleteElement:(QElement *)element{
+    // Return no if you want to delete the cell or redraw the tableView yourself
+    return YES;
 }
 
 
