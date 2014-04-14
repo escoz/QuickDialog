@@ -64,8 +64,10 @@
         element = section.elements[indexPath.row];
     }
 
-    if ([element.controller respondsToSelector:@selector(willDeleteElement:)]) {
-        [(QuickDialogController *)element.controller willDeleteElement:element];
+    if ([element.controller respondsToSelector:@selector(shouldDeleteElement:)]) {
+        if (![(QuickDialogController *)element.controller shouldDeleteElement:element]) {
+            return;
+        };
     }
 
     if ([section removeElementForRow:indexPath.row]){
