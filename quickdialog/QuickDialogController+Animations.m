@@ -44,9 +44,9 @@
         {
             [idx addObject:[NSIndexPath indexPathForRow:element.visibleIndex inSection:element.parentSection.visibleIndex]];
             element.hidden = YES;
+            [self.quickDialogTableView deleteRowsAtIndexPaths:idx withRowAnimation:removeAnimation];
         }
     }
-    [self.quickDialogTableView deleteRowsAtIndexPaths:idx withRowAnimation:removeAnimation];
 
     [idx removeAllObjects];
     for (QElement *element in ins)
@@ -55,9 +55,9 @@
         {
             element.hidden = NO;
             [idx addObject:[NSIndexPath indexPathForRow:element.visibleIndex inSection:element.parentSection.visibleIndex]];
+            [self.quickDialogTableView insertRowsAtIndexPaths:idx withRowAnimation:insertAnimation];
         }
     }
-    [self.quickDialogTableView insertRowsAtIndexPaths:idx withRowAnimation:insertAnimation];
     [self.quickDialogTableView endUpdates];
 }
 
@@ -72,9 +72,9 @@
         {
             [idx addIndex:section.visibleIndex];
             section.hidden = YES;
+            [self.quickDialogTableView deleteSections:idx withRowAnimation:removeAnimation];
         }
     }
-    [self.quickDialogTableView deleteSections:idx withRowAnimation:removeAnimation];
 
     [idx removeAllIndexes];
     for (QSection *section in ins)
@@ -83,9 +83,9 @@
         {
             section.hidden = NO;
             [idx addIndex:section.visibleIndex];
+            [self.quickDialogTableView insertSections:idx withRowAnimation:insertAnimation];
         }
     }
-    [self.quickDialogTableView insertSections:idx withRowAnimation:insertAnimation];
     [self.quickDialogTableView endUpdates];
 }
 

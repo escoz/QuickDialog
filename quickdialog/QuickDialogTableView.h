@@ -20,30 +20,27 @@
 @class QSection;
 @class QElement;
 @class QRootElement;
+@protocol QuickDialogDelegate;
 
-@interface QuickDialogTableView : UITableView {
-
-
-@private
-    __weak QuickDialogController *_controller;
-    QRootElement *_root;
-    id <UITableViewDataSource> quickDialogDataSource;
-    id <UITableViewDelegate> quickDialogDelegate;
-}
+@interface QuickDialogTableView : UITableView
 
 @property(nonatomic, strong) QRootElement *root;
 
 @property(weak, nonatomic, readonly) QuickDialogController *controller;
 
+@property(nonatomic, weak) id<QuickDialogDelegate> quickDialogDelegate;
+@property(nonatomic, strong) id <UITableViewDelegate> quickDialogTableDelegate;
+@property(nonatomic, strong) id <UITableViewDataSource> quickDialogDataSource;
+
 @property(nonatomic) BOOL deselectRowWhenViewAppears;
 
-
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
-
-- (UITableViewCell *)cellForElement:(QElement *)element;
-
 - (void)deselectRows;
 
+- (UITableViewCell *)cellForElement:(QElement *)element;
 - (void)reloadCellForElements:(QElement *)element, ... NS_REQUIRES_NIL_TERMINATION;
 
+- (void)reloadRowHeights;
+
+- (void)endEditingOnVisibleCells;
 @end

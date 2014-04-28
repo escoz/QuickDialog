@@ -39,6 +39,11 @@
         return;
 
     NSString *string = [object bind];
+    [self bindObject:object toData:data withString:string];
+}
+
+- (void)bindObject:(id)object toData:(id)data withString:string {
+
     if ([QBindingEvaluator stringIsEmpty:string])
         return;
 
@@ -49,7 +54,7 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
-            [self bindSection:(QSection *)object toCollection:[data valueForKeyPath:valueName]];
+            [self bindSection:(QSection *)object toCollection:[@"self" isEqualToString:valueName] ? data : [data valueForKeyPath:valueName]];
 
         } else if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QRootElement class]]) {
             NSArray *itemsToIterate = [valueName isEqualToString:@"self"]? data : [data valueForKeyPath:valueName];
@@ -143,7 +148,9 @@
                 id value = [element valueForKeyPath:propName];
                 if (propName!= nil && value!=nil)
                     [data setValue:value forKeyPath:valueName];
-                }
+                else if (valueName != nil && value==nil)
+                    [data setNilValueForKey:valueName];
+            }
             @catch (NSException *exception) {
                 NSLog(@"Couldn't set property %@ on object %@", valueName, data);
             }

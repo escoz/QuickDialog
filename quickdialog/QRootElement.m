@@ -35,7 +35,7 @@
 @synthesize preselectedElementIndex = _preselectedElementIndex;
 
 
-- (QRootElement *)init {
+- (instancetype)init {
     self = [super init];
     return self;
 
@@ -48,7 +48,16 @@
     section.rootElement = self;
 }
 
-+ (QRootElement *)rootForJSON:(NSString *)jsonFileName withObject:(id)object {
+- (void)setSections:(NSMutableArray *)sections
+{
+    _sections = nil;
+    for (QSection *section in sections){
+        [self addSection:section];
+    }
+}
+
+
++ (instancetype)rootForJSON:(NSString *)jsonFileName withObject:(id)object {
     QRootElement *root = [self rootForJSON:jsonFileName];
     root.object = object;
     return root;
@@ -132,16 +141,23 @@
     }
 }
 
-- (void)bindToObject:(id)data {
-    if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
-        for (QSection *sections in self.sections) {
-            [sections bindToObject:data];
+- (void)bindToObject:(id)data shallow:(BOOL)shallow
+{
+    if (!shallow) {
+        if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
+            for (QSection *sections in self.sections) {
+                [sections bindToObject:data];
+            }
+        } else {
+            [self.sections removeAllObjects];
         }
-    } else {
-        [self.sections removeAllObjects];
     }
 
     [[QBindingEvaluator new] bindObject:self toData:data];
+}
+
+- (void)bindToObject:(id)data {
+    [self bindToObject:data shallow:NO];
 }
 
 -(void)dealloc {

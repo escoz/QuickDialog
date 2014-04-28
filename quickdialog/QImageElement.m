@@ -54,8 +54,10 @@
 }
 
 - (void)setImageValueNamed:(NSString *)name {
-    self.imageValue = [UIImage imageNamed:name];
-    [self reducedImageIfNeeded];
+    if(name != nil) {
+        self.imageValue = [UIImage imageNamed:name];
+        [self reducedImageIfNeeded];
+    }
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {

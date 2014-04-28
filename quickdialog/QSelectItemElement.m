@@ -25,7 +25,9 @@
 }
 
 -(void)setCheckmarkImageNamed:(NSString *)name {
-    self.checkmarkImage = [UIImage imageNamed:name];
+    if(name != nil) {
+        self.checkmarkImage = [UIImage imageNamed:name];
+    }
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller

@@ -12,25 +12,20 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
-#import "QLabelElement.h"
+#import <UIKit/UIKit.h>
 
-/**
-  QFloatElement: shows an slider control.
-*/
+@class QElement;
+@class QSection;
 
-@interface QFloatElement : QLabelElement {
-    
-    float _floatValue;
-    float _minimumValue;
-    float _maximumValue;
-}
+@protocol QuickDialogDelegate  <NSObject>
 
-@property(nonatomic, assign) float floatValue;
-@property(nonatomic, assign) float minimumValue;
-@property(nonatomic, assign) float maximumValue;
 
-- (QFloatElement *)init;
-- (QFloatElement *)initWithTitle:(NSString *)string value:(float)value;
-- (QElement *)initWithValue:(float)value;
+@optional
+
+-(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath;
+
+-(void) header:(UIView *)header willAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
+-(void) footer:(UIView *)footer willAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
+
 @end
+

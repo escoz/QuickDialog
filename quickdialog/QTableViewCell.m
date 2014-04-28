@@ -15,8 +15,6 @@
 #import "QTableViewCell.h"
 @implementation QTableViewCell
 
-static const int kCellMarginDouble = 16;
-static const int kCellMargin = 8;
 static const int kCellMinimumLabelWidth = 80;
 
 
@@ -31,16 +29,22 @@ static const int kCellMinimumLabelWidth = 80;
 {
     [super layoutSubviews];
 
-    CGSize sizeWithMargin = self.contentView.bounds.size;
+    [self layoutSubviewsInsideBounds:self.contentView.bounds];
+
+}
+
+- (void)layoutSubviewsInsideBounds:(CGRect)bounds
+{
+    CGSize sizeWithMargin = bounds.size;
 
     if (self.imageView.image!=nil){
-        sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - kCellMarginDouble, sizeWithMargin.height);
+        sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - QCellMarginDouble, sizeWithMargin.height);
     }
 
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
         if (self.textLabel.text!=nil){
-            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height-kCellMarginDouble);
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
         }
 
         CGSize valueSize = CGSizeZero;
@@ -50,43 +54,43 @@ static const int kCellMinimumLabelWidth = 80;
 
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
-                kCellMargin,
-                self.contentView.bounds.size.width - valueSize.width - kCellMarginDouble - kCellMarginDouble,
-                self.contentView.bounds.size.height- kCellMarginDouble);
+                QCellMargin,
+                bounds.size.width - valueSize.width - QCellMarginDouble - QCellMarginDouble,
+                bounds.size.height- QCellMarginDouble);
 
         self.detailTextLabel.frame = CGRectMake(
-                self.contentView.bounds.size.width - valueSize.width - kCellMargin,
-                kCellMargin,
+                bounds.size.width - valueSize.width - QCellMargin,
+                QCellMargin,
                 valueSize.width,
-                self.contentView.bounds.size.height- kCellMarginDouble);
+                bounds.size.height- QCellMarginDouble);
     } else {
 
         if (self.detailTextLabel.text!=nil){
-            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height-kCellMarginDouble);
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
         }
 
         CGSize valueSize = CGSizeZero;
         if (!self.detailTextLabel.text) {
-            valueSize = CGSizeMake(sizeWithMargin.width - kCellMarginDouble - kCellMargin, sizeWithMargin.height);
+            valueSize = CGSizeMake(sizeWithMargin.width - QCellMarginDouble - QCellMargin, sizeWithMargin.height);
         } else if (self.textLabel.text!=nil) {
             valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
         }
 
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
-                kCellMargin,
+                QCellMargin,
                 valueSize.width,
-                self.contentView.bounds.size.height- kCellMarginDouble);
+                bounds.size.height- QCellMarginDouble);
 
-        CGFloat detailsWidth = self.contentView.bounds.size.width - kCellMarginDouble;
+        CGFloat detailsWidth = bounds.size.width - QCellMarginDouble;
         if (valueSize.width>0)
-            detailsWidth = detailsWidth - valueSize.width - kCellMarginDouble;
+            detailsWidth = detailsWidth - valueSize.width - QCellMarginDouble;
 
         self.detailTextLabel.frame = CGRectMake(
-                self.contentView.bounds.size.width - detailsWidth - kCellMargin,
-                kCellMargin,
-                detailsWidth,
-                self.contentView.bounds.size.height- kCellMarginDouble);
+                bounds.size.width - detailsWidth ,
+                QCellMargin,
+                detailsWidth - (self.accessoryView ==nil ? 0 : QCellMarginDouble) - (self.accessoryType !=UITableViewCellAccessoryNone ? 0 : QCellMarginDouble),
+                bounds.size.height- QCellMarginDouble);
     }
 }
 

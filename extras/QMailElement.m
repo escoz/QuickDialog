@@ -37,7 +37,7 @@
 
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-    [self handleElementSelected:controller];
+    [self performAction];
 	
     if([MFMailComposeViewController canSendMail]) {        
         MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];

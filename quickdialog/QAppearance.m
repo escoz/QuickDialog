@@ -77,12 +77,16 @@
 - (CGFloat)heightForHeaderInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
     if (section.headerView!=nil)
         return section.headerView.frame.size.height;
+    if (self.defaultHeightForHeader!=nil)
+        return self.defaultHeightForHeader.floatValue;
     return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)heightForFooterInSection:(QSection *)section andTableView:(QuickDialogTableView *)tableView andIndex:(NSInteger)index {
     if (section.footerView!=nil)
         return section.footerView.frame.size.height;
+    if (self.defaultHeightForFooter!=nil)
+        return self.defaultHeightForFooter.floatValue;
 
     return UITableViewAutomaticDimension;
 }

@@ -36,7 +36,9 @@
 }
 
 -(void)setImageNamed:(NSString *)name {
-    self.image = [UIImage imageNamed:name];
+    if(name != nil) {
+        self.image = [UIImage imageNamed:name];
+    }
 }
 
 - (NSString *)imageNamed {
@@ -45,7 +47,7 @@
 
 -(void)setIconNamed:(NSString *)name {
 #if __IPHONE_7_0
-    if ([self.image respondsToSelector:@selector(imageWithRenderingMode:)]) {
+    if ([self.image respondsToSelector:@selector(imageWithRenderingMode:)] && name != nil) {
         self.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
 #endif

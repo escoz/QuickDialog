@@ -21,6 +21,10 @@
 @synthesize minimumValue = _minimumValue;
 @synthesize maximumValue = _maximumValue;
 
+- (QFloatElement *)init {
+    return [self initWithValue:0.0];
+}
+
 - (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;
     if (self) {

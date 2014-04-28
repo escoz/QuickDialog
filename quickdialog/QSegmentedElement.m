@@ -4,7 +4,6 @@
 #import "QSegmentedElement.h"
 
 @implementation QSegmentedElement {
-    __weak QuickDialogController *_controller;
 }
 - (void)setItems:(NSArray *)anItems {
     if (_items != anItems) {
@@ -42,14 +41,14 @@
 - (void)handleSegmentedControlValueChanged:(id)control {
     _selected = ((UISegmentedControl *)control).selectedSegmentIndex;
 
-    [self handleElementSelected:_controller];
+    [self performAction];
     
     [self handleEditingChanged];
 }
 
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    _controller = controller;
+    self.controller = controller;
     QTableViewCell *cell = [[QTableViewCell alloc] init];
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     cell.backgroundColor = [UIColor clearColor];

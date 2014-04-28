@@ -62,7 +62,7 @@
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, 8, tableView.bounds.size.width-margin-margin, height-4)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(margin, 8, tableView.bounds.size.width-margin-margin, height -4)];
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         label.text = section.title;
         [containerView addSubview:label];

@@ -69,6 +69,11 @@
     }
 }
 
+-(BOOL)shouldDeleteElement:(QElement *)element{
+    // Return no if you want to delete the cell or redraw the tableView yourself
+    return YES;
+}
+
 
 -(void)setTheme:(QElement *)element  {
 

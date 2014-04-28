@@ -162,6 +162,7 @@
 
 
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3",@"Option 11", @"Option 12", @"Option 13", @"Option 21", @"Option 22", @"Option 33", @"Option 41", @"Option 42", @"Option 43", @"Option 51", @"Option 52", @"Option 53", @"Option 61", @"Option 62", @"Option 63", @"Option 71", @"Option 72", @"Option 73", nil] selected:7 title:@"Radio"];
+    radioElement.itemsImageNames = @[ @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel" ];
 	radioElement.key = @"radio1";
 
 
@@ -582,7 +583,19 @@
 
     [root addSection:multilineSection];
     [root addSection:traitsSection];
-    
+
+    QSection *imageSection = [[QSection alloc] initWithTitle:@"With images"];
+    QEntryElement *regularEntryElementWithImage = [[QEntryElement alloc] initWithTitle:@"Entry with image" Value:@"" Placeholder:@"YES"];
+    regularEntryElementWithImage.image = [UIImage imageNamed:@"keyboard"];
+    [imageSection addElement:regularEntryElementWithImage];
+    QMultilineElement *multilineWithImage = [QMultilineElement new];
+    multilineWithImage.title = @"Multiline with image";
+    multilineWithImage.image = [UIImage imageNamed:@"iPhone"];
+    [imageSection addElement:multilineWithImage];
+
+    [root addSection:imageSection];
+
+
     return root;
 }
 
@@ -596,6 +609,7 @@
 
     QSortingSection *sortingSection = [[QSortingSection alloc] init];
     sortingSection.key = @"sortedSection";
+    sortingSection.canDeleteRows = YES;
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"First" Value:@"1"]];
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Second" Value:@"2"]];
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Third" Value:@"3"]];

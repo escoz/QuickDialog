@@ -149,16 +149,22 @@
     }
 }
 
-- (void)bindToObject:(id)data {
-    if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
-            for (QElement *el in self.elements) {
-                [el bindToObject:data];
-            }
-        } else {
-            [self.elements removeAllObjects];
-        }
+- (void)bindToObject:(id)data
+{
+    [self bindToObject:data withString:self.bind];
+}
 
-        [[QBindingEvaluator new] bindObject:self toData:data];
+- (void)bindToObject:(id)data withString:(NSString *)string
+{
+    if ([string length]==0 || [string rangeOfString:@"iterate"].location == NSNotFound)  {
+        for (QElement *el in self.elements) {
+            [el bindToObject:data shallow:el.shallowBind];
+        }
+    } else {
+        [self.elements removeAllObjects];
+    }
+
+    [[QBindingEvaluator new] bindObject:self toData:data withString:string];
 
 }
 

@@ -14,6 +14,7 @@
 
 #import "QEntryTableViewCell.h"
 #import "QuickDialog.h"
+#import "QTextField.h"
 
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
@@ -45,7 +46,18 @@
 }
 
 - (void)createSubviews {
-    _textField = [[QTextField alloc] init];
+    self.textField = [[QTextField alloc] init];
+
+    [self setNeedsLayout];
+}
+
+- (void)setTextField:(UITextField *)textField
+{
+    if (_textField!=nil){
+        [_textField removeTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+        [_textField removeFromSuperview];
+    }
+    _textField = textField;
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
     _textField.borderStyle = UITextBorderStyleNone;
     _textField.delegate = self;
@@ -53,8 +65,8 @@
     _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:_textField];
-    [self setNeedsLayout];
 }
+
 
 - (QEntryTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
@@ -74,7 +86,7 @@
     if (_entryElement.title == NULL && _entryElement.image!=NULL){
         self.imageView.image = _entryElement.image;
         [self.imageView sizeToFit];
-        return CGRectMake( self.imageView.frame.size.width+10, 10, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
+        return CGRectMake(CGRectGetMaxX(self.imageView.frame) + 10, 10, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -86,12 +98,16 @@
                 CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
                 CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByWordWrapping] ;
-                CGFloat width = size.width + imageWidth;
+                CGFloat width = size.width + imageWidth + 20;
                 if (width>titleWidth)
                     titleWidth = width;
             }
         }
-        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra, self.frame.size.height-20);
+        int inset = 0;
+		if ([self respondsToSelector:@selector(separatorInset)]) {
+			inset = self.separatorInset.left;
+		};
+        _entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-_entryElement.appearance.cellBorderWidth-extra-inset, self.frame.size.height-20);
     }
 
     return _entryElement.parentSection.entryPosition;
@@ -112,8 +128,11 @@
     _entryElement = element;
     _textField.text = _entryElement.textValue;
     _textField.placeholder = _entryElement.placeholder;
-    _textField.prefix = _entryElement.prefix;
-    _textField.suffix = _entryElement.suffix;
+    if ([_textField isKindOfClass:[QTextField class]]) {
+        QTextField *qtf = (QTextField *) _textField;
+        qtf.prefix = _entryElement.prefix;
+        qtf.suffix = _entryElement.suffix;
+    }
 
     _textField.autocapitalizationType = _entryElement.autocapitalizationType;
     _textField.autocorrectionType = _entryElement.autocorrectionType;
@@ -131,7 +150,7 @@
 
     if (_entryElement.hiddenToolbar){
         _textField.inputAccessoryView = nil;
-    } else {
+    } else if (_textField!=nil){
         UIToolbar *toolbar = [self createActionBar];
         toolbar.barStyle = element.appearance.toolbarStyle;
         toolbar.translucent = element.appearance.toolbarTranslucent;
@@ -151,10 +170,11 @@
 
 -(void)recalculateEntryFieldPosition {
     _entryElement.parentSection.entryPosition = CGRectZero;
-    _textField.frame = [self calculateFrameForEntryElement];
+    CGRect textFieldFrame = [self calculateFrameForEntryElement];
     CGRect labelFrame = self.textLabel.frame;
     self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-            _entryElement.parentSection.entryPosition.origin.x-_entryElement.appearance.cellBorderWidth, labelFrame.size.height);
+            textFieldFrame.origin.x  - labelFrame.origin.x, labelFrame.size.height);
+    _textField.frame = CGRectMake(textFieldFrame.origin.x, textFieldFrame.origin.y, self.contentView.bounds.size.width - textFieldFrame.origin.x - 20, textFieldFrame.size.height);
     
 }
 
