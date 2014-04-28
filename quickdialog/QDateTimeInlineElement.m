@@ -109,7 +109,6 @@
          cell = [[QDateEntryTableViewCell alloc] init];
     }
     _cell = cell;
-    _controller = controller;
     [cell prepareForElement:self inTableView:tableView];
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
