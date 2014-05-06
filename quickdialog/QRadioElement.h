@@ -30,6 +30,7 @@
 @property(nonatomic, assign, readwrite) NSInteger selected;
 @property(nonatomic, retain) NSArray *values;
 @property(nonatomic, strong) NSArray *itemsImageNames;
+@property(nonatomic) SEL action;
 
 - (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title;
 
