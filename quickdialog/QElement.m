@@ -88,7 +88,7 @@
     if (self.controllerAccessoryAction!=NULL){
             SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
             if ([controller respondsToSelector:selector]) {
-                objc_msgSend(controller,selector, self);
+                ((void (*)(id, SEL, id)) objc_msgSend)(controller, selector, self);
             }  else {
                 NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [controller class]);
             }
@@ -144,7 +144,7 @@
     if (self.controllerAction!=NULL){
         SEL selector = NSSelectorFromString(self.controllerAction);
         if ([_controller respondsToSelector:selector]) {
-            objc_msgSend(_controller,selector, self);
+			((void (*)(id, SEL, id)) objc_msgSend)(_controller, selector, self);
         }  else {
             NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [_controller class]);
         }
@@ -155,7 +155,7 @@
     if (_controller!=nil && self.controllerAccessoryAction!=nil) {
         SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
         if ([_controller respondsToSelector:selector]) {
-            objc_msgSend(_controller,selector, self);
+            ((void (*)(id, SEL, id)) objc_msgSend)(_controller, selector, self);
         }  else {
             NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
         }
