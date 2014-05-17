@@ -180,7 +180,7 @@
         return;
 
     if (_values==nil){
-        [obj setValue:[NSNumber numberWithInt:_selected] forKey:_key];
+        [obj setValue:[NSNumber numberWithInteger:_selected] forKey:_key];
     } else {
         [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
     }
