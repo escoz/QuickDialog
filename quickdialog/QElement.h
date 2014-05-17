@@ -60,6 +60,12 @@
 
 @property(nonatomic) BOOL shallowBind;
 
+// Corresponds to UITableViewCell property accessibilityLabel
+@property(nonatomic, copy) NSString *accessibilityLabel;
+
+// Corresponds to UITableViewCell property accessibilityIdentifier
+@property(nonatomic, copy) NSString *accessibilityIdentifier;
+
 - (QElement *)initWithKey:(NSString *)key;
 
 - (NSIndexPath*) getIndexPath;

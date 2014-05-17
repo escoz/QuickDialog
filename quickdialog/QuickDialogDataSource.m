@@ -35,6 +35,8 @@
     QElement *element = [section getVisibleElementForIndex:indexPath.row];
     element.controller = _tableView.controller;
     UITableViewCell *cell = [element getCellForTableView:(QuickDialogTableView *) tableView controller:_tableView.controller];
+    cell.accessibilityLabel = element.accessibilityLabel;
+    cell.accessibilityIdentifier = element.accessibilityIdentifier;
     cell.userInteractionEnabled = element.enabled;
     return cell;
 }
