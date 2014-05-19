@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B93DAE192A052B00B41DB9 /* NSString+UIStringDrawing2.h in Headers */ = {isa = PBXBuildFile; fileRef = 11B93DAC192A052B00B41DB9 /* NSString+UIStringDrawing2.h */; };
+		11B93DAF192A052B00B41DB9 /* NSString+UIStringDrawing2.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B93DAD192A052B00B41DB9 /* NSString+UIStringDrawing2.m */; };
+		11B93DB0192A052B00B41DB9 /* NSString+UIStringDrawing2.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B93DAD192A052B00B41DB9 /* NSString+UIStringDrawing2.m */; };
 		194C3FC214EDF0510036C9E7 /* DOAutocompleteTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */; };
 		194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */; };
 		2C542394145ADEBD0026A152 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
@@ -193,6 +196,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11B93DAC192A052B00B41DB9 /* NSString+UIStringDrawing2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+UIStringDrawing2.h"; path = "quickdialog/NSString+UIStringDrawing2.h"; sourceTree = SOURCE_ROOT; };
+		11B93DAD192A052B00B41DB9 /* NSString+UIStringDrawing2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+UIStringDrawing2.m"; path = "quickdialog/NSString+UIStringDrawing2.m"; sourceTree = SOURCE_ROOT; };
 		194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -568,6 +573,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				11B93DAC192A052B00B41DB9 /* NSString+UIStringDrawing2.h */,
+				11B93DAD192A052B00B41DB9 /* NSString+UIStringDrawing2.m */,
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
 				D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
@@ -737,6 +744,7 @@
 				D81F2ED814BBAFCE0066C372 /* QBindingEvaluator.h in Headers */,
 				D81F2EE714BBAFCE0066C372 /* QLabelElement.h in Headers */,
 				D81F2ED914BBAFCE0066C372 /* QBadgeLabel.h in Headers */,
+				11B93DAE192A052B00B41DB9 /* NSString+UIStringDrawing2.h in Headers */,
 				D81F2EDA14BBAFCE0066C372 /* QDecimalTableViewCell.h in Headers */,
 				D81F2EDB14BBAFCE0066C372 /* QDecimalElement.h in Headers */,
 				D8820C7F16A3544C0070AE22 /* QImageElement.h in Headers */,
@@ -946,6 +954,7 @@
 				D8B39456151394E1008ECB34 /* QMultilineTextViewController.m in Sources */,
 				D8B3946A1514E8B3008ECB34 /* QSegmentedElement.m in Sources */,
 				D8F180E813F0599A009B0CD2 /* QuickDialogWebController.m in Sources */,
+				11B93DB0192A052B00B41DB9 /* NSString+UIStringDrawing2.m in Sources */,
 				F2E6149F151C9E4D00F36976 /* QSelectSection.m in Sources */,
 				F2E614A3151CA1A100F36976 /* QSelectItemElement.m in Sources */,
 				F2F23A26152DD48B00EB6687 /* QuickDialogController+Helpers.m in Sources */,
@@ -967,6 +976,7 @@
 				D811F8FB13EC907200E3922B /* AboutController.m in Sources */,
 				D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */,
 				D811F8FE13EC907200E3922B /* LoginController.m in Sources */,
+				11B93DAF192A052B00B41DB9 /* NSString+UIStringDrawing2.m in Sources */,
 				D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */,
 				D811F90013EC907200E3922B /* main.m in Sources */,
 				D811F90213EC907200E3922B /* ExampleAppDelegate.m in Sources */,

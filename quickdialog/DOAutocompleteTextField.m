@@ -31,6 +31,7 @@
 
 #import "DOAutocompleteTextField.h"
 #import "NSMutableArray+IMSExtensions.h"
+#import "NSString+UIStringDrawing2.h"
 
 @interface DOAutocompleteTextField (Private) 
 
@@ -106,12 +107,12 @@
     CGRect textRect = [self textRectForBounds:self.bounds];
     //    NSLog(@"textRect: %@", NSStringFromCGRect(textRect));
     
-    CGSize prefixTextSize = [self.text sizeWithFont:self.font
+    CGSize prefixTextSize = [self.text sizeWithFont2:self.font
                                   constrainedToSize:textRect.size
                                       lineBreakMode:NSLineBreakByCharWrapping];
     //    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
     
-    CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont:self.font 
+    CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont2:self.font
                                                   constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
                                                       lineBreakMode:NSLineBreakByCharWrapping];
     

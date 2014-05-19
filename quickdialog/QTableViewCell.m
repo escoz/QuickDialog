@@ -13,6 +13,7 @@
 //
 
 #import "QTableViewCell.h"
+#import "NSString+UIStringDrawing2.h"
 @implementation QTableViewCell
 
 static const int kCellMinimumLabelWidth = 80;
@@ -49,7 +50,7 @@ static const int kCellMinimumLabelWidth = 80;
 
         CGSize valueSize = CGSizeZero;
         if (self.detailTextLabel.text!=nil) {
-            valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font constrainedToSize:sizeWithMargin];
+            valueSize = [self.detailTextLabel.text sizeWithFont2:self.detailTextLabel.font constrainedToSize:sizeWithMargin];
         }
 
         self.textLabel.frame = CGRectMake(
@@ -73,7 +74,7 @@ static const int kCellMinimumLabelWidth = 80;
         if (!self.detailTextLabel.text) {
             valueSize = CGSizeMake(sizeWithMargin.width - QCellMarginDouble - QCellMargin, sizeWithMargin.height);
         } else if (self.textLabel.text!=nil) {
-            valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
+            valueSize = [self.textLabel.text sizeWithFont2:self.textLabel.font constrainedToSize:sizeWithMargin];
         }
 
         self.textLabel.frame = CGRectMake(

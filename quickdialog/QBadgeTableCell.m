@@ -14,6 +14,7 @@
 
 #import "QBadgeTableCell.h"
 #import "QBadgeLabel.h"
+#import "NSString+UIStringDrawing2.h"
 
 @interface QBadgeTableCell ()
 @end
@@ -29,7 +30,9 @@
         [self.contentView addSubview:_badgeLabel];
         _badgeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _badgeLabel.contentMode = UIViewContentModeRedraw;
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
         _badgeLabel.contentStretch = CGRectMake(1., 0., 0., 0.);
+        #endif
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
@@ -38,7 +41,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGRect rect = self.contentView.frame;
-    CGSize badgeTextSize = [_badgeLabel.text sizeWithFont:_badgeLabel.font];
+    CGSize badgeTextSize = [_badgeLabel.text sizeWithFont2:_badgeLabel.font];
     _badgeLabel.frame = CGRectIntegral(CGRectMake(rect.size.width - badgeTextSize.width - 10, ((rect.size.height - badgeTextSize.height) / 2)+1, badgeTextSize.width, badgeTextSize.height));
     CGRect lblFrame = self.textLabel.frame;
 
