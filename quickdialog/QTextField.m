@@ -13,6 +13,7 @@
 // permissions and limitations under the License.
 //
 #import "QTextField.h"
+#import "NSString+UIStringDrawing2.h"
 
 @implementation QTextField
 
@@ -24,7 +25,7 @@
     if (_prefix || _suffix) {
         NSString *textWithSuffix = [NSString stringWithFormat:@"%@%@%@", _prefix ? _prefix : @"", self.text, _suffix ? _suffix : @""];
         CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), self.textColor.CGColor);
-        [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
+        [textWithSuffix drawInRect2:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
     } else {
         [super drawTextInRect:rect];
     }

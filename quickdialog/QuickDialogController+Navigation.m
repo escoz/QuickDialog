@@ -24,7 +24,7 @@
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];
         navigation.modalPresentationStyle = UIModalPresentationFormSheet;
-        [self presentModalViewController:navigation animated:YES];
+        [self presentViewController:navigation animated:YES completion:nil];
     }  else if (mode == QPresentationModeModalFullScreen) {
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController :newController];
         newController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStylePlain target:self action:@selector(dismissModalViewController)];

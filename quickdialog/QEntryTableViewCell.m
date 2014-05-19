@@ -15,6 +15,7 @@
 #import "QEntryTableViewCell.h"
 #import "QuickDialog.h"
 #import "QTextField.h"
+#import "NSString+UIStringDrawing2.h"
 
 @interface QEntryTableViewCell ()
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
@@ -35,7 +36,9 @@
 
     _prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
     _prevNext.momentary = YES;
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
     _prevNext.segmentedControlStyle = UISegmentedControlStyleBar;
+    #endif
     _prevNext.tintColor = actionBar.tintColor;
     [_prevNext addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
     UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:_prevNext];
@@ -97,7 +100,7 @@
                 QEntryElement *q = (QEntryElement*)el; 
                 CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
                 CGFloat fontSize = self.textLabel.font.pointSize == 0? 17 : self.textLabel.font.pointSize;
-                CGSize size = [((QEntryElement *)el).title sizeWithFont:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByWordWrapping] ;
+                CGSize size = [((QEntryElement *)el).title sizeWithFont2:[self.textLabel.font fontWithSize:fontSize] forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByWordWrapping] ;
                 CGFloat width = size.width + imageWidth + 20;
                 if (width>titleWidth)
                     titleWidth = width;

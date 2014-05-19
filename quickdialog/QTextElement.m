@@ -14,6 +14,7 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 #import "QTextElement.h"
+#import "NSString+UIStringDrawing2.h"
 
 @implementation QTextElement
 
@@ -60,7 +61,7 @@
         return [super getRowHeightForTableView:tableView];
     }
     CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);
-    CGSize  size= [_text sizeWithFont:self.appearance.valueFont constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize  size= [_text sizeWithFont2:self.appearance.valueFont constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
 	CGFloat predictedHeight = size.height + 40.0f;
     if (self.title!=nil)
         predictedHeight+=30;

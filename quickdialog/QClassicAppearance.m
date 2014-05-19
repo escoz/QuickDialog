@@ -6,7 +6,7 @@
 
 
 #import "QClassicAppearance.h"
-
+#import "NSString+UIStringDrawing2.h"
 
 @implementation QClassicAppearance {
 
@@ -83,7 +83,7 @@
 
     float margin = [self currentGroupedTableViewMarginForTableView:tableView] + 8;
     if (self.sectionFooterFont!=nil && tableView.style == UITableViewStyleGrouped){
-        CGSize textSize = [section.footer sizeWithFont:self.sectionFooterFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)];
+        CGSize textSize = [section.footer sizeWithFont2:self.sectionFooterFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)];
         UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, textSize.height)];
         containerView.backgroundColor = [UIColor clearColor];
         containerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -119,7 +119,7 @@
 
         return section.footer == NULL
                 ? -1
-                : [section.title sizeWithFont:self.sectionTitleFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)].height+22;
+                : [section.title sizeWithFont2:self.sectionTitleFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)].height+22;
     }
 
     CGFloat stringTitleHeight = 0;
@@ -129,7 +129,7 @@
         CGFloat maxHeight = 9999;
         CGSize maximumLabelSize = CGSizeMake(maxWidth,maxHeight);
         QAppearance *appearance = ((QuickDialogTableView *)tableView).root.appearance;
-        CGSize expectedLabelSize = [section.title sizeWithFont:appearance==nil? [UIFont systemFontOfSize:[UIFont labelFontSize]] : appearance.sectionTitleFont
+        CGSize expectedLabelSize = [section.title sizeWithFont2:appearance==nil? [UIFont systemFontOfSize:[UIFont labelFontSize]] : appearance.sectionTitleFont
                                              constrainedToSize:maximumLabelSize
                                                  lineBreakMode:NSLineBreakByWordWrapping];
 
@@ -150,7 +150,7 @@
 
     return section.footer == NULL
             ? -1
-            : [section.footer sizeWithFont:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)].height+22;
+            : [section.footer sizeWithFont2:appearance.sectionFooterFont constrainedToSize:CGSizeMake(tableView.bounds.size.width-margin-margin, 1000000)].height+22;
 }
 
 - (void)cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)path {
