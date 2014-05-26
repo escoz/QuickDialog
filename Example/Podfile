@@ -1,0 +1,12 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '7.0'
+
+target "Demo" do
+  pod "QuickDialog", :path => "../"
+end
+
+# Uncomment the following lines to add testing dependencies
+# target "DemoTests" do
+#   pod 'Expecta'
+# end
+
