@@ -60,8 +60,6 @@
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
-		D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571B17E115580052EBE3 /* QClassicAppearance.h */; };
-		D80F572017E115580052EBE3 /* QClassicAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F571C17E115580052EBE3 /* QClassicAppearance.m */; };
 		D80F572117E115580052EBE3 /* QFlatAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571D17E115580052EBE3 /* QFlatAppearance.h */; };
 		D80F572217E115580052EBE3 /* QFlatAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F571E17E115580052EBE3 /* QFlatAppearance.m */; };
 		D80F572617E1162B0052EBE3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D80F572317E1162A0052EBE3 /* icon.png */; };
@@ -232,8 +230,6 @@
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D80F571B17E115580052EBE3 /* QClassicAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QClassicAppearance.h; path = quickdialog/QClassicAppearance.h; sourceTree = SOURCE_ROOT; };
-		D80F571C17E115580052EBE3 /* QClassicAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QClassicAppearance.m; path = quickdialog/QClassicAppearance.m; sourceTree = SOURCE_ROOT; };
 		D80F571D17E115580052EBE3 /* QFlatAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QFlatAppearance.h; path = quickdialog/QFlatAppearance.h; sourceTree = SOURCE_ROOT; };
 		D80F571E17E115580052EBE3 /* QFlatAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QFlatAppearance.m; path = quickdialog/QFlatAppearance.m; sourceTree = SOURCE_ROOT; };
 		D80F572317E1162A0052EBE3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -592,8 +588,6 @@
 				D811F88913EC905B00E3922B /* QBooleanElement.m */,
 				D811F88A13EC905B00E3922B /* QButtonElement.h */,
 				D811F88B13EC905B00E3922B /* QButtonElement.m */,
-				D80F571B17E115580052EBE3 /* QClassicAppearance.h */,
-				D80F571C17E115580052EBE3 /* QClassicAppearance.m */,
 				D8820B4F16A246860070AE22 /* QCountdownElement.h */,
 				D8820B5016A246860070AE22 /* QCountdownElement.m */,
 				D811F88C13EC905B00E3922B /* QDateEntryTableViewCell.h */,
@@ -784,7 +778,6 @@
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
 				D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */,
-				D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */,
 				5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */,
 				D82A4AF517BEE90E000986C8 /* QProgressElement.h in Headers */,
 				D87A4D6E169DABA900D4DD63 /* QElement+Appearance.h in Headers */,
@@ -904,7 +897,6 @@
 				2C5423A7145ADF2B0026A152 /* QBadgeTableCell.m in Sources */,
 				2C5423A9145ADF2B0026A152 /* QBooleanElement.m in Sources */,
 				2C5423AB145ADF2B0026A152 /* QButtonElement.m in Sources */,
-				D80F572017E115580052EBE3 /* QClassicAppearance.m in Sources */,
 				2C5423AD145ADF2B0026A152 /* QDateEntryTableViewCell.m in Sources */,
 				2C5423AF145ADF2B0026A152 /* QDateTimeElement.m in Sources */,
 				2C5423B1145ADF2B0026A152 /* QDateTimeInlineElement.m in Sources */,
@@ -1016,7 +1008,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libQuickDialog/libQuickDialog-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1032,7 +1024,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "libQuickDialog/libQuickDialog-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /include/QuickDialog;
@@ -1115,7 +1107,7 @@
 				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
 				INFOPLIST_FILE = "sample/quickdialogexample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
@@ -1131,7 +1123,7 @@
 				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
 				INFOPLIST_FILE = "sample/quickdialogexample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = NO;
