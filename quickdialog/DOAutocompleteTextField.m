@@ -102,26 +102,15 @@
 
 - (CGRect)autocompleteRectForBounds:(CGRect)bounds
 {
-    CGRect returnRect = CGRectZero;
+    CGRect returnRect;
     CGRect textRect = [self textRectForBounds:self.bounds];
-    //    NSLog(@"textRect: %@", NSStringFromCGRect(textRect));
-    
-    CGSize prefixTextSize = [self.text sizeWithFont:self.font
-                                  constrainedToSize:textRect.size
-                                      lineBreakMode:NSLineBreakByCharWrapping];
-    //    NSLog(@"prefixTextSize: %@",  NSStringFromCGSize(prefixTextSize));
-    
-    CGSize autocompleteTextSize = [_autoCompleteString sizeWithFont:self.font 
-                                                  constrainedToSize:CGSizeMake(textRect.size.width-prefixTextSize.width, textRect.size.height)
-                                                      lineBreakMode:NSLineBreakByCharWrapping];
-    
-    //    NSLog(@"autocompleteTextSize: %@",  NSStringFromCGSize(autocompleteTextSize)); 
-    
+    CGRect rect = [self.text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil];
+    CGSize prefixTextSize = rect.size;
+    CGSize autocompleteTextSize = [_autoCompleteString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil].size;
     returnRect = CGRectMake(textRect.origin.x + prefixTextSize.width,
                             textRect.origin.y,//+.5,
                             autocompleteTextSize.width,
                             textRect.size.height);
-    
     return returnRect;
 }
 

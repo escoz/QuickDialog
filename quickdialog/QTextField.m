@@ -23,8 +23,10 @@
 {
     if (_prefix || _suffix) {
         NSString *textWithSuffix = [NSString stringWithFormat:@"%@%@%@", _prefix ? _prefix : @"", self.text, _suffix ? _suffix : @""];
-        CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), self.textColor.CGColor);
-        [textWithSuffix drawInRect:rect withFont:self.font lineBreakMode:NSLineBreakByTruncatingTail alignment:self.textAlignment];
+
+        NSDictionary *dictionary = @{ NSFontAttributeName: self.font,
+                NSForegroundColorAttributeName: self.textColor};
+        [textWithSuffix drawInRect:rect withAttributes:dictionary];
     } else {
         [super drawTextInRect:rect];
     }
