@@ -54,9 +54,8 @@
     cell.backgroundColor = [UIColor clearColor];
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
     [control addTarget:self action:@selector(handleSegmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
-    control.frame = cell.contentView.bounds;
+    control.frame = CGRectMake( 4, 4, cell.contentView.bounds.size.width - 8, cell.contentView.bounds.size.height - 8);
     control.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
     control.tag = 4321;
     
