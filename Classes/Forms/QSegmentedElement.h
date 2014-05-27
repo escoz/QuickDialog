@@ -2,9 +2,9 @@
 //  Created by escoz on 1/15/12.
 //
 
-#import <Foundation/Foundation.h>
-
+#import "../Core/QuickDialog.h"
 #import "QRadioElement.h"
+
 
 @interface QSegmentedElement : QRadioElement {
 

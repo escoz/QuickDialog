@@ -6,10 +6,12 @@
 //  Copyright (c) 2012 Quickfire Software. All rights reserved.
 //
 
-#import "QLabelElement.h"
+#import "../Core/QuickDialog.h"
+#import "../Forms/QRadioElement.h"
+#import "../Forms/QRadioItemElement.h"
 
 @interface QColorPickerElement : QRadioElement
 
 
-- (void)setSelectedColor:(id)o;
+- (void)setSelectedColor:(id)color;
 @end

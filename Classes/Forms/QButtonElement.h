@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QLabelElement.h"
+#import "../Core/QuickDialog.h"
 
 /**
   QButtonElement: centered title that looks like a button.

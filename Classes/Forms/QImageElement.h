@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "QRootElement.h"
+#import "../Core/QuickDialog.h"
 
 @interface QImageElement : QEntryElement
 

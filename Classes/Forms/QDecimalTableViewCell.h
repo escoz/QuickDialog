@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QEntryTableViewCell.h"
+#import "../Core/QuickDialog.h"
 
 @interface QDecimalTableViewCell : QEntryTableViewCell <UITextFieldDelegate>  {
 

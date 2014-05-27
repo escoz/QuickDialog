@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
-#import "QEntryTableViewCell.h"
+#import "../Core/QEntryTableViewCell.h"
 
 @class QImageElement;
 @class QuickDialogTableView;

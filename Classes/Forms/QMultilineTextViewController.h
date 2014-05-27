@@ -12,10 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "../Core/QuickDialog.h"
 
-#import <UIKit/UIKit.h>
-
-@class QMultilineTextViewController;
 @class QMultilineElement;
 @class QEntryTableViewCell;
 

@@ -6,7 +6,7 @@
 //
 //
 
-#import "QTableViewCell.h"
+#import "../Core/QuickDialog.h"
 
 @interface QFloatTableViewCell : QTableViewCell
 

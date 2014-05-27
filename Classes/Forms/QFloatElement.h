@@ -12,9 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
-#import "QLabelElement.h"
-
+#import "../Core/QuickDialog.h"
 /**
   QFloatElement: shows an slider control.
 */

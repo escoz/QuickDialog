@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "QSection.h"
-#import "QDynamicDataSection.h"
+#import "../Core/QuickDialog.h"
+
 
 @interface QSelectSection : QDynamicDataSection
 {

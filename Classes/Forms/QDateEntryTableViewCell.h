@@ -12,9 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "QEntryTableViewCell.h"
+#import "../Core/QuickDialog.h"
 
 @interface QDateEntryTableViewCell : QEntryTableViewCell {
 

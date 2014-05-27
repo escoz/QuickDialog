@@ -13,7 +13,9 @@
 //
 
 
-#import "QuickDialog.h"
+
+#import "QMultilineTextViewController.h"
+#import "QMultilineElement.h"
 
 @interface QMultilineTextViewController ()
 

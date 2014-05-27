@@ -12,9 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import "QBindingEvaluator.h"
+#import "../Core/QuickDialog.h"
 #import "QRadioElement.h"
-#import "QuickDialog.h"
+#import "QRadioItemElement.h"
 
 @implementation QRadioElement {
     QSection *_internalRadioItemsSection;

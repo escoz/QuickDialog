@@ -50,10 +50,10 @@
 - (UIImage *)getImageFromItem:(NSArray *)selectedValue {
     id color = [selectedValue objectAtIndex:1];
     if ([color isKindOfClass:[UIColor class]])
-        return [color imageByDrawingCircleOfColor];
+        return [color qd_imageByDrawingCircleOfColor];
     if ([color isKindOfClass:[NSString class]])
-        return [[QColorPickerElement colorFromHexString:color] imageByDrawingCircleOfColor];
-    return [[UIColor blackColor] imageByDrawingCircleOfColor];
+        return [[QColorPickerElement colorFromHexString:color] qd_imageByDrawingCircleOfColor];
+    return [[UIColor blackColor] qd_imageByDrawingCircleOfColor];
 }
 
 
@@ -81,9 +81,10 @@
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
-- (void)setSelectedColor:(NSString *)colorName {
+- (void)setSelectedColor:(NSString *)color
+{
     for (NSArray *item in _items){
-        if ([colorName isEqualToString:[item objectAtIndex:0]]) {
+        if ([color isEqualToString:[item objectAtIndex:0]]) {
             self.selected = [_items indexOfObject:item];
             return;
         }

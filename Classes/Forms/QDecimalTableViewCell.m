@@ -13,7 +13,8 @@
 //
 
 #import "QDecimalTableViewCell.h"
-#import "QuickDialog.h"
+#import "QDecimalElement.h"
+
 @implementation QDecimalTableViewCell {
     NSNumberFormatter *_numberFormatter;
 }

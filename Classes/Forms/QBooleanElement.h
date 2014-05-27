@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QLabelElement.h"
+#import "../Core/QuickDialog.h"
 
 /**
   QBooleanElement: shows a on/off switch

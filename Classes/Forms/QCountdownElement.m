@@ -1,5 +1,5 @@
 #import "QCountdownElement.h"
-
+#import "QDateEntryTableViewCell.h"
 
 @implementation QCountdownElement {
 

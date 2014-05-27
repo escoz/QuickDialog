@@ -14,7 +14,7 @@
 
 #import "QBadgeTableCell.h"
 #import "QBadgeElement.h"
-#import "QuickDialog.h"
+#import "QBadgeLabel.h"
 
 @implementation QBadgeElement {
 

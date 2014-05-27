@@ -6,6 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "QSelectSection.h"
+#import "QSelectItemElement.h"
+
 @implementation QSelectItemElement {
     UIImage *_checkmarkImage;
 }

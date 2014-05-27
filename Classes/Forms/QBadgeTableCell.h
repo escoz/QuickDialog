@@ -12,9 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "QTableViewCell.h"
+
+#import "../Core/QuickDialog.h"
 
 @class QBadgeLabel;
 @interface QBadgeTableCell : QTableViewCell {

@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 ConferencesBox. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
 
-#import "QuickDialog.h"
-#import "QLabelElement.h"
+#import "../Core/QuickDialog.h"
 
 @interface QMailElement : QLabelElement <MFMailComposeViewControllerDelegate> {
 

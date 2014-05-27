@@ -12,10 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "QRootElement.h"
+#import "../Core/QuickDialog.h"
 
 /**
   QMapElement: when selected, shows a fullscreen map with the location selected. Requires a lat/long value.

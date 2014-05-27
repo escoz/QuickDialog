@@ -12,9 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import "QEntryTableViewCell.h"
-#import "QDecimalTableViewCell.h"
 #import "QDecimalElement.h"
+#import "QDecimalTableViewCell.h"
 
 @implementation QDecimalElement {
     

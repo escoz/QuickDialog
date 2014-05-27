@@ -12,7 +12,10 @@
 // permissions and limitations under the License.
 //
 
+#import "../Core/QEntryElement.h"
 #import "QImageTableViewCell.h"
+#import "QImageElement.h"
+#import "../Core/QuickDialogController+Loading.h"
 
 @interface QImageElement () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPopoverControllerDelegate>
 

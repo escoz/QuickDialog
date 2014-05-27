@@ -12,10 +12,8 @@
 // permissions and limitations under the License.
 //
 
-#import "QEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
-#import "QTextField.h"
 
 @implementation QDateEntryTableViewCell
 

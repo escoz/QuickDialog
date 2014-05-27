@@ -12,8 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "QEntryElement.h"
+#import "../Core/QuickDialog.h"
 
 /**
   QDecimalElement: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.

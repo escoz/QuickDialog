@@ -12,8 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "../Core/QuickDialog.h"
 
-#import "QEntryElement.h"
 
 @class QMultilineElement;
 @protocol QuickDialogEntryElementDelegate;

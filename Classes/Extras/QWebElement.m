@@ -13,7 +13,6 @@
 //
 
 #import "QWebElement.h"
-#import "QuickDialog.h"
 #import "QWebViewController.h"
 
 @implementation QWebElement

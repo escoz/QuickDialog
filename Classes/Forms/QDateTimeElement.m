@@ -12,15 +12,9 @@
 // permissions and limitations under the License.
 //
 
-// TODO: Needs to be rewritten to use a custom UIViewController with the elements in it.
-// the animation is not smooth when using the dateselector as a keyboard
-
 
 #import "QDateTimeElement.h"
 #import "QDateTimeInlineElement.h"
-#import "QuickDialogController.h"
-#import "QuickDialog.h"
-
 
 @interface QDateTimeElement ()
 - (void)initializeRoot;

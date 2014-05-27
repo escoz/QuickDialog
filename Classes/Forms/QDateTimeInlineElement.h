@@ -12,8 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
-#import "QEntryElement.h"
+#import "../Core/QuickDialog.h"
 
 @class QDateEntryTableViewCell;
 

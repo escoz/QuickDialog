@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import <objc/message.h>
-
 #import "QBooleanElement.h"
-#import "QuickDialogController.h"
 
 @implementation QBooleanElement {
 }

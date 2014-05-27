@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "QLabelElement.h"
-#import "QuickDialogTableView.h"
-#import "QLabelElement.h"
-#import "QSelectSection.h"
+#import "../Core/QuickDialog.h"
+
+@class QSelectSection;
+
 
 @interface QSelectItemElement : QLabelElement
 {

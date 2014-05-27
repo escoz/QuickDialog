@@ -10,7 +10,7 @@
 
 @interface UIColor (ColorUtilities)
 
-- (UIColor *)darkerColor;
-- (UIImage *)imageByDrawingCircleOfColor;
+- (UIColor *)qd_darkerColor;
+- (UIImage *)qd_imageByDrawingCircleOfColor;
 
 @end

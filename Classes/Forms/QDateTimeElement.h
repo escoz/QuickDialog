@@ -12,10 +12,7 @@
 // permissions and limitations under the License.
 //
 
-
-#import "QRootElement.h"
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
+#import "../Core/QuickDialog.h"
 
 /**
   QDateTimeElement: allows you to edit dates, time, or date+time values. Editing occurs in a new controller that is pushed automatically.

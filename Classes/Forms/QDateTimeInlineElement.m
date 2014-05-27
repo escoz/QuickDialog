@@ -13,6 +13,8 @@
 //
 
 #import "QDateInlineTableViewCell.h"
+#import "QDateTimeInlineElement.h"
+#import "QDateEntryTableViewCell.h"
 
 @implementation QDateTimeInlineElement {
 @private

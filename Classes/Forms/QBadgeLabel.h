@@ -13,8 +13,7 @@
 //
 
 
-#import <Foundation/Foundation.h>
-
+#import "../Core/QuickDialog.h"
 
 @interface QBadgeLabel : UILabel {
 

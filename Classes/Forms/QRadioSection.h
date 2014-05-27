@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QSection.h"
+#import "../Core/QuickDialog.h"
 #import "QSelectSection.h"
 
 /**

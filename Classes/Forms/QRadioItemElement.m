@@ -12,10 +12,9 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
-#import "QSection.h"
-#import "QRootElement.h"
 #import "QRadioItemElement.h"
+#import "QRadioSection.h"
+#import "QRadioElement.h"
 
 @implementation QRadioItemElement
 

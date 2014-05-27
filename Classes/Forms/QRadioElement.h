@@ -12,8 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
-#import "QEntryElement.h"
+#import "../Core/QuickDialog.h"
 
 /**
   QRadioElement: allows user to select one of multiple options available. Automatically pushes a new table with the item to be selected.

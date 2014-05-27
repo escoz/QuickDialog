@@ -15,7 +15,7 @@
 
 #import "QMapViewController.h"
 #import "QMapElement.h"
-#import "QuickDialog.h"
+#import "../Core/QuickDialog.h"
 
 @implementation QMapElement
 

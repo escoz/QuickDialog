@@ -24,22 +24,25 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.default_subspec = "Core"
+  s.default_subspec = "Forms"
 
   s.subspec "Core" do |sp|
-    sp.source_files = "Classes/Core/**/*.m"
+    sp.source_files = "Classes/Core/*.m"
+    sp.public_header_files = "Classes/Core/*.h"
  # 	sp.resources = 'Assets/Core/*.png'
   end
   
-  #s.subspec "Forms" do |sp|
-  #  sp.source_files = "Classes/Forms"
-  #  sp.dependency 'QuickDialog/Core'
-  #end
+  s.subspec "Forms" do |sp|
+    sp.source_files = "Classes/Forms/*.m"
+    sp.public_header_files = "Classes/Forms/*.h"
+    sp.dependency 'QuickDialog/Core'
+  end
   
-  #s.subspec "Extras" do |sp|
-  #  sp.source_files = "Classes/Extras"
-  #  sp.dependency 'QuickDialog/Core'
-  #end
+  s.subspec "Extras" do |sp|
+    sp.source_files = "Classes/Extras/*.m"
+    sp.public_header_files = "Classes/Extras/*.h"
+    sp.dependency 'QuickDialog/Forms'
+  end
 
   # s.public_header_files = 'Classes/**/*.h'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'

@@ -12,8 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "QuickDialogTableView.h"
-#import "QLabelElement.h"
+#import "../Core/QuickDialog.h"
 
 /**
   QBadgeElement: like the label cell, but the value is displayed with a badge, like the Mail app.

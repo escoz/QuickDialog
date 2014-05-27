@@ -21,19 +21,25 @@
 
 #import "QuickDialogTableView.h"
 #import "QuickDialogTableDelegate.h"
-
-#import "QElement.h"
+#import "QuickDialogEntryElementDelegate.h"
+#import "QTextField.h"
 
 #import "QAppearance.h"
 #import "QFlatAppearance.h"
+
+
+#import "QElement.h"
+#import "QRootElement.h"
+#import "QEntryElement.h"
 #import "QElement+Appearance.h"
+#import "QLoadingElement.h"
 
 #import "QTableViewCell.h"
-#import "QRootElement+JsonBuilder.h"
-#import "QLoadingElement.h"
-#import "QRootElement.h"
-#import "QuickDialogController+Loading.h"
+#import "QEntryTableViewCell.h"
 
 #import "QRootBuilder.h"
+#import "QRootElement+JsonBuilder.h"
+#import "QDynamicDataSection.h"
+
 
 

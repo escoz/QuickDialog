@@ -13,7 +13,8 @@
 //
 
 #import "QMultilineElement.h"
-#import "QuickDialog.h"
+#import "QMultilineTextViewController.h"
+
 @implementation QMultilineElement
 
 @synthesize delegate = _delegate;
