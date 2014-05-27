@@ -70,7 +70,7 @@ static const int QCellMinimumLabelWidth = 80;
         if (!self.detailTextLabel.text) {
             valueSize = CGSizeMake(sizeWithMargin.width - QCellMarginDouble - QCellMargin, sizeWithMargin.height);
         } else if (self.textLabel.text!=nil) {
-            valueSize = [[[NSAttributedString alloc] initWithString:self.textLabel.text] boundingRectWithSize:sizeWithMargin options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+            valueSize = [self.textLabel.text boundingRectWithSize:sizeWithMargin options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.textLabel.font} context:nil].size;
         }
 
         self.textLabel.frame = CGRectMake(

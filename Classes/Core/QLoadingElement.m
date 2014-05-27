@@ -41,7 +41,7 @@
         CGFloat posX = (_controller.view.frame.size.width)/2;
         spin.center = CGPointMake(posX, self.height/2);
     } else {
-        CGFloat posX = (_controller.view.frame.size.width-(spin.frame.size.width/2)-10);
+        CGFloat posX = (_controller.view.frame.size.width-(spin.frame.size.width/2)-16);
         spin.center = CGPointMake(posX, self.height/2);
     }
 
