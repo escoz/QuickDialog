@@ -41,7 +41,7 @@
         copy.actionColorDisabled = _actionColorDisabled;
         copy.actionColorEnabled = _actionColorEnabled;
 
-        copy.labelFont = _labelFont;
+        copy.titleFont = _titleFont;
         copy.labelAlignment = _labelAlignment;
 
         copy.backgroundColorDisabled = _backgroundColorDisabled;

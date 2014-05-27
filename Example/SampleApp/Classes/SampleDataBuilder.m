@@ -685,6 +685,7 @@
 	QSection *sectionSamples = [[QSection alloc] init];
     sectionSamples.footer = @"Hey there, this is a footer.";
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
+    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"core"]];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];

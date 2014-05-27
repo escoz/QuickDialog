@@ -20,20 +20,34 @@
 
 - (QTextElement *)init {
    self = [super init];
-    _color = [UIColor blackColor];
+    if (self)
+    {
+        [self internalInit:nil];
+    }
     return self;
 }
 
 - (QTextElement *)initWithText:(NSString *)text {
     self = [self init];
-    _text = text;
+    if (self)
+    {
+        [self internalInit:text];
+    }
     return self;
 }
 
+- (void)internalInit:(NSString *)text
+{
+    self.text = text;
+    self.verticalMargin = 12;
+    self.color = [UIColor blackColor];
+}
+
+
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformText"]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(self.class)];
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QuickformText"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NSStringFromClass(self.class)];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -57,11 +71,15 @@
         return [super getRowHeightForTableView:tableView];
     }
     CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), CGFLOAT_MAX);
-    CGSize size = [[[NSAttributedString alloc] initWithString:_text] boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    CGSize size = [self.text boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.appearance.valueFont} context:nil].size;
 
-	CGFloat predictedHeight = size.height + 40.0f;
+	CGFloat predictedHeight = size.height + (self.verticalMargin * 2);
     if (self.title!=nil)
-        predictedHeight+=30;
+    {
+        CGRect labelSize = [self.title boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.appearance.titleFont} context:nil];
+        predictedHeight += labelSize.size.height;
+    }
+
 	return (_height >= predictedHeight) ? _height : predictedHeight;
 }
 

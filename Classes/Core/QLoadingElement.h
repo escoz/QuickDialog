@@ -25,4 +25,5 @@
 @property(nonatomic) UIActivityIndicatorViewStyle indicatorStyle;
 
 
+@property(nonatomic, strong) Class activityIndicatorClass;
 @end

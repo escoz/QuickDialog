@@ -32,7 +32,7 @@
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
-    cell.textLabel.font = self.appearance.labelFont;
+    cell.textLabel.font = self.appearance.titleFont;
     return cell;
 }
 

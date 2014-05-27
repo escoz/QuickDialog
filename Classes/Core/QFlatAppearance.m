@@ -56,7 +56,7 @@
     self.cellBorderWidth = 14;
     
     self.valueFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    self.labelFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    self.titleFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.entryFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
 }

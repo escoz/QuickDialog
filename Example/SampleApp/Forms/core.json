@@ -1,0 +1,28 @@
+{
+	"grouped": true,
+	"title": "Core Elements",
+	"sections": [
+        { "title":"Basic Elements", "elements":[
+                { "type":"QLabelElement", "title":"QLabelElement"},
+                { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
+                { "type":"QLabelElement", "title":"Long Title Long Title Long Title Long Title Long Title", "value":"QLabelElement"},
+                { "type":"QLabelElement", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
+                { "type":"QLoadingElement", "title":"QLoadingElement"},
+                { "type":"QLoadingElement"},
+                { "type":"QEmptyListElement", "title":"This is the EmptyList message."}
+            ]
+        },
+        { "title":"Text Elements", "elements":[
+                { "type":"QTextElement", "text":"Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. Some really long text. "},
+                { "type":"QTextElement", "title":"This has a title", "text":"Some really long text. Some really long text. Some really long text "}
+            ]
+        },
+        { "title":"Bind collection", "bind":"iterate:cities", "elementTemplate":
+				{ "type":"QLabelElement", "bind":"title:name, value:total"}
+        },
+        { "title":"Bind properties", "bind":"iterateproperties:teams", "elementTemplate":
+            { "type":"QLabelElement", "bind":"title:key, value:value"}
+        }
+	]
+}

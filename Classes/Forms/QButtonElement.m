@@ -41,7 +41,7 @@
     [cell applyAppearanceForElement:self];
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = self.appearance.buttonAlignment;
-    cell.textLabel.font = self.appearance.labelFont;
+    cell.textLabel.font = self.appearance.titleFont;
     cell.textLabel.textColor = self.enabled ? self.appearance.actionColorEnabled : self.appearance.actionColorDisabled;
     return cell;
 }

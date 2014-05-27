@@ -32,5 +32,7 @@
 @property(nonatomic, retain) UIColor *color;
 @property(nonatomic, strong) UIImage *image;
 
+@property(nonatomic) CGFloat verticalMargin;
+
 - (QTextElement *)initWithText:(NSString *)string;
 @end

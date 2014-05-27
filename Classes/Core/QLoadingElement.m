@@ -28,19 +28,23 @@
     QTableViewCell *const cell = [[QTableViewCell alloc] init];
     [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
+    UIActivityIndicatorView *spin;
+
+    if (self.activityIndicatorClass != nil)
+        spin = [self.activityIndicatorClass new];
+    else
+        spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
+
     [spin startAnimating];
     [spin sizeToFit];
     if (self.title == nil){
-        CGFloat posX = (_controller.view.frame.size.width-spin.frame.size.width)/2;
-        spin.center = CGPointMake(posX, 12);
+        CGFloat posX = (_controller.view.frame.size.width)/2;
+        spin.center = CGPointMake(posX, self.height/2);
     } else {
         CGFloat posX = (_controller.view.frame.size.width-(spin.frame.size.width/2)-10);
-        spin.center = CGPointMake(posX, 24);
+        spin.center = CGPointMake(posX, self.height/2);
     }
 
-    spin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
-            UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [[cell contentView] addSubview:spin];
     cell.textLabel.text = self.title;
     return cell;

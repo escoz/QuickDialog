@@ -25,18 +25,22 @@
 - (QElement *)init {
     self = [super init];
     if (self) {
-        self.enabled = YES;
-        self.shallowBind = YES;
+        [self internalInit];
     }
     return self;
+}
+
+- (void)internalInit
+{
+    self.enabled = YES;
+    self.shallowBind = YES;
+    self.height = 44;
 }
 
 - (QElement *)initWithKey:(NSString *)key {
     self = [super init];
     if (self){
-        self.key = key;
-        self.enabled = YES;
-        self.shallowBind = YES;
+        [self internalInit];
     }
     return self;
 }

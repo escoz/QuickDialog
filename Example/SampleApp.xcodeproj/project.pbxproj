@@ -31,6 +31,7 @@
 		5C50ED082D9FBDDFB47A7B1A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C50E3E6BE6CAE47308DEE71 /* XCTest.framework */; };
 		5C50ED0DAC81456882A7AC98 /* JsonDataSampleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50ED06BF05A5C7AE288A40 /* JsonDataSampleController.m */; };
 		5C50ED184372D081159A99B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C50EAC42BF3AFEE0645658C /* Foundation.framework */; };
+		5C50ED4D37291BDBF952B7DD /* core.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E5AACB4D8CB9CAA56C63 /* core.json */; };
 		5C50ED5DFF95B66FCF87DC9B /* intel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E1C32F1B89F2D9560B00 /* intel.png */; };
 		5C50ED8926617917EFECA6D5 /* loginform.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E35467E27E0B116B959B /* loginform.json */; };
 		5C50EDB14BB4A294BB85E9A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C50E3CB047912EBCD6CAE12 /* InfoPlist.strings */; };
@@ -73,6 +74,7 @@
 		5C50E495796E236713A61B5D /* jsonremote.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = jsonremote.json; sourceTree = "<group>"; };
 		5C50E5489FB002B34EAF7123 /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer.png; sourceTree = "<group>"; };
 		5C50E58A58A18F293CA799CA /* jsondatasample.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = jsondatasample.json; sourceTree = "<group>"; };
+		5C50E5AACB4D8CB9CAA56C63 /* core.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = core.json; sourceTree = "<group>"; };
 		5C50E615FA5BAD628EF2C546 /* sample.json */ = {isa = PBXFileReference; lastKnownFileType = file.json; path = sample.json; sourceTree = "<group>"; };
 		5C50E64B4C7C53814083071E /* QDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QDAppDelegate.h; sourceTree = "<group>"; };
 		5C50E64D04032F00B048B169 /* iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone.png; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				5C50E495796E236713A61B5D /* jsonremote.json */,
 				5C50E35467E27E0B116B959B /* loginform.json */,
 				5C50E615FA5BAD628EF2C546 /* sample.json */,
+				5C50E5AACB4D8CB9CAA56C63 /* core.json */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				5C50ED5DFF95B66FCF87DC9B /* intel.png in Resources */,
 				5C50E2B40138199BA5B63DE4 /* footer.png in Resources */,
 				5C50E61AB51235B387FBBF8B /* footer@2x.png in Resources */,
+				5C50ED4D37291BDBF952B7DD /* core.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

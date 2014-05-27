@@ -167,7 +167,6 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    [super layoutSubviewsInsideBounds:CGRectMake(0, 0, self.contentView.frame.size.width, 44)];
     [self.pickerView sizeToFit];
     CGFloat width = self.pickerView.frame.size.width;
     self.pickerView.frame = CGRectMake((self.contentView.frame.size.width-width) / 2, 44, width, self.pickerView.frame.size.height);

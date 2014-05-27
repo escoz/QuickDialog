@@ -16,9 +16,12 @@
 #import "QAppearance.h"
 #import "QElement+Appearance.h"
 
+static const int QCellMarginDouble = 16;
+static const int QCellMargin = 8;
+static const int QCellMinimumLabelWidth = 80;
+
 @implementation QTableViewCell
 
-static const int kCellMinimumLabelWidth = 80;
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
@@ -29,13 +32,7 @@ static const int kCellMinimumLabelWidth = 80;
 {
     [super layoutSubviews];
 
-    [self layoutSubviewsInsideBounds:self.contentView.bounds];
-
-}
-
-- (void)layoutSubviewsInsideBounds:(CGRect)bounds
-{
-    CGSize sizeWithMargin = bounds.size;
+    CGSize sizeWithMargin = self.bounds.size;
 
     if (self.imageView.image!=nil){
         sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - QCellMarginDouble, sizeWithMargin.height);
@@ -44,7 +41,7 @@ static const int kCellMinimumLabelWidth = 80;
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
         if (self.textLabel.text!=nil){
-            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width- QCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
         }
 
         CGSize valueSize = CGSizeZero;
@@ -55,18 +52,18 @@ static const int kCellMinimumLabelWidth = 80;
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
                 QCellMargin,
-                bounds.size.width - valueSize.width - QCellMarginDouble - QCellMarginDouble,
-                bounds.size.height- QCellMarginDouble);
+                self.bounds.size.width - valueSize.width - QCellMarginDouble - QCellMarginDouble,
+                self.bounds.size.height- QCellMarginDouble);
 
         self.detailTextLabel.frame = CGRectMake(
-                bounds.size.width - valueSize.width - QCellMargin,
+                self.bounds.size.width - valueSize.width - QCellMargin,
                 QCellMargin,
                 valueSize.width,
-                bounds.size.height- QCellMarginDouble);
+                self.bounds.size.height- QCellMarginDouble);
     } else {
 
         if (self.detailTextLabel.text!=nil){
-            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width- QCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
         }
 
         CGSize valueSize = CGSizeZero;
@@ -80,17 +77,17 @@ static const int kCellMinimumLabelWidth = 80;
                 self.textLabel.frame.origin.x,
                 QCellMargin,
                 valueSize.width,
-                bounds.size.height- QCellMarginDouble);
+                self.bounds.size.height- QCellMarginDouble);
 
-        CGFloat detailsWidth = bounds.size.width - QCellMarginDouble;
+        CGFloat detailsWidth = self.bounds.size.width - QCellMarginDouble;
         if (valueSize.width>0)
             detailsWidth = detailsWidth - valueSize.width - QCellMarginDouble;
 
         self.detailTextLabel.frame = CGRectMake(
-                bounds.size.width - detailsWidth ,
+                self.bounds.size.width - detailsWidth ,
                 QCellMargin,
                 detailsWidth - (self.accessoryView ==nil ? 0 : QCellMarginDouble) - (self.accessoryType !=UITableViewCellAccessoryNone ? 0 : QCellMarginDouble),
-                bounds.size.height- QCellMarginDouble);
+                self.bounds.size.height- QCellMarginDouble);
     }
 }
 
@@ -98,7 +95,7 @@ static const int kCellMinimumLabelWidth = 80;
 - (void)applyAppearanceForElement:(QElement *)element {
     QAppearance *appearance = element.appearance;
     self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
-    self.textLabel.font = appearance.labelFont;
+    self.textLabel.font = appearance.titleFont;
     self.textLabel.textAlignment = appearance.labelAlignment;
     self.textLabel.numberOfLines = 0;
     self.textLabel.backgroundColor = [UIColor clearColor];

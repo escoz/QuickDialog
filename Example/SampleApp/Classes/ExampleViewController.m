@@ -80,7 +80,7 @@
 
     if ([element.object isEqualToString:@"blue"]) {
         QAppearance *appearance = [QElement appearance];
-        appearance.labelFont = [UIFont boldSystemFontOfSize:12];
+        appearance.titleFont = [UIFont boldSystemFontOfSize:12];
         appearance.backgroundColorEnabled = [UIColor colorWithRed:0.4353 green:0.6975 blue:0.9595 alpha:1.0000];
         appearance.backgroundColorDisabled = [UIColor darkGrayColor];
         appearance.labelColorEnabled = [UIColor darkGrayColor];

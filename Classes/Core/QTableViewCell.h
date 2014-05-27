@@ -22,16 +22,11 @@ typedef enum {
     QLabelingPolicyTrimTitle
 } QLabelingPolicy;
 
-static const int QCellMarginDouble = 16;
-static const int QCellMargin = 8;
-
 @interface QTableViewCell : UITableViewCell
-
-- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
-
-- (void)layoutSubviewsInsideBounds:(CGRect)bounds;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
 
+- (QTableViewCell *)initWithReuseIdentifier:(NSString *)string;
 - (void)applyAppearanceForElement:(QElement *)element;
+
 @end
