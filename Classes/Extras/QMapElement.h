@@ -14,7 +14,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 
 /**
   QMapElement: when selected, shows a fullscreen map with the location selected. Requires a lat/long value.

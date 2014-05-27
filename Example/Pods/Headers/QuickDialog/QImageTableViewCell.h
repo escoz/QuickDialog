@@ -1,0 +1,1 @@
+../../../../Classes/Forms/QImageTableViewCell.h

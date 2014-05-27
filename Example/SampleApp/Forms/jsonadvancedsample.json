@@ -1,0 +1,19 @@
+{
+	"grouped": true,
+	"title": "Advanced",
+    "controllerName": "JsonDataSampleController",
+	"sections": [
+
+        { "elements":[
+                { "type":"QButtonElement", "key":"bt1", "title":"JSON Data", "controllerAction":"handleBindWithJsonData:"},
+                { "type":"QButtonElement", "key":"bt2", "title":"Clear", "controllerAction":"handleClear:"}
+            ]
+        },
+        { "title":"Bind collection", "bind":"iterate:cities", "elementTemplate":
+				{ "type":"QLabelElement", "bind":"title:name, value:total"}
+        },
+        { "title":"Bind properties", "bind":"iterateproperties:teams", "elementTemplate":
+            { "type":"QLabelElement", "bind":"title:key, value:value"}
+        }
+	]
+}

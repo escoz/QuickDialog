@@ -1,0 +1,1 @@
+../../../../Classes/Core/QSection.h

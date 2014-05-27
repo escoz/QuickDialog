@@ -1,0 +1,20 @@
+PODS:
+  - QuickDialog/Core (2.0.0)
+  - QuickDialog/Extras (2.0.0):
+    - QuickDialog/Forms
+  - QuickDialog/Forms (2.0.0):
+    - QuickDialog/Core
+
+DEPENDENCIES:
+  - QuickDialog/Core (from `../`)
+  - QuickDialog/Extras (from `../`)
+  - QuickDialog/Forms (from `../`)
+
+EXTERNAL SOURCES:
+  QuickDialog:
+    :path: ../
+
+SPEC CHECKSUMS:
+  QuickDialog: cbbbaad88f2b6f082c6d257c1154ad9116ee2cea
+
+COCOAPODS: 0.33.1

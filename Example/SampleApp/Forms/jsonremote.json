@@ -1,0 +1,66 @@
+{
+	"grouped": false,
+	"title": "Remote Files",
+    "controllerName": "QuickDialogWebController",
+    "object":"https://api.github.com/repos/escoz/quickdialog/commits",
+	"sections":
+    [
+        {
+            "elements":
+            [
+                {
+                    "type":"QTextElement",
+                    "text":"This controller automatically downloads data from the web and binds it to the form. Data is downloaded from GitHub."
+                }
+            ]
+        },
+        {
+            "title":"Commits for QuickDialog",
+            "bind":"iterate:@allObjects",
+            "elementTemplate":
+            {
+                "type":"QTextElement",
+                "bind":"text:commit.message, title:sha",
+                "controllerName":"QuickDialogController",
+                "grouped":true,
+                "sections":
+                [
+                    {
+                        "title":"Dates",
+                        "elements":
+                        [
+                            {
+                                "type":"QLabelElement",
+                                "title":"Committed date",
+                                "bind":"value:commit.committer.date"
+                            },
+                            {
+                                "type":"QLabelElement",
+                                "title":"Authored date",
+                                "bind":"value:commit.author.date"
+                            }
+                         ]
+                    },
+                    {
+                        "title":"Committer",
+                        "bind":"iterateproperties:committer",
+                        "elementTemplate":
+                        {
+                            "type":"QLabelElement",
+                            "bind":"title:key, value:value"
+                        }
+                    },
+                    {
+                        "title":"Author",
+                        "bind":"iterateproperties:author",
+                        "elementTemplate":
+                        {
+                            "type":"QLabelElement",
+                            "bind":"title:key, value:value"
+                        }
+                    }
+                ]
+            }
+        }
+	]
+}

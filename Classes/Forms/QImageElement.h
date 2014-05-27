@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 
 @interface QImageElement : QEntryElement
 

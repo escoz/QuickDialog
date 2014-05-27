@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Quickfire Software. All rights reserved.
 //
 
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 #import "../Forms/QRadioElement.h"
 #import "../Forms/QRadioItemElement.h"
 

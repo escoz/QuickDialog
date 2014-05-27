@@ -1,0 +1,1 @@
+../../../../Classes/Core/QuickDialogTableView.h

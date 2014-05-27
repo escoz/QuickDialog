@@ -1,0 +1,1 @@
+../../../../Classes/Core/QEntryTableViewCell.h

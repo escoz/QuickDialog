@@ -13,7 +13,7 @@
 //
 
 #import "QButtonElement.h"
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 
 @implementation QButtonElement
 

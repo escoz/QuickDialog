@@ -12,7 +12,7 @@
 // permissions and limitations under the License.
 //
 
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 
 /**
   QWebElement: pushes a simple browser that opens the URL defined in the element

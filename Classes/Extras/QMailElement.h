@@ -8,7 +8,7 @@
 
 #import <MessageUI/MessageUI.h>
 
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 
 @interface QMailElement : QLabelElement <MFMailComposeViewControllerDelegate> {
 

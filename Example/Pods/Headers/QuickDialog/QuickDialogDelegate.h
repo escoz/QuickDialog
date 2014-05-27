@@ -1,0 +1,1 @@
+../../../../Classes/Core/QuickDialogDelegate.h

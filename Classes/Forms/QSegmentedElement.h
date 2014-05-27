@@ -2,7 +2,7 @@
 //  Created by escoz on 1/15/12.
 //
 
-#import "../Core/QuickDialog.h"
+#import <QuickDialog/QuickDialog.h>
 #import "QRadioElement.h"
 
 
