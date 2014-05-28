@@ -20,8 +20,9 @@ static const int QCellMargin = 8;
 
 
 @interface QEntryTableViewCell ()
-@property(nonatomic, strong) UISegmentedControl *prevNext;
 
+@property(nonatomic, strong) UIBarButtonItem *keyboardPreviousButton;
+@property(nonatomic, strong) UIBarButtonItem *keyboardNextButton;
 
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
 @end
@@ -37,13 +38,11 @@ static const int QCellMargin = 8;
                                                                    style:UIBarButtonItemStyleDone target:self
                                                                   action:@selector(handleActionBarDone:)];
 
-    self.prevNext = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:NSLocalizedString(@"Previous", @""), NSLocalizedString(@"Next", @""), nil]];
-    self.prevNext.momentary = YES;
-    self.prevNext.tintColor = actionBar.tintColor;
-    [self.prevNext addTarget:self action:@selector(handleActionBarPreviousNext:) forControlEvents:UIControlEventValueChanged];
-    UIBarButtonItem *prevNextWrapper = [[UIBarButtonItem alloc] initWithCustomView:self.prevNext];
+    self.keyboardPreviousButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"keyboardPrevious"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarPrevious:)];
+    self.keyboardNextButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"keyboardPrevious"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarNext:)];
+
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [actionBar setItems:[NSArray arrayWithObjects:prevNextWrapper, flexible, doneButton, nil]];
+    [actionBar setItems:[NSArray arrayWithObjects:self.keyboardPreviousButton, self.keyboardNextButton, flexible, doneButton, nil]];
 
 	return actionBar;
 }
@@ -120,8 +119,8 @@ static const int QCellMargin = 8;
 }
 
 - (void)updatePrevNextStatus {
-    [self.prevNext setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnBefore:self.entryElement]!=nil forSegmentAtIndex:0];
-    [self.prevNext setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnAfter:self.entryElement]!=nil forSegmentAtIndex:1];
+    //[self.prevNext setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnBefore:self.entryElement]!=nil forSegmentAtIndex:0];
+    //[self.prevNext setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnAfter:self.entryElement]!=nil forSegmentAtIndex:1];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{

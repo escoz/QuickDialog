@@ -41,7 +41,7 @@
     CGRect lblFrame = self.textLabel.frame;
 
     if ((badgeTextSize.width+40+lblFrame.size.width)>self.contentView.bounds.size.width) {
-        CGFloat newWidth = lblFrame.size.width-badgeTextSize.width;
+        CGFloat newWidth = lblFrame.size.width-badgeTextSize.width - 24;
         self.textLabel.frame = CGRectMake(lblFrame.origin.x, lblFrame.origin.y, newWidth, lblFrame.size.height);
     }
 }
