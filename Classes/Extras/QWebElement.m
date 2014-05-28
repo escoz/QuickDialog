@@ -17,9 +17,6 @@
 
 @implementation QWebElement
 
-@synthesize url = _url;
-@synthesize html = _html;
-
 - (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url {
     self = [super init];
     if (self!=nil){

@@ -28,13 +28,6 @@
     enum UIImagePickerControllerSourceType _source;
 }
 
-@synthesize imageValue;
-@synthesize imageMaxLength;
-@synthesize imagePickerController;
-@synthesize popoverController;
-@synthesize source = _source;
-
-
 - (QEntryElement *)init {
     self = [super init];
     if (self) {
@@ -114,11 +107,11 @@
 }
 
 - (UIImagePickerController *)imagePickerController {
-    if (!imagePickerController) {
-        imagePickerController = [[UIImagePickerController alloc] init];
-        imagePickerController.delegate = self;
+    if (!_imagePickerController) {
+        _imagePickerController = [[UIImagePickerController alloc] init];
+        _imagePickerController.delegate = self;
     }
-    return imagePickerController;
+    return _imagePickerController;
 }
 
 - (void)dismissImagePickerController {

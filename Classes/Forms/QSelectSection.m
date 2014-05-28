@@ -9,13 +9,13 @@
 #import "QSelectSection.h"
 #import "QSelectItemElement.h"
 
+@interface QSelectSection ()
+@property(nonatomic, strong) NSMutableArray *selected;
+@end
+
 @implementation QSelectSection {
 }
 
-
-@synthesize selectedIndexes = _selected;
-@synthesize multipleAllowed = _multipleAllowed;
-@synthesize onSelected = _onSelected;
 
 - (id)init {
     self = [super init];
@@ -37,9 +37,9 @@
 {
     if (self = [super initWithTitle:title])
     {
-        _items = [stringArray mutableCopy];
-        _selected = selected ? [selected mutableCopy] : [NSMutableArray array];
-        _multipleAllowed = (_selected.count > 1);
+        self.items = [stringArray mutableCopy];
+        self.selected = selected ? [selected mutableCopy] : [NSMutableArray array];
+        self.multipleAllowed = (_selected.count > 1);
     
         [self createElements];
     }

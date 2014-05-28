@@ -17,9 +17,6 @@
 
 @implementation QMultilineElement
 
-@synthesize delegate = _delegate;
-
-
 - (QEntryElement *)init {
     self = [super init];
     if (self) {

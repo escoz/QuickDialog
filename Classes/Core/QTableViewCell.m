@@ -38,6 +38,9 @@ static const int QCellMinimumLabelWidth = 80;
         sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - QCellMarginDouble, sizeWithMargin.height);
     }
 
+    self.detailTextLabel.backgroundColor = [UIColor blueColor];
+    self.textLabel.backgroundColor = [UIColor yellowColor];
+
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
         if (self.textLabel.text!=nil){
@@ -79,14 +82,14 @@ static const int QCellMinimumLabelWidth = 80;
                 valueSize.width,
                 self.bounds.size.height- QCellMarginDouble);
 
-        CGFloat detailsWidth = self.bounds.size.width - QCellMarginDouble;
+        CGFloat detailsWidth = self.bounds.size.width - QCellMargin;
         if (valueSize.width>0)
             detailsWidth = detailsWidth - valueSize.width - QCellMarginDouble;
 
         self.detailTextLabel.frame = CGRectMake(
-                self.bounds.size.width - detailsWidth ,
+                self.bounds.size.width - detailsWidth,
                 QCellMargin,
-                detailsWidth - (self.accessoryView ==nil ? 0 : QCellMarginDouble) - (self.accessoryType !=UITableViewCellAccessoryNone ? 0 : QCellMarginDouble),
+                detailsWidth - (self.accessoryView ==nil ? 0 : QCellMargin) - (self.accessoryType !=UITableViewCellAccessoryNone ? 0 : QCellMargin),
                 self.bounds.size.height- QCellMarginDouble);
     }
 }

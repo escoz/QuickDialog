@@ -19,8 +19,6 @@
 
 @implementation QMapElement
 
-@synthesize coordinate = _coordinate;
-
 - (QMapElement *)init {
     self = [self initWithTitle:@"" coordinate:CLLocationCoordinate2DMake(0, 0)];
     return self;

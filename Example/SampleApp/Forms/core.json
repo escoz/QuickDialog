@@ -23,6 +23,7 @@
             ]
         },
         { "title":"Entry Elements", "footer":"Notice how the textfields align.", "elements":[
+            { "type":"QEntryElement", "placeholder":"Empty title"},
             { "type":"QEntryElement", "title":"Short title", "placeholder":"Type something here"},
             { "type":"QEntryElement", "title":"This is a longer title", "textValue":"one two three"}
         ]

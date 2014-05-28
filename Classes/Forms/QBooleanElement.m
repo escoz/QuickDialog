@@ -16,10 +16,6 @@
 
 @implementation QBooleanElement {
 }
-@synthesize onImage = _onImage;
-@synthesize offImage = _offImage;
-@synthesize boolValue = _boolValue;
-
 
 - (QBooleanElement *)init {
     self = [self initWithTitle:nil BoolValue:YES];

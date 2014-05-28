@@ -24,8 +24,6 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
 
 @implementation QImageTableViewCell
 
-@synthesize imageElement = _imageElement;
-@synthesize imageViewButton = _imageViewButton;
 
 - (QImageTableViewCell *)init {
    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
@@ -51,11 +49,8 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
 }
 
 - (void)handleImageSelected {
-    if (((QImageElement *)_entryElement).imageValue!=nil){
-
-    } else{
-
-    }
+/*    if (((QImageElement *)self.entryElement).imageValue!=nil){
+    }*/
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
@@ -82,7 +77,7 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
     _imageElement.parentSection.entryPosition = _imageViewButton.frame;
 
    CGRect labelFrame = self.textLabel.frame;
-   CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
+   CGFloat extra = (self.entryElement.image == NULL) ? 10.0f : self.entryElement.image.size.width + 20.0f;
    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
                                      _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
 }

@@ -26,13 +26,10 @@
 
 @interface QEntryTableViewCell : QTableViewCell<UITextFieldDelegate> {
 
-    QEntryElement *_entryElement;
-    UITextField *_textField;
-
-@protected
-    __unsafe_unretained QuickDialogTableView *_quickformTableView;
 }
 
+@property(nonatomic, weak) QEntryElement *entryElement;
+@property(nonatomic, weak) QuickDialogTableView *quickDialogTableView;
 @property(nonatomic, strong) UITextField *textField;
 
 - (void)updatePrevNextStatus;
@@ -44,7 +41,6 @@
 - (void)createSubviews;
 
 - (CGRect)calculateFrameForEntryElement;
-
 
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton;
 

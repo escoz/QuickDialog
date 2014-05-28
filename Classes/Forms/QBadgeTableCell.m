@@ -20,8 +20,6 @@
 
 @implementation QBadgeTableCell
 
-@synthesize badgeLabel = _badgeLabel;
-
 - (QBadgeTableCell *)init {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformBadgeElement"];
     if (self){

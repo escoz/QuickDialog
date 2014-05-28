@@ -12,10 +12,6 @@
 @implementation QSelectItemElement {
     UIImage *_checkmarkImage;
 }
-@synthesize selectSection = _selectSection;
-@synthesize index = _index;
-@synthesize checkmarkImage = _checkmarkImage;
-
 
 - (QSelectItemElement *)initWithIndex:(NSUInteger)index selectSection:(QSelectSection *)section
 {

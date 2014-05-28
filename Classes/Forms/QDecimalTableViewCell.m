@@ -31,33 +31,33 @@
 }
 
 - (void)createSubviews {
-    _textField = [[QTextField alloc] init];
-    //[_textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
-    _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _textField.borderStyle = UITextBorderStyleNone;
-    _textField.keyboardType = UIKeyboardTypeDecimalPad;
-    _textField.delegate = self;
-    _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    _textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    [self.contentView addSubview:_textField];
+    self.textField = [[QTextField alloc] init];
+    //[self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
+    self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    self.textField.borderStyle = UITextBorderStyleNone;
+    self.textField.keyboardType = UIKeyboardTypeDecimalPad;
+    self.textField.delegate = self;
+    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    [self.contentView addSubview:self.textField];
 
     [self setNeedsLayout];
 }
 
 - (QDecimalElement *)decimalElement {
-    return ((QDecimalElement *)_entryElement);
+    return ((QDecimalElement *)self.entryElement);
 }
 
 - (void)updateTextFieldFromElement {
     [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits];
     [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits]; 
-    QDecimalElement *el = (QDecimalElement *)_entryElement;
-    _textField.text = [_numberFormatter stringFromNumber:el.numberValue];
+    QDecimalElement *el = (QDecimalElement *)self.entryElement;
+    self.textField.text = [_numberFormatter stringFromNumber:el.numberValue];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)view {
     [super prepareForElement:element inTableView:view];
-    _entryElement = element;
+    self.entryElement = element;
     [self updateTextFieldFromElement];
 }
 
@@ -79,14 +79,14 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {
     BOOL shouldChange = YES;
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
-        shouldChange = [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:_entryElement andCell:self];
+    if(self.entryElement && self.entryElement.delegate && [self.entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
+        shouldChange = [self.entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:self.entryElement andCell:self];
     
     if( shouldChange ) {
-        NSString *newValue = [_textField.text stringByReplacingCharactersInRange:range withString:replacement];
+        NSString *newValue = [self.textField.text stringByReplacingCharactersInRange:range withString:replacement];
         [self updateElementFromTextField:newValue];
         [self updateTextFieldFromElement];
-        [_entryElement handleEditingChanged:self];
+        [self.entryElement handleEditingChanged:self];
     }
     return NO;
 }

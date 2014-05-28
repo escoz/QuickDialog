@@ -17,10 +17,6 @@
 
 @implementation QDateEntryTableViewCell
 
-@synthesize pickerView = _pickerView;
-@synthesize centeredLabel = _centeredLabel;
-
-
 - (QDateEntryTableViewCell *)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformDateTimeInlineElement"];
     if (self!=nil){
@@ -33,43 +29,43 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.selected = NO;
-    [_pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
-    _pickerView = nil;
+    [self.pickerView removeTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    self.pickerView = nil;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
+    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) self.entryElement);
 
     [self prepareDateTimePicker:element];
 
-    _textField.inputView = _pickerView;
+    self.textField.inputView = self.pickerView;
     [super textFieldDidBeginEditing:textField];
     self.selected = YES;
 }
 
 - (void)prepareDateTimePicker:(QDateTimeInlineElement * const)element
 {
-    if (!_pickerView)
-        _pickerView = [[UIDatePicker alloc] init];
+    if (!self.pickerView)
+        self.pickerView = [[UIDatePicker alloc] init];
 
-    _pickerView.timeZone = [NSTimeZone localTimeZone];
-    [_pickerView sizeToFit];
-    [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
-    _pickerView.datePickerMode = element.mode;
-    _pickerView.maximumDate = element.maximumDate;
-    _pickerView.minimumDate = element.minimumDate;
-    _pickerView.minuteInterval = element.minuteInterval;
+    self.pickerView.timeZone = [NSTimeZone localTimeZone];
+    [self.pickerView sizeToFit];
+    [self.pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+    self.pickerView.datePickerMode = element.mode;
+    self.pickerView.maximumDate = element.maximumDate;
+    self.pickerView.minimumDate = element.minimumDate;
+    self.pickerView.minuteInterval = element.minuteInterval;
 
     if (element.mode != UIDatePickerModeCountDownTimer && element.dateValue != nil)
-        _pickerView.date = element.dateValue;
+        self.pickerView.date = element.dateValue;
     else if (element.mode == UIDatePickerModeCountDownTimer && element.ticksValue != nil)
-        _pickerView.countDownDuration = [element.ticksValue doubleValue];
+        self.pickerView.countDownDuration = [element.ticksValue doubleValue];
 }
 
 - (void)createSubviews {
     [super createSubviews];
-    _textField.hidden = YES;
-    _textField.userInteractionEnabled = NO;
+    self.textField.hidden = YES;
+    self.textField.userInteractionEnabled = NO;
 
     self.centeredLabel = [[UILabel alloc] init];
     self.centeredLabel.highlightedTextColor = [UIColor whiteColor];
@@ -81,13 +77,13 @@
 }
 
 - (void) dateChanged:(id)sender{
-    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) _entryElement);
+    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) self.entryElement);
     if (element.mode == UIDatePickerModeCountDownTimer){
-        element.ticksValue = [NSNumber numberWithDouble:_pickerView.countDownDuration];
+        element.ticksValue = [NSNumber numberWithDouble:self.pickerView.countDownDuration];
     } else {
-        element.dateValue = _pickerView.date;
+        element.dateValue = self.pickerView.date;
     }
-    [self prepareForElement:_entryElement inTableView:_quickformTableView];
+    [self prepareForElement:self.entryElement inTableView:self.quickDialogTableView];
     
     [element handleEditingChanged:self];
 }
@@ -133,10 +129,10 @@
 		self.centeredLabel.text = value;
     }
 
-	_textField.text = value;
-    _textField.placeholder = dateElement.placeholder;
+	self.textField.text = value;
+    self.textField.placeholder = dateElement.placeholder;
 
-    _textField.inputAccessoryView.hidden = dateElement.hiddenToolbar;
+    self.textField.inputAccessoryView.hidden = dateElement.hiddenToolbar;
 
     self.centeredLabel.textColor = dateElement.appearance.entryTextColorEnabled;
 }

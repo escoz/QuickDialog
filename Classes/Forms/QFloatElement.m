@@ -17,9 +17,6 @@
 
 @implementation QFloatElement
 
-@synthesize floatValue = _floatValue;
-@synthesize minimumValue = _minimumValue;
-@synthesize maximumValue = _maximumValue;
 
 - (QFloatElement *)init {
     return [self initWithValue:0.0];

@@ -27,13 +27,6 @@
     UITextView* _textView;
 }
 
-@synthesize textView = _textView;
-@synthesize resizeWhenKeyboardPresented = _resizeWhenKeyboardPresented;
-@synthesize willDisappearCallback = _willDisappearCallback;
-@synthesize entryElement = _entryElement;
-@synthesize entryCell = _entryCell;
-
-
 - (id)initWithTitle:(NSString *)title
 {
     if ((self = [super init]))

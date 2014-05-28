@@ -25,8 +25,6 @@
 @implementation QDateTimeElement
 
 
-@synthesize dateValue = _dateValue;
-
 - (void)setMode:(UIDatePickerMode)mode {
 	_mode = mode;
 	[[self sections] removeAllObjects];

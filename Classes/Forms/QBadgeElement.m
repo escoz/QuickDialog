@@ -19,9 +19,6 @@
 @implementation QBadgeElement {
 
 }
-@synthesize badgeTextColor = _badgeTextColor;
-@synthesize badgeColor = _badgeColor;
-@synthesize badge = _badge;
 
 - (QBadgeElement *)init {
     self = [super init];

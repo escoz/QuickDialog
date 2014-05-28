@@ -20,11 +20,6 @@
     QSection *_internalRadioItemsSection;
 }
 
-@synthesize selected = _selected;
-@synthesize values = _values;
-@synthesize items = _items;
-@synthesize itemsImageNames = _itemsImageNames;
-
 
 - (void)createElements {
     _sections = nil;

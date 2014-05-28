@@ -17,7 +17,6 @@
 @implementation QBadgeLabel {
     UIColor *_badgeColor;
 }
-@synthesize badgeColor = _badgeColor;
 
 - (QBadgeLabel *)init {
     self = [super init];
