@@ -9,7 +9,15 @@
                 { "type":"QLabelElement", "labelingPolicy":"trimTitle", "title":"Trim Title", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
                 { "type":"QLabelElement", "labelingPolicy":"trimValue", "title":"Trim Value Trim Value Trim Value", "value":"Long Value Long Value Long Value Long Value Long Value Long Value"},
                 { "type":"QLabelElement", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
-                { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"}            ]
+                { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement"},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Hello there!"},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"Long Title Long Title Long Title Long Title Long Title", "value":"QLabelElement"},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "labelingPolicy":"trimTitle", "title":"Trim Title", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "labelingPolicy":"trimValue", "title":"Trim Value Trim Value Trim Value", "value":"Long Value Long Value Long Value Long Value Long Value Long Value"},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Hello there!"}
+        ]
         },
         { "title":"Binding Elements", "elements":[
                 { "type":"QLoadingElement", "title":"QLoadingElement"},
@@ -22,10 +30,11 @@
                 { "type":"QTextElement", "title":"This has a title", "text":"Some really long text. Some really long text. Some really long text "}
             ]
         },
-        { "title":"Entry Elements", "footer":"Notice how the textfields align.", "elements":[
+        { "title":"Entry Elements", "footer":"Notice how the textfields align with the longest title.", "elements":[
             { "type":"QEntryElement", "placeholder":"Empty title"},
             { "type":"QEntryElement", "title":"Short title", "placeholder":"Type something here"},
-            { "type":"QEntryElement", "title":"This is a longer title", "textValue":"one two three"}
+            { "type":"QEntryElement", "title":"This is a longer title", "textValue":"one two three"},
+            { "type":"QEntryElement", "title":"This is a very very long title", "textValue":"one two three"}
         ]
         },
         { "title":"Bind collection", "bind":"iterate:cities", "elementTemplate":

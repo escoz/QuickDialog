@@ -38,54 +38,52 @@ static const int QCellMinimumLabelWidth = 80;
         sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - QCellMarginDouble, sizeWithMargin.height);
     }
 
-    self.detailTextLabel.backgroundColor = [UIColor blueColor];
-    self.textLabel.backgroundColor = [UIColor yellowColor];
+    self.detailTextLabel.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+    self.textLabel.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.5];
 
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
         if (self.textLabel.text!=nil){
-            sizeWithMargin = CGSizeMake(sizeWithMargin.width- QCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width - QCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
         }
 
-        CGSize valueSize = CGSizeZero;
+        CGSize detailsSize = CGSizeZero;
         if (self.detailTextLabel.text!=nil) {
-            valueSize = [[[NSAttributedString alloc] initWithString:self.detailTextLabel.text] boundingRectWithSize:sizeWithMargin options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+            detailsSize = [self.detailTextLabel.text boundingRectWithSize:sizeWithMargin options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : self.detailTextLabel.font} context:nil].size;
         }
+
+        self.detailTextLabel.frame = CGRectMake(
+                self.bounds.size.width - detailsSize.width - QCellMargin,
+                QCellMargin,
+                detailsSize.width,
+                self.bounds.size.height- QCellMarginDouble);
 
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
                 QCellMargin,
-                self.bounds.size.width - valueSize.width - QCellMarginDouble - QCellMarginDouble,
+                sizeWithMargin.width - detailsSize.width + QCellMinimumLabelWidth - QCellMarginDouble - QCellMarginDouble,
                 self.bounds.size.height- QCellMarginDouble);
 
-        self.detailTextLabel.frame = CGRectMake(
-                self.bounds.size.width - valueSize.width - QCellMargin,
-                QCellMargin,
-                valueSize.width,
-                self.bounds.size.height- QCellMarginDouble);
     } else {
 
         if (self.detailTextLabel.text!=nil){
             sizeWithMargin = CGSizeMake(sizeWithMargin.width- QCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
         }
 
-        CGSize valueSize = CGSizeZero;
+        CGSize textWidth = CGSizeZero;
         if (!self.detailTextLabel.text) {
-            valueSize = CGSizeMake(sizeWithMargin.width - QCellMarginDouble - QCellMargin, sizeWithMargin.height);
+            textWidth = CGSizeMake(sizeWithMargin.width - QCellMarginDouble - QCellMargin, sizeWithMargin.height);
         } else if (self.textLabel.text!=nil) {
-            valueSize = [self.textLabel.text boundingRectWithSize:sizeWithMargin options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.textLabel.font} context:nil].size;
+            textWidth = [self.textLabel.text boundingRectWithSize:sizeWithMargin options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.textLabel.font} context:nil].size;
         }
 
         self.textLabel.frame = CGRectMake(
                 self.textLabel.frame.origin.x,
                 QCellMargin,
-                valueSize.width,
+                textWidth.width,
                 self.bounds.size.height- QCellMarginDouble);
 
-        CGFloat detailsWidth = self.bounds.size.width - QCellMargin;
-        if (valueSize.width>0)
-            detailsWidth = detailsWidth - valueSize.width - QCellMarginDouble;
-
+        CGFloat detailsWidth = self.bounds.size.width - self.textLabel.frame.origin.x - textWidth.width - QCellMargin;
         self.detailTextLabel.frame = CGRectMake(
                 self.bounds.size.width - detailsWidth,
                 QCellMargin,

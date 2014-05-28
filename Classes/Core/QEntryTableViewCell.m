@@ -50,9 +50,6 @@ static const int QCellMargin = 8;
 
 - (void)createSubviews {
     self.textField = [[QTextField alloc] init];
-
-    self.contentView.backgroundColor = [UIColor lightGrayColor];
-    [self setNeedsLayout];
 }
 
 - (void)setTextField:(UITextField *)textField
@@ -68,8 +65,8 @@ static const int QCellMargin = 8;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.textField.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [self.textField addTarget:self action:@selector(textFieldEditingChanged:) forControlEvents:UIControlEventEditingChanged];
-    self.textField.backgroundColor = [UIColor blueColor];
-    self.textLabel.backgroundColor = [UIColor yellowColor];
+    self.textField.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.5];
+    self.textLabel.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.5];
     [self.contentView addSubview:self.textField];
 }
 
@@ -85,14 +82,16 @@ static const int QCellMargin = 8;
 }
 
 - (CGRect)calculateFrameForEntryElement {
-    int extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? QCellMarginDouble : QCellMargin;
+    NSInteger extra = (self.textField.clearButtonMode == UITextFieldViewModeNever) ? QCellMarginDouble : QCellMargin;
+
     if (self.entryElement.title == NULL && self.entryElement.image==NULL) {
         return CGRectMake(QCellMarginDouble, QCellMargin, self.contentView.frame.size.width - extra - QCellMarginDouble, self.frame.size.height - QCellMarginDouble);
     }
+
     if (self.entryElement.title == NULL && self.entryElement.image!=NULL){
         self.imageView.image = self.entryElement.image;
         [self.imageView sizeToFit];
-        return CGRectMake(CGRectGetMaxX(self.imageView.frame) + QCellMargin, + QCellMargin, self.contentView.frame.size.width-10-self.imageView.frame.size.width-extra , self.frame.size.height-20);
+        return CGRectMake(CGRectGetMaxX(self.imageView.frame) + QCellMargin, QCellMargin, self.contentView.frame.size.width - extra - QCellMarginDouble-self.imageView.frame.size.width, self.frame.size.height - QCellMarginDouble);
     }
     CGFloat totalWidth = self.contentView.frame.size.width;
     CGFloat titleWidth = 0;
@@ -101,15 +100,20 @@ static const int QCellMargin = 8;
         for (QElement *el in self.entryElement.parentSection.elements){
             if ([el isKindOfClass:[QEntryElement class]]){
                 QEntryElement *q = (QEntryElement*)el; 
-                CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width;
-                CGRect rect = [((QEntryElement *) el).title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:nil context:nil];
-                CGFloat width = rect.size.width + imageWidth + 20;
-                if (width>titleWidth)
-                    titleWidth = width;
+                CGFloat imageWidth = q.image == NULL ? 0 : self.imageView.frame.size.width + QCellMargin;
+                CGRect rect = [((QEntryElement *) el).title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                                                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                                                      attributes:@{ NSFontAttributeName : self.textLabel.font}
+                                                                         context:nil];
+                titleWidth = rect.size.width + imageWidth;
             }
         }
-        int inset = 0;
-        self.entryElement.parentSection.entryPosition = CGRectMake(titleWidth+20,10,totalWidth-titleWidth-self.entryElement.appearance.cellBorderWidth-extra-inset, self.frame.size.height-20);
+
+        self.entryElement.parentSection.entryPosition = CGRectMake(
+                titleWidth + QCellMarginDouble + QCellMargin,
+                QCellMargin,
+                totalWidth - titleWidth - extra - QCellMarginDouble - QCellMargin,
+                self.frame.size.height - QCellMarginDouble);
     }
 
     return self.entryElement.parentSection.entryPosition;
@@ -173,12 +177,10 @@ static const int QCellMargin = 8;
 -(void)recalculateEntryFieldPosition {
     self.entryElement.parentSection.entryPosition = CGRectZero;
     CGRect textFieldFrame = [self calculateFrameForEntryElement];
-    CGRect labelFrame = self.textLabel.frame;
 
-    self.textField.frame = CGRectMake(textFieldFrame.origin.x, textFieldFrame.origin.y, textFieldFrame.size.width, textFieldFrame.size.height);
+    self.textField.frame = textFieldFrame;
 
-    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-            textFieldFrame.origin.x  - labelFrame.origin.x, labelFrame.size.height);
+    self.textLabel.frame = CGRectMake(QCellMarginDouble, QCellMargin, textFieldFrame.origin.x - QCellMarginDouble - QCellMargin, textFieldFrame.size.height);
     
 }
 
