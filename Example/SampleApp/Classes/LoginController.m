@@ -54,19 +54,13 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)loginCompleted:(LoginInfo *)info {
-    [self loading:NO];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Hi %@, I hope you're loving QuickDialog! Here's your pass: %@", info.login, info.password] delegate:self cancelButtonTitle:@"YES!" otherButtonTitles:nil];
-    [alert show];
-}
-
 - (void)onLogin:(QButtonElement *)buttonElement {
 
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    [self loading:YES];
     LoginInfo *info = [[LoginInfo alloc] init];
     [self.root fetchValueUsingBindingsIntoObject:info];
-    [self performSelector:@selector(loginCompleted:) withObject:info afterDelay:2];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:[NSString stringWithFormat: @"Hi %@, I hope you're loving QuickDialog! Here's your pass: %@", info.login, info.password] delegate:self cancelButtonTitle:@"YES!" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)onAbout {
