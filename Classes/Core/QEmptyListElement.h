@@ -19,6 +19,6 @@
 
 }
 
-- (QEmptyListElement *)init;
+- (instancetype)init;
 
 @end

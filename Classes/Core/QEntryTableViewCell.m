@@ -70,7 +70,7 @@ static const int QCellMargin = 8;
 }
 
 
-- (QEntryTableViewCell *)init {
+- (instancetype)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
     if (self!=nil){
         self.selectionStyle = UITableViewCellSelectionStyleNone;

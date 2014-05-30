@@ -39,8 +39,8 @@
 
 @property(nonatomic) BOOL showPickerInCell;
 
-- (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode;
+- (instancetype)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode;
 
-- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode;
+- (instancetype)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode;
 
 @end

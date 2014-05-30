@@ -24,7 +24,7 @@
     NSString *_mapTitle;
 }
 
-- (QMapViewController *)initWithCoordinate:(CLLocationCoordinate2D)d;
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)d;
 
-- (QMapViewController *)initWithTitle:(NSString *)string coordinate:(CLLocationCoordinate2D)d;
+- (instancetype)initWithTitle:(NSString *)string coordinate:(CLLocationCoordinate2D)d;
 @end

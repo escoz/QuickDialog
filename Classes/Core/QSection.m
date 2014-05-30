@@ -77,7 +77,7 @@
     self.headerView.contentMode = UIViewContentModeCenter;
 }
 
-- (QSection *)initWithTitle:(NSString *)sectionTitle {
+- (instancetype)initWithTitle:(NSString *)sectionTitle {
     self = [super init];
     if (self) {
         self.title = sectionTitle;

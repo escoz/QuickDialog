@@ -18,14 +18,14 @@
 
 @implementation QRadioItemElement
 
-- (QRadioItemElement *)initWithIndex:(NSUInteger)index RadioElement:(QRadioElement *)radioElement {
+- (instancetype)initWithIndex:(NSUInteger)index RadioElement:(QRadioElement *)radioElement {
     self = [super init];
     _radioElement = radioElement;
     _index = index;
     return self;
 }
 
-- (QRadioItemElement *)initWithIndex:(NSUInteger)index RadioSection:(QRadioSection *)section {
+- (instancetype)initWithIndex:(NSUInteger)index RadioSection:(QRadioSection *)section {
     self = [super init];
     _radioSection = section;
     _index = index;

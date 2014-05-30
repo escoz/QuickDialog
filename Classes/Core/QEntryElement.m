@@ -14,11 +14,10 @@
 
 #import "QEntryElement.h"
 #import "QuickDialog.h"
-#import "QuickDialogEntryElementDelegate.h"
 
 @implementation QEntryElement
 
-- (QEntryElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self){
         self.autocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -33,7 +32,7 @@
     return self;
 }
 
-- (QEntryElement *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
+- (instancetype)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
     self = [self init];
     if (self) {
         _title = title;

@@ -62,7 +62,7 @@
 @property(nonatomic, strong) id object;
 
 
-- (QSection *)initWithTitle:(NSString *)string;
+- (instancetype)initWithTitle:(NSString *)string;
 
 - (void)addElement:(QElement *)element;
 - (void)insertElement:(QElement *)element atIndex:(NSUInteger)index;

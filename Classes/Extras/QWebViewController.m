@@ -28,7 +28,7 @@
     BOOL _previousToolbarState;
     NSArray *_urlToolbarItems;
 }
-- (QWebViewController *)initWithHTML:(NSString *)html {
+- (instancetype)initWithHTML:(NSString *)html {
 	
     self = [super init];
     if (self!=nil){

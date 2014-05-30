@@ -17,12 +17,12 @@
 @implementation QBooleanElement {
 }
 
-- (QBooleanElement *)init {
+- (instancetype)init {
     self = [self initWithTitle:nil BoolValue:YES];
     return self;
 }
 
-- (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value {
+- (instancetype)initWithTitle:(NSString *)title BoolValue:(BOOL)value {
     self = [self initWithTitle:title Value:nil];
     self.boolValue = value;
     self.enabled = YES;

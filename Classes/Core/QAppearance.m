@@ -20,7 +20,7 @@
 
 }
 
-- (QAppearance *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self setDefaults];

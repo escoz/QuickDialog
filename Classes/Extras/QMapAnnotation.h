@@ -24,7 +24,7 @@
     NSString *_subtitle;
 }
 
-- (QMapAnnotation *)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 

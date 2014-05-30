@@ -30,7 +30,7 @@
 @property(nonatomic, readwrite, assign) NSNumber *numberValue;
 @property (nonatomic) BOOL boolValue;
 
-- (QBooleanElement *)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
+- (instancetype)initWithTitle:(NSString *)title BoolValue:(BOOL)value;
 
 
 - (void)setOnImageName:(NSString *)name;

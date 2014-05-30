@@ -14,7 +14,7 @@
 
 @implementation QProgressElement
 
-- (QProgressElement *)init
+- (instancetype)init
 {
     self = [super init];
     self.bar = [[UIProgressView alloc] init];

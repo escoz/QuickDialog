@@ -25,6 +25,6 @@
     NSString *_html;
 }
 
-- (QWebViewController *)initWithUrl:(NSString *)string;
-- (QWebViewController *)initWithHTML:(NSString *)html;
+- (instancetype)initWithUrl:(NSString *)string;
+- (instancetype)initWithHTML:(NSString *)html;
 @end

@@ -16,7 +16,7 @@
 
 @implementation QMapAnnotation
 
-- (QMapAnnotation *)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title {
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title {
     self = [super init];
     self.coordinate = coordinate;
     _title = title;

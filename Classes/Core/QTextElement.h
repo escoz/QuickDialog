@@ -34,5 +34,5 @@
 
 @property(nonatomic) CGFloat verticalMargin;
 
-- (QTextElement *)initWithText:(NSString *)string;
+- (instancetype)initWithText:(NSString *)string;
 @end

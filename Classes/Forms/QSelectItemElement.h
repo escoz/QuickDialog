@@ -22,6 +22,6 @@
 @property(nonatomic, copy) NSString *checkmarkImageNamed;
 
 
-- (QSelectItemElement *)initWithIndex:(NSUInteger)integer selectSection:(QSelectSection *)section;
+- (instancetype)initWithIndex:(NSUInteger)integer selectSection:(QSelectSection *)section;
 
 @end

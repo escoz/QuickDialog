@@ -18,11 +18,11 @@
 @implementation QFloatElement
 
 
-- (QFloatElement *)init {
+- (instancetype)init {
     return [self initWithValue:0.0];
 }
 
-- (QFloatElement *)initWithTitle:(NSString *)title value:(float)value {
+- (instancetype)initWithTitle:(NSString *)title value:(float)value {
     self = [super initWithTitle:title Value:nil] ;
     if (self) {
         _floatValue = value;
@@ -34,7 +34,7 @@
 }
 
 
-- (QElement *)initWithValue:(float)value {
+- (instancetype)initWithValue:(float)value {
     self = [super init];
     if (self) {
         _floatValue = value;

@@ -17,7 +17,7 @@
 
 @implementation QWebElement
 
-- (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url {
+- (instancetype)initWithTitle:(NSString *)title url:(NSString *)url {
     self = [super init];
     if (self!=nil){
         _url = url;
@@ -26,7 +26,7 @@
     return self;
 }
 
-- (QWebElement *)initWithTitle:(NSString *)title HTML:(NSString *)html {
+- (instancetype)initWithTitle:(NSString *)title HTML:(NSString *)html {
 	
     self = [super init];
     if (self!=nil){

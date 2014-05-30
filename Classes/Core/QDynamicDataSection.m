@@ -21,7 +21,7 @@
     BOOL showLoading;
 }
 
-- (QDynamicDataSection *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _emptyMessage = @"Empty";

@@ -6,7 +6,7 @@
     NSNumber *_ticks;
 }
 
-- (QEntryElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.ticksValue = [NSNumber numberWithDouble:0];

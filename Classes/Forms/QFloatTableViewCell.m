@@ -16,7 +16,7 @@
 
 @implementation QFloatTableViewCell
 
-- (id)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithReuseIdentifier:@"QFloatTableViewCell"];
     if (self) {
         self.slider = [[UISlider alloc] initWithFrame:CGRectZero];

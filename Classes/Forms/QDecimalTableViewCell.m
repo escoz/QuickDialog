@@ -19,7 +19,7 @@
     NSNumberFormatter *_numberFormatter;
 }
 
-- (QDecimalTableViewCell *)init {
+- (instancetype)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformDecimalElement"];
     if (self!=nil){
         [self createSubviews];

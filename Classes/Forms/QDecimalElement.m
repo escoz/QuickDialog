@@ -21,7 +21,7 @@
     NSUInteger _fractionDigits;
 }
 
-- (QDecimalElement *)initWithTitle:(NSString *)title value:(NSNumber *)value {
+- (instancetype)initWithTitle:(NSString *)title value:(NSNumber *)value {
     self = [super initWithTitle:title Value:nil];
     if (self) {
         _numberValue = value;

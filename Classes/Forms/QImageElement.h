@@ -22,6 +22,6 @@
 @property(nonatomic) UIImagePickerControllerSourceType source;
 
 
-- (QImageElement *)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
+- (instancetype)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
 
 @end

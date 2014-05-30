@@ -25,7 +25,7 @@
     QRootBuilder *_builder;
 }
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
        _builder = [QRootBuilder new];

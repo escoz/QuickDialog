@@ -66,7 +66,7 @@
 // Corresponds to UITableViewCell property accessibilityIdentifier
 @property(nonatomic, copy) NSString *accessibilityIdentifier;
 
-- (QElement *)initWithKey:(NSString *)key;
+- (instancetype)initWithKey:(NSString *)key;
 
 - (NSIndexPath*) getIndexPath;
 

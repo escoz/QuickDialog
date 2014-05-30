@@ -18,7 +18,7 @@
 
 @implementation QTextElement
 
-- (QTextElement *)init {
+- (instancetype)init {
    self = [super init];
     if (self)
     {
@@ -27,7 +27,7 @@
     return self;
 }
 
-- (QTextElement *)initWithText:(NSString *)text {
+- (instancetype)initWithText:(NSString *)text {
     self = [self init];
     if (self)
     {

@@ -21,7 +21,7 @@
 @private
     QBadgeLabel *_badgeLabel;
 }
-- (QBadgeTableCell *)init;
+- (instancetype)init;
 @property(nonatomic, readonly, strong) QBadgeLabel *badgeLabel;
 
 @end

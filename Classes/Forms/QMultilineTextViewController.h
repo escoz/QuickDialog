@@ -29,6 +29,6 @@
 
 @property(nonatomic, strong) QEntryTableViewCell *entryCell;
 
-- (id)initWithTitle:(NSString *)title;
+- (instancetype)initWithTitle:(NSString *)title;
 
 @end

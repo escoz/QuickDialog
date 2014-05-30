@@ -74,7 +74,7 @@
     return YES;
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if(self) {
@@ -83,7 +83,7 @@
     return self;
 }
 
-- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement {
+- (instancetype)initWithRoot:(QRootElement *)rootElement {
     self = [super init];
     if (self) {
         self.root = rootElement;

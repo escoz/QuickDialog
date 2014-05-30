@@ -28,7 +28,7 @@
 @property(nonatomic, assign) float minimumValue;
 @property(nonatomic, assign) float maximumValue;
 
-- (QFloatElement *)init;
-- (QFloatElement *)initWithTitle:(NSString *)string value:(float)value;
-- (QElement *)initWithValue:(float)value;
+- (instancetype)init;
+- (instancetype)initWithTitle:(NSString *)string value:(float)value;
+- (instancetype)initWithValue:(float)value;
 @end

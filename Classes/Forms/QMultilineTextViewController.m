@@ -27,7 +27,7 @@
     UITextView* _textView;
 }
 
-- (id)initWithTitle:(NSString *)title
+- (instancetype)initWithTitle:(NSString *)title
 {
     if ((self = [super init]))
     {

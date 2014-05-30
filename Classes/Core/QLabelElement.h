@@ -35,7 +35,7 @@
 
 @property(nonatomic) BOOL keepSelected;
 
-- (QLabelElement *)initWithTitle:(NSString *)string Value:(id)value;
+- (instancetype)initWithTitle:(NSString *)string Value:(id)value;
 
 - (void)setIconNamed:(NSString *)name;
 @end

@@ -13,7 +13,7 @@
     UIImage *_checkmarkImage;
 }
 
-- (QSelectItemElement *)initWithIndex:(NSUInteger)index selectSection:(QSelectSection *)section
+- (instancetype)initWithIndex:(NSUInteger)index selectSection:(QSelectSection *)section
 {
     if (self = [super init]) {
         _selectSection = section;

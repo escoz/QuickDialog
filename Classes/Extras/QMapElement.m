@@ -19,12 +19,12 @@
 
 @implementation QMapElement
 
-- (QMapElement *)init {
+- (instancetype)init {
     self = [self initWithTitle:@"" coordinate:CLLocationCoordinate2DMake(0, 0)];
     return self;
 }
 
-- (QMapElement *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
+- (instancetype)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [super init];
     _title = title;
     _coordinate = coordinate;

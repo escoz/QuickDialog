@@ -23,17 +23,17 @@
     }
 }
 
-- (QSegmentedElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [super initWithItems:stringArray selected:selected];
     return self;
 }
 
-- (QSegmentedElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
     self = [super initWithItems:stringArray selected:selected title:title];
     return self;
 }
 
-- (QSegmentedElement *)init {
+- (instancetype)init {
     self = [super init];
     return self;
 }

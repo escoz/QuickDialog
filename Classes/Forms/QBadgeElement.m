@@ -20,14 +20,14 @@
 
 }
 
-- (QBadgeElement *)init {
+- (instancetype)init {
     self = [super init];
     _badgeColor = nil;
     _badgeTextColor = [UIColor whiteColor];
     return self;
 }
 
-- (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value {
+- (instancetype)initWithTitle:(NSString *)title Value:(NSString *)value {
     self = [self init];
 	if (self) {
 		_title = title;
@@ -37,7 +37,11 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QBadgeTableCell *cell = [[QBadgeTableCell alloc] init];
+    QBadgeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, self.class]];
+    if (cell == nil){
+        cell = (QBadgeTableCell *) [[QBadgeTableCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, NSStringFromClass(self.class)]];
+    }
+
     cell.textLabel.text = _title;
     [cell applyAppearanceForElement:self];
     cell.badgeLabel.textColor = _badgeTextColor;

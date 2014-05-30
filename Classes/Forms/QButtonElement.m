@@ -17,7 +17,7 @@
 
 @implementation QButtonElement
 
-- (QButtonElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.enabled = YES;
@@ -25,7 +25,7 @@
     return self;
 }
 
-- (QButtonElement *)initWithTitle:(NSString *)title {
+- (instancetype)initWithTitle:(NSString *)title {
     self = [super initWithTitle:title Value:nil];
     if (self) {
         self.enabled = YES;

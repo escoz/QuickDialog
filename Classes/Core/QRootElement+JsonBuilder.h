@@ -18,16 +18,15 @@
 
 @interface QRootElement (JsonBuilder)
 
-- (QRootElement *)initWithJSONFile:(NSString *)json andData:(id)data;
+- (instancetype)initWithJSONFile:(NSString *)json andData:(id)data;
 
-- (QRootElement *)initWithJSON:(id)parsedJson andData:(id)data;
+- (instancetype)initWithJSON:(id)parsedJson andData:(id)data;
 
-- (QRootElement *)initWithJSONFile:(NSString *)jsonPath andDataJSONFile:(NSString *)dataPath;
+- (instancetype)initWithJSONFile:(NSString *)jsonPath andDataJSONFile:(NSString *)dataPath;
 
-+ (QRootElement *)rootForJSON:(NSString *)json;
++ (instancetype)rootForJSON:(NSString *)json;
 
-
-- (QRootElement *)initWithJSONFile:(NSString *)jsonPath;
+- (instancetype)initWithJSONFile:(NSString *)jsonPath;
 
 + (Class)JSONParserClass;
 

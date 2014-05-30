@@ -10,7 +10,7 @@
 
 @implementation QMailElement
 
-- (QMailElement *)initWithTitle:(NSString *)title subject:(NSString *)subject messageBody:(NSString *)messageBody toRecipients:(NSArray *)toRecipients ccRecipients:(NSArray *)ccRecipients bccRecipients:(NSArray *)bccRecipients {
+- (instancetype)initWithTitle:(NSString *)title subject:(NSString *)subject messageBody:(NSString *)messageBody toRecipients:(NSArray *)toRecipients ccRecipients:(NSArray *)ccRecipients bccRecipients:(NSArray *)bccRecipients {
     self = [super init];
     if (self != nil) {
         _title = title;

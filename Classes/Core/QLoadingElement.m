@@ -17,7 +17,7 @@
 @implementation QLoadingElement {
 }
 
-- (QLoadingElement *)init {
+- (instancetype)init {
     self = [super init];
     self.indicatorStyle = UIActivityIndicatorViewStyleGray;
     return self;

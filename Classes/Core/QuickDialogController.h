@@ -45,11 +45,11 @@
 
 - (void)loadView;
 
-- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
+- (instancetype)initWithRoot:(QRootElement *)rootElement;
 
-- (QuickDialogController *)controllerForRoot:(QRootElement *)root;
+- (instancetype)controllerForRoot:(QRootElement *)root;
 
-+ (QuickDialogController *)controllerForRoot:(QRootElement *)root;
++ (instancetype)controllerForRoot:(QRootElement *)root;
 
 /**
  Called before a cell is removed from the tableView. Return YES and QuickDialog will delete the cell, return NO if you want to delete the cell or reload the tableView yourself.

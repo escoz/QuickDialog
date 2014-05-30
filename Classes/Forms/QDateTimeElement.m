@@ -61,7 +61,7 @@
     return _minuteInterval;
 }
 
-- (QDateTimeElement *)init {
+- (instancetype)init {
     self = [super init];
     _grouped = YES;
     _mode = UIDatePickerModeDateAndTime;
@@ -69,7 +69,7 @@
     return self;
 }
 
-- (QDateTimeElement *)initWithTitle:(NSString *)title date:(NSDate *)date {
+- (instancetype)initWithTitle:(NSString *)title date:(NSDate *)date {
     self = [super init];
     if (self!=nil){
         _grouped = YES;

@@ -17,7 +17,7 @@
 
 @implementation QMultilineElement
 
-- (QEntryElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         self.presentationMode = QPresentationModePopover;
@@ -26,7 +26,7 @@
     return self;
 }
 
-- (QMultilineElement *)initWithTitle:(NSString *)title value:(NSString *)text
+- (instancetype)initWithTitle:(NSString *)title value:(NSString *)text
 {
     if ((self = [super initWithTitle:title Value:nil])) {
         self.textValue = text;

@@ -32,8 +32,8 @@
 
 @property (assign) UIDatePickerMode mode;
 
-- (QDateTimeElement *)init;
+- (instancetype)init;
 
-- (QDateTimeElement *)initWithTitle:(NSString *)string date:(NSDate *)date;
+- (instancetype)initWithTitle:(NSString *)string date:(NSDate *)date;
 
 @end

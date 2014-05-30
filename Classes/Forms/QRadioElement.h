@@ -30,15 +30,15 @@
 @property(nonatomic, retain) NSArray *values;
 @property(nonatomic, strong) NSArray *itemsImageNames;
 
-- (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title;
+- (instancetype)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title;
 
 - (void)createElements;
 
 - (NSObject *)selectedValue;
 - (void)setSelectedValue:(NSObject *)aSelected;
 
-- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
-- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title;
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title;
 
 - (void)updateCell:(QEntryTableViewCell *)cell selectedValue:(id)selectedValue;
 

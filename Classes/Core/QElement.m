@@ -22,7 +22,7 @@
 
 @dynamic visibleIndex;
 
-- (QElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         [self internalInit];
@@ -37,7 +37,7 @@
     self.height = 44;
 }
 
-- (QElement *)initWithKey:(NSString *)key {
+- (instancetype)initWithKey:(NSString *)key {
     self = [super init];
     if (self){
         [self internalInit];

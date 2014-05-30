@@ -20,8 +20,8 @@
 
 @interface QButtonElement : QLabelElement
 
-- (QButtonElement *)init;
+- (instancetype)init;
 
-- (QButtonElement *)initWithTitle:(NSString *)title;
+- (instancetype)initWithTitle:(NSString *)title;
 
 @end

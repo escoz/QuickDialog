@@ -21,7 +21,7 @@
 
 }
 
-- (QSortingSection *)init {
+- (instancetype)init {
     self = [super init];
     self.sortingEnabled = YES;
     return self;

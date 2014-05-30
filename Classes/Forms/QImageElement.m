@@ -28,7 +28,7 @@
     enum UIImagePickerControllerSourceType _source;
 }
 
-- (QEntryElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _source = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -38,7 +38,7 @@
     return self;
 }
 
-- (QImageElement *)initWithTitle:(NSString *)aTitle detailImage:(UIImage *)anImage {
+- (instancetype)initWithTitle:(NSString *)aTitle detailImage:(UIImage *)anImage {
     self = [super init];
     if (self) {
         self.title = aTitle;

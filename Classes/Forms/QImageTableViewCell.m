@@ -25,7 +25,7 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
 @implementation QImageTableViewCell
 
 
-- (QImageTableViewCell *)init {
+- (instancetype)init {
    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformImageElement"];
    if (self!=nil){
       [self createSubviews];

@@ -24,7 +24,7 @@
     __weak QRadioElement *_radioElement;
 }
 
-- (QRadioItemElement *)initWithIndex:(NSUInteger)i1 RadioElement:(QRadioElement *)element;
+- (instancetype)initWithIndex:(NSUInteger)i1 RadioElement:(QRadioElement *)element;
 
-- (QRadioItemElement *)initWithIndex:(NSUInteger)integer RadioSection:(QRadioSection *)section;
+- (instancetype)initWithIndex:(NSUInteger)integer RadioSection:(QRadioSection *)section;
 @end

@@ -18,7 +18,7 @@
     UIColor *_badgeColor;
 }
 
-- (QBadgeLabel *)init {
+- (instancetype)init {
     self = [super init];
     self.frame = CGRectMake(0, 0, 100, 20);
     self.textColor = [UIColor whiteColor];

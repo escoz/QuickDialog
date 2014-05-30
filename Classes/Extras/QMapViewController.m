@@ -19,13 +19,13 @@
 @implementation QMapViewController
 
 
-- (QMapViewController *)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
+- (instancetype)initWithTitle:(NSString *)title coordinate:(CLLocationCoordinate2D)coordinate {
     self = [self initWithCoordinate:coordinate];
     _mapTitle = title;
     return self;
 }
 
-- (QMapViewController *)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
+- (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate {
 
     self = [super init];
     if (self != nil){

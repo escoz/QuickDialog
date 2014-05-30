@@ -17,7 +17,7 @@
 
 @implementation QDateEntryTableViewCell
 
-- (QDateEntryTableViewCell *)init {
+- (instancetype)init {
     self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformDateTimeInlineElement"];
     if (self!=nil){
         [self createSubviews];

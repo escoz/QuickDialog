@@ -64,7 +64,7 @@
 
 }
 
-- (QEntryElement *)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         _selected = -1;
@@ -74,14 +74,14 @@
 }
 
 
-- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
     _selected = selected;
     return self;
 }
 
 
-- (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
+- (instancetype)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
     self = [self initWithItems:valuesDictionary.allKeys selected:(NSUInteger) selected];
     _values = valuesDictionary.allValues;
     _selected = selected;
@@ -89,6 +89,15 @@
     return self;
 }
 
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
+    self = [super init];
+    if (self!=nil){
+        self.items = stringArray;
+        self.selected = selected;
+        self.title = title;
+    }
+    return self;
+}
 
 -(void)setSelectedItem:(id)item {
     if (self.items==nil || item==nil)
@@ -103,15 +112,6 @@
     return [self.items objectAtIndex:(NSUInteger) self.selected];
 }
 
-- (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title {
-    self = [super init];
-    if (self!=nil){
-        self.items = stringArray;
-        self.selected = selected;
-        self.title = title;
-    }
-    return self;
-}
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
     if ((self.sections == nil) || !self.enabled){

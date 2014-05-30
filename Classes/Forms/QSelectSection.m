@@ -28,12 +28,12 @@
     return self;
 }
 
-- (QSelectSection *)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected
+- (instancetype)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected
 {
     return [self initWithItems:stringArray selectedIndexes:selected title:nil];
 }
 
-- (QSelectSection *)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title
+- (instancetype)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title
 {
     if (self = [super initWithTitle:title])
     {
@@ -47,7 +47,7 @@
     return self;
 }
 
-- (QSelectSection *)initWithItems:(NSArray *)items selectedItems:(NSArray *)selectedItems title:(NSString *)title
+- (instancetype)initWithItems:(NSArray *)items selectedItems:(NSArray *)selectedItems title:(NSString *)title
 {
     NSMutableArray *selectedIndexes = [NSMutableArray array];
     for (id item in selectedItems) {
@@ -60,12 +60,12 @@
     return [self initWithItems:items selectedIndexes:selectedIndexes title:title];
 }
 
-- (QSelectSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected
 {
     return [self initWithItems:stringArray selected:selected title:nil];
 }
 
-- (QSelectSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title
 {
     return [self initWithItems:stringArray
                selectedIndexes:[NSArray arrayWithObject:[NSNumber numberWithUnsignedInteger:selected]]

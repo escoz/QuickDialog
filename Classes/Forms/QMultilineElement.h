@@ -23,6 +23,6 @@
 @property(nonatomic, assign) id< QuickDialogEntryElementDelegate> delegate;
 
 
-- (QMultilineElement *)initWithTitle:(NSString *)title value:(NSString *)text;
+- (instancetype)initWithTitle:(NSString *)title value:(NSString *)text;
 
 @end

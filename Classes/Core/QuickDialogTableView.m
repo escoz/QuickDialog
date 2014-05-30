@@ -26,7 +26,7 @@
     return _controller;
 }
 
-- (QuickDialogTableView *)initWithController:(QuickDialogController *)controller {
+- (instancetype)initWithController:(QuickDialogController *)controller {
     self = [super initWithFrame:CGRectMake(0, 0, 0, 0) style:controller.root.grouped ? UITableViewStyleGrouped : UITableViewStylePlain];
     if (self!=nil){
         self.controller = controller;

@@ -9,11 +9,11 @@
 @interface QSegmentedElement : QRadioElement {
 
 }
-- (QSegmentedElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected;
 
-- (QSegmentedElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title;
+- (instancetype)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected title:(NSString *)title;
 
-- (QSegmentedElement *)init;
+- (instancetype)init;
 
 
 @end

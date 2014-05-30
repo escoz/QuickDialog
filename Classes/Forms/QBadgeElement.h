@@ -31,5 +31,5 @@
 @property(nonatomic, strong) NSString *badge;
 
 
-- (QBadgeElement *)initWithTitle:(NSString *)title Value:(NSString *)value;
+- (instancetype)initWithTitle:(NSString *)title Value:(NSString *)value;
 @end

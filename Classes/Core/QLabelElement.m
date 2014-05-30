@@ -20,7 +20,7 @@
     UITableViewCellAccessoryType _accessoryType;
 }
 
-- (QLabelElement *)initWithTitle:(NSString *)title Value:(id)value {
+- (instancetype)initWithTitle:(NSString *)title Value:(id)value {
     self = [super init];
     _title = title;
     _value = value;

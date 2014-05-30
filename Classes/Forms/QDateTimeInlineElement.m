@@ -18,13 +18,10 @@
 
 @implementation QDateTimeInlineElement {
 @private
-    NSDate *_maximumDate;
-    NSDate *_minimumDate;
-
     __weak QTableViewCell *_cell;
 }
 
-- (QDateTimeInlineElement *)init {
+- (instancetype)init {
     self = [super init];
     _dateValue = [NSDate date];
     self.keepSelected = YES;

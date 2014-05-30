@@ -18,7 +18,7 @@
 
 @implementation QEmptyListElement
 
-- (QEmptyListElement *)init {
+- (instancetype)init {
     self = [super initWithTitle:@"Empty" Value:nil];
     return self;
 }

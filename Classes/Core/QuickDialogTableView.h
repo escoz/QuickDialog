@@ -32,7 +32,7 @@
 @property(nonatomic, strong) id <UITableViewDelegate> quickDialogTableDelegate;
 @property(nonatomic, strong) id <UITableViewDataSource> quickDialogDataSource;
 
-- (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
+- (instancetype)initWithController:(QuickDialogController *)controller;
 
 - (UITableViewCell *)cellForElement:(QElement *)element;
 - (void)reloadCellForElements:(QElement *)element, ... NS_REQUIRES_NIL_TERMINATION;
