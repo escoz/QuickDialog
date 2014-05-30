@@ -29,13 +29,13 @@ Pod::Spec.new do |s|
   s.subspec "Core" do |sp|
     sp.source_files = "Classes/Core/*.m"
     sp.public_header_files = "Classes/Core/*.h"
- # 	sp.resources = 'Assets/Core/*.png'
+    sp.resources = ["Assets/Core/*"]
   end
   
   s.subspec "Forms" do |sp|
     sp.source_files = "Classes/Forms/*.m"
     sp.public_header_files = "Classes/Forms/*.h"
-    sp.dependency 'QuickDialog/Core'
+    sp.dependency "QuickDialog/Core"
   end
   
   s.subspec "Extras" do |sp|

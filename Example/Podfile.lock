@@ -15,6 +15,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  QuickDialog: cbbbaad88f2b6f082c6d257c1154ad9116ee2cea
+  QuickDialog: ef7e10d9f7c0570c89e70febda84048749e97ff6
 
 COCOAPODS: 0.33.1

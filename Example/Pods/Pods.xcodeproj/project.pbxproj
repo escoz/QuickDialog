@@ -7,362 +7,391 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10D68F7C9B9749D49A628EEC /* QRadioItemElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E467E9C429C4A5D81EF5603 /* QRadioItemElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		16B74E9A442543628A7ED281 /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = BD813FD86C384147AF9C3D27 /* QTextElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		1B5386D1078F4DB59EA0B695 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBD671452AB46CEBDB7D88F /* Foundation.framework */; };
-		1FEA771F3A31406597F875DA /* QSection.m in Sources */ = {isa = PBXBuildFile; fileRef = AB31E8F1987C45E599FF4752 /* QSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		290B581BC2AB4275A817B157 /* QAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB612638731436EB308E693 /* QAppearance.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		2960A040EF5C43BD8238A984 /* QLoadingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CB1016A99F4F43A085BA474D /* QLoadingElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		29B4CBCA40CC411D861E74FB /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = A04842870BBD4DBCA84BB078 /* QuickDialogController+Animations.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		2F28D9D15B904A52A650B280 /* QMailElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0650A384794B0F96139E9E /* QMailElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		379183C3EE9F452C96230F28 /* QFloatElement.m in Sources */ = {isa = PBXBuildFile; fileRef = BE2AAE2A10934EE0A158F24D /* QFloatElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		38ECE8B98EF544CC9AC4E412 /* QTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98F3711B734B4CAE5A2885 /* QTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		3B885E5D78614619880FC905 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F26A80B5E04CAB9F3E01F2 /* QWebElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		3F6197CBC51944E5923F3405 /* QProgressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 127F606EC6A44CEFA138954B /* QProgressElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		49DEB1D6D69347B0A1742685 /* QuickDialogDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4E3463B7E42859265439E /* QuickDialogDataSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4A885E6BA2194E9AB1B816C4 /* QMultilineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D94ADCF0E53443F78B871558 /* QMultilineTextViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		4D0F1925664443E8AF88033E /* QBadgeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B45A0A50BF5446E197AD69F8 /* QBadgeTableCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		52C788C49B0F477C9ECB2F17 /* QDecimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE7B64424F344692A2A92F8C /* QDecimalTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		53F976775E244EC6B00DDB2C /* QEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9427E62B16F24BBEA2CBC819 /* QEntryElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		54CAC239EF584044BABF6B7B /* QuickDialogTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE27CE661B541C58E5A366C /* QuickDialogTableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		55C92897CBC34C9A8E9B0705 /* QBooleanElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA23205B0214100808403B2 /* QBooleanElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5C65F78C59114596AE6DFC31 /* QCountdownElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 70B0A54618F649A8BA523251 /* QCountdownElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5FD97209EA7546CB97AD60AA /* QDateTimeInlineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0F8688596940DB9980C028 /* QDateTimeInlineElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6094B531E0D64508A5EC8051 /* QuickDialogController+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 667D37C213BC4822ABACDA82 /* QuickDialogController+Helpers.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		64F63D8E444945D1BED5C9DE /* QBadgeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0966D0DBBF469A8C992020 /* QBadgeElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		650AE319983C46DDB1965027 /* QRootElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9364C8A6A0524AE18D71F926 /* QRootElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		66BCAA3BD85345B089501277 /* QDateTimeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1CE2E715D143A28D5E738F /* QDateTimeElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6A72E8159404408ABF0C8BE3 /* QMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 105E7BBDFF734FFE9D43118E /* QMapViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6C17563755EE4741A648C02F /* QLabelElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1944CEC7474B5A9A23CE3F /* QLabelElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6E1573ED46D0492EA260C51E /* QDynamicDataSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 07375C4FC4A9464C9D459CC3 /* QDynamicDataSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6FADE44DF54D44C0912466D1 /* QRootElement+JsonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D4B7D3C1334DA4916E05C8 /* QRootElement+JsonBuilder.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		7C98D572297A4153B449CD39 /* QFlatAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E0A731ADB267467F9FDCC7E9 /* QFlatAppearance.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		7E9775FAFBE34726A2704FD5 /* QImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC95A60DF2E442E5B6AEB54A /* QImageTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		80037F38330145ECA34041DD /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2A1B10B4384D89A133C415 /* NSMutableArray+MoveObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		80FF14086FE048EC868B7B99 /* QEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F272F19E8E484F969EC61516 /* QEntryTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		873DBF0B68BB456693525694 /* QElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A1371ECD936640C5B2378EAB /* QElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		899FD4E5C5F14F1FB362AE86 /* UIColor+ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = AD4B473854D246B28190290C /* UIColor+ColorUtilities.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8B168779BA46413E8E420085 /* QuickDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2110F8716FF542BE9C7818CD /* QuickDialogController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8C3DAC4B793844D78914D5E2 /* QRadioSection.m in Sources */ = {isa = PBXBuildFile; fileRef = E82BB475939646D3A7390705 /* QRadioSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8DF761D8DCB547F0A6D7275D /* QuickDialogController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45743CC2685846399015D65E /* QuickDialogController+Navigation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8E4BC9ABC56F41E3B50244BC /* Pods-SampleApp-QuickDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D34B2CE2A00C4CBFA0A54D25 /* Pods-SampleApp-QuickDialog-dummy.m */; };
-		8F17184CFE7B49DFAF7697A2 /* QuickDialogTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D1C13B678F4A1CAEF579E2 /* QuickDialogTableDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		961443EEBD6543CC82CA1206 /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 426331D63A004FC0A179DE3F /* QColorPickerElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9DA4A1A528684752BD7D2F21 /* QElement+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFDB1C9C19D453F96D30946 /* QElement+Appearance.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A09A40911F7849D7AFDFA9CD /* QImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A00695020A48569BABC80C /* QImageElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A258B44C23F3454098446B26 /* QSortingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 692D40F8233240588869A695 /* QSortingSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A2595B2877804FB39F56FB46 /* QuickDialogController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDDCAD6C2464B5685DA84B4 /* QuickDialogController+Loading.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		AB0B36AAB84441B3942416A9 /* QMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FD993E717763410B89C72602 /* QMapAnnotation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		B22880ADB9854C928E79B582 /* QMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D73DC1B3514F96A611B881 /* QMapElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		B64A76FA02314794BFBCDB97 /* QTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F7E71B17654D2484861B8A /* QTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		B93FE05D1EA9464590B7F376 /* libPods-SampleApp-QuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 295113DED6BD42349A3DEC9B /* libPods-SampleApp-QuickDialog.a */; };
-		BB70AD1C69634B5B8AC92843 /* QDecimalElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EEB3E2CEF8A49D1BAD55862 /* QDecimalElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		BE206D44A21D4852B9388834 /* QRadioElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 51A681D3EBE74EE4A78DDE1E /* QRadioElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C0A4AED4ADD44E6FAC9D3E80 /* QSelectSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AEBFA05131420193E13809 /* QSelectSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C5BAB6BD028C4992801E2845 /* QFloatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D25D0884341B3B93DC87F /* QFloatTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C819D1832F1E41958A6A6E55 /* QButtonElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AB16A464682E4C87BEAF271D /* QButtonElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		CAA906453D1E4DD8844D396C /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F66081627D7C4924B8CCE5F4 /* QBadgeLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		CCA270F3A1B94A65AC74AAC7 /* QRootBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = B9586BFC638F401198C6D398 /* QRootBuilder.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		CE4DD2731E8F4E98BDC337BD /* QDateInlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21256462807C4ECDBAED4CD7 /* QDateInlineTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		CFADA342F06F41BCABD8A6B6 /* QMultilineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 51BC4EE3E7BC46498A2CCCB3 /* QMultilineElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D6F6D5DDE57F439CAE101161 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBD671452AB46CEBDB7D88F /* Foundation.framework */; };
-		D779BB0310744BBA9F9FBDE7 /* QSelectItemElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F63DE393FF3A42C6969357B3 /* QSelectItemElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		DCB05E402A6846BBB2BEB406 /* QDateEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ABE14702305488D80284280 /* QDateEntryTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		DEB91BF8419A4C11A084067B /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B44A955198814643B394AD3F /* QWebViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		E59A60C50DE546AF961A310E /* Pods-SampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E249D131F64434D88D5DCB8 /* Pods-SampleApp-dummy.m */; };
-		EA720C2F94264487B32E6B30 /* QEmptyListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 11B7496EE7954F15BE2397F9 /* QEmptyListElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F72777B9FB254534AAD70724 /* QSegmentedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 02FE5B08B98540E08D2875DF /* QSegmentedElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		FEC6DD98261B4F1BA543CF54 /* QBindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = E13359C588C34D468E0C8F00 /* QBindingEvaluator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		016F29D8F0A54E40973B5D5E /* QuickDialogTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 863095E20A4241069AD0EAE6 /* QuickDialogTableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		019EBD2DCEE94BEEB19F5E64 /* QDateEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C005BA34E88416181246B80 /* QDateEntryTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		07E654C4BFBE490A8AC22AAC /* QEmptyListElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C0ADF279B8344FDB91027CF5 /* QEmptyListElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0A464B690DE948D58C2ED14E /* QMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C897BA99952461CA078114D /* QMapAnnotation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0EE500CDF2F243D991764BF3 /* QDateInlineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85FCE0F8A0AF4450A15CBE44 /* QDateInlineTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0F704AD73463402A9D6AFC65 /* QElement+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4EC6254E6945C1AB0DFF77 /* QElement+Appearance.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		168474B6470846C3ABEACA97 /* Pods-SampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAEDB8A79475421691D34D32 /* Pods-SampleApp-dummy.m */; };
+		1ABAC90E78C84F3CA7F0B84B /* QButtonElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 633B06F7521C4C749A982DD4 /* QButtonElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1FC7A8DBCCB34DDDA3620047 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE32A0511E3423FAE1ED291 /* QWebElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		25A74BD5A42246798CE0FE6F /* QMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D4081D54346C9B16B014B /* QMapViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		30B92BE238B041C5A5DBCB58 /* QAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 419A9CCBFB744C3DA431AB95 /* QAppearance.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		367B11911B9B4B359EF2BC76 /* QEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9D7B702D944167AB9DFE97 /* QEntryTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3CC9169D6C38400093661A02 /* QLoadingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 45907D2752614DE9A2C79776 /* QLoadingElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		43A7576E11044041804F1BCC /* QRootElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F67B0F931B4E298347CF8A /* QRootElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4646FAD8DBC04FDDB6C76B5E /* QTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A6AF22775D45AEAE4BFB63 /* QTextElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		474DE7FCFA6042DCB4AF8E04 /* QMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7366133C15C644E790481D41 /* QMapElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4828717B070746368E41B0A6 /* QSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BD8E2E791B4D56BA50640C /* QSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4B262F1FF82B4569AC78FDE8 /* NSMutableArray+MoveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F19A91F84E7F451BB8E5A082 /* NSMutableArray+MoveObject.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4B4B61FFC01B449A9DC7AAFC /* QImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF0B91B438E4FA284723DE2 /* QImageTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		537B698A6D6844C2876E2FCA /* QEntryElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AE4A8F33B641BD82C74A07 /* QEntryElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5A92B2B181534B84A2B440C1 /* QImageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 8092916FC5D84034A27C7CC6 /* QImageElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5C483B9BBA8142229D205E5B /* QuickDialogController+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = E85F0E2FDFBE41BB8C590B74 /* QuickDialogController+Loading.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5F130A572A9E4797B57B30B7 /* QSortingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C943722D40D64E5F9B5B047C /* QSortingSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6896045356AC4BE8A7A38A33 /* QSegmentedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CC316006231D4351B6AE0035 /* QSegmentedElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		69826A2E24ED4949B7C6CA75 /* QuickDialogController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F5B22AFC98482FA104BFC2 /* QuickDialogController+Navigation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6E5B4DEEBF924F9CB6031BDD /* QTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 215FE528690E40D98D0D24E6 /* QTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6E700C44C76E41379D13427D /* QColorPickerElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D93485B791FB40D28D5C4390 /* QColorPickerElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		739237A4CC1F4A6681FD5913 /* QuickDialogController+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E5C686D55046728E1D934B /* QuickDialogController+Helpers.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		74EA89597AB3475795ECF5D6 /* QFloatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5382953D9EB4F5E97DFC92E /* QFloatTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		82DD5C44EC9943359513DBFB /* QBindingEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 894D264A7FB0438A9ED09B99 /* QBindingEvaluator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84FF786CE32948F3AF882134 /* QElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 03885AC198EF457893968AC3 /* QElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8615537C61BB4C069E1E60DC /* QRadioItemElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CA70E2573A4DF99FB2BF02 /* QRadioItemElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		863F63CDF56E4F26B0D8134D /* QCountdownElement.m in Sources */ = {isa = PBXBuildFile; fileRef = CC35FC270EA04D959404A431 /* QCountdownElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		880DCF29C5E247CD975851E8 /* QFlatAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 95078DDF6B424A31A6CB32C1 /* QFlatAppearance.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		89E8FD224FDC4B6689E0439C /* QWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81C9F97DA4DF190765559 /* QWebViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8AEDC1268CD04537A6B3231E /* QuickDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D1F92351D64517B1CF3C94 /* QuickDialogController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8C474203AF0A440D9E5F3CEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD021B6AF7C349F8B3D5FA01 /* Foundation.framework */; };
+		91EA8B36871A48CF95568F8F /* QBadgeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2965B0597014D5896710979 /* QBadgeTableCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		923361CD2ED0443182DC34E7 /* libPods-SampleApp-QuickDialog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A76E2F3503B4EF58374E579 /* libPods-SampleApp-QuickDialog.a */; };
+		96437EDCFC0840B68D2CB7A5 /* QRadioSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B3CD6B6E854F158853BF32 /* QRadioSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A44695179A434606B5EE1747 /* UIColor+ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C70C47FB3C74635B0F00EFB /* UIColor+ColorUtilities.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		A5AD8219A7CA400E9D706D15 /* QuickDialogTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E07B0ECFC67B4BFCA2511FF4 /* QuickDialogTableDelegate.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		AD881D7E6DDA471CB24CAAAC /* QProgressElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A29998E8FAA4B1F9A015E8C /* QProgressElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		ADA69080651E4B99B1C803C6 /* QTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 774F010EAE9145C6A4B9D556 /* QTextField.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		B7FCA5426C1246ECBAD6AF51 /* QRadioElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A70E720201495198C4EDE1 /* QRadioElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		BE38F76388E147119DA56FA4 /* Pods-SampleApp-QuickDialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA23A1C29D8848E796810CAB /* Pods-SampleApp-QuickDialog-dummy.m */; };
+		BEE5C32E9CD8460FB6E66342 /* QMailElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 44696A6B7D34467F91F1385A /* QMailElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C15EDC8F5E6248CFBAA35663 /* QDecimalElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DC1F6AF8CAA428EB6219969 /* QDecimalElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C1D786035C494EE9B3F0B2AE /* QMultilineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238E212BF094A8380F78975 /* QMultilineTextViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA4EEBAC79F24BA5A2802585 /* QFloatElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D3A025BF5F01472FADEB857B /* QFloatElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D37F2E7445634122811DE384 /* QDecimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C780BAD356484554A526298F /* QDecimalTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D42A6CEC096E4D609F68C618 /* QDateTimeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 454AF75EF175490E8F39CCC4 /* QDateTimeElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D76103C2EE674474A5F4FB5A /* QRootElement+JsonBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = B2875B59C07E4F838C5DDA0D /* QRootElement+JsonBuilder.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D893C4FF20A842299E02B1A8 /* QBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E52BD4568548E2822D99E7 /* QBadgeLabel.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D8A04799675443D9881C5CA8 /* QuickDialogController+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 42749A44C238462C8416014F /* QuickDialogController+Animations.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		DED12F88B51B46A989E891ED /* QuickDialogDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C5215355B8C1431FA81EFB2A /* QuickDialogDataSource.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E1FA9407E84A4E208D288E0C /* QBadgeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAAE47EDC34953B297A34F /* QBadgeElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E21404B6459D42A7B10D9637 /* QDynamicDataSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D268E985974A52A79B5359 /* QDynamicDataSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E48ADE5E5A734457A0D9BD7F /* QBooleanElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DC11F3E0B59D427B86197C81 /* QBooleanElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E5E70A251CB547D5BFBE2FF2 /* QSelectItemElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3826F2D45D4E29B34D5133 /* QSelectItemElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E746B78A0AF44E8E934B13F6 /* QSelectSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 19414F0C4C5E4134A26F67FA /* QSelectSection.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		E8874BA33D0A4D758CFCE25B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD021B6AF7C349F8B3D5FA01 /* Foundation.framework */; };
+		EB50A24F7DE64A429F00B98E /* QDateTimeInlineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFF95132FBD4EBA9913232E /* QDateTimeInlineElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		ED3768DA74CA4CF2BA7F552C /* QRootBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 096ABF9FFBC64C819DA57906 /* QRootBuilder.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F9F74AC0578A44B5812E68F9 /* QLabelElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2265881AE6984371B340C5F2 /* QLabelElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		FE6DC53965774C6AB233C6C8 /* QMultilineElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 507FA04D86E046A3960F9B3E /* QMultilineElement.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8BE7158AB8664D078E09D905 /* PBXContainerItemProxy */ = {
+		6B46AB6B9D2544CBA673E0AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C118D46F86A648AD94F367BF /* Project object */;
+			containerPortal = 9D5842982E644682B36C8154 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 49FF37A6D5B145AABB13E7B4;
+			remoteGlobalIDString = F3C2526A706F473AACF85277;
 			remoteInfo = "Pods-SampleApp-QuickDialog";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0017A24E0D394BEB803D9380 /* Pods-SampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		02FE5B08B98540E08D2875DF /* QSegmentedElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSegmentedElement.m; path = Classes/Forms/QSegmentedElement.m; sourceTree = "<group>"; };
-		07375C4FC4A9464C9D459CC3 /* QDynamicDataSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDynamicDataSection.m; path = Classes/Core/QDynamicDataSection.m; sourceTree = "<group>"; };
-		08D1C13B678F4A1CAEF579E2 /* QuickDialogTableDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogTableDelegate.m; path = Classes/Core/QuickDialogTableDelegate.m; sourceTree = "<group>"; };
-		0AB612638731436EB308E693 /* QAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QAppearance.m; path = Classes/Core/QAppearance.m; sourceTree = "<group>"; };
-		0C1944CEC7474B5A9A23CE3F /* QLabelElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QLabelElement.m; path = Classes/Core/QLabelElement.m; sourceTree = "<group>"; };
-		0DDDCAD6C2464B5685DA84B4 /* QuickDialogController+Loading.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Loading.m"; path = "Classes/Core/QuickDialogController+Loading.m"; sourceTree = "<group>"; };
-		0F0650A384794B0F96139E9E /* QMailElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMailElement.m; path = Classes/Extras/QMailElement.m; sourceTree = "<group>"; };
-		105E7BBDFF734FFE9D43118E /* QMapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMapViewController.m; path = Classes/Extras/QMapViewController.m; sourceTree = "<group>"; };
-		11B7496EE7954F15BE2397F9 /* QEmptyListElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEmptyListElement.m; path = Classes/Core/QEmptyListElement.m; sourceTree = "<group>"; };
-		11F6DE5CC90B409AAD09FD2F /* Pods-SampleApp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.xcconfig"; sourceTree = "<group>"; };
-		127F606EC6A44CEFA138954B /* QProgressElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QProgressElement.m; path = Classes/Forms/QProgressElement.m; sourceTree = "<group>"; };
-		1B2A1B10B4384D89A133C415 /* NSMutableArray+MoveObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+MoveObject.m"; path = "Classes/Core/NSMutableArray+MoveObject.m"; sourceTree = "<group>"; };
-		1DA23205B0214100808403B2 /* QBooleanElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBooleanElement.m; path = Classes/Forms/QBooleanElement.m; sourceTree = "<group>"; };
-		2110F8716FF542BE9C7818CD /* QuickDialogController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogController.m; path = Classes/Core/QuickDialogController.m; sourceTree = "<group>"; };
-		21256462807C4ECDBAED4CD7 /* QDateInlineTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateInlineTableViewCell.m; path = Classes/Forms/QDateInlineTableViewCell.m; sourceTree = "<group>"; };
-		295113DED6BD42349A3DEC9B /* libPods-SampleApp-QuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleApp-QuickDialog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D98F3711B734B4CAE5A2885 /* QTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QTableViewCell.m; path = Classes/Core/QTableViewCell.m; sourceTree = "<group>"; };
-		2EEB3E2CEF8A49D1BAD55862 /* QDecimalElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDecimalElement.m; path = Classes/Forms/QDecimalElement.m; sourceTree = "<group>"; };
-		30C406C6ED8544EC9D13658E /* Pods-SampleApp-QuickDialog-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp-QuickDialog-Private.xcconfig"; sourceTree = "<group>"; };
-		35F7E71B17654D2484861B8A /* QTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QTextField.m; path = Classes/Core/QTextField.m; sourceTree = "<group>"; };
-		3E249D131F64434D88D5DCB8 /* Pods-SampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-dummy.m"; sourceTree = "<group>"; };
-		426331D63A004FC0A179DE3F /* QColorPickerElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QColorPickerElement.m; path = Classes/Extras/QColorPickerElement.m; sourceTree = "<group>"; };
-		45743CC2685846399015D65E /* QuickDialogController+Navigation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Navigation.m"; path = "Classes/Core/QuickDialogController+Navigation.m"; sourceTree = "<group>"; };
-		49F83376B69D40B786A54D80 /* Pods-SampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-resources.sh"; sourceTree = "<group>"; };
-		4C0D25D0884341B3B93DC87F /* QFloatTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QFloatTableViewCell.m; path = Classes/Forms/QFloatTableViewCell.m; sourceTree = "<group>"; };
-		51A681D3EBE74EE4A78DDE1E /* QRadioElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRadioElement.m; path = Classes/Forms/QRadioElement.m; sourceTree = "<group>"; };
-		51BC4EE3E7BC46498A2CCCB3 /* QMultilineElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMultilineElement.m; path = Classes/Forms/QMultilineElement.m; sourceTree = "<group>"; };
-		5E467E9C429C4A5D81EF5603 /* QRadioItemElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRadioItemElement.m; path = Classes/Forms/QRadioItemElement.m; sourceTree = "<group>"; };
-		63D4B7D3C1334DA4916E05C8 /* QRootElement+JsonBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QRootElement+JsonBuilder.m"; path = "Classes/Core/QRootElement+JsonBuilder.m"; sourceTree = "<group>"; };
-		667D37C213BC4822ABACDA82 /* QuickDialogController+Helpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Helpers.m"; path = "Classes/Core/QuickDialogController+Helpers.m"; sourceTree = "<group>"; };
-		692D40F8233240588869A695 /* QSortingSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSortingSection.m; path = Classes/Core/QSortingSection.m; sourceTree = "<group>"; };
-		6A0966D0DBBF469A8C992020 /* QBadgeElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBadgeElement.m; path = Classes/Forms/QBadgeElement.m; sourceTree = "<group>"; };
-		70B0A54618F649A8BA523251 /* QCountdownElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QCountdownElement.m; path = Classes/Forms/QCountdownElement.m; sourceTree = "<group>"; };
-		77AEBFA05131420193E13809 /* QSelectSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSelectSection.m; path = Classes/Forms/QSelectSection.m; sourceTree = "<group>"; };
-		7CED52FD934F4D188BE77410 /* Pods-SampleApp-QuickDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-QuickDialog-prefix.pch"; sourceTree = "<group>"; };
-		90D73DC1B3514F96A611B881 /* QMapElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMapElement.m; path = Classes/Extras/QMapElement.m; sourceTree = "<group>"; };
-		9364C8A6A0524AE18D71F926 /* QRootElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRootElement.m; path = Classes/Core/QRootElement.m; sourceTree = "<group>"; };
-		9427E62B16F24BBEA2CBC819 /* QEntryElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEntryElement.m; path = Classes/Core/QEntryElement.m; sourceTree = "<group>"; };
-		9ABE14702305488D80284280 /* QDateEntryTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateEntryTableViewCell.m; path = Classes/Forms/QDateEntryTableViewCell.m; sourceTree = "<group>"; };
-		A04842870BBD4DBCA84BB078 /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "Classes/Core/QuickDialogController+Animations.m"; sourceTree = "<group>"; };
-		A1371ECD936640C5B2378EAB /* QElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QElement.m; path = Classes/Core/QElement.m; sourceTree = "<group>"; };
-		A1A00695020A48569BABC80C /* QImageElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QImageElement.m; path = Classes/Forms/QImageElement.m; sourceTree = "<group>"; };
-		AB16A464682E4C87BEAF271D /* QButtonElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QButtonElement.m; path = Classes/Forms/QButtonElement.m; sourceTree = "<group>"; };
-		AB31E8F1987C45E599FF4752 /* QSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSection.m; path = Classes/Core/QSection.m; sourceTree = "<group>"; };
-		AD4B473854D246B28190290C /* UIColor+ColorUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorUtilities.m"; path = "Classes/Extras/UIColor+ColorUtilities.m"; sourceTree = "<group>"; };
-		AE800671AD5B4F3F946C3F3E /* Pods-SampleApp-QuickDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp-QuickDialog.xcconfig"; sourceTree = "<group>"; };
-		B44A955198814643B394AD3F /* QWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QWebViewController.m; path = Classes/Extras/QWebViewController.m; sourceTree = "<group>"; };
-		B45A0A50BF5446E197AD69F8 /* QBadgeTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBadgeTableCell.m; path = Classes/Forms/QBadgeTableCell.m; sourceTree = "<group>"; };
-		B9586BFC638F401198C6D398 /* QRootBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRootBuilder.m; path = Classes/Core/QRootBuilder.m; sourceTree = "<group>"; };
-		BD813FD86C384147AF9C3D27 /* QTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QTextElement.m; path = Classes/Core/QTextElement.m; sourceTree = "<group>"; };
-		BE2AAE2A10934EE0A158F24D /* QFloatElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QFloatElement.m; path = Classes/Forms/QFloatElement.m; sourceTree = "<group>"; };
-		C1EB120B8A5A4A9B8F896336 /* Pods-SampleApp-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-environment.h"; sourceTree = "<group>"; };
-		CB1016A99F4F43A085BA474D /* QLoadingElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QLoadingElement.m; path = Classes/Core/QLoadingElement.m; sourceTree = "<group>"; };
-		CC0F8688596940DB9980C028 /* QDateTimeInlineElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateTimeInlineElement.m; path = Classes/Forms/QDateTimeInlineElement.m; sourceTree = "<group>"; };
-		CCBD671452AB46CEBDB7D88F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CE1CE2E715D143A28D5E738F /* QDateTimeElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateTimeElement.m; path = Classes/Forms/QDateTimeElement.m; sourceTree = "<group>"; };
-		D34B2CE2A00C4CBFA0A54D25 /* Pods-SampleApp-QuickDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-QuickDialog-dummy.m"; sourceTree = "<group>"; };
-		D94ADCF0E53443F78B871558 /* QMultilineTextViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMultilineTextViewController.m; path = Classes/Forms/QMultilineTextViewController.m; sourceTree = "<group>"; };
-		DAFDB1C9C19D453F96D30946 /* QElement+Appearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QElement+Appearance.m"; path = "Classes/Core/QElement+Appearance.m"; sourceTree = "<group>"; };
-		DC95A60DF2E442E5B6AEB54A /* QImageTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QImageTableViewCell.m; path = Classes/Forms/QImageTableViewCell.m; sourceTree = "<group>"; };
-		DFE27CE661B541C58E5A366C /* QuickDialogTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogTableView.m; path = Classes/Core/QuickDialogTableView.m; sourceTree = "<group>"; };
-		E0A731ADB267467F9FDCC7E9 /* QFlatAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QFlatAppearance.m; path = Classes/Core/QFlatAppearance.m; sourceTree = "<group>"; };
-		E13359C588C34D468E0C8F00 /* QBindingEvaluator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBindingEvaluator.m; path = Classes/Core/QBindingEvaluator.m; sourceTree = "<group>"; };
-		E3175227BFAA4409B225DCEC /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E82BB475939646D3A7390705 /* QRadioSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRadioSection.m; path = Classes/Forms/QRadioSection.m; sourceTree = "<group>"; };
-		EE7B64424F344692A2A92F8C /* QDecimalTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDecimalTableViewCell.m; path = Classes/Forms/QDecimalTableViewCell.m; sourceTree = "<group>"; };
-		F272F19E8E484F969EC61516 /* QEntryTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEntryTableViewCell.m; path = Classes/Core/QEntryTableViewCell.m; sourceTree = "<group>"; };
-		F2F26A80B5E04CAB9F3E01F2 /* QWebElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QWebElement.m; path = Classes/Extras/QWebElement.m; sourceTree = "<group>"; };
-		F63DE393FF3A42C6969357B3 /* QSelectItemElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSelectItemElement.m; path = Classes/Forms/QSelectItemElement.m; sourceTree = "<group>"; };
-		F66081627D7C4924B8CCE5F4 /* QBadgeLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBadgeLabel.m; path = Classes/Forms/QBadgeLabel.m; sourceTree = "<group>"; };
-		F6E4E3463B7E42859265439E /* QuickDialogDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogDataSource.m; path = Classes/Core/QuickDialogDataSource.m; sourceTree = "<group>"; };
-		FAB22659715743E3BBFD677E /* libPods-SampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD993E717763410B89C72602 /* QMapAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMapAnnotation.m; path = Classes/Extras/QMapAnnotation.m; sourceTree = "<group>"; };
-		FDE262E4B0E1404181403DEA /* Pods-SampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		03885AC198EF457893968AC3 /* QElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QElement.m; path = Classes/Core/QElement.m; sourceTree = "<group>"; };
+		096ABF9FFBC64C819DA57906 /* QRootBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRootBuilder.m; path = Classes/Core/QRootBuilder.m; sourceTree = "<group>"; };
+		1238E212BF094A8380F78975 /* QMultilineTextViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMultilineTextViewController.m; path = Classes/Forms/QMultilineTextViewController.m; sourceTree = "<group>"; };
+		19414F0C4C5E4134A26F67FA /* QSelectSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSelectSection.m; path = Classes/Forms/QSelectSection.m; sourceTree = "<group>"; };
+		1A29998E8FAA4B1F9A015E8C /* QProgressElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QProgressElement.m; path = Classes/Forms/QProgressElement.m; sourceTree = "<group>"; };
+		1DC1F6AF8CAA428EB6219969 /* QDecimalElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDecimalElement.m; path = Classes/Forms/QDecimalElement.m; sourceTree = "<group>"; };
+		215FE528690E40D98D0D24E6 /* QTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QTableViewCell.m; path = Classes/Core/QTableViewCell.m; sourceTree = "<group>"; };
+		216D962DBBDD42C681D09AA0 /* Pods-SampleApp-QuickDialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-QuickDialog-prefix.pch"; sourceTree = "<group>"; };
+		2265881AE6984371B340C5F2 /* QLabelElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QLabelElement.m; path = Classes/Core/QLabelElement.m; sourceTree = "<group>"; };
+		23BD8E2E791B4D56BA50640C /* QSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSection.m; path = Classes/Core/QSection.m; sourceTree = "<group>"; };
+		24A6AF22775D45AEAE4BFB63 /* QTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QTextElement.m; path = Classes/Core/QTextElement.m; sourceTree = "<group>"; };
+		24F67B0F931B4E298347CF8A /* QRootElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRootElement.m; path = Classes/Core/QRootElement.m; sourceTree = "<group>"; };
+		28538431AF3F4348B90B0C75 /* Pods-SampleApp-QuickDialog.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp-QuickDialog.xcconfig"; sourceTree = "<group>"; };
+		29A457A6A45B4657A4EAB099 /* qd_keyboardPrevious@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "qd_keyboardPrevious@2x.png"; path = "Assets/Core/qd_keyboardPrevious@2x.png"; sourceTree = "<group>"; };
+		2D4958D9B5A84155A9B6D13C /* Pods-SampleApp.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp.xcconfig"; sourceTree = "<group>"; };
+		30D268E985974A52A79B5359 /* QDynamicDataSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDynamicDataSection.m; path = Classes/Core/QDynamicDataSection.m; sourceTree = "<group>"; };
+		36A70E720201495198C4EDE1 /* QRadioElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRadioElement.m; path = Classes/Forms/QRadioElement.m; sourceTree = "<group>"; };
+		3AF0B91B438E4FA284723DE2 /* QImageTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QImageTableViewCell.m; path = Classes/Forms/QImageTableViewCell.m; sourceTree = "<group>"; };
+		3C897BA99952461CA078114D /* QMapAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMapAnnotation.m; path = Classes/Extras/QMapAnnotation.m; sourceTree = "<group>"; };
+		419A9CCBFB744C3DA431AB95 /* QAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QAppearance.m; path = Classes/Core/QAppearance.m; sourceTree = "<group>"; };
+		42749A44C238462C8416014F /* QuickDialogController+Animations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Animations.m"; path = "Classes/Core/QuickDialogController+Animations.m"; sourceTree = "<group>"; };
+		44696A6B7D34467F91F1385A /* QMailElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMailElement.m; path = Classes/Extras/QMailElement.m; sourceTree = "<group>"; };
+		454AF75EF175490E8F39CCC4 /* QDateTimeElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateTimeElement.m; path = Classes/Forms/QDateTimeElement.m; sourceTree = "<group>"; };
+		45907D2752614DE9A2C79776 /* QLoadingElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QLoadingElement.m; path = Classes/Core/QLoadingElement.m; sourceTree = "<group>"; };
+		47E52BD4568548E2822D99E7 /* QBadgeLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBadgeLabel.m; path = Classes/Forms/QBadgeLabel.m; sourceTree = "<group>"; };
+		4C70C47FB3C74635B0F00EFB /* UIColor+ColorUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ColorUtilities.m"; path = "Classes/Extras/UIColor+ColorUtilities.m"; sourceTree = "<group>"; };
+		507FA04D86E046A3960F9B3E /* QMultilineElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMultilineElement.m; path = Classes/Forms/QMultilineElement.m; sourceTree = "<group>"; };
+		57C2827B6A3946EF84220EB0 /* Pods-SampleApp-QuickDialog-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SampleApp-QuickDialog-Private.xcconfig"; sourceTree = "<group>"; };
+		5A76E2F3503B4EF58374E579 /* libPods-SampleApp-QuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleApp-QuickDialog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		633B06F7521C4C749A982DD4 /* QButtonElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QButtonElement.m; path = Classes/Forms/QButtonElement.m; sourceTree = "<group>"; };
+		6B0A102B7D8C40448E1D7889 /* Pods-SampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		7366133C15C644E790481D41 /* QMapElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMapElement.m; path = Classes/Extras/QMapElement.m; sourceTree = "<group>"; };
+		76CAAE47EDC34953B297A34F /* QBadgeElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBadgeElement.m; path = Classes/Forms/QBadgeElement.m; sourceTree = "<group>"; };
+		774F010EAE9145C6A4B9D556 /* QTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QTextField.m; path = Classes/Core/QTextField.m; sourceTree = "<group>"; };
+		7C005BA34E88416181246B80 /* QDateEntryTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateEntryTableViewCell.m; path = Classes/Forms/QDateEntryTableViewCell.m; sourceTree = "<group>"; };
+		7C307B2AFFAA42D48DB3EBF5 /* libPods-SampleApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C3826F2D45D4E29B34D5133 /* QSelectItemElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSelectItemElement.m; path = Classes/Forms/QSelectItemElement.m; sourceTree = "<group>"; };
+		7D6D4081D54346C9B16B014B /* QMapViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QMapViewController.m; path = Classes/Extras/QMapViewController.m; sourceTree = "<group>"; };
+		7D9D7B702D944167AB9DFE97 /* QEntryTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEntryTableViewCell.m; path = Classes/Core/QEntryTableViewCell.m; sourceTree = "<group>"; };
+		8092916FC5D84034A27C7CC6 /* QImageElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QImageElement.m; path = Classes/Forms/QImageElement.m; sourceTree = "<group>"; };
+		85FCE0F8A0AF4450A15CBE44 /* QDateInlineTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateInlineTableViewCell.m; path = Classes/Forms/QDateInlineTableViewCell.m; sourceTree = "<group>"; };
+		863095E20A4241069AD0EAE6 /* QuickDialogTableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogTableView.m; path = Classes/Core/QuickDialogTableView.m; sourceTree = "<group>"; };
+		86B3CD6B6E854F158853BF32 /* QRadioSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRadioSection.m; path = Classes/Forms/QRadioSection.m; sourceTree = "<group>"; };
+		86D1F92351D64517B1CF3C94 /* QuickDialogController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogController.m; path = Classes/Core/QuickDialogController.m; sourceTree = "<group>"; };
+		894D264A7FB0438A9ED09B99 /* QBindingEvaluator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBindingEvaluator.m; path = Classes/Core/QBindingEvaluator.m; sourceTree = "<group>"; };
+		95078DDF6B424A31A6CB32C1 /* QFlatAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QFlatAppearance.m; path = Classes/Core/QFlatAppearance.m; sourceTree = "<group>"; };
+		95AE4A8F33B641BD82C74A07 /* QEntryElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEntryElement.m; path = Classes/Core/QEntryElement.m; sourceTree = "<group>"; };
+		9AE32A0511E3423FAE1ED291 /* QWebElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QWebElement.m; path = Classes/Extras/QWebElement.m; sourceTree = "<group>"; };
+		9C4EC6254E6945C1AB0DFF77 /* QElement+Appearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QElement+Appearance.m"; path = "Classes/Core/QElement+Appearance.m"; sourceTree = "<group>"; };
+		A3D81C9F97DA4DF190765559 /* QWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QWebViewController.m; path = Classes/Extras/QWebViewController.m; sourceTree = "<group>"; };
+		A906209E701643CC9DC66D88 /* Pods-SampleApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SampleApp-resources.sh"; sourceTree = "<group>"; };
+		AFFF95132FBD4EBA9913232E /* QDateTimeInlineElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDateTimeInlineElement.m; path = Classes/Forms/QDateTimeInlineElement.m; sourceTree = "<group>"; };
+		B2875B59C07E4F838C5DDA0D /* QRootElement+JsonBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QRootElement+JsonBuilder.m"; path = "Classes/Core/QRootElement+JsonBuilder.m"; sourceTree = "<group>"; };
+		B8E5C686D55046728E1D934B /* QuickDialogController+Helpers.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Helpers.m"; path = "Classes/Core/QuickDialogController+Helpers.m"; sourceTree = "<group>"; };
+		BA23A1C29D8848E796810CAB /* Pods-SampleApp-QuickDialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-QuickDialog-dummy.m"; sourceTree = "<group>"; };
+		BD021B6AF7C349F8B3D5FA01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C0ADF279B8344FDB91027CF5 /* QEmptyListElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QEmptyListElement.m; path = Classes/Core/QEmptyListElement.m; sourceTree = "<group>"; };
+		C2965B0597014D5896710979 /* QBadgeTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBadgeTableCell.m; path = Classes/Forms/QBadgeTableCell.m; sourceTree = "<group>"; };
+		C3C3C63C09374147837B79FD /* Pods-SampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C3CA70E2573A4DF99FB2BF02 /* QRadioItemElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRadioItemElement.m; path = Classes/Forms/QRadioItemElement.m; sourceTree = "<group>"; };
+		C5215355B8C1431FA81EFB2A /* QuickDialogDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogDataSource.m; path = Classes/Core/QuickDialogDataSource.m; sourceTree = "<group>"; };
+		C780BAD356484554A526298F /* QDecimalTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QDecimalTableViewCell.m; path = Classes/Forms/QDecimalTableViewCell.m; sourceTree = "<group>"; };
+		C943722D40D64E5F9B5B047C /* QSortingSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSortingSection.m; path = Classes/Core/QSortingSection.m; sourceTree = "<group>"; };
+		CC316006231D4351B6AE0035 /* QSegmentedElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QSegmentedElement.m; path = Classes/Forms/QSegmentedElement.m; sourceTree = "<group>"; };
+		CC35FC270EA04D959404A431 /* QCountdownElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QCountdownElement.m; path = Classes/Forms/QCountdownElement.m; sourceTree = "<group>"; };
+		D3A025BF5F01472FADEB857B /* QFloatElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QFloatElement.m; path = Classes/Forms/QFloatElement.m; sourceTree = "<group>"; };
+		D93485B791FB40D28D5C4390 /* QColorPickerElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QColorPickerElement.m; path = Classes/Extras/QColorPickerElement.m; sourceTree = "<group>"; };
+		DAEDB8A79475421691D34D32 /* Pods-SampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SampleApp-dummy.m"; sourceTree = "<group>"; };
+		DC11F3E0B59D427B86197C81 /* QBooleanElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QBooleanElement.m; path = Classes/Forms/QBooleanElement.m; sourceTree = "<group>"; };
+		E07B0ECFC67B4BFCA2511FF4 /* QuickDialogTableDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickDialogTableDelegate.m; path = Classes/Core/QuickDialogTableDelegate.m; sourceTree = "<group>"; };
+		E5382953D9EB4F5E97DFC92E /* QFloatTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QFloatTableViewCell.m; path = Classes/Forms/QFloatTableViewCell.m; sourceTree = "<group>"; };
+		E85F0E2FDFBE41BB8C590B74 /* QuickDialogController+Loading.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Loading.m"; path = "Classes/Core/QuickDialogController+Loading.m"; sourceTree = "<group>"; };
+		EE81409E38E04A0497DFE35C /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F19A91F84E7F451BB8E5A082 /* NSMutableArray+MoveObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+MoveObject.m"; path = "Classes/Core/NSMutableArray+MoveObject.m"; sourceTree = "<group>"; };
+		F44F88B73C6B4BBA94E45AC4 /* Pods-SampleApp-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SampleApp-environment.h"; sourceTree = "<group>"; };
+		F6229C2FDCF74187B63D6014 /* qd_keyboardNext@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "qd_keyboardNext@2x.png"; path = "Assets/Core/qd_keyboardNext@2x.png"; sourceTree = "<group>"; };
+		F6F5B22AFC98482FA104BFC2 /* QuickDialogController+Navigation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "QuickDialogController+Navigation.m"; path = "Classes/Core/QuickDialogController+Navigation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		03AF9E4C22894EA99792A038 /* Frameworks */ = {
+		1595DBB05CA04592B329C303 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B5386D1078F4DB59EA0B695 /* Foundation.framework in Frameworks */,
-				B93FE05D1EA9464590B7F376 /* libPods-SampleApp-QuickDialog.a in Frameworks */,
+				8C474203AF0A440D9E5F3CEB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		25B24BC718714D2F81D943AB /* Frameworks */ = {
+		272C1B39F1374A91A16F8D72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F6D5DDE57F439CAE101161 /* Foundation.framework in Frameworks */,
+				E8874BA33D0A4D758CFCE25B /* Foundation.framework in Frameworks */,
+				923361CD2ED0443182DC34E7 /* libPods-SampleApp-QuickDialog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		052CACC8A64245D4B8EC7E59 /* Frameworks */ = {
+		07771ED183ED462A8935873F /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7A91884520414EB2B7F384B3 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0657C202A93D4F988E45D7E2 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				523FA80BCE8B4B27945C78C8 /* Pods-SampleApp */,
+				70BC9D024EAE4A47AB65E551 /* Pods-SampleApp */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		1A543868BE034BF392CFF86E /* Forms */ = {
+		088ACC3A37204BF588FDDD75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A0966D0DBBF469A8C992020 /* QBadgeElement.m */,
-				F66081627D7C4924B8CCE5F4 /* QBadgeLabel.m */,
-				B45A0A50BF5446E197AD69F8 /* QBadgeTableCell.m */,
-				1DA23205B0214100808403B2 /* QBooleanElement.m */,
-				AB16A464682E4C87BEAF271D /* QButtonElement.m */,
-				70B0A54618F649A8BA523251 /* QCountdownElement.m */,
-				9ABE14702305488D80284280 /* QDateEntryTableViewCell.m */,
-				21256462807C4ECDBAED4CD7 /* QDateInlineTableViewCell.m */,
-				CE1CE2E715D143A28D5E738F /* QDateTimeElement.m */,
-				CC0F8688596940DB9980C028 /* QDateTimeInlineElement.m */,
-				2EEB3E2CEF8A49D1BAD55862 /* QDecimalElement.m */,
-				EE7B64424F344692A2A92F8C /* QDecimalTableViewCell.m */,
-				BE2AAE2A10934EE0A158F24D /* QFloatElement.m */,
-				4C0D25D0884341B3B93DC87F /* QFloatTableViewCell.m */,
-				A1A00695020A48569BABC80C /* QImageElement.m */,
-				DC95A60DF2E442E5B6AEB54A /* QImageTableViewCell.m */,
-				51BC4EE3E7BC46498A2CCCB3 /* QMultilineElement.m */,
-				D94ADCF0E53443F78B871558 /* QMultilineTextViewController.m */,
-				127F606EC6A44CEFA138954B /* QProgressElement.m */,
-				51A681D3EBE74EE4A78DDE1E /* QRadioElement.m */,
-				5E467E9C429C4A5D81EF5603 /* QRadioItemElement.m */,
-				E82BB475939646D3A7390705 /* QRadioSection.m */,
-				02FE5B08B98540E08D2875DF /* QSegmentedElement.m */,
-				F63DE393FF3A42C6969357B3 /* QSelectItemElement.m */,
-				77AEBFA05131420193E13809 /* QSelectSection.m */,
+				E041AB45F16A4264B0B9C381 /* iOS */,
 			);
-			name = Forms;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3A9B51A324ED4C479EA71430 = {
+		0ADE092A715343A7A293453A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E3175227BFAA4409B225DCEC /* Podfile */,
-				AC0EC219C05A42A09656882D /* Development Pods */,
-				052CACC8A64245D4B8EC7E59 /* Frameworks */,
-				6CEB781571AA40B189420B85 /* Products */,
-				0657C202A93D4F988E45D7E2 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		523FA80BCE8B4B27945C78C8 /* Pods-SampleApp */ = {
-			isa = PBXGroup;
-			children = (
-				11F6DE5CC90B409AAD09FD2F /* Pods-SampleApp.xcconfig */,
-				FDE262E4B0E1404181403DEA /* Pods-SampleApp-acknowledgements.markdown */,
-				0017A24E0D394BEB803D9380 /* Pods-SampleApp-acknowledgements.plist */,
-				3E249D131F64434D88D5DCB8 /* Pods-SampleApp-dummy.m */,
-				C1EB120B8A5A4A9B8F896336 /* Pods-SampleApp-environment.h */,
-				49F83376B69D40B786A54D80 /* Pods-SampleApp-resources.sh */,
-			);
-			name = "Pods-SampleApp";
-			sourceTree = "<group>";
-		};
-		53A90126C2A8412C96C3C467 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				1B2A1B10B4384D89A133C415 /* NSMutableArray+MoveObject.m */,
-				0AB612638731436EB308E693 /* QAppearance.m */,
-				E13359C588C34D468E0C8F00 /* QBindingEvaluator.m */,
-				07375C4FC4A9464C9D459CC3 /* QDynamicDataSection.m */,
-				A1371ECD936640C5B2378EAB /* QElement.m */,
-				DAFDB1C9C19D453F96D30946 /* QElement+Appearance.m */,
-				11B7496EE7954F15BE2397F9 /* QEmptyListElement.m */,
-				9427E62B16F24BBEA2CBC819 /* QEntryElement.m */,
-				F272F19E8E484F969EC61516 /* QEntryTableViewCell.m */,
-				E0A731ADB267467F9FDCC7E9 /* QFlatAppearance.m */,
-				0C1944CEC7474B5A9A23CE3F /* QLabelElement.m */,
-				CB1016A99F4F43A085BA474D /* QLoadingElement.m */,
-				B9586BFC638F401198C6D398 /* QRootBuilder.m */,
-				9364C8A6A0524AE18D71F926 /* QRootElement.m */,
-				63D4B7D3C1334DA4916E05C8 /* QRootElement+JsonBuilder.m */,
-				AB31E8F1987C45E599FF4752 /* QSection.m */,
-				692D40F8233240588869A695 /* QSortingSection.m */,
-				2D98F3711B734B4CAE5A2885 /* QTableViewCell.m */,
-				BD813FD86C384147AF9C3D27 /* QTextElement.m */,
-				35F7E71B17654D2484861B8A /* QTextField.m */,
-				2110F8716FF542BE9C7818CD /* QuickDialogController.m */,
-				A04842870BBD4DBCA84BB078 /* QuickDialogController+Animations.m */,
-				667D37C213BC4822ABACDA82 /* QuickDialogController+Helpers.m */,
-				0DDDCAD6C2464B5685DA84B4 /* QuickDialogController+Loading.m */,
-				45743CC2685846399015D65E /* QuickDialogController+Navigation.m */,
-				F6E4E3463B7E42859265439E /* QuickDialogDataSource.m */,
-				08D1C13B678F4A1CAEF579E2 /* QuickDialogTableDelegate.m */,
-				DFE27CE661B541C58E5A366C /* QuickDialogTableView.m */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		57876F9D8F74492B8E96AFEE /* Extras */ = {
-			isa = PBXGroup;
-			children = (
-				426331D63A004FC0A179DE3F /* QColorPickerElement.m */,
-				0F0650A384794B0F96139E9E /* QMailElement.m */,
-				FD993E717763410B89C72602 /* QMapAnnotation.m */,
-				90D73DC1B3514F96A611B881 /* QMapElement.m */,
-				105E7BBDFF734FFE9D43118E /* QMapViewController.m */,
-				F2F26A80B5E04CAB9F3E01F2 /* QWebElement.m */,
-				B44A955198814643B394AD3F /* QWebViewController.m */,
-				AD4B473854D246B28190290C /* UIColor+ColorUtilities.m */,
-			);
-			name = Extras;
-			sourceTree = "<group>";
-		};
-		6B26A58A1C9E4B6C97332997 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				AE800671AD5B4F3F946C3F3E /* Pods-SampleApp-QuickDialog.xcconfig */,
-				30C406C6ED8544EC9D13658E /* Pods-SampleApp-QuickDialog-Private.xcconfig */,
-				D34B2CE2A00C4CBFA0A54D25 /* Pods-SampleApp-QuickDialog-dummy.m */,
-				7CED52FD934F4D188BE77410 /* Pods-SampleApp-QuickDialog-prefix.pch */,
-			);
-			name = "Support Files";
-			sourceTree = SOURCE_ROOT;
-		};
-		6CEB781571AA40B189420B85 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAB22659715743E3BBFD677E /* libPods-SampleApp.a */,
-				295113DED6BD42349A3DEC9B /* libPods-SampleApp-QuickDialog.a */,
+				7C307B2AFFAA42D48DB3EBF5 /* libPods-SampleApp.a */,
+				5A76E2F3503B4EF58374E579 /* libPods-SampleApp-QuickDialog.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7A91884520414EB2B7F384B3 /* iOS */ = {
+		4E0B9F952C734CA6B0344E1C = {
 			isa = PBXGroup;
 			children = (
-				CCBD671452AB46CEBDB7D88F /* Foundation.framework */,
+				EE81409E38E04A0497DFE35C /* Podfile */,
+				8DEF5389B7AF407B98335B1D /* Development Pods */,
+				088ACC3A37204BF588FDDD75 /* Frameworks */,
+				0ADE092A715343A7A293453A /* Products */,
+				07771ED183ED462A8935873F /* Targets Support Files */,
 			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
-		AC0EC219C05A42A09656882D /* Development Pods */ = {
+		666777DE49DC4FBA9824A226 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C3ACB4C5397E41C4941D1FF1 /* QuickDialog */,
+				F6229C2FDCF74187B63D6014 /* qd_keyboardNext@2x.png */,
+				29A457A6A45B4657A4EAB099 /* qd_keyboardPrevious@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		70BC9D024EAE4A47AB65E551 /* Pods-SampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				2D4958D9B5A84155A9B6D13C /* Pods-SampleApp.xcconfig */,
+				C3C3C63C09374147837B79FD /* Pods-SampleApp-acknowledgements.markdown */,
+				6B0A102B7D8C40448E1D7889 /* Pods-SampleApp-acknowledgements.plist */,
+				DAEDB8A79475421691D34D32 /* Pods-SampleApp-dummy.m */,
+				F44F88B73C6B4BBA94E45AC4 /* Pods-SampleApp-environment.h */,
+				A906209E701643CC9DC66D88 /* Pods-SampleApp-resources.sh */,
+			);
+			name = "Pods-SampleApp";
+			sourceTree = "<group>";
+		};
+		8DEF5389B7AF407B98335B1D /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6E15AC9D25F465F9FF7DFA8 /* QuickDialog */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		C3ACB4C5397E41C4941D1FF1 /* QuickDialog */ = {
+		A41D0B7AE8AE4EAA9FD16C85 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				53A90126C2A8412C96C3C467 /* Core */,
-				57876F9D8F74492B8E96AFEE /* Extras */,
-				1A543868BE034BF392CFF86E /* Forms */,
-				6B26A58A1C9E4B6C97332997 /* Support Files */,
+				28538431AF3F4348B90B0C75 /* Pods-SampleApp-QuickDialog.xcconfig */,
+				57C2827B6A3946EF84220EB0 /* Pods-SampleApp-QuickDialog-Private.xcconfig */,
+				BA23A1C29D8848E796810CAB /* Pods-SampleApp-QuickDialog-dummy.m */,
+				216D962DBBDD42C681D09AA0 /* Pods-SampleApp-QuickDialog-prefix.pch */,
+			);
+			name = "Support Files";
+			sourceTree = SOURCE_ROOT;
+		};
+		B6E15AC9D25F465F9FF7DFA8 /* QuickDialog */ = {
+			isa = PBXGroup;
+			children = (
+				F312E6F76CBB4FB4AD78D94D /* Core */,
+				E4AEB91AFBE3420B958D4A10 /* Extras */,
+				CD62F0E3FBA74EF0AA631B49 /* Forms */,
+				A41D0B7AE8AE4EAA9FD16C85 /* Support Files */,
 			);
 			name = QuickDialog;
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		CD62F0E3FBA74EF0AA631B49 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				76CAAE47EDC34953B297A34F /* QBadgeElement.m */,
+				47E52BD4568548E2822D99E7 /* QBadgeLabel.m */,
+				C2965B0597014D5896710979 /* QBadgeTableCell.m */,
+				DC11F3E0B59D427B86197C81 /* QBooleanElement.m */,
+				633B06F7521C4C749A982DD4 /* QButtonElement.m */,
+				CC35FC270EA04D959404A431 /* QCountdownElement.m */,
+				7C005BA34E88416181246B80 /* QDateEntryTableViewCell.m */,
+				85FCE0F8A0AF4450A15CBE44 /* QDateInlineTableViewCell.m */,
+				454AF75EF175490E8F39CCC4 /* QDateTimeElement.m */,
+				AFFF95132FBD4EBA9913232E /* QDateTimeInlineElement.m */,
+				1DC1F6AF8CAA428EB6219969 /* QDecimalElement.m */,
+				C780BAD356484554A526298F /* QDecimalTableViewCell.m */,
+				D3A025BF5F01472FADEB857B /* QFloatElement.m */,
+				E5382953D9EB4F5E97DFC92E /* QFloatTableViewCell.m */,
+				8092916FC5D84034A27C7CC6 /* QImageElement.m */,
+				3AF0B91B438E4FA284723DE2 /* QImageTableViewCell.m */,
+				507FA04D86E046A3960F9B3E /* QMultilineElement.m */,
+				1238E212BF094A8380F78975 /* QMultilineTextViewController.m */,
+				1A29998E8FAA4B1F9A015E8C /* QProgressElement.m */,
+				36A70E720201495198C4EDE1 /* QRadioElement.m */,
+				C3CA70E2573A4DF99FB2BF02 /* QRadioItemElement.m */,
+				86B3CD6B6E854F158853BF32 /* QRadioSection.m */,
+				CC316006231D4351B6AE0035 /* QSegmentedElement.m */,
+				7C3826F2D45D4E29B34D5133 /* QSelectItemElement.m */,
+				19414F0C4C5E4134A26F67FA /* QSelectSection.m */,
+			);
+			name = Forms;
+			sourceTree = "<group>";
+		};
+		E041AB45F16A4264B0B9C381 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				BD021B6AF7C349F8B3D5FA01 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E4AEB91AFBE3420B958D4A10 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				D93485B791FB40D28D5C4390 /* QColorPickerElement.m */,
+				44696A6B7D34467F91F1385A /* QMailElement.m */,
+				3C897BA99952461CA078114D /* QMapAnnotation.m */,
+				7366133C15C644E790481D41 /* QMapElement.m */,
+				7D6D4081D54346C9B16B014B /* QMapViewController.m */,
+				9AE32A0511E3423FAE1ED291 /* QWebElement.m */,
+				A3D81C9F97DA4DF190765559 /* QWebViewController.m */,
+				4C70C47FB3C74635B0F00EFB /* UIColor+ColorUtilities.m */,
+			);
+			name = Extras;
+			sourceTree = "<group>";
+		};
+		F312E6F76CBB4FB4AD78D94D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F19A91F84E7F451BB8E5A082 /* NSMutableArray+MoveObject.m */,
+				419A9CCBFB744C3DA431AB95 /* QAppearance.m */,
+				894D264A7FB0438A9ED09B99 /* QBindingEvaluator.m */,
+				30D268E985974A52A79B5359 /* QDynamicDataSection.m */,
+				03885AC198EF457893968AC3 /* QElement.m */,
+				9C4EC6254E6945C1AB0DFF77 /* QElement+Appearance.m */,
+				C0ADF279B8344FDB91027CF5 /* QEmptyListElement.m */,
+				95AE4A8F33B641BD82C74A07 /* QEntryElement.m */,
+				7D9D7B702D944167AB9DFE97 /* QEntryTableViewCell.m */,
+				95078DDF6B424A31A6CB32C1 /* QFlatAppearance.m */,
+				2265881AE6984371B340C5F2 /* QLabelElement.m */,
+				45907D2752614DE9A2C79776 /* QLoadingElement.m */,
+				096ABF9FFBC64C819DA57906 /* QRootBuilder.m */,
+				24F67B0F931B4E298347CF8A /* QRootElement.m */,
+				B2875B59C07E4F838C5DDA0D /* QRootElement+JsonBuilder.m */,
+				23BD8E2E791B4D56BA50640C /* QSection.m */,
+				C943722D40D64E5F9B5B047C /* QSortingSection.m */,
+				215FE528690E40D98D0D24E6 /* QTableViewCell.m */,
+				24A6AF22775D45AEAE4BFB63 /* QTextElement.m */,
+				774F010EAE9145C6A4B9D556 /* QTextField.m */,
+				86D1F92351D64517B1CF3C94 /* QuickDialogController.m */,
+				42749A44C238462C8416014F /* QuickDialogController+Animations.m */,
+				B8E5C686D55046728E1D934B /* QuickDialogController+Helpers.m */,
+				E85F0E2FDFBE41BB8C590B74 /* QuickDialogController+Loading.m */,
+				F6F5B22AFC98482FA104BFC2 /* QuickDialogController+Navigation.m */,
+				C5215355B8C1431FA81EFB2A /* QuickDialogDataSource.m */,
+				E07B0ECFC67B4BFCA2511FF4 /* QuickDialogTableDelegate.m */,
+				863095E20A4241069AD0EAE6 /* QuickDialogTableView.m */,
+				666777DE49DC4FBA9824A226 /* Resources */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		49FF37A6D5B145AABB13E7B4 /* Pods-SampleApp-QuickDialog */ = {
+		0BFA67E6FB4844568CC763ED /* Pods-SampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 267D5DBD307F48FD8C27DCD4 /* Build configuration list for PBXNativeTarget "Pods-SampleApp-QuickDialog" */;
+			buildConfigurationList = 631B5181AC4F4FF88E6491A9 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */;
 			buildPhases = (
-				0548D997E9D94F4186388EA9 /* Sources */,
-				25B24BC718714D2F81D943AB /* Frameworks */,
+				F58AFA5547504866B9970CC7 /* Sources */,
+				272C1B39F1374A91A16F8D72 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B07C310407D4555A25041A9 /* PBXTargetDependency */,
+			);
+			name = "Pods-SampleApp";
+			productName = "Pods-SampleApp";
+			productReference = 7C307B2AFFAA42D48DB3EBF5 /* libPods-SampleApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F3C2526A706F473AACF85277 /* Pods-SampleApp-QuickDialog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D632BD9C8EF40E88BB2B23C /* Build configuration list for PBXNativeTarget "Pods-SampleApp-QuickDialog" */;
+			buildPhases = (
+				7C896A8268364F33882535A4 /* Sources */,
+				1595DBB05CA04592B329C303 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -370,153 +399,193 @@
 			);
 			name = "Pods-SampleApp-QuickDialog";
 			productName = "Pods-SampleApp-QuickDialog";
-			productReference = 295113DED6BD42349A3DEC9B /* libPods-SampleApp-QuickDialog.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		7D7BF1379BC64C06B4A5EC32 /* Pods-SampleApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8D41739E24084F37B6F80159 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */;
-			buildPhases = (
-				03B2E6F86F8A43C182225B61 /* Sources */,
-				03AF9E4C22894EA99792A038 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				62AEE7155DE34C13816BB2F3 /* PBXTargetDependency */,
-			);
-			name = "Pods-SampleApp";
-			productName = "Pods-SampleApp";
-			productReference = FAB22659715743E3BBFD677E /* libPods-SampleApp.a */;
+			productReference = 5A76E2F3503B4EF58374E579 /* libPods-SampleApp-QuickDialog.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C118D46F86A648AD94F367BF /* Project object */ = {
+		9D5842982E644682B36C8154 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0510;
 			};
-			buildConfigurationList = 2AE7E025C0D9467E9EF71774 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 5EFFBE0697B846D0B84C8CE9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 3A9B51A324ED4C479EA71430;
-			productRefGroup = 6CEB781571AA40B189420B85 /* Products */;
+			mainGroup = 4E0B9F952C734CA6B0344E1C;
+			productRefGroup = 0ADE092A715343A7A293453A /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 			);
 			projectRoot = "";
 			targets = (
-				7D7BF1379BC64C06B4A5EC32 /* Pods-SampleApp */,
-				49FF37A6D5B145AABB13E7B4 /* Pods-SampleApp-QuickDialog */,
+				0BFA67E6FB4844568CC763ED /* Pods-SampleApp */,
+				F3C2526A706F473AACF85277 /* Pods-SampleApp-QuickDialog */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		03B2E6F86F8A43C182225B61 /* Sources */ = {
+		7C896A8268364F33882535A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E59A60C50DE546AF961A310E /* Pods-SampleApp-dummy.m in Sources */,
+				4B262F1FF82B4569AC78FDE8 /* NSMutableArray+MoveObject.m in Sources */,
+				BE38F76388E147119DA56FA4 /* Pods-SampleApp-QuickDialog-dummy.m in Sources */,
+				30B92BE238B041C5A5DBCB58 /* QAppearance.m in Sources */,
+				E1FA9407E84A4E208D288E0C /* QBadgeElement.m in Sources */,
+				D893C4FF20A842299E02B1A8 /* QBadgeLabel.m in Sources */,
+				91EA8B36871A48CF95568F8F /* QBadgeTableCell.m in Sources */,
+				82DD5C44EC9943359513DBFB /* QBindingEvaluator.m in Sources */,
+				E48ADE5E5A734457A0D9BD7F /* QBooleanElement.m in Sources */,
+				1ABAC90E78C84F3CA7F0B84B /* QButtonElement.m in Sources */,
+				6E700C44C76E41379D13427D /* QColorPickerElement.m in Sources */,
+				863F63CDF56E4F26B0D8134D /* QCountdownElement.m in Sources */,
+				019EBD2DCEE94BEEB19F5E64 /* QDateEntryTableViewCell.m in Sources */,
+				0EE500CDF2F243D991764BF3 /* QDateInlineTableViewCell.m in Sources */,
+				D42A6CEC096E4D609F68C618 /* QDateTimeElement.m in Sources */,
+				EB50A24F7DE64A429F00B98E /* QDateTimeInlineElement.m in Sources */,
+				C15EDC8F5E6248CFBAA35663 /* QDecimalElement.m in Sources */,
+				D37F2E7445634122811DE384 /* QDecimalTableViewCell.m in Sources */,
+				E21404B6459D42A7B10D9637 /* QDynamicDataSection.m in Sources */,
+				0F704AD73463402A9D6AFC65 /* QElement+Appearance.m in Sources */,
+				84FF786CE32948F3AF882134 /* QElement.m in Sources */,
+				07E654C4BFBE490A8AC22AAC /* QEmptyListElement.m in Sources */,
+				537B698A6D6844C2876E2FCA /* QEntryElement.m in Sources */,
+				367B11911B9B4B359EF2BC76 /* QEntryTableViewCell.m in Sources */,
+				880DCF29C5E247CD975851E8 /* QFlatAppearance.m in Sources */,
+				CA4EEBAC79F24BA5A2802585 /* QFloatElement.m in Sources */,
+				74EA89597AB3475795ECF5D6 /* QFloatTableViewCell.m in Sources */,
+				5A92B2B181534B84A2B440C1 /* QImageElement.m in Sources */,
+				4B4B61FFC01B449A9DC7AAFC /* QImageTableViewCell.m in Sources */,
+				F9F74AC0578A44B5812E68F9 /* QLabelElement.m in Sources */,
+				3CC9169D6C38400093661A02 /* QLoadingElement.m in Sources */,
+				BEE5C32E9CD8460FB6E66342 /* QMailElement.m in Sources */,
+				0A464B690DE948D58C2ED14E /* QMapAnnotation.m in Sources */,
+				474DE7FCFA6042DCB4AF8E04 /* QMapElement.m in Sources */,
+				25A74BD5A42246798CE0FE6F /* QMapViewController.m in Sources */,
+				FE6DC53965774C6AB233C6C8 /* QMultilineElement.m in Sources */,
+				C1D786035C494EE9B3F0B2AE /* QMultilineTextViewController.m in Sources */,
+				AD881D7E6DDA471CB24CAAAC /* QProgressElement.m in Sources */,
+				B7FCA5426C1246ECBAD6AF51 /* QRadioElement.m in Sources */,
+				8615537C61BB4C069E1E60DC /* QRadioItemElement.m in Sources */,
+				96437EDCFC0840B68D2CB7A5 /* QRadioSection.m in Sources */,
+				ED3768DA74CA4CF2BA7F552C /* QRootBuilder.m in Sources */,
+				D76103C2EE674474A5F4FB5A /* QRootElement+JsonBuilder.m in Sources */,
+				43A7576E11044041804F1BCC /* QRootElement.m in Sources */,
+				4828717B070746368E41B0A6 /* QSection.m in Sources */,
+				6896045356AC4BE8A7A38A33 /* QSegmentedElement.m in Sources */,
+				E5E70A251CB547D5BFBE2FF2 /* QSelectItemElement.m in Sources */,
+				E746B78A0AF44E8E934B13F6 /* QSelectSection.m in Sources */,
+				5F130A572A9E4797B57B30B7 /* QSortingSection.m in Sources */,
+				6E5B4DEEBF924F9CB6031BDD /* QTableViewCell.m in Sources */,
+				4646FAD8DBC04FDDB6C76B5E /* QTextElement.m in Sources */,
+				ADA69080651E4B99B1C803C6 /* QTextField.m in Sources */,
+				1FC7A8DBCCB34DDDA3620047 /* QWebElement.m in Sources */,
+				89E8FD224FDC4B6689E0439C /* QWebViewController.m in Sources */,
+				D8A04799675443D9881C5CA8 /* QuickDialogController+Animations.m in Sources */,
+				739237A4CC1F4A6681FD5913 /* QuickDialogController+Helpers.m in Sources */,
+				5C483B9BBA8142229D205E5B /* QuickDialogController+Loading.m in Sources */,
+				69826A2E24ED4949B7C6CA75 /* QuickDialogController+Navigation.m in Sources */,
+				8AEDC1268CD04537A6B3231E /* QuickDialogController.m in Sources */,
+				DED12F88B51B46A989E891ED /* QuickDialogDataSource.m in Sources */,
+				A5AD8219A7CA400E9D706D15 /* QuickDialogTableDelegate.m in Sources */,
+				016F29D8F0A54E40973B5D5E /* QuickDialogTableView.m in Sources */,
+				A44695179A434606B5EE1747 /* UIColor+ColorUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0548D997E9D94F4186388EA9 /* Sources */ = {
+		F58AFA5547504866B9970CC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80037F38330145ECA34041DD /* NSMutableArray+MoveObject.m in Sources */,
-				8E4BC9ABC56F41E3B50244BC /* Pods-SampleApp-QuickDialog-dummy.m in Sources */,
-				290B581BC2AB4275A817B157 /* QAppearance.m in Sources */,
-				64F63D8E444945D1BED5C9DE /* QBadgeElement.m in Sources */,
-				CAA906453D1E4DD8844D396C /* QBadgeLabel.m in Sources */,
-				4D0F1925664443E8AF88033E /* QBadgeTableCell.m in Sources */,
-				FEC6DD98261B4F1BA543CF54 /* QBindingEvaluator.m in Sources */,
-				55C92897CBC34C9A8E9B0705 /* QBooleanElement.m in Sources */,
-				C819D1832F1E41958A6A6E55 /* QButtonElement.m in Sources */,
-				961443EEBD6543CC82CA1206 /* QColorPickerElement.m in Sources */,
-				5C65F78C59114596AE6DFC31 /* QCountdownElement.m in Sources */,
-				DCB05E402A6846BBB2BEB406 /* QDateEntryTableViewCell.m in Sources */,
-				CE4DD2731E8F4E98BDC337BD /* QDateInlineTableViewCell.m in Sources */,
-				66BCAA3BD85345B089501277 /* QDateTimeElement.m in Sources */,
-				5FD97209EA7546CB97AD60AA /* QDateTimeInlineElement.m in Sources */,
-				BB70AD1C69634B5B8AC92843 /* QDecimalElement.m in Sources */,
-				52C788C49B0F477C9ECB2F17 /* QDecimalTableViewCell.m in Sources */,
-				6E1573ED46D0492EA260C51E /* QDynamicDataSection.m in Sources */,
-				9DA4A1A528684752BD7D2F21 /* QElement+Appearance.m in Sources */,
-				873DBF0B68BB456693525694 /* QElement.m in Sources */,
-				EA720C2F94264487B32E6B30 /* QEmptyListElement.m in Sources */,
-				53F976775E244EC6B00DDB2C /* QEntryElement.m in Sources */,
-				80FF14086FE048EC868B7B99 /* QEntryTableViewCell.m in Sources */,
-				7C98D572297A4153B449CD39 /* QFlatAppearance.m in Sources */,
-				379183C3EE9F452C96230F28 /* QFloatElement.m in Sources */,
-				C5BAB6BD028C4992801E2845 /* QFloatTableViewCell.m in Sources */,
-				A09A40911F7849D7AFDFA9CD /* QImageElement.m in Sources */,
-				7E9775FAFBE34726A2704FD5 /* QImageTableViewCell.m in Sources */,
-				6C17563755EE4741A648C02F /* QLabelElement.m in Sources */,
-				2960A040EF5C43BD8238A984 /* QLoadingElement.m in Sources */,
-				2F28D9D15B904A52A650B280 /* QMailElement.m in Sources */,
-				AB0B36AAB84441B3942416A9 /* QMapAnnotation.m in Sources */,
-				B22880ADB9854C928E79B582 /* QMapElement.m in Sources */,
-				6A72E8159404408ABF0C8BE3 /* QMapViewController.m in Sources */,
-				CFADA342F06F41BCABD8A6B6 /* QMultilineElement.m in Sources */,
-				4A885E6BA2194E9AB1B816C4 /* QMultilineTextViewController.m in Sources */,
-				3F6197CBC51944E5923F3405 /* QProgressElement.m in Sources */,
-				BE206D44A21D4852B9388834 /* QRadioElement.m in Sources */,
-				10D68F7C9B9749D49A628EEC /* QRadioItemElement.m in Sources */,
-				8C3DAC4B793844D78914D5E2 /* QRadioSection.m in Sources */,
-				CCA270F3A1B94A65AC74AAC7 /* QRootBuilder.m in Sources */,
-				6FADE44DF54D44C0912466D1 /* QRootElement+JsonBuilder.m in Sources */,
-				650AE319983C46DDB1965027 /* QRootElement.m in Sources */,
-				1FEA771F3A31406597F875DA /* QSection.m in Sources */,
-				F72777B9FB254534AAD70724 /* QSegmentedElement.m in Sources */,
-				D779BB0310744BBA9F9FBDE7 /* QSelectItemElement.m in Sources */,
-				C0A4AED4ADD44E6FAC9D3E80 /* QSelectSection.m in Sources */,
-				A258B44C23F3454098446B26 /* QSortingSection.m in Sources */,
-				38ECE8B98EF544CC9AC4E412 /* QTableViewCell.m in Sources */,
-				16B74E9A442543628A7ED281 /* QTextElement.m in Sources */,
-				B64A76FA02314794BFBCDB97 /* QTextField.m in Sources */,
-				3B885E5D78614619880FC905 /* QWebElement.m in Sources */,
-				DEB91BF8419A4C11A084067B /* QWebViewController.m in Sources */,
-				29B4CBCA40CC411D861E74FB /* QuickDialogController+Animations.m in Sources */,
-				6094B531E0D64508A5EC8051 /* QuickDialogController+Helpers.m in Sources */,
-				A2595B2877804FB39F56FB46 /* QuickDialogController+Loading.m in Sources */,
-				8DF761D8DCB547F0A6D7275D /* QuickDialogController+Navigation.m in Sources */,
-				8B168779BA46413E8E420085 /* QuickDialogController.m in Sources */,
-				49DEB1D6D69347B0A1742685 /* QuickDialogDataSource.m in Sources */,
-				8F17184CFE7B49DFAF7697A2 /* QuickDialogTableDelegate.m in Sources */,
-				54CAC239EF584044BABF6B7B /* QuickDialogTableView.m in Sources */,
-				899FD4E5C5F14F1FB362AE86 /* UIColor+ColorUtilities.m in Sources */,
+				168474B6470846C3ABEACA97 /* Pods-SampleApp-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		62AEE7155DE34C13816BB2F3 /* PBXTargetDependency */ = {
+		4B07C310407D4555A25041A9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 49FF37A6D5B145AABB13E7B4 /* Pods-SampleApp-QuickDialog */;
-			targetProxy = 8BE7158AB8664D078E09D905 /* PBXContainerItemProxy */;
+			target = F3C2526A706F473AACF85277 /* Pods-SampleApp-QuickDialog */;
+			targetProxy = 6B46AB6B9D2544CBA673E0AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		250212E065C94DABB1EB90DC /* Release */ = {
+		473ED0C4AA9944BABF5223F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30C406C6ED8544EC9D13658E /* Pods-SampleApp-QuickDialog-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F727832C6CA4AD0BCF85858 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57C2827B6A3946EF84220EB0 /* Pods-SampleApp-QuickDialog-Private.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/xcodeproj.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-SampleApp-QuickDialog-prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6684AF42E96545E081EBF175 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D4958D9B5A84155A9B6D13C /* Pods-SampleApp.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-SampleApp-QuickDialog-prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -537,7 +606,7 @@
 			};
 			name = Release;
 		};
-		6958D77879384D8E98003578 /* Debug */ = {
+		709A004269BB4A26AF591B4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -573,9 +642,9 @@
 			};
 			name = Debug;
 		};
-		704731CE8AB64551BE1465C4 /* Debug */ = {
+		793685EA9B9A423F84B8F652 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11F6DE5CC90B409AAD09FD2F /* Pods-SampleApp.xcconfig */;
+			baseConfigurationReference = 2D4958D9B5A84155A9B6D13C /* Pods-SampleApp.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
@@ -600,73 +669,16 @@
 			};
 			name = Debug;
 		};
-		7245CF64E2094A93B111F32D /* Debug */ = {
+		A206632B28654FDB95205C77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30C406C6ED8544EC9D13658E /* Pods-SampleApp-QuickDialog-Private.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/xcodeproj.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pods-SampleApp-QuickDialog-prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		75A28250495C463486B040FF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				STRIP_INSTALLED_PRODUCT = NO;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9048DFD5ACD34EC18C622557 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11F6DE5CC90B409AAD09FD2F /* Pods-SampleApp.xcconfig */;
+			baseConfigurationReference = 57C2827B6A3946EF84220EB0 /* Pods-SampleApp-QuickDialog-Private.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pods-SampleApp-QuickDialog-prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
@@ -690,34 +702,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		267D5DBD307F48FD8C27DCD4 /* Build configuration list for PBXNativeTarget "Pods-SampleApp-QuickDialog" */ = {
+		3D632BD9C8EF40E88BB2B23C /* Build configuration list for PBXNativeTarget "Pods-SampleApp-QuickDialog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7245CF64E2094A93B111F32D /* Debug */,
-				250212E065C94DABB1EB90DC /* Release */,
+				4F727832C6CA4AD0BCF85858 /* Debug */,
+				A206632B28654FDB95205C77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2AE7E025C0D9467E9EF71774 /* Build configuration list for PBXProject "Pods" */ = {
+		5EFFBE0697B846D0B84C8CE9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6958D77879384D8E98003578 /* Debug */,
-				75A28250495C463486B040FF /* Release */,
+				709A004269BB4A26AF591B4D /* Debug */,
+				473ED0C4AA9944BABF5223F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8D41739E24084F37B6F80159 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */ = {
+		631B5181AC4F4FF88E6491A9 /* Build configuration list for PBXNativeTarget "Pods-SampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				704731CE8AB64551BE1465C4 /* Debug */,
-				9048DFD5ACD34EC18C622557 /* Release */,
+				793685EA9B9A423F84B8F652 /* Debug */,
+				6684AF42E96545E081EBF175 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C118D46F86A648AD94F367BF /* Project object */;
+	rootObject = 9D5842982E644682B36C8154 /* Project object */;
 }

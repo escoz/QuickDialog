@@ -24,28 +24,12 @@ static const int QCellMargin = 8;
 @property(nonatomic, strong) UIBarButtonItem *keyboardPreviousButton;
 @property(nonatomic, strong) UIBarButtonItem *keyboardNextButton;
 
-- (void)handleActionBarPreviousNext:(UISegmentedControl *)control;
+- (void)moveFocusToElement:(QEntryElement *)control;
 @end
 
 @implementation QEntryTableViewCell {
 }
 
--(UIToolbar *)createActionBar {
-    UIToolbar *actionBar = [[UIToolbar alloc] init];
-    [actionBar sizeToFit];
-
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
-                                                                   style:UIBarButtonItemStyleDone target:self
-                                                                  action:@selector(handleActionBarDone:)];
-
-    self.keyboardPreviousButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"keyboardPrevious"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarPrevious:)];
-    self.keyboardNextButton = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"keyboardPrevious"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarNext:)];
-
-    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [actionBar setItems:[NSArray arrayWithObjects:self.keyboardPreviousButton, self.keyboardNextButton, flexible, doneButton, nil]];
-
-	return actionBar;
-}
 
 - (void)createSubviews {
     self.textField = [[QTextField alloc] init];
@@ -119,8 +103,8 @@ static const int QCellMargin = 8;
 }
 
 - (void)updatePrevNextStatus {
-    //[self.prevNext setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnBefore:self.entryElement]!=nil forSegmentAtIndex:0];
-    //[self.prevNext setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnAfter:self.entryElement]!=nil forSegmentAtIndex:1];
+    [self.keyboardPreviousButton setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnBefore:self.entryElement]!=nil];
+    [self.keyboardNextButton setEnabled:[self.entryElement.parentSection.rootElement findElementToFocusOnAfter:self.entryElement]!=nil];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
@@ -162,7 +146,6 @@ static const int QCellMargin = 8;
         self.textField.inputAccessoryView = toolbar;
     }
     
-
     [self updatePrevNextStatus];
 
 }
@@ -255,16 +238,20 @@ static const int QCellMargin = 8;
     return YES;
 }
 
-- (void)handleActionBarPreviousNext:(UISegmentedControl *)control {
+- (void)handleActionBarPrevious
+{
+    QEntryElement *element = [self.entryElement.parentSection.rootElement findElementToFocusOnBefore:self.entryElement];
+    [self moveFocusToElement:element];
+}
 
-	QEntryElement *element;
+- (void)handleActionBarNext
+{
+    QEntryElement *element = [self.entryElement.parentSection.rootElement findElementToFocusOnAfter:self.entryElement];
+    [self moveFocusToElement:element];
 
-    const BOOL isNext = control.selectedSegmentIndex == 1;
-    if (isNext) {
-		element = [self.entryElement.parentSection.rootElement findElementToFocusOnAfter:self.entryElement];
-	} else {
-		element = [self.entryElement.parentSection.rootElement findElementToFocusOnBefore:self.entryElement];
-	}
+}
+
+- (void)moveFocusToElement:(QEntryElement *)element {
 
 	if (element != nil) {
 
@@ -291,8 +278,6 @@ static const int QCellMargin = 8;
     if (self.entryElement.keepSelected) {
         [self.quickDialogTableView deselectRowAtIndexPath:[self.entryElement getIndexPath] animated:YES];
     }
-
-    [control setSelectedSegmentIndex:UISegmentedControlNoSegment];
 }
 
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton {
@@ -324,6 +309,24 @@ static const int QCellMargin = 8;
     QAppearance *appearance = element.appearance;
     self.textField.font = appearance.entryFont;
     self.textField.textColor = element.enabled ? appearance.entryTextColorEnabled : appearance.entryTextColorDisabled;
+}
+
+-(UIToolbar *)createActionBar {
+    UIToolbar *actionBar = [[UIToolbar alloc] init];
+    [actionBar sizeToFit];
+
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"") style:UIBarButtonItemStyleDone target:self action:@selector(handleActionBarDone:)];
+
+    UIImage *previousImage = [[UIImage imageNamed:@"qd_keyboardPrevious"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *nextImage = [[UIImage imageNamed:@"qd_keyboardNext"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
+    self.keyboardPreviousButton = [[UIBarButtonItem alloc] initWithImage:previousImage style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarPrevious)];
+    self.keyboardNextButton = [[UIBarButtonItem alloc] initWithImage:nextImage style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarNext)];
+
+    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [actionBar setItems:[NSArray arrayWithObjects:self.keyboardPreviousButton, self.keyboardNextButton, flexible, doneButton, nil]];
+
+    return actionBar;
 }
 
 
