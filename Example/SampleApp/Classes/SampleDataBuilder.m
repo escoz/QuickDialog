@@ -303,8 +303,16 @@
 
     QRadioSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
     __weak QRadioSection *_section2 = section2;
+    section2.title = @"Simple selection";
     section2.onSelected = ^{ NSLog(@"selected index: %li", (long)_section2.selected); };
     [root addSection:section2];
+
+
+    QRadioSection *section3 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
+    section3.multipleAllowed = YES;
+    section3.title = @"Multiple selection";
+    __weak QRadioSection *_section3 = section2;
+    [root addSection:section3];
 
     return root;
 }
