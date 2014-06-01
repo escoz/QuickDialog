@@ -16,7 +16,6 @@
 #import "QAppearance.h"
 #import "QuickDialogController.h"
 #import "QuickDialogController+Navigation.h"
-#import "QuickDialogController+Loading.h"
 #import "QuickDialogController+Helpers.h"
 
 #import "QuickDialogTableView.h"

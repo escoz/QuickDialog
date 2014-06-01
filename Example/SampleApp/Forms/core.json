@@ -2,23 +2,26 @@
 	"grouped": true,
 	"title": "Core Elements",
 	"sections": [
-        { "title":"Labels", "elements":[
-                { "type":"QLabelElement", "title":"QLabelElement"},
-                { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
-                { "type":"QLabelElement", "title":"Long Title Long Title Long Title Long Title Long Title", "value":"QLabelElement"},
-                { "type":"QLabelElement", "labelingPolicy":"trimTitle", "title":"Trim Title", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
-                { "type":"QLabelElement", "labelingPolicy":"trimValue", "title":"Trim Value Trim Value Trim Value", "value":"Long Value Long Value Long Value Long Value Long Value Long Value"},
-                { "type":"QLabelElement", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
-                { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement"},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Hello there!"},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"Long Title Long Title Long Title Long Title Long Title", "value":"QLabelElement"},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "labelingPolicy":"trimTitle", "title":"Trim Title", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "labelingPolicy":"trimValue", "title":"Trim Value Trim Value Trim Value", "value":"Long Value Long Value Long Value Long Value Long Value Long Value"},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
-                { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Hello there!"}
-        ]
-        },
+        { "title":"Basic", "elements":[
+            {"type":"QRootElement", "title":"QLabelElement", "sections":[
+                { "elements":[
+                        { "type":"QLabelElement", "title":"QLabelElement"},
+                        { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
+                        { "type":"QLabelElement", "title":"Long Title Long Title Long Title Long Title Long Title", "value":"QLabelElement"},
+                        { "type":"QLabelElement", "labelingPolicy":"trimTitle", "title":"Trim Title", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                        { "type":"QLabelElement", "labelingPolicy":"trimValue", "title":"Trim Value Trim Value Trim Value", "value":"Long Value Long Value Long Value Long Value Long Value Long Value"},
+                        { "type":"QLabelElement", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                        { "type":"QLabelElement", "title":"QLabelElement", "value":"Hello there!"},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement"},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Hello there!"},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "title":"Long Title Long Title Long Title Long Title Long Title", "value":"QLabelElement"},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "labelingPolicy":"trimTitle", "title":"Trim Title", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "labelingPolicy":"trimValue", "title":"Trim Value Trim Value Trim Value", "value":"Long Value Long Value Long Value Long Value Long Value Long Value"},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Long Value Long Value Long Value Long Value Long Value Long Value "},
+                        { "type":"QLabelElement", "imageNamed":"iPhone", "title":"QLabelElement", "value":"Hello there!"}
+                ]}
+            ]}
+        ]},
         { "title":"Binding Elements", "elements":[
                 { "type":"QLoadingElement", "title":"QLoadingElement"},
                 { "type":"QLoadingElement"},

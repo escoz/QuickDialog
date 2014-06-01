@@ -12,10 +12,10 @@
 // permissions and limitations under the License.
 //
 
-#import "QFloatElement.h"
-#import "QFloatTableViewCell.h"
+#import "QSliderElement.h"
+#import "QSliderTableViewCell.h"
 
-@implementation QFloatElement
+@implementation QSliderElement
 
 
 - (instancetype)init {
@@ -58,7 +58,11 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QFloatTableViewCell *cell = [[QFloatTableViewCell alloc] initWithFrame:CGRectZero];
+    QSliderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QSliderTableViewCell%@%@", self.key, self.class]];
+    if (cell == nil){
+        cell = [[QSliderTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QSliderTableViewCell%@%@", self.key, NSStringFromClass(self.class)]];
+    }
+    [cell applyAppearanceForElement:self];
 
     [cell.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
     cell.slider.minimumValue = _minimumValue;

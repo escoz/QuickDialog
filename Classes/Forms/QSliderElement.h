@@ -17,7 +17,7 @@
   QFloatElement: shows an slider control.
 */
 
-@interface QFloatElement : QLabelElement {
+@interface QSliderElement : QLabelElement {
     
     float _floatValue;
     float _minimumValue;

@@ -16,7 +16,7 @@
 #import <QuickDialog/QBooleanElement.h>
 #import <QuickDialog/QButtonElement.h>
 #import <QuickDialog/QDateTimeInlineElement.h>
-#import <QuickDialog/QFloatElement.h>
+#import <QuickDialog/QSliderElement.h>
 #import <QuickDialog/QMapElement.h>
 #import <QuickDialog/QRadioElement.h>
 #import <QuickDialog/QRadioItemElement.h>
@@ -47,7 +47,7 @@
 	[subsection	addElement:[[QBooleanElement alloc] init]];
 	[subsection	addElement:[[QButtonElement alloc] init]];
 	[subsection	addElement:[[QDateTimeInlineElement alloc] init]];
-	[subsection	addElement:[[QFloatElement alloc] init]];
+	[subsection	addElement:[[QSliderElement alloc] init]];
 	[subsection	addElement:[[QMapElement alloc] init]];
 	[subsection	addElement:[[QRadioElement alloc] init]];
 	[subsection	addElement:[[QRadioItemElement alloc] init]];
@@ -74,7 +74,7 @@
 	[subsection	addElement:[[QBooleanElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QButtonElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QDateTimeInlineElement alloc] initWithKey:@"Key1"]];
-	[subsection	addElement:[[QFloatElement alloc] initWithKey:@"Key1"]];
+	[subsection	addElement:[[QSliderElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QMapElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QRadioElement alloc] initWithKey:@"Key1"]];
 	[subsection	addElement:[[QRadioItemElement alloc] initWithKey:@"Key1"]];
@@ -154,9 +154,9 @@
 
     [sliders addSection:detailsSection];
 
-    [detailsSection addElement:[[QFloatElement alloc] initWithValue:0.5]];
-    [detailsSection addElement:[[QFloatElement alloc] initWithTitle:@"Short" value:0.7]];
-    [detailsSection addElement:[[QFloatElement alloc] initWithTitle:@"Really really long title" value:1]];
+    [detailsSection addElement:[[QSliderElement alloc] initWithValue:0.5]];
+    [detailsSection addElement:[[QSliderElement alloc] initWithTitle:@"Short" value:0.7]];
+    [detailsSection addElement:[[QSliderElement alloc] initWithTitle:@"Really really long title" value:1]];
 
     return sliders;
 }
@@ -195,7 +195,7 @@
 	dateElement.key = @"date1";
     [controls addElement:dateElement];
 
-    QFloatElement *slider = [[QFloatElement alloc] initWithTitle:@"Float Element" value:0.5];
+    QSliderElement *slider = [[QSliderElement alloc] initWithTitle:@"Float Element" value:0.5];
 	slider.key = @"slider1";
     [controls addElement:slider];
     

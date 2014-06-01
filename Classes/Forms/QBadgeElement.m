@@ -39,7 +39,7 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QBadgeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, self.class]];
     if (cell == nil){
-        cell = (QBadgeTableCell *) [[QBadgeTableCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, NSStringFromClass(self.class)]];
+        cell = [[QBadgeTableCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, NSStringFromClass(self.class)]];
     }
 
     cell.textLabel.text = _title;

@@ -8,7 +8,7 @@
 
 #import <QuickDialog/QuickDialog.h>
 
-@interface QFloatTableViewCell : QTableViewCell
+@interface QSliderTableViewCell : QTableViewCell
 
 @property (nonatomic, strong, readonly) UISlider *slider;
 

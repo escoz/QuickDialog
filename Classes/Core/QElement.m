@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     _controller = controller;
-    
+
     QTableViewCell *cell= [self getOrCreateEmptyCell:tableView];
 
     [cell applyAppearanceForElement:self];
@@ -59,6 +59,7 @@
     cell.showsReorderControl = YES;
     cell.accessoryView = nil;
     cell.labelingPolicy = _labelingPolicy;
+
     return cell;
 }
 
