@@ -26,6 +26,12 @@
     return self;
 }
 
+- (QDateTimeInlineElement *)currentDateTimeElement
+{
+    return (QDateTimeInlineElement *)self.currentEntryElement;
+}
+
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     [super textFieldDidEndEditing:textField];
     self.selected = NO;
@@ -34,9 +40,8 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) self.entryElement);
 
-    [self prepareDateTimePicker:element];
+    [self prepareDateTimePicker:self.currentDateTimeElement];
 
     self.textField.inputView = self.pickerView;
     [super textFieldDidBeginEditing:textField];
@@ -77,13 +82,13 @@
 }
 
 - (void) dateChanged:(id)sender{
-    QDateTimeInlineElement *const element = ((QDateTimeInlineElement *) self.entryElement);
+    QDateTimeInlineElement *element = self.currentDateTimeElement;
     if (element.mode == UIDatePickerModeCountDownTimer){
         element.ticksValue = [NSNumber numberWithDouble:self.pickerView.countDownDuration];
     } else {
         element.dateValue = self.pickerView.date;
     }
-    [self prepareForElement:self.entryElement inTableView:self.quickDialogTableView];
+    [self prepareForElement:self.currentDateTimeElement inTableView:self.currentElement.currentTableView];
     
     [element handleEditingChanged:self];
 }
@@ -91,14 +96,12 @@
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
     [super prepareForElement:element inTableView:tableView];
 
-    QDateTimeInlineElement *dateElement = ((QDateTimeInlineElement *) element);
-
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     if (element.customDateFormat!=nil){
         dateFormatter.dateFormat = element.customDateFormat;
     } else {
-        switch (dateElement.mode) {
+        switch (self.currentDateTimeElement.mode) {
             case UIDatePickerModeDate:
                 [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
                 [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
@@ -116,10 +119,10 @@
         }
     }
 
-    NSString *value = dateElement.mode!=UIDatePickerModeCountDownTimer
-            ? [dateFormatter stringFromDate:dateElement.dateValue]
-            : [self formatInterval:dateElement.ticksValue.doubleValue];
-    if (!dateElement.centerLabel){
+    NSString *value = self.currentDateTimeElement.mode!=UIDatePickerModeCountDownTimer
+            ? [dateFormatter stringFromDate:self.currentDateTimeElement.dateValue]
+            : [self formatInterval:self.currentDateTimeElement.ticksValue.doubleValue];
+    if (!self.currentDateTimeElement.centerLabel){
 		self.textLabel.text = element.title;
         self.centeredLabel.text = nil;
 		self.detailTextLabel.text = value;
@@ -130,11 +133,11 @@
     }
 
 	self.textField.text = value;
-    self.textField.placeholder = dateElement.placeholder;
+    self.textField.placeholder = self.currentDateTimeElement.placeholder;
 
-    self.textField.inputAccessoryView.hidden = dateElement.hiddenToolbar;
+    self.textField.inputAccessoryView.hidden = self.currentDateTimeElement.hiddenToolbar;
 
-    self.centeredLabel.textColor = dateElement.appearance.entryTextColorEnabled;
+    self.centeredLabel.textColor = self.currentDateTimeElement.appearance.entryTextColorEnabled;
 }
 
 - (NSString *) formatInterval: (NSTimeInterval) interval

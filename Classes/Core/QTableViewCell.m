@@ -93,6 +93,13 @@ static const int QCellMinimumLabelWidth = 80;
 }
 
 
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    self.currentElement.currentCell = nil;
+    self.currentElement = nil;
+}
+
 - (void)applyAppearanceForElement:(QElement *)element {
     QAppearance *appearance = element.appearance;
     self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;

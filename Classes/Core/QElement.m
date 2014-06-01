@@ -46,7 +46,6 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    _controller = controller;
 
     QTableViewCell *cell= [self getOrCreateEmptyCell:tableView];
 
@@ -60,8 +59,19 @@
     cell.accessoryView = nil;
     cell.labelingPolicy = _labelingPolicy;
 
+    self.currentCell = cell;
+    self.currentTableView = tableView;
+    self.currentController = controller;
+
     return cell;
 }
+
+- (void)setCurrentCell:(QTableViewCell *)currentCell
+{
+    _currentCell = currentCell;
+    _currentCell.currentElement = self;
+}
+
 
 - (QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@%@", self.key, self.class]];
@@ -85,7 +95,8 @@
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    _controller = controller;
+    self.currentController = controller;
+
     [[tableView cellForRowAtIndexPath:indexPath] becomeFirstResponder];
     [self performAction];
 }
@@ -132,21 +143,21 @@
 
     if (self.controllerAction!=NULL){
         SEL selector = NSSelectorFromString(self.controllerAction);
-        if ([_controller respondsToSelector:selector]) {
-			((void (*)(id, SEL, id)) objc_msgSend)(_controller, selector, self);
+        if ([self.currentController respondsToSelector:selector]) {
+			((void (*)(id, SEL, id)) objc_msgSend)(self.currentController, selector, self);
         }  else {
-            NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [_controller class]);
+            NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [self.currentController class]);
         }
     }
 }
 
 -(void)performAccessoryAction{
-    if (_controller!=nil && self.controllerAccessoryAction!=nil) {
+    if (self.currentController !=nil && self.controllerAccessoryAction!=nil) {
         SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
-        if ([_controller respondsToSelector:selector]) {
-            ((void (*)(id, SEL, id)) objc_msgSend)(_controller, selector, self);
+        if ([self.currentController respondsToSelector:selector]) {
+            ((void (*)(id, SEL, id)) objc_msgSend)(self.currentController, selector, self);
         }  else {
-            NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
+            NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [self.currentController class]);
         }
     }
 }

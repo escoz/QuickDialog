@@ -114,9 +114,9 @@
     if (self.showPickerInCell){
         BOOL shouldEdit = !_cell.isEditing;
 
-        [((QuickDialogController *)self.controller).quickDialogTableView endEditingOnVisibleCells];
+        [self.currentTableView endEditingOnVisibleCells];
         [_cell setEditing:shouldEdit];
-        [((QuickDialogController *)self.controller).quickDialogTableView reloadRowHeights];
+        [self.currentTableView reloadRowHeights];
     }
 }
 

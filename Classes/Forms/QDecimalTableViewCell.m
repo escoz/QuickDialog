@@ -44,20 +44,18 @@
     [self setNeedsLayout];
 }
 
-- (QDecimalElement *)decimalElement {
-    return ((QDecimalElement *)self.entryElement);
+- (QDecimalElement *)currentDecimalElement
+{
+    return ((QDecimalElement *)self.currentEntryElement);
 }
 
 - (void)updateTextFieldFromElement {
-    [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits];
-    [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits]; 
-    QDecimalElement *el = (QDecimalElement *)self.entryElement;
-    self.textField.text = [_numberFormatter stringFromNumber:el.numberValue];
+    [_numberFormatter setMaximumFractionDigits:[self currentDecimalElement].fractionDigits];
+    [_numberFormatter setMinimumFractionDigits:[self currentDecimalElement].fractionDigits];
+    self.textField.text = [_numberFormatter stringFromNumber:self.currentDecimalElement.numberValue];
 }
 
 - (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)view {
-    [super prepareForElement:element inTableView:view];
-    self.entryElement = element;
     [self updateTextFieldFromElement];
 }
 
@@ -70,23 +68,23 @@
             [result appendString:charStr];
         }
     }
-    [_numberFormatter setMaximumFractionDigits:[self decimalElement].fractionDigits]; 
-    [_numberFormatter setMinimumFractionDigits:[self decimalElement].fractionDigits];
+    [_numberFormatter setMaximumFractionDigits:[self currentDecimalElement].fractionDigits];
+    [_numberFormatter setMinimumFractionDigits:[self currentDecimalElement].fractionDigits];
     float parsedValue = [_numberFormatter numberFromString:result].floatValue;
-    [self decimalElement].numberValue = [NSNumber numberWithFloat:(float) (parsedValue / pow(10, [self decimalElement].fractionDigits))];
+    [self currentDecimalElement].numberValue = [NSNumber numberWithFloat:(float) (parsedValue / pow(10, [self currentDecimalElement].fractionDigits))];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {
     BOOL shouldChange = YES;
     
-    if(self.entryElement && self.entryElement.delegate && [self.entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
-        shouldChange = [self.entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:self.entryElement andCell:self];
+    if(self.currentEntryElement && self.currentEntryElement.delegate && [self.currentEntryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
+        shouldChange = [self.currentEntryElement.delegate QEntryShouldChangeCharactersInRange:range withString:replacement forElement:self.currentEntryElement andCell:self];
     
     if( shouldChange ) {
         NSString *newValue = [self.textField.text stringByReplacingCharactersInRange:range withString:replacement];
         [self updateElementFromTextField:newValue];
         [self updateTextFieldFromElement];
-        [self.entryElement handleEditingChanged:self];
+        [self.currentEntryElement handleEditingChanged:self];
     }
     return NO;
 }

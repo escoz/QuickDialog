@@ -33,7 +33,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
     QElement *element = [section getVisibleElementForIndex:indexPath.row];
-    element.controller = _tableView.controller;
+    element.currentController = _tableView.controller;
     UITableViewCell *cell = [element getCellForTableView:(QuickDialogTableView *) tableView controller:_tableView.controller];
     cell.accessibilityLabel = element.accessibilityLabel;
     cell.accessibilityIdentifier = element.accessibilityIdentifier;
@@ -66,8 +66,8 @@
         element = section.elements[(NSUInteger) indexPath.row];
     }
 
-    if ([element.controller respondsToSelector:@selector(shouldDeleteElement:)]) {
-        if (![(QuickDialogController *)element.controller shouldDeleteElement:element]) {
+    if ([element.currentController respondsToSelector:@selector(shouldDeleteElement:)]) {
+        if (![(QuickDialogController *)element.currentController shouldDeleteElement:element]) {
             return;
         };
     }

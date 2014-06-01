@@ -28,8 +28,7 @@
 
 }
 
-@property(nonatomic, weak) QEntryElement *entryElement;
-@property(nonatomic, weak) QuickDialogTableView *quickDialogTableView;
+@property(nonatomic, weak) QEntryElement *currentEntryElement;
 @property(nonatomic, strong) UITextField *textField;
 
 - (void)updatePrevNextStatus;

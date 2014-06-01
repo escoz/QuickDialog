@@ -24,6 +24,8 @@ typedef enum {
 
 @interface QTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) QElement *currentElement;
+
 @property (nonatomic) QLabelingPolicy labelingPolicy;
 
 - (instancetype)initWithReuseIdentifier:(NSString *)string;

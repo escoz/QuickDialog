@@ -44,12 +44,15 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    self.controller = controller;
+    self.currentController = controller;
+    self.currentTableView = tableView;
 
     QEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
+
+    self.currentCell = cell;
 
     [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -57,7 +60,9 @@
     cell.textField.userInteractionEnabled = self.enabled;
     cell.textField.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
+
     [cell prepareForElement:self inTableView:tableView];
+
     return cell;
 }
 

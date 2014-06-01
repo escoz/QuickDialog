@@ -77,7 +77,7 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
     _imageElement.parentSection.entryPosition = _imageViewButton.frame;
 
    CGRect labelFrame = self.textLabel.frame;
-   CGFloat extra = (self.entryElement.image == NULL) ? 10.0f : self.entryElement.image.size.width + 20.0f;
+   CGFloat extra = (self.currentEntryElement.image == NULL) ? 10.0f : self.currentEntryElement.image.size.width + 20.0f;
    self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
                                      _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
 }

@@ -14,6 +14,8 @@
 
 #import <QuickDialog/QuickDialog.h>
 
+@class QDateTimeInlineElement;
+
 @interface QDateEntryTableViewCell : QEntryTableViewCell {
 
     UIDatePicker *_pickerView;
@@ -23,5 +25,7 @@
 
 @property(nonatomic, strong) UIDatePicker *pickerView;
 @property(nonatomic, retain) UILabel *centeredLabel;
+
+@property(nonatomic, readonly) QDateTimeInlineElement *currentDateTimeElement;
 
 @end

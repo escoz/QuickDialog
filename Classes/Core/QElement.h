@@ -28,10 +28,9 @@
 
 @protected
     __weak QSection *_parentSection;
-    __weak UIViewController *_controller;
     NSString *_key;
     NSString *_bind;
-	
+
 	CGFloat _height;
     BOOL _hidden;
 
@@ -45,12 +44,15 @@
 @property(nonatomic, retain) NSString *controllerAction;
 @property(nonatomic, retain) NSString *controllerAccessoryAction;
 
+@property(nonatomic, weak) QTableViewCell        *currentCell;
+@property(nonatomic, weak) QuickDialogController *currentController;
+@property(nonatomic, weak) QuickDialogTableView  *currentTableView;
+
 @property(nonatomic) CGFloat height;
 @property(nonatomic) BOOL    hidden;
 @property(nonatomic,readonly) NSUInteger visibleIndex;
 
 @property(nonatomic, weak) QSection *parentSection;
-@property(nonatomic, weak) UIViewController *controller;
 
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id object;
