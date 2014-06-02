@@ -17,6 +17,10 @@
 #import "QElement.h"
 #import "QuickDialog.h"
 
+@interface QElement ()
+@property(nonatomic, strong) Class cellClass;
+@end
+
 @implementation QElement {
 }
 
@@ -26,6 +30,7 @@
     self = [super init];
     if (self) {
         [self internalInit];
+        self.cellClass = [QTableViewCell class];
     }
     return self;
 }
@@ -47,21 +52,16 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QTableViewCell *cell= [self getOrCreateEmptyCell:tableView];
-
-    [cell applyAppearanceForElement:self];
-
-    cell.textLabel.text = nil; 
-    cell.detailTextLabel.text = nil; 
-    cell.imageView.image = nil; 
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.showsReorderControl = YES;
-    cell.accessoryView = nil;
-    cell.labelingPolicy = _labelingPolicy;
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QD_%@_%@", self.key, self.class]];
+    if (cell == nil) {
+        cell = [self createNewCell:tableView];
+    }
 
     self.currentCell = cell;
     self.currentTableView = tableView;
     self.currentController = controller;
+
+    [cell applyAppearanceForElement:self];
 
     return cell;
 }
@@ -73,14 +73,11 @@
 }
 
 
-- (QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView {
-    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@%@", self.key, self.class]];
-    if (cell == nil){
-        cell = [[QTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QuickformElementCell%@%@", self.key, NSStringFromClass(self.class)]];
-    }
+- (QTableViewCell *)createNewCell:(QuickDialogTableView *)tableView {
+    QTableViewCell *cell = (QTableViewCell *) [self.cellClass alloc];
+    cell = [cell initWithReuseIdentifier:[NSString stringWithFormat:@"QD_%@_%@", self.key, NSStringFromClass(self.class)]];
     return cell;
 }
-
 
 
 - (void)selectedAccessory:(QuickDialogTableView *)tableView  controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath{
@@ -138,15 +135,18 @@
 
 - (void)performAction
 {
-    if (_onSelected!= nil)
-        _onSelected();
 
-    if (self.controllerAction!=NULL){
-        SEL selector = NSSelectorFromString(self.controllerAction);
-        if ([self.currentController respondsToSelector:selector]) {
-			((void (*)(id, SEL, id)) objc_msgSend)(self.currentController, selector, self);
-        }  else {
-            NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [self.currentController class]);
+    if ((self.currentController != nil && self.controllerAction != nil) || _onSelected != nil) {
+        if (_onSelected!= nil)
+            _onSelected();
+
+        if (self.controllerAction!=NULL){
+            SEL selector = NSSelectorFromString(self.controllerAction);
+            if ([self.currentController respondsToSelector:selector]) {
+                ((void (*)(id, SEL, id)) objc_msgSend)(self.currentController, selector, self);
+            }  else {
+                NSLog(@"No method '%@' was found on controller %@", self.controllerAction, [self.currentController class]);
+            }
         }
     }
 }

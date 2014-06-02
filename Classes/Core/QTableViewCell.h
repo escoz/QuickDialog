@@ -28,7 +28,8 @@ typedef enum {
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
 
+- (instancetype)init;
 - (instancetype)initWithReuseIdentifier:(NSString *)string;
-- (void)applyAppearanceForElement:(QElement *)element;
 
+- (void)applyAppearanceForElement:(QElement *)element;
 @end

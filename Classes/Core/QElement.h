@@ -68,17 +68,15 @@
 // Corresponds to UITableViewCell property accessibilityIdentifier
 @property(nonatomic, copy) NSString *accessibilityIdentifier;
 
+
+- (instancetype)init;
 - (instancetype)initWithKey:(NSString *)key;
 
 - (NSIndexPath*) getIndexPath;
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
 
--(QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView;
-
-
 - (void)selectedAccessory:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
-
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
 

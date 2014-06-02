@@ -22,7 +22,6 @@ static const int QCellMinimumLabelWidth = 80;
 
 @implementation QTableViewCell
 
-
 - (instancetype)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
     return self;
@@ -98,6 +97,16 @@ static const int QCellMinimumLabelWidth = 80;
     [super prepareForReuse];
     self.currentElement.currentCell = nil;
     self.currentElement = nil;
+
+    self.textLabel.text = nil;
+    self.detailTextLabel.text = nil;
+    self.imageView.image = nil;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.showsReorderControl = YES;
+    self.accessoryView = nil;
+    self.labelingPolicy = _labelingPolicy;
+
+
 }
 
 - (void)applyAppearanceForElement:(QElement *)element {
@@ -118,4 +127,5 @@ static const int QCellMinimumLabelWidth = 80;
     self.selectedBackgroundView = element.appearance.selectedBackgroundView;
 
 }
+
 @end
