@@ -21,12 +21,11 @@
 @interface QSortingSection : QDynamicDataSection {
     NSMutableArray *_items;
     BOOL _sortingEnabled;
+    BOOL _canDeleteRows;
 }
 
 @property(nonatomic, strong)    NSArray         *items;
 @property(nonatomic, assign) BOOL sortingEnabled;
-
-
 @property(nonatomic, assign) BOOL canDeleteRows;
 
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected;

@@ -29,6 +29,7 @@
 - (QSortingSection *)init {
     self = [super init];
     self.sortingEnabled = YES;
+    self.canDeleteRows = NO;
     return self;
 }
 
