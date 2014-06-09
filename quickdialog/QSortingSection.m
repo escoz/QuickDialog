@@ -32,6 +32,69 @@
     return self;
 }
 
+- (QSortingSection *)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected
+{
+    return [self initWithItems:stringArray selectedIndexes:selected title:nil];
+}
+
+- (QSortingSection *)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title
+{
+    if (self = [super initWithTitle:title])
+    {
+        _items = [stringArray mutableCopy];
+//        _selected = selected ? [selected mutableCopy] : [NSMutableArray array];
+//        _multipleAllowed = (_selected.count > 1);
+        
+        [self createElements];
+    }
+    
+    return self;
+}
+
+- (QSortingSection *)initWithItems:(NSArray *)items selectedItems:(NSArray *)selectedItems title:(NSString *)title
+{
+    NSMutableArray *selectedIndexes = [NSMutableArray array];
+    for (id item in selectedItems) {
+        NSUInteger index = [items indexOfObject:item];
+        if (index != NSNotFound) {
+            [selectedIndexes addObject:[NSNumber numberWithUnsignedInteger:index]];
+        }
+    }
+    
+    return [self initWithItems:items selectedIndexes:selectedIndexes title:title];
+}
+
+- (QSortingSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected
+{
+    return [self initWithItems:stringArray selected:selected title:nil];
+}
+
+- (QSortingSection *)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title
+{
+    return [self initWithItems:stringArray
+               selectedIndexes:[NSArray arrayWithObject:[NSNumber numberWithUnsignedInteger:selected]]
+                         title:title];
+}
+
+- (NSArray *)items
+{
+    return _items;
+}
+
+- (void)setItems:(NSArray *)items
+{
+    _items = [items mutableCopy];
+    self.elements = nil;
+    [self createElements];
+}
+
+- (void)createElements
+{
+    for (NSUInteger i = 0; i < [_items count]; i++) {
+        [self addElement:[[QSelectItemElement alloc] initWithTitle:[_items[i] description] Value:@""]];
+    }
+}
+
 - (BOOL)needsEditing {
     return _sortingEnabled;
 }
