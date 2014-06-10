@@ -27,23 +27,21 @@ Pod::Spec.new do |s|
   s.default_subspec = "Forms"
 
   s.subspec "Core" do |sp|
-    sp.source_files = "Classes/Core/*.m"
+    sp.source_files = "Classes/Core/*.{h,m}"
     sp.public_header_files = "Classes/Core/*.h"
     sp.resources = ["Assets/Core/*"]
   end
   
   s.subspec "Forms" do |sp|
-    sp.source_files = "Classes/Forms/*.m"
+    sp.source_files = "Classes/Forms/*.{h,m}"
     sp.public_header_files = "Classes/Forms/*.h"
     sp.dependency "QuickDialog/Core"
   end
   
   s.subspec "Extras" do |sp|
-    sp.source_files = "Classes/Extras/*.m"
+    sp.source_files = "Classes/Extras/*.{h,m}"
     sp.public_header_files = "Classes/Extras/*.h"
     sp.dependency 'QuickDialog/Forms'
   end
 
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
 end
