@@ -16,7 +16,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     QRootElement *root = [SampleDataBuilder create];
-    ExampleViewController *exampleController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
+    ExampleViewController *exampleController = [[ExampleViewController alloc] initWithRoot:root];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:exampleController];
     if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
         self.window.rootViewController = nav;

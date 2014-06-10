@@ -49,7 +49,7 @@
 }
 
 - (QSection *)getSectionForIndex:(NSInteger)index {
-   return [_sections objectAtIndex:(NSUInteger) index];
+   return _sections[(NSUInteger) index];
 }
 
 - (NSInteger)numberOfSections {

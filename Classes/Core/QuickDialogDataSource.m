@@ -67,13 +67,13 @@
     }
 
     if ([element.currentController respondsToSelector:@selector(shouldDeleteElement:)]) {
-        if (![(QuickDialogController *)element.currentController shouldDeleteElement:element]) {
+        if (![element.currentController shouldDeleteElement:element]) {
             return;
         };
     }
 
     if ([section removeElementForRow:indexPath.row]){
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 

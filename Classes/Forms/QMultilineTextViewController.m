@@ -90,9 +90,9 @@
     NSTimeInterval animationDuration;
     UIViewAnimationOptions animationCurve;
     CGRect keyboardEndFrame;
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    [userInfo[UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [userInfo[UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [userInfo[UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
 
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
         animations:^{
@@ -130,10 +130,8 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)]){
-        return [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:text forElement:_entryElement andCell:self.entryCell];
-    }
-    return YES;
+    return !(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)])
+            || [_entryElement.delegate QEntryShouldChangeCharactersInRange:range withString:text forElement:_entryElement andCell:self.entryCell];
 }
 
 - (void)textViewDidChange:(UITextView *)textView {

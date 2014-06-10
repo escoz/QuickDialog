@@ -54,7 +54,7 @@
 
 - (void) dateChanged:(id)sender{
     if (self.element.mode == UIDatePickerModeCountDownTimer){
-        self.element.ticksValue = [NSNumber numberWithDouble:self.pickerView.countDownDuration];
+        self.element.ticksValue = @(self.pickerView.countDownDuration);
     } else {
         self.element.dateValue = self.pickerView.date;
     }
@@ -127,7 +127,7 @@
     }
 
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerView.alpha = editing ? 1.0 : 0.0;
+        self.pickerView.alpha = (CGFloat) (editing ? 1.0 : 0.0);
 
     } completion:^(BOOL finished){
         if (editing)  {

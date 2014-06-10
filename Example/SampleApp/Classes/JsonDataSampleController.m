@@ -16,8 +16,8 @@
     [dataDict setValue:@"Midnight" forKey:@"myTime"];
     [dataDict setValue:@"When?" forKey:@"dateTitle"];
     [dataDict setValue:@"What time?" forKey:@"timeTitle"];
-    [dataDict setValue:[NSNumber numberWithBool:YES] forKey:@"bool"];
-    [dataDict setValue:[NSNumber numberWithFloat:0.4] forKey:@"float"];
+    [dataDict setValue:@YES forKey:@"bool"];
+    [dataDict setValue:@0.4F forKey:@"float"];
 
     self.root = [[QRootElement alloc] initWithJSONFile:@"jsondatasample" andData:dataDict];
 }
@@ -29,9 +29,9 @@
     [dataDict setValue:@"Hello" forKey:@"dateTitle"];
     [dataDict setValue:@"Goodbye" forKey:@"timeTitle"];
     [dataDict setValue:@"Bound from object" forKey:@"sectionTitle"];
-    [dataDict setValue:[NSNumber numberWithBool:NO] forKey:@"bool"];
-    [dataDict setValue:[NSNumber numberWithFloat:0.9] forKey:@"float"];
-    [dataDict setValue:[NSNumber numberWithFloat:1] forKey:@"radio"];
+    [dataDict setValue:@NO forKey:@"bool"];
+    [dataDict setValue:@0.9F forKey:@"float"];
+    [dataDict setValue:@1 forKey:@"radio"];
     [self.root bindToObject:dataDict];
     [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,2)] withRowAnimation:UITableViewRowAnimationFade];
 

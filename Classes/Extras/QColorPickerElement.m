@@ -48,7 +48,7 @@
 }
 
 - (UIImage *)getImageFromItem:(NSArray *)selectedValue {
-    id color = [selectedValue objectAtIndex:1];
+    id color = selectedValue[1];
     if ([color isKindOfClass:[UIColor class]])
         return [color qd_imageByDrawingCircleOfColor];
     if ([color isKindOfClass:[NSString class]])
@@ -67,8 +67,8 @@
 
     for (NSUInteger i=0; i< [_items count]; i++){
         QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
-        element.image = [self getImageFromItem:[self.items objectAtIndex:i]];
-        element.title = [[self.items objectAtIndex:i] objectAtIndex:0];
+        element.image = [self getImageFromItem:self.items[i]];
+        element.title = [self.items[i] objectAtIndex:0];
         [_parentSection addElement:element];
     }
 }
@@ -84,7 +84,7 @@
 - (void)setSelectedColor:(NSString *)color
 {
     for (NSArray *item in _items){
-        if ([color isEqualToString:[item objectAtIndex:0]]) {
+        if ([color isEqualToString:item[0]]) {
             self.selected = [_items indexOfObject:item];
             return;
         }

@@ -19,7 +19,7 @@
     if (self = [super init]) {
         self.selectSection = section;
         _index = index;
-        _title = [[self.selectSection.items objectAtIndex:_index] description];
+        _title = [self.selectSection.items[_index] description];
     }
     return self;
 }
@@ -34,7 +34,7 @@
 {
     super.currentCell = cell;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
-    if ([self.selectSection.selectedIndexes containsObject:[NSNumber numberWithUnsignedInteger:_index]] ) {
+    if ([self.selectSection.selectedIndexes containsObject:@(_index)] ) {
         [self updateCell:cell];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -46,7 +46,7 @@
 {
     [super selected:tableView controller:controller indexPath:indexPath];
     
-    NSNumber *numberIndex = [NSNumber numberWithUnsignedInteger:_index];
+    NSNumber *numberIndex = @(_index);
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
 
     if (self.selectSection.multipleAllowed)
@@ -68,7 +68,7 @@
     }  else {
         if (![self.selectSection.selectedIndexes containsObject:numberIndex])
         {
-            NSNumber *oldCellRowNumber = [self.selectSection.selectedIndexes count] > 0 ? [self.selectSection.selectedIndexes objectAtIndex:0] : nil;
+            NSNumber *oldCellRowNumber = [self.selectSection.selectedIndexes count] > 0 ? self.selectSection.selectedIndexes[0] : nil;
             if (oldCellRowNumber)
             {
                 UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:

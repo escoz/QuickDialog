@@ -44,8 +44,8 @@
     
     for (NSString *each in [self.bind componentsSeparatedByString:@","]) {
         NSArray *bindingParams = [each componentsSeparatedByString:@":"];
-        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *propName = [((NSString *) bindingParams[0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) bindingParams[1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         if ([propName isEqualToString:@"iterate"]) {
             collection = [data valueForKeyPath:valueName];

@@ -21,12 +21,12 @@
 
 - (NSInteger)selected
 {
-    return [[self.selectedIndexes objectAtIndex:0] unsignedIntegerValue];
+    return [self.selectedIndexes[0] unsignedIntegerValue];
 }
 
 - (void)setSelected:(NSInteger)selected
 {
-    [self.selectedIndexes replaceObjectAtIndex:0 withObject:[NSNumber numberWithUnsignedInteger:selected]];
+    self.selectedIndexes[0] = @(selected);
 }
 
 

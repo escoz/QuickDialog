@@ -21,7 +21,7 @@
     if (to == from)
         return;
 
-    id objectToMove = [self objectAtIndex:from];
+    id objectToMove = self[from];
     [self removeObjectAtIndex:from];
     if (to >= [self count]) {
         [self addObject:objectToMove];

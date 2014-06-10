@@ -51,8 +51,8 @@
     for (NSString *each in [string componentsSeparatedByString:@","]) {
         NSArray *bindingParams = [each componentsSeparatedByString:@":"];
 
-        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *propName = [((NSString *) bindingParams[0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) bindingParams[1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
             [self bindSection:(QSection *)object toCollection:[@"self" isEqualToString:valueName] ? data : [data valueForKeyPath:valueName]];
@@ -126,7 +126,7 @@
     for (id item in [object allKeys]){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
         [section addElement:element];
-        [element bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:item, @"key", [object valueForKey:item], @"value", nil]];
+        [element bindToObject:@{@"key" : item, @"value" : [object valueForKey:item]}];
     }
 }
 
@@ -138,8 +138,8 @@
     for (NSString *each in [element.bind componentsSeparatedByString:@","])
     {
         NSArray *bindingParams = [each componentsSeparatedByString:@":"];
-        NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *propName = [((NSString *) bindingParams[0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *valueName = [((NSString *) bindingParams[1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if (![propName isEqualToString:@"iterate"] && ![valueName isEqualToString:@"self"]) {
             @try {

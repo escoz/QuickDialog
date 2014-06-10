@@ -72,7 +72,7 @@
     [_numberFormatter setMaximumFractionDigits:[self currentDecimalElement].fractionDigits];
     [_numberFormatter setMinimumFractionDigits:[self currentDecimalElement].fractionDigits];
     float parsedValue = [_numberFormatter numberFromString:result].floatValue;
-    [self currentDecimalElement].numberValue = [NSNumber numberWithFloat:(float) (parsedValue / pow(10, [self currentDecimalElement].fractionDigits))];
+    [self currentDecimalElement].numberValue = @((float) (parsedValue / pow(10, [self currentDecimalElement].fractionDigits)));
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)replacement {

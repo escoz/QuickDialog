@@ -49,7 +49,7 @@
 }
 
 -(NSNumber *)ticksValue {
-    return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
+    return @([self.dateValue timeIntervalSince1970]);
 }
 
 - (UIDatePickerMode)mode {
@@ -114,7 +114,7 @@
     }
 	QSection *section = [[QSection alloc] initWithTitle:(_mode == UIDatePickerModeDateAndTime ? @"\n" : @"\n\n")];
     if (_mode == UIDatePickerModeTime || _mode == UIDatePickerModeDateAndTime){
-        QDateTimeInlineElement *timeElement = (QDateTimeInlineElement *) [[QDateTimeInlineElement alloc] initWithKey:@"time"];
+        QDateTimeInlineElement *timeElement = [[QDateTimeInlineElement alloc] initWithKey:@"time"];
         timeElement.dateValue = dateForSection;
         timeElement.centerLabel = YES;
         timeElement.mode = UIDatePickerModeTime;
@@ -162,7 +162,7 @@
     newController.willDisappearCallback = ^{
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
 
-        [((QSection *)[controllerForBlock.root.sections objectAtIndex:0]) fetchValueIntoObject:dict];
+        [((QSection *) controllerForBlock.root.sections[0]) fetchValueIntoObject:dict];
 
         NSDate *date;
         NSDate *time;
@@ -182,7 +182,7 @@
         }
 
         NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
-        NSDateComponents *timeComponents = [[NSCalendar currentCalendar] components:kCFCalendarUnitHour | kCFCalendarUnitMinute | kCFCalendarUnitSecond fromDate:time];
+        NSDateComponents *timeComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:time];
 
         [components setHour:[timeComponents hour]];
         [components setMinute:[timeComponents minute]];

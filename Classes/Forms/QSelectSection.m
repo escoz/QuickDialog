@@ -53,7 +53,7 @@
     for (id item in selectedItems) {
         NSUInteger index = [items indexOfObject:item];
         if (index != NSNotFound) {
-            [selectedIndexes addObject:[NSNumber numberWithUnsignedInteger:index]];
+            [selectedIndexes addObject:@(index)];
         }
     }
     
@@ -68,7 +68,7 @@
 - (instancetype)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title
 {
     return [self initWithItems:stringArray
-               selectedIndexes:[NSArray arrayWithObject:[NSNumber numberWithUnsignedInteger:selected]]
+               selectedIndexes:@[@(selected)]
                          title:title];
 }
 
@@ -88,7 +88,7 @@
 {
     NSMutableArray *selectedItems = [NSMutableArray array];
     for (NSNumber *index in _selected) {
-        [selectedItems addObject:[_items objectAtIndex:[index unsignedIntegerValue]]];
+        [selectedItems addObject:_items[[index unsignedIntegerValue]]];
     }
     return selectedItems;
 }

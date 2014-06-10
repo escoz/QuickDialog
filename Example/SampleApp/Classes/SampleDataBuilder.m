@@ -171,7 +171,7 @@
     QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" Value:@"element"];
 
 
-    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3",@"Option 11", @"Option 12", @"Option 13", @"Option 21", @"Option 22", @"Option 33", @"Option 41", @"Option 42", @"Option 43", @"Option 51", @"Option 52", @"Option 53", @"Option 61", @"Option 62", @"Option 63", @"Option 71", @"Option 72", @"Option 73", nil] selected:7 title:@"Radio"];
+    QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:@[@"Option 1", @"Option 2", @"Option 3", @"Option 11", @"Option 12", @"Option 13", @"Option 21", @"Option 22", @"Option 33", @"Option 41", @"Option 42", @"Option 43", @"Option 51", @"Option 52", @"Option 53", @"Option 61", @"Option 62", @"Option 63", @"Option 71", @"Option 72", @"Option 73"] selected:7 title:@"Radio"];
     radioElement.itemsImageNames = @[ @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel" ];
 	radioElement.key = @"radio1";
 
@@ -262,7 +262,7 @@
     QSection *segmented = [[QSection alloc] initWithTitle:@"Here's a long title for this segmented control"];
     segmented.footer = @"And heres a long footer text for this segmented control";
 
-    QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3", nil] selected:0 title:@"Radio"];
+    QSegmentedElement *segmentedElement = [[QSegmentedElement alloc] initWithItems:@[@"Option 1", @"Option 2", @"Option 3"] selected:0 title:@"Radio"];
     radioElement.key = @"segmented1";
     [segmented addElement:segmentedElement];
 
@@ -284,7 +284,7 @@
 }
 
 + (void)QEntryEditingChangedForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
-    NSLog(@"Editing changed");
+    NSLog(@"Editing changed - Element %@, Cell %@", element, cell);
 }
 
 
@@ -295,23 +295,23 @@
     root.grouped = YES;
 
     QSection *section1 = [[QSection alloc] initWithTitle:@"Radio element with push"];
-    [section1 addElement:[[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0]];
-    [section1 addElement:[[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"]];
-    [section1 addElement:[[QRadioElement alloc] initWithDict:[NSDictionary dictionaryWithObjectsAndKeys:@"FerrariObj", @"Ferrari", @"McLarenObj", @"McLaren", @"MercedesObj", @"Mercedes", nil] selected:0 title:@"With Dict"]];
+    [section1 addElement:[[QRadioElement alloc] initWithItems:@[@"Football", @"Soccer", @"Formula 1"] selected:0]];
+    [section1 addElement:[[QRadioElement alloc] initWithItems:@[@"Football", @"Soccer", @"Formula 1"] selected:0 title:@"Sport"]];
+    [section1 addElement:[[QRadioElement alloc] initWithDict:@{@"Ferrari" : @"FerrariObj", @"McLaren" : @"McLarenObj", @"Mercedes" : @"MercedesObj"} selected:0 title:@"With Dict"]];
 
-    QRadioElement *elementWithAction = [[QRadioElement alloc] initWithItems:[NSArray arrayWithObjects:@"Ferrari", @"McLaren", @"Lotus", nil] selected:0 title:@"WithAction"];
+    QRadioElement *elementWithAction = [[QRadioElement alloc] initWithItems:@[@"Ferrari", @"McLaren", @"Lotus"] selected:0 title:@"WithAction"];
     elementWithAction.controllerAction = @"exampleAction:";
     [section1 addElement:elementWithAction];
     [root addSection:section1];
 
-    QRadioSection *section2 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
+    QRadioSection *section2 = [[QRadioSection alloc] initWithItems:@[@"Football", @"Soccer", @"Formula 1"] selected:0 title:@"Sport"];
     __weak QRadioSection *_section2 = section2;
     section2.title = @"Simple selection";
     section2.onSelected = ^{ NSLog(@"selected index: %li", (long)_section2.selected); };
     [root addSection:section2];
 
 
-    QRadioSection *section3 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
+    QRadioSection *section3 = [[QRadioSection alloc] initWithItems:@[@"Football", @"Soccer", @"Formula 1"] selected:0 title:@"Sport"];
     section3.multipleAllowed = YES;
     section3.title = @"Multiple selection";
     [root addSection:section3];
@@ -327,14 +327,12 @@
     root.grouped = YES;
     
     QSelectSection *simpleSelectSection =
-        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
+        [[QSelectSection alloc] initWithItems:@[@"Football", @"Soccer", @"Formula 1"]
                               selectedIndexes:nil title:@"Simple select"];
     
     QSelectSection *multipleSelectSection =
-        [[QSelectSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil]
-                              selectedIndexes:[NSArray arrayWithObjects:
-                                               [NSNumber numberWithUnsignedInteger:0],
-                                               [NSNumber numberWithUnsignedInteger:1], nil]
+        [[QSelectSection alloc] initWithItems:@[@"Football", @"Soccer", @"Formula 1"]
+                              selectedIndexes:@[@0, @1]
                                         title:@"Multiple select"];
     multipleSelectSection.multipleAllowed = YES;
     
@@ -672,16 +670,10 @@
     QDynamicDataSection *section = [QDynamicDataSection new];
     section.title = @"Normal: with elements";
     section.bind = @"iterate:something";
-    section.elementTemplate = [NSDictionary dictionaryWithObjectsAndKeys:
-        @"QLabelElement", @"type",
-        @"Something here", @"title",
-    nil];
+    section.elementTemplate = @{@"type" : @"QLabelElement", @"title" : @"Something here"};
     [root addSection: section];
 
-    [root bindToObject:[NSDictionary dictionaryWithObjectsAndKeys:
-            [NSArray array], @"empty",
-            [NSArray arrayWithObjects:@"first", @"second", nil], @"something",
-            nil]];
+    [root bindToObject:@{@"empty" : [NSArray array], @"something" : @[@"first", @"second"]}];
 
     return root; 
 }

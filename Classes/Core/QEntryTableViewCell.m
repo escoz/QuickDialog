@@ -212,11 +212,12 @@ static const int QCellMargin = 8;
             return NO;
         }
     }
-    
-    if(self.currentEntryElement && self.currentEntryElement.delegate && [self.currentEntryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)]){
-        return [self.currentEntryElement.delegate QEntryShouldChangeCharactersInRange:range withString:string forElement:self.currentEntryElement andCell:self];
-    }
-    return YES;
+
+    BOOL shouldChangeCurrent = [self.currentEntryElement.delegate respondsToSelector:@selector(QEntryShouldChangeCharactersInRange:withString:forElement:andCell:)]
+            ? [self.currentEntryElement.delegate QEntryShouldChangeCharactersInRange:range withString:string forElement:self.currentEntryElement andCell:self]
+            : YES;
+    return self.currentEntryElement && self.currentEntryElement.delegate
+            && shouldChangeCurrent;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -265,7 +266,7 @@ static const int QCellMargin = 8;
                                                         atScrollPosition:UITableViewScrollPositionMiddle
                                                                 animated:YES];
 
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC);
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t) (0.3 * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^{
                 UITableViewCell *c = [self.currentElement.currentTableView cellForElement:element];
                 if (c != nil) {
@@ -325,7 +326,7 @@ static const int QCellMargin = 8;
     self.keyboardNextButton = [[UIBarButtonItem alloc] initWithImage:nextImage style:UIBarButtonItemStylePlain target:self action:@selector(handleActionBarNext)];
 
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [actionBar setItems:[NSArray arrayWithObjects:self.keyboardPreviousButton, self.keyboardNextButton, flexible, doneButton, nil]];
+    [actionBar setItems:@[self.keyboardPreviousButton, self.keyboardNextButton, flexible, doneButton]];
 
     return actionBar;
 }

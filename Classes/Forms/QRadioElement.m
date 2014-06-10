@@ -30,8 +30,8 @@
 
     for (NSUInteger i=0; i< [_items count]; i++){
         QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
-        element.imageNamed = [self.itemsImageNames objectAtIndex:i];
-        element.title = [self.items objectAtIndex:i];
+        element.imageNamed = self.itemsImageNames[i];
+        element.title = self.items[i];
         [_internalRadioItemsSection addElement:element];
     }
 }
@@ -52,7 +52,7 @@
     if (_selected<0 || _selected>=_values.count)
         return nil;
 
-    return [_values objectAtIndex:(NSUInteger) _selected];
+    return _values[(NSUInteger) _selected];
 }
 
 -(void)setSelectedValue:(NSObject *)aSelected {
@@ -109,7 +109,7 @@
     if (self.items == nil || [self.items count]<self.selected)
         return nil;
 
-    return [self.items objectAtIndex:(NSUInteger) self.selected];
+    return self.items[(NSUInteger) self.selected];
 }
 
 
@@ -127,7 +127,7 @@
 
     id selectedValue = nil;
     if (_selected >= 0 && _selected <_items.count){
-        selectedValue = [_items objectAtIndex:(NSUInteger) _selected];
+        selectedValue = _items[(NSUInteger) _selected];
     }
 
     [self updateCell:cell selectedValue:selectedValue];
@@ -159,8 +159,8 @@
 
     self.preselectedElementIndex = [NSIndexPath indexPathForRow:_selected inSection:0];
 
-    if([_itemsImageNames objectAtIndex:(NSUInteger) self.selected] != nil) {
-        self.image = [UIImage imageNamed:[_itemsImageNames objectAtIndex:(NSUInteger) self.selected]];
+    if(_itemsImageNames[(NSUInteger) self.selected] != nil) {
+        self.image = [UIImage imageNamed:_itemsImageNames[(NSUInteger) self.selected]];
     }
     
     [self handleEditingChanged];
@@ -174,9 +174,9 @@
         return;
 
     if (_values==nil){
-        [obj setValue:[NSNumber numberWithInteger:_selected] forKey:_key];
+        [obj setValue:@(_selected) forKey:_key];
     } else {
-        [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
+        [obj setValue:_values[(NSUInteger) _selected] forKey:_key];
     }
 }
 

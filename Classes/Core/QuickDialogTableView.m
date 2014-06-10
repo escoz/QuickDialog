@@ -84,10 +84,10 @@
 
 - (NSIndexPath *)indexForElement:(QElement *)element {
     for (int i=0; i< [_root.sections count]; i++){
-        QSection * currSection = [_root.sections objectAtIndex:(NSUInteger) i];
+        QSection * currSection = _root.sections[(NSUInteger) i];
 
         for (int j=0; j< [currSection.elements count]; j++){
-            QElement *currElement = [currSection.elements objectAtIndex:(NSUInteger) j];
+            QElement *currElement = currSection.elements[(NSUInteger) j];
             if (currElement == element){
                 return [NSIndexPath indexPathForRow:j inSection:i];
             }
@@ -117,7 +117,7 @@
     NSArray *selected = nil;
     if ([self indexPathForSelectedRow]!=nil && _deselectRowWhenViewAppears){
         NSIndexPath *selectedRowIndex = [self indexPathForSelectedRow];
-        selected = [NSArray arrayWithObject:selectedRowIndex];
+        selected = @[selectedRowIndex];
         [self reloadRowsAtIndexPaths:selected withRowAnimation:UITableViewRowAnimationNone];
         [self selectRowAtIndexPath:selectedRowIndex animated:NO scrollPosition:UITableViewScrollPositionNone];
         [self deselectRowAtIndexPath:selectedRowIndex animated:YES];

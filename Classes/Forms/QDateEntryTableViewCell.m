@@ -84,7 +84,7 @@
 - (void) dateChanged:(id)sender{
     QDateTimeInlineElement *element = self.currentDateTimeElement;
     if (element.mode == UIDatePickerModeCountDownTimer){
-        element.ticksValue = [NSNumber numberWithDouble:self.pickerView.countDownDuration];
+        element.ticksValue = @(self.pickerView.countDownDuration);
     } else {
         element.dateValue = self.pickerView.date;
     }

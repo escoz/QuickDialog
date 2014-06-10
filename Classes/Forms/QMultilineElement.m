@@ -30,7 +30,8 @@
 
 - (instancetype)initWithTitle:(NSString *)title value:(NSString *)text
 {
-    if (self == self.init) {
+    self = self.init;
+    if (self!=nil) {
         self.textValue = text;
     }
     return self;

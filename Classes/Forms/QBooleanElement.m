@@ -34,7 +34,7 @@
 }
 
 -(NSNumber *)numberValue {
-    return [NSNumber numberWithBool:self.boolValue];
+    return @(self.boolValue);
 }
 
 - (void)setOnImageName:(NSString *)name {
@@ -110,7 +110,7 @@
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;
-    [obj setValue:[NSNumber numberWithBool:self.boolValue] forKey:_key];
+    [obj setValue:@(self.boolValue) forKey:_key];
 }
 
 

@@ -43,7 +43,7 @@
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
 		return;
-    [obj setValue:[NSNumber numberWithFloat:_floatValue] forKey:_key];
+    [obj setValue:@(_floatValue) forKey:_key];
 }
 
 - (void)valueChanged:(UISlider *)slider {

@@ -26,7 +26,7 @@
     QRootElement *root = [SampleDataBuilder create];
 
     // ExampleViewController is a subclass of QuickDialogController
-    ExampleViewController *exampleController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
+    ExampleViewController *exampleController = [[ExampleViewController alloc] initWithRoot:root];
 
     // Wrap in a navigation controller
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:exampleController];

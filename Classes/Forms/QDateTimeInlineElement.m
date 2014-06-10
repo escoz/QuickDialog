@@ -65,7 +65,7 @@
 }
 
 -(NSNumber *)ticksValue {
-    return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
+    return @([self.dateValue timeIntervalSince1970]);
 }
 
 - (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode{
