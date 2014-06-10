@@ -44,7 +44,7 @@
 @property(nonatomic, retain) NSString *controllerAction;
 @property(nonatomic, retain) NSString *controllerAccessoryAction;
 
-@property(nonatomic, weak) QTableViewCell        *currentCell;
+@property(nonatomic, weak) UITableViewCell *currentCell;
 @property(nonatomic, weak) QuickDialogController *currentController;
 @property(nonatomic, weak) QuickDialogTableView  *currentTableView;
 

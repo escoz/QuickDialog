@@ -27,10 +27,9 @@
     self.bar.progress = progress;
 }
 
-- (void)setCurrentCell:(QTableViewCell *)cell
+- (void)setCurrentCell:(UITableViewCell *)cell
 {
-    self.currentCell = cell;
-    [cell applyAppearanceForElement:self];
+    super.currentCell = cell;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     self.bar.frame = CGRectMake(0, 0, cell.contentView.frame.size.width - 60, self.bar.frame.size.height);

@@ -46,7 +46,7 @@
 }
 
 
-- (void)setCurrentCell:(QTableViewCell *)qCell
+- (void)setCurrentCell:(UITableViewCell *)qCell
 {
     super.currentCell = qCell;
 

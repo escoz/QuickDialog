@@ -40,7 +40,7 @@
     return self;
 }
 
-- (void)setCurrentCell:(QTableViewCell *)currentCell
+- (void)setCurrentCell:(UITableViewCell *)currentCell
 {
     super.currentCell = currentCell;
 

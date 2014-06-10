@@ -52,7 +52,7 @@
     [self handleEditingChanged];
 }
 
-- (void)setCurrentCell:(QTableViewCell *)currentCell
+- (void)setCurrentCell:(UITableViewCell *)currentCell
 {
     super.currentCell = currentCell;
     QSliderTableViewCell *cell = (QSliderTableViewCell *) currentCell;

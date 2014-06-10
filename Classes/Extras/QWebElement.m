@@ -41,7 +41,7 @@
     _url = [[NSBundle mainBundle] pathForResource:filename ofType:@"html"];
 }
 
-- (void)setCurrentCell:(QTableViewCell *)cell
+- (void)setCurrentCell:(UITableViewCell *)cell
 {
     super.currentCell = cell;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

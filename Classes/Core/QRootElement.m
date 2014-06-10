@@ -88,7 +88,7 @@
     return NSNotFound;
 }
 
-- (void)setCurrentCell:(QTableViewCell *)cell
+- (void)setCurrentCell:(UITableViewCell *)cell
 {
     [super setCurrentCell:cell];
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;

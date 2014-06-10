@@ -46,7 +46,7 @@
     [self handleEditingChanged];
 }
 
-- (void)setCurrentCell:(QTableViewCell *)cell
+- (void)setCurrentCell:(UITableViewCell *)cell
 {
     super.currentCell = cell;
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];

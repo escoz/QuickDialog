@@ -30,7 +30,7 @@
     }
 }
 
-- (void)setCurrentCell:(QTableViewCell *)cell
+- (void)setCurrentCell:(UITableViewCell *)cell
 {
     super.currentCell = cell;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;

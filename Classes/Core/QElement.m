@@ -48,7 +48,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QD_%@_%@", self.key, self.cellClass]];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QD_%@_%@", self.key, self.cellClass]];
     if (cell == nil) {
         cell = [self createNewCell:tableView];
     }
@@ -57,15 +57,17 @@
     self.currentTableView = tableView;
     self.currentController = controller;
 
-    [cell applyAppearanceForElement:self];
+    if ([cell respondsToSelector:@selector(applyAppearanceForElement:)])
+        [cell performSelector:@selector(applyAppearanceForElement:) withObject:self];
 
     return cell;
 }
 
-- (void)setCurrentCell:(QTableViewCell *)currentCell
+- (void)setCurrentCell:(UITableViewCell *)currentCell
 {
     _currentCell = currentCell;
-    _currentCell.currentElement = self;
+    if ([_currentCell respondsToSelector:@selector(setCurrentElement:)])
+        [_currentCell performSelector:@selector(setCurrentElement:) withObject:self];
 }
 
 
