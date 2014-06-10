@@ -18,6 +18,6 @@
 
 }
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)view;
+- (void)prepareForElement:(QEntryElement *)element;
 
 @end

@@ -28,47 +28,40 @@
         self.enablesReturnKeyAutomatically = NO;
         self.secureTextEntry = NO;
         self.maxLength = 0;
+
+        self.cellClass = [QEntryTableViewCell class];
     }
     return self;
 }
 
-- (instancetype)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
-    self = [self init];
-    if (self) {
-        _title = title;
-        _textValue = value;
-        _placeholder = placeholder;
+- (instancetype)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder
+{
+    QEntryElement *element = [self init];
+    if (element!=nil) {
+        self.title = title;
+        self.value = value;
+        self.placeholder = placeholder;
     }
-    return self;
+    return element;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    self.currentController = controller;
-    self.currentTableView = tableView;
+- (void)setCurrentCell:(QTableViewCell *)qCell
+{
+    super.currentCell = qCell;
 
-    QEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
-    if (cell==nil){
-        cell = [[QEntryTableViewCell alloc] init];
-    }
-
-    self.currentCell = cell;
-
-    [cell applyAppearanceForElement:self];
+    QEntryTableViewCell *cell = (QEntryTableViewCell *) qCell;
+    cell.textField.text = [self.value description];
+    cell.textField.placeholder = self.placeholder;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;
-    cell.textField.textAlignment = self.appearance.entryAlignment;
     cell.imageView.image = self.image;
-
-    [cell prepareForElement:self inTableView:tableView];
-
-    return cell;
 }
+
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     [super selected:tableView controller:controller indexPath:indexPath];
-
 }
 
 - (void) fieldDidEndEditing

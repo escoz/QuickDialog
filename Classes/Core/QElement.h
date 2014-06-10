@@ -69,12 +69,16 @@
 @property(nonatomic, copy) NSString *accessibilityIdentifier;
 
 
+@property(nonatomic, strong) Class cellClass;
+
 - (instancetype)init;
 - (instancetype)initWithKey:(NSString *)key;
 
 - (NSIndexPath*) getIndexPath;
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller;
+
+- (QTableViewCell *)createNewCell:(QuickDialogTableView *)tableView;
 
 - (void)selectedAccessory:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
 

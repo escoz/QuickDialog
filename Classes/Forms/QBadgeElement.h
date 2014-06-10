@@ -18,13 +18,7 @@
   QBadgeElement: like the label cell, but the value is displayed with a badge, like the Mail app.
 */
 
-@interface QBadgeElement : QLabelElement {
-
-@private
-    UIColor *_badgeColor;
-    UIColor *_badgeTextColor;
-    NSString *_badge;
-}
+@interface QBadgeElement : QLabelElement
 
 @property(nonatomic, retain) UIColor *badgeTextColor;
 @property(nonatomic, retain) UIColor *badgeColor;

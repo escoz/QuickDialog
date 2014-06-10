@@ -33,7 +33,7 @@
 
 - (void)updatePrevNextStatus;
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
+- (void)prepareForElement:(QEntryElement *)element;
 
 - (UIToolbar *)createActionBar;
 

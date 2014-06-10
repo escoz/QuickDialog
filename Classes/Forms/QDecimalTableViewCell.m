@@ -55,7 +55,8 @@
     self.textField.text = [_numberFormatter stringFromNumber:self.currentDecimalElement.numberValue];
 }
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)view {
+- (void)prepareForElement:(QEntryElement *)element
+{
     [self updateTextFieldFromElement];
 }
 

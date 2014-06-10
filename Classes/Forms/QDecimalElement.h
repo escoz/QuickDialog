@@ -26,6 +26,5 @@
 @property(nonatomic, assign) NSUInteger fractionDigits;
 
 - (instancetype)initWithTitle:(NSString *)string value:(NSNumber *)value;
-- (instancetype)initWithValue:(NSNumber *)value;
 
 @end

@@ -27,17 +27,16 @@
     self.bar.progress = progress;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
+- (void)setCurrentCell:(QTableViewCell *)cell
 {
-    QTableViewCell *const cell = [[QTableViewCell alloc] init];
+    self.currentCell = cell;
     [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
     self.bar.frame = CGRectMake(0, 0, cell.contentView.frame.size.width - 60, self.bar.frame.size.height);
     self.bar.center = CGPointMake(cell.contentView.frame.size.width / 2, cell.contentView.frame.size.height / 2);
     self.bar.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [cell.contentView addSubview:self.bar];
-    return cell;
 }
 
 @end

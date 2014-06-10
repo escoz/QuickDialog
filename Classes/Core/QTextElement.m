@@ -44,11 +44,9 @@
 }
 
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(self.class)];
-    if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NSStringFromClass(self.class)];
-    }
+- (void)setCurrentCell:(QTableViewCell *)cell
+{
+    super.currentCell = cell;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.detailTextLabel.numberOfLines = 0;
@@ -60,8 +58,6 @@
     cell.detailTextLabel.text = _text;
 
     cell.imageView.image = _image;
-
-    return cell;
 }
 
 

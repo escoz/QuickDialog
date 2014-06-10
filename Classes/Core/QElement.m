@@ -17,10 +17,6 @@
 #import "QElement.h"
 #import "QuickDialog.h"
 
-@interface QElement ()
-@property(nonatomic, strong) Class cellClass;
-@end
-
 @implementation QElement {
 }
 
@@ -52,7 +48,7 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
-    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QD_%@_%@", self.key, self.class]];
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QD_%@_%@", self.key, self.cellClass]];
     if (cell == nil) {
         cell = [self createNewCell:tableView];
     }

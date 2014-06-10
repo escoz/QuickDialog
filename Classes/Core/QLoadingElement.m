@@ -23,11 +23,10 @@
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
+- (void)setCurrentCell:(QTableViewCell *)cell
+{
+    super.currentCell = cell;
 
-    QTableViewCell *cell = (QTableViewCell *)[super getCellForTableView:tableView controller:controller];
-
-    [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIActivityIndicatorView *spin;
 
@@ -48,7 +47,7 @@
 
     [[cell contentView] addSubview:spin];
     cell.textLabel.text = self.title;
-    return cell;
+
 }
 
 - (void)handleAction:(UIViewController *)controller {

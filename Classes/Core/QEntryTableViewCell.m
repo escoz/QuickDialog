@@ -31,6 +31,7 @@ static const int QCellMargin = 8;
 }
 
 
+
 - (QEntryElement *)currentEntryElement
 {
     return (QEntryElement *)self.currentElement;
@@ -47,7 +48,7 @@ static const int QCellMargin = 8;
         [self.textField removeFromSuperview];
     }
     _textField = textField;
-    self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+    self.textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     self.textField.borderStyle = UITextBorderStyleNone;
     self.textField.delegate = self;
     self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -58,12 +59,11 @@ static const int QCellMargin = 8;
     [self.contentView addSubview:self.textField];
 }
 
-
-- (instancetype)init {
-    self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"QuickformEntryElement"];
-    if (self!=nil){
+- (instancetype)initWithReuseIdentifier:(NSString *)string
+{
+    self = [super initWithReuseIdentifier:string];
+    if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-
         [self createSubviews];
     }
     return self;
@@ -112,7 +112,8 @@ static const int QCellMargin = 8;
     [self.keyboardNextButton setEnabled:[self.currentEntryElement.parentSection.rootElement findElementToFocusOnAfter:self.currentEntryElement]!=nil];
 }
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView{
+- (void)prepareForElement:(QEntryElement *)element
+{
     [self applyAppearanceForElement:element];
 
     self.textLabel.text = element.title;
@@ -306,6 +307,7 @@ static const int QCellMargin = 8;
     [super applyAppearanceForElement:element];
 
     QAppearance *appearance = element.appearance;
+    self.textField.textAlignment = appearance.entryAlignment;
     self.textField.font = appearance.entryFont;
     self.textField.textColor = element.enabled ? appearance.entryTextColorEnabled : appearance.entryTextColorDisabled;
 }

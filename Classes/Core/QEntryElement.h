@@ -50,7 +50,7 @@
 @property(nonatomic, copy) NSString *customDateFormat;
 
 - (instancetype)init;
-- (instancetype)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
+- (instancetype)initWithTitle:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 
 - (BOOL)canTakeFocus;
 

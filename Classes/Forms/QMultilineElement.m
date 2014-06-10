@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import "QElement.h"
 #import "QMultilineElement.h"
 #import "QMultilineTextViewController.h"
 
@@ -21,6 +22,7 @@
     self = [super init];
     if (self) {
         self.presentationMode = QPresentationModePopover;
+        self.cellClass = [QEntryTableViewCell class];
     }
 
     return self;
@@ -28,23 +30,22 @@
 
 - (instancetype)initWithTitle:(NSString *)title value:(NSString *)text
 {
-    if ((self = [super initWithTitle:title Value:nil])) {
+    if (self == self.init) {
         self.textValue = text;
-        self.presentationMode = QPresentationModePopover;
     }
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QEntryTableViewCell *cell = (QEntryTableViewCell *) [super getCellForTableView:tableView controller:controller];
+- (void)setCurrentCell:(QTableViewCell *)currentCell
+{
+    super.currentCell = currentCell;
+
+    QEntryTableViewCell *cell = (QEntryTableViewCell *) currentCell;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = NO;
     cell.textField.textAlignment = self.appearance.labelAlignment;
-
-    return cell;
 }
-
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath
 {

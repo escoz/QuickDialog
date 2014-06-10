@@ -19,31 +19,26 @@
 
 
 - (instancetype)init {
-    return [self initWithValue:0.0];
+    self = [super init];
+    if (self!=nil)
+    {
+        self.cellClass = [QSliderTableViewCell class];
+        self.enabled = YES;
+        self.minimumValue = 0.0;
+        self.maximumValue = 1.0;
+    }
+    return self;
 }
 
 - (instancetype)initWithTitle:(NSString *)title value:(float)value {
-    self = [super initWithTitle:title Value:nil] ;
+    self = [self init] ;
     if (self) {
-        _floatValue = value;
-        _minimumValue = 0.0;
-        _maximumValue = 1.0;
-        self.enabled = YES;
+        self.title = title;
+        self.floatValue = value;
     }
     return self;
 }
 
-
-- (instancetype)initWithValue:(float)value {
-    self = [super init];
-    if (self) {
-        _floatValue = value;
-        _minimumValue = 0.0;
-        _maximumValue = 1.0;
-        self.enabled = YES;
-    }
-    return self;
-}
 
 - (void)fetchValueIntoObject:(id)obj {
 	if (_key==nil)
@@ -57,25 +52,20 @@
     [self handleEditingChanged];
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QSliderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QSliderTableViewCell%@%@", self.key, self.class]];
-    if (cell == nil){
-        cell = [[QSliderTableViewCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QSliderTableViewCell%@%@", self.key, NSStringFromClass(self.class)]];
-    }
-    [cell applyAppearanceForElement:self];
-
+- (void)setCurrentCell:(QTableViewCell *)currentCell
+{
+    super.currentCell = currentCell;
+    QSliderTableViewCell *cell = (QSliderTableViewCell *) currentCell;
     [cell.slider addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventValueChanged];
-    cell.slider.minimumValue = _minimumValue;
-    cell.slider.maximumValue = _maximumValue;
-    cell.slider.value = _floatValue;
+    cell.slider.minimumValue = self.minimumValue;
+    cell.slider.maximumValue = self.maximumValue;
+    cell.slider.value = self.floatValue;
     
     cell.textLabel.text = _title;
     cell.detailTextLabel.text = [_value description];
     cell.imageView.image = _image;
     cell.accessoryType = self.accessoryType != UITableViewCellAccessoryNone ? self.accessoryType : ( self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone);
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
-    
-    return cell;
 }
 
 - (void)setNilValueForKey:(NSString *)key;

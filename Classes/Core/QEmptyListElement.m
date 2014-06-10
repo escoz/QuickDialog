@@ -23,17 +23,14 @@
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QEmptyListElement"];
-    if (cell == nil){
-        cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"QEmptyListElement"];
-    }
+- (void)setCurrentCell:(QTableViewCell *)cell
+{
+    super.currentCell = cell;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _title;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.textLabel.textColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
     cell.textLabel.font = self.appearance.titleFont;
-    return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {

@@ -17,18 +17,12 @@
   QFloatElement: shows an slider control.
 */
 
-@interface QSliderElement : QLabelElement {
+@interface QSliderElement : QLabelElement
     
-    float _floatValue;
-    float _minimumValue;
-    float _maximumValue;
-}
-
 @property(nonatomic, assign) float floatValue;
 @property(nonatomic, assign) float minimumValue;
 @property(nonatomic, assign) float maximumValue;
 
 - (instancetype)init;
 - (instancetype)initWithTitle:(NSString *)string value:(float)value;
-- (instancetype)initWithValue:(float)value;
 @end

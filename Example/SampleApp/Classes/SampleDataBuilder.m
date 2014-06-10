@@ -111,11 +111,11 @@
     subForm.controllerName = @"ExampleViewController";
 
     [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" Value:@"Some value"]];
-    QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" Value:nil Placeholder:@"type here"];
+    QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" value:nil placeholder:@"type here"];
     elementEntry.key = @"entryElement";
     [subsection addElement:elementEntry];
     [subsection addElement:[[QBooleanElement alloc] initWithTitle:@"boolean" BoolValue:YES]];
-    [subsection addElement:[[QEntryElement alloc] initWithTitle:@"Entry 2" Value:@"Some value" Placeholder:@"type here two"]];
+    [subsection addElement:[[QEntryElement alloc] initWithTitle:@"Entry 2" value:@"Some value" placeholder:@"type here two"]];
     [subForm addSection:subsection];
 
     QSection *subsection2 = [[QSection alloc] init];
@@ -154,7 +154,7 @@
 
     [sliders addSection:detailsSection];
 
-    [detailsSection addElement:[[QSliderElement alloc] initWithValue:0.5]];
+    [detailsSection addElement:[[QSliderElement alloc] initWithTitle:nil value:0.5]];
     [detailsSection addElement:[[QSliderElement alloc] initWithTitle:@"Short" value:0.7]];
     [detailsSection addElement:[[QSliderElement alloc] initWithTitle:@"Really really long title" value:1]];
 
@@ -181,7 +181,10 @@
     boolElement.controllerAction = @"exampleAction:";
 	boolElement.key = @"bool1";
 	
-    QEntryElement *entryElement = [[QEntryElement alloc] initWithTitle:@"Entry Element" Value:nil Placeholder:@"type here"];
+    QEntryElement *entryElement = [[QEntryElement alloc] init];
+    entryElement.title = @"Entry Element";
+    entryElement.value  = nil;
+    entryElement.placeholder = @"type here";
 	entryElement.key = @"entry1";
 
     controls.footer = @"More controls will be added.";
@@ -311,7 +314,6 @@
     QRadioSection *section3 = [[QRadioSection alloc] initWithItems:[NSArray arrayWithObjects:@"Football", @"Soccer", @"Formula 1", nil] selected:0 title:@"Sport"];
     section3.multipleAllowed = YES;
     section3.title = @"Multiple selection";
-    __weak QRadioSection *_section3 = section2;
     [root addSection:section3];
 
     return root;
@@ -488,24 +490,24 @@
     
     QSection *firstSection = [[QSection alloc] initWithTitle:@"Entry Elements"];
     
-    [firstSection addElement:[[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"placeholder"]];
-    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Title" Value:nil Placeholder:@"text here"]];
-    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" Value:@"" Placeholder:@"text"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"placeholder"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Title" value:nil placeholder:@"text here"]];
+    [firstSection addElement:[[QEntryElement alloc] initWithTitle:@"With Very Long Title" value:@"" placeholder:@"text"]];
     
     [root addSection:firstSection];
 
     QSection *prefixSuffixSection = [[QSection alloc] initWithTitle:@"Prefix/suffix"];
     prefixSuffixSection.footer = @"Prefix/suffix is only displayed, they're not stored in textValue";
 
-    QEntryElement *prefixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with prefix"];
+    QEntryElement *prefixElement = [[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"with prefix"];
     prefixElement.keyboardType = UIKeyboardTypeNumberPad;
     prefixElement.prefix = @"$";
 
-    QEntryElement *suffixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with suffix"];
+    QEntryElement *suffixElement = [[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"with suffix"];
     suffixElement.keyboardType = UIKeyboardTypeNumberPad;
     suffixElement.suffix = @" km";
 
-    QEntryElement *prefixSuffixElement = [[QEntryElement alloc] initWithTitle:nil Value:nil Placeholder:@"with prefix and suffix"];
+    QEntryElement *prefixSuffixElement = [[QEntryElement alloc] initWithTitle:nil value:nil placeholder:@"with prefix and suffix"];
     prefixSuffixElement.prefix = @"* ";
     prefixSuffixElement.suffix = @" *";
 
@@ -516,31 +518,31 @@
     
     QSection *traitsSection = [[QSection alloc] initWithTitle:@"UITextInputTraits"];
     
-    QEntryElement *secureElement = [[QEntryElement alloc] initWithTitle:@"Secure" Value:@"" Placeholder:@"YES"];
+    QEntryElement *secureElement = [[QEntryElement alloc] initWithTitle:@"Secure" value:@"" placeholder:@"YES"];
     secureElement.secureTextEntry = YES;
     [traitsSection addElement:secureElement];
 
-    QEntryElement *keyboardTypeElement = [[QEntryElement alloc] initWithTitle:@"KB Type" Value:@"" Placeholder:@"NumberPad"];
+    QEntryElement *keyboardTypeElement = [[QEntryElement alloc] initWithTitle:@"KB Type" value:@"" placeholder:@"NumberPad"];
     keyboardTypeElement.keyboardType = UIKeyboardTypeNumberPad;
     [traitsSection addElement:keyboardTypeElement];
     
-    QEntryElement *keyboardAppearanceElement = [[QEntryElement alloc] initWithTitle:@"KB Appearance" Value:@"" Placeholder:@"Alert"];
+    QEntryElement *keyboardAppearanceElement = [[QEntryElement alloc] initWithTitle:@"KB Appearance" value:@"" placeholder:@"Alert"];
     keyboardAppearanceElement.keyboardAppearance = UIKeyboardAppearanceAlert;
     [traitsSection addElement:keyboardAppearanceElement];
     
-    QEntryElement *correctionElement = [[QEntryElement alloc] initWithTitle:@"Correction" Value:@"" Placeholder:@"No"];
+    QEntryElement *correctionElement = [[QEntryElement alloc] initWithTitle:@"Correction" value:@"" placeholder:@"No"];
     correctionElement.autocorrectionType = UITextAutocorrectionTypeNo;
     [traitsSection addElement:correctionElement];
     
-    QEntryElement *capitalizationElement = [[QEntryElement alloc] initWithTitle:@"Capitalization" Value:@"" Placeholder:@"AllCharacters"];
+    QEntryElement *capitalizationElement = [[QEntryElement alloc] initWithTitle:@"Capitalization" value:@"" placeholder:@"AllCharacters"];
     capitalizationElement.autocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
     [traitsSection addElement:capitalizationElement];
     
-    QEntryElement *googleElement = [[QEntryElement alloc] initWithTitle:@"Return Key" Value:@"" Placeholder:@"Google"];
+    QEntryElement *googleElement = [[QEntryElement alloc] initWithTitle:@"Return Key" value:@"" placeholder:@"Google"];
     googleElement.returnKeyType = UIReturnKeyGoogle;
     [traitsSection addElement:googleElement];
     
-    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto Return" Value:@"" Placeholder:@"YES"];
+    QEntryElement *enableReturnElement = [[QEntryElement alloc] initWithTitle:@"Auto Return" value:@"" placeholder:@"YES"];
     enableReturnElement.enablesReturnKeyAutomatically = YES;
     [traitsSection addElement:enableReturnElement];
 
@@ -555,7 +557,7 @@
     [root addSection:traitsSection];
 
     QSection *imageSection = [[QSection alloc] initWithTitle:@"With images"];
-    QEntryElement *regularEntryElementWithImage = [[QEntryElement alloc] initWithTitle:@"Entry with image" Value:@"" Placeholder:@"YES"];
+    QEntryElement *regularEntryElementWithImage = [[QEntryElement alloc] initWithTitle:@"Entry with image" value:@"" placeholder:@"YES"];
     regularEntryElementWithImage.image = [UIImage imageNamed:@"keyboard"];
     [imageSection addElement:regularEntryElementWithImage];
     QMultilineElement *multilineWithImage = [QMultilineElement new];

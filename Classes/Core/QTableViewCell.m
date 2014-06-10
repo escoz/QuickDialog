@@ -22,6 +22,7 @@ static const int QCellMinimumLabelWidth = 80;
 
 @implementation QTableViewCell
 
+
 - (instancetype)initWithReuseIdentifier:(NSString *)string {
     self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:string];
     return self;

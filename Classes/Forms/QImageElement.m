@@ -23,27 +23,24 @@
 
 @end
 
-@implementation QImageElement {
-    enum UIImagePickerControllerSourceType _source;
-}
+@implementation QImageElement
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _source = UIImagePickerControllerSourceTypePhotoLibrary;
+        self.source = UIImagePickerControllerSourceTypePhotoLibrary;
         self.imageMaxLength = FLT_MAX;
+        self.cellClass = [QImageTableViewCell class];
     }
 
     return self;
 }
 
 - (instancetype)initWithTitle:(NSString *)aTitle detailImage:(UIImage *)anImage {
-    self = [super init];
+    self = [self init];
     if (self) {
         self.title = aTitle;
         self.imageValue = anImage;
-        self.imageMaxLength = FLT_MAX;
-        _source = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     return self;
 }
@@ -55,14 +52,14 @@
     }
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformImageElement"];
+- (void)setCurrentCell:(QTableViewCell *)currentCell
+{
+    super.currentCell = currentCell;
+    QImageTableViewCell *cell = (QImageTableViewCell *) currentCell;
     if (cell == nil) {
         cell = [[QImageTableViewCell alloc] init];
     }
-    [cell prepareForElement:self inTableView:tableView];
-
-    return cell;
+    [cell prepareForElement:self];
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {

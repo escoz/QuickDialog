@@ -22,42 +22,46 @@
 
 - (instancetype)init {
     self = [super init];
-    _badgeColor = nil;
-    _badgeTextColor = [UIColor whiteColor];
+    if (self!=nil)
+    {
+        self.badgeColor = nil;
+        self.badgeTextColor = [UIColor whiteColor];
+        self.cellClass = [QBadgeTableCell class];
+    }
     return self;
 }
 
 - (instancetype)initWithTitle:(NSString *)title Value:(NSString *)value {
     self = [self init];
 	if (self) {
-		_title = title;
-		_badge = value;
+		self.title = title;
+		self.badge = value;
 	}
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QBadgeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, self.class]];
-    if (cell == nil){
-        cell = [[QBadgeTableCell alloc] initWithReuseIdentifier:[NSString stringWithFormat:@"QBadgeTableCell%@%@", self.key, NSStringFromClass(self.class)]];
-    }
+- (void)setCurrentCell:(QTableViewCell *)currentCell
+{
+    super.currentCell = currentCell;
 
-    cell.textLabel.text = _title;
+    QBadgeTableCell *cell = (QBadgeTableCell *) currentCell;
+    cell.textLabel.text = self.title;
     [cell applyAppearanceForElement:self];
-    cell.badgeLabel.textColor = _badgeTextColor;
+    cell.badgeLabel.textColor = self.badgeTextColor;
 
     if ([cell respondsToSelector:@selector(tintColor)])
-        cell.badgeLabel.badgeColor = _badgeColor == nil ? cell.tintColor : _badgeTextColor;
+        cell.badgeLabel.badgeColor = self.badgeColor == nil ? cell.tintColor : self.badgeTextColor;
     else
-       cell.badgeLabel.badgeColor = _badgeColor;
+        cell.badgeLabel.badgeColor = self.badgeColor;
 
-    cell.badgeLabel.text = _badge;
+    cell.badgeLabel.text = self.badge;
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.imageView.image = _image;
+    cell.imageView.image = self.image;
     cell.accessoryType = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
-    return cell;
+
 }
+
 
 @end

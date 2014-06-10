@@ -53,8 +53,9 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
     }*/
 }
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
-   [super prepareForElement:element inTableView:tableView];
+- (void)prepareForElement:(QEntryElement *)element
+{
+    [super prepareForElement:element];
 
    self.imageElement = (QImageElement *) element;
 

@@ -88,13 +88,14 @@
     } else {
         element.dateValue = self.pickerView.date;
     }
-    [self prepareForElement:self.currentDateTimeElement inTableView:self.currentElement.currentTableView];
+    [self prepareForElement:self.currentDateTimeElement];
     
     [element handleEditingChanged:self];
 }
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView {
-    [super prepareForElement:element inTableView:tableView];
+- (void)prepareForElement:(QEntryElement *)element
+{
+    [super prepareForElement:element];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 

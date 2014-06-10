@@ -25,7 +25,7 @@
 
 @property (nonatomic, retain) UIButton *imageViewButton;
 
-- (void)prepareForElement:(QEntryElement *)element inTableView:(QuickDialogTableView *)tableView;
+- (void)prepareForElement:(QEntryElement *)element;
 - (void)createSubviews;
 
 @end

@@ -81,8 +81,9 @@
     return self;
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
+- (void)setCurrentCell:(QTableViewCell *)cell
+{
+    super.currentCell = cell;
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     switch (_mode) {
@@ -98,13 +99,11 @@
             [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
             [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
             break;
-		case UIDatePickerModeCountDownTimer:
-			break;
+        case UIDatePickerModeCountDownTimer:
+            break;
     }
 
     cell.detailTextLabel.text = [dateFormatter stringFromDate:_dateValue];
-
-    return cell;
 }
 
 

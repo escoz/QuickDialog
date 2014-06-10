@@ -46,10 +46,9 @@
     [self handleEditingChanged];
 }
 
-
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    self.currentController = controller;
-    QTableViewCell *cell = [[QTableViewCell alloc] init];
+- (void)setCurrentCell:(QTableViewCell *)cell
+{
+    super.currentCell = cell;
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     cell.backgroundColor = [UIColor clearColor];
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
@@ -58,9 +57,8 @@
     control.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     control.selectedSegmentIndex = _selected;
     control.tag = 4321;
-    
     [cell.contentView addSubview:control];
-    return cell;
+
 }
 
 - (BOOL)canTakeFocus {

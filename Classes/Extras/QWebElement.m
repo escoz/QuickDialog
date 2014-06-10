@@ -41,11 +41,11 @@
     _url = [[NSBundle mainBundle] pathForResource:filename ofType:@"html"];
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
+- (void)setCurrentCell:(QTableViewCell *)cell
+{
+    super.currentCell = cell;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    return cell;
 }
 
 

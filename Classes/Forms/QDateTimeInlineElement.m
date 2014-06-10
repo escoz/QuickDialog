@@ -73,7 +73,7 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-
+    // we really need to subclass here to create different cell types
     QTableViewCell *cell= self.showPickerInCell ? [self getInlineCell:tableView] : [self getEntryCell:tableView];
     return cell;
 }
@@ -100,7 +100,7 @@
          cell = [[QDateEntryTableViewCell alloc] init];
     }
     _cell = cell;
-    [cell prepareForElement:self inTableView:tableView];
+    [cell prepareForElement:self];
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;

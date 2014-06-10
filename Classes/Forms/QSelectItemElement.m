@@ -30,17 +30,17 @@
     }
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
+- (void)setCurrentCell:(QTableViewCell *)cell
 {
-    UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
+    super.currentCell = cell;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     if ([self.selectSection.selectedIndexes containsObject:[NSNumber numberWithUnsignedInteger:_index]] ) {
         [self updateCell:cell];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    return cell;
 }
+
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath
 {
