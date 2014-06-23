@@ -47,6 +47,15 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+//    QElement *element = [section getVisibeElementForIndex: indexPath.row];
+    
+//    if ([element isKindOfClass:[QButtonElement class]]) {
+//        QButtonElement *button = (QButtonElement*)element;
+//        if ([button.title isEqualToString:@"Ajouter une photo"]) {
+//            return UITableViewCellEditingStyleInsert;
+//        }
+//    }
+    
     return section.canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 

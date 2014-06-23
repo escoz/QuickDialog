@@ -1,8 +1,8 @@
 {
-	"grouped": true,
-	"title": "Mission Yopa!",
+    "grouped": true,
+    "title": "Mission Yopa!",
     "controllerName": "JsonDataSampleController",
-	"sections": [
+    "sections": [
 
         { "title":"Explications", "elements":[
             {"type":"QWebElement",  "title":"Le brief sur notre blog", "url":"http://www.mobeye-app.com/missions-coca-cola/"},
@@ -22,18 +22,21 @@
             },
             {  "type":"QButtonElement", "key":"button2", "title":"Ordres des catégories", "presentationMode":"Normal",
                 "sections": [
-                { "type":"QSortingSection", "title":"Ordres des catégories", "items":["Café en poudre", "Filtres", "Dosettes"]}
+                { "title":"Explications", "elements":[
+            {  "type":"QTextElement", "text":"Concernant le produit Omo micro, à quel prix est-il vendu et quelle est la quantité disponible en rayon ?"},
+                ]},
+                { "type":"QSortingSection", "title":"Ordres des catégories", "items":["Café en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
                 ]
-            }
+            },
+            {  "type":"QButtonElement", "title":"Ajouter une photo ? (3 max)", "controllerAction":"insertPhoto:"}
             ]
         } ,
         { "title":"Et pour finir", "elements":[
             {  "type":"QTextElement", "text":"Souhaitez-vous nous laisser un commentaire concernant cette mission ?"},
             {  "type":"QMultilineElement", "title":"Votre commentaire"},
             {  "type":"QButtonElement", "title":"Soumettre le questionnaire"},
-            {  "type":"QButtonElement", "key":"bt4", "title":"Read Values from Form", "controllerAction":"readValuesFromForm:"},
             {  "type":"QProgressElement"},
         ]}
-	]
+    ]
 
 }

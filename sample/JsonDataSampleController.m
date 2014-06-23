@@ -36,6 +36,41 @@
     [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0,2)] withRowAnimation:UITableViewRowAnimationFade];
 
 }
+
+-(void)insertPhoto:(QElement *)button {
+    NSInteger count = 0;
+    for(QElement *el in button.parentSection.elements)
+    {
+        if ([el isKindOfClass:[QButtonElement class]]) {
+            if ([((QButtonElement *)el).title hasPrefix:@"Prendre une photo"]) {
+                count++;
+            }
+        }
+    }
+    
+    if (count < 3) {
+        QButtonElement *myButton = [[QButtonElement alloc] initWithTitle:[NSString stringWithFormat:@"Prendre une photo (%d/3)", count+1] Value:@""];
+        myButton.controllerAction = @"deletePhoto:";
+
+        [button.parentSection insertElement:myButton atIndex:button.getIndexPath.row];
+        [self.quickDialogTableView insertRowsAtIndexPaths:@[button.getIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:button.getIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
+    } else {
+        NSString *msg = @"Maximum atteint";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ajouter un photo"
+                                                        message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    
+}
+
+-(void)deletePhoto:(QElement *)button {
+    NSIndexPath *idx = button.getIndexPath;
+    [button.parentSection.elements removeObjectAtIndex:idx.row];
+    [self.quickDialogTableView deleteRowsAtIndexPaths:@[idx] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:idx.section] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 -(void)readValuesFromForm:(QElement *)button {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [self.root fetchValueUsingBindingsIntoObject:dict];
