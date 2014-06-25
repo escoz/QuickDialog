@@ -11,7 +11,6 @@
         { "title":"Rélévé du produit n°1", "elements":[
             {  "type":"QTextElement", "text":"Concernant le produit Omo micro, à quel prix est-il vendu et quelle est la quantité disponible en rayon ?"},
             {  "type":"QWebElement",  "title":"Visuel du produit", "html":"<img src='http://www.mobeye-app.com/wp-content/uploads/2013/07/Coca-Cola_car_Volkswagen_Type-2_2_Curitiba-770x300.jpg' />"},
-            {  "type":"QLabelElement",  "title":"QLabelElement"},
             {  "type":"QPickerElement", "title":"Présence produit",  "items":[["Oui", "Non", "En rupture"]]},
             {  "type":"QEntryElement", "title":"Prix de l'objet", "suffix":"€",  "keyboardType":"DecimalPad" },
             {  "type":"QEntryElement", "title":"Quantité", "suffix":" unité(s)",  "keyboardType":"DecimalPad" },
@@ -23,10 +22,12 @@
             },
             {  "type":"QButtonElement", "key":"button2", "title":"Ordres des catégories", "presentationMode":"Normal",
                 "sections": [
-                { "title":"Explications", "elements":[
-            {  "type":"QTextElement", "text":"Concernant le produit Omo micro, à quel prix est-il vendu et quelle est la quantité disponible en rayon ?"},
-                ]},
-                { "type":"QSortingSection", "title":"Ordres des catégories", "items":["Café en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
+                { "title":"Explications", "elements":
+                    [
+                        {  "type":"QTextElement", "text":"Vous devez réarranger les éléments dans l'ordre qui vous convient"},
+                    ]
+                },
+                { "type":"QSortingSection", "title":"Ordres des catégories", "items":["Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
                 ]
             },
             {  "type":"QButtonElement", "title":"Ajouter une photo ? (3 max)", "controllerAction":"insertPhoto:"}
