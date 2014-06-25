@@ -11,7 +11,7 @@
 // ANY KIND, either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
-#import "QLabelElement.h"
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -21,11 +21,11 @@
   QLabelElement2: simple inline label + value cell
 */
 
-@interface QLabelElement2 : QLabelElement {
+@interface QLabelElement2 : QRootElement {
 
-//@protected
-//    id _value;
-//    UIImage *_image;
+@protected
+    id _value;
+    UIImage *_image;
 }
 
 @property(nonatomic, strong) UIImage *image;
@@ -36,7 +36,7 @@
 
 @property(nonatomic) BOOL keepSelected;
 
-- (QLabelElement2 *)initWithTitle:(NSString *)string Value:(NSString *)param;
+- (QLabelElement2 *)initWithTitle:(NSString *)string Value:(id)value;
 
 - (void)setIconNamed:(NSString *)name;
 @end

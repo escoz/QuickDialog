@@ -20,16 +20,18 @@
     UITableViewCellAccessoryType _accessoryType;
 }
 
-//@synthesize image = _image;
-//@synthesize value = _value;
+
+@synthesize image = _image;
+@synthesize value = _value;
 @synthesize accessoryType = _accessoryType;
 @synthesize keepSelected = _keepSelected;
 
-- (QLabelElement2 *)initWithTitle:(NSString *)title Value:(NSString *)value {
-    self = [self init];
-    if (self) {
-        _title = title;
-    }
+
+- (QLabelElement2 *)initWithTitle:(NSString *)title Value:(id)value {
+    self = [super init];
+    _title = title;
+    _value = value;
+    _keepSelected = YES;
     return self;
 }
 
@@ -52,19 +54,17 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    
-    self.controller = controller;
-    
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformsdfsdfEntryElement"];
     if (cell==nil){
         cell = [[QTableViewCell alloc] init];
     }
     
-    [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = @"hello";
-    cell.imageView.image = self.image;
-//    [cell prepareForElement:self inTableView:tableView];
+    cell.textLabel.text = _title;
+    cell.detailTextLabel.text = [_value description];
+    cell.imageView.image = _image;
+    cell.accessoryType = _accessoryType != UITableViewCellAccessoryNone ? _accessoryType : self.controllerAccessoryAction != nil ? UITableViewCellAccessoryDetailDisclosureButton : ( self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone);
+    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil || self.onSelected!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
     return cell;
 }
 
