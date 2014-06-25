@@ -38,6 +38,11 @@
 }
 
 -(void)insertPhoto:(QElement *)button {
+    if (!self.quickDialogTableView.editing) {
+        self.quickDialogTableView.allowsSelectionDuringEditing = YES;  // required for picker element to be selectable
+        [self.quickDialogTableView.controller setEditing:YES animated:YES];
+    }
+    
     NSInteger count = 0;
     for(QElement *el in button.parentSection.elements)
     {
@@ -54,19 +59,17 @@
 
         [button.parentSection insertElement:myButton atIndex:button.getIndexPath.row];
         [self.quickDialogTableView insertRowsAtIndexPaths:@[button.getIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
+        if (count+1==3) {
+            button.enabled = NO;
+        }
         [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:button.getIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    } else {
-        NSString *msg = @"Maximum atteint";
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ajouter un photo"
-                                                        message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
     }
-    
 }
 
 -(void)deletePhoto:(QElement *)button {
     NSIndexPath *idx = button.getIndexPath;
     [button.parentSection.elements removeObjectAtIndex:idx.row];
+    ((QButtonElement *)[button.parentSection.elements lastObject]).enabled = YES;
     [self.quickDialogTableView deleteRowsAtIndexPaths:@[idx] withRowAnimation:UITableViewRowAnimationBottom];
     [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:idx.section] withRowAnimation:UITableViewRowAnimationNone];
 }
