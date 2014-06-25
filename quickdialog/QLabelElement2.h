@@ -13,13 +13,30 @@
 //
 #import "QLabelElement.h"
 
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "QRootElement.h"
+
 /**
- QEntryElement: input field to allow you to collect values from the user. Automatically resizes so that all entries in the same sections look alike.
- */
+  QLabelElement2: simple inline label + value cell
+*/
 
-@interface QLabelElement2 : QLabelElement
+@interface QLabelElement2 : QLabelElement {
 
-- (QLabelElement2 *)init;
-- (QLabelElement2 *)initWithTitle:(NSString *)string Value:(NSString *)param Placeholder:(NSString *)string1;
+//@protected
+//    id _value;
+//    UIImage *_image;
+}
 
+@property(nonatomic, strong) UIImage *image;
+@property(nonatomic, assign) NSString *imageNamed;
+@property(nonatomic, assign) UITableViewCellAccessoryType accessoryType;
+@property(nonatomic, strong) id value;
+
+
+@property(nonatomic) BOOL keepSelected;
+
+- (QLabelElement2 *)initWithTitle:(NSString *)string Value:(NSString *)param;
+
+- (void)setIconNamed:(NSString *)name;
 @end

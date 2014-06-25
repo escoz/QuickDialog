@@ -12,24 +12,43 @@
 // permissions and limitations under the License.
 //
 
+
 #import "QLabelElement2.h"
-#import "QuickDialog.h"
 
-@implementation QLabelElement2
-
-- (QLabelElement2 *)init {
-    self = [super init];
-    if (self){
-    }
-    return self;
+@implementation QLabelElement2 {
+@private
+    UITableViewCellAccessoryType _accessoryType;
 }
 
-- (QLabelElement2 *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
+//@synthesize image = _image;
+//@synthesize value = _value;
+@synthesize accessoryType = _accessoryType;
+@synthesize keepSelected = _keepSelected;
+
+- (QLabelElement2 *)initWithTitle:(NSString *)title Value:(NSString *)value {
     self = [self init];
     if (self) {
         _title = title;
     }
     return self;
+}
+
+-(void)setImageNamed:(NSString *)name {
+    if(name != nil) {
+        self.image = [UIImage imageNamed:name];
+    }
+}
+
+- (NSString *)imageNamed {
+    return nil;
+}
+
+-(void)setIconNamed:(NSString *)name {
+#if __IPHONE_7_0
+    if ([self.image respondsToSelector:@selector(imageWithRenderingMode:)] && name != nil) {
+        self.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
+#endif
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -49,9 +68,10 @@
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    [super selected:tableView controller:controller indexPath:indexPath];
-    
+- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
+    [super selected:tableView controller:controller indexPath:path];
+    if (!self.keepSelected)
+        [tableView deselectRowAtIndexPath:path animated:YES];
 }
 
 
