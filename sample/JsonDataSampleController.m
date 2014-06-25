@@ -38,6 +38,8 @@
 }
 
 -(void)insertPhoto:(QElement *)button {
+    NSString *takePictureTitle = @"Prendre une photo";
+    
     if (!self.quickDialogTableView.editing) {
         self.quickDialogTableView.allowsSelectionDuringEditing = YES;  // required for picker element to be selectable
         [self.quickDialogTableView.controller setEditing:YES animated:YES];
@@ -47,14 +49,14 @@
     for(QElement *el in button.parentSection.elements)
     {
         if ([el isKindOfClass:[QButtonElement class]]) {
-            if ([((QButtonElement *)el).title hasPrefix:@"Prendre une photo"]) {
+            if ([((QButtonElement *)el).title isEqualToString:takePictureTitle]) {
                 count++;
             }
         }
     }
     
     if (count < 3) {
-        QButtonElement *myButton = [[QButtonElement alloc] initWithTitle:[NSString stringWithFormat:@"Prendre une photo (%d/3)", count+1] Value:@""];
+        QButtonElement *myButton = [[QButtonElement alloc] initWithTitle:takePictureTitle Value:@""];
         myButton.controllerAction = @"deletePhoto:";
 
         [button.parentSection insertElement:myButton atIndex:button.getIndexPath.row];
@@ -66,12 +68,27 @@
     }
 }
 
--(void)deletePhoto:(QElement *)button {
-    NSIndexPath *idx = button.getIndexPath;
-    [button.parentSection.elements removeObjectAtIndex:idx.row];
-    ((QButtonElement *)[button.parentSection.elements lastObject]).enabled = YES;
+-(void)takePicture:(QElement *)button {
+//    NSIndexPath *idx = button.getIndexPath;
+//    [button.parentSection.elements removeObjectAtIndex:idx.row];
+//    ((QButtonElement *)[button.parentSection.elements lastObject]).enabled = YES;
+//    [self.quickDialogTableView deleteRowsAtIndexPaths:@[idx] withRowAnimation:UITableViewRowAnimationBottom];
+//    [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:idx.section] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(BOOL)shouldDeleteElement:(QElement *)element{
+    
+    NSIndexPath *idx = element.getIndexPath;
+    [element.parentSection.elements removeObjectAtIndex:idx.row];
+    
+    // make the strong assumption that the last element is a button
+    ((QButtonElement *)[element.parentSection.elements lastObject]).enabled = YES;
+    
     [self.quickDialogTableView deleteRowsAtIndexPaths:@[idx] withRowAnimation:UITableViewRowAnimationBottom];
     [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:idx.section] withRowAnimation:UITableViewRowAnimationNone];
+    
+    // Return no if you want to delete the cell or redraw the tableView yourself
+    return NO;
 }
 
 -(void)readValuesFromForm:(QElement *)button {
