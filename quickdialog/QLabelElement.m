@@ -55,7 +55,11 @@
 
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QTableViewCell *cell = (QTableViewCell *) [super getCellForTableView:tableView controller:controller];
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformsLabelElement"];
+    if (cell==nil){
+        cell = [[QTableViewCell alloc] init];
+    }
+    [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _title;
     cell.detailTextLabel.text = [_value description];
