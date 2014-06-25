@@ -10,6 +10,7 @@
 		194C3FC214EDF0510036C9E7 /* DOAutocompleteTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */; };
 		194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */; };
 		1D9398AB1938CFD3008CE1FA /* sample.json.bck in Resources */ = {isa = PBXBuildFile; fileRef = 1D9398AA1938CFD3008CE1FA /* sample.json.bck */; };
+		1DA1E9CB195ACFF70087C905 /* QLabelElement2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA1E9CA195ACFF70087C905 /* QLabelElement2.m */; };
 		2C542394145ADEBD0026A152 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		2C54239F145ADF2B0026A152 /* QuickDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9E /* QuickDialog.h */; settings = {ATTRIBUTES = (); }; };
 		2C5423A1145ADF2B0026A152 /* QDecimalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */; };
@@ -197,6 +198,8 @@
 		194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
 		194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		1D9398AA1938CFD3008CE1FA /* sample.json.bck */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.json.bck; sourceTree = SOURCE_ROOT; };
+		1DA1E9C9195ACFF70087C905 /* QLabelElement2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLabelElement2.h; path = quickdialog/QLabelElement2.h; sourceTree = SOURCE_ROOT; };
+		1DA1E9CA195ACFF70087C905 /* QLabelElement2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLabelElement2.m; path = quickdialog/QLabelElement2.m; sourceTree = SOURCE_ROOT; };
 		2C542393145ADEBD0026A152 /* libQuickDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQuickDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE450A9145ADFAC00B77D0E /* libQuickDialog-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "libQuickDialog-Prefix.pch"; path = "libQuickDialog/libQuickDialog-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		5C50E02C8F4B4A90F96E33D6 /* QMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMapAnnotation.h; sourceTree = "<group>"; };
@@ -332,7 +335,6 @@
 		D87A4D8E169DB59500D4DD63 /* QAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAppearance.h; path = quickdialog/QAppearance.h; sourceTree = SOURCE_ROOT; };
 		D87A4D8F169DB59500D4DD63 /* QAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QAppearance.m; path = quickdialog/QAppearance.m; sourceTree = SOURCE_ROOT; };
 		D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DOAutocompleteTextField.h; path = quickdialog/DOAutocompleteTextField.h; sourceTree = SOURCE_ROOT; };
-		D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOAutocompleteTextField.m; path = quickdialog/DOAutocompleteTextField.m; sourceTree = SOURCE_ROOT; };
 		D87B4FC514F16197006DA833 /* QAutoEntryElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAutoEntryElement.h; path = quickdialog/QAutoEntryElement.h; sourceTree = SOURCE_ROOT; };
 		D87B4FC614F16197006DA833 /* QAutoEntryElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QAutoEntryElement.m; path = quickdialog/QAutoEntryElement.m; sourceTree = SOURCE_ROOT; };
 		D87B4FC714F16197006DA833 /* QAutoEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QAutoEntryTableViewCell.h; path = quickdialog/QAutoEntryTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -435,29 +437,29 @@
 		5C50EF103443BF3C70224C57 /* extras */ = {
 			isa = PBXGroup;
 			children = (
-				5C50E4957330C22B16CE6938 /* QWebViewController.m */,
-				5C50E5DF83EB5A046AD7FA16 /* QMapViewController.h */,
-				5C50E02C8F4B4A90F96E33D6 /* QMapAnnotation.h */,
-				5C50E71B9FC6B0B50346A5D0 /* QPickerTableViewCell.h */,
-				5C50E2552AD0DC4C813AF542 /* QPickerTabDelimitedStringParser.h */,
-				5C50EED1BB826D7F7B08055A /* QPickerElement.h */,
-				5C50E56A3F1DC223669D7417 /* QMapAnnotation.m */,
-				5C50EE213AF724E6D1B766D5 /* QPickerValueParser.h */,
-				5C50EA8E14F439693332B438 /* QPickerTableViewCell.m */,
-				5C50E498C230A92D1BD3C3EA /* QPickerTabDelimitedStringParser.m */,
-				5C50E5B0F3DD0967B8186785 /* QMapElement.m */,
-				5C50EB6C6D11D1CE7DA80298 /* QWebElement.h */,
-				5C50E32E2F0A5EF03EB569E9 /* QPickerElement.m */,
-				5C50E93B5273C6D9050767C6 /* QWebElement.m */,
-				5C50EFD565900926223F50D4 /* QMapViewController.m */,
-				5C50E53A66F53B07BEE29CE5 /* QWebViewController.h */,
-				5C50E2A0B4D9AE7C4A1D2F71 /* QMapElement.h */,
-				5C50E4D5FFEF3EC8D7D7C219 /* UIColor+ColorUtilities.m */,
-				5C50EAFF4C085E41DE56306E /* QColorPickerElement.m */,
-				5C50ECD6A4FF1F8136ECB485 /* UIColor+ColorUtilities.h */,
 				5C50EF9F76D029609CD376E2 /* QColorPickerElement.h */,
-				5C50E5ABA79D20529225F870 /* QMailElement.m */,
+				5C50EAFF4C085E41DE56306E /* QColorPickerElement.m */,
 				5C50E503C0E833EBDE810039 /* QMailElement.h */,
+				5C50E5ABA79D20529225F870 /* QMailElement.m */,
+				5C50E02C8F4B4A90F96E33D6 /* QMapAnnotation.h */,
+				5C50E56A3F1DC223669D7417 /* QMapAnnotation.m */,
+				5C50E2A0B4D9AE7C4A1D2F71 /* QMapElement.h */,
+				5C50E5B0F3DD0967B8186785 /* QMapElement.m */,
+				5C50E5DF83EB5A046AD7FA16 /* QMapViewController.h */,
+				5C50EFD565900926223F50D4 /* QMapViewController.m */,
+				5C50EED1BB826D7F7B08055A /* QPickerElement.h */,
+				5C50E32E2F0A5EF03EB569E9 /* QPickerElement.m */,
+				5C50E2552AD0DC4C813AF542 /* QPickerTabDelimitedStringParser.h */,
+				5C50E498C230A92D1BD3C3EA /* QPickerTabDelimitedStringParser.m */,
+				5C50E71B9FC6B0B50346A5D0 /* QPickerTableViewCell.h */,
+				5C50EA8E14F439693332B438 /* QPickerTableViewCell.m */,
+				5C50EE213AF724E6D1B766D5 /* QPickerValueParser.h */,
+				5C50EB6C6D11D1CE7DA80298 /* QWebElement.h */,
+				5C50E93B5273C6D9050767C6 /* QWebElement.m */,
+				5C50E53A66F53B07BEE29CE5 /* QWebViewController.h */,
+				5C50E4957330C22B16CE6938 /* QWebViewController.m */,
+				5C50ECD6A4FF1F8136ECB485 /* UIColor+ColorUtilities.h */,
+				5C50E4D5FFEF3EC8D7D7C219 /* UIColor+ColorUtilities.m */,
 			);
 			path = extras;
 			sourceTree = "<group>";
@@ -571,7 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
-				D87B4FC414F16197006DA833 /* DOAutocompleteTextField.m */,
+				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
 				D894F38915559D34000E3C0F /* NSMutableArray+IMSExtensions.m */,
 				D8F180E813F0599A009B0CC9 /* NSMutableArray+MoveObject.h */,
@@ -612,10 +614,10 @@
 				D8F180E813F0599A009B0C9A /* QDecimalTableViewCell.m */,
 				D8F180E813F0599A009B0CC1 /* QDynamicDataSection.h */,
 				D8F180E813F0599A009B0CBF /* QDynamicDataSection.m */,
-				D87A4D6C169DABA900D4DD63 /* QElement+Appearance.h */,
-				D87A4D6D169DABA900D4DD63 /* QElement+Appearance.m */,
 				D811F89213EC905B00E3922B /* QElement.h */,
 				D811F89313EC905B00E3922B /* QElement.m */,
+				D87A4D6C169DABA900D4DD63 /* QElement+Appearance.h */,
+				D87A4D6D169DABA900D4DD63 /* QElement+Appearance.m */,
 				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
 				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
 				D811F89413EC905B00E3922B /* QEntryElement.h */,
@@ -634,6 +636,8 @@
 				D8820C7916A352990070AE22 /* QImageTableViewCell.m */,
 				D811F89A13EC905B00E3922B /* QLabelElement.h */,
 				D811F89B13EC905B00E3922B /* QLabelElement.m */,
+				1DA1E9C9195ACFF70087C905 /* QLabelElement2.h */,
+				1DA1E9CA195ACFF70087C905 /* QLabelElement2.m */,
 				D8F180E813F0599A009B0CBD /* QLoadingElement.h */,
 				D8F180E813F0599A009B0CBB /* QLoadingElement.m */,
 				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
@@ -650,10 +654,10 @@
 				D811F8B313EC905B00E3922B /* QRadioSection.m */,
 				D8F180E813F0599A009B0CB8 /* QRootBuilder.h */,
 				D8F180E813F0599A009B0CB6 /* QRootBuilder.m */,
-				D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */,
-				D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */,
 				D811F8B413EC905B00E3922B /* QRootElement.h */,
 				D811F8B513EC905B00E3922B /* QRootElement.m */,
+				D871018414BB3D7A00156D9D /* QRootElement+JsonBuilder.h */,
+				D871018514BB3D7A00156D9D /* QRootElement+JsonBuilder.m */,
 				D811F8B613EC905B00E3922B /* QSection.h */,
 				D811F8B713EC905B00E3922B /* QSection.m */,
 				D8B394671514E8B3008ECB34 /* QSegmentedElement.h */,
@@ -671,18 +675,16 @@
 				F2304355156CDFDD006D0A56 /* QTextField.h */,
 				F2304356156CDFDD006D0A56 /* QTextField.m */,
 				D8F180E813F0599A009B0C9E /* QuickDialog.h */,
+				D811F8A213EC905B00E3922B /* QuickDialogController.h */,
+				D811F8A313EC905B00E3922B /* QuickDialogController.m */,
 				5C50E22D2B906D69252BE7B4 /* QuickDialogController+Animations.h */,
 				5C50EBF53D28B761CBA809FF /* QuickDialogController+Animations.m */,
 				F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */,
-				D8B39449151394E1008ECB34 /* QEmptyListElement.h */,
 				F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */,
-				D8B3944A151394E1008ECB34 /* QEmptyListElement.m */,
 				D811F8A413EC905B00E3922B /* QuickDialogController+Loading.h */,
 				D811F8A513EC905B00E3922B /* QuickDialogController+Loading.m */,
 				D8E0748C165A7D08004E7035 /* QuickDialogController+Navigation.h */,
 				D8E0748D165A7D08004E7035 /* QuickDialogController+Navigation.m */,
-				D811F8A213EC905B00E3922B /* QuickDialogController.h */,
-				D811F8A313EC905B00E3922B /* QuickDialogController.m */,
 				D811F8A613EC905B00E3922B /* QuickDialogDataSource.h */,
 				D811F8A713EC905B00E3922B /* QuickDialogDataSource.m */,
 				5C50E2AA6DF16A845C049EAE /* QuickDialogDelegate.h */,
@@ -692,20 +694,9 @@
 				D811F8AB13EC905B00E3922B /* QuickDialogTableView.h */,
 				D811F8AC13EC905B00E3922B /* QuickDialogTableView.m */,
 				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
-				D8B3944B151394E1008ECB34 /* QMultilineElement.h */,
 				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
-				D8B3944C151394E1008ECB34 /* QMultilineElement.m */,
 				D811F8AD13EC905B00E3922B /* quickform-Prefix.pch */,
-				D8B3944E151394E1008ECB34 /* QMultilineTextViewController.h */,
-				D8B3944F151394E1008ECB34 /* QMultilineTextViewController.m */,
-				D8B394671514E8B3008ECB34 /* QSegmentedElement.h */,
-				D8B394681514E8B3008ECB34 /* QSegmentedElement.m */,
-				F2F23A26152DD48B00EB6688 /* QuickDialogController+Helpers.h */,
-				F2F23A26152DD48B00EB6686 /* QuickDialogController+Helpers.m */,
-				D8F180E813F0599A009B0CD3 /* QuickDialogWebController.h */,
-				D8F180E813F0599A009B0CD1 /* QuickDialogWebController.m */,
 				194C3FC014EDF0510036C9E7 /* DOAutocompleteTextField.h */,
-				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
 			);
 			name = quickdialog;
 			path = quickform;
@@ -970,6 +961,7 @@
 			files = (
 				D811F8FB13EC907200E3922B /* AboutController.m in Sources */,
 				D811F8FC13EC907200E3922B /* SampleDataBuilder.m in Sources */,
+				1DA1E9CB195ACFF70087C905 /* QLabelElement2.m in Sources */,
 				D811F8FE13EC907200E3922B /* LoginController.m in Sources */,
 				D811F8FF13EC907200E3922B /* LoginInfo.m in Sources */,
 				D811F90013EC907200E3922B /* main.m in Sources */,

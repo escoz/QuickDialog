@@ -12,63 +12,46 @@
 // permissions and limitations under the License.
 //
 
-
 #import "QLabelElement2.h"
+#import "QuickDialog.h"
 
-@implementation QLabelElement2 {
-@private
-    UITableViewCellAccessoryType _accessoryType;
-}
+@implementation QLabelElement2
 
-
-@synthesize image = _image;
-@synthesize value = _value;
-@synthesize accessoryType = _accessoryType;
-@synthesize keepSelected = _keepSelected;
-
-
-- (QLabelElement2 *)initWithTitle:(NSString *)title Value:(id)value {
+- (QLabelElement2 *)init {
     self = [super init];
-    _title = title;
-    _value = value;
-    _keepSelected = YES;
+    if (self){
+    }
     return self;
 }
 
--(void)setImageNamed:(NSString *)name {
-    if(name != nil) {
-        self.image = [UIImage imageNamed:name];
+- (QLabelElement2 *)initWithTitle:(NSString *)title Value:(NSString *)value Placeholder:(NSString *)placeholder {
+    self = [self init];
+    if (self) {
+        _title = title;
     }
+    return self;
 }
-
-- (NSString *)imageNamed {
-    return nil;
-}
-
--(void)setIconNamed:(NSString *)name {
-#if __IPHONE_7_0
-    if ([self.image respondsToSelector:@selector(imageWithRenderingMode:)] && name != nil) {
-        self.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    }
-#endif
-}
-
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
-    QTableViewCell *cell = (QTableViewCell *) [super getCellForTableView:tableView controller:controller];
+    
+    self.controller = controller;
+    
+    QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformsdfsdfEntryElement"];
+    if (cell==nil){
+        cell = [[QTableViewCell alloc] init];
+    }
+    
+    [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = _title;
-    cell.detailTextLabel.text = [_value description];
-    cell.imageView.image = _image;
-    cell.accessoryType = _accessoryType != UITableViewCellAccessoryNone ? _accessoryType : self.controllerAccessoryAction != nil ? UITableViewCellAccessoryDetailDisclosureButton : ( self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone);
-    cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil || self.onSelected!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = @"hello";
+    cell.imageView.image = self.image;
+//    [cell prepareForElement:self inTableView:tableView];
     return cell;
 }
 
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path {
-    [super selected:tableView controller:controller indexPath:path];
-    if (!self.keepSelected)
-        [tableView deselectRowAtIndexPath:path animated:YES];
+- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
+    [super selected:tableView controller:controller indexPath:indexPath];
+    
 }
 
 
