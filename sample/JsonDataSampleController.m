@@ -4,7 +4,37 @@
 #import "JsonDataSampleController.h"
 #import <objc/runtime.h>
 
+//to discuss : define vs. const UIColor
+#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
+#define blue_color [UIColor colorWithRed:0.932 green:0.976 blue:1.000 alpha:1.000]
+
 @implementation JsonDataSampleController
+
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement {
+    self = [super initWithRoot:rootElement];
+    if (self) {
+        for (QSection *section in rootElement.sections) {
+            for (QElement *element in section.elements) {
+                if ([element isKindOfClass:[QEntryElement class]]) {
+                    [((QEntryElement *)element) setDelegate:self];
+                }
+            }
+        }
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+    if (!self.quickDialogTableView.editing) {
+        self.quickDialogTableView.allowsSelectionDuringEditing = YES;  // required for picker element to be selectable
+        [self.quickDialogTableView.controller setEditing:YES animated:YES];
+    }
+}
+
+- (void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    [self changeAppearance:element];
+}
 
 -(void)handleReloadJson:(QElement *)button {
     self.root = [[QRootElement alloc] initWithJSONFile:@"jsondatasample"];
@@ -39,11 +69,6 @@
 
 -(void)insertPhoto:(QElement *)button {
     NSString *takePictureTitle = @"Prendre une photo";
-    
-    if (!self.quickDialogTableView.editing) {
-        self.quickDialogTableView.allowsSelectionDuringEditing = YES;  // required for picker element to be selectable
-        [self.quickDialogTableView.controller setEditing:YES animated:YES];
-    }
     
     NSInteger count = 0;
     for(QElement *el in button.parentSection.elements)
@@ -89,6 +114,18 @@
     
     // Return no if you want to delete the cell or redraw the tableView yourself
     return NO;
+}
+
+-(void)changeAppearance:(QElement *)element {
+    if ([element isKindOfClass:[QEntryElement class]])
+    {
+        if ([((QEntryElement *)element).textValue length]) {
+            QAppearance *appearance = [element.appearance copy];
+            [appearance setBackgroundColorEnabled:[((QEntryElement *)element).textValue length] ? green_color : [UIColor clearColor]];
+            [element setAppearance:appearance];
+            [self.quickDialogTableView reloadCellForElements:element, nil];
+        }
+    }
 }
 
 -(void)readValuesFromForm:(QElement *)button {

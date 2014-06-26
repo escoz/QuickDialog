@@ -5,8 +5,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface JsonDataSampleController : QuickDialogController {
+@interface JsonDataSampleController : QuickDialogController <QuickDialogEntryElementDelegate> {
 
 }
+
+- (QuickDialogController *)initWithRoot:(QRootElement *)rootElement;
 
 @end
