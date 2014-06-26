@@ -93,12 +93,25 @@
     }
 }
 
--(void)takePicture:(QElement *)button {
-//    NSIndexPath *idx = button.getIndexPath;
-//    [button.parentSection.elements removeObjectAtIndex:idx.row];
-//    ((QButtonElement *)[button.parentSection.elements lastObject]).enabled = YES;
+-(void)takePicture:(QElement *)element {
+//    NSIndexPath *idx = element.getIndexPath;
+//    [element.parentSection.elements removeObjectAtIndex:idx.row];
+//    ((QButtonElement *)[element.parentSection.elements lastObject]).enabled = YES;
 //    [self.quickDialogTableView deleteRowsAtIndexPaths:@[idx] withRowAnimation:UITableViewRowAnimationBottom];
 //    [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:idx.section] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+-(void)submit:(QElement *)element {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [self.root fetchValueUsingBindingsIntoObject:dict];
+    
+    NSString *msg = @"Values:";
+    for (NSString *aKey in dict){
+        msg = [msg stringByAppendingFormat:@"\n- %@: %@", aKey, [dict valueForKey:aKey]];
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
+                                                    message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 -(BOOL)shouldDeleteElement:(QElement *)element{
