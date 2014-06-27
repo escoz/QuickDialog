@@ -20,14 +20,14 @@
                 { "type":"QSelectSection", "title":"Produits présents", "bind":"selectedItems:produits", "items":["Yopa!", "Daniau", "Laitière", "Danette"], "multipleAllowed":true}
                 ]
             },
-            {  "type":"QButtonElement", "key":"button2", "title":"Ordres des catégories", "presentationMode":"Normal",
+            {  "type":"QLabelElement", "key":"button2", "title":"Ordre des catégories", "presentationMode":"Normal",
                 "sections": [
                 { "title":"Explications", "elements":
                     [
                         {  "type":"QTextElement", "text":"Vous devez réarranger les éléments dans l'ordre qui vous convient"},
                     ]
                 },
-                { "type":"QSortingSection", "title":"Ordres des catégories", "items":["Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
+                { "type":"QSortingSection", "title":"Ordre des catégories", "items":["Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes","Café en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
                 ]
             },
             {  "type":"QButtonElement", "title":"Ajouter une photo ? (3 max)", "controllerAction":"insertPhoto:"}
