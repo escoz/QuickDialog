@@ -32,6 +32,22 @@
     }
 }
 
+- (void)displayViewControllerForRoot:(QRootElement *)element {
+    QuickDialogController *newController = [self controllerForRoot: element];
+
+    __weak QRootElement *weakElement = element;
+    __weak JsonDataSampleController *weakSelf = self;
+    __weak QuickDialogController *weakController = newController;
+    newController.willDisappearCallback = ^ {
+//        weakSelf.textValue = weakTextController.textView.text;
+//        [[weakSelf.quickDialogTableView cellForElement:weakSelf] setNeedsDisplay];
+//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [weakSelf changeAppearance:weakElement];
+    };
+    
+    [self displayViewController:newController withPresentationMode:element.presentationMode];
+}
+
 - (void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
     [self changeAppearance:element];
 }
@@ -138,6 +154,12 @@
             [element setAppearance:appearance];
             [self.quickDialogTableView reloadCellForElements:element, nil];
         }
+    } else if ([element isKindOfClass:[QBadgeElement class]]) {
+        QAppearance *appearance = [element.appearance copy];
+        [appearance setBackgroundColorEnabled:green_color];
+        [element setAppearance:appearance];
+        ((QBadgeElement *)element).badge = [NSString stringWithFormat: @"%d", [[(QSelectSection *)[(QRootElement *)element getSectionForIndex:0] selectedIndexes] count]];
+        [self.quickDialogTableView reloadCellForElements:element, nil];
     }
 }
 
@@ -152,19 +174,6 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
                                                     message:msg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
-}
-
--(void)handleSetValuesDirectly:(QElement *)button {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    QLabelElement *elDate = (QLabelElement *) [[self root] elementWithKey:@"date"];
-    elDate.value = [dateFormatter stringFromDate:[NSDate date]];
-
-    [dateFormatter setDateFormat:@"HH-mm-ss"];
-    QLabelElement *elTime = (QLabelElement *) [[self root] elementWithKey:@"time"];
-    elTime.value = [dateFormatter stringFromDate:[NSDate date]];
-
-    [self.quickDialogTableView reloadCellForElements:elDate, elTime, nil];
 }
 
 -(void)handleBindWithJsonData:(QElement *)button {
