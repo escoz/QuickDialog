@@ -33,15 +33,12 @@
 }
 
 - (void)displayViewControllerForRoot:(QRootElement *)element {
+    [element setAppearance:nil];
     QuickDialogController *newController = [self controllerForRoot: element];
 
-    __weak QRootElement *weakElement = element;
     __weak JsonDataSampleController *weakSelf = self;
-    __weak QuickDialogController *weakController = newController;
+    __weak QRootElement *weakElement = element;
     newController.willDisappearCallback = ^ {
-//        weakSelf.textValue = weakTextController.textView.text;
-//        [[weakSelf.quickDialogTableView cellForElement:weakSelf] setNeedsDisplay];
-//        [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [weakSelf changeAppearance:weakElement];
     };
     
