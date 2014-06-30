@@ -29,6 +29,11 @@ static const int kCellMinimumLabelWidth = 80;
 {
     [super layoutSubviews];
 
+    if (self.editing) {
+        self.editingAccessoryType = self.accessoryType;
+    }
+
+    
     [self layoutSubviewsInsideBounds:self.contentView.bounds];
 
 }
