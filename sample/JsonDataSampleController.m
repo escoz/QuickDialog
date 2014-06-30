@@ -121,6 +121,24 @@
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [self.root fetchValueUsingBindingsIntoObject:dict];
     
+    for (QSection *s in self.root.sections){
+        for (QElement *el in s.elements) {
+            if ([el isKindOfClass:[QRootElement class]]) {
+                for (QSection *ss in ((QRootElement *)el).sections){
+                    if ([ss isKindOfClass:[QSortingSection class]]) {
+                        NSMutableArray *items = [[NSMutableArray alloc] init];
+                        for (QSelectItemElement *selectItemEl in((QSortingSection *) ss).elements) {
+                            [items addObject:selectItemEl.title];
+                        }
+                        [dict setObject:items forKey:el.key];
+                    } else if ([ss isKindOfClass:[QSelectSection class]]) {
+                        [dict setObject:((QSelectSection *) ss).selectedItems forKey:el.key];
+                    }
+                }
+            }
+        }
+    }
+    
     NSString *msg = @"Values:";
     for (NSString *aKey in dict){
         msg = [msg stringByAppendingFormat:@"\n- %@: %@", aKey, [dict valueForKey:aKey]];
@@ -158,7 +176,22 @@
         QAppearance *appearance = [element.appearance copy];
         [appearance setBackgroundColorEnabled:green_color];
         [element setAppearance:appearance];
-        ((QBadgeElement *)element).badge = [NSString stringWithFormat: @"%d", [[(QSelectSection *)[(QRootElement *)element getSectionForIndex:0] selectedIndexes] count]];
+        NSString *badge = @"";
+        for(QSection *section in ((QRootElement *)element).sections) {
+            if ([section isKindOfClass:[QSelectSection class]]) {
+                badge = [NSString stringWithFormat: @"%lu", (unsigned long)[[(QSelectSection *)section selectedIndexes] count]];
+            } else if ([section isKindOfClass:[QSortingSection class]]) {
+                badge = [NSString stringWithFormat: @"%lu", (unsigned long)[[(QSortingSection *)section elements] count]];
+            }
+        }
+        ((QBadgeElement *)element).badge = badge;
+        [self.quickDialogTableView reloadCellForElements:element, nil];
+    } else if ([element isKindOfClass:[QLabelElement class]]) {
+        QAppearance *appearance = [element.appearance copy];
+        [appearance setBackgroundColorEnabled:green_color];
+        [element setAppearance:appearance];
+        [self.quickDialogTableView cellForElement:element].accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.quickDialogTableView cellForElement:element].accessoryView = nil;
         [self.quickDialogTableView reloadCellForElements:element, nil];
     }
 }

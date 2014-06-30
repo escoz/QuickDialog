@@ -15,12 +15,12 @@
             {  "type":"QEntryElement", "title":"Prix de l'objet", "suffix":"€", "bind":"textValue:prix", "keyboardType":"DecimalPad" },
             {  "type":"QEntryElement", "title":"Quantité", "suffix":" unité(s)", "bind":"textValue:quantité",  "keyboardType":"DecimalPad" },
             {  "type":"QPickerElement", "title":"Code EAN", "bind":"textValue:code ean", "items":[["001", "002", "002"], ["2013", "2014", "2015"]]},
-            {  "type":"QBadgeElement", "key":"button", "title":"Produits présents", "presentationMode":"Normal",
+            {  "type":"QBadgeElement", "key":"products", "title":"Produits présents", "presentationMode":"Normal",
                "sections": [
-                { "type":"QSelectSection", "title":"Produits présents", "bind":"selectedItems:produits", "items":["Yopa!", "Daniau", "Laitière", "Danette"], "multipleAllowed":true}
+                { "type":"QSelectSection", "title":"Produits présents", "items":["Yopa!", "Daniau", "Laitière", "Danette"], "multipleAllowed":true}
                 ]
             },
-            {  "type":"QLabelElement", "key":"button2", "title":"Ordre des catégories", "presentationMode":"Normal",
+            {  "type":"QBadgeElement", "key":"layout", "title":"Ordre des catégories", "presentationMode":"Normal",
                 "sections": [
                 { "title":"Explications", "elements":
                     [
