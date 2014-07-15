@@ -24,7 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    QRootElement *root = [SampleDataBuilder create];
+    QRootElement *root = [[QRootElement alloc] initWithJSONFile:@"sample"];
     ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
     if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
@@ -38,6 +38,7 @@
     [self.window makeKeyAndVisible];
 
     [self runAppearanceTests];
+
     return YES;
 }
 

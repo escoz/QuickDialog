@@ -6,12 +6,13 @@
 
         { "title":"Explications", "elements":[
             {"type":"QWebElement",  "title":"Le brief sur notre blog", "url":"http://www.mobeye-app.com/missions-coca-cola/"},
+            {  "type":"QButtonElement", "title":"Get data from JSON", "controllerAction":"handleBindWithJsonData:"},
         ]
         },
         { "title":"Rélévé du produit n°1", "elements":[
             {  "type":"QTextElement", "text":"Concernant le produit Omo micro, à quel prix est-il vendu et quelle est la quantité disponible en rayon ?"},
             {  "type":"QWebElement",  "title":"Visuel du produit", "html":"<img src='http://www.mobeye-app.com/wp-content/uploads/2013/07/Coca-Cola_car_Volkswagen_Type-2_2_Curitiba-770x300.jpg' />"},
-            {  "type":"QPickerElement", "title":"Présence produit", "bind":"textValue:presence",  "items":[["Oui", "Non", "En rupture"]]},
+            {  "type":"QPickerElement", "title":"Présence produit", "bind":"value:presence",  "items":[["Oui", "Non", "En rupture"]]},
             {  "type":"QEntryElement", "title":"Prix de l'objet", "suffix":"€", "bind":"textValue:prix", "keyboardType":"DecimalPad" },
             {  "type":"QEntryElement", "title":"Quantité", "suffix":" unité(s)", "bind":"textValue:quantité",  "keyboardType":"DecimalPad" },
             {  "type":"QPickerElement", "title":"Code EAN", "bind":"textValue:code ean", "items":[["001", "002", "002"], ["2013", "2014", "2015"]]},
