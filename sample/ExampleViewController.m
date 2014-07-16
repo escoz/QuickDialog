@@ -30,6 +30,7 @@
             }
         }
     }
+    
     return self;
 }
 
@@ -39,7 +40,10 @@
         self.quickDialogTableView.allowsSelectionDuringEditing = YES;  // required for picker element to be selectable
         [self.quickDialogTableView.controller setEditing:YES animated:YES];
     }
+}
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [self handleBindWithJsonData:nil];
 }
 
@@ -101,12 +105,15 @@
                         }
                         [dict setObject:items forKey:el.key];
                     } else if ([ss isKindOfClass:[QSelectSection class]]) {
-                        [dict setObject:((QSelectSection *) ss).selectedItems forKey:el.key];
+                        NSArray *array = ((QSelectSection *) ss).selectedIndexes ? ((QSelectSection *) ss).selectedIndexes : @[];
+                        [dict setObject:array forKey:ss.key];
                     }
                 }
             }
         }
     }
+
+    [[NSUserDefaults standardUserDefaults] setObject:dict forKey:@"jsonanswers"];
 
     NSString *msg = @"Values:";
     for (NSString *aKey in dict){
@@ -168,10 +175,7 @@
 }
 
 -(void)handleBindWithJsonData:(QElement *)button {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"answers" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-    NSError *error;
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"jsonanswers"];
     [self.root bindToObject:dictionary];
     [self.quickDialogTableView reloadData];
 }

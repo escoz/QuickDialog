@@ -833,6 +833,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					D80B0E3213E052DF00FA85CA = {
+						DevelopmentTeam = E5L7NC8M9T;
+					};
+				};
 			};
 			buildConfigurationList = D80B0E2D13E052DF00FA85CA /* Build configuration list for PBXProject "QuickDialog" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1103,6 +1108,8 @@
 		D80B0E4C13E052DF00FA85CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
@@ -1110,6 +1117,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -1119,6 +1127,8 @@
 		D80B0E4D13E052DF00FA85CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
@@ -1126,6 +1136,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
