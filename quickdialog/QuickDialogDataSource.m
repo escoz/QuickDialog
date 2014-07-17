@@ -89,7 +89,7 @@
     if ([section isKindOfClass:[QSortingSection class]]){
         return ([(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
     }
-    QElement *element = [section getVisibleElementForIndex:indexPath.row];
+//    QElement *element = [section getVisibleElementForIndex:indexPath.row];
     
     return tableView.editing;
 }

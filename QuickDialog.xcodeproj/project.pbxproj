@@ -58,11 +58,19 @@
 		5C50EF790D3A46FEDCDF0FA0 /* QMapElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E5B0F3DD0967B8186785 /* QMapElement.m */; };
 		5C50EFADB34DF61735763BCF /* UIColor+ColorUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E4D5FFEF3EC8D7D7C219 /* UIColor+ColorUtilities.m */; };
 		5C50EFD5861E1FE78AD17F06 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E93B5273C6D9050767C6 /* QWebElement.m */; };
+		D2728B80197818CC008B4F26 /* QBarcodeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2728B7E197818CC008B4F26 /* QBarcodeElement.h */; };
+		D2728B81197818CC008B4F26 /* QBarcodeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2728B7F197818CC008B4F26 /* QBarcodeElement.m */; };
+		D2728B8419781BAC008B4F26 /* QBarcodeScannerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D2728B8219781BAC008B4F26 /* QBarcodeScannerViewController.h */; };
+		D2728B8719781FD6008B4F26 /* QBarcodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2728B8319781BAC008B4F26 /* QBarcodeScannerViewController.m */; };
+		D2728B8A197820AA008B4F26 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2728B89197820AA008B4F26 /* CoreMedia.framework */; };
+		D2728B8C197820D6008B4F26 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2728B8B197820D6008B4F26 /* AVFoundation.framework */; };
+		D2728B8E197820E2008B4F26 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2728B8D197820E2008B4F26 /* QuartzCore.framework */; };
+		D2728B8F19782109008B4F26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
+		D2728B911978213A008B4F26 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2728B901978213A008B4F26 /* ImageIO.framework */; };
 		D2BF290D1977F2400001FB73 /* QPhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */; };
 		D2BF290E1977F2400001FB73 /* QPhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
-		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
 		D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571B17E115580052EBE3 /* QClassicAppearance.h */; };
 		D80F572017E115580052EBE3 /* QClassicAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D80F571C17E115580052EBE3 /* QClassicAppearance.m */; };
 		D80F572117E115580052EBE3 /* QFlatAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571D17E115580052EBE3 /* QFlatAppearance.h */; };
@@ -232,6 +240,14 @@
 		5C50EED1BB826D7F7B08055A /* QPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPickerElement.h; sourceTree = "<group>"; };
 		5C50EF9F76D029609CD376E2 /* QColorPickerElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QColorPickerElement.h; sourceTree = "<group>"; };
 		5C50EFD565900926223F50D4 /* QMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapViewController.m; sourceTree = "<group>"; };
+		D2728B7E197818CC008B4F26 /* QBarcodeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBarcodeElement.h; path = quickdialog/QBarcodeElement.h; sourceTree = SOURCE_ROOT; };
+		D2728B7F197818CC008B4F26 /* QBarcodeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBarcodeElement.m; path = quickdialog/QBarcodeElement.m; sourceTree = SOURCE_ROOT; };
+		D2728B8219781BAC008B4F26 /* QBarcodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QBarcodeScannerViewController.h; path = quickdialog/QBarcodeScannerViewController.h; sourceTree = SOURCE_ROOT; };
+		D2728B8319781BAC008B4F26 /* QBarcodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QBarcodeScannerViewController.m; path = quickdialog/QBarcodeScannerViewController.m; sourceTree = SOURCE_ROOT; };
+		D2728B89197820AA008B4F26 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		D2728B8B197820D6008B4F26 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D2728B8D197820E2008B4F26 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D2728B901978213A008B4F26 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPhotoElement.h; path = quickdialog/QPhotoElement.h; sourceTree = SOURCE_ROOT; };
 		D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoElement.m; path = quickdialog/QPhotoElement.m; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -413,13 +429,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2728B911978213A008B4F26 /* ImageIO.framework in Frameworks */,
+				D2728B8F19782109008B4F26 /* CoreGraphics.framework in Frameworks */,
+				D2728B8E197820E2008B4F26 /* QuartzCore.framework in Frameworks */,
+				D2728B8C197820D6008B4F26 /* AVFoundation.framework in Frameworks */,
+				D2728B8A197820AA008B4F26 /* CoreMedia.framework in Frameworks */,
 				D82A4B0017BEF033000986C8 /* MessageUI.framework in Frameworks */,
 				D8D0294417BEDA5200D9B6CE /* CoreLocation.framework in Frameworks */,
 				D8D0294217BEDA4D00D9B6CE /* MapKit.framework in Frameworks */,
 				2CE450B3145AE43D00B77D0E /* libQuickDialog.a in Frameworks */,
 				D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */,
 				D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */,
-				D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +509,10 @@
 		D80B0E3613E052DF00FA85CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D2728B901978213A008B4F26 /* ImageIO.framework */,
+				D2728B8D197820E2008B4F26 /* QuartzCore.framework */,
+				D2728B8B197820D6008B4F26 /* AVFoundation.framework */,
+				D2728B89197820AA008B4F26 /* CoreMedia.framework */,
 				D82A4AFF17BEF033000986C8 /* MessageUI.framework */,
 				D8D0294317BEDA5200D9B6CE /* CoreLocation.framework */,
 				D8D0294117BEDA4D00D9B6CE /* MapKit.framework */,
@@ -575,6 +599,10 @@
 			children = (
 				D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */,
 				D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */,
+				D2728B7E197818CC008B4F26 /* QBarcodeElement.h */,
+				D2728B7F197818CC008B4F26 /* QBarcodeElement.m */,
+				D2728B8219781BAC008B4F26 /* QBarcodeScannerViewController.h */,
+				D2728B8319781BAC008B4F26 /* QBarcodeScannerViewController.m */,
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
 				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
@@ -754,6 +782,7 @@
 				D81F2EEF14BBAFCE0066C372 /* QuickDialogTableDelegate.h in Headers */,
 				D81F2EF014BBAFCE0066C372 /* QuickDialogTableView.h in Headers */,
 				D81F2EF114BBAFCE0066C372 /* QRadioElement.h in Headers */,
+				D2728B80197818CC008B4F26 /* QBarcodeElement.h in Headers */,
 				D81F2EF214BBAFCE0066C372 /* QRadioItemElement.h in Headers */,
 				D81F2EF314BBAFCE0066C372 /* QRadioSection.h in Headers */,
 				D81F2EF414BBAFCE0066C372 /* QRootElement.h in Headers */,
@@ -761,6 +790,7 @@
 				D81F2EF614BBAFCE0066C372 /* QSection.h in Headers */,
 				D81F2EF714BBAFCE0066C372 /* QSortingSection.h in Headers */,
 				D82A4AF317BEE90E000986C8 /* QFloatTableViewCell.h in Headers */,
+				D2728B8419781BAC008B4F26 /* QBarcodeScannerViewController.h in Headers */,
 				D81F2EF814BBAFCE0066C372 /* QTextElement.h in Headers */,
 				D8F180E813F0599A009B0CBA /* QuickDialogEntryElementDelegate.h in Headers */,
 				D8F180E813F0599A009B0CBE /* QLoadingElement.h in Headers */,
@@ -916,6 +946,7 @@
 				D87A4D6F169DABA900D4DD63 /* QElement+Appearance.m in Sources */,
 				2C5423B5145ADF2B0026A152 /* QEntryElement.m in Sources */,
 				2C5423B7145ADF2B0026A152 /* QEntryTableViewCell.m in Sources */,
+				D2728B8719781FD6008B4F26 /* QBarcodeScannerViewController.m in Sources */,
 				2C5423B9145ADF2B0026A152 /* QFloatElement.m in Sources */,
 				2C5423C3145ADF2B0026A152 /* QuickDialogController.m in Sources */,
 				2C5423C5145ADF2B0026A152 /* QuickDialogController+Loading.m in Sources */,
@@ -935,6 +966,7 @@
 				D8F180E813F0599A009B0CA8 /* QBadgeLabel.m in Sources */,
 				D8F180E813F0599A009B0CB3 /* QBindingEvaluator.m in Sources */,
 				D871018714BB3D7A00156D9D /* QRootElement+JsonBuilder.m in Sources */,
+				D2728B81197818CC008B4F26 /* QBarcodeElement.m in Sources */,
 				D8F180E813F0599A009B0CB7 /* QRootBuilder.m in Sources */,
 				D8F180E813F0599A009B0CBC /* QLoadingElement.m in Sources */,
 				D8F180E813F0599A009B0CC0 /* QDynamicDataSection.m in Sources */,
@@ -1118,7 +1150,7 @@
 				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
 				INFOPLIST_FILE = "sample/quickdialogexample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1137,7 +1169,7 @@
 				GCC_PREFIX_HEADER = "sample/quickdialogexample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "$(SOURCE_ROOT)/Build";
 				INFOPLIST_FILE = "sample/quickdialogexample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

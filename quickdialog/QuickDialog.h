@@ -63,7 +63,8 @@
 #import "QAutoEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
 #import "QPhotoElement.h"
-//#import "QBarCodeElement.h"
+#import "QBarcodeScannerViewController.h"
+#import "QBarcodeElement.h"
 
 #import "QRootBuilder.h"
 

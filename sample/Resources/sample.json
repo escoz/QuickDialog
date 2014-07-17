@@ -31,7 +31,8 @@
                 { "type":"QSortingSection", "title":"Ordre des catégories", "items":["Cafe en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
                 ]
             },
-            {  "type":"QPhotoElement", "title":"Ajouter une photo?"}
+            { "type":"QPhotoElement", "title":"Ajouter une photo?"},
+            { "type":"QBarcodeElement", "title":"Scannez le code barres"}
             ]
         } ,
         { "title":"Et pour finir", "elements":[
