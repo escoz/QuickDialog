@@ -64,32 +64,6 @@
     [self changeAppearance:element];
 }
 
--(void)insertPhoto:(QElement *)button {
-    NSString *takePictureTitle = @"Prendre une photo";
-
-    NSInteger count = 0;
-    for(QElement *el in button.parentSection.elements)
-    {
-        if ([el isKindOfClass:[QButtonElement class]]) {
-            if ([((QButtonElement *)el).title isEqualToString:takePictureTitle]) {
-                count++;
-            }
-        }
-    }
-
-    if (count < 3) {
-        QButtonElement *myButton = [[QButtonElement alloc] initWithTitle:takePictureTitle Value:@""];
-        myButton.controllerAction = @"deletePhoto:";
-
-        [button.parentSection insertElement:myButton atIndex:button.getIndexPath.row];
-        [self.quickDialogTableView insertRowsAtIndexPaths:@[button.getIndexPath] withRowAnimation:UITableViewRowAnimationBottom];
-        if (count+1==3) {
-            button.enabled = NO;
-        }
-        [self.quickDialogTableView reloadSections:[NSIndexSet indexSetWithIndex:button.getIndexPath.section] withRowAnimation:UITableViewRowAnimationNone];
-    }
-}
-
 -(void)submit:(QElement *)element {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [self.root fetchValueUsingBindingsIntoObject:dict];
@@ -130,6 +104,24 @@
 
     NSIndexPath *idx = element.getIndexPath;
     [element.parentSection.elements removeObjectAtIndex:idx.row];
+
+    NSInteger count = 0;
+    for (QElement *elt in element.parentSection.elements) {
+        if ([elt isKindOfClass:[QPhotoElement class]]) {
+            count++;
+        }
+    }
+
+    if (count == 3) {
+        for (QElement *elt in element.parentSection.elements) {
+            if ([elt isKindOfClass:[QPhotoElement class]]) {
+                QPhotoElement *photoElt = (QPhotoElement *)elt;
+                if (![photoElt isEnabled]) {
+                    photoElt.enabled = YES;
+                }
+            }
+        }
+    }
 
     // make the strong assumption that the last element is a button
     ((QButtonElement *)[element.parentSection.elements lastObject]).enabled = YES;

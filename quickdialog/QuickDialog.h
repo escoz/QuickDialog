@@ -62,6 +62,8 @@
 #import "QAutoEntryElement.h"
 #import "QAutoEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
+#import "QPhotoElement.h"
+#import "QTakePhotoElement.h"
 
 #import "QRootBuilder.h"
 

@@ -90,11 +90,10 @@
         return ([(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
     }
     QElement *element = [section getVisibleElementForIndex:indexPath.row];
-    if ([element isKindOfClass:[QButtonElement class]])
+    if ([element isKindOfClass:[QTakePhotoElement class]] ||
+        [element isKindOfClass:[QPhotoElement class]])
     {
-        if ([((QButtonElement *)element).title hasPrefix:@"Prendre une photo"]) {
-            return YES;
-        }
+        return YES;
     }
     return tableView.editing;
 }
