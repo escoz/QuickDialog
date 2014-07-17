@@ -90,11 +90,7 @@
         return ([(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
     }
     QElement *element = [section getVisibleElementForIndex:indexPath.row];
-    if ([element isKindOfClass:[QTakePhotoElement class]] ||
-        [element isKindOfClass:[QPhotoElement class]])
-    {
-        return YES;
-    }
+    
     return tableView.editing;
 }
 

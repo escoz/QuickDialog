@@ -105,24 +105,6 @@
     NSIndexPath *idx = element.getIndexPath;
     [element.parentSection.elements removeObjectAtIndex:idx.row];
 
-    NSInteger count = 0;
-    for (QElement *elt in element.parentSection.elements) {
-        if ([elt isKindOfClass:[QPhotoElement class]]) {
-            count++;
-        }
-    }
-
-    if (count == 3) {
-        for (QElement *elt in element.parentSection.elements) {
-            if ([elt isKindOfClass:[QPhotoElement class]]) {
-                QPhotoElement *photoElt = (QPhotoElement *)elt;
-                if (![photoElt isEnabled]) {
-                    photoElt.enabled = YES;
-                }
-            }
-        }
-    }
-
     // make the strong assumption that the last element is a button
     ((QButtonElement *)[element.parentSection.elements lastObject]).enabled = YES;
 

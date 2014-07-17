@@ -60,8 +60,6 @@
 		5C50EFD5861E1FE78AD17F06 /* QWebElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C50E93B5273C6D9050767C6 /* QWebElement.m */; };
 		D2BF290D1977F2400001FB73 /* QPhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */; };
 		D2BF290E1977F2400001FB73 /* QPhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */; };
-		D2BF290F1977F2400001FB73 /* QTakePhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BF290A1977EDDB0001FB73 /* QTakePhotoElement.h */; };
-		D2BF29101977F2400001FB73 /* QTakePhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF290B1977EDDB0001FB73 /* QTakePhotoElement.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80B0E3C13E052DF00FA85CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
@@ -236,8 +234,6 @@
 		5C50EFD565900926223F50D4 /* QMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMapViewController.m; sourceTree = "<group>"; };
 		D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPhotoElement.h; path = quickdialog/QPhotoElement.h; sourceTree = SOURCE_ROOT; };
 		D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoElement.m; path = quickdialog/QPhotoElement.m; sourceTree = SOURCE_ROOT; };
-		D2BF290A1977EDDB0001FB73 /* QTakePhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTakePhotoElement.h; path = quickdialog/QTakePhotoElement.h; sourceTree = SOURCE_ROOT; };
-		D2BF290B1977EDDB0001FB73 /* QTakePhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTakePhotoElement.m; path = quickdialog/QTakePhotoElement.m; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -579,8 +575,6 @@
 			children = (
 				D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */,
 				D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */,
-				D2BF290A1977EDDB0001FB73 /* QTakePhotoElement.h */,
-				D2BF290B1977EDDB0001FB73 /* QTakePhotoElement.m */,
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
 				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
@@ -785,7 +779,6 @@
 				F2F23A26152DD48B00EB6689 /* QuickDialogController+Helpers.h in Headers */,
 				D894F38A15559D34000E3C0F /* NSMutableArray+IMSExtensions.h in Headers */,
 				F2304357156CDFDD006D0A56 /* QTextField.h in Headers */,
-				D2BF290F1977F2400001FB73 /* QTakePhotoElement.h in Headers */,
 				D8E0748E165A7D08004E7035 /* QuickDialogController+Navigation.h in Headers */,
 				D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */,
 				5C50E6D6FE14BF78231F9671 /* QuickDialogController+Animations.h in Headers */,
@@ -949,7 +942,6 @@
 				D87A4D91169DB59500D4DD63 /* QAppearance.m in Sources */,
 				194C3FC314EDF0510036C9E7 /* DOAutocompleteTextField.m in Sources */,
 				D87B4FCC14F16197006DA833 /* QAutoEntryElement.m in Sources */,
-				D2BF29101977F2400001FB73 /* QTakePhotoElement.m in Sources */,
 				D87B4FCE14F16197006DA833 /* QAutoEntryTableViewCell.m in Sources */,
 				D8F180E813F0599A009B0CC8 /* NSMutableArray+MoveObject.m in Sources */,
 				D8B39451151394E1008ECB34 /* QEmptyListElement.m in Sources */,

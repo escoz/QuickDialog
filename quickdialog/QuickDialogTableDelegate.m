@@ -49,15 +49,6 @@
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
     QElement *element = [section getVisibleElementForIndex:indexPath.row];
 
-#warning try to put simplify
-    if ([element isKindOfClass:[QPhotoElement class]]) {
-        QPhotoElement *photoElement = (QPhotoElement *)element;
-        return photoElement.isPhotoTaken ? UITableViewCellEditingStyleDelete
-                                  : photoElement.enabled ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
-    } else if ([element isKindOfClass:[QTakePhotoElement class]]) {
-        return UITableViewCellEditingStyleInsert;
-    }
-
     return section.canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 
