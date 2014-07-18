@@ -157,8 +157,13 @@ const CGFloat kFlashDuration = 0.4;
              [previewCaptureLayer removeFromSuperlayer];
              previewCaptureLayer = nil;
 
-             CFDictionaryRef exifMetadata = CMGetAttachment(imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
-             scannedMetadata = (__bridge NSDictionary *)exifMetadata;;
+             //to figure out how to get all TIFF data
+             //NSDictionary *tiffMetadata = (__bridge NSDictionary *)CMGetAttachment(imageSampleBuffer, kCGImagePropertyTIFFDictionary, NULL);
+
+             NSDictionary *tiffMetadata = [NSDictionary dictionaryWithObjectsAndKeys:[[NSDate date] description],@"DateTime",[UIDevice currentDevice].model,@"Model",[UIDevice currentDevice].systemVersion,@"Software",nil];
+
+             NSDictionary *exifMetadata = (__bridge NSDictionary *)CMGetAttachment(imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
+             scannedMetadata = [NSDictionary dictionaryWithObjectsAndKeys:tiffMetadata, @"{TIFF}", exifMetadata, @"{EXIF}", nil];
              scannedCode = [metadata stringValue];
              [self didSuccessfulyScanBarcodeWithImage:image];
 

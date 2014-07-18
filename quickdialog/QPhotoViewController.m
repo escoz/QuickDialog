@@ -14,7 +14,7 @@
 
 @implementation QPhotoViewController
 
-+ (QRootElement *)buildWithImage:(UIImage *)image andType:(PhotoSource)type {
++ (QRootElement *)buildWithImage:(UIImage *)image metadata:(NSDictionary *)metadata type:(PhotoSource)type {
     QRootElement *root = [[QRootElement alloc] init];
     root.presentationMode = QPresentationModeModalFullScreen;
     root.controllerName = @"QPhotoViewController";
@@ -27,6 +27,18 @@
     [photoSection addElement:photo];
     [root addSection:photoSection];
 
+    QDynamicDataSection *dataSection = [[QDynamicDataSection alloc] initWithTitle:NSLocalizedString(@"missions_section_title", nil)];
+    [dataSection setKey:@"dataSection"];
+    dataSection.bind = @"iterate:el";
+    dataSection.elementTemplate = @{@"type":@"QLabelElement", @"bind":@"title:name, value:value"};
+    [dataSection bindToObject:@{@"el":@[@{@"name":@"Date",@"value":metadata[@"{TIFF}"][@"DateTime"]},
+                                        @{@"name":@"Model",@"value":metadata[@"{TIFF}"][@"Model"]},
+                                        @{@"name":@"Version",@"value":metadata[@"{TIFF}"][@"Software"]},
+                                        ]}];
+
+    [root addSection:dataSection];
+
+
 /*    QSection *section = [[QSection alloc] initWithTitle:@"Information"];
     [section addElement:[[QTextElement alloc] initWithText:@"Here's some more info about this app."]];
     [details addSection:section];
@@ -34,8 +46,8 @@
     return root;
 }
 
-- (QPhotoViewController *)initWithPhoto:(UIImage *)image andType:(PhotoSource)type {
-    QRootElement *root = [QPhotoViewController buildWithImage:image andType:type];
+- (QPhotoViewController *)initWithPhoto:(UIImage *)image metadata:(NSDictionary *)metadata type:(PhotoSource)type {
+    QRootElement *root = [QPhotoViewController buildWithImage:image metadata:metadata type:type];
     self = [super initWithRoot:root];
     if (self) {
         //do something

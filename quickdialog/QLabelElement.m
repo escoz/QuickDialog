@@ -57,7 +57,7 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformsLabelElement"];
     if (cell==nil){
-        cell = [[QTableViewCell alloc] init];
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:@"QuickformsLabelElement"];
     }
     [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
