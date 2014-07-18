@@ -67,8 +67,12 @@
 		D2728B8E197820E2008B4F26 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2728B8D197820E2008B4F26 /* QuartzCore.framework */; };
 		D2728B8F19782109008B4F26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3B13E052DF00FA85CA /* CoreGraphics.framework */; };
 		D2728B911978213A008B4F26 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2728B901978213A008B4F26 /* ImageIO.framework */; };
-		D2BF290D1977F2400001FB73 /* QPhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */; };
-		D2BF290E1977F2400001FB73 /* QPhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */; };
+		D285810319790BFB00D56BF6 /* QPhotoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D285810119790BFB00D56BF6 /* QPhotoViewController.h */; };
+		D285810419790BFB00D56BF6 /* QPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D285810219790BFB00D56BF6 /* QPhotoViewController.m */; };
+		D285810719790F4100D56BF6 /* QPhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D285810519790F4100D56BF6 /* QPhotoElement.h */; };
+		D285810819790F4100D56BF6 /* QPhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D285810619790F4100D56BF6 /* QPhotoElement.m */; };
+		D2BF290D1977F2400001FB73 /* QTakePhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BF28FA1976D64F0001FB73 /* QTakePhotoElement.h */; };
+		D2BF290E1977F2400001FB73 /* QTakePhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF28FB1976D64F0001FB73 /* QTakePhotoElement.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
 		D80B0E3A13E052DF00FA85CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3913E052DF00FA85CA /* Foundation.framework */; };
 		D80F571F17E115580052EBE3 /* QClassicAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = D80F571B17E115580052EBE3 /* QClassicAppearance.h */; };
@@ -248,8 +252,12 @@
 		D2728B8B197820D6008B4F26 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D2728B8D197820E2008B4F26 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D2728B901978213A008B4F26 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPhotoElement.h; path = quickdialog/QPhotoElement.h; sourceTree = SOURCE_ROOT; };
-		D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoElement.m; path = quickdialog/QPhotoElement.m; sourceTree = SOURCE_ROOT; };
+		D285810119790BFB00D56BF6 /* QPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPhotoViewController.h; path = quickdialog/QPhotoViewController.h; sourceTree = SOURCE_ROOT; };
+		D285810219790BFB00D56BF6 /* QPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoViewController.m; path = quickdialog/QPhotoViewController.m; sourceTree = SOURCE_ROOT; };
+		D285810519790F4100D56BF6 /* QPhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPhotoElement.h; path = quickdialog/QPhotoElement.h; sourceTree = SOURCE_ROOT; };
+		D285810619790F4100D56BF6 /* QPhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoElement.m; path = quickdialog/QPhotoElement.m; sourceTree = SOURCE_ROOT; };
+		D2BF28FA1976D64F0001FB73 /* QTakePhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTakePhotoElement.h; path = quickdialog/QTakePhotoElement.h; sourceTree = SOURCE_ROOT; };
+		D2BF28FB1976D64F0001FB73 /* QTakePhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTakePhotoElement.m; path = quickdialog/QTakePhotoElement.m; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80B0E3713E052DF00FA85CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D80B0E3913E052DF00FA85CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -597,12 +605,16 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
-				D2BF28FA1976D64F0001FB73 /* QPhotoElement.h */,
-				D2BF28FB1976D64F0001FB73 /* QPhotoElement.m */,
+				D2BF28FA1976D64F0001FB73 /* QTakePhotoElement.h */,
+				D2BF28FB1976D64F0001FB73 /* QTakePhotoElement.m */,
 				D2728B7E197818CC008B4F26 /* QBarcodeElement.h */,
 				D2728B7F197818CC008B4F26 /* QBarcodeElement.m */,
 				D2728B8219781BAC008B4F26 /* QBarcodeScannerViewController.h */,
 				D2728B8319781BAC008B4F26 /* QBarcodeScannerViewController.m */,
+				D285810119790BFB00D56BF6 /* QPhotoViewController.h */,
+				D285810219790BFB00D56BF6 /* QPhotoViewController.m */,
+				D285810519790F4100D56BF6 /* QPhotoElement.h */,
+				D285810619790F4100D56BF6 /* QPhotoElement.m */,
 				D87B4FC314F16197006DA833 /* DOAutocompleteTextField.h */,
 				194C3FC114EDF0510036C9E7 /* DOAutocompleteTextField.m */,
 				D894F38815559D34000E3C0F /* NSMutableArray+IMSExtensions.h */,
@@ -763,7 +775,7 @@
 				D81F2EDA14BBAFCE0066C372 /* QDecimalTableViewCell.h in Headers */,
 				D81F2EDB14BBAFCE0066C372 /* QDecimalElement.h in Headers */,
 				D8820C7F16A3544C0070AE22 /* QImageElement.h in Headers */,
-				D2BF290D1977F2400001FB73 /* QPhotoElement.h in Headers */,
+				D2BF290D1977F2400001FB73 /* QTakePhotoElement.h in Headers */,
 				D8820C8016A3544F0070AE22 /* QImageTableViewCell.h in Headers */,
 				D81F2EDC14BBAFCE0066C372 /* QBadgeElement.h in Headers */,
 				D81F2EDD14BBAFCE0066C372 /* QBadgeTableCell.h in Headers */,
@@ -774,6 +786,7 @@
 				D81F2EE214BBAFCE0066C372 /* QDateTimeInlineElement.h in Headers */,
 				D81F2EE314BBAFCE0066C372 /* QElement.h in Headers */,
 				D81F2EE414BBAFCE0066C372 /* QEntryElement.h in Headers */,
+				D285810319790BFB00D56BF6 /* QPhotoViewController.h in Headers */,
 				D81F2EE514BBAFCE0066C372 /* QEntryTableViewCell.h in Headers */,
 				D81F2EE614BBAFCE0066C372 /* QFloatElement.h in Headers */,
 				D81F2EEB14BBAFCE0066C372 /* QuickDialogController.h in Headers */,
@@ -782,6 +795,7 @@
 				D81F2EEF14BBAFCE0066C372 /* QuickDialogTableDelegate.h in Headers */,
 				D81F2EF014BBAFCE0066C372 /* QuickDialogTableView.h in Headers */,
 				D81F2EF114BBAFCE0066C372 /* QRadioElement.h in Headers */,
+				D285810719790F4100D56BF6 /* QPhotoElement.h in Headers */,
 				D2728B80197818CC008B4F26 /* QBarcodeElement.h in Headers */,
 				D81F2EF214BBAFCE0066C372 /* QRadioItemElement.h in Headers */,
 				D81F2EF314BBAFCE0066C372 /* QRadioSection.h in Headers */,
@@ -866,7 +880,7 @@
 		D80B0E2A13E052DF00FA85CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					D80B0E3213E052DF00FA85CA = {
 						DevelopmentTeam = E5L7NC8M9T;
@@ -933,7 +947,7 @@
 				2C5423A1145ADF2B0026A152 /* QDecimalTableViewCell.m in Sources */,
 				2C5423A3145ADF2B0026A152 /* QDecimalElement.m in Sources */,
 				2C5423A5145ADF2B0026A152 /* QBadgeElement.m in Sources */,
-				D2BF290E1977F2400001FB73 /* QPhotoElement.m in Sources */,
+				D2BF290E1977F2400001FB73 /* QTakePhotoElement.m in Sources */,
 				2C5423A7145ADF2B0026A152 /* QBadgeTableCell.m in Sources */,
 				2C5423A9145ADF2B0026A152 /* QBooleanElement.m in Sources */,
 				2C5423AB145ADF2B0026A152 /* QButtonElement.m in Sources */,
@@ -945,6 +959,7 @@
 				2C5423B3145ADF2B0026A152 /* QElement.m in Sources */,
 				D87A4D6F169DABA900D4DD63 /* QElement+Appearance.m in Sources */,
 				2C5423B5145ADF2B0026A152 /* QEntryElement.m in Sources */,
+				D285810819790F4100D56BF6 /* QPhotoElement.m in Sources */,
 				2C5423B7145ADF2B0026A152 /* QEntryTableViewCell.m in Sources */,
 				D2728B8719781FD6008B4F26 /* QBarcodeScannerViewController.m in Sources */,
 				2C5423B9145ADF2B0026A152 /* QFloatElement.m in Sources */,
@@ -991,6 +1006,7 @@
 				D8820B5216A246860070AE22 /* QCountdownElement.m in Sources */,
 				D8820C7D16A3543D0070AE22 /* QImageElement.m in Sources */,
 				D8820C7E16A3543F0070AE22 /* QImageTableViewCell.m in Sources */,
+				D285810419790BFB00D56BF6 /* QPhotoViewController.m in Sources */,
 				5C50E343ABC2679C20372B2D /* QDateInlineTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,6 +1113,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1126,6 +1143,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

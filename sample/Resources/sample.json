@@ -12,6 +12,7 @@
         { "title":"Rélévé du produit n°1", "elements":[
             {  "type":"QTextElement", "text":"Concernant le produit Omo micro, à quel prix est-il vendu et quelle est la quantité disponible en rayon ?"},
             {  "type":"QWebElement",  "title":"Visuel du produit", "html":"<img src='http://www.mobeye-app.com/wp-content/uploads/2013/07/Coca-Cola_car_Volkswagen_Type-2_2_Curitiba-770x300.jpg' />"},
+            { "type":"QPhotoElement", "url":"http://www.mobeye-app.com/wp-content/uploads/2013/07/Coca-Cola_car_Volkswagen_Type-2_2_Curitiba-770x300.jpg", "height":150},
             {  "type":"QPickerElement", "title":"Présence produit", "bind":"value:presence",  "items":[["Oui", "Non", "En rupture"]]},
             {  "type":"QEntryElement", "title":"Prix de l'objet", "suffix":"€", "bind":"textValue:prix", "keyboardType":"DecimalPad" },
             {  "type":"QEntryElement", "title":"Quantité", "suffix":" unité(s)", "bind":"textValue:quantité",  "keyboardType":"DecimalPad" },
@@ -31,8 +32,8 @@
                 { "type":"QSortingSection", "title":"Ordre des catégories", "items":["Cafe en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
                 ]
             },
-            { "type":"QPhotoElement", "title":"Ajouter une photo?"},
-            { "type":"QBarcodeElement", "title":"Scannez le code barres"}
+            { "type":"QTakePhotoElement", "title":"Ajouter une photo?"},
+            { "type":"QBarcodeElement", "title":"Scannez le code barres"},
             ]
         } ,
         { "title":"Et pour finir", "elements":[

@@ -2,16 +2,20 @@
 //  QPhotoElement.h
 //  QuickDialog
 //
-//  Created by Francis Visoiu Mistrih on 16/07/2014.
+//  Created by Francis Visoiu Mistrih on 18/07/2014.
 //
 //
 
-#import "QButtonElement.h"
+#import "QRootElement.h"
 
-@interface QPhotoElement : QButtonElement <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface QPhotoElement : QRootElement
 
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *url;
+@property float height;
 
-@property BOOL isPhotoTaken;
+- (QPhotoElement *)initWithImage:(UIImage *)image;
+
+- (QPhotoElement *)initWithURL:(NSString *)url;
 
 @end

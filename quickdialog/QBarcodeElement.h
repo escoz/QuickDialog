@@ -6,10 +6,10 @@
 //
 //
 
-#import "QPhotoElement.h"
+#import "QTakePhotoElement.h"
 #import "QBarcodeScannerViewController.h"
 
-@interface QBarcodeElement : QPhotoElement<QBarcodeScannerPickerDelegate>
+@interface QBarcodeElement : QTakePhotoElement<QBarcodeScannerPickerDelegate>
 
 @property (strong,nonatomic) NSString *code;
 

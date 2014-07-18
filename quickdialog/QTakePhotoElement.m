@@ -1,15 +1,24 @@
 //
-//  QBarcodeElement.m
+//  QTakePhotoElement.m
 //  QuickDialog
 //
-//  Created by Francis Visoiu Mistrih on 17/07/2014.
+//  Created by Francis Visoiu Mistrih on 16/07/2014.
 //
 //
 
-#import "QBarcodeElement.h"
-#import "QPhotoViewController.h"
+#import "QTakePhotoElement.h"
+#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
 
-@implementation QBarcodeElement
+@implementation QTakePhotoElement
+
+- (QTakePhotoElement *)init
+{
+    self = [super init];
+    if (self) {
+        _isPhotoTaken = false;
+    }
+    return self;
+}
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformPhotoElement"];
@@ -19,31 +28,33 @@
     [cell applyAppearanceForElement:self];
 
     //[cell.imageView setImage:_image ? _image : [UIImage imageNamed:@"icon"]];
-    cell.textLabel.text = self.isPhotoTaken ? [NSString stringWithFormat:@"Voir image : %@",_code] : @"Scannez le code barres";
+    cell.textLabel.text = _isPhotoTaken ? @"Voir photo" : @"Prendre photo";
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    if (self.isPhotoTaken) {
+    if (_isPhotoTaken) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:_image andType:PhotoSourceBarcode];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:_image andType:PhotoSourceCamera];
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
-        //get the barcode
-        QBarcodeScannerViewController *picker = [[QBarcodeScannerViewController alloc] init];
+        //take a new picture
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 #warning to change to self.controller
         picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.allowsEditing = NO;
         [controller presentViewController:picker animated:YES completion:nil];
     }
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSString *)result {
-    self.image = image;
-    self.code = result;
-    self.isPhotoTaken = YES;
-    [barcodeScanner dismissViewControllerAnimated:YES completion:^{
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    _image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    _isPhotoTaken = YES;
+    [picker dismissViewControllerAnimated:YES completion:^{
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];
 }
