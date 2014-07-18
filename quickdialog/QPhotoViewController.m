@@ -27,7 +27,7 @@
     [photoSection addElement:photo];
     [root addSection:photoSection];
 
-    QDynamicDataSection *dataSection = [[QDynamicDataSection alloc] initWithTitle:NSLocalizedString(@"missions_section_title", nil)];
+    QDynamicDataSection *dataSection = [[QDynamicDataSection alloc] initWithTitle:@"Informations"];
     [dataSection setKey:@"dataSection"];
     dataSection.bind = @"iterate:el";
     dataSection.elementTemplate = @{@"type":@"QLabelElement", @"bind":@"title:name, value:value"};

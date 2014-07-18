@@ -24,6 +24,9 @@ const float kLoadingCellHeight = 50.0;
     self = [super init];
     if (self) {
         _height = kHeightInit;
+        loading = [[UIActivityIndicatorView alloc] init];
+        loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [loading startAnimating];
     }
     return self;
 }
@@ -31,6 +34,7 @@ const float kLoadingCellHeight = 50.0;
 - (QPhotoElement *)initWithImage:(UIImage *)image {
     self = [self init];
     if (self) {
+        loading = nil;
         _image = image;
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadRowHeights];
     }
@@ -41,9 +45,6 @@ const float kLoadingCellHeight = 50.0;
     self = [self init];
     if (self) {
         _url = url;
-        loading = [[UIActivityIndicatorView alloc] init];
-        loading.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-        [loading startAnimating];
         [self getImageFromURL:url];
     }
     return self;
@@ -75,6 +76,8 @@ const float kLoadingCellHeight = 50.0;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QuickformPhoto"];
     }
 
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     if (!_image) {
         loading.frame = CGRectMake(0, 0, controller.view.frame.size.width, kLoadingCellHeight);
         [cell.contentView addSubview:loading];
@@ -90,7 +93,8 @@ const float kLoadingCellHeight = 50.0;
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
-    _height = MIN(_height,_image.size.height);
+    if (_image) _height = MIN(_height,_image.size.height);
+
     return loading ? kLoadingCellHeight : _height;
 }
 
