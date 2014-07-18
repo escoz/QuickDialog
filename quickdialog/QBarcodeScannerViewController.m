@@ -28,6 +28,7 @@
     AVCaptureDeviceInput *_input;
     AVCaptureMetadataOutput *_output;
     AVCaptureVideoPreviewLayer *_prevLayer;
+    UIView *targetView;
 
     //result image
     AVCaptureStillImageOutput *stillImageOutput;
@@ -96,6 +97,15 @@
     _prevLayer.frame = self.view.bounds;
     _prevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.view.layer addSublayer:_prevLayer];
+
+    /*
+    CGRect windowSize = _prevLayer.frame;
+    CGSize targetSize = CGSizeMake(150, 200);
+    targetView = [[UIView alloc] initWithFrame:CGRectMake(windowSize.size.width / 2 - targetSize.width /2, windowSize.size.height / 2 - targetSize.height / 2, targetSize.width, targetSize.height)];
+    targetView.layer.borderWidth = 3.0;
+    targetView.layer.borderColor = [[UIColor greenColor] CGColor];
+    [self.view addSubview:targetView];
+     */
 
     [_session addOutput:stillImageOutput];
 
