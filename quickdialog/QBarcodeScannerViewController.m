@@ -9,10 +9,13 @@
 #import "QBarcodeScannerViewController.h"
 #import <ImageIO/CGImageProperties.h>
 
+const NSString *kValidate = @"Valider";
+const CGFloat kFlashDuration = 0.4;
+
 @interface QBarcodeScannerViewController ()
 {
     //result view
-    UIView *whiteScreen;
+    UIView *whiteView;
     UIImageView *previewImageView;
     UILabel *codeLabel;
     UIButton *validateButton;
@@ -23,12 +26,11 @@
     NSDictionary *scannedMetadata;
 
     //AVFoundation
-    AVCaptureSession *_session;
-    AVCaptureDevice *_device;
-    AVCaptureDeviceInput *_input;
-    AVCaptureMetadataOutput *_output;
-    AVCaptureVideoPreviewLayer *_prevLayer;
-    UIView *targetView;
+    AVCaptureSession *session;
+    AVCaptureDevice *device;
+    AVCaptureDeviceInput *input;
+    AVCaptureMetadataOutput *output;
+    AVCaptureVideoPreviewLayer *previewCaptureLayer;
 
     //result image
     AVCaptureStillImageOutput *stillImageOutput;
@@ -44,10 +46,10 @@
     [super viewDidLoad];
 
     //setup result view
-    whiteScreen = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    whiteScreen.layer.opacity = 0.0f;
-    whiteScreen.layer.backgroundColor = [[UIColor whiteColor] CGColor];
-    [self.navigationController.view addSubview:whiteScreen];
+    whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    whiteView.layer.opacity = 0.0f;
+    whiteView.layer.backgroundColor = [[UIColor whiteColor] CGColor];
+    [self.view addSubview:whiteView];
 
     previewImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
     [previewImageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -59,57 +61,45 @@
     codeLabel.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
     codeLabel.textColor = [UIColor whiteColor];
     codeLabel.textAlignment = NSTextAlignmentCenter;
-    codeLabel.text = @"";
     codeLabel.hidden = YES;
     [self.view addSubview:codeLabel];
 
     validateButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 40, self.view.bounds.size.width, 40)];
     validateButton.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
-    [validateButton setTitle:@"Valider" forState:UIControlStateNormal];
+    [validateButton setTitle:[NSString stringWithFormat:@"%@",kValidate] forState:UIControlStateNormal];
     validateButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    validateButton.titleLabel.textColor = [UIColor redColor];
+    validateButton.titleLabel.textColor = [UIColor greenColor];
     validateButton.hidden = YES;
     [validateButton addTarget:self action:@selector(didValidateBarcode:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:validateButton];
 
     stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
 
-    //setup native barcode scanner
+    //setup barcode scanner
     //http://www.infragistics.com/community/blogs/torrey-betts/archive/2013/10/10/scanning-barcodes-with-ios-7-objective-c.aspx
-    _session = [[AVCaptureSession alloc] init];
-    _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    NSError *error = nil;
+    session = [[AVCaptureSession alloc] init];
+    device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    NSError *error;
 
-    _input = [AVCaptureDeviceInput deviceInputWithDevice:_device error:&error];
-    if (_input) {
-        [_session addInput:_input];
+    input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+    if (input) {
+        [session addInput:input];
     } else {
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error when adding input device: %@", error);
     }
 
-    _output = [[AVCaptureMetadataOutput alloc] init];
-    [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
-    [_session addOutput:_output];
+    output = [[AVCaptureMetadataOutput alloc] init];
+    [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+    [session addOutput:output];
+    output.metadataObjectTypes = [output availableMetadataObjectTypes];
 
-    _output.metadataObjectTypes = [_output availableMetadataObjectTypes];
+    previewCaptureLayer = [AVCaptureVideoPreviewLayer layerWithSession:session];
+    previewCaptureLayer.frame = self.view.bounds;
+    previewCaptureLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    [self.view.layer addSublayer:previewCaptureLayer];
 
-    _prevLayer = [AVCaptureVideoPreviewLayer layerWithSession:_session];
-    _prevLayer.frame = self.view.bounds;
-    _prevLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    [self.view.layer addSublayer:_prevLayer];
-
-    /*
-    CGRect windowSize = _prevLayer.frame;
-    CGSize targetSize = CGSizeMake(150, 200);
-    targetView = [[UIView alloc] initWithFrame:CGRectMake(windowSize.size.width / 2 - targetSize.width /2, windowSize.size.height / 2 - targetSize.height / 2, targetSize.width, targetSize.height)];
-    targetView.layer.borderWidth = 3.0;
-    targetView.layer.borderColor = [[UIColor greenColor] CGColor];
-    [self.view addSubview:targetView];
-     */
-
-    [_session addOutput:stillImageOutput];
-
-    [_session startRunning];
+    [session addOutput:stillImageOutput];
+    [session startRunning];
 
     isCapturing = NO;
     [self.view bringSubviewToFront:codeLabel];
@@ -117,7 +107,7 @@
 }
 
 - (void)flashScreen {
-    [self.navigationController.view bringSubviewToFront:whiteScreen];
+    [self.view bringSubviewToFront:whiteView];
     CAKeyframeAnimation *opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
     NSArray *animationValues = @[ @0.8f, @0.0f ];
     NSArray *animationTimes = @[ @0.3f, @1.0f ];
@@ -128,9 +118,9 @@
     [opacityAnimation setTimingFunctions:animationTimingFunctions];
     opacityAnimation.fillMode = kCAFillModeForwards;
     opacityAnimation.removedOnCompletion = YES;
-    opacityAnimation.duration = 0.6;
+    opacityAnimation.duration = kFlashDuration;
 
-    [whiteScreen.layer addAnimation:opacityAnimation forKey:@"animation"];
+    [whiteView.layer addAnimation:opacityAnimation forKey:@"animation"];
 }
 
 - (void)didValidateBarcode:(id)sender {
@@ -140,20 +130,17 @@
 - (void)captureStillImageWithMetadata:(id)metadata {
     //http://stackoverflow.com/questions/13106486/how-to-save-photos-taken-using-avfoundation-to-photo-album
     AVCaptureConnection *videoConnection = nil;
-    for (AVCaptureConnection *connection in stillImageOutput.connections)
-    {
-        for (AVCaptureInputPort *port in [connection inputPorts])
-        {
-            if ([[port mediaType] isEqual:AVMediaTypeVideo] )
-            {
+    for (AVCaptureConnection *connection in stillImageOutput.connections) {
+        for (AVCaptureInputPort *port in [connection inputPorts]) {
+            if ([[port mediaType] isEqual:AVMediaTypeVideo] ) {
                 videoConnection = connection;
                 break;
             }
         }
-        if (videoConnection) { break; }
+        if (videoConnection) break;
     }
 
-    NSLog(@"about to request a capture from: %@", stillImageOutput);
+    NSLog(@"About to request a capture from: %@", stillImageOutput);
     [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection
                                                   completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
      {
@@ -166,17 +153,16 @@
              //can't return a UIImage, because the capture is asynchronous
              scannedImage = image;
 
-             [_prevLayer removeFromSuperlayer];
-             _prevLayer = nil;
+             //release the camera preview layer
+             [previewCaptureLayer removeFromSuperlayer];
+             previewCaptureLayer = nil;
 
              CFDictionaryRef exifMetadata = CMGetAttachment(imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
              scannedMetadata = (__bridge NSDictionary *)exifMetadata;;
              scannedCode = [metadata stringValue];
-
              [self didSuccessfulyScanBarcodeWithImage:image];
 
-             [_session stopRunning];
-
+             [session stopRunning];
              isCapturing = NO;
          }
      }];
@@ -185,7 +171,7 @@
 - (void)didSuccessfulyScanBarcodeWithImage:(UIImage *)image {
     [self flashScreen];
     previewImageView.hidden = NO;
-    [previewImageView setImage:image];
+    previewImageView.image = image;
 
     codeLabel.hidden = NO;
     codeLabel.text = scannedCode;
@@ -197,7 +183,7 @@
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     AVMetadataMachineReadableCodeObject *barCodeObject;
-    NSString *detectionString = nil;
+    NSString *detectionString;
     NSArray *barCodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
                               AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
                               AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
@@ -206,7 +192,7 @@
         for (NSString *type in barCodeTypes) {
             if ([metadata.type isEqualToString:type])
             {
-                barCodeObject = (AVMetadataMachineReadableCodeObject *)[_prevLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
+                barCodeObject = (AVMetadataMachineReadableCodeObject *)[previewCaptureLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
                 detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
                 break;
             }

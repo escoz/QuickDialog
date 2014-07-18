@@ -7,7 +7,9 @@
 //
 
 #import "QTakePhotoElement.h"
-#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
+
+const NSString *kInitPreviewTitle = @"Voir photo";
+const NSString *kInitTakeTitle = @"Prendre photo";
 
 @implementation QTakePhotoElement
 
@@ -16,6 +18,8 @@
     self = [super init];
     if (self) {
         _isPhotoTaken = false;
+        _previewTitle = [NSString stringWithFormat:@"%@",kInitPreviewTitle];
+        _takeTitle = [NSString stringWithFormat:@"%@",kInitTakeTitle];
     }
     return self;
 }
@@ -23,12 +27,11 @@
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformPhotoElement"];
     if (cell == nil){
-        cell = [[QTableViewCell alloc] init];
+        cell = [[QTableViewCell alloc] initWithReuseIdentifier:@"QuickformPhotoElement"];
     }
     [cell applyAppearanceForElement:self];
 
-    //[cell.imageView setImage:_image ? _image : [UIImage imageNamed:@"icon"]];
-    cell.textLabel.text = _isPhotoTaken ? @"Voir photo" : @"Prendre photo";
+    cell.textLabel.text = _isPhotoTaken ? _previewTitle : _takeTitle;
     return cell;
 }
 
@@ -40,7 +43,6 @@
     } else {
         //take a new picture
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-#warning to change to self.controller
         picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.allowsEditing = NO;
@@ -52,6 +54,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     _image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    _metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
 
     _isPhotoTaken = YES;
     [picker dismissViewControllerAnimated:YES completion:^{

@@ -9,6 +9,7 @@
 #import "QPhotoElement.h"
 
 const float kHeightInit = 150.0; //initial height if not specified
+const float kLoadingCellHeight = 50.0;
 
 @interface QPhotoElement () {
     UIActivityIndicatorView *loading; //activity indicator when downloading the image
@@ -75,9 +76,9 @@ const float kHeightInit = 150.0; //initial height if not specified
     }
 
     if (!_image) {
-        loading.frame = CGRectMake(0, 0, controller.view.frame.size.width, 50);
+        loading.frame = CGRectMake(0, 0, controller.view.frame.size.width, kLoadingCellHeight);
         [cell.contentView addSubview:loading];
-        [self getImageFromURL:_url];
+        [self getImageFromURL:_url]; //asynchronously download image
     } else {
         UIImageView *mainImage = [[UIImageView alloc] initWithImage:_image];
         mainImage.frame = CGRectMake(0, 0, controller.view.frame.size.width, _height);
@@ -90,7 +91,7 @@ const float kHeightInit = 150.0; //initial height if not specified
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
     _height = MIN(_height,_image.size.height);
-    return loading ? 50 : _height;
+    return loading ? kLoadingCellHeight : _height;
 }
 
 @end

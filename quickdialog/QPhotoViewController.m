@@ -38,7 +38,7 @@
     QRootElement *root = [QPhotoViewController buildWithImage:image andType:type];
     self = [super initWithRoot:root];
     if (self) {
-        
+        //do something
     }
 
     return self;
