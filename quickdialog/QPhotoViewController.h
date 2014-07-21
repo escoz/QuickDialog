@@ -20,12 +20,10 @@ typedef enum {
 
 @interface QPhotoViewController : QuickDialogController
 
-@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSDictionary *metadata;
 @property (strong, nonatomic) MEPhotoDataItem *photoData;
 
-+ (QRootElement *)buildWithImage:(UIImage *)image metadata:(NSDictionary *)metadata photoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
++ (QRootElement *)buildWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
 
-- (QPhotoViewController *)initWithPhoto:(UIImage *)image metadata:(NSDictionary *)metadata photoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
+- (QPhotoViewController *)initWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
 
 @end

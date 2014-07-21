@@ -36,7 +36,7 @@ const NSString *kInitTakeTitle = @"Prendre photo";
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     if (_photoData.isPhotoTaken) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:_photoData.image metadata:_photoData.metadata  photoData:_photoData type:PhotoSourceCamera];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhotoData:_photoData type:PhotoSourceCamera];
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
         //take a new picture

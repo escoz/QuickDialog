@@ -38,7 +38,7 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     if (_photoData.isPhotoTaken) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:_photoData.image metadata:_photoData.metadata photoData:_photoData type:PhotoSourceBarcode];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhotoData:_photoData type:PhotoSourceBarcode];
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
         //get the barcode
