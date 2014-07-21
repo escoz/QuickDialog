@@ -15,6 +15,10 @@
 
 - (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSDictionary *)result;
 
+@optional
+
+- (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didCancelScanning:(id)sender;
+
 @end
 
 @interface QBarcodeScannerViewController : UIViewController <AVCaptureMetadataOutputObjectsDelegate>

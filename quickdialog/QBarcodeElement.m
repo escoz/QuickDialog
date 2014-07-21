@@ -9,6 +9,7 @@
 #import "QBarcodeElement.h"
 #import "QPhotoViewController.h"
 
+#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
 const NSString *kInitScanTitle = @"Scannez le code barres";
 
 @implementation QBarcodeElement
@@ -19,6 +20,7 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     if (self) {
         _photoData = [[MEPhotoDataItem alloc] init];
         _photoData.takeTitle = [NSString stringWithFormat:@"%@", kInitScanTitle];
+        self.appearance = [self.appearance copy];
     }
     return self;
 }
@@ -39,6 +41,7 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     if (_photoData.isPhotoTaken) {
         //show the photo to the user
         QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhotoData:_photoData type:PhotoSourceBarcode];
+        vc.element = self;
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
         //get the barcode
@@ -59,8 +62,13 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     _photoData.isPhotoTaken = YES;
 
     [barcodeScanner dismissViewControllerAnimated:YES completion:^{
+        [self.appearance setBackgroundColorEnabled:green_color];
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];
+}
+
+- (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didCancelScanning:(id)sender {
+    [barcodeScanner dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

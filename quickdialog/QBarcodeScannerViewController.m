@@ -10,6 +10,7 @@
 #import <ImageIO/CGImageProperties.h>
 
 const NSString *kValidate = @"Valider";
+const NSString *kCancel = @"Cancel";
 const CGFloat kFlashDuration = 0.4;
 
 @interface QBarcodeScannerViewController ()
@@ -19,6 +20,7 @@ const CGFloat kFlashDuration = 0.4;
     UIImageView *previewImageView;
     UILabel *resultLabel;
     UIButton *validateButton;
+    UIButton *cancelButton;
 
     //result data
     UIImage *scannedImage;
@@ -76,6 +78,15 @@ const CGFloat kFlashDuration = 0.4;
     [validateButton addTarget:self action:@selector(didValidateBarcode:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:validateButton];
 
+    cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 40, self.view.bounds.size.width, 40)];
+    cancelButton.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
+    [cancelButton setTitle:[NSString stringWithFormat:@"%@",kCancel] forState:UIControlStateNormal];
+    cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    cancelButton.titleLabel.textColor = [UIColor redColor];
+    cancelButton.hidden = NO;
+    [cancelButton addTarget:self action:@selector(didCancelBarcode:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cancelButton];
+
     stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
 
     //setup barcode scanner
@@ -107,6 +118,7 @@ const CGFloat kFlashDuration = 0.4;
     isCapturing = NO;
     [self.view bringSubviewToFront:resultLabel];
     [self.view bringSubviewToFront:validateButton];
+    [self.view bringSubviewToFront:cancelButton];
 }
 
 - (void)flashScreen {
@@ -129,6 +141,11 @@ const CGFloat kFlashDuration = 0.4;
 - (void)didValidateBarcode:(id)sender {
     NSDictionary *result = @{@"code":scannedCode, @"product_brand":productBrand, @"product_name":productName};
     [self.delegate barcodeScanner:self didFinishScanningWithImage:scannedImage andMetadata:scannedMetadata andResult:result];
+}
+
+- (void)didCancelBarcode:(id)sender {
+    [session stopRunning];
+    [self.delegate barcodeScanner:self didCancelScanning:sender];
 }
 
 - (void)captureStillImageWithMetadata:(id)metadata {
@@ -196,6 +213,7 @@ const CGFloat kFlashDuration = 0.4;
                 productBrand = [NSString stringWithFormat:@"%@",serializer[@"product"][@"brands"]];
             }
             resultLabel.text = productName && productBrand ? [productBrand stringByAppendingString:[NSString stringWithFormat:@" %@",productName]] : scannedCode;
+            cancelButton.hidden = YES;
             validateButton.hidden = NO;
         });
     });

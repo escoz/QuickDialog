@@ -8,6 +8,7 @@
 
 #import "QTakePhotoElement.h"
 
+#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
 const NSString *kInitTakeTitle = @"Prendre photo";
 
 @implementation QTakePhotoElement
@@ -18,6 +19,7 @@ const NSString *kInitTakeTitle = @"Prendre photo";
     if (self) {
         _photoData = [[MEPhotoDataItem alloc] init];
         _photoData.takeTitle = [NSString stringWithFormat:@"%@",kInitTakeTitle];
+        self.appearance = [self.appearance copy];
     }
     return self;
 }
@@ -37,6 +39,7 @@ const NSString *kInitTakeTitle = @"Prendre photo";
     if (_photoData.isPhotoTaken) {
         //show the photo to the user
         QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhotoData:_photoData type:PhotoSourceCamera];
+        vc.element = self;
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
         //take a new picture
@@ -53,8 +56,9 @@ const NSString *kInitTakeTitle = @"Prendre photo";
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     _photoData.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     _photoData.metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
-
     _photoData.isPhotoTaken = YES;
+
+    [self.appearance setBackgroundColorEnabled:green_color];
     [picker dismissViewControllerAnimated:YES completion:^{
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];

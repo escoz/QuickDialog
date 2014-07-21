@@ -22,6 +22,8 @@ typedef enum {
 
 @property (strong, nonatomic) MEPhotoDataItem *photoData;
 
+@property (strong, nonatomic) QRootElement *element;
+
 + (QRootElement *)buildWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
 
 - (QPhotoViewController *)initWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
