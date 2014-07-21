@@ -11,7 +11,7 @@
 @interface QTakePhotoElement : QButtonElement <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSDictionary *metadata;
+@property (strong, nonatomic) NSMutableDictionary *metadata;
 @property BOOL isPhotoTaken;
 
 @property (strong, nonatomic) NSString *previewTitle;

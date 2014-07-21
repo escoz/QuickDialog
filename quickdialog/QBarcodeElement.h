@@ -12,7 +12,7 @@
 @interface QBarcodeElement : QTakePhotoElement<QBarcodeScannerPickerDelegate>
 
 @property (strong,nonatomic) NSString *code;
-@property (strong,nonatomic) NSString *brand;
+@property (strong,nonatomic) NSString *productBrand;
 @property (strong,nonatomic) NSString *productName;
 
 @end

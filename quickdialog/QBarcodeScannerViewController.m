@@ -127,7 +127,7 @@ const CGFloat kFlashDuration = 0.4;
 }
 
 - (void)didValidateBarcode:(id)sender {
-    NSDictionary *result = @{@"code":scannedCode, @"brand":productBrand, @"product_name":productName};
+    NSDictionary *result = @{@"code":scannedCode, @"product_brand":productBrand, @"product_name":productName};
     [self.delegate barcodeScanner:self didFinishScanningWithImage:scannedImage andMetadata:scannedMetadata andResult:result];
 }
 

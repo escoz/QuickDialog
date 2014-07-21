@@ -31,18 +31,20 @@
     [dataSection setKey:@"dataSection"];
     dataSection.bind = @"iterate:el";
     dataSection.elementTemplate = @{@"type":@"QLabelElement", @"bind":@"title:name, value:value"};
-    [dataSection bindToObject:@{@"el":@[@{@"name":@"Date",@"value":metadata[@"{TIFF}"][@"DateTime"]},
-                                        @{@"name":@"Model",@"value":metadata[@"{TIFF}"][@"Model"]},
-                                        @{@"name":@"Version",@"value":metadata[@"{TIFF}"][@"Software"]},
-                                        ]}];
+    NSMutableArray *data = [@[@{@"name":@"Date",@"value":[metadata[@"{TIFF}"][@"DateTime"] stringByReplacingOccurrencesOfString:@"+0000" withString:@""]},
+                            @{@"name":@"Model",@"value":metadata[@"{TIFF}"][@"Model"]},
+                            @{@"name":@"Version",@"value":metadata[@"{TIFF}"][@"Software"]},
+                            ] mutableCopy];
+    if (type == PhotoSourceBarcode) {
+        [data addObjectsFromArray:@[@{@"name":@"Brand name",@"value":metadata[@"product_brand"]},
+                                   @{@"name":@"Product name",@"value":metadata[@"product_name"]},
+                                   @{@"name":@"Bar code",@"value":metadata[@"code"]},
+                                   ]];
+    }
 
+    [dataSection bindToObject:@{@"el":data}];
     [root addSection:dataSection];
 
-
-/*    QSection *section = [[QSection alloc] initWithTitle:@"Information"];
-    [section addElement:[[QTextElement alloc] initWithText:@"Here's some more info about this app."]];
-    [details addSection:section];
-*/
     return root;
 }
 

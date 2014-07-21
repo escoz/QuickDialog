@@ -29,7 +29,7 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     }
     [cell applyAppearanceForElement:self];
 
-    NSString *result = _productName && _brand ? [_brand stringByAppendingString:[NSString stringWithFormat:@" %@",_productName]] : _code;
+    NSString *result = _productName && _productBrand ? [_productBrand stringByAppendingString:[NSString stringWithFormat:@" %@",_productName]] : _code;
     cell.textLabel.text = self.isPhotoTaken ? [NSString stringWithFormat:@"%@ : %@",self.previewTitle, result] : self.takeTitle;
     return cell;
 }
@@ -51,10 +51,14 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
 
 - (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSDictionary *)result {
     self.image = image;
-    self.metadata = metadata;
+    self.metadata = [NSMutableDictionary dictionaryWithDictionary:metadata];
     self.code = result[@"code"];
-    self.brand = result[@"brand"];
+    self.productBrand = result[@"product_brand"];
     self.productName = result[@"product_name"];
+
+    //use the metadata entries to add the results from the barcode
+    [self.metadata addEntriesFromDictionary:@{@"code":_code, @"product_brand":_productBrand, @"product_name":_productName}];
+
     self.isPhotoTaken = YES;
     [barcodeScanner dismissViewControllerAnimated:YES completion:^{
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
