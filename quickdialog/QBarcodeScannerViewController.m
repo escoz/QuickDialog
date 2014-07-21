@@ -13,6 +13,7 @@ const NSString *kValidate = @"Valider";
 const NSString *kCancel = @"Cancel";
 const NSString *kLoading = @"Loading...";
 const CGFloat kFlashDuration = 0.4;
+const NSUInteger kGuideSize = 200;
 
 const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.json";
 
@@ -24,6 +25,7 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
     UILabel *resultLabel;
     UIButton *validateButton;
     UIButton *cancelButton;
+    UIImageView *guideView;
 
     //result data
     UIImage *scannedImage;
@@ -90,6 +92,11 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
     [cancelButton addTarget:self action:@selector(didCancelBarcode:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:cancelButton];
 
+    guideView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - kGuideSize / 2, self.view.frame.size.height / 2 - kGuideSize / 2, kGuideSize, kGuideSize)];
+    guideView.layer.borderColor = [[UIColor greenColor] CGColor];
+    guideView.layer.borderWidth = 4;
+    [self.view addSubview:guideView];
+
     stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
 
     //setup barcode scanner
@@ -122,6 +129,7 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
     [self.view bringSubviewToFront:resultLabel];
     [self.view bringSubviewToFront:validateButton];
     [self.view bringSubviewToFront:cancelButton];
+    [self.view bringSubviewToFront:guideView];
 }
 
 - (void)flashScreen {
