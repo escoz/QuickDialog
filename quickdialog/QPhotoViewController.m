@@ -61,10 +61,16 @@ const NSUInteger kImageHeight = 300;
     [dataSection setKey:@"dataSection"];
     dataSection.bind = @"iterate:el";
     dataSection.elementTemplate = @{@"type":@"QLabelElement", @"bind":@"title:name, value:value"};
-    NSMutableArray *data = [@[@{@"name":@"Date",@"value":[photoData.metadata[@"{TIFF}"][@"DateTime"] stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@",kTimeZoneFormat] withString:@""]},
-                            @{@"name":@"Model",@"value":photoData.metadata[@"{TIFF}"][@"Model"]},
-                            @{@"name":@"Version",@"value":photoData.metadata[@"{TIFF}"][@"Software"]},
-                            ] mutableCopy];
+    NSMutableArray *data = [NSMutableArray array];
+
+    if (photoData.metadata[@"{TIFF}"][@"DateTime"])
+        [data addObject:@{@"name":@"Date",@"value":[photoData.metadata[@"{TIFF}"][@"DateTime"] stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@",kTimeZoneFormat] withString:@""]}];
+
+    if (photoData.metadata[@"{TIFF}"][@"Model"])
+        [data addObject:@{@"name":@"Model",@"value":photoData.metadata[@"{TIFF}"][@"Model"]}];
+
+    if (photoData.metadata[@"{TIFF}"][@"Software"])
+        [data addObject:@{@"name":@"Model",@"value":photoData.metadata[@"{TIFF}"][@"Software"]}];
 
     if (photoData.code)
         [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kCode], @"value":photoData.code}];
@@ -75,8 +81,10 @@ const NSUInteger kImageHeight = 300;
     if (photoData.code)
         [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kProduct], @"value":photoData.productName}];
 
-    [dataSection bindToObject:@{@"el":data}];
-    [root addSection:dataSection];
+    if (data.count > 0) {
+        [dataSection bindToObject:@{@"el":data}];
+        [root addSection:dataSection];
+    }
 
     return root;
 }

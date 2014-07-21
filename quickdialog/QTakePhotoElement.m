@@ -45,7 +45,6 @@ const NSString *kInitTakeTitle = @"Prendre photo";
         //take a new picture
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.allowsEditing = NO;
         [controller presentViewController:picker animated:YES completion:nil];
     }
