@@ -9,10 +9,8 @@
 #import "QTakePhotoElement.h"
 #import "QBarcodeScannerViewController.h"
 
-@interface QBarcodeElement : QTakePhotoElement<QBarcodeScannerPickerDelegate>
+@interface QBarcodeElement : QButtonElement<QBarcodeScannerPickerDelegate>
 
-@property (strong,nonatomic) NSString *code;
-@property (strong,nonatomic) NSString *productBrand;
-@property (strong,nonatomic) NSString *productName;
+@property (strong, nonatomic) MEPhotoDataItem *photoData;
 
 @end

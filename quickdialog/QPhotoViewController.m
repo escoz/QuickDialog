@@ -8,13 +8,15 @@
 
 #import "QPhotoViewController.h"
 
+#import "MEPhotoDataItem.h"
+
 @interface QPhotoViewController ()
 
 @end
 
 @implementation QPhotoViewController
 
-+ (QRootElement *)buildWithImage:(UIImage *)image metadata:(NSDictionary *)metadata type:(PhotoSource)type {
++ (QRootElement *)buildWithImage:(UIImage *)image metadata:(NSDictionary *)metadata photoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type {
     QRootElement *root = [[QRootElement alloc] init];
     root.presentationMode = QPresentationModeModalFullScreen;
     root.controllerName = @"QPhotoViewController";
@@ -35,12 +37,16 @@
                             @{@"name":@"Model",@"value":metadata[@"{TIFF}"][@"Model"]},
                             @{@"name":@"Version",@"value":metadata[@"{TIFF}"][@"Software"]},
                             ] mutableCopy];
-    if (type == PhotoSourceBarcode) {
-        [data addObjectsFromArray:@[@{@"name":@"Brand name",@"value":metadata[@"product_brand"]},
-                                   @{@"name":@"Product name",@"value":metadata[@"product_name"]},
-                                   @{@"name":@"Bar code",@"value":metadata[@"code"]},
-                                   ]];
-    }
+
+    if (photoData.code)
+        [data addObject:@{@"name":@"Code", @"value":photoData.code}];
+
+    if (photoData.code)
+        [data addObject:@{@"name":@"Marque", @"value":photoData.productBrand}];
+
+    if (photoData.code)
+        [data addObject:@{@"name":@"Produit", @"value":photoData.productName}];
+
 
     [dataSection bindToObject:@{@"el":data}];
     [root addSection:dataSection];
@@ -48,8 +54,8 @@
     return root;
 }
 
-- (QPhotoViewController *)initWithPhoto:(UIImage *)image metadata:(NSDictionary *)metadata type:(PhotoSource)type {
-    QRootElement *root = [QPhotoViewController buildWithImage:image metadata:metadata type:type];
+- (QPhotoViewController *)initWithPhoto:(UIImage *)image metadata:(NSDictionary *)metadata photoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type {
+    QRootElement *root = [QPhotoViewController buildWithImage:image metadata:metadata photoData:photoData type:type];
     self = [super initWithRoot:root];
     if (self) {
         //do something

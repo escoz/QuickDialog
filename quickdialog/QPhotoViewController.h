@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "MEPhotoDataItem.h"
+
 #import "QuickDialog.h"
 
 typedef enum {
@@ -19,9 +22,10 @@ typedef enum {
 
 @property (strong, nonatomic) UIImage *image;
 @property (strong, nonatomic) NSDictionary *metadata;
+@property (strong, nonatomic) MEPhotoDataItem *photoData;
 
-+ (QRootElement *)buildWithImage:(UIImage *)image metadata:(NSDictionary *)metadata type:(PhotoSource)type;
++ (QRootElement *)buildWithImage:(UIImage *)image metadata:(NSDictionary *)metadata photoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
 
-- (QPhotoViewController *)initWithPhoto:(UIImage *)image metadata:(NSDictionary *)metadata type:(PhotoSource)type;
+- (QPhotoViewController *)initWithPhoto:(UIImage *)image metadata:(NSDictionary *)metadata photoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type;
 
 @end

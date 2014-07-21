@@ -8,7 +8,6 @@
 
 #import "QTakePhotoElement.h"
 
-const NSString *kInitPreviewTitle = @"Voir photo";
 const NSString *kInitTakeTitle = @"Prendre photo";
 
 @implementation QTakePhotoElement
@@ -17,9 +16,8 @@ const NSString *kInitTakeTitle = @"Prendre photo";
 {
     self = [super init];
     if (self) {
-        _isPhotoTaken = false;
-        _previewTitle = [NSString stringWithFormat:@"%@",kInitPreviewTitle];
-        _takeTitle = [NSString stringWithFormat:@"%@",kInitTakeTitle];
+        _photoData = [[MEPhotoDataItem alloc] init];
+        _photoData.takeTitle = [NSString stringWithFormat:@"%@",kInitTakeTitle];
     }
     return self;
 }
@@ -31,14 +29,14 @@ const NSString *kInitTakeTitle = @"Prendre photo";
     }
     [cell applyAppearanceForElement:self];
 
-    cell.textLabel.text = _isPhotoTaken ? _previewTitle : _takeTitle;
+    cell.textLabel.text = _photoData.isPhotoTaken ? _photoData.previewTitle : _photoData.takeTitle;
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    if (_isPhotoTaken) {
+    if (_photoData.isPhotoTaken) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:_image metadata:_metadata type:PhotoSourceCamera];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:_photoData.image metadata:_photoData.metadata  photoData:_photoData type:PhotoSourceCamera];
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
         //take a new picture
@@ -53,10 +51,10 @@ const NSString *kInitTakeTitle = @"Prendre photo";
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    _image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    _metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
+    _photoData.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    _photoData.metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
 
-    _isPhotoTaken = YES;
+    _photoData.isPhotoTaken = YES;
     [picker dismissViewControllerAnimated:YES completion:^{
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];

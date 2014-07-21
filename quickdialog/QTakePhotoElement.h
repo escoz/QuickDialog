@@ -8,13 +8,10 @@
 
 #import "QButtonElement.h"
 
+#import "MEPhotoDataItem.h"
+
 @interface QTakePhotoElement : QButtonElement <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSMutableDictionary *metadata;
-@property BOOL isPhotoTaken;
-
-@property (strong, nonatomic) NSString *previewTitle;
-@property (strong, nonatomic) NSString *takeTitle;
+@property (strong, nonatomic) MEPhotoDataItem *photoData;
 
 @end

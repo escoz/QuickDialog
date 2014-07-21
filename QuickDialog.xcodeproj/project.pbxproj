@@ -71,6 +71,7 @@
 		D285810419790BFB00D56BF6 /* QPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D285810219790BFB00D56BF6 /* QPhotoViewController.m */; };
 		D285810719790F4100D56BF6 /* QPhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D285810519790F4100D56BF6 /* QPhotoElement.h */; };
 		D285810819790F4100D56BF6 /* QPhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D285810619790F4100D56BF6 /* QPhotoElement.m */; };
+		D285810E197D472B00D56BF6 /* MEPhotoDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D285810D197D472B00D56BF6 /* MEPhotoDataItem.m */; };
 		D2BF290D1977F2400001FB73 /* QTakePhotoElement.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BF28FA1976D64F0001FB73 /* QTakePhotoElement.h */; };
 		D2BF290E1977F2400001FB73 /* QTakePhotoElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D2BF28FB1976D64F0001FB73 /* QTakePhotoElement.m */; };
 		D80B0E3813E052DF00FA85CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80B0E3713E052DF00FA85CA /* UIKit.framework */; };
@@ -256,6 +257,8 @@
 		D285810219790BFB00D56BF6 /* QPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoViewController.m; path = quickdialog/QPhotoViewController.m; sourceTree = SOURCE_ROOT; };
 		D285810519790F4100D56BF6 /* QPhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QPhotoElement.h; path = quickdialog/QPhotoElement.h; sourceTree = SOURCE_ROOT; };
 		D285810619790F4100D56BF6 /* QPhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QPhotoElement.m; path = quickdialog/QPhotoElement.m; sourceTree = SOURCE_ROOT; };
+		D285810C197D472B00D56BF6 /* MEPhotoDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEPhotoDataItem.h; sourceTree = SOURCE_ROOT; };
+		D285810D197D472B00D56BF6 /* MEPhotoDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEPhotoDataItem.m; sourceTree = SOURCE_ROOT; };
 		D2BF28FA1976D64F0001FB73 /* QTakePhotoElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QTakePhotoElement.h; path = quickdialog/QTakePhotoElement.h; sourceTree = SOURCE_ROOT; };
 		D2BF28FB1976D64F0001FB73 /* QTakePhotoElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QTakePhotoElement.m; path = quickdialog/QTakePhotoElement.m; sourceTree = SOURCE_ROOT; };
 		D80B0E3313E052DF00FA85CA /* QuickDialogExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickDialogExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -605,6 +608,8 @@
 		D860356713E0534000CB1785 /* quickdialog */ = {
 			isa = PBXGroup;
 			children = (
+				D285810C197D472B00D56BF6 /* MEPhotoDataItem.h */,
+				D285810D197D472B00D56BF6 /* MEPhotoDataItem.m */,
 				D2BF28FA1976D64F0001FB73 /* QTakePhotoElement.h */,
 				D2BF28FB1976D64F0001FB73 /* QTakePhotoElement.m */,
 				D2728B7E197818CC008B4F26 /* QBarcodeElement.h */,
@@ -1034,6 +1039,7 @@
 				5C50E65C85040A1F79EAD648 /* QMapViewController.m in Sources */,
 				5C50EFADB34DF61735763BCF /* UIColor+ColorUtilities.m in Sources */,
 				5C50EAFF93AE7374E94BEBAE /* QColorPickerElement.m in Sources */,
+				D285810E197D472B00D56BF6 /* MEPhotoDataItem.m in Sources */,
 				5C50E98463F3848733205310 /* QMailElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
