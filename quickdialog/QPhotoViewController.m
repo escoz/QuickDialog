@@ -10,6 +10,16 @@
 
 #import "MEPhotoDataItem.h"
 
+const NSString *kPhoto = @"Photo";
+const NSString *kActions = @"Actions";
+const NSString *kDelete = @"Supprimer";
+const NSString *kInformations = @"Informations";
+const NSString *kCode = @"Code";
+const NSString *kBrand = @"Marque";
+const NSString *kProduct = @"Produit";
+const NSString *kTimeZoneFormat = @"+0000";
+const NSUInteger kImageHeight = 300;
+
 @interface QPhotoViewController ()
 
 @end
@@ -32,38 +42,38 @@
     root.controllerName = @"QPhotoViewController";
     root.grouped = YES;
 
-    QSection *photoSection = [[QSection alloc] initWithTitle:@"Photo"];
+    QSection *photoSection = [[QSection alloc] initWithTitle:[NSString stringWithFormat:@"%@",kPhoto]];
     QPhotoElement *photo = [[QPhotoElement alloc] initWithImage:photoData.image];
-    photo.height = 300;
+    photo.height = kImageHeight;
     [photo setEnabled:type != PhotoSourceWeb]; //disable selection if the photo comes from web
     [photoSection addElement:photo];
     [root addSection:photoSection];
 
-    QSection *actionsSection = [[QSection alloc] initWithTitle:@"Actions"];
-    QButtonElement *delete = [[QButtonElement alloc] initWithTitle:@"Supprimer"];
+    QSection *actionsSection = [[QSection alloc] initWithTitle:[NSString stringWithFormat:@"%@",kActions]];
+    QButtonElement *delete = [[QButtonElement alloc] initWithTitle:[NSString stringWithFormat:@"%@",kDelete]];
     delete.appearance = [root.appearance copy];
     [delete.appearance setBackgroundColorEnabled:[UIColor redColor]];
     delete.controllerAction = @"deletePhoto:";
     [actionsSection addElement:delete];
     [root addSection:actionsSection];
 
-    QDynamicDataSection *dataSection = [[QDynamicDataSection alloc] initWithTitle:@"Informations"];
+    QDynamicDataSection *dataSection = [[QDynamicDataSection alloc] initWithTitle:[NSString stringWithFormat:@"%@",kInformations]];
     [dataSection setKey:@"dataSection"];
     dataSection.bind = @"iterate:el";
     dataSection.elementTemplate = @{@"type":@"QLabelElement", @"bind":@"title:name, value:value"};
-    NSMutableArray *data = [@[@{@"name":@"Date",@"value":[photoData.metadata[@"{TIFF}"][@"DateTime"] stringByReplacingOccurrencesOfString:@"+0000" withString:@""]},
+    NSMutableArray *data = [@[@{@"name":@"Date",@"value":[photoData.metadata[@"{TIFF}"][@"DateTime"] stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@",kTimeZoneFormat] withString:@""]},
                             @{@"name":@"Model",@"value":photoData.metadata[@"{TIFF}"][@"Model"]},
                             @{@"name":@"Version",@"value":photoData.metadata[@"{TIFF}"][@"Software"]},
                             ] mutableCopy];
 
     if (photoData.code)
-        [data addObject:@{@"name":@"Code", @"value":photoData.code}];
+        [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kCode], @"value":photoData.code}];
 
     if (photoData.code)
-        [data addObject:@{@"name":@"Marque", @"value":photoData.productBrand}];
+        [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kBrand], @"value":photoData.productBrand}];
 
     if (photoData.code)
-        [data addObject:@{@"name":@"Produit", @"value":photoData.productName}];
+        [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kProduct], @"value":photoData.productName}];
 
     [dataSection bindToObject:@{@"el":data}];
     [root addSection:dataSection];

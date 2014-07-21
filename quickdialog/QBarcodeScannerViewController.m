@@ -11,7 +11,10 @@
 
 const NSString *kValidate = @"Valider";
 const NSString *kCancel = @"Cancel";
+const NSString *kLoading = @"Loading...";
 const CGFloat kFlashDuration = 0.4;
+
+const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.json";
 
 @interface QBarcodeScannerViewController ()
 {
@@ -201,11 +204,11 @@ const CGFloat kFlashDuration = 0.4;
 
     //get informations about the barcode (name/brand/etc.) from openfoodfacts
     resultLabel.hidden = NO;
-    resultLabel.text = @"Loading...";
+    resultLabel.text = [NSString stringWithFormat:@"%@",kLoading];
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSError *error;
-        NSDictionary *serializer = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://fr.openfoodfacts.org/api/v0/produit/%@.json",scannedCode]]] options:NSJSONReadingAllowFragments error:&error];
+        NSDictionary *serializer = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:[NSString stringWithFormat:@"%@",kAPIURLFormat],scannedCode]]] options:NSJSONReadingAllowFragments error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
             //if there is an error while serializing, show only the barcode
             if (![serializer[@"status"] isEqualToNumber:@0]) {
