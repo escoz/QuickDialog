@@ -63,6 +63,7 @@ const float kLoadingCellHeight = 50.0;
                     [[(QuickDialogController *)self.controller quickDialogTableView] reloadRowHeights];
                     [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
                 } else {
+                    //if fails, try again
                     [self getImageFromURL:url];
                 }
             });
@@ -75,7 +76,6 @@ const float kLoadingCellHeight = 50.0;
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"QuickformPhoto"];
     }
-
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     if (!_image) {
@@ -84,8 +84,15 @@ const float kLoadingCellHeight = 50.0;
         [self getImageFromURL:_url]; //asynchronously download image
     } else {
         UIImageView *mainImage = [[UIImageView alloc] initWithImage:_image];
-        mainImage.frame = CGRectMake(0, 0, controller.view.frame.size.width, _height);
         mainImage.contentMode = UIViewContentModeScaleAspectFit;
+        if (_image.size.width > _image.size.height) {
+            _height = _image.size.height * (controller.view.frame.size.width / _image.size.width);
+            //reload on main thread. UI has to be on main thread
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [tableView reloadRowHeights];
+            });
+        }
+        mainImage.frame = CGRectMake(0, 0, controller.view.frame.size.width, _height);
         [cell.contentView addSubview:mainImage];
     }
 
@@ -93,8 +100,11 @@ const float kLoadingCellHeight = 50.0;
 }
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
+    //if the image height is smaller than the height specified in the JSON (or initial height)
+    //choose the smaller one to avoid white space
     if (_image) _height = MIN(_height,_image.size.height);
 
+    //if it's loading, choose the initial height for the loading cell (constant to adapt)
     return loading ? kLoadingCellHeight : _height;
 }
 
