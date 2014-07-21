@@ -29,7 +29,8 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     }
     [cell applyAppearanceForElement:self];
 
-    cell.textLabel.text = self.isPhotoTaken ? [NSString stringWithFormat:@"%@ : %@",self.previewTitle, _code] : self.takeTitle;
+    NSString *result = _productName && _brand ? [_brand stringByAppendingString:[NSString stringWithFormat:@" %@",_productName]] : _code;
+    cell.textLabel.text = self.isPhotoTaken ? [NSString stringWithFormat:@"%@ : %@",self.previewTitle, result] : self.takeTitle;
     return cell;
 }
 
@@ -48,10 +49,12 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSString *)result {
+- (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSDictionary *)result {
     self.image = image;
     self.metadata = metadata;
-    self.code = result;
+    self.code = result[@"code"];
+    self.brand = result[@"brand"];
+    self.productName = result[@"product_name"];
     self.isPhotoTaken = YES;
     [barcodeScanner dismissViewControllerAnimated:YES completion:^{
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];

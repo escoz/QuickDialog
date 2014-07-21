@@ -17,13 +17,16 @@ const CGFloat kFlashDuration = 0.4;
     //result view
     UIView *whiteView;
     UIImageView *previewImageView;
-    UILabel *codeLabel;
+    UILabel *resultLabel;
     UIButton *validateButton;
 
     //result data
     UIImage *scannedImage;
-    NSString *scannedCode;
     NSDictionary *scannedMetadata;
+    NSString *scannedCode;
+    //product data from barcode
+    NSString *productName;
+    NSString *productBrand;
 
     //AVFoundation
     AVCaptureSession *session;
@@ -56,13 +59,13 @@ const CGFloat kFlashDuration = 0.4;
     previewImageView.hidden = YES;
     [self.view addSubview:previewImageView];
 
-    codeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 80, self.view.bounds.size.width, 40)];
-    codeLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
-    codeLabel.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
-    codeLabel.textColor = [UIColor whiteColor];
-    codeLabel.textAlignment = NSTextAlignmentCenter;
-    codeLabel.hidden = YES;
-    [self.view addSubview:codeLabel];
+    resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 80, self.view.bounds.size.width, 40)];
+    resultLabel.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+    resultLabel.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
+    resultLabel.textColor = [UIColor whiteColor];
+    resultLabel.textAlignment = NSTextAlignmentCenter;
+    resultLabel.hidden = YES;
+    [self.view addSubview:resultLabel];
 
     validateButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 40, self.view.bounds.size.width, 40)];
     validateButton.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
@@ -102,7 +105,7 @@ const CGFloat kFlashDuration = 0.4;
     [session startRunning];
 
     isCapturing = NO;
-    [self.view bringSubviewToFront:codeLabel];
+    [self.view bringSubviewToFront:resultLabel];
     [self.view bringSubviewToFront:validateButton];
 }
 
@@ -124,7 +127,8 @@ const CGFloat kFlashDuration = 0.4;
 }
 
 - (void)didValidateBarcode:(id)sender {
-    [self.delegate barcodeScanner:self didFinishScanningWithImage:scannedImage andMetadata:scannedMetadata andResult:scannedCode];
+    NSDictionary *result = @{@"code":scannedCode, @"brand":productBrand, @"product_name":productName};
+    [self.delegate barcodeScanner:self didFinishScanningWithImage:scannedImage andMetadata:scannedMetadata andResult:result];
 }
 
 - (void)captureStillImageWithMetadata:(id)metadata {
@@ -178,9 +182,23 @@ const CGFloat kFlashDuration = 0.4;
     previewImageView.hidden = NO;
     previewImageView.image = image;
 
-    codeLabel.hidden = NO;
-    codeLabel.text = scannedCode;
-    validateButton.hidden = NO;
+    //get informations about the barcode (name/brand/etc.) from openfoodfacts
+    resultLabel.hidden = NO;
+    resultLabel.text = @"Loading...";
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSError *error;
+        NSDictionary *serializer = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://fr.openfoodfacts.org/api/v0/produit/%@.json",scannedCode]]] options:NSJSONReadingAllowFragments error:&error];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //if there is an error while serializing, show only the barcode
+            if (![serializer[@"status"] isEqualToNumber:@0]) {
+                productName = [NSString stringWithFormat:@"%@",serializer[@"product"][@"product_name"]];
+                productBrand = [NSString stringWithFormat:@"%@",serializer[@"product"][@"brands"]];
+            }
+            resultLabel.text = productName && productBrand ? [productBrand stringByAppendingString:[NSString stringWithFormat:@" %@",productName]] : scannedCode;
+            validateButton.hidden = NO;
+        });
+    });
 }
 
 #pragma mark AVCaptureMetadataOutputObjectsDelegate methods
