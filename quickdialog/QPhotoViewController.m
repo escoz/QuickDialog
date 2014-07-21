@@ -21,6 +21,8 @@
     //ugly way to get the tableview. TO FIX
     [[(QuickDialogController *)self.navigationController.viewControllers[0] quickDialogTableView] reloadData];
     [self popToPreviousRootElement];
+    _photoData.image = nil; //force ARC to free
+    _photoData.metadata = nil; //force ARC to free
 }
 
 + (QRootElement *)buildWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type {
