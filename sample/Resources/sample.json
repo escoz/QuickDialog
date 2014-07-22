@@ -6,7 +6,6 @@
 
         { "title":"Explications", "elements":[
             {"type":"QWebElement",  "title":"Le brief sur notre blog", "url":"http://www.mobeye-app.com/missions-coca-cola/"},
-            {"type":"QButtonElement", "title":"Get data from JSON", "controllerAction":"handleBindWithJsonData:"},
         ]
         },
         { "title":"Rélévé du produit n°1", "elements":[
