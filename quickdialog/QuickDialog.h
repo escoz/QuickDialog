@@ -67,6 +67,16 @@
 #import "QBarcodeScannerViewController.h"
 #import "QPhotoViewController.h"
 #import "QPhotoElement.h"
+#import "extras/QColorPickerElement.h"
+#import "extras/QMailElement.h"
+#import "extras/QMapAnnotation.h"
+#import "extras/QMapViewController.h"
+#import "extras/QPickerElement.h"
+#import "extras/QPickerTabDelimitedStringParser.h"
+#import "extras/QPickerTableViewCell.h"
+#import "extras/QPickerValueParser.h"
+#import "extras/QWebElement.h"
+#import "extras/QWebViewController.h"
 
 #import "QRootBuilder.h"
 
