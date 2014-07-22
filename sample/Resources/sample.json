@@ -6,6 +6,13 @@
 
         { "title":"Explications", "elements":[
             {"type":"QWebElement",  "title":"Le brief sur notre blog", "url":"http://www.mobeye-app.com/missions-coca-cola/"},
+                                              {"type":"QColorPickerElement", "title":"title"},
+                                              {"type":"QMailElement","title":"mail"},
+                                              {"type":"QMapElement","title":"map"},
+                                              {"type":"QPickerElement","title":"picker"},
+                                              {"type":"QWebElement","title":"mail"},
+                                              {"type":"QMailElement","title":"mail"},
+                                              {"type":"QMailElement","title":"mail"},
         ]
         },
         { "title":"Rélévé du produit n°1", "elements":[
