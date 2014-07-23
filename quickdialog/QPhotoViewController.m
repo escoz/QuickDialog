@@ -8,8 +8,6 @@
 
 #import "QPhotoViewController.h"
 
-#import "MEPhotoDataItem.h"
-
 const NSString *kPhoto = @"Photo";
 const NSString *kActions = @"Actions";
 const NSString *kDelete = @"Supprimer";
@@ -26,27 +24,27 @@ const NSUInteger kImageHeight = 300;
 
 @implementation QPhotoViewController
 
-- (void)deletePhoto:(id)sender {
-    _photoData.isPhotoTaken = NO;
-    [_element.appearance setBackgroundColorEnabled:[UIColor whiteColor]];
-    //ugly way to get the tableview. TO FIX
-    [[(QuickDialogController *)self.navigationController.viewControllers[0] quickDialogTableView] reloadCellForElements:_element, nil];
-    [self popToPreviousRootElement];
-    _photoData.image = nil; //force ARC to free
-    _photoData.metadata = nil; //force ARC to free
+- (QPhotoViewController *)initWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData type:(PhotoSource)type {
+    QRootElement *root = [QPhotoViewController buildWithPhoto:photo photoData:photoData type:type];
+    self = [super initWithRoot:root];
+    if (self) {
+        _photoData = photoData;
+    }
 
+    return self;
 }
-+ (QRootElement *)buildWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type {
+
++ (QRootElement *)buildWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData type:(PhotoSource)type {
     QRootElement *root = [[QRootElement alloc] init];
     root.presentationMode = QPresentationModeModalFullScreen;
     root.controllerName = @"QPhotoViewController";
     root.grouped = YES;
 
     QSection *photoSection = [[QSection alloc] initWithTitle:[NSString stringWithFormat:@"%@",kPhoto]];
-    QPhotoElement *photo = [[QPhotoElement alloc] initWithImage:photoData.image];
-    photo.height = kImageHeight;
-    [photo setEnabled:type != PhotoSourceWeb]; //disable selection if the photo comes from web
-    [photoSection addElement:photo];
+    QPhotoElement *photoElement = [[QPhotoElement alloc] initWithImage:photo];
+    photoElement.height = kImageHeight;
+    [photoElement setEnabled:type != PhotoSourceWeb]; //disable selection if the photo comes from web
+    [photoSection addElement:photoElement];
     [root addSection:photoSection];
 
     QSection *actionsSection = [[QSection alloc] initWithTitle:[NSString stringWithFormat:@"%@",kActions]];
@@ -63,23 +61,7 @@ const NSUInteger kImageHeight = 300;
     dataSection.elementTemplate = @{@"type":@"QLabelElement", @"bind":@"title:name, value:value"};
     NSMutableArray *data = [NSMutableArray array];
 
-    if (photoData.metadata[@"{TIFF}"][@"DateTime"])
-        [data addObject:@{@"name":@"Date",@"value":[photoData.metadata[@"{TIFF}"][@"DateTime"] stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@",kTimeZoneFormat] withString:@""]}];
-
-    if (photoData.metadata[@"{TIFF}"][@"Model"])
-        [data addObject:@{@"name":@"Model",@"value":photoData.metadata[@"{TIFF}"][@"Model"]}];
-
-    if (photoData.metadata[@"{TIFF}"][@"Software"])
-        [data addObject:@{@"name":@"Model",@"value":photoData.metadata[@"{TIFF}"][@"Software"]}];
-
-    if (photoData.code)
-        [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kCode], @"value":photoData.code}];
-
-    if (photoData.code)
-        [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kBrand], @"value":photoData.productBrand}];
-
-    if (photoData.code)
-        [data addObject:@{@"name":[NSString stringWithFormat:@"%@",kProduct], @"value":photoData.productName}];
+    [self iteratePhotoData:photoData andDataArray:data];
 
     if (data.count > 0) {
         [dataSection bindToObject:@{@"el":data}];
@@ -89,14 +71,25 @@ const NSUInteger kImageHeight = 300;
     return root;
 }
 
-- (QPhotoViewController *)initWithPhotoData:(MEPhotoDataItem *)photoData type:(PhotoSource)type {
-    QRootElement *root = [QPhotoViewController buildWithPhotoData:photoData type:type];
-    self = [super initWithRoot:root];
-    if (self) {
-        _photoData = photoData;
++ (void)iteratePhotoData:(NSDictionary *)photoData andDataArray:(NSMutableArray *)data {
+    for (NSString *key in [photoData allKeys]) {
+        //checking if photoData[key] is a ditionary itself
+        if ([photoData[key] respondsToSelector:@selector(allKeys)]) {
+            [QPhotoViewController iteratePhotoData:photoData[key] andDataArray:data];
+        } else {
+            [data addObject:@{@"name":[NSString stringWithFormat:@"%@",[key capitalizedString]],@"value":photoData[key]}];
+        }
     }
-
-    return self;
 }
+
+- (void)deletePhoto:(id)sender {
+    [_photoData removeAllObjects];
+    [_element.appearance setBackgroundColorEnabled:[UIColor whiteColor]];
+    //ugly way to get the tableview. TO FIX
+    [[(QuickDialogController *)_element.controller quickDialogTableView] reloadCellForElements:_element, nil];
+    [self popToPreviousRootElement];
+    self.element.image = nil; //force ARC to free
+}
+
 
 @end

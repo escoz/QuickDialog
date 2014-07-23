@@ -7,6 +7,8 @@
 //
 
 #import "QTakePhotoElement.h"
+#import <AssetsLibrary/ALAssetsLibrary.h>
+#import <AssetsLibrary/ALAssetRepresentation.h>
 
 #define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
 const NSString *kInitTakeTitle = @"Prendre photo";
@@ -21,11 +23,15 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
 {
     self = [super init];
     if (self) {
-        _photoData = [[MEPhotoDataItem alloc] init];
-        _photoData.takeTitle = [NSString stringWithFormat:@"%@",kInitTakeTitle];
+        [self initPhotoData];
         self.appearance = [self.appearance copy];
     }
     return self;
+}
+
+- (void)initPhotoData {
+    _photoData = [NSMutableDictionary dictionary];
+    [_photoData setObject:[NSString stringWithFormat:@"%@",kInitTakeTitle] forKey:@"takeTitle"];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -35,14 +41,14 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     }
     [cell applyAppearanceForElement:self];
 
-    cell.textLabel.text = _photoData.isPhotoTaken ? _photoData.previewTitle : _photoData.takeTitle;
+    cell.textLabel.text = [_photoData[@"isPhotoTaken"] boolValue] ? _photoData[@"previewTitle"] : _photoData[@"takeTitle"];
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    if (_photoData.isPhotoTaken) {
+    if ([_photoData[@"isPhotoTaken"] boolValue]) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhotoData:_photoData type:PhotoSourceCamera];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:self.image photoData:_photoData type:PhotoSourceCamera];
         vc.element = self;
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
@@ -68,24 +74,101 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     [self.controller presentViewController:picker animated:YES completion:nil];
 }
 
++ (UIImage *)UIImageFromAsset:(ALAsset *)asset resultBlock:(void(^)(UIImage *resultImage))resultBlock {
+    UIImage *image;
+    ALAssetRepresentation *rep = [asset defaultRepresentation];
+    CGImageRef iref = [rep fullResolutionImage];
+    if (iref) {
+        image = [UIImage imageWithCGImage:iref];
+        resultBlock(image);
+    }
+
+    //return the image if successful
+    //return nil if not
+
+    if (!image)
+        NSLog(@"Error while transforming ALAsset in UIImage.");
+
+    return image;
+}
+
+- (void)setMetadata:(NSDictionary *)metadata assetURL:(NSURL *)assetURL {
+    if (metadata) {
+        [_photoData setObject:[assetURL absoluteString] forKey:@"assetURL"];
+        [_photoData setObject:metadata forKey:@"metadata"];
+        //set the isPhotoTaken flag here, so pictures without metadata won't be allowed
+        [_photoData setObject:[NSNumber numberWithBool:YES] forKey:@"isPhotoTaken"];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"La photo selectionnée n'est pas conforme aux règles Mobeye." delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCancelActionSheet] otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 #pragma mark UIImagePickerController delegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    _photoData.metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
-    if (!_photoData.metadata) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"La photo selectionnée n'est pas conforme aux règles Mobeye." delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCancelActionSheet] otherButtonTitles:nil];
-        [alert show];
-    } else {
-        _photoData.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        _photoData.isPhotoTaken = YES;
-        [self.appearance setBackgroundColorEnabled:green_color];
+    __block NSMutableDictionary *metadata;
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
 
-        
+    switch (picker.sourceType) {
+        case UIImagePickerControllerSourceTypeCamera:
+        {
+            self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+            metadata = [info objectForKey:UIImagePickerControllerMediaMetadata];
+
+            [library writeImageToSavedPhotosAlbum:[self.image CGImage] metadata:metadata completionBlock:^(NSURL *assetURL, NSError *error) {
+                if (error) {
+                    NSLog(@"Error when saving photo: %@", error.description);
+                } else {
+                    [self setMetadata:metadata assetURL:assetURL];
+                }
+            }];
+
+        }
+            break;
+        case UIImagePickerControllerSourceTypeSavedPhotosAlbum:
+        {
+            [library assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL]
+                 resultBlock:^(ALAsset *asset) {
+                     [_photoData setObject:[asset.defaultRepresentation.url absoluteString] forKey:@"assetURL"];
+                     self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
+                         [self setMetadata:asset.defaultRepresentation.metadata assetURL:asset.defaultRepresentation.url];
+                     }];
+                 }
+                failureBlock:^(NSError *error) {
+                    NSLog(@"Error while loading file: %@", error.description);
+                }];
+        }
+            break;
+        default:
+            break;
     }
 
     [picker dismissViewControllerAnimated:YES completion:^{
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];
+}
+
+- (void)bindToObject:(id)data shallow:(BOOL)shallow {
+    [super bindToObject:data shallow:shallow];
+
+    //when no json data comes in, the binding sets photoData to nil.
+    //Init it again if that's the case
+    if (!_photoData) [self initPhotoData];
+
+    if (_photoData[@"assetURL"]) {
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
+                 resultBlock:^(ALAsset *asset) {
+                     self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
+                         //do something with metadata maybe
+                     }];
+                 }
+                failureBlock:^(NSError *error) {
+                    NSLog(@"Error while loading photo: %@",error.description);
+                }];
+    }
 }
 
 #pragma mark UIActionSheet delegate

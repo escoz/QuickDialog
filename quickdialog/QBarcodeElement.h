@@ -11,6 +11,6 @@
 
 @interface QBarcodeElement : QButtonElement<QBarcodeScannerPickerDelegate>
 
-@property (strong, nonatomic) MEPhotoDataItem *photoData;
+@property (strong, nonatomic) NSMutableDictionary *photoData;
 
 @end

@@ -18,8 +18,8 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
 {
     self = [super init];
     if (self) {
-        _photoData = [[MEPhotoDataItem alloc] init];
-        _photoData.takeTitle = [NSString stringWithFormat:@"%@", kInitScanTitle];
+        _photoData = [NSMutableDictionary dictionary];
+        [_photoData setObject:[NSString stringWithFormat:@"%@",kInitScanTitle] forKey:@"takeTitle"];
         self.appearance = [self.appearance copy];
     }
     return self;
@@ -32,15 +32,15 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     }
     [cell applyAppearanceForElement:self];
 
-    NSString *result = _photoData.productName && _photoData.productBrand ? [_photoData.productBrand stringByAppendingString:[NSString stringWithFormat:@" %@",_photoData.productName]] : _photoData.code;
-    cell.textLabel.text = _photoData.isPhotoTaken ? [NSString stringWithFormat:@"%@ : %@",_photoData.previewTitle, result] : _photoData.takeTitle;
+    NSString *result = _photoData[@"productName"] && _photoData[@"productBrand"] ? [_photoData[@"productBrand"] stringByAppendingString:[NSString stringWithFormat:@" %@",_photoData[@"productName"]]] : _photoData[@"code"];
+    cell.textLabel.text = [_photoData[@"isPhotoTaken"] boolValue] ? [NSString stringWithFormat:@"%@ : %@",_photoData[@"previewTitle"], result] : _photoData[@"takeTitle"];
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
-    if (_photoData.isPhotoTaken) {
+    if ([_photoData[@"isPhotoTaken"] boolValue]) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhotoData:_photoData type:PhotoSourceBarcode];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:self.image photoData:_photoData type:PhotoSourceBarcode];
         vc.element = self;
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
@@ -54,12 +54,12 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
 }
 
 - (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSDictionary *)result {
-    _photoData.image = image;
-    _photoData.metadata = [NSMutableDictionary dictionaryWithDictionary:metadata];
-    _photoData.code = result[@"code"];
-    _photoData.productBrand = result[@"product_brand"];
-    _photoData.productName = result[@"product_name"];
-    _photoData.isPhotoTaken = YES;
+    self.image = image;
+
+    for (NSString *key in [result allKeys]) {
+        [_photoData setObject:result[key] forKey:key];
+    }
+    [_photoData setObject:[NSNumber numberWithBool:YES] forKey:@"isPhotoTaken"];
 
     [barcodeScanner dismissViewControllerAnimated:YES completion:^{
         [self.appearance setBackgroundColorEnabled:green_color];
