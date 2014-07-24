@@ -125,6 +125,7 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
                     NSLog(@"Error when saving photo: %@", error.description);
                 } else {
                     [self setMetadata:metadata assetURL:assetURL];
+                    [self dismissViewController:picker];
                 }
             }];
 
@@ -137,6 +138,7 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
                      [_photoData setObject:[asset.defaultRepresentation.url absoluteString] forKey:@"assetURL"];
                      self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
                          [self setMetadata:asset.defaultRepresentation.metadata assetURL:asset.defaultRepresentation.url];
+                         [self dismissViewController:picker];
                      }];
                  }
                 failureBlock:^(NSError *error) {
@@ -147,8 +149,11 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
         default:
             break;
     }
+}
 
-    [picker dismissViewControllerAnimated:YES completion:^{
+- (void)dismissViewController:(UIViewController *)viewController {
+    [viewController dismissViewControllerAnimated:YES completion:^{
+        [self.appearance setBackgroundColorEnabled:green_color];
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];
 }
@@ -166,8 +171,6 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
                  resultBlock:^(ALAsset *asset) {
                      self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
                          [self.appearance setBackgroundColorEnabled:green_color];
-                         //[[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
-
                      }];
                  }
                 failureBlock:^(NSError *error) {
