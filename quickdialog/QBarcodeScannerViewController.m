@@ -191,11 +191,11 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
 
              //to figure out how to get all TIFF data
              //NSDictionary *tiffMetadata = (__bridge NSDictionary *)CMGetAttachment(imageSampleBuffer, kCGImagePropertyTIFFDictionary, NULL);
-
-             NSDictionary *tiffMetadata = [NSDictionary dictionaryWithObjectsAndKeys:[[NSDate date] description],@"DateTime",[UIDevice currentDevice].model,@"Model",[UIDevice currentDevice].systemVersion,@"Software",nil];
+             NSString *orientation = (__bridge NSString *)CMGetAttachment(imageSampleBuffer, kCGImagePropertyTIFFOrientation, NULL);
+             NSDictionary *tiffMetadata = [NSDictionary dictionaryWithObjectsAndKeys:[[NSDate date] description],@"DateTime",[UIDevice currentDevice].model,@"Model",[UIDevice currentDevice].systemVersion,@"Software", nil];
 
              NSDictionary *exifMetadata = (__bridge NSDictionary *)CMGetAttachment(imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
-             scannedMetadata = [NSDictionary dictionaryWithObjectsAndKeys:tiffMetadata, @"{TIFF}", exifMetadata, @"{EXIF}", nil];
+             scannedMetadata = [NSDictionary dictionaryWithObjectsAndKeys:tiffMetadata, @"{TIFF}", exifMetadata, @"{EXIF}", orientation, @"Orientation", nil];
              scannedCode = [metadata stringValue];
              [self didSuccessfulyScanBarcodeWithImage:image];
 
@@ -214,6 +214,7 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
     resultLabel.hidden = NO;
     resultLabel.text = [NSString stringWithFormat:@"%@",kLoading];
 
+    //try to get the product information from the scanned code asynchronously
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSError *error;
         NSDictionary *serializer = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:[NSString stringWithFormat:@"%@",kAPIURLFormat],scannedCode]]] options:NSJSONReadingAllowFragments error:&error];
