@@ -7,7 +7,9 @@
 //
 
 #import "QBarcodeScannerViewController.h"
+
 #import <ImageIO/CGImageProperties.h>
+#import <AudioToolbox/AudioServices.h>
 
 const NSString *kValidate = @"Valider";
 const NSString *kCancel = @"Cancel";
@@ -206,6 +208,7 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
 }
 
 - (void)didSuccessfulyScanBarcodeWithImage:(UIImage *)image {
+    AudioServicesPlayAlertSound(kSystemSoundID_Vibrate); //vibrate the device
     [self flashScreen];
     previewImageView.hidden = NO;
     previewImageView.image = image;
