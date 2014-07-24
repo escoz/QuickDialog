@@ -48,7 +48,10 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     if ([_photoData[@"isPhotoTaken"] boolValue]) {
         //show the photo to the user
-        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:self.image photoData:_photoData type:PhotoSourceCamera];
+        //create a new image regarding its orientation
+        //http://stackoverflow.com/questions/8915630/ios-uiimageview-how-to-handle-uiimage-image-orientation
+        UIImage *rotatedImage = [UIImage imageWithCGImage:[self.image CGImage] scale:1.0 orientation:[_photoData[@"metadata"][@"Orientation"] integerValue]];
+        QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:rotatedImage photoData:_photoData type:PhotoSourceCamera];
         vc.element = self;
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
