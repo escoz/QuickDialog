@@ -12,7 +12,6 @@
 #import <AudioToolbox/AudioServices.h>
 
 const NSString *kValidate = @"Valider";
-const NSString *kCancel = @"Cancel";
 const NSString *kLoading = @"Loading...";
 const CGFloat kFlashDuration = 0.4;
 const NSUInteger kGuideSize = 200;

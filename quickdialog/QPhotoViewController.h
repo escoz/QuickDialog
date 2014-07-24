@@ -10,20 +10,14 @@
 
 #import "QuickDialog.h"
 
-typedef enum {
-    PhotoSourceCamera,
-    PhotoSourceBarcode,
-    PhotoSourceWeb,
-} PhotoSource;
-
 @interface QPhotoViewController : QuickDialogController
 
 @property (strong, nonatomic) NSMutableDictionary *photoData;
 
 @property (strong, nonatomic) QButtonElement *element;
 
-+ (QRootElement *)buildWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData type:(PhotoSource)type;
++ (QRootElement *)buildWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData;
 
-- (QPhotoViewController *)initWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData type:(PhotoSource)type;
+- (QPhotoViewController *)initWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData;
 
 @end

@@ -24,17 +24,17 @@ const NSUInteger kImageHeight = 300;
 
 @implementation QPhotoViewController
 
-- (QPhotoViewController *)initWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData type:(PhotoSource)type {
-    QRootElement *root = [QPhotoViewController buildWithPhoto:photo photoData:photoData type:type];
+- (QPhotoViewController *)initWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData {
+    QRootElement *root = [QPhotoViewController buildWithPhoto:photo photoData:photoData];
     self = [super initWithRoot:root];
     if (self) {
-        _photoData = photoData;
+        self.photoData = photoData;
     }
 
     return self;
 }
 
-+ (QRootElement *)buildWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData type:(PhotoSource)type {
++ (QRootElement *)buildWithPhoto:(UIImage *)photo photoData:(NSMutableDictionary *)photoData {
     QRootElement *root = [[QRootElement alloc] init];
     root.presentationMode = QPresentationModeModalFullScreen;
     root.controllerName = @"QPhotoViewController";
@@ -43,7 +43,7 @@ const NSUInteger kImageHeight = 300;
     QSection *photoSection = [[QSection alloc] initWithTitle:[NSString stringWithFormat:@"%@",kPhoto]];
     QPhotoElement *photoElement = [[QPhotoElement alloc] initWithImage:photo];
     photoElement.height = kImageHeight;
-    [photoElement setEnabled:type != PhotoSourceWeb]; //disable selection if the photo comes from web
+    [photoElement setEnabled:NO]; //disable selection if the photo comes from web
     [photoSection addElement:photoElement];
     [root addSection:photoSection];
 
@@ -83,7 +83,7 @@ const NSUInteger kImageHeight = 300;
 }
 
 - (void)deletePhoto:(id)sender {
-    [_photoData removeAllObjects];
+    [self.photoData removeAllObjects];
     [_element.appearance setBackgroundColorEnabled:[UIColor whiteColor]];
     //ugly way to get the tableview. TO FIX
     [[(QuickDialogController *)_element.controller quickDialogTableView] reloadCellForElements:_element, nil];

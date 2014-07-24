@@ -7,10 +7,10 @@
 //
 
 #import "QTakePhotoElement.h"
+
+#import "QInputPhotoElement.h"
 #import "QBarcodeScannerViewController.h"
 
-@interface QBarcodeElement : QButtonElement<QBarcodeScannerPickerDelegate>
-
-@property (strong, nonatomic) NSMutableDictionary *photoData;
+@interface QBarcodeElement : QInputPhotoElement<QBarcodeScannerPickerDelegate>
 
 @end
