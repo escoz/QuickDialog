@@ -14,7 +14,7 @@
 
 extern NSString *const kPreviewPhoto;
 extern NSString *const kPhotoSource;
-extern NSString *const kCancel;
+extern NSString *const kCCancel;
 
 @interface QInputPhotoElement : QButtonElement
 

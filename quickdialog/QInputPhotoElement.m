@@ -15,7 +15,7 @@
 
 NSString *const kPreviewPhoto = @"Voir photo";
 NSString *const kPhotoSource = @"Source photo";
-NSString *const kCancel = @"Annuler";
+NSString *const kCCancel = @"Annuler";
 
 @implementation QInputPhotoElement
 
@@ -108,7 +108,7 @@ NSString *const kCancel = @"Annuler";
         //set the isPhotoTaken flag here, so pictures without metadata won't be allowed
         [self.photoData setObject:[NSNumber numberWithBool:YES] forKey:@"isPhotoTaken"];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"La photo selectionnée n'est pas conforme aux règles Mobeye." delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCancel] otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"La photo selectionnée n'est pas conforme aux règles Mobeye." delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCCancel] otherButtonTitles:nil];
         [alert show];
     }
 }
