@@ -7,11 +7,15 @@
 //
 
 #import "QBarcodeElement.h"
-#import "QPhotoViewController.h"
+
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
 
+#import "QPhotoViewController.h"
+
+#warning add color to constant
 #define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
+
 const NSString *kInitScanTitle = @"Scannez le code barres";
 const NSString *kInitPreviewTitle = @"Voir photo";
 
@@ -37,24 +41,26 @@ const NSString *kInitPreviewTitle = @"Voir photo";
         cell = [[QTableViewCell alloc] init];
     }
     [cell applyAppearanceForElement:self];
-    NSString *result = _photoData[@"product_name"] && _photoData[@"product_brand"] ? [NSString stringWithFormat:@"%@ : %@",_photoData[@"product_brand"] ,_photoData[@"product_name"]] : _photoData[@"code"];
-    NSString *preview = [NSString stringWithFormat:@"%@ : %@", kInitPreviewTitle, result];
 
-    cell.textLabel.text = [_photoData[@"isPhotoTaken"] boolValue] ? preview : [NSString stringWithFormat:@"%@",kInitScanTitle];
+    //create a string according to the product name, brand and scanned code
+    NSString *resultString = _photoData[@"product_name"] && _photoData[@"product_brand"] ? [NSString stringWithFormat:@"%@ : %@",_photoData[@"product_brand"] ,_photoData[@"product_name"]] : _photoData[@"code"];
+    NSString *previewString = [NSString stringWithFormat:@"%@ : %@", kInitPreviewTitle, resultString];
+    cell.textLabel.text = [_photoData[@"isPhotoTaken"] boolValue] ? previewString : [NSString stringWithFormat:@"%@",kInitScanTitle];
+
     return cell;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath {
     if ([_photoData[@"isPhotoTaken"] boolValue]) {
         //show the photo to the user
-        //create a new image regarding its orientation
+        //create a new image depending on its orientation
         //http://stackoverflow.com/questions/8915630/ios-uiimageview-how-to-handle-uiimage-image-orientation
         UIImage *rotatedImage = [UIImage imageWithCGImage:[self.image CGImage] scale:1.0 orientation:[_photoData[@"metadata"][@"Orientation"] integerValue]];
         QPhotoViewController *vc = [[QPhotoViewController alloc] initWithPhoto:rotatedImage photoData:_photoData type:PhotoSourceBarcode];
         vc.element = self;
         [controller.navigationController pushViewController:vc animated:YES];
     } else {
-        //get the barcode
+        //get the barcode scanned
         QBarcodeScannerViewController *picker = [[QBarcodeScannerViewController alloc] init];
         picker.delegate = self;
         [controller presentViewController:picker animated:YES completion:nil];
@@ -63,6 +69,32 @@ const NSString *kInitPreviewTitle = @"Voir photo";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+//overriding the method in order to load the image from the assetURL (if present)
+- (void)bindToObject:(id)data shallow:(BOOL)shallow {
+    [super bindToObject:data shallow:shallow];
+
+    //when no json data comes in, the binding sets photoData to nil.
+    //Init it again if that's the case
+    if (!_photoData) {
+        [self initPhotoData];
+    } else {
+        if (_photoData[@"assetURL"]) {
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+            [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
+                     resultBlock:^(ALAsset *asset) {
+                         self.image = [QBarcodeElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
+#warning to factorize the apparence
+                             [self.appearance setBackgroundColorEnabled:green_color];
+                         }];
+                     }
+                    failureBlock:^(NSError *error) {
+                        NSLog(@"Error while loading photo: %@",error.description);
+                    }];
+        }
+    }
+}
+
+#warning to factorize UIImageFromAsset for barcodeElement and takePhotoElement
 + (UIImage *)UIImageFromAsset:(ALAsset *)asset resultBlock:(void(^)(UIImage *resultImage))resultBlock {
     UIImage *image;
     ALAssetRepresentation *rep = [asset defaultRepresentation];
@@ -74,40 +106,20 @@ const NSString *kInitPreviewTitle = @"Voir photo";
 
     //return the image if successful
     //return nil if not
-
     if (!image)
         NSLog(@"Error while transforming ALAsset in UIImage.");
 
     return image;
 }
 
+#warning to factorize setMetadata for barcodeElement and takePhotoElement
 - (void)setMetadata:(NSDictionary *)metadata assetURL:(NSURL *)assetURL {
     [_photoData setObject:[assetURL absoluteString] forKey:@"assetURL"];
     [_photoData setObject:metadata forKey:@"metadata"];
-    //set the isPhotoTaken flag here, so pictures without metadata won't be allowed
     [_photoData setObject:[NSNumber numberWithBool:YES] forKey:@"isPhotoTaken"];
 }
 
-- (void)bindToObject:(id)data shallow:(BOOL)shallow {
-    [super bindToObject:data shallow:shallow];
-
-    //when no json data comes in, the binding sets photoData to nil.
-    //Init it again if that's the case
-    if (!_photoData) [self initPhotoData];
-
-    if (_photoData[@"assetURL"]) {
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
-                 resultBlock:^(ALAsset *asset) {
-                     self.image = [QBarcodeElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
-                         [self.appearance setBackgroundColorEnabled:green_color];
-                     }];
-                 }
-                failureBlock:^(NSError *error) {
-                    NSLog(@"Error while loading photo: %@",error.description);
-                }];
-    }
-}
+#pragma mark QBarcodeScannerPicker delegate
 
 - (void)barcodeScanner:(QBarcodeScannerViewController *)barcodeScanner didFinishScanningWithImage:(UIImage *)image andMetadata:(NSDictionary *)metadata andResult:(NSDictionary *)result {
     self.image = image;

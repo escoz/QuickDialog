@@ -7,10 +7,13 @@
 //
 
 #import "QTakePhotoElement.h"
+
 #import <AssetsLibrary/ALAssetsLibrary.h>
 #import <AssetsLibrary/ALAssetRepresentation.h>
 
+#warning add color to constant
 #define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
+
 const NSString *kInitTakeTitle = @"Prendre photo";
 const NSString *kPreviewTakeTitle = @"Voir photo";
 const NSString *kPhotoSource = @"Source photo";
@@ -68,15 +71,29 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)presentCameraWithSourceType:(UIImagePickerControllerSourceType)sourceType {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-    picker.allowsEditing = NO;
-    picker.sourceType = sourceType;
+//overriding the method in order to load the image from the assetURL (if present)
+- (void)bindToObject:(id)data shallow:(BOOL)shallow {
+    [super bindToObject:data shallow:shallow];
 
-    [self.controller presentViewController:picker animated:YES completion:nil];
+    //when no json data comes in, the binding sets photoData to nil.
+    //Init it again if that's the case
+    if (!_photoData) [self initPhotoData];
+
+    if (_photoData[@"assetURL"]) {
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
+                 resultBlock:^(ALAsset *asset) {
+                     self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
+                         [self.appearance setBackgroundColorEnabled:green_color];
+                     }];
+                 }
+                failureBlock:^(NSError *error) {
+                    NSLog(@"Error while loading photo: %@",error.description);
+                }];
+    }
 }
 
+#warning to factorize UIImageFromAsset for barcodeElement and takePhotoElement
 + (UIImage *)UIImageFromAsset:(ALAsset *)asset resultBlock:(void(^)(UIImage *resultImage))resultBlock {
     UIImage *image;
     ALAssetRepresentation *rep = [asset defaultRepresentation];
@@ -95,6 +112,7 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     return image;
 }
 
+#warning to factorize setMetadata for barcodeElement and takePhotoElement
 - (void)setMetadata:(NSDictionary *)metadata assetURL:(NSURL *)assetURL {
     if (metadata) {
         [_photoData setObject:[assetURL absoluteString] forKey:@"assetURL"];
@@ -105,6 +123,15 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"La photo selectionnée n'est pas conforme aux règles Mobeye." delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCancelActionSheet] otherButtonTitles:nil];
         [alert show];
     }
+}
+
+- (void)presentCameraWithSourceType:(UIImagePickerControllerSourceType)sourceType {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = sourceType;
+
+    [self.controller presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark UIImagePickerController delegate
@@ -156,27 +183,6 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
         [self.appearance setBackgroundColorEnabled:green_color];
         [[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
     }];
-}
-
-- (void)bindToObject:(id)data shallow:(BOOL)shallow {
-    [super bindToObject:data shallow:shallow];
-
-    //when no json data comes in, the binding sets photoData to nil.
-    //Init it again if that's the case
-    if (!_photoData) [self initPhotoData];
-
-    if (_photoData[@"assetURL"]) {
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
-                 resultBlock:^(ALAsset *asset) {
-                     self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
-                         [self.appearance setBackgroundColorEnabled:green_color];
-                     }];
-                 }
-                failureBlock:^(NSError *error) {
-                    NSLog(@"Error while loading photo: %@",error.description);
-                }];
-    }
 }
 
 #pragma mark UIActionSheet delegate
