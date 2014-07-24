@@ -12,6 +12,7 @@
 
 #define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
 const NSString *kInitTakeTitle = @"Prendre photo";
+const NSString *kPreviewTakeTitle = @"Voir photo";
 const NSString *kPhotoSource = @"Source photo";
 const NSString *kCancelActionSheet = @"Annuler";
 const NSString *kChooseFromLibrary = @"Choisir une photo";
@@ -31,7 +32,6 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
 
 - (void)initPhotoData {
     _photoData = [NSMutableDictionary dictionary];
-    [_photoData setObject:[NSString stringWithFormat:@"%@",kInitTakeTitle] forKey:@"takeTitle"];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -41,7 +41,7 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     }
     [cell applyAppearanceForElement:self];
 
-    cell.textLabel.text = [_photoData[@"isPhotoTaken"] boolValue] ? _photoData[@"previewTitle"] : _photoData[@"takeTitle"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [_photoData[@"isPhotoTaken"] boolValue] ? kPreviewTakeTitle : kInitTakeTitle];
     return cell;
 }
 
@@ -165,7 +165,9 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
         [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
                  resultBlock:^(ALAsset *asset) {
                      self.image = [QTakePhotoElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
-                         //do something with metadata maybe
+                         [self.appearance setBackgroundColorEnabled:green_color];
+                         //[[(QuickDialogController *)self.controller quickDialogTableView] reloadCellForElements:self, nil];
+
                      }];
                  }
                 failureBlock:^(NSError *error) {

@@ -13,6 +13,7 @@
 
 #define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
 const NSString *kInitScanTitle = @"Scannez le code barres";
+const NSString *kInitPreviewTitle = @"Voir photo";
 
 @implementation QBarcodeElement
 
@@ -36,8 +37,10 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
         cell = [[QTableViewCell alloc] init];
     }
     [cell applyAppearanceForElement:self];
+    NSString *result = _photoData[@"product_name"] && _photoData[@"product_brand"] ? [NSString stringWithFormat:@"%@ : %@",_photoData[@"product_brand"] ,_photoData[@"product_name"]] : _photoData[@"code"];
+    NSString *preview = [NSString stringWithFormat:@"%@ : %@", kInitPreviewTitle, result];
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",kInitScanTitle];
+    cell.textLabel.text = [_photoData[@"isPhotoTaken"] boolValue] ? preview : [NSString stringWithFormat:@"%@",kInitScanTitle];
     return cell;
 }
 
@@ -97,7 +100,7 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
         [library assetForURL:[NSURL URLWithString:_photoData[@"assetURL"]]
                  resultBlock:^(ALAsset *asset) {
                      self.image = [QBarcodeElement UIImageFromAsset:asset resultBlock:^(UIImage *resultImage) {
-                         //do something with metadata maybe
+                         [self.appearance setBackgroundColorEnabled:green_color];
                      }];
                  }
                 failureBlock:^(NSError *error) {
