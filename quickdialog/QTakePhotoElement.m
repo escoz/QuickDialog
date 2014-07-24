@@ -12,9 +12,7 @@ const NSString *kInitTakeTitle = @"Prendre photo";
 const NSString *kChooseFromLibrary = @"Choisir une photo";
 const NSString *kChooseFromCamera = @"Prendre une photo";
 
-@implementation QTakePhotoElement {
-    UIImagePickerController *picker;
-}
+@implementation QTakePhotoElement
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     QTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformPhotoElement"];
@@ -39,25 +37,12 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
 }
 
 - (void)presentCameraWithSourceType:(UIImagePickerControllerSourceType)sourceType {
-    picker = [[UIImagePickerController alloc] init];
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = NO;
     picker.sourceType = sourceType;
 
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    [button addTarget:self action:@selector(showLibrary:) forControlEvents:UIControlEventTouchUpInside];
-    [button setFrame:CGRectMake(picker.view.frame.size.width / 2 - button.frame.size.width / 2, 5, button.frame.size.width, button.frame.size.width)];
-    picker.cameraOverlayView = button;
-
     [self.controller presentViewController:picker animated:YES completion:nil];
-}
-
-- (void) showCamera: (id) sender {
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-}
-
-- (void) showLibrary: (id) sender {
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 #pragma mark UIImagePickerController delegate
