@@ -13,6 +13,7 @@
                                               {"type":"QWebElement","title":"mail"},
                                               {"type":"QMailElement","title":"mail"},
                                               {"type":"QMailElement","title":"mail"},
+                                              {"type":"QTimerElement","bind":"startingDate:starting", "key":"starting"},
         ]
         },
         { "title":"Rélévé du produit n°1", "elements":[

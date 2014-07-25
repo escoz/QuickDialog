@@ -27,7 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     QRootElement *root = [[QRootElement alloc] initWithJSONFile:@"sample"];
 
-    QSection *s = [[QSection alloc] initWithTitle:@"TIMER"];
+    QSection *s = [[QSection alloc] initWithTitle:@"Temps restant"];
     [s addElement:[[QTimerElement alloc] initWithStartingDate:[NSDate date] andEndingDate:[NSDate dateWithTimeIntervalSinceNow:60.0]]];
     [root addSection:s];
 

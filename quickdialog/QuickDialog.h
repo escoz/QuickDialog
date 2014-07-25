@@ -65,6 +65,7 @@
 #import "QTakePhotoElement.h"
 #import "QBarcodeElement.h"
 #import "QBarcodeScannerViewController.h"
+#import "QTimerElement.h"
 #import "QPhotoViewController.h"
 #import "QPhotoElement.h"
 #import "QColorPickerElement.h"

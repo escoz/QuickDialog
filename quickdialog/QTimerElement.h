@@ -8,6 +8,10 @@
 
 #import "QButtonElement.h"
 
+extern double const kCriticalTime;
+extern double const kRefreshTick;
+extern double const kInitTimeInterval;
+
 @interface QTimerElement : QRootElement
 
 @property (strong, nonatomic) NSDate *startingDate;
