@@ -9,7 +9,7 @@
 #import "QBarcodeScannerViewController.h"
 
 #import <ImageIO/CGImageProperties.h>
-#import <AudioToolbox/AudioServices.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 const NSString *kValidate = @"Valider";
 const NSString *kLoading = @"Loading...";
