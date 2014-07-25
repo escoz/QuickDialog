@@ -31,7 +31,7 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         [self presentCameraWithSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
     } else {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@",kPhotoSource] delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCCancel] destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithFormat:@"%@",kChooseFromLibrary], [NSString stringWithFormat:@"%@",kChooseFromCamera] ,nil];
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"%@",kPhotoSource] delegate:self cancelButtonTitle:[NSString stringWithFormat:@"%@",kCancel] destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithFormat:@"%@",kChooseFromLibrary], [NSString stringWithFormat:@"%@",kChooseFromCamera] ,nil];
         [actionSheet showInView:controller.view];
     }
 }

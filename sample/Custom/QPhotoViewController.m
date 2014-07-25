@@ -7,6 +7,7 @@
 //
 
 #import "QPhotoViewController.h"
+#import "QPhotoElement.h"
 
 const NSString *kPhoto = @"Photo";
 const NSString *kActions = @"Actions";

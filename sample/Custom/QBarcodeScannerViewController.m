@@ -8,6 +8,8 @@
 
 #import "QBarcodeScannerViewController.h"
 
+#import "QInputPhotoElement.h"
+
 #import <ImageIO/CGImageProperties.h>
 #import <AudioToolbox/AudioToolbox.h>
 
@@ -86,7 +88,7 @@ const NSString *kAPIURLFormat = @"http://fr.openfoodfacts.org/api/v0/produit/%@.
 
     cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 40, self.view.bounds.size.width, 40)];
     cancelButton.backgroundColor = [UIColor colorWithWhite:0.15 alpha:0.65];
-    [cancelButton setTitle:[NSString stringWithFormat:@"%@",kCCancel] forState:UIControlStateNormal];
+    [cancelButton setTitle:[NSString stringWithFormat:@"%@",kCancel] forState:UIControlStateNormal];
     cancelButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     cancelButton.titleLabel.textColor = [UIColor redColor];
     cancelButton.hidden = NO;
