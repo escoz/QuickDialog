@@ -40,6 +40,7 @@
             },
             { "type":"QTakePhotoElement", "title":"Ajouter une photo?"},
             { "type":"QBarcodeElement", "title":"Scannez le code barres"},
+            { "type":"QCountdownElement", "title":"Title"},
             ]
         } ,
         { "title":"Et pour finir", "elements":[
