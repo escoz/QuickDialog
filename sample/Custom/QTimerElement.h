@@ -8,6 +8,8 @@
 
 #import "QButtonElement.h"
 
+#import "QuickDialog.h"
+
 extern double const kCriticalTime;
 extern double const kRefreshTick;
 extern double const kInitTimeInterval;
@@ -17,7 +19,5 @@ extern double const kInitTimeInterval;
 @property (strong, nonatomic) NSDate *startingDate;
 @property (strong, nonatomic) NSDate *endingDate;
 @property NSTimeInterval timeInterval;
-
-- (QTimerElement *)initWithStartingDate:(NSDate *)startingDate andEndingDate:(NSDate *)endingDate;
 
 @end

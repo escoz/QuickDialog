@@ -25,17 +25,9 @@ double const kInitTimeInterval = 60.0;
     self = [super init];
     if (self) {
         _timeInterval = kInitTimeInterval;
-    }
-
-    return self;
-}
-
-- (QTimerElement *)initWithStartingDate:(NSDate *)startingDate andEndingDate:(NSDate *)endingDate {
-    self = [self init];
-    if (self) {
-        timerLabel = [[UILabel alloc] init];
         self.appearance = [self.appearance copy];
-        [self startTimerWithStartingDate:startingDate andEndingDate:endingDate];
+        timerLabel = [[UILabel alloc] init];
+        [self startTimerWithStartingDate:[NSDate date] andEndingDate:[[NSDate date] dateByAddingTimeInterval:_timeInterval]];
     }
 
     return self;
