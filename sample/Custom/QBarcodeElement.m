@@ -36,7 +36,7 @@ const NSString *kInitScanTitle = @"Scannez le code barres";
     //get the barcode scanned
     QBarcodeScannerViewController *picker = [[QBarcodeScannerViewController alloc] init];
     picker.delegate = self;
-    [controller presentViewController:picker animated:YES completion:nil];
+    [controller.parentViewController presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark QBarcodeScannerPicker delegate

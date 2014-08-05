@@ -42,7 +42,7 @@ const NSString *kChooseFromCamera = @"Prendre une photo";
     picker.allowsEditing = NO;
     picker.sourceType = sourceType;
 
-    [self.controller presentViewController:picker animated:YES completion:nil];
+    [self.controller.parentViewController presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark UIImagePickerController delegate
