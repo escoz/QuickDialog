@@ -28,7 +28,7 @@
     QRootElement *root = [[QRootElement alloc] initWithJSONFile:@"sample"];
 
     QSection *s = [[QSection alloc] initWithTitle:@"Temps restant"];
-    [s addElement:[[QTimerElement alloc] initWithStartingDate:[NSDate date] andEndingDate:[NSDate dateWithTimeIntervalSinceNow:60.0]]];
+    [s addElement:[[QTimerElement alloc] init]];
     [root addSection:s];
 
     ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
