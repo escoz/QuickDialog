@@ -15,6 +15,8 @@
 #import "QBindingEvaluator.h"
 #import "QuickDialog.h"
 
+#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
+
 @interface QBindingEvaluator ()
 + (BOOL)stringIsEmpty:(NSString *)aString;
 
@@ -68,6 +70,27 @@
 
         } else {
             [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
+
+            //check if bind values are avalible to apparance editing
+            if ([object respondsToSelector:@selector(appearance)] && [data valueForKeyPath:valueName]) {
+                //check if strings are empty
+                if ([[data valueForKeyPath:valueName] respondsToSelector:@selector(length)]) {
+                    if (![[data valueForKeyPath:valueName] length]) {
+                        continue;
+                    }
+                }
+
+                //check if dictionaries or arrays are empty
+                if ([[data valueForKeyPath:valueName] respondsToSelector:@selector(count)]) {
+                    if (![[data valueForKeyPath:valueName] count]) {
+                        continue;
+                    }
+                }
+
+                //if everythings is ok, set the background of the property
+                [object setValue:[[object valueForKey:@"appearance"] copy] forKey:@"appearance"];
+                [[object valueForKey:@"appearance"] setValue:green_color forKey:@"backgroundColorEnabled"];
+            }
         }
     }
 }
