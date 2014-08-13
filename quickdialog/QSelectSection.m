@@ -123,6 +123,13 @@
 
 - (void)bindToObject:(id)data {
     [super bindToObject:data];
+
+    // if data is not avalible
+    // it will set selectedIndexes to nil
+    // if selectedIndexes is nil, it will not update when an element is selected
+    if (!self.selectedIndexes) {
+        self.selectedIndexes = [NSMutableArray array];
+    }
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
