@@ -67,10 +67,14 @@
 
         } else if ([valueName isEqualToString:@"self"]) {
             [QRootBuilder trySetProperty:propName onObject:object withValue:data localized:NO];
-
         } else {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
-
+            if ([valueName hasSuffix:@".count"]) {
+                valueName = [valueName stringByReplacingOccurrencesOfString:@".count" withString:@""];
+                [QRootBuilder trySetProperty:propName onObject:object withValue:[NSString stringWithFormat:@"%d",[[data valueForKeyPath:valueName] count]] localized:NO];
+            } else {
+                [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
+            }
+            
             //check if bind values are avalible to apparance editing
             if ([object respondsToSelector:@selector(appearance)] && [data valueForKeyPath:valueName]) {
                 //check if strings are empty
