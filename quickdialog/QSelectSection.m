@@ -121,8 +121,18 @@
     [self insertElement:element atIndex:index];
 }
 
-- (void)fetchValueIntoObject:(id)obj
-{
+- (void)bindToObject:(id)data {
+    [super bindToObject:data];
+}
+
+- (void)fetchValueUsingBindingsIntoObject:(id)data {
+    if (_key) {
+        //don't submit data if it's empty
+        if ([self.selectedIndexes count]) [data setObject:self.selectedIndexes forKey:_key];
+    }
+}
+
+- (void)fetchValueIntoObject:(id)obj {
     if (_key) {
 		[obj setValue:_selected forKey:_key];
     }
