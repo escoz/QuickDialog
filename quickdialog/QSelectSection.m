@@ -9,6 +9,10 @@
 #import "QSelectSection.h"
 #import "QuickDialog.h"
 
+//to discuss : define vs. const UIColor
+#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
+#define blue_color [UIColor colorWithRed:0.932 green:0.976 blue:1.000 alpha:1.000]
+
 @implementation QSelectSection {
 }
 
@@ -129,13 +133,19 @@
     // if selectedIndexes is nil, it will not update when an element is selected
     if (!self.selectedIndexes) {
         self.selectedIndexes = [NSMutableArray array];
+    } else {
+        // when binding the object, the background should get green
+        self.rootElement.appearance.backgroundColorEnabled = green_color;
+        if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
+            QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
+            [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.selectedIndexes.count]];
+        }
     }
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
     if (_key) {
-        //don't submit data if it's empty
-        if ([self.selectedIndexes count]) [data setObject:self.selectedIndexes forKey:_key];
+        [data setObject:self.selectedIndexes forKey:_key];
     }
 }
 
