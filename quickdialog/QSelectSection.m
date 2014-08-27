@@ -23,6 +23,7 @@
         self.selectedIndexes = [@[] mutableCopy];
         self.multipleAllowed = NO;
         self.deselectAllowed = NO;
+        self.didVisitSection = NO;
     }
 
     return self;
@@ -129,7 +130,7 @@
     // if selectedIndexes is nil, it will not update when an element is selected
     if (!self.selectedIndexes) {
         self.selectedIndexes = [NSMutableArray array];
-    } else {
+    } else if (data[_key]) {
         // when binding the object, the background should get green
         self.rootElement.appearance = [self.rootElement.appearance copy];
         self.rootElement.appearance.backgroundColorEnabled = green_color;
@@ -137,12 +138,15 @@
             QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
             [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.selectedIndexes.count]];
         }
+
+        // if the data is present, then it means the section is visited
+        _didVisitSection = YES;
     }
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
-    if (_key) {
-        [data setObject:self.selectedIndexes forKey:_key];
+    if (_key && _didVisitSection) {
+        [data setObject:_selected forKey:_key];
     }
 }
 

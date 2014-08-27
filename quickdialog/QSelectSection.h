@@ -12,6 +12,7 @@
 @interface QSelectSection : QDynamicDataSection
 {
     NSMutableArray *_items;
+    BOOL _didVisitSection;
 }
 
 @property(nonatomic, strong)    NSArray         *items;
@@ -24,6 +25,7 @@
 
 
 @property(nonatomic) BOOL deselectAllowed;
+@property(nonatomic, assign) BOOL didVisitSection;
 
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected;
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title;

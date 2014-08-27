@@ -25,11 +25,13 @@
 @synthesize sortingEnabled = _sortingEnabled;
 @synthesize canDeleteRows = _canDeleteRows;
 
+@synthesize didVisitSection = _didVisitSection;
 
 - (QSortingSection *)init {
     self = [super init];
     self.sortingEnabled = YES;
     self.canDeleteRows = NO;
+    self.didVisitSection = NO;
     return self;
 }
 
@@ -101,26 +103,28 @@
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
-    if (_key == nil)
-        return;
-
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    for (QRootElement *el in self.elements){
-        [result addObject:el.title];
+    if (_key && _didVisitSection) {
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        for (QRootElement *el in self.elements){
+            [result addObject:el.title];
+        }
+        [data setValue:result forKey:_key];
     }
-    [data setValue:result forKey:_key];
 }
 
 - (void)bindToObject:(id)data {
     [super bindToObject:data];
+    if (data[_key]) {
+        self.rootElement.appearance = [self.rootElement.appearance copy];
+        self.rootElement.appearance.backgroundColorEnabled = green_color;
+        if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
+            QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
+            [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.elements.count]];
+        }
 
-    self.rootElement.appearance = [self.rootElement.appearance copy];
-    self.rootElement.appearance.backgroundColorEnabled = green_color;
-    if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
-        QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
-        [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.elements.count]];
+        // if the data is present, then it means the section is visited
+        _didVisitSection = YES;
     }
-
 }
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to {

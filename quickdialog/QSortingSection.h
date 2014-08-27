@@ -22,11 +22,13 @@
     NSMutableArray *_items;
     BOOL _sortingEnabled;
     BOOL _canDeleteRows;
+    BOOL _didVisitSection;
 }
 
 @property(nonatomic, strong)    NSArray         *items;
 @property(nonatomic, assign) BOOL sortingEnabled;
 @property(nonatomic, assign) BOOL canDeleteRows;
+@property(nonatomic, assign) BOOL didVisitSection;
 
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected;
 - (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title;
