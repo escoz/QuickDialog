@@ -15,8 +15,6 @@
 #import "QBindingEvaluator.h"
 #import "QuickDialog.h"
 
-#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
-
 @interface QBindingEvaluator ()
 + (BOOL)stringIsEmpty:(NSString *)aString;
 

@@ -9,10 +9,6 @@
 #import "QSelectSection.h"
 #import "QuickDialog.h"
 
-//to discuss : define vs. const UIColor
-#define green_color [UIColor colorWithRed:0.373 green:0.878 blue:0.471 alpha:1]
-#define blue_color [UIColor colorWithRed:0.932 green:0.976 blue:1.000 alpha:1.000]
-
 @implementation QSelectSection {
 }
 
