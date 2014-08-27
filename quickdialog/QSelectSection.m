@@ -131,6 +131,7 @@
         self.selectedIndexes = [NSMutableArray array];
     } else {
         // when binding the object, the background should get green
+        self.rootElement.appearance = [self.rootElement.appearance copy];
         self.rootElement.appearance.backgroundColorEnabled = green_color;
         if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
             QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
