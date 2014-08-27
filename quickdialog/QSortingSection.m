@@ -100,15 +100,27 @@
     return _sortingEnabled;
 }
 
-- (void)fetchValueIntoObject:(id)obj {
+- (void)fetchValueUsingBindingsIntoObject:(id)data {
     if (_key == nil)
-       return;
+        return;
 
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    for (QElement *el in self.elements){
-        [result addObject:el.key];
+    for (QRootElement *el in self.elements){
+        [result addObject:el.title];
     }
-    [obj setValue:result forKey:_key];
+    [data setValue:result forKey:_key];
+}
+
+- (void)bindToObject:(id)data {
+    [super bindToObject:data];
+
+    self.rootElement.appearance = [self.rootElement.appearance copy];
+    self.rootElement.appearance.backgroundColorEnabled = green_color;
+    if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
+        QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
+        [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.elements.count]];
+    }
+
 }
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to {
