@@ -43,7 +43,7 @@
     [super loadView];
     _webView = [[UIWebView alloc] init];
     _webView.delegate = self;
-    _webView.scalesPageToFit = YES;
+    _webView.scalesPageToFit = NO;
     self.view = _webView;
 
     UIImage *backImage = [self createBackArrowImage];
