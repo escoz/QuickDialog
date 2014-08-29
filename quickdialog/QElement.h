@@ -60,6 +60,8 @@
 
 @property(nonatomic) BOOL shallowBind;
 
+@property(nonatomic) BOOL required;
+
 - (QElement *)initWithKey:(NSString *)key;
 
 - (NSIndexPath*) getIndexPath;

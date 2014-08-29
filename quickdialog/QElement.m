@@ -43,6 +43,7 @@
     if (self) {
         self.enabled = YES;
         self.shallowBind = YES;
+        self.required = YES;
     }
     return self;
 }
@@ -53,6 +54,7 @@
         self.key = key;
         self.enabled = YES;
         self.shallowBind = YES;
+        self.required = YES;
     }
     return self;
 }
