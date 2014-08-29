@@ -174,4 +174,17 @@
     }
 
 }
+
+- (BOOL)isCompleted {
+    BOOL isCompleted = YES;
+    for (QElement *element in self.elements) {
+        isCompleted = isCompleted && [element isCompleted];
+        if (!isCompleted) {
+            break;
+        }
+    }
+
+    return isCompleted;
+}
+
 @end

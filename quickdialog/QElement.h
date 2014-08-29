@@ -90,4 +90,6 @@
 - (void)performAccessoryAction;
 
 - (void)bindToObject:(id)data shallow:(BOOL)shallow;
+
+- (BOOL)isCompleted;
 @end

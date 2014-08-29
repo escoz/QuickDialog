@@ -74,4 +74,6 @@
 - (void)bindToObject:(id)data withString:(NSString *)string;
 - (void)fetchValueIntoObject:(id)obj;
 - (void)fetchValueUsingBindingsIntoObject:(id)data;
+
+- (BOOL)isCompleted;
 @end

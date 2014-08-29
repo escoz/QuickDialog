@@ -190,4 +190,8 @@
     return NO;
 }
 
+- (BOOL)isCompleted {
+    return !self.isRequired || _selected != -1;
+}
+
 @end

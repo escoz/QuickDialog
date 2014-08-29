@@ -164,4 +164,8 @@
     }
 }
 
+- (BOOL)isCompleted {
+    @throw [NSException exceptionWithName:@"Method should be overridden" reason:@"Method isCompleted should be overridden for the Element to be used." userInfo:nil];
+}
+
 @end
