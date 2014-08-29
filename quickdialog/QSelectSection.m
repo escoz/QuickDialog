@@ -133,7 +133,7 @@
     } else if (data[_key]) {
         // when binding the object, the background should get green
         self.rootElement.appearance = [self.rootElement.appearance copy];
-        self.rootElement.appearance.backgroundColorEnabled = green_color;
+        self.rootElement.appearance.backgroundColorEnabled = blue_color;
         if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
             QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
             [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.selectedIndexes.count]];

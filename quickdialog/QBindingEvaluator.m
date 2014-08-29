@@ -91,7 +91,7 @@
 
                 //if everythings is ok, set the background of the property
                 [object setValue:[[object valueForKey:@"appearance"] copy] forKey:@"appearance"];
-                [[object valueForKey:@"appearance"] setValue:green_color forKey:@"backgroundColorEnabled"];
+                [[object valueForKey:@"appearance"] setValue:blue_color forKey:@"backgroundColorEnabled"];
             }
         }
     }

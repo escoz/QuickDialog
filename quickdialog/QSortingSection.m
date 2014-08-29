@@ -116,7 +116,7 @@
     [super bindToObject:data];
     if (data[_key]) {
         self.rootElement.appearance = [self.rootElement.appearance copy];
-        self.rootElement.appearance.backgroundColorEnabled = green_color;
+        self.rootElement.appearance.backgroundColorEnabled = blue_color;
         if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
             QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
             [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.elements.count]];
