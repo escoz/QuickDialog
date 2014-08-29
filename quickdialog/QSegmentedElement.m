@@ -58,10 +58,19 @@
     control.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
+    if (_selected != -1) {
+        control.tintColor = blue_color;
+    }
     control.tag = 4321;
+    [control addTarget:self action:@selector(didChangeSegmentValue:) forControlEvents:UIControlEventValueChanged];
     
     [cell.contentView addSubview:control];
     return cell;
+}
+
+- (void)didChangeSegmentValue:(id)sender {
+    UISegmentedControl *control = (UISegmentedControl *)sender;
+    control.tintColor = blue_color;
 }
 
 - (BOOL)canTakeFocus {
