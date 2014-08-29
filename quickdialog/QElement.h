@@ -60,7 +60,7 @@
 
 @property(nonatomic) BOOL shallowBind;
 
-@property(nonatomic) BOOL required;
+@property(nonatomic) BOOL isRequired;
 
 - (QElement *)initWithKey:(NSString *)key;
 
