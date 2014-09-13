@@ -22,7 +22,7 @@
 - (QEntryElement *)init {
     self = [super init];
     if (self) {
-        self.presentationMode = QPresentationModePopover;
+    	self.presentationMode = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)?QPresentationModeModalForm:QPresentationModePopover;
     }
 
     return self;
@@ -32,7 +32,7 @@
 {
     if ((self = [super initWithTitle:title Value:nil])) {
         self.textValue = text;
-        self.presentationMode = QPresentationModePopover;
+        self.presentationMode = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)?QPresentationModeModalForm:QPresentationModePopover;
     }
     return self;
 }
