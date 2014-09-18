@@ -229,14 +229,5 @@
     return nil;
 }
 
-- (BOOL)isCompleted {
-    BOOL isCompleted = YES;
-    for (QSection *section in self.sections) {
-        isCompleted = isCompleted && [section isCompleted];
-    }
-
-    return !self.isRequired || isCompleted;
-}
-
 
 @end

@@ -100,10 +100,6 @@
     [self handleEditingChanged];
 }
 
-- (BOOL)isCompleted {
-    return !self.isRequired || (_textValue && [_textValue length]);
-}
-
 #pragma mark - UITextInputTraits
 
 @synthesize autocorrectionType = _autocorrectionType;

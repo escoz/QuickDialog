@@ -156,8 +156,4 @@
     }
 }
 
-- (BOOL)isCompleted {
-    return !self.rootElement.isRequired || self.selectedIndexes.count;
-}
-
 @end

@@ -43,7 +43,6 @@
     if (self) {
         self.enabled = YES;
         self.shallowBind = YES;
-        self.isRequired = YES;
     }
     return self;
 }
@@ -54,7 +53,6 @@
         self.key = key;
         self.enabled = YES;
         self.shallowBind = YES;
-        self.isRequired = YES;
     }
     return self;
 }
@@ -162,10 +160,6 @@
             NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
         }
     }
-}
-
-- (BOOL)isCompleted {
-    @throw [NSException exceptionWithName:@"Method should be overridden" reason:@"Method isCompleted should be overridden for the Element to be used." userInfo:nil];
 }
 
 @end

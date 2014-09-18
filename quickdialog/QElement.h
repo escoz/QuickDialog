@@ -66,8 +66,6 @@
 // Corresponds to UITableViewCell property accessibilityIdentifier
 @property(nonatomic, copy) NSString *accessibilityIdentifier;
 
-@property(nonatomic) BOOL isRequired;
-
 - (QElement *)initWithKey:(NSString *)key;
 
 - (NSIndexPath*) getIndexPath;
@@ -96,6 +94,4 @@
 - (void)performAccessoryAction;
 
 - (void)bindToObject:(id)data shallow:(BOOL)shallow;
-
-- (BOOL)isCompleted;
 @end
