@@ -18,15 +18,24 @@
   QSortingSection: automatically enables sorting of the cells inside the section.
 */
 
-@interface QSortingSection : QSection {
-
+@interface QSortingSection : QDynamicDataSection {
+    NSMutableArray *_items;
     BOOL _sortingEnabled;
+    BOOL _canDeleteRows;
+    BOOL _didVisitSection;
 }
 
+@property(nonatomic, strong)    NSArray         *items;
 @property(nonatomic, assign) BOOL sortingEnabled;
-
-
 @property(nonatomic, assign) BOOL canDeleteRows;
+@property(nonatomic, assign) BOOL didVisitSection;
+
+- (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected;
+- (id)initWithItems:(NSArray *)stringArray selectedIndexes:(NSArray *)selected title:(NSString *)title;
+- (id)initWithItems:(NSArray *)stringArray selectedItems:(NSArray *)selectedItems title:(NSString *)title;
+
+- (id)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected;
+- (id)initWithItems:(NSArray *)stringArray selected:(NSUInteger)selected title:(NSString *)title;
 
 - (void)moveElementFromRow:(NSUInteger)from toRow:(NSUInteger)to;
 

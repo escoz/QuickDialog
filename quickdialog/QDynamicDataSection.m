@@ -21,12 +21,17 @@
 - (void)bindToObject:(id)data withString:(NSString *)withBindString
 {
 
+    NSMutableArray *oldElements = [self.elements copy];
+
     [self.elements removeAllObjects];
 
     [super bindToObject:data withString:withBindString];
     
-    if (self.elements.count>0) //elements exist
+    if (self.elements.count>0) { //elements exist
         return;
+    } else {
+        self.elements = oldElements;
+    }
     
     NSArray *collection;
     

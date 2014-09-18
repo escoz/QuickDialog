@@ -70,6 +70,7 @@
         weakSelf.textValue = weakTextController.textView.text;
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [weakSelf.delegate QEntryDidEndEditingElement:weakSelf andCell:((QEntryTableViewCell *)[tableView cellForElement:weakSelf])];
     };
     [controller displayViewController:textController withPresentationMode:self.presentationMode];
 }

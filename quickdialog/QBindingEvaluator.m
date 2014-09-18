@@ -65,9 +65,34 @@
 
         } else if ([valueName isEqualToString:@"self"]) {
             [QRootBuilder trySetProperty:propName onObject:object withValue:data localized:NO];
-
         } else {
-            [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
+            if ([valueName hasSuffix:@".count"]) {
+                valueName = [valueName stringByReplacingOccurrencesOfString:@".count" withString:@""];
+                [QRootBuilder trySetProperty:propName onObject:object withValue:[NSString stringWithFormat:@"%d",[[data valueForKeyPath:valueName] count]] localized:NO];
+            } else {
+                [QRootBuilder trySetProperty:propName onObject:object withValue:[data valueForKeyPath:valueName] localized:NO];
+            }
+            
+            //check if bind values are avalible to apparance editing
+            if ([object respondsToSelector:@selector(appearance)] && [data valueForKeyPath:valueName]) {
+                //check if strings are empty
+                if ([[data valueForKeyPath:valueName] respondsToSelector:@selector(length)]) {
+                    if (![[data valueForKeyPath:valueName] length]) {
+                        continue;
+                    }
+                }
+
+                //check if dictionaries or arrays are empty
+                if ([[data valueForKeyPath:valueName] respondsToSelector:@selector(count)]) {
+                    if (![[data valueForKeyPath:valueName] count]) {
+                        continue;
+                    }
+                }
+
+                //if everythings is ok, set the background of the property
+                [object setValue:[[object valueForKey:@"appearance"] copy] forKey:@"appearance"];
+                [[object valueForKey:@"appearance"] setValue:blue_color forKey:@"backgroundColorEnabled"];
+            }
         }
     }
 }
