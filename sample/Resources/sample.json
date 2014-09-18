@@ -1,55 +1,44 @@
 {
-    "grouped": true,
-    "title": "Mission Yopa!",
-    "controllerName": "ExampleViewController",
-    "sections": [
+	"grouped": true,
+	"title": "Sample Controls",
+	"sections": [
 
-        { "title":"Explications", "elements":[
-            {"type":"QWebElement",  "title":"Le brief sur notre blog", "url":"http://www.mobeye-app.com/missions-coca-cola/"},
-                                              {"type":"QColorPickerElement", "title":"title"},
-                                              {"type":"QMailElement","title":"mail"},
-                                              {"type":"QMapElement","title":"map"},
-                                              {"type":"QPickerElement","title":"picker"},
-                                              {"type":"QWebElement","title":"mail"},
-                                              {"type":"QMailElement","title":"mail"},
-                                              {"type":"QMailElement","title":"mail"},
-                                              {"type":"QTimerElement","bind":"startingDate:starting", "key":"starting"},
+        { "title":"Controls", "elements":[
+            {"type":"QLabelElement", "title":"Label"},
+            {"type":"QBadgeElement",  "title":"Badge", "badge":"123"},
+            {"type":"QBooleanElement", "title":"Boolean", "boolValue":0},
+            {"type":"QBooleanElement", "title":"Boolean", "boolValue":1},
+            {"type":"QButtonElement", "title":"Button"},
+            {"type":"QDateTimeInlineElement", "title":"DateTime Inline"},
+            {"type":"QPickerElement", "title":"Picker1",  "items":[["Blue", "Yellow", "Green"]]},
+            {"type":"QPickerElement", "title":"Picker2",  "items":[[1, 2, 3], ["Blue", "Yellow", "Green"]]},
+            {"type":"QPickerElement", "title":"Picker3",  "items":[[1, 2, 3], ["Blue", "Yellow", "Green"], ["Metal","Chrome","Wood"]]},
+            {"type":"QMapElement", "title":"Map", "lat":-27.59, "lng":-48.55},
+            {"type":"QRadioElement", "title":"Radio", "items":["Option 1", "Option 2", "Final option"], "selected":2},
+            {"type":"QTextElement",  "text":"Text Element"},
+            {"type":"QWebElement",  "title":"Web", "url":"http://escoz.com"},
+            {"type":"QWebElement",  "title":"HTML", "html":"<h1>Testing html content</h1><p>here's the content</p>"},
+            {"type":"QTextElement", "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
+            {"type":"QProgressElement"},
+            {"type":"QLoadingElement"},
+            {"type":"QColorPickerElement"},
+            {"type":"QColorPickerElement", "items":[["White", "#ffffff"], ["Light Gray", "#cccccc"], ["Gray", "#777777"], ["Dark Gray", "#444444"], ["Black", "#000000"]]}
         ]
         },
-        { "title":"Rélévé du produit n°1", "elements":[
-            {  "type":"QTextElement", "text":"Concernant le produit Omo micro, à quel prix est-il vendu et quelle est la quantité disponible en rayon ?"},
-            {  "type":"QWebElement",  "title":"Visuel du produit", "html":"<img src='http://www.mobeye-app.com/wp-content/uploads/2013/07/Coca-Cola_car_Volkswagen_Type-2_2_Curitiba-770x300.jpg' />"},
-            { "type":"QPhotoElement", "url":"http://www.mobeye-app.com/wp-content/uploads/2013/07/Coca-Cola_car_Volkswagen_Type-2_2_Curitiba-770x300.jpg", "height":200},
-            {  "type":"QPickerElement", "title":"Présence produit", "bind":"value:presence",  "items":[["Oui", "Non", "En rupture"]]},
-            {  "type":"QEntryElement", "title":"Prix de l'objet", "suffix":"€", "bind":"textValue:prix", "keyboardType":"DecimalPad" },
-            {  "type":"QEntryElement", "title":"Quantité", "suffix":" unité(s)", "bind":"textValue:quantité",  "keyboardType":"DecimalPad" },
-            {  "type":"QPickerElement", "title":"Code EAN", "bind":"value:code_ean", "items":[["001", "002", "002"], ["2013", "2014", "2015"]]},
-            {  "type":"QBadgeElement", "shallowBind":false, "title":"Produits présents", "presentationMode":"Normal",
-               "sections": [
-                { "type":"QSelectSection", "title":"Produits présents", "items":["Yopa!", "Daniau", "Laitière", "Danette"], "bind":"selectedIndexes:products", "key":"products",  "multipleAllowed":true}
-                ]
-            },
-            {  "type":"QBadgeElement", "key":"layout", "title":"Ordre des catégories", "presentationMode":"Normal",
-                "sections": [
-                { "title":"Explications", "elements":
-                    [
-                        {  "type":"QTextElement", "text":"Vous devez réarranger les éléments dans l'ordre qui vous convient"},
-                    ]
-                },
-                { "type":"QSortingSection", "title":"Ordre des catégories", "items":["Cafe en poudre", "Filtres", "Dosettes"], "sortingEnabled":true, "canDeleteRows": true}
-                ]
-            },
-            { "type":"QTakePhotoElement", "title":"Ajouter une photo?"},
-            { "type":"QBarcodeElement", "title":"Scannez le code barres"},
-            { "type":"QCountdownElement", "title":"Title"},
+        { "title":"Entry Elements", "elements":[
+            {  "type":"QEntryElement", "title":"secureTextEntry", "placeholder":"Text", "secureTextEntry":true },
+            {  "type":"QEntryElement", "title":"enablesReturnKey", "placeholder":"Text", "enablesReturnKeyAutomatically":true },
+            {  "type":"QEntryElement", "title":"autocapitalizationType", "placeholder":"Words",  "autocapitalizationType":"Words" },
+            {  "type":"QEntryElement", "title":"autocorrectionType", "placeholder":"No",  "autocorrectionType":"No" },
+            {  "type":"QEntryElement", "title":"keyboardType", "placeholder":"PhonePad",  "keyboardType":"PhonePad" },
+            {  "type":"QEntryElement", "title":"keyboardAppearance", "placeholder":"Alert",  "keyboardAppearance":"Alert" },
+            {  "type":"QEntryElement", "title":"returnKeyType", "placeholder":"EmergencyCall",  "returnKeyType":"EmergencyCall" },
+            {  "type":"QEntryElement", "title":"Disabled", "placeholder":"Disabled",  "enabled":false}
             ]
         } ,
-        { "title":"Et pour finir", "elements":[
-            {  "type":"QTextElement", "text":"Souhaitez-vous nous laisser un commentaire concernant cette mission ?"},
-            {  "type":"QMultilineElement", "bind":"textValue:comment", "title":"Votre commentaire"},
-            {  "type":"QButtonElement", "title":"Soumettre le questionnaire", "controllerAction":"submit:"},
-            {  "type":"QProgressElement"},
+        { "elements":[
+            {"type":"QSegmentedElement", "items":["Senna", "Fittipaldi", "Schumacher"], "selected":1}
         ]}
-    ]
+	]
 
 }

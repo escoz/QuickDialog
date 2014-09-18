@@ -15,7 +15,6 @@
 #import "SampleDataBuilder.h"
 #import "ExampleViewController.h"
 #import "ExampleAppDelegate.h"
-#import "QTimerElement.h"
 
 @implementation ExampleAppDelegate
 
@@ -25,12 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    QRootElement *root = [[QRootElement alloc] initWithJSONFile:@"sample"];
-
-    QSection *s = [[QSection alloc] initWithTitle:@"Temps restant"];
-    [s addElement:[[QTimerElement alloc] init]];
-    [root addSection:s];
-
+    QRootElement *root = [SampleDataBuilder create];
     ExampleViewController *quickformController = (ExampleViewController *) [[ExampleViewController alloc] initWithRoot:root];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:quickformController];
     if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPhone) {
@@ -44,7 +38,6 @@
     [self.window makeKeyAndVisible];
 
     [self runAppearanceTests];
-
     return YES;
 }
 

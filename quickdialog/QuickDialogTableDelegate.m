@@ -47,8 +47,6 @@
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
-//    QElement *element = [section getVisibleElementForIndex:indexPath.row];
-
     return section.canDeleteRows ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
 }
 
