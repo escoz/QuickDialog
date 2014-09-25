@@ -121,7 +121,8 @@
     [self insertElement:element atIndex:index];
 }
 
-- (void)bindToObject:(id)data {
+- (void)bindToObject:(id)data
+{
     [super bindToObject:data];
 
     // if data is not avalible
@@ -143,13 +144,15 @@
     }
 }
 
-- (void)fetchValueUsingBindingsIntoObject:(id)data {
+- (void)fetchValueUsingBindingsIntoObject:(id)data
+{
     if (_key && self.didVisitSection) {
         [data setObject:_selected forKey:_key];
     }
 }
 
-- (void)fetchValueIntoObject:(id)obj {
+- (void)fetchValueIntoObject:(id)obj
+{
     if (_key) {
 		[obj setValue:_selected forKey:_key];
     }
