@@ -15,6 +15,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExampleViewController : QuickDialogController<QuickDialogEntryElementDelegate>
+@interface ExampleViewController : QuickDialogController
 
 @end
