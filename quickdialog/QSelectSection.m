@@ -135,7 +135,7 @@
         self.rootElement.appearance.backgroundColorEnabled = blue_color;
         if ([self.rootElement isKindOfClass:[QBadgeElement class]]) {
             QBadgeElement *badgeElement = (QBadgeElement *)self.rootElement;
-            [badgeElement setBadge:[NSString stringWithFormat:@"%d", self.selectedIndexes.count]];
+            [badgeElement setBadge:[NSString stringWithFormat:@"%lu", (unsigned long)self.selectedIndexes.count]];
         }
 
         // if the data is present, then it means the section is visited
