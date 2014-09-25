@@ -7,6 +7,6 @@
 
 }
 @property(nonatomic, strong) NSString *emptyMessage;
-
+@property(nonatomic, assign) BOOL didVisitSection;
 
 @end

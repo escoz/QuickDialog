@@ -25,13 +25,10 @@
 @synthesize sortingEnabled = _sortingEnabled;
 @synthesize canDeleteRows = _canDeleteRows;
 
-@synthesize didVisitSection = _didVisitSection;
-
 - (QSortingSection *)init {
     self = [super init];
     self.sortingEnabled = YES;
     self.canDeleteRows = NO;
-    self.didVisitSection = NO;
     return self;
 }
 
@@ -103,7 +100,7 @@
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
-    if (_key && _didVisitSection) {
+    if (_key && self.didVisitSection) {
         NSMutableArray *result = [[NSMutableArray alloc] init];
         for (QRootElement *el in self.elements){
             [result addObject:el.title];
@@ -123,7 +120,7 @@
         }
 
         // if the data is present, then it means the section is visited
-        _didVisitSection = YES;
+        self.didVisitSection = YES;
     }
 }
 

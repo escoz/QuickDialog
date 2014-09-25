@@ -13,6 +13,7 @@
     self = [super init];
     if (self) {
         _emptyMessage = @"Empty";
+        _didVisitSection = NO;
         [self addElement:[[QLoadingElement alloc] init]];
     }
     return self;

@@ -23,7 +23,6 @@
         self.selectedIndexes = [@[] mutableCopy];
         self.multipleAllowed = NO;
         self.deselectAllowed = NO;
-        self.didVisitSection = NO;
     }
 
     return self;
@@ -140,12 +139,12 @@
         }
 
         // if the data is present, then it means the section is visited
-        _didVisitSection = YES;
+        self.didVisitSection = YES;
     }
 }
 
 - (void)fetchValueUsingBindingsIntoObject:(id)data {
-    if (_key && _didVisitSection) {
+    if (_key && self.didVisitSection) {
         [data setObject:_selected forKey:_key];
     }
 }
