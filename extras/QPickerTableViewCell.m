@@ -110,14 +110,15 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.pickerElement.value = [self getPickerViewValue];
+    self.pickerElement.value = self.pickerElement.displayValue = [self getPickerViewValue:false];
+    self.pickerElement.submitValue = [self getPickerViewValue:true];
     [self prepareForElement:_entryElement inTableView:_quickformTableView];
     [self.pickerElement handleEditingChanged];
 }
 
 #pragma mark - Getting/setting value from UIPickerView
 
-- (id)getPickerViewValue
+- (id)getPickerViewValue:(BOOL)submitValue
 {
     NSMutableArray *componentsValues = [NSMutableArray array];
     
@@ -125,7 +126,10 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     {
         NSInteger rowIndex = [_pickerView selectedRowInComponent:i];
         if (rowIndex >= 0) {
-            [componentsValues addObject:[self pickerView:_pickerView titleForRow:rowIndex forComponent:i]];
+            if (self.pickerElement.itemsValues == nil || !submitValue)
+                [componentsValues addObject:[self pickerView:_pickerView titleForRow:rowIndex forComponent:i]];
+            else
+                [componentsValues addObject:[self.pickerElement.itemsValues[i] objectAtIndex:rowIndex]];
         } else {
             [componentsValues addObject:[NSNull null]];
         }
@@ -135,6 +139,8 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     return [self.pickerElement.valueParser objectFromComponentsValues:componentsValues];
 }
 
+
+
 - (void)setPickerViewValue:(id)value
 {
     NSArray *componentsValues = [self.pickerElement.valueParser componentsValuesFromObject:value];
@@ -142,7 +148,16 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     for (int componentIndex = 0; componentIndex < componentsValues.count && componentIndex < _pickerView.numberOfComponents; componentIndex++)
     {
         id componentValue = [componentsValues objectAtIndex:(NSUInteger) componentIndex];
-        NSInteger rowIndex = [[self.pickerElement.items objectAtIndex:componentIndex] indexOfObject:componentValue];
+        NSInteger rowIndex = NSNotFound;
+//        if (self.pickerElement.itemsValues == nil)
+//        {
+            rowIndex = [[self.pickerElement.items objectAtIndex:componentIndex] indexOfObject:componentValue];
+//        }
+//        else
+//        {
+//            rowIndex = [[self.pickerElement.itemsValues objectAtIndex:componentIndex] indexOfObject:componentValue];
+//        }
+        
         if (rowIndex != NSNotFound) {
             [_pickerView selectRow:rowIndex inComponent:componentIndex animated:YES];
         }
