@@ -6,11 +6,13 @@
 {
 @private
     NSArray *_items;
-    
+    NSArray *_itemsValues;
     UIPickerView *_pickerView;
+
 }
 
 @synthesize items = _items;
+@synthesize itemsValues = _itemsValues;
 @synthesize valueParser = _valueParser;
 
 - (QPickerElement *)init
@@ -26,6 +28,15 @@
 {
     if ((self = [super initWithTitle:title Value:value])) {
         _items = items;
+        self.valueParser = [QPickerTabDelimitedStringParser new];
+    }
+    return self;
+}
+- (QPickerElement *)initWithTitle:(NSString *)title items:(NSArray *)items itemsValues:(NSArray *)itemsValues value:(id)value
+{
+    if ((self = [super initWithTitle:title Value:value])) {
+        _items = items;
+        _itemsValues = itemsValues;
         self.valueParser = [QPickerTabDelimitedStringParser new];
     }
     return self;
@@ -51,7 +62,7 @@
 - (void)fetchValueIntoObject:(id)obj
 {
 	if (_key != nil) {
-        [obj setValue:_value forKey:_key];
+        [obj setValue:_submitValue forKey:_key];
     }
 }
 
