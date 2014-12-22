@@ -30,14 +30,15 @@
     _sections = nil;
     self.presentationMode = QPresentationModeNavigationInPopover;
     _internalRadioItemsSection = [[QSection alloc] init];
+    _parentSection = _internalRadioItemsSection;
 
-    [self addSection:_internalRadioItemsSection];
+    [self addSection:_parentSection];
 
     for (NSUInteger i=0; i< [_items count]; i++){
         QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
         element.imageNamed = [self.itemsImageNames objectAtIndex:i];
         element.title = [self.items objectAtIndex:i];
-        [_internalRadioItemsSection addElement:element];
+        [_parentSection addElement:element];
     }
 }
 
@@ -163,10 +164,7 @@
     _selected = aSelected;
 
     self.preselectedElementIndex = [NSIndexPath indexPathForRow:_selected inSection:0];
-
-    if([_itemsImageNames objectAtIndex:(NSUInteger) self.selected] != nil) {
-        self.image = [UIImage imageNamed:[_itemsImageNames objectAtIndex:(NSUInteger) self.selected]];
-    }
+    self.image = [UIImage imageNamed:[_itemsImageNames objectAtIndex:(NSUInteger) self.selected]];
     
     [self handleEditingChanged];
 }
@@ -179,7 +177,7 @@
         return;
 
     if (_values==nil){
-        [obj setValue:[NSNumber numberWithInteger:_selected] forKey:_key];
+        [obj setValue:[NSNumber numberWithInt:_selected] forKey:_key];
     } else {
         [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
     }

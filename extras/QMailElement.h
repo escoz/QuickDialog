@@ -27,9 +27,12 @@
 @property(nonatomic, strong) NSArray *toRecipients;
 @property(nonatomic, strong) NSArray *ccRecipients;
 @property(nonatomic, strong) NSArray *bccRecipients;
+@property(nonatomic, strong) NSMutableArray *attachments;
 
 - (QMailElement *)initWithTitle:(NSString *)title subject:(NSString *)subject messageBody:(NSString *)messageBody toRecipients:(NSArray *)toRecipients ccRecipients:(NSArray *)ccRecipients bccRecipients:(NSArray *)bccRecipients;
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path;
+
+- (void)addAttachmentData:(NSData*)attachment mimeType:(NSString*)mimeType fileName:(NSString*)fileName;
 
 @end

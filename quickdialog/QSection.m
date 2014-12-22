@@ -98,7 +98,7 @@
 - (void)setHeaderImage:(NSString *)imageName {
     _headerImage = imageName;
     self.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_headerImage]];
-    self.headerView.contentMode = UIViewContentModeCenter;
+    self.headerView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (QSection *)initWithTitle:(NSString *)sectionTitle {

@@ -45,15 +45,11 @@
 }
 
 - (void)setOnImageName:(NSString *)name {
-    if(name != nil) {
-        self.onImage = [UIImage imageNamed:name];
-    }
+    self.onImage = [UIImage imageNamed:name];
 }
 
 - (void)setOffImageName:(NSString *)name {
-    if(name != nil) {
-        self.offImage = [UIImage imageNamed:name];
-    }
+    self.offImage = [UIImage imageNamed:name];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
