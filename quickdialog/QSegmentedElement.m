@@ -52,9 +52,27 @@
     QTableViewCell *cell = [[QTableViewCell alloc] init];
     cell.backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = self.appearance.backgroundColorEnabled;
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems:_items];
     [control addTarget:self action:@selector(handleSegmentedControlValueChanged:) forControlEvents:UIControlEventValueChanged];
-    control.frame = cell.contentView.bounds;
+    NSMutableDictionary *fontAttributes = [NSMutableDictionary dictionary];
+    if (self.appearance.labelColorEnabled) {
+        [fontAttributes setValue:self.appearance.labelColorEnabled forKey:NSForegroundColorAttributeName];
+    }
+    if (self.appearance.labelFont) {
+        [fontAttributes setValue:self.appearance.labelFont forKey:NSFontAttributeName];
+    }
+    if (fontAttributes.count) {
+        [control setTitleTextAttributes:fontAttributes forState:UIControlStateNormal];
+        [control setTitleTextAttributes:fontAttributes forState:UIControlStateHighlighted];
+        [control setTitleTextAttributes:fontAttributes forState:UIControlStateSelected];
+    }
+    CGRect frame = cell.contentView.bounds;
+    // add padding to control
+    frame.size.height = 30;
+//    frame.size.width -= 10;
+    frame.origin = CGPointMake(0, 7);
+    control.frame = frame;
     control.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     control.segmentedControlStyle = UISegmentedControlStyleBar;
     control.selectedSegmentIndex = _selected;
