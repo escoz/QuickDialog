@@ -17,8 +17,6 @@ Download the project and run the demo app, I'm sure you'll like how simple it is
 
 ![Sample iPad](/sample_images/qd_ipad.png "Sample iPad")
 
-Download the project and run the demo app, I'm sure you'll like how simple it is to create powerful dialogs!
-
 ----------
 
 *QuickDialog is inspired by the brilliant MonoTouch.Dialog library created by Miguel de Icaza, which can be found at https://github.com/migueldeicaza/MonoTouch.Dialog.*
