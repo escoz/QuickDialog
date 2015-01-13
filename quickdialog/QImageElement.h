@@ -27,4 +27,6 @@
 
 - (QImageElement *)initWithTitle:(NSString *)title detailImage:(UIImage *)image;
 
+- (void)dismissImagePickerController;
+
 @end
