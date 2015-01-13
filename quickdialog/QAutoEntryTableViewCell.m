@@ -19,6 +19,7 @@
 @implementation QAutoEntryTableViewCell {
     NSString *_lastFullStringWithAutocompletion;
     QAutoEntryElement *_autoEntryElement;
+    BOOL _autoCompleteEnabled;
 }
 
 @synthesize autoCompleteField = _autoCompleteField;
@@ -105,36 +106,40 @@
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField {
-    _autoCompleteField.text = self.lastFullStringWithAutocompletion;
-    if (! [_entryElement.textValue isEqualToString:_autoCompleteField.text]) {
+    if (_autoCompleteEnabled && ![_entryElement.textValue isEqualToString:self.lastFullStringWithAutocompletion]) {
+        _autoCompleteField.text = self.lastFullStringWithAutocompletion;
         // In an AutoEntryElement, a DidEndEditing event might actually be a
         // change to the text value.  This is because it is an implicit acceptance
         // of the displayed auto-chosen value.
         _entryElement.textValue = _autoCompleteField.text;
-        [self handleEditingChanged];
+        [_entryElement handleEditingChanged];
     }
 }
 
 - (void)textFieldEditingChanged:(UITextField *)textField {
+    _autoCompleteEnabled = YES;
     _entryElement.textValue = _autoCompleteField.text;
-    [self handleEditingChanged];
+    [_entryElement handleEditingChanged];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    BOOL previousAutoCompleteEnabledValue = _autoCompleteEnabled;
+    _autoCompleteEnabled = NO;
     BOOL result = [super textFieldShouldReturn:textField];
     [textField resignFirstResponder];
+    _autoCompleteEnabled = previousAutoCompleteEnabledValue;
     return result;
 }
 - (BOOL)becomeFirstResponder {
+    _autoCompleteEnabled = NO;
     [_autoCompleteField becomeFirstResponder];
     return YES;
 }
 
-
 #pragma mark - DOAutocompleteTextFieldDelegate
 - (NSString *)textField:(DOAutocompleteTextField *)textField completionForPrefix:(NSString *)prefix
 {
-    if (!prefix) {
+    if (!prefix || !_autoCompleteEnabled) {
         return nil;
     }
     

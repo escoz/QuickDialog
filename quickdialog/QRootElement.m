@@ -15,6 +15,7 @@
 #import "QBindingEvaluator.h"
 #import "QRootElement.h"
 #import "QuickDialog.h"
+#import "QEntryElement.h"
 
 @implementation QRootElement {
 @private
@@ -34,7 +35,7 @@
 @synthesize preselectedElementIndex = _preselectedElementIndex;
 
 
-- (QRootElement *)init {
+- (instancetype)init {
     self = [super init];
     return self;
 
@@ -47,7 +48,16 @@
     section.rootElement = self;
 }
 
-+ (QRootElement *)rootForJSON:(NSString *)jsonFileName withObject:(id)object {
+- (void)setSections:(NSMutableArray *)sections
+{
+    _sections = nil;
+    for (QSection *section in sections){
+        [self addSection:section];
+    }
+}
+
+
++ (instancetype)rootForJSON:(NSString *)jsonFileName withObject:(id)object {
     QRootElement *root = [self rootForJSON:jsonFileName];
     root.object = object;
     return root;
@@ -110,6 +120,13 @@
     [controller displayViewControllerForRoot:self];
 }
 
+- (void)handleEditingChanged
+{    
+    if(self.onValueChanged) {
+        self.onValueChanged(self);
+    }
+}
+
 - (void)fetchValueIntoObject:(id)obj {
     for (QSection *s in _sections){
         [s fetchValueIntoObject:obj];
@@ -124,16 +141,23 @@
     }
 }
 
-- (void)bindToObject:(id)data {
-    if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
-        for (QSection *sections in self.sections) {
-            [sections bindToObject:data];
+- (void)bindToObject:(id)data shallow:(BOOL)shallow
+{
+    if (!shallow) {
+        if ([self.bind length]==0 || [self.bind rangeOfString:@"iterate"].location == NSNotFound)  {
+            for (QSection *sections in self.sections) {
+                [sections bindToObject:data];
+            }
+        } else {
+            [self.sections removeAllObjects];
         }
-    } else {
-        [self.sections removeAllObjects];
     }
 
     [[QBindingEvaluator new] bindObject:self toData:data];
+}
+
+- (void)bindToObject:(id)data {
+    [self bindToObject:data shallow:NO];
 }
 
 -(void)dealloc {
@@ -171,4 +195,39 @@
     return (QRootElement *) [self elementWithKey:string];
 
 }
+
+
+- (QEntryElement *)findElementToFocusOnBefore:(QElement *)previous {
+
+    QEntryElement *previousElement = nil;
+    for (QSection *section in self.sections) {
+        for (QElement *e in section.elements) {
+            if (e == previous) {
+                return previousElement;
+            }
+            else if ([e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
+                previousElement = (QEntryElement *)e;
+            }
+        }
+    }
+    return nil;
+}
+
+- (QEntryElement *)findElementToFocusOnAfter:(QElement *)element {
+
+    BOOL foundSelf = element == nil;
+    for (QSection *section in self.sections) {
+        for (QElement *e in section.elements) {
+            if (e == element) {
+                foundSelf = YES;
+            }
+            else if (foundSelf && [e isKindOfClass:[QEntryElement class]] && [(QEntryElement *)e canTakeFocus]) {
+                return (QEntryElement *) e;
+            }
+        }
+    }
+    return nil;
+}
+
+
 @end

@@ -36,11 +36,21 @@
 }
 
 -(void)setImageNamed:(NSString *)name {
-    self.image = [UIImage imageNamed:name];
+    if(name != nil) {
+        self.image = [UIImage imageNamed:name];
+    }
 }
 
 - (NSString *)imageNamed {
     return nil;
+}
+
+-(void)setIconNamed:(NSString *)name {
+#if __IPHONE_7_0
+    if ([self.image respondsToSelector:@selector(imageWithRenderingMode:)] && name != nil) {
+        self.image = [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
+#endif
 }
 
 
@@ -52,7 +62,6 @@
     cell.imageView.image = _image;
     cell.accessoryType = _accessoryType != UITableViewCellAccessoryNone ? _accessoryType : self.controllerAccessoryAction != nil ? UITableViewCellAccessoryDetailDisclosureButton : ( self.sections!= nil || self.controllerAction!=nil ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone);
     cell.selectionStyle = self.sections!= nil || self.controllerAction!=nil || self.onSelected!=nil ? UITableViewCellSelectionStyleBlue: UITableViewCellSelectionStyleNone;
-
     return cell;
 }
 

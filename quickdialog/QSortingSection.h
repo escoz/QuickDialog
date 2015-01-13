@@ -14,6 +14,10 @@
 
 #import "QSection.h"
 
+/**
+  QSortingSection: automatically enables sorting of the cells inside the section.
+*/
+
 @interface QSortingSection : QSection {
 
     BOOL _sortingEnabled;

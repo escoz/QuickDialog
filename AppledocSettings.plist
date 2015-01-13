@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>--company-id</key>
+	<string>com.escoz</string>
+	<key>--logformat</key>
+	<integer>1</integer>
+	<key>--project-name</key>
+	<string>QuickDialog</string>
+	<key>--project-company</key>
+	<string>Escoz</string>
+	<key>--print-settings</key>
+	<true/>
+	<key>--output</key>
+	<array>
+		<string>./docs</string>
+	</array>
+	<key>--keep-intermediate-files</key>
+	<false/>
+	<key>--create-html</key>
+	<true/>
+	<key>--keep-undocumented-members</key>
+	<true/>
+	<key>--keep-undocumented-objects</key>
+	<true/>
+	<key>--create-docset</key>
+	<false/>
+	<key>--ignore</key>
+	<array>
+		<string>./sample</string>
+		<string>./extras</string>
+	</array>
+	<key>--index-desc</key>
+	<string>./README.markdown</string>
+	<key>--verbose</key>
+	<integer>4</integer>
+</dict>
+</plist>

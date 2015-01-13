@@ -5,7 +5,7 @@
 	"sections": [
 		{ "title":"Awesome Login Form", "headerImage":"logo", "footer":"Please type your credentials.", "elements": [
 				{ "type":"QEntryElement", "keyboardType":"EmailAddress", "title":"Login","placeholder":"Login or email", "bind":"textValue:login", "key":"login"},
-				{  "type":"QEntryElement", "title":"Password", "placeholder":"Password",  "secureTextEntry":true, "bind":"textValue:password" }
+				{  "type":"QEntryElement", "title":"Password", "placeholder":"Password",  "secureTextEntry":true, "bind":"textValue:password","key":"password" }
 			]
 		},
 		{ "elements":[

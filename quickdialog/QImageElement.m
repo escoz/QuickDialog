@@ -54,8 +54,10 @@
 }
 
 - (void)setImageValueNamed:(NSString *)name {
-    self.imageValue = [UIImage imageNamed:name];
-    [self reducedImageIfNeeded];
+    if(name != nil) {
+        self.imageValue = [UIImage imageNamed:name];
+        [self reducedImageIfNeeded];
+    }
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -72,6 +74,14 @@
     [tableView deselectRowAtIndexPath:path animated:YES];
 
     [self presentImagePicker:tableView controller:controller path:path];
+}
+
+- (void)fetchValueIntoObject:(id)obj
+{
+	if (_key == nil) {
+		return;
+	}
+	[obj setValue:self.imageValue forKey:_key];
 }
 
 - (void)presentImagePicker:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller path:(NSIndexPath *)path {

@@ -18,10 +18,17 @@
 @class QuickDialogTableView;
 @class QuickDialogController;
 
+/**
+
+  QElement – an element object maps one-to-one map to a UITableViewCell, although it includes more functionality, like being able to read values from the cells and having multiple types. QuickDialog provides many different built-in element types, like the ButtonElement and the EntryElement, but you can also create your custom one.
+
+*/
+
 @interface QElement : NSObject {
 
 @protected
-    __unsafe_unretained QSection *_parentSection;
+    __weak QSection *_parentSection;
+    __weak UIViewController *_controller;
     NSString *_key;
     NSString *_bind;
 	
@@ -42,13 +49,22 @@
 @property(nonatomic) BOOL    hidden;
 @property(nonatomic,readonly) NSUInteger visibleIndex;
 
-@property(nonatomic, assign) QSection *parentSection;
+@property(nonatomic, weak) QSection *parentSection;
+@property(nonatomic, weak) UIViewController *controller;
 
 @property(nonatomic, retain) NSString *key;
 @property(nonatomic, retain) id object;
 @property(nonatomic, retain) NSString *bind;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
+
+@property(nonatomic) BOOL shallowBind;
+
+// Corresponds to UITableViewCell property accessibilityLabel
+@property(nonatomic, copy) NSString *accessibilityLabel;
+
+// Corresponds to UITableViewCell property accessibilityIdentifier
+@property(nonatomic, copy) NSString *accessibilityIdentifier;
 
 - (QElement *)initWithKey:(NSString *)key;
 
@@ -58,7 +74,6 @@
 
 -(QTableViewCell *)getOrCreateEmptyCell:(QuickDialogTableView *)tableView;
 
-- (void)handleElementSelected:(QuickDialogController *)controller;
 
 - (void)selectedAccessory:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath;
 
@@ -69,9 +84,14 @@
 
 - (void)fetchValueIntoObject:(id)obj;
 
+- (void)bindToObject:(id)data withString:(NSString *)string;
+
 - (void)bindToObject:(id)obj;
 
 - (void)fetchValueUsingBindingsIntoObject:(id)object;
 
+- (void)performAction;
+- (void)performAccessoryAction;
 
+- (void)bindToObject:(id)data shallow:(BOOL)shallow;
 @end

@@ -30,21 +30,27 @@
     _sections = nil;
     self.presentationMode = QPresentationModeNavigationInPopover;
     _internalRadioItemsSection = [[QSection alloc] init];
-    _parentSection = _internalRadioItemsSection;
 
-    [self addSection:_parentSection];
+    [self addSection:_internalRadioItemsSection];
 
     for (NSUInteger i=0; i< [_items count]; i++){
         QRadioItemElement *element = [[QRadioItemElement alloc] initWithIndex:i RadioElement:self];
         element.imageNamed = [self.itemsImageNames objectAtIndex:i];
         element.title = [self.items objectAtIndex:i];
-        [_parentSection addElement:element];
+        [_internalRadioItemsSection addElement:element];
     }
 }
 
 -(void)setItems:(NSArray *)items {
     _items = items;
     [self createElements];
+}
+
+-(void)setItemsImageNames:(NSArray *)itemsImageNames {
+    _itemsImageNames = itemsImageNames;
+    if (self.items) {
+        [self createElements];
+    }
 }
 
 -(NSObject *)selectedValue {
@@ -75,7 +81,7 @@
 
 - (QRadioElement *)initWithItems:(NSArray *)stringArray selected:(NSInteger)selected {
     self = [self initWithItems:stringArray selected:selected title:nil];
-    _selected = -1;
+    _selected = selected;
     return self;
 }
 
@@ -83,7 +89,7 @@
 - (QRadioElement *)initWithDict:(NSDictionary *)valuesDictionary selected:(int)selected title:(NSString *)title {
     self = [self initWithItems:valuesDictionary.allKeys selected:(NSUInteger) selected];
     _values = valuesDictionary.allValues;
-    _selected = -1;
+    _selected = selected;
     self.title = title;
     return self;
 }
@@ -142,10 +148,13 @@
         cell.textField.text = [selectedValue description];
         cell.detailTextLabel.text = nil;
         cell.textField.textAlignment = self.appearance.labelAlignment;
+        cell.textField.textColor = self.enabled ? self.appearance.valueColorEnabled : self.appearance.valueColorDisabled;
     } else {
         cell.textLabel.text = _title;
         cell.textField.text = [selectedValue description];
         cell.textField.textAlignment = self.appearance.valueAlignment;
+        cell.textField.textColor = self.enabled ? self.appearance.labelColorEnabled : self.appearance.labelColorDisabled;
+        cell.detailTextLabel.textColor = self.enabled ? self.appearance.entryTextColorEnabled : self.appearance.entryTextColorDisabled;
     }
     cell.imageView.image = _image;
 }
@@ -154,8 +163,12 @@
     _selected = aSelected;
 
     self.preselectedElementIndex = [NSIndexPath indexPathForRow:_selected inSection:0];
-    self.image = [UIImage imageNamed:[_itemsImageNames objectAtIndex:(NSUInteger) self.selected]];
 
+    if([_itemsImageNames objectAtIndex:(NSUInteger) self.selected] != nil) {
+        self.image = [UIImage imageNamed:[_itemsImageNames objectAtIndex:(NSUInteger) self.selected]];
+    }
+    
+    [self handleEditingChanged];
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -166,7 +179,7 @@
         return;
 
     if (_values==nil){
-        [obj setValue:[NSNumber numberWithInt:_selected] forKey:_key];
+        [obj setValue:[NSNumber numberWithInteger:_selected] forKey:_key];
     } else {
         [obj setValue:[_values objectAtIndex:(NSUInteger) _selected] forKey:_key];
     }

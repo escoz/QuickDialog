@@ -13,18 +13,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface QMapViewController : UIViewController <MKMapViewDelegate> {
+
+@interface QMapAnnotation : NSObject<MKAnnotation> {
 
 @private
     CLLocationCoordinate2D _coordinate;
-    MKMapView * _mapView;
-    NSString *_mapTitle;
+    NSString *_title;
+    NSString *_subtitle;
 }
 
-- (QMapViewController *)initWithCoordinate:(CLLocationCoordinate2D)d;
+- (QMapAnnotation *)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title;
 
-- (QMapViewController *)initWithTitle:(NSString *)string coordinate:(CLLocationCoordinate2D)d;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+
 @end

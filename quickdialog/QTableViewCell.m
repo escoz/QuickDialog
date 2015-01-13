@@ -15,6 +15,9 @@
 #import "QTableViewCell.h"
 @implementation QTableViewCell
 
+static const int kCellMinimumLabelWidth = 80;
+
+
 @synthesize labelingPolicy = _labelingPolicy;
 
 - (QTableViewCell *)initWithReuseIdentifier:(NSString *)string {
@@ -25,27 +28,69 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.textLabel.backgroundColor = [UIColor clearColor];
-    self.detailTextLabel.backgroundColor = [UIColor clearColor];
+
+    [self layoutSubviewsInsideBounds:self.contentView.bounds];
+
+}
+
+- (void)layoutSubviewsInsideBounds:(CGRect)bounds
+{
+    CGSize sizeWithMargin = bounds.size;
+
+    if (self.imageView.image!=nil){
+        sizeWithMargin = CGSizeMake(sizeWithMargin.width - self.imageView.image.size.width - QCellMarginDouble, sizeWithMargin.height);
+    }
 
     if (_labelingPolicy == QLabelingPolicyTrimTitle)
     {
-        CGSize imageSize = CGSizeZero;
-            if (self.imageView!=nil)
-                imageSize = self.imageView.frame.size;
+        if (self.textLabel.text!=nil){
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
+        }
 
         CGSize valueSize = CGSizeZero;
-        if (self.detailTextLabel.text!=nil)
-            valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font];
+        if (self.detailTextLabel.text!=nil) {
+            valueSize = [self.detailTextLabel.text sizeWithFont:self.detailTextLabel.font constrainedToSize:sizeWithMargin];
+        }
 
-        CGRect labelFrame = self.textLabel.frame;
-        self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-                self.contentView.bounds.size.width - valueSize.width - imageSize.width - 20, labelFrame.size.height);
+        self.textLabel.frame = CGRectMake(
+                self.textLabel.frame.origin.x,
+                QCellMargin,
+                bounds.size.width - valueSize.width - QCellMarginDouble - QCellMarginDouble,
+                bounds.size.height- QCellMarginDouble);
 
-        CGRect detailsFrame = self.detailTextLabel.frame;
         self.detailTextLabel.frame = CGRectMake(
-                self.contentView.bounds.size.width - valueSize.width - 10,
-                detailsFrame.origin.y, valueSize.width, detailsFrame.size.height);
+                bounds.size.width - valueSize.width - QCellMargin,
+                QCellMargin,
+                valueSize.width,
+                bounds.size.height- QCellMarginDouble);
+    } else {
+
+        if (self.detailTextLabel.text!=nil){
+            sizeWithMargin = CGSizeMake(sizeWithMargin.width-kCellMinimumLabelWidth, sizeWithMargin.height- QCellMarginDouble);
+        }
+
+        CGSize valueSize = CGSizeZero;
+        if (!self.detailTextLabel.text) {
+            valueSize = CGSizeMake(sizeWithMargin.width - QCellMarginDouble - QCellMargin, sizeWithMargin.height);
+        } else if (self.textLabel.text!=nil) {
+            valueSize = [self.textLabel.text sizeWithFont:self.textLabel.font constrainedToSize:sizeWithMargin];
+        }
+
+        self.textLabel.frame = CGRectMake(
+                self.textLabel.frame.origin.x,
+                QCellMargin,
+                valueSize.width,
+                bounds.size.height- QCellMarginDouble);
+
+        CGFloat detailsWidth = bounds.size.width - QCellMarginDouble;
+        if (valueSize.width>0)
+            detailsWidth = detailsWidth - valueSize.width - QCellMarginDouble;
+
+        self.detailTextLabel.frame = CGRectMake(
+                bounds.size.width - detailsWidth ,
+                QCellMargin,
+                detailsWidth - (self.accessoryView ==nil ? 0 : QCellMarginDouble) - (self.accessoryType !=UITableViewCellAccessoryNone ? 0 : QCellMarginDouble),
+                bounds.size.height- QCellMarginDouble);
     }
 }
 
@@ -55,10 +100,14 @@
     self.textLabel.textColor = element.enabled  ? appearance.labelColorEnabled : appearance.labelColorDisabled;
     self.textLabel.font = appearance.labelFont;
     self.textLabel.textAlignment = appearance.labelAlignment;
+    self.textLabel.numberOfLines = 0;
+    self.textLabel.backgroundColor = [UIColor clearColor];
 
     self.detailTextLabel.textColor = element.enabled ? appearance.valueColorEnabled : appearance.valueColorDisabled;
     self.detailTextLabel.font = appearance.valueFont;
     self.detailTextLabel.textAlignment = appearance.valueAlignment;
+    self.detailTextLabel.numberOfLines = 0;
+    self.detailTextLabel.backgroundColor = [UIColor clearColor];
 
     self.backgroundColor = element.enabled ? appearance.backgroundColorEnabled : appearance.backgroundColorDisabled;
     self.selectedBackgroundView = element.appearance.selectedBackgroundView;

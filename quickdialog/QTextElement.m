@@ -48,13 +48,15 @@
     cell.detailTextLabel.textColor = _color;
     cell.detailTextLabel.text = _text;
 
+    cell.imageView.image = _image;
+
     return cell;
 }
 
 
 - (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
 
-    if (_text==nil || [_text isEqual: @""]){
+    if (_text.length == 0){
         return [super getRowHeightForTableView:tableView];
     }
     CGSize constraint = CGSizeMake(tableView.frame.size.width-(tableView.root.grouped ? 40.f : 20.f), 20000);

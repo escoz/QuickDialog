@@ -28,20 +28,29 @@
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
+    _controller = controller;
     QTableViewCell *const cell = [[QTableViewCell alloc] init];
     [cell applyAppearanceForElement:self];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     UIActivityIndicatorView *spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.indicatorStyle];
     [spin startAnimating];
     [spin sizeToFit];
-    spin.frame = CGRectMake(150, 12, spin.frame.size.width, spin.frame.size.height);
+    if (self.title == nil){
+        CGFloat posX = (_controller.view.frame.size.width-spin.frame.size.width)/2;
+        spin.center = CGPointMake(posX, 12);
+    } else {
+        CGFloat posX = (_controller.view.frame.size.width-(spin.frame.size.width/2)-10);
+        spin.center = CGPointMake(posX, 24);
+    }
+
     spin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
             UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     [[cell contentView] addSubview:spin];
+    cell.textLabel.text = self.title;
     return cell;
 }
 
-- (void)handleElementSelected:(QuickDialogController *)controller {
+- (void)handleAction:(UIViewController *)controller {
     // do nothing
 
 }

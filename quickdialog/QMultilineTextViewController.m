@@ -50,6 +50,13 @@
     self.view = _textView;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     _viewOnScreen = YES;
@@ -124,13 +131,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView {
     _entryElement.textValue = textView.text;
     
-    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryDidEndEditingElement:andCell:)]){
-        [_entryElement.delegate QEntryDidEndEditingElement:_entryElement andCell:self.entryCell];
-    }
-    
-    if (_entryElement.onValueChanged) {
-        _entryElement.onValueChanged(_entryElement);
-    }
+    [_entryElement handleEditingChanged:self.entryCell];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

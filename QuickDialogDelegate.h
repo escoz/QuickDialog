@@ -17,13 +17,15 @@
 @class QElement;
 @class QSection;
 
-@protocol QuickDialogStyleProvider
+@protocol QuickDialogDelegate  <NSObject>
 
--(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath; 
 
 @optional
 
--(void) sectionHeaderWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
--(void) sectionFooterWillAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
+-(void) cell:(UITableViewCell *)cell willAppearForElement:(QElement *)element atIndexPath:(NSIndexPath *)indexPath;
+
+-(void) header:(UIView *)header willAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
+-(void) footer:(UIView *)footer willAppearForSection:(QSection *)section atIndex:(NSInteger)indexPath;
 
 @end
+

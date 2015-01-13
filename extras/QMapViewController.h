@@ -12,19 +12,19 @@
 // permissions and limitations under the License.
 //
 
-#import "QMapAnnotation.h"
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@implementation QMapAnnotation
+@interface QMapViewController : UIViewController <MKMapViewDelegate> {
 
-@synthesize coordinate = _coordinate;
-@synthesize title = _title;
-@synthesize subtitle = _subtitle;
-
-- (QMapAnnotation *)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title {
-    self = [super init];
-    self.coordinate = coordinate;
-    _title = title;
-
-    return self;
+@private
+    CLLocationCoordinate2D _coordinate;
+    MKMapView * _mapView;
+    NSString *_mapTitle;
 }
+
+- (QMapViewController *)initWithCoordinate:(CLLocationCoordinate2D)d;
+
+- (QMapViewController *)initWithTitle:(NSString *)string coordinate:(CLLocationCoordinate2D)d;
 @end

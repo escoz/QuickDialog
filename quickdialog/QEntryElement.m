@@ -14,9 +14,7 @@
 
 #import "QEntryElement.h"
 #import "QuickDialog.h"
-@implementation QEntryElement  {
-    __unsafe_unretained QuickDialogController *_controller;
-}
+@implementation QEntryElement
 
 @synthesize textValue = _textValue;
 @synthesize placeholder = _placeholder;
@@ -38,6 +36,7 @@
         self.returnKeyType = UIReturnKeyDefault;
         self.enablesReturnKeyAutomatically = NO;
         self.secureTextEntry = NO;
+        self.maxLength = 0;
     }
     return self;
 }
@@ -54,13 +53,14 @@
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
 
+    self.controller = controller;
+
     QEntryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QuickformEntryElement"];
     if (cell==nil){
         cell = [[QEntryTableViewCell alloc] init];
     }
 
     [cell applyAppearanceForElement:self];
-    _controller = controller;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textField.enabled = self.enabled;
     cell.textField.userInteractionEnabled = self.enabled;
@@ -77,7 +77,7 @@
 
 - (void) fieldDidEndEditing
 {
-    [self handleElementSelected:_controller];
+    [self performAction];
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -91,6 +91,15 @@
     return self.enabled && !self.hidden;
 }
 
+- (void)handleEditingChanged:(QEntryTableViewCell *)cell
+{
+    if(self.delegate && [self.delegate respondsToSelector:@selector(QEntryEditingChangedForElement:andCell:)]){
+        [self.delegate QEntryEditingChangedForElement:self andCell:cell];
+    }
+
+    [self handleEditingChanged];
+}
+
 #pragma mark - UITextInputTraits
 
 @synthesize autocorrectionType = _autocorrectionType;
@@ -101,7 +110,6 @@
 @synthesize enablesReturnKeyAutomatically = _enablesReturnKeyAutomatically;
 @synthesize secureTextEntry = _secureTextEntry;
 @synthesize clearsOnBeginEditing = _clearsOnBeginEditing;
-@synthesize accessoryType = _accessoryType;
 @synthesize customDateFormat = _customDateFormat;
 
 

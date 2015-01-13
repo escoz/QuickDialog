@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QPickerValueParser.h"
 
 @interface PeriodPickerValueParser : NSObject <QPickerValueParser>
 

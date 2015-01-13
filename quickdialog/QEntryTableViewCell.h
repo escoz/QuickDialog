@@ -27,13 +27,13 @@
 @interface QEntryTableViewCell : QTableViewCell<UITextFieldDelegate> {
 
     QEntryElement *_entryElement;
-    QTextField *_textField;
+    UITextField *_textField;
 
 @protected
     __unsafe_unretained QuickDialogTableView *_quickformTableView;
 }
 
-@property(nonatomic, strong) QTextField *textField;
+@property(nonatomic, strong) UITextField *textField;
 
 - (void)updatePrevNextStatus;
 
@@ -46,14 +46,8 @@
 - (CGRect)calculateFrameForEntryElement;
 
 
-- (QEntryElement *)findNextElementToFocusOn;
-
 - (BOOL)handleActionBarDone:(UIBarButtonItem *)doneButton;
 
-- (QEntryElement *)findPreviousElementToFocusOn;
-
 - (void)recalculateEntryFieldPosition;
-
-- (void)handleEditingChanged;
 
 @end

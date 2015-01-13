@@ -15,11 +15,15 @@
 #import <Foundation/Foundation.h>
 #import "QEntryElement.h"
 
+/**
+  QDecimalElement: very much like an entry field, but allows only numbers to be typed. Automatically limits numbers to a predefined number of decimal places.
+*/
+
 @interface QDecimalElement : QEntryElement {
 
 }
 
-@property(nonatomic, retain) NSNumber * floatValue;
+@property(nonatomic, retain) NSNumber * numberValue;
 @property(nonatomic, assign) NSUInteger fractionDigits;
 
 - (QDecimalElement *)initWithTitle:(NSString *)string value:(NSNumber *)value;

@@ -33,7 +33,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection *section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
     QElement *element = [section getVisibleElementForIndex:indexPath.row];
+    element.controller = _tableView.controller;
     UITableViewCell *cell = [element getCellForTableView:(QuickDialogTableView *) tableView controller:_tableView.controller];
+    cell.accessibilityLabel = element.accessibilityLabel;
+    cell.accessibilityIdentifier = element.accessibilityIdentifier;
     cell.userInteractionEnabled = element.enabled;
     return cell;
 }
@@ -57,6 +60,18 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     QSortingSection *section = ((QSortingSection *) [_tableView.root getVisibleSectionForIndex: indexPath.section]);
+
+    QElement *element;
+    if (section.elements.count >= indexPath.row) {
+        element = section.elements[indexPath.row];
+    }
+
+    if ([element.controller respondsToSelector:@selector(shouldDeleteElement:)]) {
+        if (![(QuickDialogController *)element.controller shouldDeleteElement:element]) {
+            return;
+        };
+    }
+
     if ([section removeElementForRow:indexPath.row]){
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

@@ -39,6 +39,11 @@
         return;
 
     NSString *string = [object bind];
+    [self bindObject:object toData:data withString:string];
+}
+
+- (void)bindObject:(id)object toData:(id)data withString:string {
+
     if ([QBindingEvaluator stringIsEmpty:string])
         return;
 
@@ -49,10 +54,11 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QSection class]]) {
-            [self bindSection:(QSection *)object toCollection:[data valueForKeyPath:valueName]];
+            [self bindSection:(QSection *)object toCollection:[@"self" isEqualToString:valueName] ? data : [data valueForKeyPath:valueName]];
 
         } else if ([propName isEqualToString:@"iterate"] && [object isKindOfClass:[QRootElement class]]) {
-            [self bindRootElement:(QRootElement *)object toCollection:[data valueForKeyPath:valueName]];
+            NSArray *itemsToIterate = [valueName isEqualToString:@"self"]? data : [data valueForKeyPath:valueName];
+            [self bindRootElement:(QRootElement *) object toCollection:itemsToIterate];
 
         } else if ([propName isEqualToString:@"iterateproperties"] && [object isKindOfClass:[QSection class]]) {
             [self bindSection:(QSection *)object toProperties:[data valueForKeyPath:valueName]];
@@ -115,6 +121,9 @@
 }
 
 - (void)bindSection:(QSection *)section toProperties:(NSDictionary *)object {
+    if ([object isKindOfClass:[NSNull class]]) {
+        return;
+    }
     [section.elements removeAllObjects];
     for (id item in [object allKeys]){
         QElement *element = [_builder buildElementWithObject:section.elementTemplate];
@@ -124,7 +133,7 @@
 }
 
 - (void)fetchValueFromObject:(QElement *)element toData:(id)data {
-    if (element.bind == nil || ([element.bind length] == 0)) {
+     if (element.bind == nil || ([element.bind length] == 0)) {
         return;
     }
 
@@ -135,9 +144,16 @@
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         if (![propName isEqualToString:@"iterate"] && ![valueName isEqualToString:@"self"]) {
-            id value = [element valueForKeyPath:propName];
-            if (propName!= nil && value!=nil)
-                [data setValue:value forKeyPath:valueName];
+            @try {
+                id value = [element valueForKeyPath:propName];
+                if (propName!= nil && value!=nil)
+                    [data setValue:value forKeyPath:valueName];
+                else if (valueName != nil && value==nil)
+                    [data setNilValueForKey:valueName];
+            }
+            @catch (NSException *exception) {
+                NSLog(@"Couldn't set property %@ on object %@", valueName, data);
+            }
         }
     }
 

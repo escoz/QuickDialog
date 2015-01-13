@@ -16,6 +16,10 @@
 #import "SampleDataBuilder.h"
 #import "QDynamicDataSection.h"
 #import "PeriodPickerValueParser.h"
+#import "QMapElement.h"
+#import "QWebElement.h"
+#import "QMailElement.h"
+#import "QPickerElement.h"
 
 @implementation SampleDataBuilder
 
@@ -24,7 +28,8 @@
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.grouped = YES;
     subForm.title = @"Default Initialization";
-	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
+	subForm.controllerName = @"ExampleViewController";
+    QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     [subForm addSection:subsection];
 	
 	[subsection addElement:[[QLabelElement alloc] init]];
@@ -49,6 +54,7 @@
     QRootElement *subForm = [[QRootElement alloc] init];
     subForm.grouped = YES;
     subForm.title = @"Initialization With Key";
+    subForm.controllerName = @"ExampleViewController";
 	QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     [subForm addSection:subsection];
 	
@@ -70,7 +76,9 @@
 
 + (QElement *)reallyLongList {
     QRootElement *subForm = [[QRootElement alloc] init];
+    subForm.grouped = YES;
     subForm.title = @"Really long list";
+    subForm.controllerName = @"ExampleViewController";
     QSection *subsection = [[QSection alloc] initWithTitle:@"Long title for the long list of elements"];
     for (int i = 0; i<1000; i++){
         QBooleanElement *bool1 = [[QBooleanElement alloc] initWithTitle:[NSString stringWithFormat:@"Option %d", i] BoolValue:(i % 3 == 0)];
@@ -90,6 +98,7 @@
     QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     subForm.grouped = YES;
     subForm.title = @"Subform";
+    subForm.controllerName = @"ExampleViewController";
 
     [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" Value:@"Some value"]];
     QEntryElement *elementEntry = [[QEntryElement alloc] initWithTitle:@"Entry" Value:nil Placeholder:@"type here"];
@@ -130,6 +139,7 @@
     QRootElement *sliders = [[QRootElement alloc] init];
     sliders.grouped = YES;
     sliders.title = @"Sliders";
+    sliders.controllerName = @"ExampleViewController";
     QSection *detailsSection = [[QSection alloc] initWithTitle:@"Slide left and right"];
 
     [sliders addSection:detailsSection];
@@ -145,12 +155,14 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"Sample Controls";
+    root.controllerName = @"ExampleViewController";
     QSection *controls = [[QSection alloc] initWithTitle:@"Change something"];
 
     QLabelElement *element1 = [[QLabelElement alloc] initWithTitle:@"Label" Value:@"element"];
 
 
     QRadioElement *radioElement = [[QRadioElement alloc] initWithItems:[[NSArray alloc] initWithObjects:@"Option 1", @"Option 2", @"Option 3",@"Option 11", @"Option 12", @"Option 13", @"Option 21", @"Option 22", @"Option 33", @"Option 41", @"Option 42", @"Option 43", @"Option 51", @"Option 52", @"Option 53", @"Option 61", @"Option 62", @"Option 63", @"Option 71", @"Option 72", @"Option 73", nil] selected:7 title:@"Radio"];
+    radioElement.itemsImageNames = @[ @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel", @"iPhone", @"intel" ];
 	radioElement.key = @"radio1";
 
 
@@ -189,23 +201,31 @@
     decimal.fractionDigits = 2;
     [controls addElement:decimal];
 
+    QMultilineElement *multiline = [[QMultilineElement alloc] initWithTitle:@"Multiline" value:@""];
+    multiline.key = @"multiline";
+    [controls addElement:multiline];
+    
     QLabelElement *element2 = [[QLabelElement alloc] initWithTitle:@"Label Different Height" Value:@"70"];
     element2.height = 70;
     [controls addElement:element2];
-
+    
     [controls addElement:[QLoadingElement new]];
+    
+    QProgressElement *progressElement = [QProgressElement new];
+    progressElement.progress = 0.24601;
+    [controls addElement:progressElement];
 
     QSection *btnSection = [[QSection alloc] init];
 	QButtonElement *button = [[QButtonElement alloc] initWithTitle:@"Show form values"];
 	button.onSelected = ^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello"
-            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%f\n6:%f\n7:%@",
+            message:[NSString stringWithFormat:@"1: %d\n2: %@\n3: %d\n4:%@\n5:%f\n6:%@\n7:%@",
                 radioElement.selected ,
                 entryElement.textValue,
                 boolElement.boolValue,
                 dateElement.dateValue ,
                 slider.floatValue,
-                decimal.floatValue,
+                decimal.numberValue,
                                     autoElement.textValue]
            delegate:self 
            cancelButtonTitle:@"OK" 
@@ -245,11 +265,27 @@
     [root addSection:segmented];
     [root addSection:btnSection];
     [root addSection:btnSection2];
+    
+    for (QSection *section in root.sections) {
+        for (QElement *e in section.elements) {
+            if ([e isKindOfClass:[QEntryElement class]]) {
+                ((QEntryElement *)e).onValueChanged = ^(QRootElement *el){
+                    NSLog(@"Value changed: %@", el);
+                };
+            }
+        }
+    }
     return root;
 }
 
++ (void)QEntryEditingChangedForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell {
+    NSLog(@"Editing changed");
+}
+
+
 + (QElement *)createRadioRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Radio";
     root.grouped = YES;
 
@@ -274,6 +310,7 @@
 + (QElement *)createPickerRoot
 {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Picker";
     root.grouped = YES;
 
@@ -313,6 +350,7 @@
 + (QElement *)createSelectRoot
 {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Select";
     root.grouped = YES;
     
@@ -334,8 +372,24 @@
     return root;
 }
 
++ (QRootElement *)createMailRoot {
+    QRootElement *root = [[QRootElement alloc] init];
+    root.title = @"Mail";
+    
+    QMailElement *element1 = [[QMailElement alloc] initWithTitle:@"Contact escoz" subject:@"Hello Escoz" messageBody:@"Dear Escoz" toRecipients:@[@"contact@escoz.com"] ccRecipients:nil bccRecipients:nil];
+    QMailElement *element2 = [[QMailElement alloc] initWithTitle:@"Contact flyerhzm" subject:@"Hello Richard" messageBody:@"Dear Richard" toRecipients:@[@"flyerhzm@gmail.com"] ccRecipients:nil bccRecipients:nil];
+    
+    QSection *section = [[QSection alloc] init];
+    [section addElement:element1];
+    [section addElement:element2];
+    
+    [root addSection:section];
+    return root;
+}
+
 + (QRootElement *)createWebAndMapRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Web and map";
 
     QWebElement *element1 = [[QWebElement alloc] initWithTitle:@"ESCOZ Inc" url:@"http://escoz.com"];
@@ -354,6 +408,7 @@
 
 + (QRootElement *)createTextRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Text";
 
     QTextElement *element1 = [[QTextElement alloc] initWithText:
@@ -381,6 +436,7 @@
 
 + (QRootElement *)createLabelsRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Labels";
     root.grouped = YES;
     QSection *s1 = [[QSection alloc] initWithTitle:@"LabelElement"];
@@ -388,6 +444,8 @@
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"With a value" Value:@"Value"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Or a simple number" Value:@"123"]];
     [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text long text long text long text" Value:@"this is the value"]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:@"Long text and no value - long text long text long text" Value:nil]];
+    [s1 addElement:[[QLabelElement alloc] initWithTitle:nil Value:@"Long value and no title - long text long text long text"]];
 
     QSection *s2 = [[QSection alloc] initWithTitle:@"BadgeElement"];
     QBadgeElement *badge1 = [[QBadgeElement alloc] initWithTitle:@"With a badge" Value:@"1"];
@@ -400,6 +458,10 @@
     QLabelElement *b1 = [[QLabelElement alloc] initWithTitle:@"Processor" Value:@"OK"];
     b1.image = [UIImage imageNamed:@"intel"];
     [secImg addElement:b1];
+
+    QLabelElement *b4 = [[QLabelElement alloc] initWithTitle:@"Processor processor processor processor processor processor processor" Value:nil];
+    b4.image = [UIImage imageNamed:@"intel"];
+    [secImg addElement:b4];
 
     QLabelElement *b2 = [[QLabelElement alloc] initWithTitle:@"iPhone" Value:@"OK"];
     b2.image = [UIImage imageNamed:@"iPhone"];
@@ -415,8 +477,8 @@
     QSection *sec = [[QSection alloc] initWithTitle:@"Jazzin.."];
     [badge3 addSection:sec];
 
-    QBadgeElement *b4 = [[QBadgeElement alloc] initWithTitle:@"With a really really really long title" Value:@"YEAH"];
-    [s2 addElement:b4];
+    QBadgeElement *b5 = [[QBadgeElement alloc] initWithTitle:@"With a really really really long title" Value:@"YEAH"];
+    [s2 addElement:b5];
 
     [s2 addElement:badge3];
     [sec addElement:[[QBadgeElement alloc] initWithTitle:@"Test" Value:@"0"]];
@@ -429,10 +491,12 @@
     
     QLabelElement *trimTitleEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimTitle" Value:@"really really really long value"];
     trimTitleEl.labelingPolicy = QLabelingPolicyTrimTitle;  // this is default
+    trimTitleEl.height = 80;
     [s3 addElement:trimTitleEl];
     
     QLabelElement *trimValueEl = [[QLabelElement alloc] initWithTitle:@"QLabelingPolicyTrimValue" Value:@"really really really long value"];
     trimValueEl.labelingPolicy = QLabelingPolicyTrimValue;
+    trimValueEl.height = 80;
     [s3 addElement:trimValueEl];
 
     [root addSection:s1];
@@ -448,6 +512,7 @@
 
 + (QRootElement *)createEntryRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Entry";
     root.grouped = YES;
     
@@ -518,7 +583,19 @@
 
     [root addSection:multilineSection];
     [root addSection:traitsSection];
-    
+
+    QSection *imageSection = [[QSection alloc] initWithTitle:@"With images"];
+    QEntryElement *regularEntryElementWithImage = [[QEntryElement alloc] initWithTitle:@"Entry with image" Value:@"" Placeholder:@"YES"];
+    regularEntryElementWithImage.image = [UIImage imageNamed:@"keyboard"];
+    [imageSection addElement:regularEntryElementWithImage];
+    QMultilineElement *multilineWithImage = [QMultilineElement new];
+    multilineWithImage.title = @"Multiline with image";
+    multilineWithImage.image = [UIImage imageNamed:@"iPhone"];
+    [imageSection addElement:multilineWithImage];
+
+    [root addSection:imageSection];
+
+
     return root;
 }
 
@@ -526,11 +603,13 @@
 + (QRootElement *)createSortingRoot {
 
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Sorting";
     root.grouped = YES;
 
     QSortingSection *sortingSection = [[QSortingSection alloc] init];
     sortingSection.key = @"sortedSection";
+    sortingSection.canDeleteRows = YES;
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"First" Value:@"1"]];
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Second" Value:@"2"]];
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Third" Value:@"3"]];
@@ -565,6 +644,7 @@
 
 + (QRootElement *)createDateTimeRoot {
     QRootElement *root = [[QRootElement alloc] init];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Date Time";
     root.grouped = YES;
 
@@ -612,6 +692,7 @@
 
 + (QElement *)createDynamicSectionRoot {
     QRootElement *const root = [[QRootElement alloc] init ];
+    root.controllerName = @"ExampleViewController";
     root.title = @"Dynamic Data Sections";
     root.grouped = YES;
 
@@ -655,14 +736,15 @@
     QRootElement *root = [[QRootElement alloc] init];
     root.grouped = YES;
     root.title = @"QuickDialog!";
+    root.controllerName = @"ExampleViewController";
+
 	QSection *sectionSamples = [[QSection alloc] init];
+    sectionSamples.footer = @"Hey there, this is a footer.";
     sectionSamples.headerView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"quickdialog"]];
     [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"loginform"]];
     [sectionSamples addElement:[self createSampleControls]];
     [sectionSamples addElement:[self createSampleFormRoot]];
     [sectionSamples addElement:[self reallyLongList]];
-    [sectionSamples addElement:[[QRootElement alloc] initWithJSONFile:@"themes"]];
-
 
     QSection *sectionElements = [[QSection alloc] initWithTitle:@"Usage examples"];
 
@@ -673,6 +755,7 @@
     [sectionElements addElement:[[QRootElement alloc] initWithJSONFile:@"navigation"]];
     [sectionElements addElement:[self createPickerRoot]];
     [sectionElements addElement:[self createSelectRoot]];
+    [sectionElements addElement:[self createMailRoot]];
     [sectionElements addElement:[self createWebAndMapRoot]];
     [sectionElements addElement:[self createTextRoot]];
     [sectionElements addElement:[self createDateTimeRoot]];

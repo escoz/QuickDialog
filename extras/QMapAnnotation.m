@@ -12,22 +12,19 @@
 // permissions and limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
-#import "QLabelElement.h"
+#import "QMapAnnotation.h"
 
-@interface QWebElement : QLabelElement {
+@implementation QMapAnnotation
 
-@protected
-    NSString *_url;
-	NSString *_html;
+@synthesize coordinate = _coordinate;
+@synthesize title = _title;
+@synthesize subtitle = _subtitle;
+
+- (QMapAnnotation *)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title {
+    self = [super init];
+    self.coordinate = coordinate;
+    _title = title;
+
+    return self;
 }
-
-@property(nonatomic, strong) NSString *url;
-@property(nonatomic, strong) NSString *html;
-
-- (QWebElement *)initWithTitle:(NSString *)title url:(NSString *)url;
-- (QWebElement *)initWithTitle:(NSString *)title HTML:(NSString *)html;
-
-- (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)path;
-
 @end

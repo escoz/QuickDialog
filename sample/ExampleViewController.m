@@ -13,6 +13,7 @@
 //
 
 #import "ExampleViewController.h"
+#import "QWebElement.h"
 
 @implementation ExampleViewController
 
@@ -66,6 +67,11 @@
     } else {
         [super displayViewController:newController];
     }
+}
+
+-(BOOL)shouldDeleteElement:(QElement *)element{
+    // Return no if you want to delete the cell or redraw the tableView yourself
+    return YES;
 }
 
 

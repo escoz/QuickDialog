@@ -114,7 +114,10 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
     [self updateObject:sect withPropertiesFrom:obj];
     [root addSection:sect];
     for (id element in (NSArray *)[obj valueForKey:[NSString stringWithFormat:@"elements"]]){
-       [sect addElement:[self buildElementWithObject:element] ];
+        QElement *elementNode = [self buildElementWithObject:element];
+        if (elementNode) {
+            [sect addElement:elementNode];
+        }
     }
 }
 
@@ -227,6 +230,12 @@ NSDictionary *QRootBuilderStringToTypeConversionDict;
                                                             [NSNumber numberWithInt:UIImagePickerControllerSourceTypeCamera], @"camera",
                                                             [NSNumber numberWithInt:UIImagePickerControllerSourceTypeSavedPhotosAlbum], @"savedPhotosAlbum",
                                     nil], @"source",
+
+                    [[NSDictionary alloc] initWithObjectsAndKeys:
+                            [NSNumber numberWithInt:QLabelingPolicyTrimTitle], @"trimTitle",
+                            [NSNumber numberWithInt:QLabelingPolicyTrimValue], @"trimValue",
+                            nil], @"labelingPolicy",
+
             nil];
 
 }

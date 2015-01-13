@@ -120,7 +120,8 @@
         self.toolbarItems = nil;
 	}
 	else {
-		[_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
+        NSURL *url = [_url hasPrefix:@"/"]? [NSURL fileURLWithPath:_url] : [NSURL URLWithString:_url];
+        [_webView loadRequest:[NSURLRequest requestWithURL:url]];
 		self.navigationController.toolbarHidden = NO;
 
         self.toolbarItems = _urlToolbarItems;
@@ -165,7 +166,7 @@
 - (UIImage *)createBackArrowImage
 {
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,kCGImageAlphaPremultipliedLast);
+	CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,(CGBitmapInfo)kCGImageAlphaPremultipliedLast);
 	CFRelease(colorSpace);
    CGColorRef fillColor = [[UIColor blackColor] CGColor];
    CGContextSetFillColor(context, (CGFloat *) CGColorGetComponents(fillColor));
@@ -186,7 +187,7 @@
 - (UIImage *)createForwardArrowImage
 {
    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-   CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,kCGImageAlphaPremultipliedLast);
+   CGContextRef context = CGBitmapContextCreate(nil,27,27,8,0, colorSpace,(CGBitmapInfo)kCGImageAlphaPremultipliedLast);
    CFRelease(colorSpace);
    CGColorRef fillColor = [[UIColor blackColor] CGColor];
    CGContextSetFillColor(context, (CGFloat *) CGColorGetComponents(fillColor));
