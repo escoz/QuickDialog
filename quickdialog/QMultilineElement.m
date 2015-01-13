@@ -68,8 +68,8 @@
 	__weak QMultilineTextViewController *weakTextController = textController;
     textController.willDisappearCallback = ^ {
         weakSelf.textValue = weakTextController.textView.text;
-        [[tableView cellForElement:weakSelf] setNeedsDisplay];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        // [[tableView cellForElement:weakSelf] setNeedsDisplay];
+        // [tableView deselectRowAtIndexPath:indexPath animated:YES];
     };
     [controller displayViewController:textController withPresentationMode:self.presentationMode];
 }
