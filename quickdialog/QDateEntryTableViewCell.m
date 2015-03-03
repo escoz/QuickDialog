@@ -54,7 +54,7 @@
     if (!_pickerView)
         _pickerView = [[UIDatePicker alloc] init];
 
-    _pickerView.timeZone = [NSTimeZone localTimeZone];
+    _pickerView.timeZone = element.timeZone ? element.timeZone : [NSTimeZone localTimeZone];
     [_pickerView sizeToFit];
     [_pickerView addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     _pickerView.datePickerMode = element.mode;
@@ -100,6 +100,7 @@
     QDateTimeInlineElement *dateElement = ((QDateTimeInlineElement *) element);
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeZone = dateElement.timeZone ? dateElement.timeZone : [NSTimeZone localTimeZone];
 
     if (element.customDateFormat!=nil){
         dateFormatter.dateFormat = element.customDateFormat;

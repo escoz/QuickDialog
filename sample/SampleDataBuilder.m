@@ -659,6 +659,11 @@
 
     QDateTimeInlineElement *el4 = [[QDateTimeInlineElement alloc] initWithTitle:@"Time only" date:[NSDate date] andMode:UIDatePickerModeTime];
     [section addElement:el4];
+    
+    QDateTimeInlineElement *el5 = [[QDateTimeInlineElement alloc] initWithTitle:@"Time only (UTC)" date:[NSDate date] andMode:UIDatePickerModeTime];
+    el5.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    [section addElement:el5];
+
 
     QDateTimeInlineElement *elDiffTime = [[QDateTimeInlineElement alloc] initWithTitle:@"Different date" date:
             [NSDate dateWithTimeIntervalSinceNow:-36000] andMode:UIDatePickerModeDate];
@@ -672,18 +677,18 @@
     QSection *section2 = [[QSection alloc] init];
     section2.title = @"Push editing";
 
-    QDateTimeElement *el5 = [[QDateTimeElement alloc] initWithTitle:@"Time only" date:[NSDate date]];
-    el5.mode = UIDatePickerModeTime;
-    [section2 addElement:el5];
-
-    QDateTimeElement *el6 = [[QDateTimeElement alloc] initWithTitle:@"Date only" date:[NSDate date]];
-    el6.mode = UIDatePickerModeDate;
+    QDateTimeElement *el6 = [[QDateTimeElement alloc] initWithTitle:@"Time only" date:[NSDate date]];
+    el6.mode = UIDatePickerModeTime;
     [section2 addElement:el6];
 
-    QDateTimeElement *el7 = [[QDateTimeElement alloc] initWithTitle:@"Full Date" date:[NSDate date]];
-    el7.mode = UIDatePickerModeDateAndTime;
-    el7.minuteInterval = 3;
+    QDateTimeElement *el7 = [[QDateTimeElement alloc] initWithTitle:@"Date only" date:[NSDate date]];
+    el7.mode = UIDatePickerModeDate;
     [section2 addElement:el7];
+
+    QDateTimeElement *el8 = [[QDateTimeElement alloc] initWithTitle:@"Full Date" date:[NSDate date]];
+    el8.mode = UIDatePickerModeDateAndTime;
+    el8.minuteInterval = 3;
+    [section2 addElement:el8];
 
     [root addSection:section];
     [root addSection:section2];

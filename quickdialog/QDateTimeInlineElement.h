@@ -38,6 +38,8 @@
 
 @property(nonatomic, strong) NSDate *minimumDate;
 
+@property (nonatomic, strong) NSTimeZone *timeZone;
+
 @property(nonatomic) BOOL showPickerInCell;
 
 - (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode;

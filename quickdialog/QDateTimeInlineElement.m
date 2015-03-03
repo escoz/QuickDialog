@@ -18,6 +18,7 @@
 @private
     NSDate *_maximumDate;
     NSDate *_minimumDate;
+    NSTimeZone *_timeZone;
 
     __weak QTableViewCell *_cell;
 }
@@ -26,6 +27,7 @@
 @synthesize centerLabel = _centerLabel;
 @synthesize maximumDate = _maximumDate;
 @synthesize minimumDate = _minimumDate;
+@synthesize timeZone = _timeZone;
 @synthesize onValueChanged = _onValueChanged;
 @synthesize minuteInterval = _minuteInterval;
 
@@ -67,6 +69,7 @@
 {
     if (self.mode == UIDatePickerModeDate)   {
         NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+        gregorian.timeZone = self.timeZone ? self.timeZone : [NSTimeZone localTimeZone];
         NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_dateValue];
         _dateValue = [gregorian dateFromComponents:dateComponents];
     }
