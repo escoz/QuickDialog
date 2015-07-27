@@ -30,9 +30,10 @@
     }
 }
 
-- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller
-{
+- (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
     UITableViewCell *cell = [super getCellForTableView:tableView controller:controller];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     if ([_selectSection.selectedIndexes containsObject:[NSNumber numberWithUnsignedInteger:_index]] ) {
         [self updateCell:cell];
@@ -40,6 +41,15 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     return cell;
+}
+
+- (CGFloat)getRowHeightForTableView:(QuickDialogTableView *)tableView {
+    CGFloat fontSize = [@18.0 floatValue];
+    CGRect r = [_title boundingRectWithSize:CGSizeMake(200, 0)
+                                    options:NSStringDrawingUsesLineFragmentOrigin
+                                 attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:fontSize]}
+                                    context:nil];
+    return r.size.height < 44 ? 44 : r.size.height;
 }
 
 - (void)selected:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller indexPath:(NSIndexPath *)indexPath
