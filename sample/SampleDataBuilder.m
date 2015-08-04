@@ -583,7 +583,19 @@
 
     [root addSection:multilineSection];
     [root addSection:traitsSection];
-    
+
+    QSection *imageSection = [[QSection alloc] initWithTitle:@"With images"];
+    QEntryElement *regularEntryElementWithImage = [[QEntryElement alloc] initWithTitle:@"Entry with image" Value:@"" Placeholder:@"YES"];
+    regularEntryElementWithImage.image = [UIImage imageNamed:@"keyboard"];
+    [imageSection addElement:regularEntryElementWithImage];
+    QMultilineElement *multilineWithImage = [QMultilineElement new];
+    multilineWithImage.title = @"Multiline with image";
+    multilineWithImage.image = [UIImage imageNamed:@"iPhone"];
+    [imageSection addElement:multilineWithImage];
+
+    [root addSection:imageSection];
+
+
     return root;
 }
 
@@ -597,6 +609,7 @@
 
     QSortingSection *sortingSection = [[QSortingSection alloc] init];
     sortingSection.key = @"sortedSection";
+    sortingSection.canDeleteRows = YES;
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"First" Value:@"1"]];
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Second" Value:@"2"]];
     [sortingSection addElement:[[QLabelElement alloc] initWithTitle:@"Third" Value:@"3"]];
