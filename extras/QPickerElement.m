@@ -13,9 +13,6 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
     UIPickerView *_pickerView;
 }
 
-@synthesize items = _items;
-@synthesize valueParser = _valueParser;
-
 - (QPickerElement *)init
 {
     if (self = [super init]) {

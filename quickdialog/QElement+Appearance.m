@@ -1,6 +1,8 @@
 #import <objc/runtime.h>
 #import "QElement+Appearance.h"
 #import "QClassicAppearance.h"
+#import "QFlatAppearance.h"
+#import "QRootElement.h"
 
 
 static void * const KEY_APPEARANCE_OBJECT = (void*)&KEY_APPEARANCE_OBJECT;

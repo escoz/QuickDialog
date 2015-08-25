@@ -11,6 +11,10 @@
 // ANY KIND, either express or implied. See the License for the specific language governing
 // permissions and limitations under the License.
 //
+
+#import "QAppearance.h"
+#import "QElement.h"
+#import "QElement+Appearance.h"
 #import "QDateInlineTableViewCell.h"
 
 @interface QDateInlineTableViewCell ()

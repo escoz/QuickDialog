@@ -6,6 +6,7 @@
 
 
 #import "QFlatAppearance.h"
+#import "QSection.h"
 
 
 @implementation QFlatAppearance {

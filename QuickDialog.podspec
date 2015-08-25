@@ -40,9 +40,4 @@ Pod::Spec.new do |s|
     sp.source_files = 'extras/QColor*.{h,m}', 'extras/UIColor*.{h,m}'
   end
 
-  s.prefix_header_contents = <<-EOS
-#ifdef __OBJC__
-    #import "QuickDialog.h"
-#endif
-EOS
 end

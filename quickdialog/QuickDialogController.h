@@ -12,6 +12,7 @@
 // permissions and limitations under the License.
 //
 
+#import "QElement.h"
 #import "QuickDialogTableView.h"
 
 @class QRootElement;

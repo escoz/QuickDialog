@@ -17,8 +17,6 @@
 
 @implementation QPickerTableViewCell
 
-@synthesize pickerView = _pickerView;
-
 - (QPickerTableViewCell *)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if ((self = [self initWithStyle:style reuseIdentifier:reuseIdentifier]))
