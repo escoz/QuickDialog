@@ -12,6 +12,8 @@
 // permissions and limitations under the License.
 //
 
+#import "QDateEntryTableViewCell.h"
+#import "QuickDialogController.h"
 #import "QDateInlineTableViewCell.h"
 
 @implementation QDateTimeInlineElement {

@@ -2,6 +2,9 @@
 #import "QPickerTableViewCell.h"
 #import "QPickerTabDelimitedStringParser.h"
 
+
+NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
+
 @implementation QPickerElement
 {
 @private
@@ -9,9 +12,6 @@
     
     UIPickerView *_pickerView;
 }
-
-@synthesize items = _items;
-@synthesize valueParser = _valueParser;
 
 - (QPickerElement *)init
 {
@@ -35,7 +35,7 @@
 {
     QPickerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:QPickerTableViewCellIdentifier];
     if (cell == nil) {
-        cell = [[QPickerTableViewCell alloc] init];
+        cell = [[QPickerTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:QPickerTableViewCellIdentifier];
     }
     [cell applyAppearanceForElement:self];
 

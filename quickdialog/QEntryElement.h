@@ -13,7 +13,6 @@
 //
 #import "QLabelElement.h"
 #import "QEntryTableViewCell.h"
-
 @protocol QuickDialogEntryElementDelegate;
 
 /**

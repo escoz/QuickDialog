@@ -13,7 +13,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QLabelElement.h"
+#import "QuickDialog.h"
 
 /**
   QWebElement: pushes a simple browser that opens the URL defined in the element

@@ -10,7 +10,6 @@
 #import "QuickDialog.h"
 #import "QPickerElement.h"
 
-NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 @interface QPickerTableViewCell ()
 @property (nonatomic, readonly) QPickerElement *pickerElement;
@@ -18,11 +17,9 @@ NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 @implementation QPickerTableViewCell
 
-@synthesize pickerView = _pickerView;
-
-- (QPickerTableViewCell *)init
+- (QPickerTableViewCell *)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if ((self = [self initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:QPickerTableViewCellIdentifier]))
+    if ((self = [self initWithStyle:style reuseIdentifier:reuseIdentifier]))
     {
         [self createSubviews];
 		self.selectionStyle = UITableViewCellSelectionStyleBlue;

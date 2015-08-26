@@ -13,6 +13,9 @@
 //
 
 #import "QTableViewCell.h"
+#import "QAppearance.h"
+#import "QElement+Appearance.h"
+
 @implementation QTableViewCell
 
 static const int kCellMinimumLabelWidth = 80;

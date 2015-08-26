@@ -15,9 +15,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@class QuickDialogController;
-@class QuickDialogTableView;
+#import "QuickDialogController.h"
+#import "QuickDialogTableView.h"
 
 
 @interface QuickDialogTableDelegate : NSObject<UITableViewDelegate> {

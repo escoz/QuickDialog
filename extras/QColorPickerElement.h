@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Quickfire Software. All rights reserved.
 //
 
-#import "QLabelElement.h"
+#import "QuickDialog.h"
 
 @interface QColorPickerElement : QRadioElement
 

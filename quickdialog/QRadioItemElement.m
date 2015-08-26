@@ -15,7 +15,10 @@
 #import "QuickDialogTableView.h"
 #import "QSection.h"
 #import "QRootElement.h"
+#import "QAppearance.h"
+#import "QElement+Appearance.h"
 #import "QRadioItemElement.h"
+#import "QuickDialogController+Navigation.h"
 
 @implementation QRadioItemElement
 
