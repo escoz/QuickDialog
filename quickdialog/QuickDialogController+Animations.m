@@ -1,4 +1,6 @@
 #import "QuickDialogController+Animations.h"
+#import "QElement.h"
+#import "QRootElement.h"
 
 @implementation QuickDialogController (Animations)
 

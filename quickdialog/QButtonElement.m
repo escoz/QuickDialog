@@ -12,7 +12,9 @@
 // permissions and limitations under the License.
 //
 
+#import "QAppearance.h"
 #import "QButtonElement.h"
+#import "QElement+Appearance.h"
 
 @implementation QButtonElement
 

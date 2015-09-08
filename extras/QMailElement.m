@@ -10,11 +10,6 @@
 
 @implementation QMailElement
 
-@synthesize subject = _subject;
-@synthesize messageBody = _messageBody;
-@synthesize toRecipients = _toRecipients;
-@synthesize ccRecipients = _ccRecipients;
-@synthesize bccRecipients = _bccRecipients;
 
 - (QMailElement *)initWithTitle:(NSString *)title subject:(NSString *)subject messageBody:(NSString *)messageBody toRecipients:(NSArray *)toRecipients ccRecipients:(NSArray *)ccRecipients bccRecipients:(NSArray *)bccRecipients {
     self = [super init];

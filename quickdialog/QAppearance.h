@@ -1,4 +1,6 @@
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "QuickDialogTableView.h"
 
 
 @interface QAppearance : NSObject<NSCopying>

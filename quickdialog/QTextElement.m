@@ -14,6 +14,8 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 #import "QTextElement.h"
+#import "QAppearance.h"
+#import "QElement+Appearance.h"
 
 @implementation QTextElement
 

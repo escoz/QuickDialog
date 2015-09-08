@@ -5,7 +5,12 @@
 //
 
 
+#import "QAppearance.h"
+#import "QElement+Appearance.h"
 #import "QClassicAppearance.h"
+#import "QSection.h"
+#import "QuickDialogTableView.h"
+#import "QRootElement.h"
 
 
 @implementation QClassicAppearance {

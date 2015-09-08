@@ -14,6 +14,8 @@
 
 #import "QuickDialogController.h"
 #import "QRootElement.h"
+#import "QEntryElement.h"
+
 @interface QuickDialogController ()
 
 + (Class)controllerClassForRoot:(QRootElement *)root;
