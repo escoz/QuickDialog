@@ -50,13 +50,6 @@
     self.view = _textView;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     _viewOnScreen = YES;
@@ -102,7 +95,7 @@
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
         animations:^{
             CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-            _textView.contentInset = UIEdgeInsetsMake(0.0, 0.0,  up ? keyboardFrame.size.height : 0, 0.0);
+            _textView.contentInset = UIEdgeInsetsMake(_textView.contentInset.top, _textView.contentInset.left,  up ? keyboardFrame.size.height : 0, _textView.contentInset.right);
         }
         completion:NULL];
 }
