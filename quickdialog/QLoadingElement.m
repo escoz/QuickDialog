@@ -36,11 +36,9 @@
     [spin startAnimating];
     [spin sizeToFit];
     if (self.title == nil){
-        CGFloat posX = (_controller.view.frame.size.width-spin.frame.size.width)/2;
-        spin.center = CGPointMake(posX, 12);
+        spin.center = cell.center;
     } else {
-        CGFloat posX = (_controller.view.frame.size.width-(spin.frame.size.width/2)-10);
-        spin.center = CGPointMake(posX, 24);
+        spin.center = CGPointMake(cell.center.x, cell.center.y - 10);
     }
 
     spin.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |
