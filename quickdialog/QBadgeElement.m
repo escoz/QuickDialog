@@ -46,7 +46,7 @@
     cell.badgeLabel.textColor = _badgeTextColor;
 
     if ([cell respondsToSelector:@selector(tintColor)])
-        cell.badgeLabel.badgeColor = _badgeColor == nil ? cell.tintColor : _badgeTextColor;
+        cell.badgeLabel.badgeColor = _badgeColor == nil ? cell.tintColor : _badgeColor;
     else
        cell.badgeLabel.badgeColor = _badgeColor;
 
