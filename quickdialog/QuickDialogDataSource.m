@@ -54,7 +54,8 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[_tableView.root getVisibleSectionForIndex:indexPath.section] isKindOfClass:[QSortingSection class]];
+    id section = [_tableView.root getVisibleSectionForIndex:indexPath.section];
+    return [section isKindOfClass:[QSortingSection class]] && [section sortingEnabled];
 }
 
 
@@ -85,7 +86,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     QSection  *section = [_tableView.root getVisibleSectionForIndex: indexPath.section];
     if ([section isKindOfClass:[QSortingSection class]]){
-        return ([(QSortingSection *) section canRemoveElementForRow:indexPath.row]);
+        return ([(QSortingSection *) section canRemoveElementForRow:indexPath.row]) || ((QSortingSection*)section).sortingEnabled;
     }
     return tableView.editing;
 }
