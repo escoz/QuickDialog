@@ -32,6 +32,7 @@ static const int QCellMargin = 8;
 - (void)layoutSubviewsInsideBounds:(CGRect)bounds;
 
 @property (nonatomic) QLabelingPolicy labelingPolicy;
+@property (nonatomic, strong) UILabel *subtitle;
 
 - (void)applyAppearanceForElement:(QElement *)element;
 @end
