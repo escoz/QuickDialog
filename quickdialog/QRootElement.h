@@ -43,6 +43,9 @@ typedef enum  {
 }
 
 @property(nonatomic, retain) NSString *title;
+@property(nonatomic, retain) NSString *rightBarButtonTitle;
+@property(nonatomic, copy) dispatch_block_t rightBarButtonAction;
+
 @property(nonatomic, strong) NSMutableArray *sections;
 @property(nonatomic, strong) NSDictionary *sectionTemplate;
 @property(assign) BOOL grouped;

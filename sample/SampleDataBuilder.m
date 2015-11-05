@@ -98,6 +98,11 @@
     QSection *subsection = [[QSection alloc] initWithTitle:@"SubSection"];
     subForm.grouped = YES;
     subForm.title = @"Subform";
+    subForm.rightBarButtonTitle = @"Click Here";
+    subForm.rightBarButtonAction = ^{
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil message:@"Example Right bar button action" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    };
     subForm.controllerName = @"ExampleViewController";
 
     [subsection addElement:[[QLabelElement alloc] initWithTitle:@"Some title" Value:@"Some value"]];
