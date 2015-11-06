@@ -33,7 +33,7 @@
 }
 
 - (BOOL)needsEditing {
-    return _sortingEnabled;
+    return _sortingEnabled || _canDeleteRows;
 }
 
 - (void)fetchValueIntoObject:(id)obj {
@@ -58,6 +58,6 @@
 }
 
 - (BOOL)canRemoveElementForRow:(NSInteger)integer {
-    return YES;
+    return _canDeleteRows;
 }
 @end
