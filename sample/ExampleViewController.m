@@ -52,7 +52,7 @@
 - (void)displayViewControllerForRoot:(QRootElement *)element {
 
     QuickDialogController *newController = [QuickDialogController controllerForRoot:element];
-    if (self.splitViewController!=nil){
+    if (self.splitViewController!=nil && [self.splitViewController.viewControllers objectAtIndex:0] == self.navigationController){
         UINavigationController * navController = [self.splitViewController.viewControllers objectAtIndex:1];
 
         for (QSection *section in self.root.sections) {
