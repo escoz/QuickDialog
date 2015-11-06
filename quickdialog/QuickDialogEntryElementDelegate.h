@@ -13,5 +13,5 @@
 - (void)QEntryDidEndEditingElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell;
 - (BOOL)QEntryShouldReturnForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell;
 - (void)QEntryMustReturnForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell;
-
+- (BOOL)QEntryShouldEndEditingForElement:(QEntryElement *)element andCell:(QEntryTableViewCell *)cell;
 @end

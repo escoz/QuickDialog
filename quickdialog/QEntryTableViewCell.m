@@ -250,6 +250,13 @@
     return YES;
 }
 
+- (BOOL)textFieldShouldEndEditing:(UITextField *)aTextField {    
+    if(_entryElement && _entryElement.delegate && [_entryElement.delegate respondsToSelector:@selector(QEntryShouldEndEditingForElement:andCell:)]){
+        return [_entryElement.delegate QEntryShouldEndEditingForElement:_entryElement andCell:self];
+    }
+    return YES;
+}
+
 - (void)handleActionBarPreviousNext:(UISegmentedControl *)control {
 
 	QEntryElement *element;
