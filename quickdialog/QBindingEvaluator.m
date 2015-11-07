@@ -49,7 +49,7 @@
 
     for (NSString *each in [string componentsSeparatedByString:@","]) {
         NSArray *bindingParams = [each componentsSeparatedByString:@":"];
-
+        if (bindingParams.count < 2) continue;
         NSString *propName = [((NSString *) [bindingParams objectAtIndex:0]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         NSString *valueName = [((NSString *) [bindingParams objectAtIndex:1]) stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
