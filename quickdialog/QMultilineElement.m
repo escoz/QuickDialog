@@ -22,7 +22,7 @@
 - (QEntryElement *)init {
     self = [super init];
     if (self) {
-        self.presentationMode = QPresentationModePopover;
+    	self.presentationMode = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)?QPresentationModeModalForm:QPresentationModePopover;
     }
 
     return self;
@@ -32,7 +32,7 @@
 {
     if ((self = [super initWithTitle:title Value:nil])) {
         self.textValue = text;
-        self.presentationMode = QPresentationModePopover;
+        self.presentationMode = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)?QPresentationModeModalForm:QPresentationModePopover;
     }
     return self;
 }
@@ -68,7 +68,7 @@
 	__weak QMultilineTextViewController *weakTextController = textController;
     textController.willDisappearCallback = ^ {
         weakSelf.textValue = weakTextController.textView.text;
-        [[tableView cellForElement:weakSelf] setNeedsDisplay];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     };
     [controller displayViewController:textController withPresentationMode:self.presentationMode];
