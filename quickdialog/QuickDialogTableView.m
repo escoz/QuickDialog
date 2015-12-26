@@ -46,6 +46,10 @@
         self.root = _controller.root;
 
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        
+        if([self respondsToSelector:@selector(setCellLayoutMarginsFollowReadableWidth:)]) {
+            self.cellLayoutMarginsFollowReadableWidth = NO;
+        }
     }
     return self;
 }
