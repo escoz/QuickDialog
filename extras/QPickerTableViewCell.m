@@ -19,10 +19,10 @@
 
 - (QPickerTableViewCell *)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    if ((self = [self initWithStyle:style reuseIdentifier:reuseIdentifier]))
+    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
     {
         [self createSubviews];
-		self.selectionStyle = UITableViewCellSelectionStyleBlue;
+	self.selectionStyle = UITableViewCellSelectionStyleBlue;
     }
     
     return self;
