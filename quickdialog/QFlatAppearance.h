@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "QAppearance.h"
 
 @interface QFlatAppearance : QAppearance
 

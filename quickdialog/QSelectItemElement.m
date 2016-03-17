@@ -6,6 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+
+#import "QuickDialogController.h"
+#import <UIKit/UIKit.h>
+#import "QSelectItemElement.h"
+#import "QAppearance.h"
+#import "QElement+Appearance.h"
+
 @implementation QSelectItemElement {
     UIImage *_checkmarkImage;
 }

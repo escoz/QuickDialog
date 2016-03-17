@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "QRootElement.h"
+#import "QEntryElement.h"
 
 @interface QImageElement : QEntryElement
 

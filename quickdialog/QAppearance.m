@@ -1,17 +1,10 @@
+#import "QAppearance.h"
+#import <UIKit/UIKit.h>
+#import "QSection.h"
 
 @implementation QAppearance {
 
 }
-
-@synthesize sectionTitleFont = _sectionTitleFont;
-@synthesize sectionTitleColor = _sectionTitleColor;
-@synthesize sectionFooterFont = _sectionFooterFont;
-@synthesize sectionFooterColor = _sectionFooterColor;
-@synthesize entryAlignment = _entryAlignment;
-@synthesize buttonAlignment = _buttonAlignment;
-@synthesize selectedBackgroundView = _selectedBackgroundView;
-@synthesize sectionTitleShadowColor = _sectionTitleShadowColor;
-
 
 - (QAppearance *)init {
     self = [super init];

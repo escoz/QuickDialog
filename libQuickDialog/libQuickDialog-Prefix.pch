@@ -9,7 +9,6 @@
 #ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
-#import "QuickDialog.h"
 
 #endif
 

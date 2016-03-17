@@ -12,15 +12,14 @@
 // permissions and limitations under the License.
 //
 
+#import "QAppearance.h"
 #import "QEntryTableViewCell.h"
 #import "QDateEntryTableViewCell.h"
 #import "QDateTimeInlineElement.h"
-#import "QTextField.h"
+#import "QElement+Appearance.h"
 
 @implementation QDateEntryTableViewCell
 
-@synthesize pickerView = _pickerView;
-@synthesize centeredLabel = _centeredLabel;
 
 
 - (QDateEntryTableViewCell *)init {

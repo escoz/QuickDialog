@@ -14,8 +14,7 @@
 
 #import "QuickDialogTableView.h"
 #import "QEntryElement.h"
-
-@class QDateEntryTableViewCell;
+#import "QDateEntryTableViewCell.h"
 
 @interface QDateTimeInlineElement : QEntryElement {
     NSDate * _dateValue;
