@@ -139,6 +139,9 @@
     cell.accessoryType = self.enabled ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
     cell.selectionStyle = self.enabled ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textField.userInteractionEnabled = NO;
+    cell.textField.accessibilityElementsHidden = YES;
+    cell.accessibilityTraits = UIAccessibilityTraitButton;
+    cell.textLabel.accessibilityLabel = [NSString stringWithFormat: @"%@, %@", cell.textLabel.text, cell.textField.text];
     [cell setNeedsLayout];
     return cell;
 }

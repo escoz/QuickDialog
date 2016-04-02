@@ -114,7 +114,7 @@
         return nil;
     UITableViewCell *cell = [self cellForRowAtIndexPath:[element getIndexPath]];
     cell.accessibilityLabel = element.accessibilityLabel;
-    cell.accessibilityIdentifier = cell.accessibilityIdentifier;
+    cell.accessibilityIdentifier = element.accessibilityIdentifier;
     return cell;
 }
 
