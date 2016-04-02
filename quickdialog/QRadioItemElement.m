@@ -43,6 +43,7 @@
     cell.accessoryType = selectedIndex == _index ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.textLabel.textAlignment = NSTextAlignmentLeft; // hardcoded so that appearance doesn't change it
     cell.textLabel.textColor = self.enabled ? self.appearance.valueColorEnabled : self.appearance.valueColorDisabled;
+    cell.accessibilityTraits = UIAccessibilityTraitButton;
     cell.imageView.image = self.image;
     return cell;
 }
