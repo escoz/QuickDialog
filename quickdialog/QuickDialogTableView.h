@@ -37,6 +37,7 @@
 - (QuickDialogTableView *)initWithController:(QuickDialogController *)controller;
 - (void)deselectRows;
 
+- (NSIndexPath *)indexForElement:(QElement *)element;
 - (UITableViewCell *)cellForElement:(QElement *)element;
 - (void)reloadCellForElements:(QElement *)element, ... NS_REQUIRES_NIL_TERMINATION;
 
