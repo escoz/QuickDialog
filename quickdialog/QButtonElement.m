@@ -44,6 +44,7 @@
     cell.textLabel.textAlignment = self.appearance.buttonAlignment;
     cell.textLabel.font = self.appearance.labelFont;
     cell.textLabel.textColor = self.enabled ? self.appearance.actionColorEnabled : self.appearance.actionColorDisabled;
+    cell.accessibilityTraits = UIAccessibilityTraitButton;
     return cell;
 }
 
