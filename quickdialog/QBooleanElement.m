@@ -100,7 +100,12 @@
     if (_controller!=nil && self.controllerAccessoryAction!=nil) {
         SEL selector = NSSelectorFromString(self.controllerAccessoryAction);
         if ([_controller respondsToSelector:selector]) {
-            objc_msgSend(_controller,selector, self);
+            //objc_msgSend(_controller,selector, self);
+            
+            typedef void (*send_type)(id, SEL, id);
+            send_type func = (send_type)objc_msgSend;
+            func(_controller, selector, self);
+            
         }  else {
             NSLog(@"No method '%@' was found on controller %@", self.controllerAccessoryAction, [_controller class]);
         }
