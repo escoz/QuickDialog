@@ -73,18 +73,17 @@ static NSString *kDetailImageValueObservanceContext = @"imageValue";
 }
 
 - (void)recalculateDetailImageViewPosition {
-
-   CGFloat detailImageMargin = 2.0f;
-   CGFloat detailImageSize = self.contentView.frame.size.height - 2 * detailImageMargin;
-
-   _imageViewButton.frame = CGRectMake(self.contentView.frame.size.width - detailImageMargin - detailImageSize,
-                                       detailImageMargin, detailImageSize, detailImageSize);
+    CGFloat detailImageMargin = 2.0f;
+    CGFloat detailImageSize = CGRectGetHeight(self.contentView.frame) - 2 * detailImageMargin;
+    
+    _imageViewButton.frame = CGRectMake(CGRectGetWidth(self.contentView.frame) / 4.0f, detailImageMargin, CGRectGetWidth(self.contentView.frame) / 2.0f, detailImageSize);
     _imageElement.parentSection.entryPosition = _imageViewButton.frame;
-
-   CGRect labelFrame = self.textLabel.frame;
-   CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
-   self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
-                                     _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
+    _imageViewButton.layer.cornerRadius = _imageViewButton.frame.size.width/2;
+    
+    //   CGRect labelFrame = self.textLabel.frame;
+    //   CGFloat extra = (_entryElement.image == NULL) ? 10.0f : _entryElement.image.size.width + 20.0f;
+    //   self.textLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y,
+    //                                     _imageElement.parentSection.entryPosition.origin.x - extra - detailImageMargin, labelFrame.size.height);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
