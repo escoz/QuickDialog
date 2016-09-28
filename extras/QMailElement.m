@@ -8,6 +8,10 @@
 
 #import "QMailElement.h"
 
+static NSString *const kAttachmentData = @"attachmentData";
+static NSString *const kMimeType = @"mimeType";
+static NSString *const kFileName = @"fileName";
+
 @implementation QMailElement
 
 
@@ -21,6 +25,12 @@
         _bccRecipients = bccRecipients;
     }
     return self;
+}
+
+- (void)addAttachmentData:(NSData*)attachment mimeType:(NSString*)mimeType fileName:(NSString*)fileName {
+    if (attachment && mimeType && fileName) {
+        [self.attachments addObject:@{ kAttachmentData: attachment, kMimeType: mimeType, kFileName: fileName }];
+    }
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
@@ -39,7 +49,7 @@
         mc.mailComposeDelegate = self;
         [mc setTitle:_title];
         [mc setSubject:_subject];
-        [mc setMessageBody:_messageBody isHTML:NO];
+        [mc setMessageBody:_messageBody isHTML:YES];
         [mc setToRecipients:_toRecipients];
         [mc setCcRecipients:_ccRecipients];
         [mc setBccRecipients:_bccRecipients];
