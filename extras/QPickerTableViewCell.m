@@ -10,7 +10,7 @@
 #import "QuickDialog.h"
 #import "QPickerElement.h"
 
-NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
+static NSString * const QPickerTableViewCellIdentifier = @"QPickerTableViewCell";
 
 @interface QPickerTableViewCell ()
 @property (nonatomic, readonly) QPickerElement *pickerElement;

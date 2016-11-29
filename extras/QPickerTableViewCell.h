@@ -8,7 +8,7 @@
 
 #import "QEntryTableViewCell.h"
 
-NSString * const QPickerTableViewCellIdentifier;
+static NSString * const QPickerTableViewCellIdentifier;
 
 @interface QPickerTableViewCell : QEntryTableViewCell <UIPickerViewDataSource, UIPickerViewDelegate>
 {
