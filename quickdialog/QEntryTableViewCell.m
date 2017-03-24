@@ -143,6 +143,10 @@
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     _textField.textAlignment = _entryElement.appearance.entryAlignment;
 
+    // workaround for UITextField bug: if the user is using a bigger system font, a long text won't scroll
+    _textField.adjustsFontSizeToFitWidth = YES;
+    _textField.minimumFontSize = 20.0f;
+
     _textField.returnKeyType = _entryElement.returnKeyType;
     _textField.enablesReturnKeyAutomatically = _entryElement.enablesReturnKeyAutomatically;
 
