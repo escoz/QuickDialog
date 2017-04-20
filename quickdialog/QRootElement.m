@@ -117,7 +117,8 @@
     if (self.sections==nil)
             return;
 
-    [controller displayViewControllerForRoot:self];
+    QuickDialogController *vc = [[QuickDialogController alloc] initWithRoot:self];
+    [controller displayViewController:vc];
 }
 
 - (void)handleEditingChanged
