@@ -41,7 +41,7 @@
     if (!self.pickerView)
         self.pickerView = [[UIDatePicker alloc] init];
 
-    self.pickerView.timeZone = [NSTimeZone localTimeZone];
+    self.pickerView.timeZone = element.timezone;
     [self.pickerView sizeToFit];
     self.pickerView.datePickerMode = element.mode;
     self.pickerView.maximumDate = element.maximumDate;
@@ -68,6 +68,7 @@
 - (void)prepareForElement:(QDateTimeInlineElement *)element inTableView:(QuickDialogTableView *)tableView {
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeZone = element.timezone;
 
     self.element = element;
     if (element.customDateFormat!=nil){

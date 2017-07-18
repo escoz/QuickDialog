@@ -25,6 +25,7 @@
 }
 
 @synthesize mode = _mode;
+@synthesize timezone = _timezone;
 @synthesize centerLabel = _centerLabel;
 @synthesize maximumDate = _maximumDate;
 @synthesize minimumDate = _minimumDate;
@@ -46,15 +47,24 @@
     return self;
 }
 
-- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode{
+- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date timezone:(NSTimeZone *)timezone andMode:(UIDatePickerMode)mode {
     self = [super initWithTitle:string Value:[date description]];
     if (self!=nil){
         _dateValue = date;
         _mode = mode;
+        _timezone = timezone;
     }
     return self;
+
 }
 
+- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode{
+    return [self initWithTitle:string date:date timezone:nil andMode:mode];
+}
+
+- (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode{
+    return [self initWithTitle:nil date:date andMode:mode];
+}
 
 - (void)setTicksValue:(NSNumber *)ticks {
     if (ticks!=nil)
@@ -69,6 +79,7 @@
 {
     if (self.mode == UIDatePickerModeDate)   {
         NSCalendar *gregorian = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+        gregorian.timeZone = _timezone;
         NSDateComponents *dateComponents = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:_dateValue];
         _dateValue = [gregorian dateFromComponents:dateComponents];
     }
@@ -77,10 +88,6 @@
 
 -(NSNumber *)ticksValue {
     return [NSNumber numberWithDouble:[self.dateValue timeIntervalSince1970]];
-}
-
-- (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode{
-    return [self initWithTitle:nil date:date andMode:mode];
 }
 
 - (UITableViewCell *)getCellForTableView:(QuickDialogTableView *)tableView controller:(QuickDialogController *)controller {
