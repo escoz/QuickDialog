@@ -19,6 +19,7 @@
 @interface QDateTimeInlineElement : QEntryElement {
     NSDate * _dateValue;
 @private
+    NSTimeZone *_timezone;
     UIDatePickerMode _mode;
     NSInteger _minuteInterval;
     BOOL _centerLabel;
@@ -28,6 +29,8 @@
 @property(nonatomic, assign) NSNumber *ticksValue;
 
 @property (assign) UIDatePickerMode mode;
+
+@property (nonatomic, strong) NSTimeZone *timezone;
 
 @property (assign) NSInteger minuteInterval;
 
@@ -42,5 +45,7 @@
 - (QDateTimeInlineElement *)initWithDate:(NSDate *)date andMode:(UIDatePickerMode)mode;
 
 - (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date andMode:(UIDatePickerMode)mode;
+
+- (QDateTimeInlineElement *)initWithTitle:(NSString *)string date:(NSDate *)date timezone:(NSTimeZone *)timezone andMode:(UIDatePickerMode)mode;
 
 @end
