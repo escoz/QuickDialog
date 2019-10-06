@@ -61,8 +61,15 @@
         if ([_url hasPrefix:@"http"] || [_url hasPrefix:@"/"]) {
 			QWebViewController *webController = [[QWebViewController alloc] initWithUrl:_url];
 			[controller displayViewController:webController withPresentationMode:self.presentationMode];
-		} else {
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:_url]];
+        } else {
+            if (@available(iOS 10.0, *)) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_url] options:@{} completionHandler:nil];
+            } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_url]];
+#pragma clang diagnostic pop
+            }
 			[tableView deselectRowAtIndexPath:path animated:NO];
 		}
 	}
