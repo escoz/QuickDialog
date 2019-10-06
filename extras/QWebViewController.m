@@ -106,7 +106,14 @@
 }
 
 - (void)actionGoToSafari {
-    [[UIApplication sharedApplication] openURL:[_webView.request mainDocumentURL]];
+    if (@available(iOS 10.0, *)) {
+        [[UIApplication sharedApplication] openURL:[_webView.request mainDocumentURL] options:@{} completionHandler:nil];
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [[UIApplication sharedApplication] openURL:[_webView.request mainDocumentURL]];
+#pragma clang diagnostic pop
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
