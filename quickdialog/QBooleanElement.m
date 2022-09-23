@@ -101,6 +101,9 @@
     self.boolValue = !boolButton.selected;
     boolButton.selected = _boolValue;
     [self performAccessoryAction];
+    if (_controller != nil) {
+       [self handleElementSelected:_controller];
+    }
 }
 
 -(void)setBoolValue:(BOOL)boolValue {
